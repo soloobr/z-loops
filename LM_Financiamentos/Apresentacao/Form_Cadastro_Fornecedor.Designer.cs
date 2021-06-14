@@ -35,6 +35,7 @@ namespace LM_Financiamentos.Apresentacao
             this.img_topo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnclosecadforne = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.paneltop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).BeginInit();
@@ -119,6 +120,7 @@ namespace LM_Financiamentos.Apresentacao
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Name = "Form_Cadastro_Fornecedor";
             this.Text = "Cadastro de Fornecedor";
@@ -139,5 +141,6 @@ namespace LM_Financiamentos.Apresentacao
         private System.Windows.Forms.PictureBox img_topo;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnclosecadforne;
+        private System.Windows.Forms.Label label1;
     }
 }
