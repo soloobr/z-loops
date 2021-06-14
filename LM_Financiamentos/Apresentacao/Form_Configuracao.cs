@@ -71,18 +71,12 @@ namespace LM_Financiamentos.Apresentacao
 
         public static void OpenLoginForm()
         {
-            Application.Run(new Frm_Login());
+            Application.Run(new Form_Login());
         }
 
         private void btn_logoff_Click(object sender, EventArgs e)
         {
             Application.Restart();
-        }
-
-        private void lbl_senha_Click(object sender, EventArgs e)
-        {
-
-                
         }
 
         private void btn_altersenha_Click(object sender, EventArgs e)
@@ -105,8 +99,6 @@ namespace LM_Financiamentos.Apresentacao
         private void pictureBoxEye_MouseDown(object sender, MouseEventArgs e)
         {
             txt_novasenha.UseSystemPasswordChar = false;
-           
-
         }
 
         private void pictureBoxEye_MouseUp(object sender, MouseEventArgs e)

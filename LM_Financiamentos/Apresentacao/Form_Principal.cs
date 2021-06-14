@@ -220,27 +220,27 @@ namespace LM_Financiamentos.Apresentacao
                 btncontroledoc.BackColor = Color.FromArgb(4, 41, 68);
             if (Application.OpenForms["Form_Cadastro_cliente"] == null)
             {
-                if (Application.OpenForms["Form_Cadastro_Fornecedor"] == null)
+                if (Application.OpenForms["Form_Cadastro_Funcionarios"] == null)
                 {
                     btncadastro.BackColor = Color.FromArgb(4, 41, 68);
-                    btncadastrocfuncionarios.BackColor = Color.FromArgb(4, 41, 68);
+                    btncadastrocliente.BackColor = Color.FromArgb(4, 41, 68);
                 }
                 else
                 {
-                    btncadastrocfuncionarios.BackColor = Color.FromArgb(4, 41, 68);
+                    btncadastrocliente.BackColor = Color.FromArgb(4, 41, 68);
                 }
 
             }
-            if (Application.OpenForms["Form_Cadastro_Fornecedor"] == null)
+            if (Application.OpenForms["Form_Cadastro_Funcionarios"] == null)
             {
                 if (Application.OpenForms["Form_Cadastro_cliente"] == null)
                 {
                     btncadastro.BackColor = Color.FromArgb(4, 41, 68);
-                    btncadfor.BackColor = Color.FromArgb(4, 41, 68);
+                    btncadastrocfuncionarios.BackColor = Color.FromArgb(4, 41, 68);
                 }
                 else
                 {
-                    btncadfor.BackColor = Color.FromArgb(4, 41, 68);
+                    btncadastrocfuncionarios.BackColor = Color.FromArgb(4, 41, 68);
                 }
             }
 
