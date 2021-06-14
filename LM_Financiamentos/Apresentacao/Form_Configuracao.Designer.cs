@@ -388,7 +388,7 @@ namespace LM_Financiamentos.Apresentacao
             this.btn_logoff.Padding = new System.Windows.Forms.Padding(5);
             this.btn_logoff.Size = new System.Drawing.Size(121, 36);
             this.btn_logoff.TabIndex = 5;
-            this.btn_logoff.Text = "Logoff";
+            this.btn_logoff.Text = "Logofff";
             this.btn_logoff.UseVisualStyleBackColor = false;
             this.btn_logoff.Click += new System.EventHandler(this.btn_logoff_Click);
             // 
