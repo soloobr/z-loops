@@ -34,9 +34,9 @@ namespace LM_Financiamentos
             this.lbl_senha = new System.Windows.Forms.Label();
             this.txtLogin = new System.Windows.Forms.TextBox();
             this.txtSenha = new System.Windows.Forms.TextBox();
-            //this.btn_logar = new System.Windows.Forms.Button();
-            //this.btn_sair = new System.Windows.Forms.Button();
+            this.imglogin = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imglogin)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -90,8 +90,26 @@ namespace LM_Financiamentos
             this.txtSenha.TabIndex = 4;
             this.txtSenha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSenha_KeyPress);
             // 
-            // btn_logar
+            // imglogin
             // 
+            this.imglogin.Image = global::LM_Financiamentos.Properties.Resources.user128;
+            this.imglogin.Location = new System.Drawing.Point(56, 40);
+            this.imglogin.Name = "imglogin";
+            this.imglogin.Size = new System.Drawing.Size(128, 128);
+            this.imglogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.imglogin.TabIndex = 0;
+            this.imglogin.TabStop = false;
+            // 
+            // Frm_Login
+            // 
+            this.ClientSize = new System.Drawing.Size(489, 249);
+            this.Controls.Add(this.imglogin);
+            this.Name = "Frm_Login";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imglogin)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
             #endregion
@@ -100,6 +118,7 @@ namespace LM_Financiamentos
         private System.Windows.Forms.Label lbl_senha;
         private System.Windows.Forms.TextBox txtLogin;
         private System.Windows.Forms.TextBox txtSenha;
+        private System.Windows.Forms.PictureBox imglogin;
         // private System.Windows.Forms.Button btn_logar;
         //private System.Windows.Forms.Button btn_sair;
 
