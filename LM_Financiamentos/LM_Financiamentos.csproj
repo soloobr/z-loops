@@ -45,6 +45,7 @@
 
   <ItemGroup>
     <PackageReference Include="MySql.Data" Version="8.0.25" />
+    <PackageReference Include="Org.Rgot.RadialGauge" Version="1.0.4" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
   </ItemGroup>
 

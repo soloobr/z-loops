@@ -68,10 +68,6 @@ namespace LM_Financiamentos
 
         private void Form_Login_Load(object sender, EventArgs e)
         {
-            txt_login.Focus();
-            Functions.Arredonda(btnlogar, 12, true, true);
-            
-
             var btn = new Button();
             btn.Size = new Size(35, txtpassword.ClientSize.Height + 2);
             btn.Dock = DockStyle.Right;
@@ -85,11 +81,17 @@ namespace LM_Financiamentos
             btn.MouseUp += new MouseEventHandler(pictureBoxEyeL_MouseUp);
 
             txtpassword.Controls.Add(btn);
+            Functions.Arredonda(btnlogar, 12, true, true);
+            txt_login.Select();
+            this.ActiveControl = txt_login;
+            txt_login.Focus();
         }
 
         private void Form_Login_Paint(object sender, PaintEventArgs e)
         {
             Functions.Arredonda(this, 20, true, true);
+
+
         }
 
         private void imglogin_Click(object sender, EventArgs e)
@@ -102,58 +104,67 @@ namespace LM_Financiamentos
 
         }
 
-        private void lblsenha_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btnlogar_Click(object sender, EventArgs e)
         {
-        
-            Controle controle = new Controle();
-            controle.acessar(txt_login.Text, txtpassword.Text);
-
-
-            Funcionario func = null;
-
-            Saudacao ola = null;
-
-            if (controle.mensagem.Equals(""))
+           if(txt_login.Text == "")
             {
-                if (controle.tem)
+                lblverifica.Text = "*Preencher o campo Login";
+                lblverifica.Visible = true;
+                txt_login.Focus();
+            }
+            else if(txtpassword.Text == ""){
+
+                    lblverifica.Text = "*Preencher o campo Passwor";
+                    lblverifica.Visible = true;
+                    txtpassword.Focus();
+
+            }else
+            {
+
+                Controle controle = new Controle();
+                controle.acessar(txt_login.Text, txtpassword.Text);
+
+
+                Funcionario func = null;
+
+                Saudacao ola = null;
+
+                if (controle.mensagem.Equals(""))
                 {
-                    this.Hide();
-                    LoginDaoComandos gett = new LoginDaoComandos();
-                    Functions saudar = new Functions();
-                    // Funcionario dadosfunc = new Funcionario();
+                    if (controle.tem)
+                    {
+                        this.Hide();
+                        LoginDaoComandos gett = new LoginDaoComandos();
+                        Functions saudar = new Functions();
+                        // Funcionario dadosfunc = new Funcionario();
 
-                    func = gett.GetFunc(txt_login.Text, txtpassword.Text);
-                    Byte[] foto = func.Foto_Func;
-                    ola = saudar.GetSaudacao();
+                        func = gett.GetFunc(txt_login.Text, txtpassword.Text);
+                        Byte[] foto = func.Foto_Func;
+                        ola = saudar.GetSaudacao();
 
-                    //MessageBox.Show("Logado com sucesso! ", "Entrando", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Form_Principal frm_Principal = new Form_Principal();
-                    frm_Principal.setFoto(func.Foto_Func);
-                    frm_Principal.setLabel(func, ola);
-                    frm_Principal.Show();
+                        //MessageBox.Show("Logado com sucesso! ", "Entrando", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Form_Principal frm_Principal = new Form_Principal();
+                        frm_Principal.setFoto(func.Foto_Func);
+                        frm_Principal.setLabel(func, ola);
+                        frm_Principal.Show();
+                        lblverifica.Visible = false;
 
+                    }
+                    else
+                    {
+                        MessageBox.Show("Login Não Encontrado, Verifique login e senha", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
 
                 }
                 else
                 {
-                    MessageBox.Show("Login Não Encontrado, Verifique login e senha", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(controle.mensagem);
                 }
 
             }
-            else
-            {
-                MessageBox.Show(controle.mensagem);
-            }
+ 
+
+
         }
 
         private void txt_login_KeyPress_2(object sender, KeyPressEventArgs e)
@@ -172,5 +183,6 @@ namespace LM_Financiamentos
                 btnlogar.PerformClick();
             }
         }
+
     }
 }

@@ -1764,8 +1764,8 @@ namespace LM_Financiamentos.DAL.DS_FuncionarioTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = "server=sql452.main-hosting.eu;user id=u371409358_lm;persistsecurityinfo=True;data" +
-                "base=u371409358_lm";
+            this._connection.ConnectionString = "server=sql452.main-hosting.eu;user id=u371409358_lm;password=P@ssw0rd;database=u3" +
+                "71409358_lm;persistsecurityinfo=True";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2343,8 +2343,8 @@ namespace LM_Financiamentos.DAL.DS_FuncionarioTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = "server=sql452.main-hosting.eu;user id=u371409358_lm;persistsecurityinfo=True;data" +
-                "base=u371409358_lm";
+            this._connection.ConnectionString = "server=sql452.main-hosting.eu;user id=u371409358_lm;password=P@ssw0rd;database=u3" +
+                "71409358_lm;persistsecurityinfo=True";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

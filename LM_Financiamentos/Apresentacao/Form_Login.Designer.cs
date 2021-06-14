@@ -38,6 +38,7 @@ namespace LM_Financiamentos
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.pnlcenter = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblverifica = new System.Windows.Forms.Label();
             this.txtpassword = new System.Windows.Forms.TextBox();
             this.lblsenha = new System.Windows.Forms.Label();
             this.txt_login = new System.Windows.Forms.TextBox();
@@ -107,6 +108,7 @@ namespace LM_Financiamentos
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblverifica);
             this.panel1.Controls.Add(this.txtpassword);
             this.panel1.Controls.Add(this.lblsenha);
             this.panel1.Controls.Add(this.txt_login);
@@ -115,9 +117,22 @@ namespace LM_Financiamentos
             this.panel1.Location = new System.Drawing.Point(0, 159);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(50, 10, 50, 10);
-            this.panel1.Size = new System.Drawing.Size(284, 136);
+            this.panel1.Size = new System.Drawing.Size(284, 148);
             this.panel1.TabIndex = 23;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // lblverifica
+            // 
+            this.lblverifica.AutoSize = true;
+            this.lblverifica.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblverifica.Font = new System.Drawing.Font("Poppins", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblverifica.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblverifica.Location = new System.Drawing.Point(50, 115);
+            this.lblverifica.Name = "lblverifica";
+            this.lblverifica.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.lblverifica.Size = new System.Drawing.Size(172, 24);
+            this.lblverifica.TabIndex = 43;
+            this.lblverifica.Text = "* As Senhas não Conferem";
+            this.lblverifica.Visible = false;
             // 
             // txtpassword
             // 
@@ -125,8 +140,8 @@ namespace LM_Financiamentos
             this.txtpassword.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtpassword.Location = new System.Drawing.Point(50, 86);
             this.txtpassword.Name = "txtpassword";
-            this.txtpassword.Size = new System.Drawing.Size(184, 27);
-            this.txtpassword.TabIndex = 43;
+            this.txtpassword.Size = new System.Drawing.Size(184, 29);
+            this.txtpassword.TabIndex = 1;
             this.txtpassword.UseSystemPasswordChar = true;
             this.txtpassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtpassword_KeyPress);
             // 
@@ -136,9 +151,9 @@ namespace LM_Financiamentos
             this.lblsenha.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblsenha.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblsenha.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblsenha.Location = new System.Drawing.Point(50, 63);
+            this.lblsenha.Location = new System.Drawing.Point(50, 65);
             this.lblsenha.Name = "lblsenha";
-            this.lblsenha.Size = new System.Drawing.Size(57, 23);
+            this.lblsenha.Size = new System.Drawing.Size(57, 21);
             this.lblsenha.TabIndex = 42;
             this.lblsenha.Text = "Senha:";
             // 
@@ -149,8 +164,8 @@ namespace LM_Financiamentos
             this.txt_login.Location = new System.Drawing.Point(50, 36);
             this.txt_login.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txt_login.Name = "txt_login";
-            this.txt_login.Size = new System.Drawing.Size(184, 27);
-            this.txt_login.TabIndex = 41;
+            this.txt_login.Size = new System.Drawing.Size(184, 29);
+            this.txt_login.TabIndex = 0;
             this.txt_login.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_login_KeyPress_2);
             // 
             // panel2
@@ -197,7 +212,7 @@ namespace LM_Financiamentos
             this.btnlogar.Name = "btnlogar";
             this.btnlogar.Padding = new System.Windows.Forms.Padding(5);
             this.btnlogar.Size = new System.Drawing.Size(144, 40);
-            this.btnlogar.TabIndex = 33;
+            this.btnlogar.TabIndex = 2;
             this.btnlogar.Text = "Logar";
             this.btnlogar.UseVisualStyleBackColor = false;
             this.btnlogar.Click += new System.EventHandler(this.btnlogar_Click);
@@ -235,7 +250,6 @@ namespace LM_Financiamentos
             this.pnltop.Name = "pnltop";
             this.pnltop.Size = new System.Drawing.Size(284, 33);
             this.pnltop.TabIndex = 20;
-            this.pnltop.TabStop = true;
             // 
             // lbltop
             // 
@@ -263,7 +277,8 @@ namespace LM_Financiamentos
             this.btnsair.Name = "btnsair";
             this.btnsair.Padding = new System.Windows.Forms.Padding(5);
             this.btnsair.Size = new System.Drawing.Size(32, 33);
-            this.btnsair.TabIndex = 11;
+            this.btnsair.TabIndex = 3;
+            this.btnsair.TabStop = false;
             this.btnsair.UseVisualStyleBackColor = false;
             this.btnsair.Click += new System.EventHandler(this.btnsair_Click);
             // 
@@ -311,8 +326,7 @@ namespace LM_Financiamentos
         private TextBox txt_login;
         private Panel panel2;
         private Label lbllogin;
-        //private System.Windows.Forms.Button btn_sair;
-
+        private Label lblverifica;
 
     }
 }

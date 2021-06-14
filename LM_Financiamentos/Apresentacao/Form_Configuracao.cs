@@ -179,8 +179,8 @@ namespace LM_Financiamentos.Apresentacao
         private void setLogin(Funcionario func)
         {
             //id = func.Id_func;
-            login = func.Login_Func;
-            senha = func.Senha_Func;
+            //login = func.Login_Func;
+            //senha = func.Senha_Func;
             
         }
     }

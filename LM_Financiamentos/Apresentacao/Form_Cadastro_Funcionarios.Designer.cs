@@ -72,7 +72,7 @@ namespace LM_Financiamentos.Apresentacao
             this.lbl_topo.Location = new System.Drawing.Point(37, 5);
             this.lbl_topo.Margin = new System.Windows.Forms.Padding(3);
             this.lbl_topo.Name = "lbl_topo";
-            this.lbl_topo.Size = new System.Drawing.Size(383, 56);
+            this.lbl_topo.Size = new System.Drawing.Size(395, 56);
             this.lbl_topo.TabIndex = 6;
             this.lbl_topo.Text = "Cadastro de Funcionarios";
             this.lbl_topo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
