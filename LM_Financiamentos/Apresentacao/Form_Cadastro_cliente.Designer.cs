@@ -31,12 +31,12 @@ namespace LM_Financiamentos.Apresentacao
         {
             this.panelcentralcadcli = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btncancel = new System.Windows.Forms.Button();
             this.btn_salvar = new System.Windows.Forms.Button();
             this.btnclosecli = new System.Windows.Forms.Button();
             this.paneltop = new System.Windows.Forms.Panel();
             this.lbl_topo = new System.Windows.Forms.Label();
             this.img_topo = new System.Windows.Forms.PictureBox();
-            this.btncancel = new System.Windows.Forms.Button();
             this.panelcentralcadcli.SuspendLayout();
             this.panel1.SuspendLayout();
             this.paneltop.SuspendLayout();
@@ -65,6 +65,22 @@ namespace LM_Financiamentos.Apresentacao
             this.panel1.Padding = new System.Windows.Forms.Padding(10);
             this.panel1.Size = new System.Drawing.Size(800, 60);
             this.panel1.TabIndex = 8;
+            // 
+            // btncancel
+            // 
+            this.btncancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.btncancel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btncancel.FlatAppearance.BorderSize = 0;
+            this.btncancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btncancel.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btncancel.Location = new System.Drawing.Point(669, 10);
+            this.btncancel.Name = "btncancel";
+            this.btncancel.Padding = new System.Windows.Forms.Padding(5);
+            this.btncancel.Size = new System.Drawing.Size(121, 40);
+            this.btncancel.TabIndex = 6;
+            this.btncancel.Text = "Cancel";
+            this.btncancel.UseVisualStyleBackColor = false;
             // 
             // btn_salvar
             // 
@@ -133,22 +149,6 @@ namespace LM_Financiamentos.Apresentacao
             this.img_topo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.img_topo.TabIndex = 5;
             this.img_topo.TabStop = false;
-            // 
-            // btncancel
-            // 
-            this.btncancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.btncancel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btncancel.FlatAppearance.BorderSize = 0;
-            this.btncancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btncancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btncancel.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btncancel.Location = new System.Drawing.Point(669, 10);
-            this.btncancel.Name = "btncancel";
-            this.btncancel.Padding = new System.Windows.Forms.Padding(5);
-            this.btncancel.Size = new System.Drawing.Size(121, 40);
-            this.btncancel.TabIndex = 6;
-            this.btncancel.Text = "Cancelar";
-            this.btncancel.UseVisualStyleBackColor = false;
             // 
             // Form_Cadastro_cliente
             // 
