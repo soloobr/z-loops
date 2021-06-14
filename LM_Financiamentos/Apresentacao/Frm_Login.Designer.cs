@@ -34,8 +34,14 @@ namespace LM_Financiamentos
             this.lbl_senha = new System.Windows.Forms.Label();
             this.txtLogin = new System.Windows.Forms.TextBox();
             this.txtSenha = new System.Windows.Forms.TextBox();
+            this.pnlcenter = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnlogar = new System.Windows.Forms.Button();
             this.imglogin = new System.Windows.Forms.PictureBox();
+            this.txtusuario = new System.Windows.Forms.TextBox();
+            this.txtpassword = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnlcenter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imglogin)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,25 +96,86 @@ namespace LM_Financiamentos
             this.txtSenha.TabIndex = 4;
             this.txtSenha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSenha_KeyPress);
             // 
+            // pnlcenter
+            // 
+            this.pnlcenter.Controls.Add(this.txtpassword);
+            this.pnlcenter.Controls.Add(this.txtusuario);
+            this.pnlcenter.Controls.Add(this.button1);
+            this.pnlcenter.Controls.Add(this.btnlogar);
+            this.pnlcenter.Controls.Add(this.imglogin);
+            this.pnlcenter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlcenter.Location = new System.Drawing.Point(0, 0);
+            this.pnlcenter.Name = "pnlcenter";
+            this.pnlcenter.Size = new System.Drawing.Size(513, 245);
+            this.pnlcenter.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1.Location = new System.Drawing.Point(394, 141);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(5);
+            this.button1.Size = new System.Drawing.Size(73, 36);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Fechar";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // btnlogar
+            // 
+            this.btnlogar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.btnlogar.FlatAppearance.BorderSize = 0;
+            this.btnlogar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnlogar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnlogar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnlogar.Location = new System.Drawing.Point(219, 141);
+            this.btnlogar.Name = "btnlogar";
+            this.btnlogar.Padding = new System.Windows.Forms.Padding(5);
+            this.btnlogar.Size = new System.Drawing.Size(121, 36);
+            this.btnlogar.TabIndex = 6;
+            this.btnlogar.Text = "Logar";
+            this.btnlogar.UseVisualStyleBackColor = false;
+            // 
             // imglogin
             // 
             this.imglogin.Image = global::LM_Financiamentos.Properties.Resources.user128;
-            this.imglogin.Location = new System.Drawing.Point(56, 40);
+            this.imglogin.Location = new System.Drawing.Point(61, 49);
             this.imglogin.Name = "imglogin";
             this.imglogin.Size = new System.Drawing.Size(128, 128);
             this.imglogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.imglogin.TabIndex = 0;
+            this.imglogin.TabIndex = 5;
             this.imglogin.TabStop = false;
+            // 
+            // txtusuario
+            // 
+            this.txtusuario.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtusuario.Location = new System.Drawing.Point(219, 62);
+            this.txtusuario.Name = "txtusuario";
+            this.txtusuario.Size = new System.Drawing.Size(248, 27);
+            this.txtusuario.TabIndex = 8;
+            // 
+            // txtpassword
+            // 
+            this.txtpassword.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtpassword.Location = new System.Drawing.Point(219, 103);
+            this.txtpassword.Name = "txtpassword";
+            this.txtpassword.Size = new System.Drawing.Size(248, 27);
+            this.txtpassword.TabIndex = 9;
             // 
             // Frm_Login
             // 
-            this.ClientSize = new System.Drawing.Size(489, 249);
-            this.Controls.Add(this.imglogin);
+            this.ClientSize = new System.Drawing.Size(513, 245);
+            this.Controls.Add(this.pnlcenter);
+            this.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "Frm_Login";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnlcenter.ResumeLayout(false);
+            this.pnlcenter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imglogin)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -118,6 +185,11 @@ namespace LM_Financiamentos
         private System.Windows.Forms.Label lbl_senha;
         private System.Windows.Forms.TextBox txtLogin;
         private System.Windows.Forms.TextBox txtSenha;
+        private System.Windows.Forms.Panel pnlcenter;
+        private System.Windows.Forms.TextBox txtpassword;
+        private System.Windows.Forms.TextBox txtusuario;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnlogar;
         private System.Windows.Forms.PictureBox imglogin;
         // private System.Windows.Forms.Button btn_logar;
         //private System.Windows.Forms.Button btn_sair;
