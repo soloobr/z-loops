@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31313.79
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMFinanciamentos", "LM-Financiamentos\LMFinanciamentos.csproj", "{375012F5-D990-4592-A3E8-9C95DD524974}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{375012F5-D990-4592-A3E8-9C95DD524974}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{375012F5-D990-4592-A3E8-9C95DD524974}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{375012F5-D990-4592-A3E8-9C95DD524974}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{375012F5-D990-4592-A3E8-9C95DD524974}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3FF66F61-DA28-4CFF-BD12-2BD5D5CC9391}
+	EndGlobalSection
+EndGlobal
