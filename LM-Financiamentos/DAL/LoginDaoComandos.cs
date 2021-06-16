@@ -11,7 +11,7 @@ namespace LMFinanciamentos.DAL
 
     {
         public bool tem = false;
-        public string mensagem = "", ssenha, spermision;
+        public string mensagem = "";
         private String slogin;
         public string sloginn
         {
@@ -26,7 +26,7 @@ namespace LMFinanciamentos.DAL
 
         }*/
 
-        public int idFunc;
+        //public int idFunc;
         MySqlCommand cmd = new MySqlCommand();
         MySqlCommand cmd1 = new MySqlCommand();
         Conecxao con = new Conecxao();

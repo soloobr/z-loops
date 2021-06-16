@@ -5,7 +5,7 @@ namespace LMFinanciamentos.Entidades
 {
     public class Login
     {
-        LoginTableAdapter _objectLogin = null;
+        // LoginTableAdapter _objectLogin = null;
         //        //LoginTableAdapter _objectSenha = null;
         ///*
         //        private LoginTableAdapter ObjectLogin {

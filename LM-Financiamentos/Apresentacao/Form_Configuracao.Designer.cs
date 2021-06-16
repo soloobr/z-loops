@@ -514,6 +514,5 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btn_cancelsenha;
         private System.Windows.Forms.Button btn_alterar;
-        private System.Windows.Forms.PictureBox pictureBoxEye;
     }
 }

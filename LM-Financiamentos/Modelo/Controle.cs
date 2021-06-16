@@ -7,7 +7,7 @@ namespace LMFinanciamentos.Modelo
     class Controle
     {
         public bool tem;
-        public String mensagem = "", NomeFunc, Login, Senha;
+        public String mensagem = "";
 
         public bool acessar(String login, String senha)
         {
@@ -24,12 +24,12 @@ namespace LMFinanciamentos.Modelo
         {
             return mensagem;
         }
-        public String buscarfuncionario(String login, String senha)
-        {
-            LoginDaoComandos loginDao = new LoginDaoComandos();
-            //NomeFunc = loginDao.GetFunc(login, senha);
-            return NomeFunc;
-        }
+        //public String buscarfuncionario(String login, String senha)
+        //{
+        //    LoginDaoComandos loginDao = new LoginDaoComandos();
+        //    //NomeFunc = loginDao.GetFunc(login, senha);
+        //    return NomeFunc;
+        //}
         public String alterarsenha(String id, String login, String senha, String novasenha)
         {
             return mensagem;

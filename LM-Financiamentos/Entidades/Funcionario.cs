@@ -2,10 +2,6 @@
 {
     public class Funcionario
     {
-        private string _Login_Func;
-        private string _Senha_Func;
-        private string _Id_func;
-        private string _Nome_Func;
 
         // public string Id_func { get; set; }
         public string Id_func { get; set; }
