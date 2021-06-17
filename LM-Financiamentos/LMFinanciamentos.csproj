@@ -102,6 +102,22 @@
       <DependentUpon>Form_Principal.cs</DependentUpon>
     </Compile>
     <Compile Include="DAL\Conecxao.cs" />
+    <Compile Include="DAL\DS_Clientes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_Clientes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\DS_Documentos.cs">
+      <DependentUpon>DS_Documentos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\DS_Documentos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_Documentos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\DS_Funcionario.cs">
+      <DependentUpon>DS_Funcionario.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DAL\DS_Funcionario1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -150,6 +166,28 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="DAL\DS_Clientes.xsc">
+      <DependentUpon>DS_Clientes.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\DS_Clientes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_Clientes.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\DS_Clientes.xss">
+      <DependentUpon>DS_Clientes.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\DS_Documentos.xsc">
+      <DependentUpon>DS_Documentos.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\DS_Documentos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_Documentos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\DS_Documentos.xss">
+      <DependentUpon>DS_Documentos.xsd</DependentUpon>
+    </None>
     <None Include="DAL\DS_Funcionario.xsc">
       <DependentUpon>DS_Funcionario.xsd</DependentUpon>
     </None>

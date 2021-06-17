@@ -209,7 +209,7 @@ namespace LMFinanciamentos.Apresentacao
         }
         private void CloseForms(object sender, FormClosedEventArgs e)
         {
-            if (Application.OpenForms["Form_Controle_Doc"] == null)
+            if (Application.OpenForms["Form_Controle_Documento"] == null)
                 btncontroledoc.BackColor = Color.FromArgb(4, 41, 68);
             if (Application.OpenForms["Form_Cadastro_cliente"] == null)
             {

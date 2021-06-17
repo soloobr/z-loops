@@ -98,7 +98,7 @@ namespace LMFinanciamentos.Apresentacao
             this.pnl_centerconf.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_centerconf.Location = new System.Drawing.Point(0, 57);
             this.pnl_centerconf.Name = "pnl_centerconf";
-            this.pnl_centerconf.Padding = new System.Windows.Forms.Padding(43, 43, 43, 43);
+            this.pnl_centerconf.Padding = new System.Windows.Forms.Padding(43);
             this.pnl_centerconf.Size = new System.Drawing.Size(686, 365);
             this.pnl_centerconf.TabIndex = 8;
             // 
@@ -151,7 +151,7 @@ namespace LMFinanciamentos.Apresentacao
             this.grp_seguranca.Font = new System.Drawing.Font("Poppins", 10F);
             this.grp_seguranca.Location = new System.Drawing.Point(4, 4);
             this.grp_seguranca.Name = "grp_seguranca";
-            this.grp_seguranca.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.grp_seguranca.Padding = new System.Windows.Forms.Padding(7);
             this.grp_seguranca.Size = new System.Drawing.Size(273, 355);
             this.grp_seguranca.TabIndex = 4;
             this.grp_seguranca.TabStop = false;
@@ -191,7 +191,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel13.Location = new System.Drawing.Point(13, 0);
             this.panel13.Name = "panel13";
-            this.panel13.Padding = new System.Windows.Forms.Padding(9, 9, 9, 9);
+            this.panel13.Padding = new System.Windows.Forms.Padding(9);
             this.panel13.Size = new System.Drawing.Size(233, 163);
             this.panel13.TabIndex = 14;
             // 
@@ -286,7 +286,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel10.Location = new System.Drawing.Point(9, 112);
             this.panel10.Name = "panel10";
-            this.panel10.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel10.Padding = new System.Windows.Forms.Padding(4);
             this.panel10.Size = new System.Drawing.Size(215, 42);
             this.panel10.TabIndex = 8;
             // 
@@ -384,7 +384,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btn_logoff.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btn_logoff.Location = new System.Drawing.Point(121, 10);
             this.btn_logoff.Name = "btn_logoff";
-            this.btn_logoff.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_logoff.Padding = new System.Windows.Forms.Padding(4);
             this.btn_logoff.Size = new System.Drawing.Size(104, 31);
             this.btn_logoff.TabIndex = 5;
             this.btn_logoff.Text = "Logoff";
@@ -400,7 +400,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btncloseconf.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btncloseconf.Location = new System.Drawing.Point(10, 10);
             this.btncloseconf.Name = "btncloseconf";
-            this.btncloseconf.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btncloseconf.Padding = new System.Windows.Forms.Padding(4);
             this.btncloseconf.Size = new System.Drawing.Size(104, 31);
             this.btncloseconf.TabIndex = 2;
             this.btncloseconf.Text = "Fechar";

@@ -47,7 +47,6 @@ namespace LMFinanciamentos.Apresentacao
             this.panelcontrolmenu = new System.Windows.Forms.Panel();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelformularios = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnconf = new System.Windows.Forms.Button();
@@ -92,7 +91,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panelLogo.Location = new System.Drawing.Point(5, 30);
             this.panelLogo.Name = "panelLogo";
             this.panelLogo.Padding = new System.Windows.Forms.Padding(9);
-            this.panelLogo.Size = new System.Drawing.Size(212, 309);
+            this.panelLogo.Size = new System.Drawing.Size(220, 309);
             this.panelLogo.TabIndex = 18;
             // 
             // img_foto
@@ -101,7 +100,7 @@ namespace LMFinanciamentos.Apresentacao
             this.img_foto.Image = ((System.Drawing.Image)(resources.GetObject("img_foto.Image")));
             this.img_foto.Location = new System.Drawing.Point(9, 9);
             this.img_foto.Name = "img_foto";
-            this.img_foto.Size = new System.Drawing.Size(194, 233);
+            this.img_foto.Size = new System.Drawing.Size(202, 233);
             this.img_foto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.img_foto.TabIndex = 2;
             this.img_foto.TabStop = false;
@@ -114,7 +113,7 @@ namespace LMFinanciamentos.Apresentacao
             this.lblsaudacao.ForeColor = System.Drawing.SystemColors.Control;
             this.lblsaudacao.Location = new System.Drawing.Point(9, 242);
             this.lblsaudacao.Name = "lblsaudacao";
-            this.lblsaudacao.Size = new System.Drawing.Size(194, 29);
+            this.lblsaudacao.Size = new System.Drawing.Size(202, 29);
             this.lblsaudacao.TabIndex = 1;
             this.lblsaudacao.Text = "Ola!";
             this.lblsaudacao.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -126,7 +125,7 @@ namespace LMFinanciamentos.Apresentacao
             this.lblfunc.ForeColor = System.Drawing.SystemColors.Control;
             this.lblfunc.Location = new System.Drawing.Point(9, 271);
             this.lblfunc.Name = "lblfunc";
-            this.lblfunc.Size = new System.Drawing.Size(194, 29);
+            this.lblfunc.Size = new System.Drawing.Size(202, 29);
             this.lblfunc.TabIndex = 0;
             this.lblfunc.Text = "Funcionario";
             this.lblfunc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -138,7 +137,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btnmenurigth.FlatAppearance.BorderSize = 0;
             this.btnmenurigth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnmenurigth.Image = ((System.Drawing.Image)(resources.GetObject("btnmenurigth.Image")));
-            this.btnmenurigth.Location = new System.Drawing.Point(168, 0);
+            this.btnmenurigth.Location = new System.Drawing.Point(176, 0);
             this.btnmenurigth.Name = "btnmenurigth";
             this.btnmenurigth.Size = new System.Drawing.Size(22, 25);
             this.btnmenurigth.TabIndex = 1;
@@ -153,7 +152,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btnmenuleft.FlatAppearance.BorderSize = 0;
             this.btnmenuleft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnmenuleft.Image = ((System.Drawing.Image)(resources.GetObject("btnmenuleft.Image")));
-            this.btnmenuleft.Location = new System.Drawing.Point(190, 0);
+            this.btnmenuleft.Location = new System.Drawing.Point(198, 0);
             this.btnmenuleft.Name = "btnmenuleft";
             this.btnmenuleft.Size = new System.Drawing.Size(22, 25);
             this.btnmenuleft.TabIndex = 0;
@@ -223,7 +222,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panelcontrolmenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelcontrolmenu.Location = new System.Drawing.Point(5, 5);
             this.panelcontrolmenu.Name = "panelcontrolmenu";
-            this.panelcontrolmenu.Size = new System.Drawing.Size(212, 25);
+            this.panelcontrolmenu.Size = new System.Drawing.Size(220, 25);
             this.panelcontrolmenu.TabIndex = 17;
             // 
             // panelContenedor
@@ -242,33 +241,21 @@ namespace LMFinanciamentos.Apresentacao
             // panelformularios
             // 
             this.panelformularios.BackColor = System.Drawing.SystemColors.Control;
-            this.panelformularios.Controls.Add(this.label1);
             this.panelformularios.Controls.Add(this.pictureBox1);
             this.panelformularios.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelformularios.Location = new System.Drawing.Point(222, 32);
+            this.panelformularios.Location = new System.Drawing.Point(230, 32);
             this.panelformularios.Margin = new System.Windows.Forms.Padding(2);
             this.panelformularios.Name = "panelformularios";
-            this.panelformularios.Size = new System.Drawing.Size(800, 581);
+            this.panelformularios.Size = new System.Drawing.Size(792, 581);
             this.panelformularios.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(128)))), ((int)(((byte)(188)))));
-            this.label1.Location = new System.Drawing.Point(304, 316);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 31);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Medical";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(236, 84);
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(393, 268);
+            this.pictureBox1.Size = new System.Drawing.Size(792, 581);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -285,7 +272,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panelMenu.Margin = new System.Windows.Forms.Padding(2);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Padding = new System.Windows.Forms.Padding(5);
-            this.panelMenu.Size = new System.Drawing.Size(222, 581);
+            this.panelMenu.Size = new System.Drawing.Size(230, 581);
             this.panelMenu.TabIndex = 1;
             // 
             // btnconf
@@ -299,7 +286,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btnconf.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnconf.Location = new System.Drawing.Point(5, 540);
             this.btnconf.Name = "btnconf";
-            this.btnconf.Size = new System.Drawing.Size(212, 36);
+            this.btnconf.Size = new System.Drawing.Size(220, 36);
             this.btnconf.TabIndex = 22;
             this.btnconf.Text = "Configurações";
             this.btnconf.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -314,7 +301,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panelmenuitens.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelmenuitens.Location = new System.Drawing.Point(5, 339);
             this.panelmenuitens.Name = "panelmenuitens";
-            this.panelmenuitens.Size = new System.Drawing.Size(212, 175);
+            this.panelmenuitens.Size = new System.Drawing.Size(220, 175);
             this.panelmenuitens.TabIndex = 19;
             // 
             // panelsubmenucadastro
@@ -324,7 +311,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panelsubmenucadastro.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelsubmenucadastro.Location = new System.Drawing.Point(0, 72);
             this.panelsubmenucadastro.Name = "panelsubmenucadastro";
-            this.panelsubmenucadastro.Size = new System.Drawing.Size(212, 75);
+            this.panelsubmenucadastro.Size = new System.Drawing.Size(220, 75);
             this.panelsubmenucadastro.TabIndex = 24;
             this.panelsubmenucadastro.Visible = false;
             // 
@@ -333,10 +320,10 @@ namespace LMFinanciamentos.Apresentacao
             this.panelsubmenucadastrofunc.AutoSize = true;
             this.panelsubmenucadastrofunc.Controls.Add(this.btncadastrocfuncionarios);
             this.panelsubmenucadastrofunc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelsubmenucadastrofunc.Location = new System.Drawing.Point(0, 29);
+            this.panelsubmenucadastrofunc.Location = new System.Drawing.Point(0, 32);
             this.panelsubmenucadastrofunc.Name = "panelsubmenucadastrofunc";
             this.panelsubmenucadastrofunc.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
-            this.panelsubmenucadastrofunc.Size = new System.Drawing.Size(212, 29);
+            this.panelsubmenucadastrofunc.Size = new System.Drawing.Size(220, 32);
             this.panelsubmenucadastrofunc.TabIndex = 1;
             // 
             // btncadastrocfuncionarios
@@ -352,7 +339,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btncadastrocfuncionarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btncadastrocfuncionarios.Location = new System.Drawing.Point(38, 0);
             this.btncadastrocfuncionarios.Name = "btncadastrocfuncionarios";
-            this.btncadastrocfuncionarios.Size = new System.Drawing.Size(174, 29);
+            this.btncadastrocfuncionarios.Size = new System.Drawing.Size(182, 32);
             this.btncadastrocfuncionarios.TabIndex = 23;
             this.btncadastrocfuncionarios.Text = "Cadastro de Funcionarios";
             this.btncadastrocfuncionarios.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -368,7 +355,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panelsubmenucadastrocliente.Location = new System.Drawing.Point(0, 0);
             this.panelsubmenucadastrocliente.Name = "panelsubmenucadastrocliente";
             this.panelsubmenucadastrocliente.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
-            this.panelsubmenucadastrocliente.Size = new System.Drawing.Size(212, 29);
+            this.panelsubmenucadastrocliente.Size = new System.Drawing.Size(220, 32);
             this.panelsubmenucadastrocliente.TabIndex = 0;
             // 
             // btncadastrocliente
@@ -384,7 +371,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btncadastrocliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btncadastrocliente.Location = new System.Drawing.Point(38, 0);
             this.btncadastrocliente.Name = "btncadastrocliente";
-            this.btncadastrocliente.Size = new System.Drawing.Size(174, 29);
+            this.btncadastrocliente.Size = new System.Drawing.Size(182, 32);
             this.btncadastrocliente.TabIndex = 23;
             this.btncadastrocliente.Text = "Cadastro de Clientes";
             this.btncadastrocliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -403,7 +390,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btncadastro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btncadastro.Location = new System.Drawing.Point(0, 36);
             this.btncadastro.Name = "btncadastro";
-            this.btncadastro.Size = new System.Drawing.Size(212, 36);
+            this.btncadastro.Size = new System.Drawing.Size(220, 36);
             this.btncadastro.TabIndex = 23;
             this.btncadastro.Text = "Cadastro";
             this.btncadastro.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -421,7 +408,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btncontroledoc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btncontroledoc.Location = new System.Drawing.Point(0, 0);
             this.btncontroledoc.Name = "btncontroledoc";
-            this.btncontroledoc.Size = new System.Drawing.Size(212, 36);
+            this.btncontroledoc.Size = new System.Drawing.Size(220, 36);
             this.btncontroledoc.TabIndex = 22;
             this.btncontroledoc.Text = "Controle de Documentos";
             this.btncontroledoc.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -456,7 +443,7 @@ namespace LMFinanciamentos.Apresentacao
             this.lbl_title.ForeColor = System.Drawing.SystemColors.MenuBar;
             this.lbl_title.Location = new System.Drawing.Point(5, 5);
             this.lbl_title.Name = "lbl_title";
-            this.lbl_title.Size = new System.Drawing.Size(210, 31);
+            this.lbl_title.Size = new System.Drawing.Size(206, 34);
             this.lbl_title.TabIndex = 0;
             this.lbl_title.Text = "LM Financiamentos";
             this.lbl_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -540,7 +527,6 @@ namespace LMFinanciamentos.Apresentacao
             this.panelcontrolmenu.PerformLayout();
             this.panelContenedor.ResumeLayout(false);
             this.panelformularios.ResumeLayout(false);
-            this.panelformularios.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.panelmenuitens.ResumeLayout(false);
@@ -571,7 +557,6 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.PictureBox btnMinimizar;
         private System.Windows.Forms.PictureBox btnMaximizar;
         private System.Windows.Forms.PictureBox btnCerrar;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.PictureBox img_foto;

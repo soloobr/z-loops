@@ -126,10 +126,10 @@ namespace LMFinanciamentos
             this.lblverifica.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblverifica.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Bold);
             this.lblverifica.ForeColor = System.Drawing.Color.White;
-            this.lblverifica.Location = new System.Drawing.Point(50, 115);
+            this.lblverifica.Location = new System.Drawing.Point(50, 113);
             this.lblverifica.Name = "lblverifica";
             this.lblverifica.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.lblverifica.Size = new System.Drawing.Size(181, 24);
+            this.lblverifica.Size = new System.Drawing.Size(174, 27);
             this.lblverifica.TabIndex = 43;
             this.lblverifica.Text = "* As Senhas não Conferem";
             this.lblverifica.Visible = false;
@@ -140,7 +140,7 @@ namespace LMFinanciamentos
             this.txtpassword.Font = new System.Drawing.Font("Poppins", 9.75F);
             this.txtpassword.Location = new System.Drawing.Point(50, 86);
             this.txtpassword.Name = "txtpassword";
-            this.txtpassword.Size = new System.Drawing.Size(184, 29);
+            this.txtpassword.Size = new System.Drawing.Size(184, 27);
             this.txtpassword.TabIndex = 1;
             this.txtpassword.UseSystemPasswordChar = true;
             this.txtpassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtpassword_KeyPress);
@@ -151,9 +151,9 @@ namespace LMFinanciamentos
             this.lblsenha.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblsenha.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold);
             this.lblsenha.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblsenha.Location = new System.Drawing.Point(50, 65);
+            this.lblsenha.Location = new System.Drawing.Point(50, 63);
             this.lblsenha.Name = "lblsenha";
-            this.lblsenha.Size = new System.Drawing.Size(57, 21);
+            this.lblsenha.Size = new System.Drawing.Size(57, 23);
             this.lblsenha.TabIndex = 42;
             this.lblsenha.Text = "Senha:";
             // 
@@ -164,7 +164,7 @@ namespace LMFinanciamentos
             this.txt_login.Location = new System.Drawing.Point(50, 36);
             this.txt_login.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txt_login.Name = "txt_login";
-            this.txt_login.Size = new System.Drawing.Size(184, 29);
+            this.txt_login.Size = new System.Drawing.Size(184, 27);
             this.txt_login.TabIndex = 0;
             this.txt_login.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_login_KeyPress_2);
             // 

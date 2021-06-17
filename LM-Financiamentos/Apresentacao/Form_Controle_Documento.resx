@@ -120,14 +120,52 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="img_topo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAFrSURBVFhH7ZY/S0JhFIePYDWUBSFBQ4Ul3e7cFEn0DZr6Eu0OUd+gvaZIIywUaggSGjKiJL3u
-        fYCmxv4sTb9eew9d7D2Xhs4Vh/vAs3l8fnBVpISEgQKHlEGJdoynKFM1whV+uS5oUNqE20b84WssI3BM
-        BSEW5YdxjU91wBFt/opo2h1cQ4WynHOJeYDVfIY459KXASV655xLnwaAcy6RA84zwP080F7S8sW4h87y
-        EKct4oDKMNDypDf5v4FX5LRFHHA5KR/rWOe0RRxwPS0d6hj4vd8IccBdTj5W0dvltMUZUE7F9/y7Bt4G
-        py3OgLMR+VDLlpfjtMUZcDEhH+r4BlCK0xZnQH1KOtTygbMhzoCbGelQx8A/4GyIM6CZl49V9Lc4G9Iz
-        4CQtHCnaWSxwNsSEV38G1EblQx0/8Zgf52wI/yVrfQ+I9SfY3+ekC6o0ZgZs4yob4Hb2Wde5JzQXimis
-        pzmXkDAIEH0BASwP68d8dl8AAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAWtJREFUWEft
+        lj9LQmEUh49gNZQFIUFDhSXd7twUSfQNmvoS7Q5R36C9pkgjLBRqCBIaMqIkve59gKbG/ixNv157D13s
+        PZeGzhWH+8CzeXx+cFWkhISBAoeUQYl2jKcoUzXCFX65LmhQ2oTbRvzhaywjcEwFIRblh3GNT3XAEW3+
+        imjaHVxDhbKcc4l5gNV8hjjn0pcBJXrnnEufBoBzLpEDzjPA/TzQXtLyxbiHzvIQpy3igMow0PKkN/m/
+        gVfktEUccDkpH+tY57RFHHA9LR3qGPi93whxwF1OPlbR2+W0xRlQTsX3/LsG3ganLc6AsxH5UMuWl+O0
+        xRlwMSEf6vgGUIrTFmdAfUo61PKBsyHOgJsZ6VDHwD/gbIgzoJmXj1X0tzgb0jPgJC0cKdpZLHA2xIRX
+        fwbURuVDHT/xmB/nbAj/JWt9D4j1J9jf56QLqjRmBmzjKhvgdvZZ17knNBeKaKynOZeQMAgQfQEBLA/r
+        x3x2XwAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="funcionariosBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>151, 17</value>
+  </metadata>
+  <metadata name="dS_Funcionario.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="funcionariosTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>348, 17</value>
+  </metadata>
+  <metadata name="dSClientesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>653, 17</value>
+  </metadata>
+  <metadata name="dS_Clientes.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>540, 17</value>
+  </metadata>
+  <data name="btnprocurar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAU9JREFUOE+N
+        ky1PA0EURaEUmuDqECSlwbQNFhQCAQoECRZVBwrZ9B80Ka4CAwkCS0CA4D8gICFF4BAIBIrwYZZzu3e7
+        u8yKnuQk3fvmzezOS6eyRFG0gef4iEO8xTbOekkxLKigGj+wh9u4hUf4hNqw7uUhFNV8jwuOxpCVcYAv
+        WHWcQqjX1slBcwK1abzDvqMUQp2u157DsuMAauv4jjOOYggeUN+8izXHAWrEX1xyFEPwjJt4gIeOC6H+
+        iQ0/xhDcoG57Fd9w0aUc5Mv4g/OOYgg0Z41Kt32Kr7iHudnzfIxXfkzRQtScNaoS7uMFnmDLa3bwC1dG
+        Tf+hUEfNWaPSbZec67V1sprFJXZwVM9BWMU+alS6bV3YN6qphdeYoE8NNxEUNK4aNnF8YfzuYpYzLN6k
+        CC1GnZxl4PJk0KBNdHLC0KXJoUmbaGL83aO1P6PPvUjh/w9FAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="processosBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>231, 56</value>
+  </metadata>
+  <metadata name="dSDocumentosBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+  <metadata name="dS_Documentos.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>840, 17</value>
+  </metadata>
+  <metadata name="processosTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>415, 56</value>
+  </metadata>
 </root>
