@@ -39,7 +39,9 @@ namespace LMFinanciamentos.Apresentacao
         {
             DAL.DS_DocumentosTableAdapters.ProcessosTableAdapter consulta = new DAL.DS_DocumentosTableAdapters.ProcessosTableAdapter();
            consultar = "%"+txtprocurar.Text+"%";
-        consulta.GetDataConsulta(consultar);
+        
+            dgv_process.DataSource = consulta.GetDataConsulta(consultar);
+            dgv_process.Refresh();
         }
     }
 }

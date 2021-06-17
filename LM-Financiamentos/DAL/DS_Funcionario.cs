@@ -1,4 +1,6 @@
-﻿namespace LMFinanciamentos.DAL
+﻿using System;
+
+namespace LMFinanciamentos.DAL
 {
 
 
@@ -11,8 +13,19 @@
 }
 
 namespace LMFinanciamentos.DAL.DS_FuncionarioTableAdapters {
-    
-    
-    public partial class FuncionariosTableAdapter {
+
+
+    public partial class FuncionariosTableAdapter
+    {
+
+    }
+}
+
+namespace LMFinanciamentos.DAL.DS_FuncionarioTableAdapters
+{
+
+
+    public partial class FuncionariosTableAdapter
+    {
     }
 }

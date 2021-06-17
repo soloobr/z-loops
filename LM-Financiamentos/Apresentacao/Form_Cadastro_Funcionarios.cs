@@ -18,10 +18,14 @@ namespace LMFinanciamentos.Apresentacao
 
         private void btnprocurar_Click(object sender, EventArgs e)
         {
-            DAL.DS_FuncionarioTableAdapters.FuncionariosTableAdapter consulta = new DAL.DS_FuncionarioTableAdapters.FuncionariosTableAdapter();
+            DAL.DS_FuncionarioTableAdapters.FuncionariosTableAdapter adp = new DAL.DS_FuncionarioTableAdapters.FuncionariosTableAdapter();
+            //DAL.DS_FuncionarioTableAdapters.FuncionariosTableAdapter consulta = new DAL.DS_FuncionarioTableAdapters.FuncionariosTableAdapter();
             consultar = '%'+txtprocurar.Text+'%';
             //consultar = txtprocurar.Text;
-            consulta.GetDataBy(consultar);
+            
+            dataGridView1.DataSource = adp.f(consultar);
+            dataGridView1.Refresh();
+
         }
 
         private void Form_Cadastro_Funcionarios_Load(object sender, EventArgs e)
