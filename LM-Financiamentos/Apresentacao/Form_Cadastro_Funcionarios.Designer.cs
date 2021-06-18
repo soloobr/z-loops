@@ -30,8 +30,29 @@ namespace LMFinanciamentos.Apresentacao
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Cadastro_Funcionarios));
             this.panelcentro = new System.Windows.Forms.Panel();
+            this.dgv_funccionarios = new System.Windows.Forms.DataGridView();
+            this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.enderecoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nascimentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sexoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cPFDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.crachaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.funcionariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dS_Funcionario = new LMFinanciamentos.DAL.DS_Funcionario();
             this.pnlcontrol = new System.Windows.Forms.Panel();
             this.lblprocurar = new System.Windows.Forms.Label();
             this.btnprocurar = new System.Windows.Forms.Button();
@@ -41,36 +62,22 @@ namespace LMFinanciamentos.Apresentacao
             this.img_topo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnclosecadfunc = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dS_Funcionario = new LMFinanciamentos.DAL.DS_Funcionario();
             this.dSFuncionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.funcionariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.funcionariosTableAdapter = new LMFinanciamentos.DAL.DS_FuncionarioTableAdapters.FuncionariosTableAdapter();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.enderecoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nascimentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sexoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cPFDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.crachaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.loginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.permissionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelcentro.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_funccionarios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS_Funcionario)).BeginInit();
             this.pnlcontrol.SuspendLayout();
             this.paneltop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS_Funcionario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSFuncionarioBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelcentro
             // 
-            this.panelcentro.Controls.Add(this.dataGridView1);
+            this.panelcentro.Controls.Add(this.dgv_funccionarios);
             this.panelcentro.Controls.Add(this.pnlcontrol);
             this.panelcentro.Controls.Add(this.paneltop);
             this.panelcentro.Controls.Add(this.panel2);
@@ -79,6 +86,119 @@ namespace LMFinanciamentos.Apresentacao
             this.panelcentro.Name = "panelcentro";
             this.panelcentro.Size = new System.Drawing.Size(917, 390);
             this.panelcentro.TabIndex = 2;
+            // 
+            // dgv_funccionarios
+            // 
+            this.dgv_funccionarios.AllowUserToAddRows = false;
+            this.dgv_funccionarios.AutoGenerateColumns = false;
+            this.dgv_funccionarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_funccionarios.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgv_funccionarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgv_funccionarios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_funccionarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            this.dgv_funccionarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_funccionarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nomeDataGridViewTextBoxColumn,
+            this.emailDataGridViewTextBoxColumn,
+            this.telefoneDataGridViewTextBoxColumn,
+            this.enderecoDataGridViewTextBoxColumn,
+            this.nascimentoDataGridViewTextBoxColumn,
+            this.sexoDataGridViewTextBoxColumn,
+            this.cPFDataGridViewTextBoxColumn,
+            this.crachaDataGridViewTextBoxColumn});
+            this.dgv_funccionarios.DataSource = this.funcionariosBindingSource;
+            this.dgv_funccionarios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_funccionarios.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgv_funccionarios.GridColor = System.Drawing.SystemColors.Control;
+            this.dgv_funccionarios.Location = new System.Drawing.Point(0, 195);
+            this.dgv_funccionarios.MultiSelect = false;
+            this.dgv_funccionarios.Name = "dgv_funccionarios";
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgv_funccionarios.RowsDefaultCellStyle = dataGridViewCellStyle30;
+            this.dgv_funccionarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_funccionarios.Size = new System.Drawing.Size(917, 143);
+            this.dgv_funccionarios.TabIndex = 12;
+            // 
+            // nomeDataGridViewTextBoxColumn
+            // 
+            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nomeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle22;
+            this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
+            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle23;
+            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            // 
+            // telefoneDataGridViewTextBoxColumn
+            // 
+            this.telefoneDataGridViewTextBoxColumn.DataPropertyName = "Telefone";
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.telefoneDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle24;
+            this.telefoneDataGridViewTextBoxColumn.HeaderText = "Telefone";
+            this.telefoneDataGridViewTextBoxColumn.Name = "telefoneDataGridViewTextBoxColumn";
+            // 
+            // enderecoDataGridViewTextBoxColumn
+            // 
+            this.enderecoDataGridViewTextBoxColumn.DataPropertyName = "Endereco";
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enderecoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle25;
+            this.enderecoDataGridViewTextBoxColumn.HeaderText = "Endereco";
+            this.enderecoDataGridViewTextBoxColumn.Name = "enderecoDataGridViewTextBoxColumn";
+            // 
+            // nascimentoDataGridViewTextBoxColumn
+            // 
+            this.nascimentoDataGridViewTextBoxColumn.DataPropertyName = "Nascimento";
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nascimentoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle26;
+            this.nascimentoDataGridViewTextBoxColumn.HeaderText = "Nascimento";
+            this.nascimentoDataGridViewTextBoxColumn.Name = "nascimentoDataGridViewTextBoxColumn";
+            // 
+            // sexoDataGridViewTextBoxColumn
+            // 
+            this.sexoDataGridViewTextBoxColumn.DataPropertyName = "Sexo";
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sexoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle27;
+            this.sexoDataGridViewTextBoxColumn.HeaderText = "Sexo";
+            this.sexoDataGridViewTextBoxColumn.Name = "sexoDataGridViewTextBoxColumn";
+            // 
+            // cPFDataGridViewTextBoxColumn
+            // 
+            this.cPFDataGridViewTextBoxColumn.DataPropertyName = "CPF";
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cPFDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle28;
+            this.cPFDataGridViewTextBoxColumn.HeaderText = "CPF";
+            this.cPFDataGridViewTextBoxColumn.Name = "cPFDataGridViewTextBoxColumn";
+            // 
+            // crachaDataGridViewTextBoxColumn
+            // 
+            this.crachaDataGridViewTextBoxColumn.DataPropertyName = "Cracha";
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.crachaDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle29;
+            this.crachaDataGridViewTextBoxColumn.HeaderText = "Cracha";
+            this.crachaDataGridViewTextBoxColumn.Name = "crachaDataGridViewTextBoxColumn";
+            // 
+            // funcionariosBindingSource
+            // 
+            this.funcionariosBindingSource.DataMember = "Funcionarios";
+            this.funcionariosBindingSource.DataSource = this.dS_Funcionario;
+            // 
+            // dS_Funcionario
+            // 
+            this.dS_Funcionario.DataSetName = "DS_Funcionario";
+            this.dS_Funcionario.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // pnlcontrol
             // 
@@ -125,6 +245,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtprocurar.Name = "txtprocurar";
             this.txtprocurar.Size = new System.Drawing.Size(218, 27);
             this.txtprocurar.TabIndex = 0;
+            this.txtprocurar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtprocurar_KeyPress);
             // 
             // paneltop
             // 
@@ -144,20 +265,21 @@ namespace LMFinanciamentos.Apresentacao
             this.lbl_topo.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbl_topo.Font = new System.Drawing.Font("Poppins", 20.25F, System.Drawing.FontStyle.Bold);
             this.lbl_topo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.lbl_topo.Location = new System.Drawing.Point(31, 4);
+            this.lbl_topo.Location = new System.Drawing.Point(56, 4);
             this.lbl_topo.Margin = new System.Windows.Forms.Padding(3);
             this.lbl_topo.Name = "lbl_topo";
             this.lbl_topo.Size = new System.Drawing.Size(401, 49);
             this.lbl_topo.TabIndex = 6;
             this.lbl_topo.Text = "Cadastro de Funcionários";
-            this.lbl_topo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_topo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // img_topo
             // 
             this.img_topo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.img_topo.Image = ((System.Drawing.Image)(resources.GetObject("img_topo.Image")));
             this.img_topo.Location = new System.Drawing.Point(4, 4);
             this.img_topo.Name = "img_topo";
-            this.img_topo.Size = new System.Drawing.Size(27, 49);
+            this.img_topo.Size = new System.Drawing.Size(52, 49);
             this.img_topo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.img_topo.TabIndex = 5;
             this.img_topo.TabStop = false;
@@ -169,132 +291,34 @@ namespace LMFinanciamentos.Apresentacao
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 338);
             this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(10);
             this.panel2.Size = new System.Drawing.Size(917, 52);
             this.panel2.TabIndex = 8;
             // 
             // btnclosecadfunc
             // 
             this.btnclosecadfunc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.btnclosecadfunc.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnclosecadfunc.FlatAppearance.BorderSize = 0;
             this.btnclosecadfunc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnclosecadfunc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnclosecadfunc.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnclosecadfunc.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnclosecadfunc.Location = new System.Drawing.Point(10, 10);
             this.btnclosecadfunc.Name = "btnclosecadfunc";
-            this.btnclosecadfunc.Padding = new System.Windows.Forms.Padding(4);
-            this.btnclosecadfunc.Size = new System.Drawing.Size(104, 31);
+            this.btnclosecadfunc.Size = new System.Drawing.Size(104, 32);
             this.btnclosecadfunc.TabIndex = 2;
             this.btnclosecadfunc.Text = "Fechar";
             this.btnclosecadfunc.UseVisualStyleBackColor = false;
             this.btnclosecadfunc.Click += new System.EventHandler(this.btnclosecadfunc_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.nomeDataGridViewTextBoxColumn,
-            this.emailDataGridViewTextBoxColumn,
-            this.telefoneDataGridViewTextBoxColumn,
-            this.enderecoDataGridViewTextBoxColumn,
-            this.nascimentoDataGridViewTextBoxColumn,
-            this.sexoDataGridViewTextBoxColumn,
-            this.cPFDataGridViewTextBoxColumn,
-            this.crachaDataGridViewTextBoxColumn,
-            this.loginDataGridViewTextBoxColumn,
-            this.permissionDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.funcionariosBindingSource;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 195);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(917, 143);
-            this.dataGridView1.TabIndex = 12;
-            // 
-            // dS_Funcionario
-            // 
-            this.dS_Funcionario.DataSetName = "DS_Funcionario";
-            this.dS_Funcionario.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // dSFuncionarioBindingSource
             // 
             this.dSFuncionarioBindingSource.DataSource = this.dS_Funcionario;
             this.dSFuncionarioBindingSource.Position = 0;
             // 
-            // funcionariosBindingSource
-            // 
-            this.funcionariosBindingSource.DataMember = "Funcionarios";
-            this.funcionariosBindingSource.DataSource = this.dS_Funcionario;
-            // 
             // funcionariosTableAdapter
             // 
             this.funcionariosTableAdapter.ClearBeforeFill = true;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // nomeDataGridViewTextBoxColumn
-            // 
-            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
-            this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
-            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            // 
-            // telefoneDataGridViewTextBoxColumn
-            // 
-            this.telefoneDataGridViewTextBoxColumn.DataPropertyName = "Telefone";
-            this.telefoneDataGridViewTextBoxColumn.HeaderText = "Telefone";
-            this.telefoneDataGridViewTextBoxColumn.Name = "telefoneDataGridViewTextBoxColumn";
-            // 
-            // enderecoDataGridViewTextBoxColumn
-            // 
-            this.enderecoDataGridViewTextBoxColumn.DataPropertyName = "Endereco";
-            this.enderecoDataGridViewTextBoxColumn.HeaderText = "Endereco";
-            this.enderecoDataGridViewTextBoxColumn.Name = "enderecoDataGridViewTextBoxColumn";
-            // 
-            // nascimentoDataGridViewTextBoxColumn
-            // 
-            this.nascimentoDataGridViewTextBoxColumn.DataPropertyName = "Nascimento";
-            this.nascimentoDataGridViewTextBoxColumn.HeaderText = "Nascimento";
-            this.nascimentoDataGridViewTextBoxColumn.Name = "nascimentoDataGridViewTextBoxColumn";
-            // 
-            // sexoDataGridViewTextBoxColumn
-            // 
-            this.sexoDataGridViewTextBoxColumn.DataPropertyName = "Sexo";
-            this.sexoDataGridViewTextBoxColumn.HeaderText = "Sexo";
-            this.sexoDataGridViewTextBoxColumn.Name = "sexoDataGridViewTextBoxColumn";
-            // 
-            // cPFDataGridViewTextBoxColumn
-            // 
-            this.cPFDataGridViewTextBoxColumn.DataPropertyName = "CPF";
-            this.cPFDataGridViewTextBoxColumn.HeaderText = "CPF";
-            this.cPFDataGridViewTextBoxColumn.Name = "cPFDataGridViewTextBoxColumn";
-            // 
-            // crachaDataGridViewTextBoxColumn
-            // 
-            this.crachaDataGridViewTextBoxColumn.DataPropertyName = "Cracha";
-            this.crachaDataGridViewTextBoxColumn.HeaderText = "Cracha";
-            this.crachaDataGridViewTextBoxColumn.Name = "crachaDataGridViewTextBoxColumn";
-            // 
-            // loginDataGridViewTextBoxColumn
-            // 
-            this.loginDataGridViewTextBoxColumn.DataPropertyName = "Login";
-            this.loginDataGridViewTextBoxColumn.HeaderText = "Login";
-            this.loginDataGridViewTextBoxColumn.Name = "loginDataGridViewTextBoxColumn";
-            // 
-            // permissionDataGridViewTextBoxColumn
-            // 
-            this.permissionDataGridViewTextBoxColumn.DataPropertyName = "Permission";
-            this.permissionDataGridViewTextBoxColumn.HeaderText = "Permission";
-            this.permissionDataGridViewTextBoxColumn.Name = "permissionDataGridViewTextBoxColumn";
             // 
             // Form_Cadastro_Funcionarios
             // 
@@ -306,15 +330,15 @@ namespace LMFinanciamentos.Apresentacao
             this.Text = "Form_Cadastro_Funcionarios";
             this.Load += new System.EventHandler(this.Form_Cadastro_Funcionarios_Load);
             this.panelcentro.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_funccionarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS_Funcionario)).EndInit();
             this.pnlcontrol.ResumeLayout(false);
             this.pnlcontrol.PerformLayout();
             this.paneltop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).EndInit();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS_Funcionario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSFuncionarioBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -331,12 +355,11 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.Label lblprocurar;
         private System.Windows.Forms.Button btnprocurar;
         private System.Windows.Forms.TextBox txtprocurar;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_funccionarios;
         private System.Windows.Forms.BindingSource dSFuncionarioBindingSource;
         private DAL.DS_Funcionario dS_Funcionario;
         private System.Windows.Forms.BindingSource funcionariosBindingSource;
         private DAL.DS_FuncionarioTableAdapters.FuncionariosTableAdapter funcionariosTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefoneDataGridViewTextBoxColumn;
@@ -345,7 +368,5 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.DataGridViewTextBoxColumn sexoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cPFDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn crachaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn loginDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn permissionDataGridViewTextBoxColumn;
     }
 }

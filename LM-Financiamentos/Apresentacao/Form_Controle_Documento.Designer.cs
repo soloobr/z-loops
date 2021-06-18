@@ -31,10 +31,11 @@ namespace LMFinanciamentos.Apresentacao
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Controle_Documento));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btncloseconf = new System.Windows.Forms.Button();
             this.paneltop = new System.Windows.Forms.Panel();
@@ -46,11 +47,10 @@ namespace LMFinanciamentos.Apresentacao
             this.dSClientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dS_Clientes = new LMFinanciamentos.DAL.DS_Clientes();
             this.pnlcontrol = new System.Windows.Forms.Panel();
-            this.dgv_process = new System.Windows.Forms.DataGridView();
-            this.processosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.txtprocurar = new System.Windows.Forms.TextBox();
-            this.btnprocurar = new System.Windows.Forms.Button();
             this.lblprocurar = new System.Windows.Forms.Label();
+            this.btnprocurar = new System.Windows.Forms.Button();
+            this.txtprocurar = new System.Windows.Forms.TextBox();
+            this.dgv_process = new System.Windows.Forms.DataGridView();
             this.processoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,6 +58,7 @@ namespace LMFinanciamentos.Apresentacao
             this.corretorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.funcionarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.processosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dSDocumentosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dS_Documentos = new LMFinanciamentos.DAL.DS_Documentos();
             this.processosTableAdapter = new LMFinanciamentos.DAL.DS_DocumentosTableAdapters.ProcessosTableAdapter();
@@ -82,6 +83,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 338);
             this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(10);
             this.panel1.Size = new System.Drawing.Size(955, 52);
             this.panel1.TabIndex = 8;
             // 
@@ -90,11 +92,10 @@ namespace LMFinanciamentos.Apresentacao
             this.btncloseconf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
             this.btncloseconf.FlatAppearance.BorderSize = 0;
             this.btncloseconf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btncloseconf.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btncloseconf.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncloseconf.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btncloseconf.Location = new System.Drawing.Point(10, 10);
             this.btncloseconf.Name = "btncloseconf";
-            this.btncloseconf.Padding = new System.Windows.Forms.Padding(4);
             this.btncloseconf.Size = new System.Drawing.Size(104, 31);
             this.btncloseconf.TabIndex = 2;
             this.btncloseconf.Text = "Fechar";
@@ -174,61 +175,15 @@ namespace LMFinanciamentos.Apresentacao
             this.pnlcontrol.Size = new System.Drawing.Size(955, 138);
             this.pnlcontrol.TabIndex = 10;
             // 
-            // dgv_process
+            // lblprocurar
             // 
-            this.dgv_process.AllowUserToAddRows = false;
-            this.dgv_process.AllowUserToOrderColumns = true;
-            this.dgv_process.AutoGenerateColumns = false;
-            this.dgv_process.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_process.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgv_process.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgv_process.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgv_process.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgv_process.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_process.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv_process.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_process.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.processoDataGridViewTextBoxColumn,
-            this.dataDataGridViewTextBoxColumn,
-            this.clienteDataGridViewTextBoxColumn,
-            this.corretoraDataGridViewTextBoxColumn,
-            this.corretorDataGridViewTextBoxColumn,
-            this.funcionarioDataGridViewTextBoxColumn,
-            this.statusDataGridViewTextBoxColumn});
-            this.dgv_process.DataSource = this.processosBindingSource;
-            this.dgv_process.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_process.GridColor = System.Drawing.SystemColors.Control;
-            this.dgv_process.Location = new System.Drawing.Point(0, 195);
-            this.dgv_process.Name = "dgv_process";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.NullValue = " - ";
-            this.dgv_process.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgv_process.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_process.Size = new System.Drawing.Size(955, 143);
-            this.dgv_process.TabIndex = 11;
-            this.dgv_process.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_process_CellContentClick);
-            // 
-            // processosBindingSource
-            // 
-            this.processosBindingSource.DataMember = "Processos";
-            this.processosBindingSource.DataSource = this.dSDocumentosBindingSource;
-            // 
-            // txtprocurar
-            // 
-            this.txtprocurar.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtprocurar.Location = new System.Drawing.Point(26, 45);
-            this.txtprocurar.Name = "txtprocurar";
-            this.txtprocurar.Size = new System.Drawing.Size(218, 27);
-            this.txtprocurar.TabIndex = 0;
+            this.lblprocurar.AutoSize = true;
+            this.lblprocurar.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblprocurar.Location = new System.Drawing.Point(22, 20);
+            this.lblprocurar.Name = "lblprocurar";
+            this.lblprocurar.Size = new System.Drawing.Size(86, 22);
+            this.lblprocurar.TabIndex = 2;
+            this.lblprocurar.Text = "Procurar por:";
             // 
             // btnprocurar
             // 
@@ -247,22 +202,73 @@ namespace LMFinanciamentos.Apresentacao
             this.btnprocurar.UseVisualStyleBackColor = false;
             this.btnprocurar.Click += new System.EventHandler(this.btnprocurar_Click);
             // 
-            // lblprocurar
+            // txtprocurar
             // 
-            this.lblprocurar.AutoSize = true;
-            this.lblprocurar.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblprocurar.Location = new System.Drawing.Point(22, 20);
-            this.lblprocurar.Name = "lblprocurar";
-            this.lblprocurar.Size = new System.Drawing.Size(86, 22);
-            this.lblprocurar.TabIndex = 2;
-            this.lblprocurar.Text = "Procurar por:";
+            this.txtprocurar.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtprocurar.Location = new System.Drawing.Point(26, 45);
+            this.txtprocurar.Name = "txtprocurar";
+            this.txtprocurar.Size = new System.Drawing.Size(218, 27);
+            this.txtprocurar.TabIndex = 0;
+            this.txtprocurar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtprocurar_KeyPress);
+            // 
+            // dgv_process
+            // 
+            this.dgv_process.AllowUserToAddRows = false;
+            this.dgv_process.AllowUserToDeleteRows = false;
+            this.dgv_process.AllowUserToOrderColumns = true;
+            this.dgv_process.AutoGenerateColumns = false;
+            this.dgv_process.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_process.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgv_process.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgv_process.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgv_process.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgv_process.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_process.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgv_process.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_process.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.processoDataGridViewTextBoxColumn,
+            this.dataDataGridViewTextBoxColumn,
+            this.clienteDataGridViewTextBoxColumn,
+            this.corretoraDataGridViewTextBoxColumn,
+            this.corretorDataGridViewTextBoxColumn,
+            this.funcionarioDataGridViewTextBoxColumn,
+            this.statusDataGridViewTextBoxColumn});
+            this.dgv_process.DataSource = this.processosBindingSource;
+            this.dgv_process.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_process.GridColor = System.Drawing.SystemColors.Control;
+            this.dgv_process.Location = new System.Drawing.Point(0, 195);
+            this.dgv_process.Name = "dgv_process";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_process.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.NullValue = " - ";
+            this.dgv_process.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            this.dgv_process.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_process.Size = new System.Drawing.Size(955, 143);
+            this.dgv_process.TabIndex = 11;
+            this.dgv_process.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_process_CellContentClick);
             // 
             // processoDataGridViewTextBoxColumn
             // 
             this.processoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.processoDataGridViewTextBoxColumn.DataPropertyName = "Processo";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.processoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.processoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
             this.processoDataGridViewTextBoxColumn.HeaderText = "Nº Processo";
             this.processoDataGridViewTextBoxColumn.Name = "processoDataGridViewTextBoxColumn";
             this.processoDataGridViewTextBoxColumn.Width = 138;
@@ -271,8 +277,8 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.dataDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dataDataGridViewTextBoxColumn.DataPropertyName = "Data";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataDataGridViewTextBoxColumn.HeaderText = "Data";
             this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
             this.dataDataGridViewTextBoxColumn.Width = 81;
@@ -306,6 +312,11 @@ namespace LMFinanciamentos.Apresentacao
             this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
             this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
             this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            // 
+            // processosBindingSource
+            // 
+            this.processosBindingSource.DataMember = "Processos";
+            this.processosBindingSource.DataSource = this.dSDocumentosBindingSource;
             // 
             // dSDocumentosBindingSource
             // 
@@ -353,7 +364,6 @@ namespace LMFinanciamentos.Apresentacao
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btncloseconf;
         private System.Windows.Forms.Panel paneltop;
         private System.Windows.Forms.Label lbl_topo;
         private System.Windows.Forms.PictureBox img_topo;
@@ -378,5 +388,6 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.DataGridViewTextBoxColumn corretorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn funcionarioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        public System.Windows.Forms.Button btncloseconf;
     }
 }

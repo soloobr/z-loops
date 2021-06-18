@@ -120,8 +120,14 @@
   <metadata name="funcionariosBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>359, 17</value>
   </metadata>
+  <metadata name="dS_Funcionario.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <metadata name="img_topo.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
+  </metadata>
+  <metadata name="dS_Funcionario.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnprocurar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -138,14 +144,22 @@
   <metadata name="img_topo.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="dS_Funcionario.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
+  <data name="img_topo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAeVJREFUWEft
+        l71OAkEUhansNFZaqLHSxsRodteN8gJqg/ERjM/iT2s0O0CMLZpoI76A4iMYkBkw8a9So5Y0OHc5s1lY
+        F4ZlQ4F+yS3m3Ll3zgywOyT+iYrJKusm409uZMQa5P6BxeuIR8jxMXd2N2Smxb7JxKtvoe7C4S8W43vU
+        C231ocJfm0YIy+G7aKsPuXeLM2IFUhMy1/EjMB2RdPOyFyR9VHMMA9AXjxamsJhYhRygU59QIhe2MJgG
+        ljKVWYOVL2T+uxHi3GaVGaSbaNenLWGFtLj8hXyovC/elp37CUzzUHkM9QkrxM7rBuOXtCCFPIE8tFNM
+        8wjr05GwQqnRsdf9u7WOxBTmf0LygB6rgS/S7SyfhNR3A7lGTuTJBIXJyleYn8M0D+jxGVg8rE5Lvaby
+        vqhRDtM8VB5DfX4rtLPVcbnbG5VrDflEvJ53xBimu6gchvq0FrpvR4ffQi/KSCWPS8MURlpsyI+khFzB
+        //aD1rsBI823oRUXTh5GIXuQ5plw+Bbk+Az4dp+CFMBi5U3MKUCKz4B6+tGRQwpgH/AR1L1Dis9AVAbH
+        gBrrBsoGyEBUohvApZQulpC6Rl1K5Wv6GZI+dJVW7nsNaWAHbfWhx6lrQp1EhKCd0+KR/pj8ERKJH5A8
+        9vb6zh6zAAAAAElFTkSuQmCC
+</value>
+  </data>
   <metadata name="dSFuncionarioBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>151, 17</value>
-  </metadata>
-  <metadata name="dS_Funcionario.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
   </metadata>
   <metadata name="funcionariosTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>556, 17</value>
