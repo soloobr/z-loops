@@ -31,11 +31,11 @@ namespace LMFinanciamentos.Apresentacao
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Controle_Documento));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btncloseconf = new System.Windows.Forms.Button();
             this.paneltop = new System.Windows.Forms.Panel();
@@ -62,6 +62,7 @@ namespace LMFinanciamentos.Apresentacao
             this.dSDocumentosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dS_Documentos = new LMFinanciamentos.DAL.DS_Documentos();
             this.processosTableAdapter = new LMFinanciamentos.DAL.DS_DocumentosTableAdapters.ProcessosTableAdapter();
+            this.btnnovodoc = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.paneltop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).BeginInit();
@@ -79,24 +80,26 @@ namespace LMFinanciamentos.Apresentacao
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.panel1.Controls.Add(this.btnnovodoc);
             this.panel1.Controls.Add(this.btncloseconf);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 338);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(10);
-            this.panel1.Size = new System.Drawing.Size(955, 52);
+            this.panel1.Size = new System.Drawing.Size(982, 52);
             this.panel1.TabIndex = 8;
             // 
             // btncloseconf
             // 
             this.btncloseconf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.btncloseconf.Dock = System.Windows.Forms.DockStyle.Right;
             this.btncloseconf.FlatAppearance.BorderSize = 0;
             this.btncloseconf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btncloseconf.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncloseconf.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btncloseconf.Location = new System.Drawing.Point(10, 10);
+            this.btncloseconf.Location = new System.Drawing.Point(868, 10);
             this.btncloseconf.Name = "btncloseconf";
-            this.btncloseconf.Size = new System.Drawing.Size(104, 31);
+            this.btncloseconf.Size = new System.Drawing.Size(104, 32);
             this.btncloseconf.TabIndex = 2;
             this.btncloseconf.Text = "Fechar";
             this.btncloseconf.UseVisualStyleBackColor = false;
@@ -111,7 +114,7 @@ namespace LMFinanciamentos.Apresentacao
             this.paneltop.Location = new System.Drawing.Point(0, 0);
             this.paneltop.Name = "paneltop";
             this.paneltop.Padding = new System.Windows.Forms.Padding(4);
-            this.paneltop.Size = new System.Drawing.Size(955, 57);
+            this.paneltop.Size = new System.Drawing.Size(982, 57);
             this.paneltop.TabIndex = 9;
             // 
             // lbl_topo
@@ -172,7 +175,7 @@ namespace LMFinanciamentos.Apresentacao
             this.pnlcontrol.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlcontrol.Location = new System.Drawing.Point(0, 57);
             this.pnlcontrol.Name = "pnlcontrol";
-            this.pnlcontrol.Size = new System.Drawing.Size(955, 138);
+            this.pnlcontrol.Size = new System.Drawing.Size(982, 138);
             this.pnlcontrol.TabIndex = 10;
             // 
             // lblprocurar
@@ -223,15 +226,15 @@ namespace LMFinanciamentos.Apresentacao
             this.dgv_process.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_process.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgv_process.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_process.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_process.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_process.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_process.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.processoDataGridViewTextBoxColumn,
@@ -246,20 +249,20 @@ namespace LMFinanciamentos.Apresentacao
             this.dgv_process.GridColor = System.Drawing.SystemColors.Control;
             this.dgv_process.Location = new System.Drawing.Point(0, 195);
             this.dgv_process.Name = "dgv_process";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_process.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.NullValue = " - ";
-            this.dgv_process.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_process.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.NullValue = " - ";
+            this.dgv_process.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgv_process.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_process.Size = new System.Drawing.Size(955, 143);
+            this.dgv_process.Size = new System.Drawing.Size(982, 143);
             this.dgv_process.TabIndex = 11;
             this.dgv_process.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_process_CellContentClick);
             // 
@@ -267,8 +270,8 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.processoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.processoDataGridViewTextBoxColumn.DataPropertyName = "Processo";
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.processoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.processoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.processoDataGridViewTextBoxColumn.HeaderText = "Nº Processo";
             this.processoDataGridViewTextBoxColumn.Name = "processoDataGridViewTextBoxColumn";
             this.processoDataGridViewTextBoxColumn.Width = 138;
@@ -277,8 +280,8 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.dataDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dataDataGridViewTextBoxColumn.DataPropertyName = "Data";
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataDataGridViewTextBoxColumn.HeaderText = "Data";
             this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
             this.dataDataGridViewTextBoxColumn.Width = 81;
@@ -332,11 +335,26 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.processosTableAdapter.ClearBeforeFill = true;
             // 
+            // btnnovodoc
+            // 
+            this.btnnovodoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.btnnovodoc.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnnovodoc.FlatAppearance.BorderSize = 0;
+            this.btnnovodoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnnovodoc.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnnovodoc.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnnovodoc.Location = new System.Drawing.Point(10, 10);
+            this.btnnovodoc.Name = "btnnovodoc";
+            this.btnnovodoc.Size = new System.Drawing.Size(104, 32);
+            this.btnnovodoc.TabIndex = 3;
+            this.btnnovodoc.Text = "Novo";
+            this.btnnovodoc.UseVisualStyleBackColor = false;
+            // 
             // Form_Controle_Documento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(955, 390);
+            this.ClientSize = new System.Drawing.Size(982, 390);
             this.Controls.Add(this.dgv_process);
             this.Controls.Add(this.pnlcontrol);
             this.Controls.Add(this.paneltop);
@@ -389,5 +407,6 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.DataGridViewTextBoxColumn funcionarioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         public System.Windows.Forms.Button btncloseconf;
+        public System.Windows.Forms.Button btnnovodoc;
     }
 }
