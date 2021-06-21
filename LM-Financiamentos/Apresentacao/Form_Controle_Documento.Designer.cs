@@ -37,6 +37,7 @@ namespace LMFinanciamentos.Apresentacao
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnnovodoc = new System.Windows.Forms.Button();
             this.btncloseconf = new System.Windows.Forms.Button();
             this.paneltop = new System.Windows.Forms.Panel();
             this.lbl_topo = new System.Windows.Forms.Label();
@@ -62,7 +63,6 @@ namespace LMFinanciamentos.Apresentacao
             this.dSDocumentosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dS_Documentos = new LMFinanciamentos.DAL.DS_Documentos();
             this.processosTableAdapter = new LMFinanciamentos.DAL.DS_DocumentosTableAdapters.ProcessosTableAdapter();
-            this.btnnovodoc = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.paneltop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).BeginInit();
@@ -88,6 +88,22 @@ namespace LMFinanciamentos.Apresentacao
             this.panel1.Padding = new System.Windows.Forms.Padding(10);
             this.panel1.Size = new System.Drawing.Size(982, 52);
             this.panel1.TabIndex = 8;
+            // 
+            // btnnovodoc
+            // 
+            this.btnnovodoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.btnnovodoc.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnnovodoc.FlatAppearance.BorderSize = 0;
+            this.btnnovodoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnnovodoc.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnnovodoc.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnnovodoc.Location = new System.Drawing.Point(10, 10);
+            this.btnnovodoc.Name = "btnnovodoc";
+            this.btnnovodoc.Size = new System.Drawing.Size(104, 32);
+            this.btnnovodoc.TabIndex = 3;
+            this.btnnovodoc.Text = "Novo";
+            this.btnnovodoc.UseVisualStyleBackColor = false;
+            this.btnnovodoc.Click += new System.EventHandler(this.btnnovodoc_Click);
             // 
             // btncloseconf
             // 
@@ -334,21 +350,6 @@ namespace LMFinanciamentos.Apresentacao
             // processosTableAdapter
             // 
             this.processosTableAdapter.ClearBeforeFill = true;
-            // 
-            // btnnovodoc
-            // 
-            this.btnnovodoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.btnnovodoc.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnnovodoc.FlatAppearance.BorderSize = 0;
-            this.btnnovodoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnnovodoc.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnnovodoc.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnnovodoc.Location = new System.Drawing.Point(10, 10);
-            this.btnnovodoc.Name = "btnnovodoc";
-            this.btnnovodoc.Size = new System.Drawing.Size(104, 32);
-            this.btnnovodoc.TabIndex = 3;
-            this.btnnovodoc.Text = "Novo";
-            this.btnnovodoc.UseVisualStyleBackColor = false;
             // 
             // Form_Controle_Documento
             // 

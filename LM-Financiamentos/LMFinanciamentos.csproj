@@ -164,6 +164,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_Clientes.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DAL\DS_Combobox.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_Combobox.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DAL\DS_Documentos.cs">
       <DependentUpon>DS_Documentos.xsd</DependentUpon>
     </Compile>
@@ -181,6 +186,7 @@
       <DependentUpon>DS_Funcionario.xsd</DependentUpon>
     </Compile>
     <Compile Include="DAL\LoginDaoComandos.cs" />
+    <Compile Include="Entidades\Cliente.cs" />
     <Compile Include="Entidades\Funcionario.cs" />
     <Compile Include="Entidades\Login.cs" />
     <Compile Include="Entidades\Saudacao.cs" />
@@ -236,6 +242,17 @@
     </None>
     <None Include="DAL\DS_Clientes.xss">
       <DependentUpon>DS_Clientes.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\DS_Combobox.xsc">
+      <DependentUpon>DS_Combobox.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\DS_Combobox.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_Combobox.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\DS_Combobox.xss">
+      <DependentUpon>DS_Combobox.xsd</DependentUpon>
     </None>
     <None Include="DAL\DS_Documentos.xsc">
       <DependentUpon>DS_Documentos.xsd</DependentUpon>

@@ -74,5 +74,12 @@ namespace LMFinanciamentos.Apresentacao
                 btnprocurar.PerformClick();
             }
         }
+
+        private void btnnovodoc_Click(object sender, EventArgs e)
+        {
+            Form_Cadastro_Documentos frm_cadastro_documentos = new Form_Cadastro_Documentos();
+            frm_cadastro_documentos.setLabel("Em Colocação");
+            frm_cadastro_documentos.Show();
+        }
     }
 }

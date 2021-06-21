@@ -32,7 +32,7 @@ namespace LMFinanciamentos.DAL
         Conecxao con = new Conecxao();
         Conecxao conn = new Conecxao();
         //SqlDataReader dr;
-        MySqlDataReader dr, drfunc, drsenha;
+        MySqlDataReader dr, drfunc, drsenha, drclient;
 
 
         public bool verificarLogin(String login, String senha)
@@ -93,7 +93,40 @@ namespace LMFinanciamentos.DAL
 
             return func;
         }
+        public Cliente GetCliente(String nome)
+        {
+            cmd.CommandText = "SELECT id, Nome, Email, Telefone, CPF, StatusCPF, RG, Nascimento, Sexo, Renda, Status FROM Clientes WHERE(Nome = @nomecliente)";
+            cmd.Parameters.AddWithValue("@nomecliente", nome);
+            Cliente client = new Cliente();
+            try
+            {
+                cmd.Connection = con.conectar();
+                drclient = cmd.ExecuteReader();
+                while (drclient.Read())
+                {
+                    client.Id_cliente = drclient["id"].ToString();
+                    client.Nome_cliente = drclient["Nome"].ToString();
+                    client.Email_cliente = drclient["Email"].ToString();
+                    client.Telefone_cliente = drclient["Telefone"].ToString();
+                    client.CPF_cliente = drclient["CPF"].ToString();
+                    client.StatusCPF_cliente = drclient["StatusCPF"].ToString();
+                    client.RG_cliente = drclient["RG"].ToString();
+                    client.Nascimento_cliente = drclient["Nascimento"].ToString();
+                    client.Sexo_cliente = drclient["Sexo"].ToString();
+                    client.Status_cliente = drclient["Status"].ToString();
+                    client.Renda_cliente = drclient["Renda"].ToString();
+                    //Byte[] byteBLOBData = new Byte[0];
+                    //client.Foto_Func = (Byte[])(drclient["Foto"]);
+                }
 
+            }
+            catch (SqlException err)
+            {
+                throw new Exception("Erro ao obter Cliente: " + err.Message);
+            }
+
+            return client;
+        }
         public string AlterarSenha(String id, String login, String senha, String novasenha)
         {
 

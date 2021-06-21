@@ -37,8 +37,8 @@ namespace LMFinanciamentos.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("server=sql452.main-hosting.eu;user id=u371409358_lm;persistsecurityinfo=True;data" +
-            "base=u371409358_lm")]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=sql452.main-hosting.eu;user id=u371409358_lm;password=P@ssw0rd;database=u3" +
+            "71409358_lm;persistsecurityinfo=True")]
         public string u371409358_lmConnectionString1 {
             get {
                 return ((string)(this["u371409358_lmConnectionString1"]));
