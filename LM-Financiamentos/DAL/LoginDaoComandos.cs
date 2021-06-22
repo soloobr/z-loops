@@ -32,7 +32,7 @@ namespace LMFinanciamentos.DAL
         Conecxao con = new Conecxao();
         Conecxao conn = new Conecxao();
         //SqlDataReader dr;
-        MySqlDataReader dr, drfunc, drsenha, drclient;
+        MySqlDataReader dr, drfunc, drsenha, drclient, drupdatecli;
 
 
         public bool verificarLogin(String login, String senha)
@@ -95,7 +95,7 @@ namespace LMFinanciamentos.DAL
         }
         public Cliente GetCliente(String nome)
         {
-            cmd.CommandText = "SELECT id, Nome, Email, Telefone, CPF, StatusCPF, RG, Nascimento, Sexo, Renda, Status FROM Clientes WHERE(Nome = @nomecliente)";
+            cmd.CommandText = "SELECT id, Nome, Email, Telefone, Celular, CPF, StatusCPF, Ciweb, Cadmut, IR, FGTS, RG, Nascimento, Sexo, Renda, Status FROM Clientes WHERE(Nome = @nomecliente)";
             cmd.Parameters.AddWithValue("@nomecliente", nome);
             Cliente client = new Cliente();
             try
@@ -108,8 +108,13 @@ namespace LMFinanciamentos.DAL
                     client.Nome_cliente = drclient["Nome"].ToString();
                     client.Email_cliente = drclient["Email"].ToString();
                     client.Telefone_cliente = drclient["Telefone"].ToString();
+                    client.Celular_cliente = drclient["Celular"].ToString();
                     client.CPF_cliente = drclient["CPF"].ToString();
                     client.StatusCPF_cliente = drclient["StatusCPF"].ToString();
+                    client.StatusCiweb_cliente = drclient["Ciweb"].ToString();
+                    client.StatusCadmut_cliente = drclient["Cadmut"].ToString();
+                    client.StatusIR_cliente = drclient["IR"].ToString();
+                    client.StatusFGTS_cliente = drclient["FGTS"].ToString();
                     client.RG_cliente = drclient["RG"].ToString();
                     client.Nascimento_cliente = drclient["Nascimento"].ToString();
                     client.Sexo_cliente = drclient["Sexo"].ToString();
@@ -126,6 +131,44 @@ namespace LMFinanciamentos.DAL
             }
 
             return client;
+        }
+        public String UpdateClienteProcesso(String id, String scpf, String sciweb, String scadmut, String sir, String sfgts)
+        {
+
+            try
+            {
+                cmd1.CommandText = "UPDATE Clientes SET StatusCPF = @cpf, Ciweb = @Ciweb, Cadmut = @Cadmut, IR = @IR, FGTS = @FGTS WHERE id = @Id";
+                cmd1.Parameters.AddWithValue("@Id", id);
+                cmd1.Parameters.AddWithValue("@cpf", scpf);
+                cmd1.Parameters.AddWithValue("@Ciweb", sciweb);
+                cmd1.Parameters.AddWithValue("@Cadmut", scadmut);
+                cmd1.Parameters.AddWithValue("@IR", sir);
+                cmd1.Parameters.AddWithValue("@FGTS", sfgts);
+                cmd1.Connection = conn.conectar();
+                //drupdatecli = cmd1.ExecuteReader();
+                int recordsAffected = cmd1.ExecuteNonQuery();
+
+                if(recordsAffected > 0) {
+                    mensagem = "Cliente Alterado Com Sucesso";
+                }
+                else
+                {
+                    mensagem = "Erro ao Alterar Cliente";
+                }
+
+
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+            }
+            catch (Exception err)
+            {
+                //throw new Exception("Erro ao Alterar senha: " + err.Message);
+                mensagem = ("Erro ao Alterar Cliente: " + err.Message);
+            }
+
+            return mensagem;
         }
         public string AlterarSenha(String id, String login, String senha, String novasenha)
         {

@@ -7,8 +7,13 @@
         public string Nome_cliente { get; set; }
         public string Email_cliente { get; set; }
         public string Telefone_cliente { get; set; }
+        public string Celular_cliente { get; set; }
         public string CPF_cliente { get; set; }
         public string StatusCPF_cliente { get; set; }
+        public string StatusCiweb_cliente { get; set; }
+        public string StatusCadmut_cliente { get; set; }
+        public string StatusIR_cliente { get; set; }
+        public string StatusFGTS_cliente { get; set; }
         public string RG_cliente { get; set; }
         public string Nascimento_cliente { get; set; }
         public string Sexo_cliente { get; set; }

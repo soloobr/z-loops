@@ -164,6 +164,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_Clientes.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DAL\DS_Combobox.cs">
+      <DependentUpon>DS_Combobox.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DAL\DS_Combobox.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
