@@ -32,7 +32,7 @@ namespace LMFinanciamentos.DAL
         Conecxao con = new Conecxao();
         Conecxao conn = new Conecxao();
         //SqlDataReader dr;
-        MySqlDataReader dr, drfunc, drsenha, drclient, drupdatecli;
+        MySqlDataReader dr, drfunc, drsenha, drclient;
 
 
         public bool verificarLogin(String login, String senha)

@@ -37,20 +37,74 @@ namespace LMFinanciamentos.Apresentacao
             this.paneltop = new System.Windows.Forms.Panel();
             this.lbl_topo = new System.Windows.Forms.Label();
             this.img_topo = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.tabControl = new System.Windows.Forms.TabControl();
+            this.tabcliente = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.txtfgts = new System.Windows.Forms.ComboBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.txtir = new System.Windows.Forms.ComboBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.txtcadmut = new System.Windows.Forms.ComboBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.txtciweb = new System.Windows.Forms.ComboBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.txtStatusCPF = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtcelular = new System.Windows.Forms.MaskedTextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txttelefone = new System.Windows.Forms.MaskedTextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtnasc = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtemail = new System.Windows.Forms.TextBox();
+            this.lblcpf = new System.Windows.Forms.Label();
+            this.txtcpf = new System.Windows.Forms.TextBox();
+            this.txtnomecli = new System.Windows.Forms.ComboBox();
+            this.lblcliente = new System.Windows.Forms.Label();
+            this.lblemail = new System.Windows.Forms.Label();
+            this.tabproduto = new System.Windows.Forms.TabPage();
+            this.tabfinanceiro = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtrenda = new System.Windows.Forms.MaskedTextBox();
+            this.img_foto = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panelcentralcadcli.SuspendLayout();
             this.panel1.SuspendLayout();
             this.paneltop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.tabControl.SuspendLayout();
+            this.tabcliente.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.tabproduto.SuspendLayout();
+            this.tabfinanceiro.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.img_foto)).BeginInit();
             this.SuspendLayout();
             // 
             // panelcentralcadcli
             // 
+            this.panelcentralcadcli.Controls.Add(this.panel2);
             this.panelcentralcadcli.Controls.Add(this.panel1);
             this.panelcentralcadcli.Controls.Add(this.paneltop);
             this.panelcentralcadcli.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelcentralcadcli.Location = new System.Drawing.Point(0, 0);
             this.panelcentralcadcli.Name = "panelcentralcadcli";
-            this.panelcentralcadcli.Size = new System.Drawing.Size(686, 390);
+            this.panelcentralcadcli.Size = new System.Drawing.Size(954, 617);
             this.panelcentralcadcli.TabIndex = 0;
             // 
             // panel1
@@ -59,9 +113,9 @@ namespace LMFinanciamentos.Apresentacao
             this.panel1.Controls.Add(this.btn_salvar);
             this.panel1.Controls.Add(this.btnclosecli);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 338);
+            this.panel1.Location = new System.Drawing.Point(0, 565);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(686, 52);
+            this.panel1.Size = new System.Drawing.Size(954, 52);
             this.panel1.TabIndex = 8;
             // 
             // btn_salvar
@@ -73,7 +127,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btn_salvar.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btn_salvar.Location = new System.Drawing.Point(121, 10);
             this.btn_salvar.Name = "btn_salvar";
-            this.btn_salvar.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_salvar.Padding = new System.Windows.Forms.Padding(4);
             this.btn_salvar.Size = new System.Drawing.Size(104, 31);
             this.btn_salvar.TabIndex = 5;
             this.btn_salvar.Text = "Salvar";
@@ -89,7 +143,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btnclosecli.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnclosecli.Location = new System.Drawing.Point(10, 10);
             this.btnclosecli.Name = "btnclosecli";
-            this.btnclosecli.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnclosecli.Padding = new System.Windows.Forms.Padding(4);
             this.btnclosecli.Size = new System.Drawing.Size(104, 31);
             this.btnclosecli.TabIndex = 2;
             this.btnclosecli.Text = "Fechar";
@@ -104,8 +158,8 @@ namespace LMFinanciamentos.Apresentacao
             this.paneltop.Dock = System.Windows.Forms.DockStyle.Top;
             this.paneltop.Location = new System.Drawing.Point(0, 0);
             this.paneltop.Name = "paneltop";
-            this.paneltop.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.paneltop.Size = new System.Drawing.Size(686, 57);
+            this.paneltop.Padding = new System.Windows.Forms.Padding(4);
+            this.paneltop.Size = new System.Drawing.Size(954, 57);
             this.paneltop.TabIndex = 6;
             // 
             // lbl_topo
@@ -134,11 +188,478 @@ namespace LMFinanciamentos.Apresentacao
             this.img_topo.TabIndex = 5;
             this.img_topo.TabStop = false;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.tabControl);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 57);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(954, 508);
+            this.panel2.TabIndex = 9;
+            // 
+            // tabControl
+            // 
+            this.tabControl.Controls.Add(this.tabcliente);
+            this.tabControl.Controls.Add(this.tabfinanceiro);
+            this.tabControl.Controls.Add(this.tabproduto);
+            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl.Location = new System.Drawing.Point(0, 0);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(954, 508);
+            this.tabControl.TabIndex = 15;
+            // 
+            // tabcliente
+            // 
+            this.tabcliente.Controls.Add(this.groupBox1);
+            this.tabcliente.Controls.Add(this.panel3);
+            this.tabcliente.Controls.Add(this.tableLayoutPanel1);
+            this.tabcliente.Location = new System.Drawing.Point(4, 30);
+            this.tabcliente.Name = "tabcliente";
+            this.tabcliente.Padding = new System.Windows.Forms.Padding(20);
+            this.tabcliente.Size = new System.Drawing.Size(946, 474);
+            this.tabcliente.TabIndex = 0;
+            this.tabcliente.Text = "Dados do Cliente";
+            this.tabcliente.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.panel8);
+            this.groupBox1.Controls.Add(this.panel7);
+            this.groupBox1.Controls.Add(this.panel6);
+            this.groupBox1.Controls.Add(this.panel5);
+            this.groupBox1.Controls.Add(this.panel4);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(20, 187);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(6);
+            this.groupBox1.Size = new System.Drawing.Size(906, 106);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Situações:";
+            this.groupBox1.Visible = false;
+            // 
+            // panel8
+            // 
+            this.panel8.AutoSize = true;
+            this.panel8.Controls.Add(this.txtfgts);
+            this.panel8.Controls.Add(this.label24);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel8.Location = new System.Drawing.Point(738, 28);
+            this.panel8.Name = "panel8";
+            this.panel8.Padding = new System.Windows.Forms.Padding(3);
+            this.panel8.Size = new System.Drawing.Size(183, 72);
+            this.panel8.TabIndex = 10;
+            // 
+            // txtfgts
+            // 
+            this.txtfgts.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtfgts.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.txtfgts.DisplayMember = "Descricao";
+            this.txtfgts.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtfgts.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.txtfgts.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtfgts.FormattingEnabled = true;
+            this.txtfgts.Location = new System.Drawing.Point(3, 24);
+            this.txtfgts.Name = "txtfgts";
+            this.txtfgts.Size = new System.Drawing.Size(177, 29);
+            this.txtfgts.TabIndex = 20;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label24.Location = new System.Drawing.Point(3, 3);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(47, 21);
+            this.label24.TabIndex = 19;
+            this.label24.Text = "FGTS:";
+            // 
+            // panel7
+            // 
+            this.panel7.AutoSize = true;
+            this.panel7.Controls.Add(this.txtir);
+            this.panel7.Controls.Add(this.label23);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel7.Location = new System.Drawing.Point(555, 28);
+            this.panel7.Name = "panel7";
+            this.panel7.Padding = new System.Windows.Forms.Padding(3);
+            this.panel7.Size = new System.Drawing.Size(183, 72);
+            this.panel7.TabIndex = 9;
+            // 
+            // txtir
+            // 
+            this.txtir.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtir.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.txtir.DisplayMember = "Descricao";
+            this.txtir.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtir.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.txtir.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtir.FormattingEnabled = true;
+            this.txtir.Location = new System.Drawing.Point(3, 24);
+            this.txtir.Name = "txtir";
+            this.txtir.Size = new System.Drawing.Size(177, 29);
+            this.txtir.TabIndex = 20;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label23.Location = new System.Drawing.Point(3, 3);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(110, 21);
+            this.label23.TabIndex = 19;
+            this.label23.Text = "Declaração IR:";
+            // 
+            // panel6
+            // 
+            this.panel6.AutoSize = true;
+            this.panel6.Controls.Add(this.txtcadmut);
+            this.panel6.Controls.Add(this.label22);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel6.Location = new System.Drawing.Point(372, 28);
+            this.panel6.Name = "panel6";
+            this.panel6.Padding = new System.Windows.Forms.Padding(3);
+            this.panel6.Size = new System.Drawing.Size(183, 72);
+            this.panel6.TabIndex = 8;
+            // 
+            // txtcadmut
+            // 
+            this.txtcadmut.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtcadmut.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.txtcadmut.DisplayMember = "Descricao";
+            this.txtcadmut.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtcadmut.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.txtcadmut.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcadmut.FormattingEnabled = true;
+            this.txtcadmut.Location = new System.Drawing.Point(3, 24);
+            this.txtcadmut.Name = "txtcadmut";
+            this.txtcadmut.Size = new System.Drawing.Size(177, 29);
+            this.txtcadmut.TabIndex = 20;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label22.Location = new System.Drawing.Point(3, 3);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(134, 21);
+            this.label22.TabIndex = 19;
+            this.label22.Text = "Situação Cadmut:";
+            // 
+            // panel5
+            // 
+            this.panel5.AutoSize = true;
+            this.panel5.Controls.Add(this.txtciweb);
+            this.panel5.Controls.Add(this.label21);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel5.Location = new System.Drawing.Point(189, 28);
+            this.panel5.Name = "panel5";
+            this.panel5.Padding = new System.Windows.Forms.Padding(3);
+            this.panel5.Size = new System.Drawing.Size(183, 72);
+            this.panel5.TabIndex = 7;
+            // 
+            // txtciweb
+            // 
+            this.txtciweb.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtciweb.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.txtciweb.DisplayMember = "Descricao";
+            this.txtciweb.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtciweb.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.txtciweb.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtciweb.FormattingEnabled = true;
+            this.txtciweb.Location = new System.Drawing.Point(3, 24);
+            this.txtciweb.Name = "txtciweb";
+            this.txtciweb.Size = new System.Drawing.Size(177, 29);
+            this.txtciweb.TabIndex = 20;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label21.Location = new System.Drawing.Point(3, 3);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(120, 21);
+            this.label21.TabIndex = 19;
+            this.label21.Text = "Situação Ciweb:";
+            // 
+            // panel4
+            // 
+            this.panel4.AutoSize = true;
+            this.panel4.Controls.Add(this.txtStatusCPF);
+            this.panel4.Controls.Add(this.label17);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel4.Location = new System.Drawing.Point(6, 28);
+            this.panel4.Name = "panel4";
+            this.panel4.Padding = new System.Windows.Forms.Padding(3);
+            this.panel4.Size = new System.Drawing.Size(183, 72);
+            this.panel4.TabIndex = 6;
+            // 
+            // txtStatusCPF
+            // 
+            this.txtStatusCPF.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtStatusCPF.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.txtStatusCPF.DisplayMember = "Descricao";
+            this.txtStatusCPF.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtStatusCPF.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.txtStatusCPF.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStatusCPF.FormattingEnabled = true;
+            this.txtStatusCPF.Location = new System.Drawing.Point(3, 26);
+            this.txtStatusCPF.Name = "txtStatusCPF";
+            this.txtStatusCPF.Size = new System.Drawing.Size(177, 29);
+            this.txtStatusCPF.TabIndex = 20;
+            // 
+            // label17
+            // 
+            this.label17.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label17.Location = new System.Drawing.Point(3, 3);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(177, 23);
+            this.label17.TabIndex = 19;
+            this.label17.Text = "Situação CPF:";
+            // 
+            // panel3
+            // 
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(20, 172);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(906, 15);
+            this.panel3.TabIndex = 3;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 370F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 388F));
+            this.tableLayoutPanel1.Controls.Add(this.txtcelular, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label20, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.txttelefone, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label19, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.txtnasc, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.txtemail, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.lblcpf, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.txtcpf, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txtnomecli, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblcliente, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lblemail, 0, 2);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(20, 20);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(906, 152);
+            this.tableLayoutPanel1.TabIndex = 2;
+            // 
+            // txtcelular
+            // 
+            this.txtcelular.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcelular.Location = new System.Drawing.Point(538, 83);
+            this.txtcelular.Mask = "(99) 00000-0000";
+            this.txtcelular.Name = "txtcelular";
+            this.txtcelular.Size = new System.Drawing.Size(157, 29);
+            this.txtcelular.TabIndex = 24;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(538, 59);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(64, 21);
+            this.label20.TabIndex = 23;
+            this.label20.Text = "Celular:";
+            // 
+            // txttelefone
+            // 
+            this.txttelefone.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttelefone.Location = new System.Drawing.Point(373, 83);
+            this.txttelefone.Mask = "(99) 0000-0000";
+            this.txttelefone.Name = "txttelefone";
+            this.txttelefone.Size = new System.Drawing.Size(157, 29);
+            this.txttelefone.TabIndex = 22;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(373, 59);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(71, 21);
+            this.label19.TabIndex = 21;
+            this.label19.Text = "Telefone:";
+            // 
+            // txtnasc
+            // 
+            this.txtnasc.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtnasc.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtnasc.Location = new System.Drawing.Point(538, 24);
+            this.txtnasc.Name = "txtnasc";
+            this.txtnasc.Size = new System.Drawing.Size(135, 29);
+            this.txtnasc.TabIndex = 16;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Location = new System.Drawing.Point(538, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(382, 21);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Data Nasc.";
+            // 
+            // txtemail
+            // 
+            this.txtemail.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtemail.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtemail.Location = new System.Drawing.Point(3, 83);
+            this.txtemail.Name = "txtemail";
+            this.txtemail.Size = new System.Drawing.Size(364, 29);
+            this.txtemail.TabIndex = 14;
+            // 
+            // lblcpf
+            // 
+            this.lblcpf.AutoSize = true;
+            this.lblcpf.Location = new System.Drawing.Point(373, 0);
+            this.lblcpf.Name = "lblcpf";
+            this.lblcpf.Size = new System.Drawing.Size(39, 21);
+            this.lblcpf.TabIndex = 10;
+            this.lblcpf.Text = "CPF:";
+            // 
+            // txtcpf
+            // 
+            this.txtcpf.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtcpf.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcpf.Location = new System.Drawing.Point(373, 24);
+            this.txtcpf.Name = "txtcpf";
+            this.txtcpf.Size = new System.Drawing.Size(159, 32);
+            this.txtcpf.TabIndex = 6;
+            // 
+            // txtnomecli
+            // 
+            this.txtnomecli.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtnomecli.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.txtnomecli.DisplayMember = "Nome";
+            this.txtnomecli.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtnomecli.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.txtnomecli.FormattingEnabled = true;
+            this.txtnomecli.Location = new System.Drawing.Point(3, 24);
+            this.txtnomecli.Name = "txtnomecli";
+            this.txtnomecli.Size = new System.Drawing.Size(364, 29);
+            this.txtnomecli.TabIndex = 2;
+            // 
+            // lblcliente
+            // 
+            this.lblcliente.AutoSize = true;
+            this.lblcliente.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblcliente.Location = new System.Drawing.Point(3, 0);
+            this.lblcliente.Name = "lblcliente";
+            this.lblcliente.Size = new System.Drawing.Size(364, 21);
+            this.lblcliente.TabIndex = 1;
+            this.lblcliente.Text = "Nome do Cliente:";
+            // 
+            // lblemail
+            // 
+            this.lblemail.AutoSize = true;
+            this.lblemail.Location = new System.Drawing.Point(3, 59);
+            this.lblemail.Name = "lblemail";
+            this.lblemail.Size = new System.Drawing.Size(52, 21);
+            this.lblemail.TabIndex = 11;
+            this.lblemail.Text = "Email:";
+            // 
+            // tabproduto
+            // 
+            this.tabproduto.Controls.Add(this.button2);
+            this.tabproduto.Controls.Add(this.button1);
+            this.tabproduto.Controls.Add(this.img_foto);
+            this.tabproduto.Location = new System.Drawing.Point(4, 30);
+            this.tabproduto.Name = "tabproduto";
+            this.tabproduto.Padding = new System.Windows.Forms.Padding(20);
+            this.tabproduto.Size = new System.Drawing.Size(946, 474);
+            this.tabproduto.TabIndex = 3;
+            this.tabproduto.Text = "Foto";
+            this.tabproduto.UseVisualStyleBackColor = true;
+            // 
+            // tabfinanceiro
+            // 
+            this.tabfinanceiro.Controls.Add(this.txtrenda);
+            this.tabfinanceiro.Controls.Add(this.label2);
+            this.tabfinanceiro.Location = new System.Drawing.Point(4, 30);
+            this.tabfinanceiro.Name = "tabfinanceiro";
+            this.tabfinanceiro.Size = new System.Drawing.Size(946, 474);
+            this.tabfinanceiro.TabIndex = 4;
+            this.tabfinanceiro.Text = "Financeiro";
+            this.tabfinanceiro.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(343, 87);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 21);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Renda:";
+            // 
+            // txtrenda
+            // 
+            this.txtrenda.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtrenda.Location = new System.Drawing.Point(321, 143);
+            this.txtrenda.Mask = "$9.999,00";
+            this.txtrenda.Name = "txtrenda";
+            this.txtrenda.Size = new System.Drawing.Size(155, 29);
+            this.txtrenda.TabIndex = 26;
+            // 
+            // img_foto
+            // 
+            this.img_foto.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.img_foto.Image = ((System.Drawing.Image)(resources.GetObject("img_foto.Image")));
+            this.img_foto.Location = new System.Drawing.Point(64, 34);
+            this.img_foto.Name = "img_foto";
+            this.img_foto.Size = new System.Drawing.Size(227, 262);
+            this.img_foto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.img_foto.TabIndex = 0;
+            this.img_foto.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1.Location = new System.Drawing.Point(64, 316);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(4);
+            this.button1.Size = new System.Drawing.Size(104, 31);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Adicionar";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button2.Location = new System.Drawing.Point(187, 316);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(4);
+            this.button2.Size = new System.Drawing.Size(104, 31);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Delete";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
             // Form_Cadastro_cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(686, 390);
+            this.ClientSize = new System.Drawing.Size(954, 617);
             this.Controls.Add(this.panelcentralcadcli);
             this.Name = "Form_Cadastro_cliente";
             this.Text = "Form_Cadastro_cliente";
@@ -147,6 +668,26 @@ namespace LMFinanciamentos.Apresentacao
             this.paneltop.ResumeLayout(false);
             this.paneltop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.tabControl.ResumeLayout(false);
+            this.tabcliente.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            this.tabproduto.ResumeLayout(false);
+            this.tabfinanceiro.ResumeLayout(false);
+            this.tabfinanceiro.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.img_foto)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -160,5 +701,45 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btn_salvar;
         private System.Windows.Forms.Button btnclosecli;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.TabPage tabcliente;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.ComboBox txtfgts;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.ComboBox txtir;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.ComboBox txtcadmut;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.ComboBox txtciweb;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.ComboBox txtStatusCPF;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.MaskedTextBox txtcelular;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.MaskedTextBox txttelefone;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox txtnasc;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtemail;
+        private System.Windows.Forms.Label lblcpf;
+        private System.Windows.Forms.TextBox txtcpf;
+        private System.Windows.Forms.ComboBox txtnomecli;
+        private System.Windows.Forms.Label lblcliente;
+        private System.Windows.Forms.Label lblemail;
+        private System.Windows.Forms.TabPage tabfinanceiro;
+        private System.Windows.Forms.MaskedTextBox txtrenda;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TabPage tabproduto;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox img_foto;
     }
 }

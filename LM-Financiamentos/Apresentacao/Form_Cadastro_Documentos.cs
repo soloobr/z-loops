@@ -16,7 +16,7 @@ namespace LMFinanciamentos.Apresentacao
 {
     public partial class Form_Cadastro_Documentos : Form
     {
-        MySqlDataReader dr;
+        //MySqlDataReader dr;
         string idcli;
         public Form_Cadastro_Documentos()
         {
