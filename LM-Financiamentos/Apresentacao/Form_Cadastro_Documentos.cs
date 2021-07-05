@@ -43,6 +43,26 @@ namespace LMFinanciamentos.Apresentacao
 
         private void Form_Cadastro_Documentos_Load(object sender, EventArgs e)
         {
+            // TODO: esta linha de código carrega dados na tabela 'dS_Combobox1.Cartorio'. Você pode movê-la ou removê-la conforme necessário.
+            this.cartorioTableAdapter.Fill(this.dS_Combobox1.Cartorio);
+            // TODO: esta linha de código carrega dados na tabela 'dS_Combobox1.StatusCartorio'. Você pode movê-la ou removê-la conforme necessário.
+            this.statusCartorioTableAdapter.Fill(this.dS_Combobox1.StatusCartorio);
+            // TODO: esta linha de código carrega dados na tabela 'dS_Combobox2.Empreendimentos'. Você pode movê-la ou removê-la conforme necessário.
+            this.empreendimentosTableAdapter.Fill(this.dS_Combobox2.Empreendimentos);
+            // TODO: esta linha de código carrega dados na tabela 'dS_Combobox2.Vendedor'. Você pode movê-la ou removê-la conforme necessário.
+            this.vendedorTableAdapter.Fill(this.dS_Combobox2.Vendedor);
+            // TODO: esta linha de código carrega dados na tabela 'dS_Combobox2.Corretores'. Você pode movê-la ou removê-la conforme necessário.
+            this.corretoresTableAdapter.Fill(this.dS_Combobox2.Corretores);
+            // TODO: esta linha de código carrega dados na tabela 'dS_Combobox2.Corretora'. Você pode movê-la ou removê-la conforme necessário.
+            this.corretoraTableAdapter.Fill(this.dS_Combobox2.Corretora);
+            // TODO: esta linha de código carrega dados na tabela 'dS_Combobox.Programa'. Você pode movê-la ou removê-la conforme necessário.
+            this.programaTableAdapter.Fill(this.dS_Combobox.Programa);
+            // TODO: esta linha de código carrega dados na tabela 'dS_Combobox.Agencia'. Você pode movê-la ou removê-la conforme necessário.
+            this.agenciaTableAdapter.Fill(this.dS_Combobox.Agencia);
+            // TODO: esta linha de código carrega dados na tabela 'dS_Combobox1.StatusEng'. Você pode movê-la ou removê-la conforme necessário.
+            this.statusEngTableAdapter.Fill(this.dS_Combobox1.StatusEng);
+            // TODO: esta linha de código carrega dados na tabela 'dS_Combobox.StatusAnalise'. Você pode movê-la ou removê-la conforme necessário.
+            this.statusAnaliseTableAdapter.Fill(this.dS_Combobox.StatusAnalise);
             // TODO: esta linha de código carrega dados na tabela 'dS_Combobox.StatusFGTS'. Você pode movê-la ou removê-la conforme necessário.
             this.statusFGTSTableAdapter.Fill(this.dS_Combobox.StatusFGTS);
             // TODO: esta linha de código carrega dados na tabela 'dS_Combobox.StatusIR'. Você pode movê-la ou removê-la conforme necessário.
@@ -160,6 +180,50 @@ namespace LMFinanciamentos.Apresentacao
         }
 
         private void lbl_topo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox5_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+                    }
+
+        private void panel18_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void comboBox10_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel10_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
         }
