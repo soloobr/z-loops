@@ -1,15 +1,7 @@
 ﻿using LMFinanciamentos.DAL;
 using LMFinanciamentos.Entidades;
-using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LMFinanciamentos.Apresentacao
@@ -22,7 +14,7 @@ namespace LMFinanciamentos.Apresentacao
         {
             InitializeComponent();
         }
-        public void setLabel( string statuslbl)
+        public void setLabel(string statuslbl)
         {
             lblstatus.Text = statuslbl;
         }
@@ -43,6 +35,7 @@ namespace LMFinanciamentos.Apresentacao
 
         private void Form_Cadastro_Documentos_Load(object sender, EventArgs e)
         {
+            /*
             // TODO: esta linha de código carrega dados na tabela 'dS_Combobox1.Cartorio'. Você pode movê-la ou removê-la conforme necessário.
             this.cartorioTableAdapter.Fill(this.dS_Combobox1.Cartorio);
             // TODO: esta linha de código carrega dados na tabela 'dS_Combobox1.StatusCartorio'. Você pode movê-la ou removê-la conforme necessário.
@@ -70,11 +63,11 @@ namespace LMFinanciamentos.Apresentacao
             // TODO: esta linha de código carrega dados na tabela 'dS_Combobox.StatusCadmut'. Você pode movê-la ou removê-la conforme necessário.
             this.statusCadmutTableAdapter.Fill(this.dS_Combobox.StatusCadmut);
             // TODO: esta linha de código carrega dados na tabela 'dS_Combobox.StatusCiweb'. Você pode movê-la ou removê-la conforme necessário.
-            this.statusCiwebTableAdapter.Fill(this.dS_Combobox.StatusCiweb);
+            this.statusCiwebTableAdapter.Fill(this.dS_Combobox.StatusCiweb);*/
             // TODO: esta linha de código carrega dados na tabela 'dS_Clientes.Clientes'. Você pode movê-la ou removê-la conforme necessário.
             this.clientesTableAdapter.Fill(this.dS_Clientes.Clientes);
             // TODO: esta linha de código carrega dados na tabela 'dS_Combobox.StatusCPF'. Você pode movê-la ou removê-la conforme necessário.
-            this.statusCPFTableAdapter.Fill(this.dS_Combobox.StatusCPF);
+            //this.statusCPFTableAdapter.Fill(this.dS_Combobox.StatusCPF
             txtnomecli.Text = "";
             txtStatusCPF.Text = "";
             txtnomecli.Select();
@@ -142,7 +135,7 @@ namespace LMFinanciamentos.Apresentacao
         private void txtnomecli_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoginDaoComandos gett = new LoginDaoComandos();
-            Cliente  cli = new Cliente();
+            Cliente cli = new Cliente();
 
             cli = gett.GetCliente(txtnomecli.Text);
 
@@ -191,7 +184,7 @@ namespace LMFinanciamentos.Apresentacao
 
         private void label13_Click(object sender, EventArgs e)
         {
-                    }
+        }
 
         private void panel18_Paint(object sender, PaintEventArgs e)
         {
@@ -224,6 +217,11 @@ namespace LMFinanciamentos.Apresentacao
         }
 
         private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void btncancelardoc_Click(object sender, EventArgs e)
         {
 
         }

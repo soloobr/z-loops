@@ -54,24 +54,18 @@ namespace LMFinanciamentos.Apresentacao
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.txtfgts = new System.Windows.Forms.ComboBox();
-            this.statusFGTSBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dS_Combobox = new LMFinanciamentos.DAL.DS_Combobox();
             this.label24 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.txtir = new System.Windows.Forms.ComboBox();
-            this.statusIRBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label23 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.txtcadmut = new System.Windows.Forms.ComboBox();
-            this.statusCadmutBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label22 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtciweb = new System.Windows.Forms.ComboBox();
-            this.statusCiwebBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label21 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtStatusCPF = new System.Windows.Forms.ComboBox();
-            this.statusCPFBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label17 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -95,17 +89,12 @@ namespace LMFinanciamentos.Apresentacao
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.comboBox8 = new System.Windows.Forms.ComboBox();
-            this.empreendimentosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dS_Combobox2 = new LMFinanciamentos.DAL.DS_Combobox();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.vendedorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.corretoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.txtcorretora = new System.Windows.Forms.ComboBox();
-            this.corretoraBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -114,22 +103,17 @@ namespace LMFinanciamentos.Apresentacao
             this.label7 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.programaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label15 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.agenciaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label16 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel11 = new System.Windows.Forms.Panel();
             this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.statusEngBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dS_Combobox1 = new LMFinanciamentos.DAL.DS_Combobox();
             this.label28 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.comboBox7 = new System.Windows.Forms.ComboBox();
-            this.statusAnaliseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label29 = new System.Windows.Forms.Label();
             this.tabdocumentos = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
@@ -137,15 +121,12 @@ namespace LMFinanciamentos.Apresentacao
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
             this.comboBox11 = new System.Windows.Forms.ComboBox();
-            this.statusCartorioBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dSCombobox1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label18 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.panel14 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.panel13 = new System.Windows.Forms.Panel();
             this.comboBox9 = new System.Windows.Forms.ComboBox();
-            this.cartorioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label14 = new System.Windows.Forms.Label();
             this.tabdoc = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
@@ -163,23 +144,10 @@ namespace LMFinanciamentos.Apresentacao
             this.panel18 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.statusCPFTableAdapter = new LMFinanciamentos.DAL.DS_ComboboxTableAdapters.StatusCPFTableAdapter();
             this.clientesTableAdapter = new LMFinanciamentos.DAL.DS_ClientesTableAdapters.ClientesTableAdapter();
             this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
-            this.statusCiwebTableAdapter = new LMFinanciamentos.DAL.DS_ComboboxTableAdapters.StatusCiwebTableAdapter();
-            this.statusCadmutTableAdapter = new LMFinanciamentos.DAL.DS_ComboboxTableAdapters.StatusCadmutTableAdapter();
-            this.statusIRTableAdapter = new LMFinanciamentos.DAL.DS_ComboboxTableAdapters.StatusIRTableAdapter();
-            this.statusFGTSTableAdapter = new LMFinanciamentos.DAL.DS_ComboboxTableAdapters.StatusFGTSTableAdapter();
-            this.statusAnaliseTableAdapter = new LMFinanciamentos.DAL.DS_ComboboxTableAdapters.StatusAnaliseTableAdapter();
-            this.statusEngTableAdapter = new LMFinanciamentos.DAL.DS_ComboboxTableAdapters.StatusEngTableAdapter();
-            this.agenciaTableAdapter = new LMFinanciamentos.DAL.DS_ComboboxTableAdapters.AgenciaTableAdapter();
-            this.programaTableAdapter = new LMFinanciamentos.DAL.DS_ComboboxTableAdapters.ProgramaTableAdapter();
-            this.corretoraTableAdapter = new LMFinanciamentos.DAL.DS_ComboboxTableAdapters.CorretoraTableAdapter();
-            this.corretoresTableAdapter = new LMFinanciamentos.DAL.DS_ComboboxTableAdapters.CorretoresTableAdapter();
-            this.vendedorTableAdapter = new LMFinanciamentos.DAL.DS_ComboboxTableAdapters.VendedorTableAdapter();
-            this.empreendimentosTableAdapter = new LMFinanciamentos.DAL.DS_ComboboxTableAdapters.EmpreendimentosTableAdapter();
-            this.statusCartorioTableAdapter = new LMFinanciamentos.DAL.DS_ComboboxTableAdapters.StatusCartorioTableAdapter();
-            this.cartorioTableAdapter = new LMFinanciamentos.DAL.DS_ComboboxTableAdapters.CartorioTableAdapter();
+            this.clientesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.clientesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dS_Documentos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSDocumentosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.processosBindingSource)).BeginInit();
@@ -194,51 +162,32 @@ namespace LMFinanciamentos.Apresentacao
             this.tabcliente.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.statusFGTSBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS_Combobox)).BeginInit();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.statusIRBindingSource)).BeginInit();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.statusCadmutBindingSource)).BeginInit();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.statusCiwebBindingSource)).BeginInit();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.statusCPFBindingSource)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
             this.tabproduto.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.empreendimentosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS_Combobox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vendedorBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.corretoresBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.corretoraBindingSource)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.programaBindingSource)).BeginInit();
             this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.agenciaBindingSource)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.statusEngBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS_Combobox1)).BeginInit();
             this.panel12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.statusAnaliseBindingSource)).BeginInit();
             this.tabdocumentos.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.panel16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.statusCartorioBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSCombobox1BindingSource)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cartorioBindingSource)).BeginInit();
             this.tabdoc.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -246,6 +195,8 @@ namespace LMFinanciamentos.Apresentacao
             this.groupBox8.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel18.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // btnsalvardoc
@@ -307,7 +258,7 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.lbl_topo.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.lbl_topo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbl_topo.Font = new System.Drawing.Font("Poppins", 20.25F, System.Drawing.FontStyle.Bold);
+            this.lbl_topo.Font = new System.Drawing.Font("Poppins", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_topo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
             this.lbl_topo.Location = new System.Drawing.Point(56, 4);
             this.lbl_topo.Margin = new System.Windows.Forms.Padding(3);
@@ -335,7 +286,7 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.lblstatus.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.lblstatus.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblstatus.Font = new System.Drawing.Font("Poppins", 20.25F, System.Drawing.FontStyle.Bold);
+            this.lblstatus.Font = new System.Drawing.Font("Poppins", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblstatus.ForeColor = System.Drawing.Color.Black;
             this.lblstatus.Location = new System.Drawing.Point(609, 4);
             this.lblstatus.Margin = new System.Windows.Forms.Padding(3);
@@ -380,7 +331,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panel1.Controls.Add(this.btnsalvardoc);
             this.panel1.Controls.Add(this.btncloseconf);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 671);
+            this.panel1.Location = new System.Drawing.Point(0, 521);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(10);
             this.panel1.Size = new System.Drawing.Size(992, 52);
@@ -400,6 +351,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btncancelardoc.TabIndex = 5;
             this.btncancelardoc.Text = "Cancelar";
             this.btncancelardoc.UseVisualStyleBackColor = false;
+            this.btncancelardoc.Click += new System.EventHandler(this.btncancelardoc_Click);
             // 
             // splitter1
             // 
@@ -424,7 +376,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tabControl.Location = new System.Drawing.Point(0, 57);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(992, 614);
+            this.tabControl.Size = new System.Drawing.Size(992, 464);
             this.tabControl.TabIndex = 14;
             // 
             // tabcliente
@@ -432,10 +384,10 @@ namespace LMFinanciamentos.Apresentacao
             this.tabcliente.Controls.Add(this.groupBox1);
             this.tabcliente.Controls.Add(this.panel2);
             this.tabcliente.Controls.Add(this.tableLayoutPanel1);
-            this.tabcliente.Location = new System.Drawing.Point(4, 30);
+            this.tabcliente.Location = new System.Drawing.Point(4, 32);
             this.tabcliente.Name = "tabcliente";
             this.tabcliente.Padding = new System.Windows.Forms.Padding(20);
-            this.tabcliente.Size = new System.Drawing.Size(984, 580);
+            this.tabcliente.Size = new System.Drawing.Size(984, 428);
             this.tabcliente.TabIndex = 0;
             this.tabcliente.Text = "Dados do Cliente";
             this.tabcliente.UseVisualStyleBackColor = true;
@@ -462,36 +414,29 @@ namespace LMFinanciamentos.Apresentacao
             this.panel8.Controls.Add(this.txtfgts);
             this.panel8.Controls.Add(this.label24);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel8.Location = new System.Drawing.Point(738, 28);
+            this.panel8.Location = new System.Drawing.Point(738, 26);
             this.panel8.Name = "panel8";
             this.panel8.Padding = new System.Windows.Forms.Padding(3);
-            this.panel8.Size = new System.Drawing.Size(183, 72);
+            this.panel8.Size = new System.Drawing.Size(183, 74);
             this.panel8.TabIndex = 10;
             // 
             // txtfgts
             // 
             this.txtfgts.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtfgts.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.txtfgts.DataSource = this.statusFGTSBindingSource;
-            this.txtfgts.DisplayMember = "Descricao";
             this.txtfgts.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtfgts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtfgts.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.txtfgts.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtfgts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtfgts.FormattingEnabled = true;
-            this.txtfgts.Location = new System.Drawing.Point(3, 24);
+            this.txtfgts.Items.AddRange(new object[] {
+            "Não Consultado",
+            "Já subsidiado",
+            "Não subsidiado"});
+            this.txtfgts.Location = new System.Drawing.Point(3, 26);
             this.txtfgts.Name = "txtfgts";
-            this.txtfgts.Size = new System.Drawing.Size(177, 29);
+            this.txtfgts.Size = new System.Drawing.Size(177, 24);
             this.txtfgts.TabIndex = 20;
-            // 
-            // statusFGTSBindingSource
-            // 
-            this.statusFGTSBindingSource.DataMember = "StatusFGTS";
-            this.statusFGTSBindingSource.DataSource = this.dS_Combobox;
-            // 
-            // dS_Combobox
-            // 
-            this.dS_Combobox.DataSetName = "DS_Combobox";
-            this.dS_Combobox.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label24
             // 
@@ -499,7 +444,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label24.Dock = System.Windows.Forms.DockStyle.Top;
             this.label24.Location = new System.Drawing.Point(3, 3);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(47, 21);
+            this.label24.Size = new System.Drawing.Size(47, 23);
             this.label24.TabIndex = 19;
             this.label24.Text = "FGTS:";
             // 
@@ -509,31 +454,29 @@ namespace LMFinanciamentos.Apresentacao
             this.panel7.Controls.Add(this.txtir);
             this.panel7.Controls.Add(this.label23);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel7.Location = new System.Drawing.Point(555, 28);
+            this.panel7.Location = new System.Drawing.Point(555, 26);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(3);
-            this.panel7.Size = new System.Drawing.Size(183, 72);
+            this.panel7.Size = new System.Drawing.Size(183, 74);
             this.panel7.TabIndex = 9;
             // 
             // txtir
             // 
             this.txtir.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtir.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.txtir.DataSource = this.statusIRBindingSource;
-            this.txtir.DisplayMember = "Descricao";
             this.txtir.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtir.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtir.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.txtir.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtir.FormattingEnabled = true;
-            this.txtir.Location = new System.Drawing.Point(3, 24);
+            this.txtir.Items.AddRange(new object[] {
+            "Não consultado",
+            "Isento",
+            "Declarado"});
+            this.txtir.Location = new System.Drawing.Point(3, 26);
             this.txtir.Name = "txtir";
-            this.txtir.Size = new System.Drawing.Size(177, 29);
+            this.txtir.Size = new System.Drawing.Size(177, 24);
             this.txtir.TabIndex = 20;
-            // 
-            // statusIRBindingSource
-            // 
-            this.statusIRBindingSource.DataMember = "StatusIR";
-            this.statusIRBindingSource.DataSource = this.dS_Combobox;
             // 
             // label23
             // 
@@ -541,7 +484,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label23.Dock = System.Windows.Forms.DockStyle.Top;
             this.label23.Location = new System.Drawing.Point(3, 3);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(110, 21);
+            this.label23.Size = new System.Drawing.Size(107, 23);
             this.label23.TabIndex = 19;
             this.label23.Text = "Declaração IR:";
             // 
@@ -551,31 +494,30 @@ namespace LMFinanciamentos.Apresentacao
             this.panel6.Controls.Add(this.txtcadmut);
             this.panel6.Controls.Add(this.label22);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel6.Location = new System.Drawing.Point(372, 28);
+            this.panel6.Location = new System.Drawing.Point(372, 26);
             this.panel6.Name = "panel6";
             this.panel6.Padding = new System.Windows.Forms.Padding(3);
-            this.panel6.Size = new System.Drawing.Size(183, 72);
+            this.panel6.Size = new System.Drawing.Size(183, 74);
             this.panel6.TabIndex = 8;
             // 
             // txtcadmut
             // 
             this.txtcadmut.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtcadmut.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.txtcadmut.DataSource = this.statusCadmutBindingSource;
-            this.txtcadmut.DisplayMember = "Descricao";
             this.txtcadmut.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtcadmut.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtcadmut.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.txtcadmut.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcadmut.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcadmut.FormattingEnabled = true;
-            this.txtcadmut.Location = new System.Drawing.Point(3, 24);
+            this.txtcadmut.Items.AddRange(new object[] {
+            "Não consultado",
+            "Ativo",
+            "Inativo",
+            "Nada consta"});
+            this.txtcadmut.Location = new System.Drawing.Point(3, 26);
             this.txtcadmut.Name = "txtcadmut";
-            this.txtcadmut.Size = new System.Drawing.Size(177, 29);
+            this.txtcadmut.Size = new System.Drawing.Size(177, 24);
             this.txtcadmut.TabIndex = 20;
-            // 
-            // statusCadmutBindingSource
-            // 
-            this.statusCadmutBindingSource.DataMember = "StatusCadmut";
-            this.statusCadmutBindingSource.DataSource = this.dS_Combobox;
             // 
             // label22
             // 
@@ -583,7 +525,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label22.Dock = System.Windows.Forms.DockStyle.Top;
             this.label22.Location = new System.Drawing.Point(3, 3);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(134, 21);
+            this.label22.Size = new System.Drawing.Size(133, 23);
             this.label22.TabIndex = 19;
             this.label22.Text = "Situação Cadmut:";
             // 
@@ -593,31 +535,30 @@ namespace LMFinanciamentos.Apresentacao
             this.panel5.Controls.Add(this.txtciweb);
             this.panel5.Controls.Add(this.label21);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel5.Location = new System.Drawing.Point(189, 28);
+            this.panel5.Location = new System.Drawing.Point(189, 26);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(3);
-            this.panel5.Size = new System.Drawing.Size(183, 72);
+            this.panel5.Size = new System.Drawing.Size(183, 74);
             this.panel5.TabIndex = 7;
             // 
             // txtciweb
             // 
             this.txtciweb.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtciweb.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.txtciweb.DataSource = this.statusCiwebBindingSource;
-            this.txtciweb.DisplayMember = "Descricao";
             this.txtciweb.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtciweb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtciweb.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.txtciweb.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtciweb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtciweb.FormattingEnabled = true;
-            this.txtciweb.Location = new System.Drawing.Point(3, 24);
+            this.txtciweb.Items.AddRange(new object[] {
+            "Não Consultado",
+            "Ativo",
+            "Inativo ",
+            "Nada consta"});
+            this.txtciweb.Location = new System.Drawing.Point(3, 26);
             this.txtciweb.Name = "txtciweb";
-            this.txtciweb.Size = new System.Drawing.Size(177, 29);
+            this.txtciweb.Size = new System.Drawing.Size(177, 24);
             this.txtciweb.TabIndex = 20;
-            // 
-            // statusCiwebBindingSource
-            // 
-            this.statusCiwebBindingSource.DataMember = "StatusCiweb";
-            this.statusCiwebBindingSource.DataSource = this.dS_Combobox;
             // 
             // label21
             // 
@@ -625,7 +566,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label21.Dock = System.Windows.Forms.DockStyle.Top;
             this.label21.Location = new System.Drawing.Point(3, 3);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(120, 21);
+            this.label21.Size = new System.Drawing.Size(119, 23);
             this.label21.TabIndex = 19;
             this.label21.Text = "Situação Ciweb:";
             // 
@@ -635,31 +576,36 @@ namespace LMFinanciamentos.Apresentacao
             this.panel4.Controls.Add(this.txtStatusCPF);
             this.panel4.Controls.Add(this.label17);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel4.Location = new System.Drawing.Point(6, 28);
+            this.panel4.Location = new System.Drawing.Point(6, 26);
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(3);
-            this.panel4.Size = new System.Drawing.Size(183, 72);
+            this.panel4.Size = new System.Drawing.Size(183, 74);
             this.panel4.TabIndex = 6;
             // 
             // txtStatusCPF
             // 
-            this.txtStatusCPF.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtStatusCPF.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.txtStatusCPF.DataSource = this.statusCPFBindingSource;
-            this.txtStatusCPF.DisplayMember = "Descricao";
+            this.txtStatusCPF.AutoCompleteCustomSource.AddRange(new string[] {
+            "Não Consultado",
+            "Com Restrição",
+            "Divergente RF",
+            "Nada Consta",
+            "Bloqueado em outro CCA"});
             this.txtStatusCPF.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtStatusCPF.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtStatusCPF.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.txtStatusCPF.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStatusCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStatusCPF.FormattingEnabled = true;
+            this.txtStatusCPF.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.txtStatusCPF.Items.AddRange(new object[] {
+            "Não Consultado",
+            "Com Restrição",
+            "Divergente RF",
+            "Nada Consta",
+            "Bloqueado em outro CCA"});
             this.txtStatusCPF.Location = new System.Drawing.Point(3, 26);
             this.txtStatusCPF.Name = "txtStatusCPF";
-            this.txtStatusCPF.Size = new System.Drawing.Size(177, 29);
+            this.txtStatusCPF.Size = new System.Drawing.Size(177, 24);
             this.txtStatusCPF.TabIndex = 20;
-            // 
-            // statusCPFBindingSource
-            // 
-            this.statusCPFBindingSource.DataMember = "StatusCPF";
-            this.statusCPFBindingSource.DataSource = this.dS_Combobox;
             // 
             // label17
             // 
@@ -683,7 +629,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 370F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 409F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 411F));
             this.tableLayoutPanel1.Controls.Add(this.txtrenda, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.txtcelular, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.label20, 2, 2);
@@ -714,66 +660,66 @@ namespace LMFinanciamentos.Apresentacao
             // 
             // txtrenda
             // 
-            this.txtrenda.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtrenda.Location = new System.Drawing.Point(3, 139);
+            this.txtrenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtrenda.Location = new System.Drawing.Point(3, 130);
             this.txtrenda.Mask = "$9.999,00";
             this.txtrenda.Name = "txtrenda";
-            this.txtrenda.Size = new System.Drawing.Size(155, 29);
+            this.txtrenda.Size = new System.Drawing.Size(155, 22);
             this.txtrenda.TabIndex = 25;
             // 
             // txtcelular
             // 
-            this.txtcelular.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcelular.Location = new System.Drawing.Point(538, 83);
+            this.txtcelular.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcelular.Location = new System.Drawing.Point(538, 79);
             this.txtcelular.Mask = "(99) 00000-0000";
             this.txtcelular.Name = "txtcelular";
-            this.txtcelular.Size = new System.Drawing.Size(157, 29);
+            this.txtcelular.Size = new System.Drawing.Size(157, 22);
             this.txtcelular.TabIndex = 24;
             this.txtcelular.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox2_MaskInputRejected);
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(538, 59);
+            this.label20.Location = new System.Drawing.Point(538, 53);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(64, 21);
+            this.label20.Size = new System.Drawing.Size(64, 23);
             this.label20.TabIndex = 23;
             this.label20.Text = "Celular:";
             // 
             // txttelefone
             // 
-            this.txttelefone.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttelefone.Location = new System.Drawing.Point(373, 83);
+            this.txttelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttelefone.Location = new System.Drawing.Point(373, 79);
             this.txttelefone.Mask = "(99) 0000-0000";
             this.txttelefone.Name = "txttelefone";
-            this.txttelefone.Size = new System.Drawing.Size(157, 29);
+            this.txttelefone.Size = new System.Drawing.Size(157, 22);
             this.txttelefone.TabIndex = 22;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(373, 59);
+            this.label19.Location = new System.Drawing.Point(373, 53);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(71, 21);
+            this.label19.Size = new System.Drawing.Size(72, 23);
             this.label19.TabIndex = 21;
             this.label19.Text = "Telefone:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 115);
+            this.label2.Location = new System.Drawing.Point(3, 104);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 21);
+            this.label2.Size = new System.Drawing.Size(57, 23);
             this.label2.TabIndex = 20;
             this.label2.Text = "Renda:";
             // 
             // txtnasc
             // 
             this.txtnasc.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtnasc.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnasc.Location = new System.Drawing.Point(538, 24);
+            this.txtnasc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtnasc.Location = new System.Drawing.Point(538, 26);
             this.txtnasc.Name = "txtnasc";
-            this.txtnasc.Size = new System.Drawing.Size(135, 29);
+            this.txtnasc.Size = new System.Drawing.Size(135, 22);
             this.txtnasc.TabIndex = 16;
             // 
             // label1
@@ -782,17 +728,17 @@ namespace LMFinanciamentos.Apresentacao
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Location = new System.Drawing.Point(538, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(403, 21);
+            this.label1.Size = new System.Drawing.Size(405, 23);
             this.label1.TabIndex = 15;
             this.label1.Text = "Data Nasc.";
             // 
             // txtemail
             // 
             this.txtemail.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtemail.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtemail.Location = new System.Drawing.Point(3, 83);
+            this.txtemail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtemail.Location = new System.Drawing.Point(3, 79);
             this.txtemail.Name = "txtemail";
-            this.txtemail.Size = new System.Drawing.Size(364, 29);
+            this.txtemail.Size = new System.Drawing.Size(364, 22);
             this.txtemail.TabIndex = 14;
             // 
             // lblcpf
@@ -800,32 +746,31 @@ namespace LMFinanciamentos.Apresentacao
             this.lblcpf.AutoSize = true;
             this.lblcpf.Location = new System.Drawing.Point(373, 0);
             this.lblcpf.Name = "lblcpf";
-            this.lblcpf.Size = new System.Drawing.Size(39, 21);
+            this.lblcpf.Size = new System.Drawing.Size(39, 23);
             this.lblcpf.TabIndex = 10;
             this.lblcpf.Text = "CPF:";
             // 
             // txtcpf
             // 
             this.txtcpf.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtcpf.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcpf.Location = new System.Drawing.Point(373, 24);
+            this.txtcpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcpf.Location = new System.Drawing.Point(373, 26);
             this.txtcpf.Name = "txtcpf";
-            this.txtcpf.Size = new System.Drawing.Size(159, 32);
+            this.txtcpf.Size = new System.Drawing.Size(159, 24);
             this.txtcpf.TabIndex = 6;
             this.txtcpf.TextChanged += new System.EventHandler(this.txtcpf_TextChanged_1);
             // 
             // txtnomecli
             // 
-            this.txtnomecli.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtnomecli.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.txtnomecli.DataSource = this.clientesBindingSource;
             this.txtnomecli.DisplayMember = "Nome";
             this.txtnomecli.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtnomecli.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
             this.txtnomecli.FormattingEnabled = true;
-            this.txtnomecli.Location = new System.Drawing.Point(3, 24);
+            this.txtnomecli.Location = new System.Drawing.Point(3, 26);
             this.txtnomecli.Name = "txtnomecli";
-            this.txtnomecli.Size = new System.Drawing.Size(364, 29);
+            this.txtnomecli.Size = new System.Drawing.Size(364, 31);
             this.txtnomecli.TabIndex = 2;
             this.txtnomecli.SelectedIndexChanged += new System.EventHandler(this.txtnomecli_SelectedIndexChanged);
             // 
@@ -840,16 +785,16 @@ namespace LMFinanciamentos.Apresentacao
             this.lblcliente.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblcliente.Location = new System.Drawing.Point(3, 0);
             this.lblcliente.Name = "lblcliente";
-            this.lblcliente.Size = new System.Drawing.Size(364, 21);
+            this.lblcliente.Size = new System.Drawing.Size(364, 23);
             this.lblcliente.TabIndex = 1;
             this.lblcliente.Text = "Nome do Cliente:";
             // 
             // lblemail
             // 
             this.lblemail.AutoSize = true;
-            this.lblemail.Location = new System.Drawing.Point(3, 59);
+            this.lblemail.Location = new System.Drawing.Point(3, 53);
             this.lblemail.Name = "lblemail";
-            this.lblemail.Size = new System.Drawing.Size(52, 21);
+            this.lblemail.Size = new System.Drawing.Size(52, 23);
             this.lblemail.TabIndex = 11;
             this.lblemail.Text = "Email:";
             // 
@@ -858,10 +803,10 @@ namespace LMFinanciamentos.Apresentacao
             this.tabproduto.Controls.Add(this.tableLayoutPanel5);
             this.tabproduto.Controls.Add(this.tableLayoutPanel4);
             this.tabproduto.Controls.Add(this.tableLayoutPanel3);
-            this.tabproduto.Location = new System.Drawing.Point(4, 30);
+            this.tabproduto.Location = new System.Drawing.Point(4, 32);
             this.tabproduto.Name = "tabproduto";
             this.tabproduto.Padding = new System.Windows.Forms.Padding(20);
-            this.tabproduto.Size = new System.Drawing.Size(984, 580);
+            this.tabproduto.Size = new System.Drawing.Size(984, 428);
             this.tabproduto.TabIndex = 3;
             this.tabproduto.Text = "Dados Produto";
             this.tabproduto.UseVisualStyleBackColor = true;
@@ -906,48 +851,36 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel2.Controls.Add(this.txtcorretora, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(6, 28);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(6, 26);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 4;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(926, 125);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(926, 127);
             this.tableLayoutPanel2.TabIndex = 21;
             // 
             // comboBox8
             // 
             this.comboBox8.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.comboBox8.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox8.DataSource = this.empreendimentosBindingSource;
-            this.comboBox8.DisplayMember = "Descricao";
             this.comboBox8.Dock = System.Windows.Forms.DockStyle.Left;
             this.comboBox8.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.comboBox8.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Location = new System.Drawing.Point(3, 80);
+            this.comboBox8.Location = new System.Drawing.Point(3, 79);
             this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(318, 29);
+            this.comboBox8.Size = new System.Drawing.Size(318, 24);
             this.comboBox8.TabIndex = 27;
-            // 
-            // empreendimentosBindingSource
-            // 
-            this.empreendimentosBindingSource.DataMember = "Empreendimentos";
-            this.empreendimentosBindingSource.DataSource = this.dS_Combobox2;
-            // 
-            // dS_Combobox2
-            // 
-            this.dS_Combobox2.DataSetName = "DS_Combobox";
-            this.dS_Combobox2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label6.Location = new System.Drawing.Point(3, 56);
+            this.label6.Location = new System.Drawing.Point(3, 53);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(335, 21);
+            this.label6.Size = new System.Drawing.Size(335, 23);
             this.label6.TabIndex = 26;
             this.label6.Text = "Empreendimento:";
             // 
@@ -955,21 +888,14 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.comboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox2.DataSource = this.vendedorBindingSource;
-            this.comboBox2.DisplayMember = "Nome";
             this.comboBox2.Dock = System.Windows.Forms.DockStyle.Left;
             this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.comboBox2.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(685, 24);
+            this.comboBox2.Location = new System.Drawing.Point(685, 26);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(237, 29);
+            this.comboBox2.Size = new System.Drawing.Size(237, 24);
             this.comboBox2.TabIndex = 25;
-            // 
-            // vendedorBindingSource
-            // 
-            this.vendedorBindingSource.DataMember = "Vendedor";
-            this.vendedorBindingSource.DataSource = this.dS_Combobox2;
             // 
             // label5
             // 
@@ -977,7 +903,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label5.Dock = System.Windows.Forms.DockStyle.Top;
             this.label5.Location = new System.Drawing.Point(685, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(238, 21);
+            this.label5.Size = new System.Drawing.Size(238, 23);
             this.label5.TabIndex = 24;
             this.label5.Text = "Vendedor:";
             // 
@@ -985,21 +911,14 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox1.DataSource = this.corretoresBindingSource;
-            this.comboBox1.DisplayMember = "Nome";
             this.comboBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.comboBox1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(344, 24);
+            this.comboBox1.Location = new System.Drawing.Point(344, 26);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(242, 29);
+            this.comboBox1.Size = new System.Drawing.Size(242, 24);
             this.comboBox1.TabIndex = 23;
-            // 
-            // corretoresBindingSource
-            // 
-            this.corretoresBindingSource.DataMember = "Corretores";
-            this.corretoresBindingSource.DataSource = this.dS_Combobox2;
             // 
             // label4
             // 
@@ -1007,7 +926,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label4.Dock = System.Windows.Forms.DockStyle.Top;
             this.label4.Location = new System.Drawing.Point(344, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(335, 21);
+            this.label4.Size = new System.Drawing.Size(335, 23);
             this.label4.TabIndex = 22;
             this.label4.Text = "Corretor:";
             // 
@@ -1015,21 +934,14 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.txtcorretora.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtcorretora.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.txtcorretora.DataSource = this.corretoraBindingSource;
-            this.txtcorretora.DisplayMember = "Descricao";
             this.txtcorretora.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtcorretora.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.txtcorretora.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcorretora.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcorretora.FormattingEnabled = true;
-            this.txtcorretora.Location = new System.Drawing.Point(3, 24);
+            this.txtcorretora.Location = new System.Drawing.Point(3, 26);
             this.txtcorretora.Name = "txtcorretora";
-            this.txtcorretora.Size = new System.Drawing.Size(290, 29);
+            this.txtcorretora.Size = new System.Drawing.Size(290, 24);
             this.txtcorretora.TabIndex = 21;
-            // 
-            // corretoraBindingSource
-            // 
-            this.corretoraBindingSource.DataMember = "Corretora";
-            this.corretoraBindingSource.DataSource = this.dS_Combobox2;
             // 
             // label3
             // 
@@ -1037,7 +949,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label3.Dock = System.Windows.Forms.DockStyle.Top;
             this.label3.Location = new System.Drawing.Point(3, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(335, 21);
+            this.label3.Size = new System.Drawing.Size(335, 23);
             this.label3.TabIndex = 3;
             this.label3.Text = "Corretora:";
             // 
@@ -1074,21 +986,21 @@ namespace LMFinanciamentos.Apresentacao
             this.panel10.Controls.Add(this.maskedTextBox1);
             this.panel10.Controls.Add(this.label7);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel10.Location = new System.Drawing.Point(372, 28);
+            this.panel10.Location = new System.Drawing.Point(372, 26);
             this.panel10.Name = "panel10";
             this.panel10.Padding = new System.Windows.Forms.Padding(3);
-            this.panel10.Size = new System.Drawing.Size(161, 72);
+            this.panel10.Size = new System.Drawing.Size(161, 74);
             this.panel10.TabIndex = 8;
             this.panel10.Paint += new System.Windows.Forms.PaintEventHandler(this.panel10_Paint);
             // 
             // maskedTextBox1
             // 
             this.maskedTextBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.maskedTextBox1.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox1.Location = new System.Drawing.Point(3, 24);
+            this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBox1.Location = new System.Drawing.Point(3, 26);
             this.maskedTextBox1.Mask = "$999.999,00";
             this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(155, 32);
+            this.maskedTextBox1.Size = new System.Drawing.Size(155, 24);
             this.maskedTextBox1.TabIndex = 26;
             this.maskedTextBox1.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
             // 
@@ -1098,7 +1010,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label7.Dock = System.Windows.Forms.DockStyle.Top;
             this.label7.Location = new System.Drawing.Point(3, 3);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(129, 21);
+            this.label7.Size = new System.Drawing.Size(127, 23);
             this.label7.TabIndex = 19;
             this.label7.Text = "Valor do produto:";
             this.label7.Click += new System.EventHandler(this.label7_Click);
@@ -1109,31 +1021,24 @@ namespace LMFinanciamentos.Apresentacao
             this.panel3.Controls.Add(this.comboBox3);
             this.panel3.Controls.Add(this.label15);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(189, 28);
+            this.panel3.Location = new System.Drawing.Point(189, 26);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(3);
-            this.panel3.Size = new System.Drawing.Size(183, 72);
+            this.panel3.Size = new System.Drawing.Size(183, 74);
             this.panel3.TabIndex = 7;
             // 
             // comboBox3
             // 
             this.comboBox3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.comboBox3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox3.DataSource = this.programaBindingSource;
-            this.comboBox3.DisplayMember = "Descricao";
             this.comboBox3.Dock = System.Windows.Forms.DockStyle.Left;
             this.comboBox3.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.comboBox3.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(3, 24);
+            this.comboBox3.Location = new System.Drawing.Point(3, 26);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(177, 29);
+            this.comboBox3.Size = new System.Drawing.Size(177, 24);
             this.comboBox3.TabIndex = 20;
-            // 
-            // programaBindingSource
-            // 
-            this.programaBindingSource.DataMember = "Programa";
-            this.programaBindingSource.DataSource = this.dS_Combobox;
             // 
             // label15
             // 
@@ -1141,7 +1046,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label15.Dock = System.Windows.Forms.DockStyle.Top;
             this.label15.Location = new System.Drawing.Point(3, 3);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(83, 21);
+            this.label15.Size = new System.Drawing.Size(83, 23);
             this.label15.TabIndex = 19;
             this.label15.Text = "Programa:";
             // 
@@ -1151,31 +1056,24 @@ namespace LMFinanciamentos.Apresentacao
             this.panel9.Controls.Add(this.comboBox4);
             this.panel9.Controls.Add(this.label16);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel9.Location = new System.Drawing.Point(6, 28);
+            this.panel9.Location = new System.Drawing.Point(6, 26);
             this.panel9.Name = "panel9";
             this.panel9.Padding = new System.Windows.Forms.Padding(3);
-            this.panel9.Size = new System.Drawing.Size(183, 72);
+            this.panel9.Size = new System.Drawing.Size(183, 74);
             this.panel9.TabIndex = 6;
             // 
             // comboBox4
             // 
             this.comboBox4.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.comboBox4.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox4.DataSource = this.agenciaBindingSource;
-            this.comboBox4.DisplayMember = "Agencia";
             this.comboBox4.Dock = System.Windows.Forms.DockStyle.Left;
             this.comboBox4.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.comboBox4.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Location = new System.Drawing.Point(3, 26);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(177, 29);
+            this.comboBox4.Size = new System.Drawing.Size(177, 24);
             this.comboBox4.TabIndex = 20;
-            // 
-            // agenciaBindingSource
-            // 
-            this.agenciaBindingSource.DataMember = "Agencia";
-            this.agenciaBindingSource.DataSource = this.dS_Combobox;
             // 
             // label16
             // 
@@ -1218,36 +1116,32 @@ namespace LMFinanciamentos.Apresentacao
             this.panel11.Controls.Add(this.comboBox6);
             this.panel11.Controls.Add(this.label28);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel11.Location = new System.Drawing.Point(189, 28);
+            this.panel11.Location = new System.Drawing.Point(189, 26);
             this.panel11.Name = "panel11";
             this.panel11.Padding = new System.Windows.Forms.Padding(3);
-            this.panel11.Size = new System.Drawing.Size(183, 72);
+            this.panel11.Size = new System.Drawing.Size(183, 74);
             this.panel11.TabIndex = 7;
             // 
             // comboBox6
             // 
             this.comboBox6.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.comboBox6.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox6.DataSource = this.statusEngBindingSource;
-            this.comboBox6.DisplayMember = "Descricao";
             this.comboBox6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.comboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox6.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.comboBox6.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(3, 24);
+            this.comboBox6.Items.AddRange(new object[] {
+            "Não Consultado",
+            "Aguardando Pagamento",
+            "Aprovado Abaixo",
+            "Aprovado Normal",
+            "Contestação",
+            "Solicitado"});
+            this.comboBox6.Location = new System.Drawing.Point(3, 26);
             this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(177, 29);
+            this.comboBox6.Size = new System.Drawing.Size(177, 24);
             this.comboBox6.TabIndex = 20;
-            // 
-            // statusEngBindingSource
-            // 
-            this.statusEngBindingSource.DataMember = "StatusEng";
-            this.statusEngBindingSource.DataSource = this.dS_Combobox1;
-            // 
-            // dS_Combobox1
-            // 
-            this.dS_Combobox1.DataSetName = "DS_Combobox";
-            this.dS_Combobox1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label28
             // 
@@ -1255,7 +1149,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label28.Dock = System.Windows.Forms.DockStyle.Top;
             this.label28.Location = new System.Drawing.Point(3, 3);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(89, 21);
+            this.label28.Size = new System.Drawing.Size(89, 23);
             this.label28.TabIndex = 19;
             this.label28.Text = "Status Eng.:";
             // 
@@ -1265,31 +1159,34 @@ namespace LMFinanciamentos.Apresentacao
             this.panel12.Controls.Add(this.comboBox7);
             this.panel12.Controls.Add(this.label29);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel12.Location = new System.Drawing.Point(6, 28);
+            this.panel12.Location = new System.Drawing.Point(6, 26);
             this.panel12.Name = "panel12";
             this.panel12.Padding = new System.Windows.Forms.Padding(3);
-            this.panel12.Size = new System.Drawing.Size(183, 72);
+            this.panel12.Size = new System.Drawing.Size(183, 74);
             this.panel12.TabIndex = 6;
             // 
             // comboBox7
             // 
             this.comboBox7.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.comboBox7.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox7.DataSource = this.statusAnaliseBindingSource;
-            this.comboBox7.DisplayMember = "Descricao";
             this.comboBox7.Dock = System.Windows.Forms.DockStyle.Left;
+            this.comboBox7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox7.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.comboBox7.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox7.FormattingEnabled = true;
+            this.comboBox7.Items.AddRange(new object[] {
+            "Não Consultado",
+            "Aprovado",
+            "Condicionado",
+            "Em analise",
+            "Reprovado",
+            "Comando",
+            "Desistiu",
+            "Bloqueado em ourto CCA"});
             this.comboBox7.Location = new System.Drawing.Point(3, 26);
             this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(177, 29);
+            this.comboBox7.Size = new System.Drawing.Size(177, 24);
             this.comboBox7.TabIndex = 20;
-            // 
-            // statusAnaliseBindingSource
-            // 
-            this.statusAnaliseBindingSource.DataMember = "StatusAnalise";
-            this.statusAnaliseBindingSource.DataSource = this.dS_Combobox;
             // 
             // label29
             // 
@@ -1304,10 +1201,10 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.tabdocumentos.Controls.Add(this.tableLayoutPanel6);
             this.tabdocumentos.Controls.Add(this.groupBox5);
-            this.tabdocumentos.Location = new System.Drawing.Point(4, 30);
+            this.tabdocumentos.Location = new System.Drawing.Point(4, 32);
             this.tabdocumentos.Name = "tabdocumentos";
             this.tabdocumentos.Padding = new System.Windows.Forms.Padding(20);
-            this.tabdocumentos.Size = new System.Drawing.Size(984, 580);
+            this.tabdocumentos.Size = new System.Drawing.Size(984, 428);
             this.tabdocumentos.TabIndex = 1;
             this.tabdocumentos.Text = "Cartório";
             this.tabdocumentos.UseVisualStyleBackColor = true;
@@ -1341,10 +1238,10 @@ namespace LMFinanciamentos.Apresentacao
             // panel15
             // 
             this.panel15.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel15.Location = new System.Drawing.Point(340, 28);
+            this.panel15.Location = new System.Drawing.Point(340, 26);
             this.panel15.Name = "panel15";
             this.panel15.Padding = new System.Windows.Forms.Padding(3);
-            this.panel15.Size = new System.Drawing.Size(534, 72);
+            this.panel15.Size = new System.Drawing.Size(534, 74);
             this.panel15.TabIndex = 7;
             // 
             // panel16
@@ -1352,36 +1249,30 @@ namespace LMFinanciamentos.Apresentacao
             this.panel16.Controls.Add(this.comboBox11);
             this.panel16.Controls.Add(this.label18);
             this.panel16.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel16.Location = new System.Drawing.Point(6, 28);
+            this.panel16.Location = new System.Drawing.Point(6, 26);
             this.panel16.Name = "panel16";
             this.panel16.Padding = new System.Windows.Forms.Padding(3);
-            this.panel16.Size = new System.Drawing.Size(334, 72);
+            this.panel16.Size = new System.Drawing.Size(334, 74);
             this.panel16.TabIndex = 6;
             // 
             // comboBox11
             // 
             this.comboBox11.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.comboBox11.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox11.DataSource = this.statusCartorioBindingSource;
-            this.comboBox11.DisplayMember = "Descricao";
             this.comboBox11.Dock = System.Windows.Forms.DockStyle.Left;
+            this.comboBox11.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox11.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.comboBox11.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox11.FormattingEnabled = true;
+            this.comboBox11.Items.AddRange(new object[] {
+            "A retirar",
+            "Aguardando",
+            "Entregue",
+            "Retirado"});
             this.comboBox11.Location = new System.Drawing.Point(3, 26);
             this.comboBox11.Name = "comboBox11";
-            this.comboBox11.Size = new System.Drawing.Size(252, 29);
+            this.comboBox11.Size = new System.Drawing.Size(252, 24);
             this.comboBox11.TabIndex = 20;
-            // 
-            // statusCartorioBindingSource
-            // 
-            this.statusCartorioBindingSource.DataMember = "StatusCartorio";
-            this.statusCartorioBindingSource.DataSource = this.dSCombobox1BindingSource;
-            // 
-            // dSCombobox1BindingSource
-            // 
-            this.dSCombobox1BindingSource.DataSource = this.dS_Combobox1;
-            this.dSCombobox1BindingSource.Position = 0;
             // 
             // label18
             // 
@@ -1409,9 +1300,9 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.panel14.Controls.Add(this.button2);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel14.Location = new System.Drawing.Point(317, 25);
+            this.panel14.Location = new System.Drawing.Point(317, 23);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(200, 84);
+            this.panel14.Size = new System.Drawing.Size(200, 86);
             this.panel14.TabIndex = 1;
             // 
             // button2
@@ -1419,7 +1310,7 @@ namespace LMFinanciamentos.Apresentacao
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button2.Location = new System.Drawing.Point(10, 23);
             this.button2.Name = "button2";
@@ -1433,29 +1324,22 @@ namespace LMFinanciamentos.Apresentacao
             this.panel13.Controls.Add(this.comboBox9);
             this.panel13.Controls.Add(this.label14);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel13.Location = new System.Drawing.Point(3, 25);
+            this.panel13.Location = new System.Drawing.Point(3, 23);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(314, 84);
+            this.panel13.Size = new System.Drawing.Size(314, 86);
             this.panel13.TabIndex = 0;
             // 
             // comboBox9
             // 
             this.comboBox9.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.comboBox9.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox9.DataSource = this.cartorioBindingSource;
-            this.comboBox9.DisplayMember = "Descricao";
             this.comboBox9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBox9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
             this.comboBox9.FormattingEnabled = true;
-            this.comboBox9.Location = new System.Drawing.Point(0, 21);
+            this.comboBox9.Location = new System.Drawing.Point(0, 23);
             this.comboBox9.Name = "comboBox9";
-            this.comboBox9.Size = new System.Drawing.Size(314, 29);
+            this.comboBox9.Size = new System.Drawing.Size(314, 31);
             this.comboBox9.TabIndex = 16;
-            // 
-            // cartorioBindingSource
-            // 
-            this.cartorioBindingSource.DataMember = "Cartorio";
-            this.cartorioBindingSource.DataSource = this.dSCombobox1BindingSource;
             // 
             // label14
             // 
@@ -1463,17 +1347,17 @@ namespace LMFinanciamentos.Apresentacao
             this.label14.Dock = System.Windows.Forms.DockStyle.Top;
             this.label14.Location = new System.Drawing.Point(0, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(54, 21);
+            this.label14.Size = new System.Drawing.Size(54, 23);
             this.label14.TabIndex = 15;
             this.label14.Text = "Nome:";
             // 
             // tabdoc
             // 
             this.tabdoc.Controls.Add(this.tableLayoutPanel7);
-            this.tabdoc.Location = new System.Drawing.Point(4, 30);
+            this.tabdoc.Location = new System.Drawing.Point(4, 32);
             this.tabdoc.Name = "tabdoc";
             this.tabdoc.Padding = new System.Windows.Forms.Padding(20);
-            this.tabdoc.Size = new System.Drawing.Size(984, 580);
+            this.tabdoc.Size = new System.Drawing.Size(984, 428);
             this.tabdoc.TabIndex = 2;
             this.tabdoc.Text = "Documentação";
             this.tabdoc.UseVisualStyleBackColor = true;
@@ -1515,9 +1399,9 @@ namespace LMFinanciamentos.Apresentacao
             this.status,
             this.apagar});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 28);
+            this.dataGridView1.Location = new System.Drawing.Point(6, 26);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(926, 98);
+            this.dataGridView1.Size = new System.Drawing.Size(926, 100);
             this.dataGridView1.TabIndex = 0;
             // 
             // Numero
@@ -1563,9 +1447,9 @@ namespace LMFinanciamentos.Apresentacao
             this.panel17.Controls.Add(this.button1);
             this.panel17.Controls.Add(this.button3);
             this.panel17.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel17.Location = new System.Drawing.Point(317, 25);
+            this.panel17.Location = new System.Drawing.Point(317, 23);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(468, 84);
+            this.panel17.Size = new System.Drawing.Size(468, 86);
             this.panel17.TabIndex = 1;
             // 
             // button1
@@ -1573,7 +1457,7 @@ namespace LMFinanciamentos.Apresentacao
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button1.Location = new System.Drawing.Point(51, 18);
             this.button1.Name = "button1";
@@ -1588,7 +1472,7 @@ namespace LMFinanciamentos.Apresentacao
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.Location = new System.Drawing.Point(10, 18);
@@ -1602,18 +1486,18 @@ namespace LMFinanciamentos.Apresentacao
             this.panel18.Controls.Add(this.textBox1);
             this.panel18.Controls.Add(this.label8);
             this.panel18.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel18.Location = new System.Drawing.Point(3, 25);
+            this.panel18.Location = new System.Drawing.Point(3, 23);
             this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(314, 84);
+            this.panel18.Size = new System.Drawing.Size(314, 86);
             this.panel18.TabIndex = 0;
             this.panel18.Paint += new System.Windows.Forms.PaintEventHandler(this.panel18_Paint);
             // 
             // textBox1
             // 
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBox1.Location = new System.Drawing.Point(0, 21);
+            this.textBox1.Location = new System.Drawing.Point(0, 23);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(314, 29);
+            this.textBox1.Size = new System.Drawing.Size(314, 27);
             this.textBox1.TabIndex = 16;
             // 
             // label8
@@ -1622,13 +1506,9 @@ namespace LMFinanciamentos.Apresentacao
             this.label8.Dock = System.Windows.Forms.DockStyle.Top;
             this.label8.Location = new System.Drawing.Point(0, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(54, 21);
+            this.label8.Size = new System.Drawing.Size(54, 23);
             this.label8.TabIndex = 15;
             this.label8.Text = "Nome:";
-            // 
-            // statusCPFTableAdapter
-            // 
-            this.statusCPFTableAdapter.ClearBeforeFill = true;
             // 
             // clientesTableAdapter
             // 
@@ -1648,67 +1528,21 @@ namespace LMFinanciamentos.Apresentacao
             this.guna2ContextMenuStrip1.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // statusCiwebTableAdapter
+            // clientesBindingSource1
             // 
-            this.statusCiwebTableAdapter.ClearBeforeFill = true;
+            this.clientesBindingSource1.DataMember = "Clientes";
+            this.clientesBindingSource1.DataSource = this.dS_Clientes;
             // 
-            // statusCadmutTableAdapter
+            // clientesBindingSource2
             // 
-            this.statusCadmutTableAdapter.ClearBeforeFill = true;
-            // 
-            // statusIRTableAdapter
-            // 
-            this.statusIRTableAdapter.ClearBeforeFill = true;
-            // 
-            // statusFGTSTableAdapter
-            // 
-            this.statusFGTSTableAdapter.ClearBeforeFill = true;
-            // 
-            // statusAnaliseTableAdapter
-            // 
-            this.statusAnaliseTableAdapter.ClearBeforeFill = true;
-            // 
-            // statusEngTableAdapter
-            // 
-            this.statusEngTableAdapter.ClearBeforeFill = true;
-            // 
-            // agenciaTableAdapter
-            // 
-            this.agenciaTableAdapter.ClearBeforeFill = true;
-            // 
-            // programaTableAdapter
-            // 
-            this.programaTableAdapter.ClearBeforeFill = true;
-            // 
-            // corretoraTableAdapter
-            // 
-            this.corretoraTableAdapter.ClearBeforeFill = true;
-            // 
-            // corretoresTableAdapter
-            // 
-            this.corretoresTableAdapter.ClearBeforeFill = true;
-            // 
-            // vendedorTableAdapter
-            // 
-            this.vendedorTableAdapter.ClearBeforeFill = true;
-            // 
-            // empreendimentosTableAdapter
-            // 
-            this.empreendimentosTableAdapter.ClearBeforeFill = true;
-            // 
-            // statusCartorioTableAdapter
-            // 
-            this.statusCartorioTableAdapter.ClearBeforeFill = true;
-            // 
-            // cartorioTableAdapter
-            // 
-            this.cartorioTableAdapter.ClearBeforeFill = true;
+            this.clientesBindingSource2.DataMember = "Clientes";
+            this.clientesBindingSource2.DataSource = this.dSClientesBindingSource;
             // 
             // Form_Cadastro_Documentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(992, 723);
+            this.ClientSize = new System.Drawing.Size(992, 573);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.paneltop);
             this.Controls.Add(this.panel1);
@@ -1732,19 +1566,13 @@ namespace LMFinanciamentos.Apresentacao
             this.groupBox1.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.statusFGTSBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS_Combobox)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.statusIRBindingSource)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.statusCadmutBindingSource)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.statusCiwebBindingSource)).EndInit();
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.statusCPFBindingSource)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
@@ -1753,11 +1581,6 @@ namespace LMFinanciamentos.Apresentacao
             this.groupBox4.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.empreendimentosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS_Combobox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vendedorBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.corretoresBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.corretoraBindingSource)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -1765,29 +1588,21 @@ namespace LMFinanciamentos.Apresentacao
             this.panel10.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.programaBindingSource)).EndInit();
             this.panel9.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.agenciaBindingSource)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.statusEngBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS_Combobox1)).EndInit();
             this.panel12.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.statusAnaliseBindingSource)).EndInit();
             this.tabdocumentos.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.statusCartorioBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSCombobox1BindingSource)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cartorioBindingSource)).EndInit();
             this.tabdoc.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
@@ -1796,6 +1611,8 @@ namespace LMFinanciamentos.Apresentacao
             this.panel17.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
             this.panel18.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1825,9 +1642,6 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.TabPage tabdoc;
         private System.Windows.Forms.TabPage tabproduto;
         private System.Windows.Forms.Label lblstatus;
-        private DAL.DS_Combobox dS_Combobox;
-        private System.Windows.Forms.BindingSource statusCPFBindingSource;
-        private DAL.DS_ComboboxTableAdapters.StatusCPFTableAdapter statusCPFTableAdapter;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.ComboBox txtnomecli;
         private System.Windows.Forms.Label lblcliente;
@@ -1863,14 +1677,9 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.ComboBox txtStatusCPF;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.MaskedTextBox txtrenda;
-        private System.Windows.Forms.BindingSource statusCiwebBindingSource;
-        private DAL.DS_ComboboxTableAdapters.StatusCiwebTableAdapter statusCiwebTableAdapter;
-        private System.Windows.Forms.BindingSource statusCadmutBindingSource;
-        private DAL.DS_ComboboxTableAdapters.StatusCadmutTableAdapter statusCadmutTableAdapter;
-        private System.Windows.Forms.BindingSource statusIRBindingSource;
-        private DAL.DS_ComboboxTableAdapters.StatusIRTableAdapter statusIRTableAdapter;
-        private System.Windows.Forms.BindingSource statusFGTSBindingSource;
-        private DAL.DS_ComboboxTableAdapters.StatusFGTSTableAdapter statusFGTSTableAdapter;
+        //private System.Windows.Forms.BindingSource statusCiwebBindingSource;
+        //private System.Windows.Forms.BindingSource statusCadmutBindingSource;
+        //private System.Windows.Forms.BindingSource statusFGTSBindingSource;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
@@ -1927,29 +1736,19 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
         private System.Windows.Forms.DataGridViewButtonColumn apagar;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.BindingSource statusAnaliseBindingSource;
-        private DAL.DS_ComboboxTableAdapters.StatusAnaliseTableAdapter statusAnaliseTableAdapter;
-        private System.Windows.Forms.BindingSource dSCombobox1BindingSource;
-        private DAL.DS_Combobox dS_Combobox1;
-        private System.Windows.Forms.BindingSource statusEngBindingSource;
-        private DAL.DS_ComboboxTableAdapters.StatusEngTableAdapter statusEngTableAdapter;
-        private System.Windows.Forms.BindingSource agenciaBindingSource;
-        private DAL.DS_ComboboxTableAdapters.AgenciaTableAdapter agenciaTableAdapter;
-        private System.Windows.Forms.BindingSource programaBindingSource;
-        private DAL.DS_ComboboxTableAdapters.ProgramaTableAdapter programaTableAdapter;
+        //private System.Windows.Forms.BindingSource statusAnaliseBindingSource;
+       // private System.Windows.Forms.BindingSource dSCombobox1BindingSource;
+       // private System.Windows.Forms.BindingSource statusEngBindingSource;
+        //private System.Windows.Forms.BindingSource agenciaBindingSource;
+        //private System.Windows.Forms.BindingSource programaBindingSource;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private DAL.DS_Combobox dS_Combobox2;
-        private System.Windows.Forms.BindingSource corretoraBindingSource;
-        private DAL.DS_ComboboxTableAdapters.CorretoraTableAdapter corretoraTableAdapter;
-        private System.Windows.Forms.BindingSource corretoresBindingSource;
-        private DAL.DS_ComboboxTableAdapters.CorretoresTableAdapter corretoresTableAdapter;
-        private System.Windows.Forms.BindingSource vendedorBindingSource;
-        private DAL.DS_ComboboxTableAdapters.VendedorTableAdapter vendedorTableAdapter;
-        private System.Windows.Forms.BindingSource empreendimentosBindingSource;
-        private DAL.DS_ComboboxTableAdapters.EmpreendimentosTableAdapter empreendimentosTableAdapter;
-        private System.Windows.Forms.BindingSource statusCartorioBindingSource;
-        private DAL.DS_ComboboxTableAdapters.StatusCartorioTableAdapter statusCartorioTableAdapter;
-        private System.Windows.Forms.BindingSource cartorioBindingSource;
-        private DAL.DS_ComboboxTableAdapters.CartorioTableAdapter cartorioTableAdapter;
+        private System.Windows.Forms.BindingSource clientesBindingSource1;
+        private System.Windows.Forms.BindingSource clientesBindingSource2;
+        //private System.Windows.Forms.BindingSource corretoraBindingSource;
+        //private System.Windows.Forms.BindingSource corretoresBindingSource;
+        //private System.Windows.Forms.BindingSource vendedorBindingSource;
+        //private System.Windows.Forms.BindingSource empreendimentosBindingSource;
+        //private System.Windows.Forms.BindingSource statusCartorioBindingSource;
+        //private System.Windows.Forms.BindingSource cartorioBindingSource;
     }
 }
