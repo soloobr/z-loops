@@ -119,7 +119,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panel4.Controls.Add(this.button2);
             this.panel4.Controls.Add(this.label1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(3, 25);
+            this.panel4.Location = new System.Drawing.Point(3, 23);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(287, 39);
             this.panel4.TabIndex = 2;
@@ -162,7 +162,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panel12.Controls.Add(this.pnl_submenualtersenha);
             this.panel12.Controls.Add(this.panel3);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel12.Location = new System.Drawing.Point(7, 29);
+            this.panel12.Location = new System.Drawing.Point(7, 27);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(259, 322);
             this.panel12.TabIndex = 4;
@@ -200,9 +200,9 @@ namespace LMFinanciamentos.Apresentacao
             this.panel11.AutoSize = true;
             this.panel11.Controls.Add(this.txt_confirmasenha);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel11.Location = new System.Drawing.Point(9, 82);
+            this.panel11.Location = new System.Drawing.Point(9, 83);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(215, 29);
+            this.panel11.Size = new System.Drawing.Size(215, 27);
             this.panel11.TabIndex = 16;
             // 
             // txt_confirmasenha
@@ -210,7 +210,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txt_confirmasenha.Dock = System.Windows.Forms.DockStyle.Top;
             this.txt_confirmasenha.Location = new System.Drawing.Point(0, 0);
             this.txt_confirmasenha.Name = "txt_confirmasenha";
-            this.txt_confirmasenha.Size = new System.Drawing.Size(215, 29);
+            this.txt_confirmasenha.Size = new System.Drawing.Size(215, 27);
             this.txt_confirmasenha.TabIndex = 2;
             this.txt_confirmasenha.UseSystemPasswordChar = true;
             // 
@@ -219,10 +219,10 @@ namespace LMFinanciamentos.Apresentacao
             this.panel8.AutoSize = true;
             this.panel8.Controls.Add(this.label3);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(9, 59);
+            this.panel8.Location = new System.Drawing.Point(9, 57);
             this.panel8.Name = "panel8";
             this.panel8.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.panel8.Size = new System.Drawing.Size(215, 23);
+            this.panel8.Size = new System.Drawing.Size(215, 26);
             this.panel8.TabIndex = 15;
             // 
             // label3
@@ -232,7 +232,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label3.Font = new System.Drawing.Font("Poppins", 9F);
             this.label3.Location = new System.Drawing.Point(0, 4);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(115, 19);
+            this.label3.Size = new System.Drawing.Size(114, 22);
             this.label3.TabIndex = 0;
             this.label3.Text = "Confirmar Senha:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -244,7 +244,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel9.Location = new System.Drawing.Point(9, 30);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(215, 29);
+            this.panel9.Size = new System.Drawing.Size(215, 27);
             this.panel9.TabIndex = 14;
             // 
             // txt_novasenha
@@ -252,7 +252,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txt_novasenha.Dock = System.Windows.Forms.DockStyle.Top;
             this.txt_novasenha.Location = new System.Drawing.Point(0, 0);
             this.txt_novasenha.Name = "txt_novasenha";
-            this.txt_novasenha.Size = new System.Drawing.Size(215, 29);
+            this.txt_novasenha.Size = new System.Drawing.Size(215, 27);
             this.txt_novasenha.TabIndex = 2;
             this.txt_novasenha.UseSystemPasswordChar = true;
             // 
@@ -273,7 +273,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label2.Font = new System.Drawing.Font("Poppins", 9F);
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 19);
+            this.label2.Size = new System.Drawing.Size(85, 22);
             this.label2.TabIndex = 11;
             this.label2.Text = "Nova Senha:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

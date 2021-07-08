@@ -80,7 +80,6 @@ namespace LMFinanciamentos.Apresentacao
             this.txtemail = new System.Windows.Forms.TextBox();
             this.lblcpf = new System.Windows.Forms.Label();
             this.txtcpf = new System.Windows.Forms.TextBox();
-            this.txtnomecli = new System.Windows.Forms.ComboBox();
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblcliente = new System.Windows.Forms.Label();
             this.lblemail = new System.Windows.Forms.Label();
@@ -148,6 +147,11 @@ namespace LMFinanciamentos.Apresentacao
             this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
             this.clientesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.clientesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.ContextMenucliente = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.kryptonContextMenuItems1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.kryptonContextMenuLinkLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuLinkLabel();
+            this.txtnomecli = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.btnproc = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Documentos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSDocumentosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.processosBindingSource)).BeginInit();
@@ -627,9 +631,10 @@ namespace LMFinanciamentos.Apresentacao
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 370F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 421F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 411F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 360F));
+            this.tableLayoutPanel1.Controls.Add(this.txtnomecli, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtrenda, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.txtcelular, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.label20, 2, 2);
@@ -641,19 +646,19 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel1.Controls.Add(this.txtemail, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.lblcpf, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtcpf, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.txtnomecli, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblcliente, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblemail, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(20, 20);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowCount = 7;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(944, 191);
             this.tableLayoutPanel1.TabIndex = 2;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
@@ -665,22 +670,22 @@ namespace LMFinanciamentos.Apresentacao
             this.txtrenda.Mask = "$9.999,00";
             this.txtrenda.Name = "txtrenda";
             this.txtrenda.Size = new System.Drawing.Size(155, 22);
-            this.txtrenda.TabIndex = 25;
+            this.txtrenda.TabIndex = 7;
             // 
             // txtcelular
             // 
             this.txtcelular.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcelular.Location = new System.Drawing.Point(538, 79);
+            this.txtcelular.Location = new System.Drawing.Point(589, 79);
             this.txtcelular.Mask = "(99) 00000-0000";
             this.txtcelular.Name = "txtcelular";
             this.txtcelular.Size = new System.Drawing.Size(157, 22);
-            this.txtcelular.TabIndex = 24;
+            this.txtcelular.TabIndex = 6;
             this.txtcelular.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox2_MaskInputRejected);
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(538, 53);
+            this.label20.Location = new System.Drawing.Point(589, 53);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(64, 23);
             this.label20.TabIndex = 23;
@@ -689,16 +694,16 @@ namespace LMFinanciamentos.Apresentacao
             // txttelefone
             // 
             this.txttelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttelefone.Location = new System.Drawing.Point(373, 79);
+            this.txttelefone.Location = new System.Drawing.Point(424, 79);
             this.txttelefone.Mask = "(99) 0000-0000";
             this.txttelefone.Name = "txttelefone";
             this.txttelefone.Size = new System.Drawing.Size(157, 22);
-            this.txttelefone.TabIndex = 22;
+            this.txttelefone.TabIndex = 5;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(373, 53);
+            this.label19.Location = new System.Drawing.Point(424, 53);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(72, 23);
             this.label19.TabIndex = 21;
@@ -717,18 +722,18 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.txtnasc.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtnasc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnasc.Location = new System.Drawing.Point(538, 26);
+            this.txtnasc.Location = new System.Drawing.Point(589, 26);
             this.txtnasc.Name = "txtnasc";
             this.txtnasc.Size = new System.Drawing.Size(135, 22);
-            this.txtnasc.TabIndex = 16;
+            this.txtnasc.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Location = new System.Drawing.Point(538, 0);
+            this.label1.Location = new System.Drawing.Point(589, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(405, 23);
+            this.label1.Size = new System.Drawing.Size(354, 23);
             this.label1.TabIndex = 15;
             this.label1.Text = "Data Nasc.";
             // 
@@ -739,12 +744,12 @@ namespace LMFinanciamentos.Apresentacao
             this.txtemail.Location = new System.Drawing.Point(3, 79);
             this.txtemail.Name = "txtemail";
             this.txtemail.Size = new System.Drawing.Size(364, 22);
-            this.txtemail.TabIndex = 14;
+            this.txtemail.TabIndex = 5;
             // 
             // lblcpf
             // 
             this.lblcpf.AutoSize = true;
-            this.lblcpf.Location = new System.Drawing.Point(373, 0);
+            this.lblcpf.Location = new System.Drawing.Point(424, 0);
             this.lblcpf.Name = "lblcpf";
             this.lblcpf.Size = new System.Drawing.Size(39, 23);
             this.lblcpf.TabIndex = 10;
@@ -754,25 +759,11 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.txtcpf.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtcpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcpf.Location = new System.Drawing.Point(373, 26);
+            this.txtcpf.Location = new System.Drawing.Point(424, 26);
             this.txtcpf.Name = "txtcpf";
             this.txtcpf.Size = new System.Drawing.Size(159, 24);
-            this.txtcpf.TabIndex = 6;
+            this.txtcpf.TabIndex = 3;
             this.txtcpf.TextChanged += new System.EventHandler(this.txtcpf_TextChanged_1);
-            // 
-            // txtnomecli
-            // 
-            this.txtnomecli.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.txtnomecli.DataSource = this.clientesBindingSource;
-            this.txtnomecli.DisplayMember = "Nome";
-            this.txtnomecli.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtnomecli.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.txtnomecli.FormattingEnabled = true;
-            this.txtnomecli.Location = new System.Drawing.Point(3, 26);
-            this.txtnomecli.Name = "txtnomecli";
-            this.txtnomecli.Size = new System.Drawing.Size(364, 31);
-            this.txtnomecli.TabIndex = 2;
-            this.txtnomecli.SelectedIndexChanged += new System.EventHandler(this.txtnomecli_SelectedIndexChanged);
             // 
             // clientesBindingSource
             // 
@@ -785,7 +776,7 @@ namespace LMFinanciamentos.Apresentacao
             this.lblcliente.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblcliente.Location = new System.Drawing.Point(3, 0);
             this.lblcliente.Name = "lblcliente";
-            this.lblcliente.Size = new System.Drawing.Size(364, 23);
+            this.lblcliente.Size = new System.Drawing.Size(415, 23);
             this.lblcliente.TabIndex = 1;
             this.lblcliente.Text = "Nome do Cliente:";
             // 
@@ -1538,6 +1529,38 @@ namespace LMFinanciamentos.Apresentacao
             this.clientesBindingSource2.DataMember = "Clientes";
             this.clientesBindingSource2.DataSource = this.dSClientesBindingSource;
             // 
+            // ContextMenucliente
+            // 
+            this.ContextMenucliente.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonContextMenuLinkLabel1});
+            this.ContextMenucliente.Opening += new System.ComponentModel.CancelEventHandler(this.kryptonContextMenu1_Opening);
+            // 
+            // kryptonContextMenuLinkLabel1
+            // 
+            this.kryptonContextMenuLinkLabel1.ExtraText = "";
+            this.kryptonContextMenuLinkLabel1.Text = "Luis";
+            // 
+            // txtnomecli
+            // 
+            this.txtnomecli.AutoCompleteCustomSource.AddRange(new string[] {
+            "Luis Eduardo Ferreira Gomes"});
+            this.txtnomecli.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtnomecli.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtnomecli.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.btnproc});
+            this.txtnomecli.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtnomecli.KryptonContextMenu = this.ContextMenucliente;
+            this.txtnomecli.Location = new System.Drawing.Point(3, 26);
+            this.txtnomecli.Name = "txtnomecli";
+            this.txtnomecli.Size = new System.Drawing.Size(415, 24);
+            this.txtnomecli.TabIndex = 2;
+            // 
+            // btnproc
+            // 
+            this.btnproc.Image = ((System.Drawing.Image)(resources.GetObject("btnproc.Image")));
+            this.btnproc.UniqueName = "74920EE99D3D48EEF48D59E59B7B44DE";
+            this.btnproc.Click += new System.EventHandler(this.btnproc_Click);
+            // 
             // Form_Cadastro_Documentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1643,7 +1666,6 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.TabPage tabproduto;
         private System.Windows.Forms.Label lblstatus;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.ComboBox txtnomecli;
         private System.Windows.Forms.Label lblcliente;
         private System.Windows.Forms.TextBox txtcpf;
         private System.Windows.Forms.Label lblcpf;
@@ -1744,6 +1766,11 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.BindingSource clientesBindingSource1;
         private System.Windows.Forms.BindingSource clientesBindingSource2;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu ContextMenucliente;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuLinkLabel kryptonContextMenuLinkLabel1;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems1;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtnomecli;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnproc;
         //private System.Windows.Forms.BindingSource corretoraBindingSource;
         //private System.Windows.Forms.BindingSource corretoresBindingSource;
         //private System.Windows.Forms.BindingSource vendedorBindingSource;

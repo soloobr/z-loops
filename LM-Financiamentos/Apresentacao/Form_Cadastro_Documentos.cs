@@ -1,6 +1,7 @@
 ﻿using LMFinanciamentos.DAL;
 using LMFinanciamentos.Entidades;
 using System;
+using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
 
@@ -10,6 +11,7 @@ namespace LMFinanciamentos.Apresentacao
     {
         //MySqlDataReader dr;
         string idcli;
+        private int uiChanges = 0;
         public Form_Cadastro_Documentos()
         {
             InitializeComponent();
@@ -68,6 +70,25 @@ namespace LMFinanciamentos.Apresentacao
             this.clientesTableAdapter.Fill(this.dS_Clientes.Clientes);
             // TODO: esta linha de código carrega dados na tabela 'dS_Combobox.StatusCPF'. Você pode movê-la ou removê-la conforme necessário.
             //this.statusCPFTableAdapter.Fill(this.dS_Combobox.StatusCPF
+
+            //var btn = new Button();
+            //btn.Size = new Size(25, txtnomecli.ClientSize.Height + 2);
+            // btn.Location = new Point(txtnomecli.ClientSize.Width - btn.Width, -1);
+            //btn.Dock = DockStyle.Right;
+            //btn.Anchor = AnchorStyles.Left;
+            //btn.Padding = new Padding(5);
+            //btn.Cursor = Cursors.Default;
+            //btn.BringToFront();
+            //btn.Image = Properties.Resources.soma10;
+            //btn.FlatStyle = FlatStyle.Flat;
+            //btn.ForeColor = Color.White;
+            //btn.FlatAppearance.BorderSize = 1;
+            //btn.FlatAppearance.BorderColor = Color.Red; 
+
+            //txtnomecli.Controls.Add(btn);
+
+            var btn = new Button();
+
             txtnomecli.Text = "";
             txtStatusCPF.Text = "";
             txtnomecli.Select();
@@ -75,6 +96,32 @@ namespace LMFinanciamentos.Apresentacao
             txtnomecli.Focus();
         }
 
+        private static readonly int SEARCH_BUTTON_WIDTH = 25;
+
+        private void ConfigureSearchBox()
+        {
+            var btn = new Button();
+            btn.Size = new Size(SEARCH_BUTTON_WIDTH, txtnomecli.ClientSize.Height + 2);
+            btn.Dock = DockStyle.Right;
+            btn.Cursor = Cursors.Default;
+            btn.Image = Properties.Resources.mais16;
+            btn.FlatStyle = FlatStyle.Flat;
+            btn.ForeColor = Color.White;
+            btn.FlatAppearance.BorderSize = 0;
+            btn.Click += btn_Click;
+            txtnomecli.Controls.Add(btn);
+            this.AcceptButton = btn;
+            // Send EM_SETMARGINS to prevent text from disappearing underneath the button
+            SendMessage(txtnomecli.Handle, 0xd3, (IntPtr)2, (IntPtr)(btn.Width << 16));
+        }
+
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wp, IntPtr lp);
+
+        private void btn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("hello world");
+        }
         private void txtnasc_Validated(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtnasc.Text))
@@ -224,6 +271,63 @@ namespace LMFinanciamentos.Apresentacao
         private void btncancelardoc_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void kryptonComboBox1_TextChanged(object sender, EventArgs e)
+        {
+            //uiChanges++;
+            //if (uiChanges > 4)
+            //{
+            //    btnprocura.Visible = true;
+            //    uiChanges = 0;
+            //}
+            //else if (uiChanges < 4)
+            //{
+            //    btnprocura.Visible = false;
+            //}
+        }
+
+        private void txtnomecli_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kryptonContextMenu1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+        }
+
+        private void btnproc_Click(object sender, EventArgs e)
+        {
+            LoginDaoComandos gett = new LoginDaoComandos();
+            Cliente cli = new Cliente();
+
+            cli = gett.GetCliente("%"+txtnomecli.Text+"%");
+
+
+            //if (gett.GetCliente(txtnomecli.Text) != null && gett.GetCliente(txtnomecli.Text).Rows.Count > 1)
+            //if (gett.GetCliente(txtnomecli.Text) != null )
+            //{
+                idcli = cli.Id_cliente;
+                txtnomecli.Text = cli.Nome_cliente;
+                txtcpf.Text = cli.CPF_cliente;
+                txtnasc.Text = cli.Nascimento_cliente;
+                txtemail.Text = cli.Email_cliente;
+                txttelefone.Text = cli.Telefone_cliente;
+                txtcelular.Text = cli.Celular_cliente;
+                txtrenda.Text = cli.Renda_cliente;
+                txtStatusCPF.Text = cli.StatusCPF_cliente;
+                txtciweb.Text = cli.StatusCiweb_cliente;
+                txtcadmut.Text = cli.StatusCadmut_cliente;
+                txtir.Text = cli.StatusIR_cliente;
+                txtfgts.Text = cli.StatusFGTS_cliente;
+                tabControl.Select();
+                tabControl.Focus();
+           // }
+            //else
+           // {
+
+            //}
         }
     }
 }

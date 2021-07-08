@@ -157,6 +157,21 @@
   <metadata name="processosTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 134</value>
   </metadata>
+  <data name="btnproc.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAWdJREFUOE+l
+        krtKxEAUhqNoZeENSysvjSjqTHaxkW20sRfEp7DTQthaLY2ZBHFBsJDVwmpXC61XRbBQYSZB9xlEEG/j
+        P+shS0giK35wIOefc5uTsTIp6nb6ap3c9kM/E3KTe+qJC6VhL7AKd1WBQrLJ+eEoguuwAAkrXMg521WL
+        TKhDaJ/MU6sUmoR5153oeo/As4n92y6SI1BsCWcfzJMLJMVBp2UEPE/tqQGSEmASn7vyktw4TAQlLoJj
+        clOxhZxFk6/J0mMPSU0w/gk6OOSmQjvS2MUQSU1Msrk/uamY+yPmLW1HOFTzOHy3fTVGUhyt22yhqpj0
+        iJQkKFDBJHLaCYZJalAoXnRgyVs/48s8yUnMchB0DntFwgE6rmGxG6aoSSarpS4xAs/XPB4ElmE3sFN0
+        Xc+LcATfVzBtfuXvRTJgXtiNArVGERSf2b3ro6PWGd+p90aTYEqS/wYVKdtOMEjSf7Csb5N4xtJu5Vuy
+        AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="ContextMenucliente.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>731, 173</value>
+  </metadata>
   <metadata name="clientesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>687, 134</value>
   </metadata>
@@ -214,6 +229,6 @@
     <value>553, 173</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>25</value>
+    <value>113</value>
   </metadata>
 </root>

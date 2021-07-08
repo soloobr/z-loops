@@ -95,7 +95,7 @@ namespace LMFinanciamentos.DAL
         }
         public Cliente GetCliente(String nome)
         {
-            cmd.CommandText = "SELECT id, Nome, Email, Telefone, Celular, CPF, StatusCPF, Ciweb, Cadmut, IR, FGTS, RG, Nascimento, Sexo, Renda, Status FROM Clientes WHERE(Nome = @nomecliente)";
+            cmd.CommandText = "SELECT id, Nome, Email, Telefone, Celular, CPF, StatusCPF, Ciweb, Cadmut, IR, FGTS, RG, Nascimento, Sexo, Renda, Status FROM Clientes WHERE(Nome Like @nomecliente)";
             cmd.Parameters.AddWithValue("@nomecliente", nome);
             Cliente client = new Cliente();
             try
