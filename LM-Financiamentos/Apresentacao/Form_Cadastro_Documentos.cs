@@ -11,7 +11,7 @@ namespace LMFinanciamentos.Apresentacao
     {
         //MySqlDataReader dr;
         string idcli;
-        private int uiChanges = 0;
+        //private int uiChanges = 0;
         public Form_Cadastro_Documentos()
         {
             InitializeComponent();
@@ -300,34 +300,104 @@ namespace LMFinanciamentos.Apresentacao
         private void btnproc_Click(object sender, EventArgs e)
         {
             LoginDaoComandos gett = new LoginDaoComandos();
-            Cliente cli = new Cliente();
+            //Cliente cli = new Cliente();
 
-            cli = gett.GetCliente("%"+txtnomecli.Text+"%");
+            //cli = gett.GetCliente(txtnomecli.Text);
+            //cli = gett.GetClientes(txtnomecli.Text);
 
 
             //if (gett.GetCliente(txtnomecli.Text) != null && gett.GetCliente(txtnomecli.Text).Rows.Count > 1)
             //if (gett.GetCliente(txtnomecli.Text) != null )
             //{
-                idcli = cli.Id_cliente;
-                txtnomecli.Text = cli.Nome_cliente;
-                txtcpf.Text = cli.CPF_cliente;
-                txtnasc.Text = cli.Nascimento_cliente;
-                txtemail.Text = cli.Email_cliente;
-                txttelefone.Text = cli.Telefone_cliente;
-                txtcelular.Text = cli.Celular_cliente;
-                txtrenda.Text = cli.Renda_cliente;
-                txtStatusCPF.Text = cli.StatusCPF_cliente;
-                txtciweb.Text = cli.StatusCiweb_cliente;
-                txtcadmut.Text = cli.StatusCadmut_cliente;
-                txtir.Text = cli.StatusIR_cliente;
-                txtfgts.Text = cli.StatusFGTS_cliente;
-                tabControl.Select();
-                tabControl.Focus();
-           // }
+            //idcli = cli.Id_cliente;
+            //    txtnomecli.Text = cli.Nome_cliente;
+            //    txtcpf.Text = cli.CPF_cliente;
+            //    txtnasc.Text = cli.Nascimento_cliente;
+            //    txtemail.Text = cli.Email_cliente;
+            //    txttelefone.Text = cli.Telefone_cliente;
+            //    txtcelular.Text = cli.Celular_cliente;
+            //    txtrenda.Text = cli.Renda_cliente;
+            //    txtStatusCPF.Text = cli.StatusCPF_cliente;
+            //    txtciweb.Text = cli.StatusCiweb_cliente;
+            //    txtcadmut.Text = cli.StatusCadmut_cliente;
+            //    txtir.Text = cli.StatusIR_cliente;
+            //    txtfgts.Text = cli.StatusFGTS_cliente;
+            //    tabControl.Select();
+            //    tabControl.Focus();
+            // }
             //else
-           // {
+            // {
 
             //}
+
+            //if (gett.GetClientes(txtnomecli.Text).Count > 1)
+            //{
+                var source = new AutoCompleteStringCollection();
+
+                Cliente[] myArray = gett.GetClientes(txtnomecli.Text).ToArray();
+            int count = 0;
+                foreach (Cliente c in myArray)
+                {
+                
+                    //source.AddRange(new string[]
+                    //source.Add(c.Nome_cliente);
+                //txtnomecli.Text = c.Nome_cliente;
+                //txttelefone.Text = c.Telefone_cliente;
+                //if (c.Nome_cliente != null)
+                //{
+                    count = count+1;
+                //}
+                listBox1.Items.Add(count);
+                listBox1.Items.Add(c.Nome_cliente);
+            }
+                
+            //MessageBox.Show();
+            if (count == 1)
+            {
+                //MessageBox.Show("maior");
+
+                foreach (Cliente c in myArray)
+                {
+                    
+                    idcli = c.Id_cliente;
+                    txtnomecli.Text = c.Nome_cliente;
+                    txtcpf.Text = c.CPF_cliente;
+                    txtnasc.Text = c.Nascimento_cliente;
+                    txtemail.Text = c.Email_cliente;
+                    txttelefone.Text = c.Telefone_cliente;
+                    txtcelular.Text = c.Celular_cliente;
+                    txtrenda.Text = c.Renda_cliente;
+                    txtStatusCPF.Text = c.StatusCPF_cliente;
+                    txtciweb.Text = c.StatusCiweb_cliente;
+                    txtcadmut.Text = c.StatusCadmut_cliente;
+                    txtir.Text = c.StatusIR_cliente;
+                    txtfgts.Text = c.StatusFGTS_cliente;
+                    tabControl.Select();
+                    tabControl.Focus();
+                    count = 0;
+                }
+            }else
+            {
+                foreach (Cliente c in myArray)
+                {
+
+                    source.Add(c.Nome_cliente);
+
+                    txtnomecli.AutoCompleteCustomSource = source;
+                    txtnomecli.Controls. = true;
+                    count = 0;
+                }
+
+            }
+
+
+            //}
+            //else
+            // {
+            //    MessageBox.Show("Menor");
+
+            //  }
+
         }
     }
 }

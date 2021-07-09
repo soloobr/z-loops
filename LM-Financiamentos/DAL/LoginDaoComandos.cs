@@ -1,6 +1,7 @@
 ﻿using LMFinanciamentos.Entidades;
 using MySql.Data.MySqlClient;
 using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 
 namespace LMFinanciamentos.DAL
@@ -10,6 +11,7 @@ namespace LMFinanciamentos.DAL
     class LoginDaoComandos
 
     {
+        
         public bool tem = false;
         public string mensagem = "";
         private String slogin;
@@ -29,10 +31,12 @@ namespace LMFinanciamentos.DAL
         //public int idFunc;
         MySqlCommand cmd = new MySqlCommand();
         MySqlCommand cmd1 = new MySqlCommand();
+        MySqlCommand cmd2 = new MySqlCommand();
         Conecxao con = new Conecxao();
         Conecxao conn = new Conecxao();
+        Conecxao con2 = new Conecxao();
         //SqlDataReader dr;
-        MySqlDataReader dr, drfunc, drsenha, drclient;
+        MySqlDataReader dr, drfunc, drsenha, drclient, drclients;
 
 
         public bool verificarLogin(String login, String senha)
@@ -94,9 +98,12 @@ namespace LMFinanciamentos.DAL
             return func;
         }
         public Cliente GetCliente(String nome)
+        //public List<Cliente> GetCliente(String nome)
         {
-            cmd.CommandText = "SELECT id, Nome, Email, Telefone, Celular, CPF, StatusCPF, Ciweb, Cadmut, IR, FGTS, RG, Nascimento, Sexo, Renda, Status FROM Clientes WHERE(Nome Like @nomecliente)";
-            cmd.Parameters.AddWithValue("@nomecliente", nome);
+           //var list = new List<Cliente>();
+
+            cmd.CommandText = "SELECT id, Nome, Email, Telefone, Celular, CPF, StatusCPF, Ciweb, Cadmut, IR, FGTS, RG, Nascimento, Sexo, Renda, Status FROM Clientes WHERE Nome LIKE @nomecliente";
+            cmd.Parameters.AddWithValue("@nomecliente", "%"+nome+"%");
             Cliente client = new Cliente();
             try
             {
@@ -104,6 +111,7 @@ namespace LMFinanciamentos.DAL
                 drclient = cmd.ExecuteReader();
                 while (drclient.Read())
                 {
+                    //Cliente client = new Cliente();
                     client.Id_cliente = drclient["id"].ToString();
                     client.Nome_cliente = drclient["Nome"].ToString();
                     client.Email_cliente = drclient["Email"].ToString();
@@ -122,6 +130,7 @@ namespace LMFinanciamentos.DAL
                     client.Renda_cliente = drclient["Renda"].ToString();
                     //Byte[] byteBLOBData = new Byte[0];
                     //client.Foto_Func = (Byte[])(drclient["Foto"]);
+                    //list.Add(client);
                 }
 
             }
@@ -131,6 +140,54 @@ namespace LMFinanciamentos.DAL
             }
 
             return client;
+            //return list;
+        }
+
+        public List<Cliente> GetClientes(String nome)
+        //public List<Cliente> GetCliente(String nome)
+        {
+            var list = new List<Cliente>();
+
+            cmd2.CommandText = "SELECT id, Nome, Email, Telefone, Celular, CPF, StatusCPF, Ciweb, Cadmut, IR, FGTS, RG, Nascimento, Sexo, Renda, Status FROM Clientes WHERE Nome LIKE @nomeclientes";
+            cmd2.Parameters.Clear();
+            cmd2.Parameters.AddWithValue("@nomeclientes", "%" + nome + "%");
+            //Cliente clients = new Cliente();
+            try
+            {
+                cmd2.Connection = con2.conectar();
+                drclients = cmd2.ExecuteReader();
+                while (drclients.Read())
+                {
+                    Cliente clients = new Cliente();
+                    clients.Id_cliente = drclients["id"].ToString();
+                    clients.Nome_cliente = drclients["Nome"].ToString();
+                    clients.Email_cliente = drclients["Email"].ToString();
+                    clients.Telefone_cliente = drclients["Telefone"].ToString();
+                    clients.Celular_cliente = drclients["Celular"].ToString();
+                    clients.CPF_cliente = drclients["CPF"].ToString();
+                    clients.StatusCPF_cliente = drclients["StatusCPF"].ToString();
+                    clients.StatusCiweb_cliente = drclients["Ciweb"].ToString();
+                    clients.StatusCadmut_cliente = drclients["Cadmut"].ToString();
+                    clients.StatusIR_cliente = drclients["IR"].ToString();
+                    clients.StatusFGTS_cliente = drclients["FGTS"].ToString();
+                    clients.RG_cliente = drclients["RG"].ToString();
+                    clients.Nascimento_cliente = drclients["Nascimento"].ToString();
+                    clients.Sexo_cliente = drclients["Sexo"].ToString();
+                    clients.Status_cliente = drclients["Status"].ToString();
+                    clients.Renda_cliente = drclients["Renda"].ToString();
+                    //Byte[] byteBLOBData = new Byte[0];
+                    //client.Foto_Func = (Byte[])(drclient["Foto"]);
+                    list.Add(clients);
+                }
+
+            }
+            catch (SqlException err)
+            {
+                throw new Exception("Erro ao obter Cliente: " + err.Message);
+            }
+
+            //return client;
+            return list;
         }
         public String UpdateClienteProcesso(String id, String scpf, String sciweb, String scadmut, String sir, String sfgts)
         {

@@ -19,9 +19,8 @@
         public string Sexo_cliente { get; set; }
         public string Status_cliente { get; set; }
         public string Renda_cliente { get; set; }
-
-        
-
+        public int Cont { get; internal set; }
+       
 
         //public string Permision { get; set; }
 

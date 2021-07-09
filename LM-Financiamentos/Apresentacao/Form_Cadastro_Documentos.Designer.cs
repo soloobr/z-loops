@@ -69,6 +69,10 @@ namespace LMFinanciamentos.Apresentacao
             this.label17 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtnomecli = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.btnproc = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.ContextMenucliente = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.kryptonContextMenuLinkLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuLinkLabel();
             this.txtrenda = new System.Windows.Forms.MaskedTextBox();
             this.txtcelular = new System.Windows.Forms.MaskedTextBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -80,7 +84,6 @@ namespace LMFinanciamentos.Apresentacao
             this.txtemail = new System.Windows.Forms.TextBox();
             this.lblcpf = new System.Windows.Forms.Label();
             this.txtcpf = new System.Windows.Forms.TextBox();
-            this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblcliente = new System.Windows.Forms.Label();
             this.lblemail = new System.Windows.Forms.Label();
             this.tabproduto = new System.Windows.Forms.TabPage();
@@ -143,15 +146,13 @@ namespace LMFinanciamentos.Apresentacao
             this.panel18 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientesTableAdapter = new LMFinanciamentos.DAL.DS_ClientesTableAdapters.ClientesTableAdapter();
             this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
             this.clientesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.clientesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.ContextMenucliente = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
             this.kryptonContextMenuItems1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
-            this.kryptonContextMenuLinkLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuLinkLabel();
-            this.txtnomecli = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.btnproc = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Documentos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSDocumentosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.processosBindingSource)).BeginInit();
@@ -171,7 +172,6 @@ namespace LMFinanciamentos.Apresentacao
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
             this.tabproduto.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -199,6 +199,7 @@ namespace LMFinanciamentos.Apresentacao
             this.groupBox8.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel18.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource2)).BeginInit();
             this.SuspendLayout();
@@ -385,6 +386,7 @@ namespace LMFinanciamentos.Apresentacao
             // 
             // tabcliente
             // 
+            this.tabcliente.Controls.Add(this.listBox1);
             this.tabcliente.Controls.Add(this.groupBox1);
             this.tabcliente.Controls.Add(this.panel2);
             this.tabcliente.Controls.Add(this.tableLayoutPanel1);
@@ -663,6 +665,39 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel1.TabIndex = 2;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
+            // txtnomecli
+            // 
+            this.txtnomecli.AllowDrop = true;
+            this.txtnomecli.AutoCompleteCustomSource.AddRange(new string[] {
+            "Luis Eduardo Ferreira Gomes"});
+            this.txtnomecli.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtnomecli.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtnomecli.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.btnproc});
+            this.txtnomecli.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtnomecli.KryptonContextMenu = this.ContextMenucliente;
+            this.txtnomecli.Location = new System.Drawing.Point(3, 26);
+            this.txtnomecli.Name = "txtnomecli";
+            this.txtnomecli.Size = new System.Drawing.Size(415, 24);
+            this.txtnomecli.TabIndex = 2;
+            // 
+            // btnproc
+            // 
+            this.btnproc.Image = ((System.Drawing.Image)(resources.GetObject("btnproc.Image")));
+            this.btnproc.UniqueName = "74920EE99D3D48EEF48D59E59B7B44DE";
+            this.btnproc.Click += new System.EventHandler(this.btnproc_Click);
+            // 
+            // ContextMenucliente
+            // 
+            this.ContextMenucliente.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonContextMenuLinkLabel1});
+            this.ContextMenucliente.Opening += new System.ComponentModel.CancelEventHandler(this.kryptonContextMenu1_Opening);
+            // 
+            // kryptonContextMenuLinkLabel1
+            // 
+            this.kryptonContextMenuLinkLabel1.ExtraText = "";
+            this.kryptonContextMenuLinkLabel1.Text = "Luis";
+            // 
             // txtrenda
             // 
             this.txtrenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -764,11 +799,6 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcpf.Size = new System.Drawing.Size(159, 24);
             this.txtcpf.TabIndex = 3;
             this.txtcpf.TextChanged += new System.EventHandler(this.txtcpf_TextChanged_1);
-            // 
-            // clientesBindingSource
-            // 
-            this.clientesBindingSource.DataMember = "Clientes";
-            this.clientesBindingSource.DataSource = this.dS_Clientes;
             // 
             // lblcliente
             // 
@@ -1501,6 +1531,11 @@ namespace LMFinanciamentos.Apresentacao
             this.label8.TabIndex = 15;
             this.label8.Text = "Nome:";
             // 
+            // clientesBindingSource
+            // 
+            this.clientesBindingSource.DataMember = "Clientes";
+            this.clientesBindingSource.DataSource = this.dS_Clientes;
+            // 
             // clientesTableAdapter
             // 
             this.clientesTableAdapter.ClearBeforeFill = true;
@@ -1529,37 +1564,14 @@ namespace LMFinanciamentos.Apresentacao
             this.clientesBindingSource2.DataMember = "Clientes";
             this.clientesBindingSource2.DataSource = this.dSClientesBindingSource;
             // 
-            // ContextMenucliente
+            // listBox1
             // 
-            this.ContextMenucliente.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
-            this.kryptonContextMenuLinkLabel1});
-            this.ContextMenucliente.Opening += new System.ComponentModel.CancelEventHandler(this.kryptonContextMenu1_Opening);
-            // 
-            // kryptonContextMenuLinkLabel1
-            // 
-            this.kryptonContextMenuLinkLabel1.ExtraText = "";
-            this.kryptonContextMenuLinkLabel1.Text = "Luis";
-            // 
-            // txtnomecli
-            // 
-            this.txtnomecli.AutoCompleteCustomSource.AddRange(new string[] {
-            "Luis Eduardo Ferreira Gomes"});
-            this.txtnomecli.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtnomecli.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtnomecli.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
-            this.btnproc});
-            this.txtnomecli.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtnomecli.KryptonContextMenu = this.ContextMenucliente;
-            this.txtnomecli.Location = new System.Drawing.Point(3, 26);
-            this.txtnomecli.Name = "txtnomecli";
-            this.txtnomecli.Size = new System.Drawing.Size(415, 24);
-            this.txtnomecli.TabIndex = 2;
-            // 
-            // btnproc
-            // 
-            this.btnproc.Image = ((System.Drawing.Image)(resources.GetObject("btnproc.Image")));
-            this.btnproc.UniqueName = "74920EE99D3D48EEF48D59E59B7B44DE";
-            this.btnproc.Click += new System.EventHandler(this.btnproc_Click);
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 23;
+            this.listBox1.Location = new System.Drawing.Point(297, 355);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(244, 50);
+            this.listBox1.TabIndex = 6;
             // 
             // Form_Cadastro_Documentos
             // 
@@ -1598,7 +1610,6 @@ namespace LMFinanciamentos.Apresentacao
             this.panel4.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
             this.tabproduto.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
@@ -1634,6 +1645,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panel17.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
             this.panel18.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource2)).EndInit();
             this.ResumeLayout(false);
@@ -1771,6 +1783,7 @@ namespace LMFinanciamentos.Apresentacao
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems1;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtnomecli;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnproc;
+        private System.Windows.Forms.ListBox listBox1;
         //private System.Windows.Forms.BindingSource corretoraBindingSource;
         //private System.Windows.Forms.BindingSource corretoresBindingSource;
         //private System.Windows.Forms.BindingSource vendedorBindingSource;
