@@ -372,38 +372,43 @@ namespace LMFinanciamentos.Apresentacao
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 422);
             this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(10);
             this.panel1.Size = new System.Drawing.Size(686, 52);
             this.panel1.TabIndex = 7;
             // 
             // btn_logoff
             // 
             this.btn_logoff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.btn_logoff.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_logoff.FlatAppearance.BorderSize = 0;
             this.btn_logoff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_logoff.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btn_logoff.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_logoff.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_logoff.Location = new System.Drawing.Point(121, 10);
+            this.btn_logoff.Location = new System.Drawing.Point(10, 10);
             this.btn_logoff.Name = "btn_logoff";
             this.btn_logoff.Padding = new System.Windows.Forms.Padding(4);
-            this.btn_logoff.Size = new System.Drawing.Size(104, 31);
+            this.btn_logoff.Size = new System.Drawing.Size(104, 32);
             this.btn_logoff.TabIndex = 5;
             this.btn_logoff.Text = "Logoff";
+            this.btn_logoff.UseCompatibleTextRendering = true;
             this.btn_logoff.UseVisualStyleBackColor = false;
             this.btn_logoff.Click += new System.EventHandler(this.btn_logoff_Click);
             // 
             // btncloseconf
             // 
             this.btncloseconf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.btncloseconf.Dock = System.Windows.Forms.DockStyle.Right;
             this.btncloseconf.FlatAppearance.BorderSize = 0;
             this.btncloseconf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btncloseconf.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btncloseconf.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncloseconf.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btncloseconf.Location = new System.Drawing.Point(10, 10);
+            this.btncloseconf.Location = new System.Drawing.Point(572, 10);
             this.btncloseconf.Name = "btncloseconf";
             this.btncloseconf.Padding = new System.Windows.Forms.Padding(4);
-            this.btncloseconf.Size = new System.Drawing.Size(104, 31);
+            this.btncloseconf.Size = new System.Drawing.Size(104, 32);
             this.btncloseconf.TabIndex = 2;
             this.btncloseconf.Text = "Fechar";
+            this.btncloseconf.UseCompatibleTextRendering = true;
             this.btncloseconf.UseVisualStyleBackColor = false;
             this.btncloseconf.Click += new System.EventHandler(this.btncloseconf_Click);
             // 
@@ -487,7 +492,6 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.Label lbl_conf;
         private System.Windows.Forms.PictureBox img_topo;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btn_logoff;
         private System.Windows.Forms.Button btncloseconf;
         private System.Windows.Forms.Panel pnl_centerconf;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -514,5 +518,6 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btn_cancelsenha;
         private System.Windows.Forms.Button btn_alterar;
+        private System.Windows.Forms.Button btn_logoff;
     }
 }

@@ -81,5 +81,15 @@ namespace LMFinanciamentos.Apresentacao
             frm_cadastro_documentos.setLabel("Em Preenchimento");
             frm_cadastro_documentos.Show();
         }
+
+        private void dgv_process_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            Form_Dados_Documentos frm_dados_documentos = new Form_Dados_Documentos();
+            //frm_dados_documentos.setIdProcess(dgv_process.Rows[1].Cells[0].Value.ToString());
+            frm_dados_documentos.setIdProcess(dgv_process.SelectedRows[0].Cells["id"].Value.ToString());
+            //frm_dados_documentos.setIdProcess("1");
+            frm_dados_documentos.Show();
+        }
     }
 }

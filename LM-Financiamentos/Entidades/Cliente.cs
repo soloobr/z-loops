@@ -9,6 +9,7 @@
         public string Telefone_cliente { get; set; }
         public string Celular_cliente { get; set; }
         public string CPF_cliente { get; set; }
+        public string CNPJ_cliente { get; set; }
         public string StatusCPF_cliente { get; set; }
         public string StatusCiweb_cliente { get; set; }
         public string StatusCadmut_cliente { get; set; }
@@ -20,7 +21,10 @@
         public string Status_cliente { get; set; }
         public string Renda_cliente { get; set; }
         public int Cont { get; internal set; }
-       
+        public string Agencia_cliente { get; internal set; }
+        public string Conta_cliente { get; internal set; }
+
+
 
         //public string Permision { get; set; }
 

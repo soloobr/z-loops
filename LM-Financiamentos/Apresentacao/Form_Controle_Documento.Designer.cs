@@ -52,17 +52,17 @@ namespace LMFinanciamentos.Apresentacao
             this.btnprocurar = new System.Windows.Forms.Button();
             this.txtprocurar = new System.Windows.Forms.TextBox();
             this.dgv_process = new System.Windows.Forms.DataGridView();
-            this.processoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.processosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dSDocumentosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dS_Documentos = new LMFinanciamentos.DAL.DS_Documentos();
+            this.processosTableAdapter = new LMFinanciamentos.DAL.DS_DocumentosTableAdapters.ProcessosTableAdapter();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.corretoraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.corretorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.funcionarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.processosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dSDocumentosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dS_Documentos = new LMFinanciamentos.DAL.DS_Documentos();
-            this.processosTableAdapter = new LMFinanciamentos.DAL.DS_DocumentosTableAdapters.ProcessosTableAdapter();
             this.panel1.SuspendLayout();
             this.paneltop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).BeginInit();
@@ -253,7 +253,7 @@ namespace LMFinanciamentos.Apresentacao
             this.dgv_process.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_process.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_process.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.processoDataGridViewTextBoxColumn,
+            this.id,
             this.dataDataGridViewTextBoxColumn,
             this.clienteDataGridViewTextBoxColumn,
             this.corretoraDataGridViewTextBoxColumn,
@@ -262,9 +262,12 @@ namespace LMFinanciamentos.Apresentacao
             this.statusDataGridViewTextBoxColumn});
             this.dgv_process.DataSource = this.processosBindingSource;
             this.dgv_process.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_process.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgv_process.GridColor = System.Drawing.SystemColors.Control;
             this.dgv_process.Location = new System.Drawing.Point(0, 195);
+            this.dgv_process.MultiSelect = false;
             this.dgv_process.Name = "dgv_process";
+            this.dgv_process.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -281,56 +284,7 @@ namespace LMFinanciamentos.Apresentacao
             this.dgv_process.Size = new System.Drawing.Size(982, 143);
             this.dgv_process.TabIndex = 11;
             this.dgv_process.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_process_CellContentClick);
-            // 
-            // processoDataGridViewTextBoxColumn
-            // 
-            this.processoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.processoDataGridViewTextBoxColumn.DataPropertyName = "Processo";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.processoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.processoDataGridViewTextBoxColumn.HeaderText = "Nº Processo";
-            this.processoDataGridViewTextBoxColumn.Name = "processoDataGridViewTextBoxColumn";
-            this.processoDataGridViewTextBoxColumn.Width = 138;
-            // 
-            // dataDataGridViewTextBoxColumn
-            // 
-            this.dataDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataDataGridViewTextBoxColumn.DataPropertyName = "Data";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataDataGridViewTextBoxColumn.HeaderText = "Data";
-            this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
-            this.dataDataGridViewTextBoxColumn.Width = 81;
-            // 
-            // clienteDataGridViewTextBoxColumn
-            // 
-            this.clienteDataGridViewTextBoxColumn.DataPropertyName = "Cliente";
-            this.clienteDataGridViewTextBoxColumn.HeaderText = "Cliente";
-            this.clienteDataGridViewTextBoxColumn.Name = "clienteDataGridViewTextBoxColumn";
-            // 
-            // corretoraDataGridViewTextBoxColumn
-            // 
-            this.corretoraDataGridViewTextBoxColumn.DataPropertyName = "Corretora";
-            this.corretoraDataGridViewTextBoxColumn.HeaderText = "Corretora";
-            this.corretoraDataGridViewTextBoxColumn.Name = "corretoraDataGridViewTextBoxColumn";
-            // 
-            // corretorDataGridViewTextBoxColumn
-            // 
-            this.corretorDataGridViewTextBoxColumn.DataPropertyName = "Corretor";
-            this.corretorDataGridViewTextBoxColumn.HeaderText = "Corretor";
-            this.corretorDataGridViewTextBoxColumn.Name = "corretorDataGridViewTextBoxColumn";
-            // 
-            // funcionarioDataGridViewTextBoxColumn
-            // 
-            this.funcionarioDataGridViewTextBoxColumn.DataPropertyName = "Funcionario";
-            this.funcionarioDataGridViewTextBoxColumn.HeaderText = "Funcionário";
-            this.funcionarioDataGridViewTextBoxColumn.Name = "funcionarioDataGridViewTextBoxColumn";
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            this.dgv_process.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_process_CellDoubleClick);
             // 
             // processosBindingSource
             // 
@@ -350,6 +304,63 @@ namespace LMFinanciamentos.Apresentacao
             // processosTableAdapter
             // 
             this.processosTableAdapter.ClearBeforeFill = true;
+            // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.id.DataPropertyName = "Processo";
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.id.DefaultCellStyle = dataGridViewCellStyle2;
+            this.id.HeaderText = "Nº Processo";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 138;
+            // 
+            // dataDataGridViewTextBoxColumn
+            // 
+            this.dataDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataDataGridViewTextBoxColumn.DataPropertyName = "Data";
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataDataGridViewTextBoxColumn.HeaderText = "Data";
+            this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
+            this.dataDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataDataGridViewTextBoxColumn.Width = 81;
+            // 
+            // clienteDataGridViewTextBoxColumn
+            // 
+            this.clienteDataGridViewTextBoxColumn.DataPropertyName = "Cliente";
+            this.clienteDataGridViewTextBoxColumn.HeaderText = "Cliente";
+            this.clienteDataGridViewTextBoxColumn.Name = "clienteDataGridViewTextBoxColumn";
+            this.clienteDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // corretoraDataGridViewTextBoxColumn
+            // 
+            this.corretoraDataGridViewTextBoxColumn.DataPropertyName = "Corretora";
+            this.corretoraDataGridViewTextBoxColumn.HeaderText = "Corretora";
+            this.corretoraDataGridViewTextBoxColumn.Name = "corretoraDataGridViewTextBoxColumn";
+            this.corretoraDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // corretorDataGridViewTextBoxColumn
+            // 
+            this.corretorDataGridViewTextBoxColumn.DataPropertyName = "Corretor";
+            this.corretorDataGridViewTextBoxColumn.HeaderText = "Corretor";
+            this.corretorDataGridViewTextBoxColumn.Name = "corretorDataGridViewTextBoxColumn";
+            this.corretorDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // funcionarioDataGridViewTextBoxColumn
+            // 
+            this.funcionarioDataGridViewTextBoxColumn.DataPropertyName = "Funcionario";
+            this.funcionarioDataGridViewTextBoxColumn.HeaderText = "Funcionário";
+            this.funcionarioDataGridViewTextBoxColumn.Name = "funcionarioDataGridViewTextBoxColumn";
+            this.funcionarioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            this.statusDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Form_Controle_Documento
             // 
@@ -400,14 +411,14 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.Button btnprocurar;
         private System.Windows.Forms.TextBox txtprocurar;
         private System.Windows.Forms.Label lblprocurar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn processoDataGridViewTextBoxColumn;
+        public System.Windows.Forms.Button btncloseconf;
+        public System.Windows.Forms.Button btnnovodoc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn clienteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn corretoraDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn corretorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn funcionarioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
-        public System.Windows.Forms.Button btncloseconf;
-        public System.Windows.Forms.Button btnnovodoc;
     }
 }

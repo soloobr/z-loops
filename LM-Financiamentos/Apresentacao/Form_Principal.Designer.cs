@@ -47,7 +47,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panelcontrolmenu = new System.Windows.Forms.Panel();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelformularios = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.imgcenter = new System.Windows.Forms.PictureBox();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnconf = new System.Windows.Forms.Button();
             this.panelmenuitens = new System.Windows.Forms.Panel();
@@ -69,7 +69,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panelcontrolmenu.SuspendLayout();
             this.panelContenedor.SuspendLayout();
             this.panelformularios.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgcenter)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.panelmenuitens.SuspendLayout();
             this.panelsubmenucadastro.SuspendLayout();
@@ -241,7 +241,7 @@ namespace LMFinanciamentos.Apresentacao
             // panelformularios
             // 
             this.panelformularios.BackColor = System.Drawing.SystemColors.Control;
-            this.panelformularios.Controls.Add(this.pictureBox1);
+            this.panelformularios.Controls.Add(this.imgcenter);
             this.panelformularios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelformularios.Location = new System.Drawing.Point(230, 32);
             this.panelformularios.Margin = new System.Windows.Forms.Padding(2);
@@ -249,16 +249,17 @@ namespace LMFinanciamentos.Apresentacao
             this.panelformularios.Size = new System.Drawing.Size(792, 581);
             this.panelformularios.TabIndex = 2;
             // 
-            // pictureBox1
+            // imgcenter
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(792, 581);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.imgcenter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.imgcenter.Image = ((System.Drawing.Image)(resources.GetObject("imgcenter.Image")));
+            this.imgcenter.Location = new System.Drawing.Point(0, 0);
+            this.imgcenter.Margin = new System.Windows.Forms.Padding(2);
+            this.imgcenter.Name = "imgcenter";
+            this.imgcenter.Size = new System.Drawing.Size(792, 581);
+            this.imgcenter.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.imgcenter.TabIndex = 0;
+            this.imgcenter.TabStop = false;
             // 
             // panelMenu
             // 
@@ -320,10 +321,10 @@ namespace LMFinanciamentos.Apresentacao
             this.panelsubmenucadastrofunc.AutoSize = true;
             this.panelsubmenucadastrofunc.Controls.Add(this.btncadastrocfuncionarios);
             this.panelsubmenucadastrofunc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelsubmenucadastrofunc.Location = new System.Drawing.Point(0, 29);
+            this.panelsubmenucadastrofunc.Location = new System.Drawing.Point(0, 32);
             this.panelsubmenucadastrofunc.Name = "panelsubmenucadastrofunc";
             this.panelsubmenucadastrofunc.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
-            this.panelsubmenucadastrofunc.Size = new System.Drawing.Size(220, 29);
+            this.panelsubmenucadastrofunc.Size = new System.Drawing.Size(220, 32);
             this.panelsubmenucadastrofunc.TabIndex = 1;
             // 
             // btncadastrocfuncionarios
@@ -339,7 +340,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btncadastrocfuncionarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btncadastrocfuncionarios.Location = new System.Drawing.Point(38, 0);
             this.btncadastrocfuncionarios.Name = "btncadastrocfuncionarios";
-            this.btncadastrocfuncionarios.Size = new System.Drawing.Size(182, 29);
+            this.btncadastrocfuncionarios.Size = new System.Drawing.Size(182, 32);
             this.btncadastrocfuncionarios.TabIndex = 23;
             this.btncadastrocfuncionarios.Text = "Cadastro de Funcionarios";
             this.btncadastrocfuncionarios.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -355,7 +356,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panelsubmenucadastrocliente.Location = new System.Drawing.Point(0, 0);
             this.panelsubmenucadastrocliente.Name = "panelsubmenucadastrocliente";
             this.panelsubmenucadastrocliente.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
-            this.panelsubmenucadastrocliente.Size = new System.Drawing.Size(220, 29);
+            this.panelsubmenucadastrocliente.Size = new System.Drawing.Size(220, 32);
             this.panelsubmenucadastrocliente.TabIndex = 0;
             // 
             // btncadastrocliente
@@ -371,7 +372,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btncadastrocliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btncadastrocliente.Location = new System.Drawing.Point(38, 0);
             this.btncadastrocliente.Name = "btncadastrocliente";
-            this.btncadastrocliente.Size = new System.Drawing.Size(182, 29);
+            this.btncadastrocliente.Size = new System.Drawing.Size(182, 32);
             this.btncadastrocliente.TabIndex = 23;
             this.btncadastrocliente.Text = "Cadastro de Clientes";
             this.btncadastrocliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -428,7 +429,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panelBarraTitulo.Location = new System.Drawing.Point(0, 0);
             this.panelBarraTitulo.Margin = new System.Windows.Forms.Padding(2);
             this.panelBarraTitulo.Name = "panelBarraTitulo";
-            this.panelBarraTitulo.Padding = new System.Windows.Forms.Padding(5);
+            this.panelBarraTitulo.Padding = new System.Windows.Forms.Padding(2);
             this.panelBarraTitulo.Size = new System.Drawing.Size(1022, 32);
             this.panelBarraTitulo.TabIndex = 0;
             this.panelBarraTitulo.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBarraTitulo_Paint_1);
@@ -441,9 +442,9 @@ namespace LMFinanciamentos.Apresentacao
             this.lbl_title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lbl_title.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Bold);
             this.lbl_title.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.lbl_title.Location = new System.Drawing.Point(5, 5);
+            this.lbl_title.Location = new System.Drawing.Point(2, 2);
             this.lbl_title.Name = "lbl_title";
-            this.lbl_title.Size = new System.Drawing.Size(210, 31);
+            this.lbl_title.Size = new System.Drawing.Size(206, 34);
             this.lbl_title.TabIndex = 0;
             this.lbl_title.Text = "LM Financiamentos";
             this.lbl_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -453,10 +454,12 @@ namespace LMFinanciamentos.Apresentacao
             this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMinimizar.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
-            this.btnMinimizar.Location = new System.Drawing.Point(921, 5);
+            this.btnMinimizar.Location = new System.Drawing.Point(924, 2);
             this.btnMinimizar.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(24, 22);
+            this.btnMinimizar.Padding = new System.Windows.Forms.Padding(10);
+            this.btnMinimizar.Size = new System.Drawing.Size(24, 28);
+            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.btnMinimizar.TabIndex = 2;
             this.btnMinimizar.TabStop = false;
             this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
@@ -466,11 +469,11 @@ namespace LMFinanciamentos.Apresentacao
             this.btnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRestaurar.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("btnRestaurar.Image")));
-            this.btnRestaurar.Location = new System.Drawing.Point(945, 5);
+            this.btnRestaurar.Location = new System.Drawing.Point(948, 2);
             this.btnRestaurar.Margin = new System.Windows.Forms.Padding(2);
             this.btnRestaurar.Name = "btnRestaurar";
             this.btnRestaurar.Padding = new System.Windows.Forms.Padding(30);
-            this.btnRestaurar.Size = new System.Drawing.Size(24, 22);
+            this.btnRestaurar.Size = new System.Drawing.Size(24, 28);
             this.btnRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.btnRestaurar.TabIndex = 3;
             this.btnRestaurar.TabStop = false;
@@ -482,11 +485,11 @@ namespace LMFinanciamentos.Apresentacao
             this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMaximizar.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnMaximizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMaximizar.Image")));
-            this.btnMaximizar.Location = new System.Drawing.Point(969, 5);
+            this.btnMaximizar.Location = new System.Drawing.Point(972, 2);
             this.btnMaximizar.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaximizar.Name = "btnMaximizar";
             this.btnMaximizar.Padding = new System.Windows.Forms.Padding(10);
-            this.btnMaximizar.Size = new System.Drawing.Size(24, 22);
+            this.btnMaximizar.Size = new System.Drawing.Size(24, 28);
             this.btnMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.btnMaximizar.TabIndex = 1;
             this.btnMaximizar.TabStop = false;
@@ -497,11 +500,11 @@ namespace LMFinanciamentos.Apresentacao
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(993, 5);
+            this.btnCerrar.Location = new System.Drawing.Point(996, 2);
             this.btnCerrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Padding = new System.Windows.Forms.Padding(5);
-            this.btnCerrar.Size = new System.Drawing.Size(24, 22);
+            this.btnCerrar.Size = new System.Drawing.Size(24, 28);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.btnCerrar.TabIndex = 0;
             this.btnCerrar.TabStop = false;
@@ -514,6 +517,7 @@ namespace LMFinanciamentos.Apresentacao
             this.ClientSize = new System.Drawing.Size(1022, 613);
             this.Controls.Add(this.panelContenedor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(488, 325);
             this.Name = "Form_Principal";
@@ -527,7 +531,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panelcontrolmenu.PerformLayout();
             this.panelContenedor.ResumeLayout(false);
             this.panelformularios.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgcenter)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.panelmenuitens.ResumeLayout(false);
             this.panelsubmenucadastro.ResumeLayout(false);
@@ -557,7 +561,7 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.PictureBox btnMinimizar;
         private System.Windows.Forms.PictureBox btnMaximizar;
         private System.Windows.Forms.PictureBox btnCerrar;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox imgcenter;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.PictureBox img_foto;
         private System.Windows.Forms.Button btnmenurigth;
