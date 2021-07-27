@@ -836,7 +836,7 @@ namespace LMFinanciamentos.Apresentacao
             switch (txtStatusCPF.SelectedItem.ToString()) /////using switch to test as to what was selected from the first combobox
             {
                 case "Não Consultado":
-                    String Data = DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss");
+                    String Data = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                     //lblstatuscpf.Visible = true;
                     lbldatacpf.Text = Data ;
                     lbldatacpf.Visible = true;
@@ -876,31 +876,31 @@ namespace LMFinanciamentos.Apresentacao
             switch (txtciweb.SelectedItem.ToString()) /////using switch to test as to what was selected from the first combobox
             {
                 case "Não Consultado":
-                    String Data = DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss");
+                    String Data = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                     //lbldataciweb.Visible = true;
                     lbldataciweb.Text = Data;
                     lbldataciweb.Visible = true;
                     break;
                 case "Ativo":
-                    String Data1 = DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss");
+                    String Data1 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                     //lbldataciweb.Visible = true;
                     lbldataciweb.Text = Data1;
                     lbldataciweb.Visible = true;
                     break;
                 case "Inativo":
-                    String Data2 = DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss");
+                    String Data2 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                     //lbldataciweb.Visible = true;
                     lbldataciweb.Text = Data2;
                     lbldataciweb.Visible = true;
                     break;
                 case "Nada Consta":
-                    String Data3 = DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss");
+                    String Data3 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                     //lbldataciweb.Visible = true;
                     lbldataciweb.Text = Data3;
                     lbldataciweb.Visible = true;
                     break;
                     //case "Bloqueado em outro CCA":
-                    //    String Data4 = DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss");
+                    //    String Data4 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                     //    //lbldataciweb.Visible = true;
                     //    lbldataciweb.Text = Data4;
                     //    lbldataciweb.Visible = true;
@@ -917,19 +917,19 @@ namespace LMFinanciamentos.Apresentacao
             switch (txtir.SelectedItem.ToString()) /////using switch to test as to what was selected from the first combobox
             {
                 case "Não Consultado":
-                    String Data = DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss");
+                    String Data = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                     //lbldatair.Visible = true;
                     lbldatair.Text = Data;
                     lbldatair.Visible = true;
                     break;
                 case "Isento":
-                    String Data1 = DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss");
+                    String Data1 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                     //lbldatair.Visible = true;
                     lbldatair.Text = Data1;
                     lbldatair.Visible = true;
                     break;
                 case "Declarado":
-                    String Data2 = DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss");
+                    String Data2 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                     //lbldatair.Visible = true;
                     lbldatair.Text = Data2;
                     lbldatair.Visible = true;
@@ -956,19 +956,19 @@ namespace LMFinanciamentos.Apresentacao
             switch (txtfgts.SelectedItem.ToString()) /////using switch to test as to what was selected from the first combobox
             {
                 case "Não Consultado":
-                    String Data = DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss");
+                    String Data = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                     //lbldatafgts.Visible = true;
                     lbldatafgts.Text = Data;
                     lbldatafgts.Visible = true;
                     break;
                 case "Já subsidiado":
-                    String Data1 = DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss");
+                    String Data1 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                     // lbldatafgts.Visible = true;
                     lbldatafgts.Text = Data1;
                     lbldatafgts.Visible = true;
                     break;
                 case "Não subsidiado":
-                    String Data2 = DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss");
+                    String Data2 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                     // lbldatafgts.Visible = true;
                     lbldatafgts.Text = Data2;
                     lbldatafgts.Visible = true;
@@ -995,25 +995,25 @@ namespace LMFinanciamentos.Apresentacao
             switch (txtciweb.SelectedItem.ToString()) /////using switch to test as to what was selected from the first combobox
             {
                 case "Não Consultado":
-                    String Data = DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss");
+                    String Data = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                     //lbldatacadmut.Visible = true;
                     lbldatacadmut.Text = Data;
                     lbldatacadmut.Visible = true;
                     break;
                 case "Ativo":
-                    String Data1 = DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss");
+                    String Data1 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                     //lbldatacadmut.Visible = true;
                     lbldatacadmut.Text = Data1;
                     lbldatacadmut.Visible = true;
                     break;
                 case "Inativo":
-                    String Data2 = DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss");
+                    String Data2 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                     //lbldatacadmut.Visible = true;
                     lbldatacadmut.Text = Data2;
                     lbldatacadmut.Visible = true;
                     break;
                 case "Nada Consta":
-                    String Data3 = DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss");
+                    String Data3 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                     //lbldatacadmut.Visible = true;
                     lbldatacadmut.Text = Data3;
                     lbldatacadmut.Visible = true;

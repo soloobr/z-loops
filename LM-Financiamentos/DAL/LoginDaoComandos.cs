@@ -403,11 +403,11 @@ namespace LMFinanciamentos.DAL
 
             try
             {
-                cmd1.CommandText = "UPDATE Processos " +
-                    "INNER JOIN  H_Status ON Processos.ID = H_Status.idprocesso " +
-                    "SET Processos.StatusCPF = @cpf, Processos.StatusCiweb = @Ciweb, Processos.StatusCadmut = @Cadmut, Processos.StatusIR = @IR, Processos.StatusFGTS = @FGTS , " +
-                "H_Status.DataStatusCPF = @DataStatusCPF, H_Status.DataStatusCiweb = @DataStatusCiweb, H_Status.DataStatusCadmut = @DataStatusCadmut, H_Status.DataStatusIR = @DataStatusIR, H_Status.DataStatusFGTS = @DataStatusFGTS, " +
-                "H_Status.DataStatusAnalise = @DataStatusAnalise, H_Status.DataStatusEng = @DataStatusEng, H_Status.DataStatusCartorio = @DataStatusCartorio, H_Status.DataStatus = @DataStatus WHERE Processos.id = @Id ";
+                cmd1.CommandText = "UPDATE Processos P " +
+                    //"INNER JOIN  H_Status ON PID = H_Status.idprocesso " +
+                "SET P.StatusCPF = @cpf, P.StatusCiweb = @Ciweb, P.StatusCadmut = @Cadmut, P.StatusIR = @IR, P.StatusFGTS = @FGTS , " +
+                "DataStatusCPF = @DataStatusCPF, DataStatusCiweb = @DataStatusCiweb, DataStatusCadmut = @DataStatusCadmut, DataStatusIR = @DataStatusIR, DataStatusFGTS = @DataStatusFGTS, " +
+                "DataStatusAnalise = @DataStatusAnalise, DataStatusEng = @DataStatusEng, DataStatusCartorio = @DataStatusCartorio, DataStatus = @DataStatus WHERE P.id = @Id ";
                 cmd1.Parameters.AddWithValue("@Id", id);
                 cmd1.Parameters.AddWithValue("@cpf", scpf);
                 cmd1.Parameters.AddWithValue("@Ciweb", sciweb);
