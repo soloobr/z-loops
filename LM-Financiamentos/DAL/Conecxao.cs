@@ -9,7 +9,7 @@ namespace LMFinanciamentos.DAL
 
         public Conecxao()
         {
-            con.ConnectionString = @"server=sql452.main-hosting.eu;user id=u371409358_lm;Password=P@ssw0rd;database=u371409358_lm;persistsecurityinfo=True";
+            con.ConnectionString = @"server=sql452.main-hosting.eu;user id=u371409358_lm;Password=P@ssw0rd;database=u371409358_lm;persistsecurityinfo=True;convert zero datetime=True";
         }
 
         public MySqlConnection conectar()

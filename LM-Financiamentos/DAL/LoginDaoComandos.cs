@@ -205,14 +205,14 @@ namespace LMFinanciamentos.DAL
                 "V.id as idVendedor, V.Nome as vendnome, V.Email as Emailvendedor, V.Telefone as Telefonevendedor, V.Celular as celularvendedor, V.CPF as cpfvendedor, V.CNPJ as cnpjvendedor, V.Agencia as agenciavendedor, V.Conta as contavendedor,   " +
                 "idCorretora, idCorretor,  " +
                 "F.Nome as nomeresponsavel, F.Permission as permissionresponsavel,  " +
-                "H.id, H.idprocesso, H.idresponsavel, H.DataStatusCPF, H.DataStatusCiweb, H.DataStatusCadmut, H.DataStatusIR, H.DataStatusFGTS, H.DataStatusAnalise, H.DataStatusEng, H.DataStatusCartorio, H.DataStatus " +
+                "P.DataStatusCPF, P.DataStatusCiweb, P.DataStatusCadmut, P.DataStatusIR, P.DataStatusFGTS, P.DataStatusAnalise, P.DataStatusEng, P.DataStatusCartorio, P.DataStatus " +
 
                 "FROM Processos P " +
                 "inner join Clientes C on C.id = P.idCliente " +
                 "inner join Vendedor V on V.id = P.idVendedor " +
                 "inner join Funcionarios F on F.id = P.idresponsavel " +
                 "Left join Conta on C.id = Conta.idcliente " +
-                "Left join H_Status H on P.id = H.idprocesso " +
+                //"Left join P_Status H on P.id = H.idprocesso " +
                 "WHERE P.id = @idprocesso";
             cmd.Parameters.AddWithValue("@idprocesso", idprocess);
             Processo process = new Processo();

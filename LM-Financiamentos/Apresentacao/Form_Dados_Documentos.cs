@@ -94,28 +94,44 @@ namespace LMFinanciamentos.Apresentacao
 
             if (process.H_DataStatusCPF != "")
             {
-                lbldatacpf.Text = process.H_DataStatusCPF;
-                lbldatacpf.Visible = true;
+                if (process.H_DataStatusCPF != "01/01/0001 00:00:00")
+                {
+                    lbldatacpf.Text = process.H_DataStatusCPF;
+                    lbldatacpf.Visible = true;
+                }
+
             }
             if (process.H_DataStatusCiweb != "")
             {
-                lbldataciweb.Text = process.H_DataStatusCiweb;
-                lbldataciweb.Visible = true;
+                if (process.H_DataStatusCiweb != "01/01/0001 00:00:00")
+                {
+                    lbldataciweb.Text = process.H_DataStatusCiweb;
+                    lbldataciweb.Visible = true;
+                }
             }
             if (process.H_DataStatusCadmut != "")
             {
-                lbldatacadmut.Text = process.H_DataStatusCadmut;
-                lbldatacadmut.Visible = true;
+                if (process.H_DataStatusCadmut != "01/01/0001 00:00:00")
+                {
+                    lbldatacadmut.Text = process.H_DataStatusCadmut;
+                    lbldatacadmut.Visible = true;
+                }
             }
             if (process.H_DataStatusIR != "")
             {
-                lbldatair.Text = process.H_DataStatusIR;
-                lbldatair.Visible = true;
+                if (process.H_DataStatusIR != "01/01/0001 00:00:00")
+                {
+                    lbldatair.Text = process.H_DataStatusIR;
+                    lbldatair.Visible = true;
+                }
             }
             if (process.H_DataStatusFGTS != "")
             {
-                lbldatafgts.Text = process.H_DataStatusFGTS;
-                lbldatafgts.Visible = true;
+                if (process.H_DataStatusFGTS != "01/01/0001 00:00:00")
+                {
+                    lbldatafgts.Text = process.H_DataStatusFGTS;
+                    lbldatafgts.Visible = true;
+                }
             }
 
             #endregion
@@ -781,7 +797,7 @@ namespace LMFinanciamentos.Apresentacao
             //    case "Não Consultado":
             //        String Data = DateTime.Now.ToString("M/d/yyyy");
             //        lblstatuscpf.Visible = true;
-            //        lbldatacpf.Text = Data + "não";
+            //        lbldatacpf.Text = Data;
             //        lbldatacpf.Visible = true;
             //        break;
             //    case "Com Restrição":
@@ -860,35 +876,35 @@ namespace LMFinanciamentos.Apresentacao
             switch (txtciweb.SelectedItem.ToString()) /////using switch to test as to what was selected from the first combobox
             {
                 case "Não Consultado":
-                    String Data = DateTime.Now.ToString("M/d/yyyy");
+                    String Data = DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss");
                     //lbldataciweb.Visible = true;
-                    lbldataciweb.Text = Data + "não";
+                    lbldataciweb.Text = Data;
                     lbldataciweb.Visible = true;
                     break;
                 case "Ativo":
-                    String Data1 = DateTime.Now.ToString("M/d/yyyy");
+                    String Data1 = DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss");
                     //lbldataciweb.Visible = true;
                     lbldataciweb.Text = Data1;
                     lbldataciweb.Visible = true;
                     break;
                 case "Inativo":
-                    String Data2 = DateTime.Now.ToString("M/d/yyyy");
+                    String Data2 = DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss");
                     //lbldataciweb.Visible = true;
                     lbldataciweb.Text = Data2;
                     lbldataciweb.Visible = true;
                     break;
                 case "Nada Consta":
-                    String Data3 = DateTime.Now.ToString("M/d/yyyy");
+                    String Data3 = DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss");
                     //lbldataciweb.Visible = true;
                     lbldataciweb.Text = Data3;
                     lbldataciweb.Visible = true;
                     break;
-                //case "Bloqueado em outro CCA":
-                //    String Data4 = DateTime.Now.ToString("M/d/yyyy");
-                //    //lbldataciweb.Visible = true;
-                //    lbldataciweb.Text = Data4;
-                //    lbldataciweb.Visible = true;
-                //    break;
+                    //case "Bloqueado em outro CCA":
+                    //    String Data4 = DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss");
+                    //    //lbldataciweb.Visible = true;
+                    //    lbldataciweb.Text = Data4;
+                    //    lbldataciweb.Visible = true;
+                    //    break;
             }
         }
 
@@ -901,19 +917,19 @@ namespace LMFinanciamentos.Apresentacao
             switch (txtir.SelectedItem.ToString()) /////using switch to test as to what was selected from the first combobox
             {
                 case "Não Consultado":
-                    String Data = DateTime.Now.ToString("M/d/yyyy");
+                    String Data = DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss");
                     //lbldatair.Visible = true;
-                    lbldatair.Text = Data + "não";
+                    lbldatair.Text = Data;
                     lbldatair.Visible = true;
                     break;
                 case "Isento":
-                    String Data1 = DateTime.Now.ToString("M/d/yyyy");
+                    String Data1 = DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss");
                     //lbldatair.Visible = true;
                     lbldatair.Text = Data1;
                     lbldatair.Visible = true;
                     break;
                 case "Declarado":
-                    String Data2 = DateTime.Now.ToString("M/d/yyyy");
+                    String Data2 = DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss");
                     //lbldatair.Visible = true;
                     lbldatair.Text = Data2;
                     lbldatair.Visible = true;
@@ -940,20 +956,20 @@ namespace LMFinanciamentos.Apresentacao
             switch (txtfgts.SelectedItem.ToString()) /////using switch to test as to what was selected from the first combobox
             {
                 case "Não Consultado":
-                    String Data = DateTime.Now.ToString("M/d/yyyy");
+                    String Data = DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss");
                     //lbldatafgts.Visible = true;
-                    lbldatafgts.Text = Data + "não";
+                    lbldatafgts.Text = Data;
                     lbldatafgts.Visible = true;
                     break;
                 case "Já subsidiado":
-                    String Data1 = DateTime.Now.ToString("M/d/yyyy");
-                   // lbldatafgts.Visible = true;
+                    String Data1 = DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss");
+                    // lbldatafgts.Visible = true;
                     lbldatafgts.Text = Data1;
                     lbldatafgts.Visible = true;
                     break;
                 case "Não subsidiado":
-                    String Data2 = DateTime.Now.ToString("M/d/yyyy");
-                   // lbldatafgts.Visible = true;
+                    String Data2 = DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss");
+                    // lbldatafgts.Visible = true;
                     lbldatafgts.Text = Data2;
                     lbldatafgts.Visible = true;
                     break;
@@ -979,25 +995,25 @@ namespace LMFinanciamentos.Apresentacao
             switch (txtciweb.SelectedItem.ToString()) /////using switch to test as to what was selected from the first combobox
             {
                 case "Não Consultado":
-                    String Data = DateTime.Now.ToString("M/d/yyyy");
+                    String Data = DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss");
                     //lbldatacadmut.Visible = true;
-                    lbldatacadmut.Text = Data + "não";
+                    lbldatacadmut.Text = Data;
                     lbldatacadmut.Visible = true;
                     break;
                 case "Ativo":
-                    String Data1 = DateTime.Now.ToString("M/d/yyyy");
+                    String Data1 = DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss");
                     //lbldatacadmut.Visible = true;
                     lbldatacadmut.Text = Data1;
                     lbldatacadmut.Visible = true;
                     break;
                 case "Inativo":
-                    String Data2 = DateTime.Now.ToString("M/d/yyyy");
+                    String Data2 = DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss");
                     //lbldatacadmut.Visible = true;
                     lbldatacadmut.Text = Data2;
                     lbldatacadmut.Visible = true;
                     break;
                 case "Nada Consta":
-                    String Data3 = DateTime.Now.ToString("M/d/yyyy");
+                    String Data3 = DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss");
                     //lbldatacadmut.Visible = true;
                     lbldatacadmut.Text = Data3;
                     lbldatacadmut.Visible = true;
