@@ -88,8 +88,25 @@ namespace LMFinanciamentos.Apresentacao
             Form_Dados_Documentos frm_dados_documentos = new Form_Dados_Documentos();
             //frm_dados_documentos.setIdProcess(dgv_process.Rows[1].Cells[0].Value.ToString());
             frm_dados_documentos.setIdProcess(dgv_process.SelectedRows[0].Cells["id"].Value.ToString());
+            frm_dados_documentos.ProcessoSalvo += new Action(frm_dados_documentos_ProcessoSalvo);
             //frm_dados_documentos.setIdProcess("1");
             frm_dados_documentos.Show();
+        }
+
+        void frm_dados_documentos_ProcessoSalvo()
+        {
+            AtualizaGrid();
+        }
+        private void AtualizaGrid()
+        {
+            // TODO: esta linha de código carrega dados na tabela 'dS_Documentos.Processos'. Você pode movê-la ou removê-la conforme necessário.
+            this.processosTableAdapter.Fill(this.dS_Documentos.Processos);
+            // TODO: esta linha de código carrega dados na tabela 'dS_Funcionario.Funcionarios'. Você pode movê-la ou removê-la conforme necessário.
+            this.funcionariosTableAdapter.Fill(this.dS_Funcionario.Funcionarios);
+            //dS_Documentos.Reset();
+            //DAL.DS_DocumentosTableAdapters.ProcessosTableAdapter.Fill(DAL.DS_Documentos.ProcessosDataTable.);
+            dgv_process.Refresh();
+
         }
     }
 }

@@ -895,6 +895,7 @@ namespace LMFinanciamentos.Apresentacao
             this.ComboBoxClient.Size = new System.Drawing.Size(413, 36);
             this.ComboBoxClient.TabIndex = 9;
             this.ComboBoxClient.SelectedIndexChanged += new System.EventHandler(this.ComboBoxClient_SelectedIndexChanged);
+            this.ComboBoxClient.SelectionChangeCommitted += new System.EventHandler(this.ComboBoxClient_SelectionChangeCommitted);
             this.ComboBoxClient.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ComboBoxClient_KeyPress);
             this.ComboBoxClient.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ComboBoxClient_KeyUp);
             // 

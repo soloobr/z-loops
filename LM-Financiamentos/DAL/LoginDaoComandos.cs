@@ -398,16 +398,16 @@ namespace LMFinanciamentos.DAL
             //return client;
             return list;
         }
-        public String UpdateProcesso(String id, String scpf, String sciweb, String scadmut, String sir, String sfgts, DateTime datastatuscpf, String datastatusciweb, String datastatuscadmut, String datastatusir, String datastatusfgts, String datastatusanalise, String datastatuseng, String datastatuscartorio, String datastatus)
+        public String UpdateProcesso(String id, String scpf, String sciweb, String scadmut, String sir, String sfgts, DateTime datastatuscpf, DateTime datastatusciweb, DateTime datastatuscadmut, DateTime datastatusir, DateTime datastatusfgts, DateTime datastatusanalise, DateTime datastatuseng, DateTime datastatuscartorio, DateTime datastatus, String status)
         {
 
             try
             {
-                cmd1.CommandText = "UPDATE Processos P " +
+                cmd1.CommandText = "UPDATE Processos " +
                     //"INNER JOIN  H_Status ON PID = H_Status.idprocesso " +
-                "SET P.StatusCPF = @cpf, P.StatusCiweb = @Ciweb, P.StatusCadmut = @Cadmut, P.StatusIR = @IR, P.StatusFGTS = @FGTS , " +
+                "SET Status = @Status, StatusCPF = @cpf, StatusCiweb = @Ciweb, StatusCadmut = @Cadmut, StatusIR = @IR, StatusFGTS = @FGTS , " +
                 "DataStatusCPF = @DataStatusCPF, DataStatusCiweb = @DataStatusCiweb, DataStatusCadmut = @DataStatusCadmut, DataStatusIR = @DataStatusIR, DataStatusFGTS = @DataStatusFGTS, " +
-                "DataStatusAnalise = @DataStatusAnalise, DataStatusEng = @DataStatusEng, DataStatusCartorio = @DataStatusCartorio, DataStatus = @DataStatus WHERE P.id = @Id ";
+                "DataStatusAnalise = @DataStatusAnalise, DataStatusEng = @DataStatusEng, DataStatusCartorio = @DataStatusCartorio, DataStatus = @DataStatus WHERE id = @Id ";
                 cmd1.Parameters.AddWithValue("@Id", id);
                 cmd1.Parameters.AddWithValue("@cpf", scpf);
                 cmd1.Parameters.AddWithValue("@Ciweb", sciweb);
@@ -423,6 +423,7 @@ namespace LMFinanciamentos.DAL
                 cmd1.Parameters.AddWithValue("@DataStatusEng", datastatuseng);
                 cmd1.Parameters.AddWithValue("@DataStatusCartorio", datastatuscartorio);
                 cmd1.Parameters.AddWithValue("@DataStatus", datastatus);
+                cmd1.Parameters.AddWithValue("@Status", status);
 
 
                 cmd1.Connection = conn.conectar();

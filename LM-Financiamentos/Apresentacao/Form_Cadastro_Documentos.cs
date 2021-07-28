@@ -260,6 +260,7 @@ namespace LMFinanciamentos.Apresentacao
         private async void pctr_Click(object sender, EventArgs e)
         {
 
+            LimparCampos();
             //backgroundWorker.RunWorkerAsync();
 
             int chars = ComboBoxClient.Text.Length;
@@ -290,11 +291,11 @@ namespace LMFinanciamentos.Apresentacao
                         txttelefone.Text = c.Telefone_cliente;
                         txtcelular.Text = c.Celular_cliente;
                         txtrenda.Text = c.Renda_cliente;
-                        txtStatusCPF.Text = c.StatusCPF_cliente;
-                        txtciweb.Text = c.StatusCiweb_cliente;
-                        txtcadmut.Text = c.StatusCadmut_cliente;
-                        txtir.Text = c.StatusIR_cliente;
-                        txtfgts.Text = c.StatusFGTS_cliente;
+                        //txtStatusCPF.Text = c.StatusCPF_cliente;
+                        //txtciweb.Text = c.StatusCiweb_cliente;
+                        //txtcadmut.Text = c.StatusCadmut_cliente;
+                        //txtir.Text = c.StatusIR_cliente;
+                        //txtfgts.Text = c.StatusFGTS_cliente;
                         txtagencia.Text = c.Agencia_cliente;
                         txtcontacliente.Text = c.Conta_cliente;
                         tabControl.Select();
@@ -471,30 +472,7 @@ namespace LMFinanciamentos.Apresentacao
 
         private void ComboBoxClient_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LoginDaoComandos gett = new LoginDaoComandos();
-            Cliente[] myArray = gett.GetClientes(ComboBoxClient.Text).ToArray();
-            foreach (Cliente c in myArray)
-            {
-                idcli = c.Id_cliente;
-                ComboBoxClient.Text = c.Nome_cliente;
-                //txtnomecli.Text = c.Nome_cliente;
-                txtcpf.Text = c.CPF_cliente;
-                txtnasc.Text = c.Nascimento_cliente;
-                txtemail.Text = c.Email_cliente;
-                txttelefone.Text = c.Telefone_cliente;
-                txtcelular.Text = c.Celular_cliente;
-                txtrenda.Text = c.Renda_cliente;
-                txtStatusCPF.Text = c.StatusCPF_cliente;
-                txtciweb.Text = c.StatusCiweb_cliente;
-                txtcadmut.Text = c.StatusCadmut_cliente;
-                txtir.Text = c.StatusIR_cliente;
-                txtfgts.Text = c.StatusFGTS_cliente;
-                txtrg.Text = c.RG_cliente;
-                txtagencia.Text = c.Agencia_cliente;
-                txtcontacliente.Text = c.Conta_cliente;
-                tabControl.Select();
-                tabControl.Focus();
-            }
+    
         }
         private void backgroundWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
@@ -694,6 +672,34 @@ namespace LMFinanciamentos.Apresentacao
             {
                 ComboBoxClient.DroppedDown = true;
                 bPopCombo = false;
+            }
+        }
+
+        private void ComboBoxClient_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            LoginDaoComandos gett = new LoginDaoComandos();
+            Cliente[] myArray = gett.GetClientes(ComboBoxClient.Text).ToArray();
+            foreach (Cliente c in myArray)
+            {
+                idcli = c.Id_cliente;
+                ComboBoxClient.Text = c.Nome_cliente;
+                //txtnomecli.Text = c.Nome_cliente;
+                txtcpf.Text = c.CPF_cliente;
+                txtnasc.Text = c.Nascimento_cliente;
+                txtemail.Text = c.Email_cliente;
+                txttelefone.Text = c.Telefone_cliente;
+                txtcelular.Text = c.Celular_cliente;
+                txtrenda.Text = c.Renda_cliente;
+                txtStatusCPF.Text = c.StatusCPF_cliente;
+                txtciweb.Text = c.StatusCiweb_cliente;
+                txtcadmut.Text = c.StatusCadmut_cliente;
+                txtir.Text = c.StatusIR_cliente;
+                txtfgts.Text = c.StatusFGTS_cliente;
+                txtrg.Text = c.RG_cliente;
+                txtagencia.Text = c.Agencia_cliente;
+                txtcontacliente.Text = c.Conta_cliente;
+                tabControl.Select();
+                tabControl.Focus();
             }
         }
 
