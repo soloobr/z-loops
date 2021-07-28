@@ -9,14 +9,14 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ProcessosTableAdapter" GeneratorDataComponentClassName="ProcessosTableAdapter" Name="Processos" UserDataComponentName="ProcessosTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="u371409358_lmConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="u371409358_lmConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        P.id AS Processo, C.Nome AS Cliente, F.Nome AS Funcionario, Corretora.Descricao AS Corretora, Corretores.Nome AS Corretor, Data, P.Status
-FROM            Processos P INNER JOIN
-                         Clientes C ON P.id = C.id INNER JOIN
-                         Funcionarios F ON F.id = P.idFunc INNER JOIN
-                         Corretora ON Corretora.id = P.idCorretora INNER JOIN
+FROM            Processos P LEFT JOIN
+                         Clientes C ON P.id = C.id LEFT JOIN
+                         Funcionarios F ON F.id = P.idFunc LEFT JOIN
+                         Corretora ON Corretora.id = P.idCorretora LEFT JOIN
                          Corretores ON Corretores.id = P.idCorretor</CommandText>
                     <Parameters />
                   </DbCommand>
@@ -60,10 +60,10 @@ WHERE        (C.Nome LIKE @consulta) OR
   <xs:element name="DS_Documentos" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DS_Documentos" msprop:Generator_UserDSName="DS_Documentos">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Processos" msprop:Generator_TableClassName="ProcessosDataTable" msprop:Generator_TableVarName="tableProcessos" msprop:Generator_TablePropName="Processos" msprop:Generator_RowDeletingName="ProcessosRowDeleting" msprop:Generator_RowChangingName="ProcessosRowChanging" msprop:Generator_RowEvHandlerName="ProcessosRowChangeEventHandler" msprop:Generator_RowDeletedName="ProcessosRowDeleted" msprop:Generator_UserTableName="Processos" msprop:Generator_RowChangedName="ProcessosRowChanged" msprop:Generator_RowEvArgName="ProcessosRowChangeEvent" msprop:Generator_RowClassName="ProcessosRow">
+        <xs:element name="Processos" msprop:Generator_TableClassName="ProcessosDataTable" msprop:Generator_TableVarName="tableProcessos" msprop:Generator_RowChangedName="ProcessosRowChanged" msprop:Generator_TablePropName="Processos" msprop:Generator_RowDeletingName="ProcessosRowDeleting" msprop:Generator_RowChangingName="ProcessosRowChanging" msprop:Generator_RowEvHandlerName="ProcessosRowChangeEventHandler" msprop:Generator_RowDeletedName="ProcessosRowDeleted" msprop:Generator_RowClassName="ProcessosRow" msprop:Generator_UserTableName="Processos" msprop:Generator_RowEvArgName="ProcessosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Data" msprop:Generator_ColumnVarNameInTable="columnData" msprop:Generator_ColumnPropNameInRow="Data" msprop:Generator_ColumnPropNameInTable="DataColumn" msprop:Generator_UserColumnName="Data" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Data" msprop:Generator_ColumnVarNameInTable="columnData" msprop:Generator_ColumnPropNameInRow="Data" msprop:Generator_ColumnPropNameInTable="DataColumn" msprop:Generator_UserColumnName="Data" type="xs:dateTime" />
               <xs:element name="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnPropNameInTable="StatusColumn" msprop:Generator_UserColumnName="Status" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -79,14 +79,14 @@ WHERE        (C.Nome LIKE @consulta) OR
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Funcionario" msprop:Generator_ColumnVarNameInTable="columnFuncionario" msprop:Generator_ColumnPropNameInRow="Funcionario" msprop:Generator_ColumnPropNameInTable="FuncionarioColumn" msprop:Generator_UserColumnName="Funcionario">
+              <xs:element name="Funcionario" msprop:Generator_ColumnVarNameInTable="columnFuncionario" msprop:Generator_ColumnPropNameInRow="Funcionario" msprop:Generator_ColumnPropNameInTable="FuncionarioColumn" msprop:Generator_UserColumnName="Funcionario" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Corretora" msprop:Generator_ColumnVarNameInTable="columnCorretora" msprop:Generator_ColumnPropNameInRow="Corretora" msprop:Generator_ColumnPropNameInTable="CorretoraColumn" msprop:Generator_UserColumnName="Corretora">
+              <xs:element name="Corretora" msprop:Generator_ColumnVarNameInTable="columnCorretora" msprop:Generator_ColumnPropNameInRow="Corretora" msprop:Generator_ColumnPropNameInTable="CorretoraColumn" msprop:Generator_UserColumnName="Corretora" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />

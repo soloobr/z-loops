@@ -39,7 +39,7 @@ namespace LMFinanciamentos.DAL
         Conecxao conn = new Conecxao();
         Conecxao con2 = new Conecxao();
         //SqlDataReader dr;
-        MySqlDataReader dr, drfunc, drsenha, drclient, drclients, drprocess;
+        MySqlDataReader dr, drfunc, drsenha, drclient, drclients, drprocess, drvebdedor;
 
 
         public bool verificarLogin(String login, String senha)
@@ -299,7 +299,7 @@ namespace LMFinanciamentos.DAL
         {
             var list = new List<Cliente>();
 
-            cmd2.CommandText = "SELECT Clientes.id, Nome, Email, Telefone, Celular, CPF, RG, StatusCPF, Ciweb, Cadmut, IR, FGTS, RG, Nascimento, Sexo, Renda, Status, Agencia, Conta FROM Clientes Left join Conta on Clientes.id = Conta.idcliente WHERE Nome LIKE @nomeclientes and Conta.Tipo = @tipo";
+            cmd2.CommandText = "SELECT Clientes.id, Nome, Email, Telefone, Celular, CPF, RG, StatusCPF, Ciweb, Cadmut, IR, FGTS, RG, Nascimento, Sexo, Renda, Status, Agencia, Conta FROM Clientes Left join Conta on Conta.idcliente = Clientes.id and Conta.Tipo = @tipo WHERE Nome LIKE @nomeclientes";
             cmd2.Parameters.Clear();
             cmd2.Parameters.AddWithValue("@nomeclientes", "%" + nome + "%");
             cmd2.Parameters.AddWithValue("@tipo", "C");
@@ -346,12 +346,12 @@ namespace LMFinanciamentos.DAL
             //return client;
             return list;
         }
-        public List<Cliente> GetVendedor(String nome)
+        public List<Vendedor> GetVendedor(String nome)
 
         {
-            var list = new List<Cliente>();
+            var list = new List<Vendedor>();
 
-            cmd2.CommandText = "SELECT Vendedor.id, Nome, Email, Telefone, Celular, CPF, CNPJ, Conta.Agencia, Conta.Conta FROM Vendedor Left join Conta on Vendedor.id = Conta.idcliente WHERE Nome LIKE @nomeclientes and Conta.Tipo = @tipo";
+            cmd2.CommandText = "SELECT Vendedor.id as id, Nome, Email, Telefone, Celular, CPF, CNPJ, Conta.Agencia, Conta.Conta FROM Vendedor Left join Conta on Vendedor.id = Conta.idcliente WHERE Nome LIKE @nomeclientes and Conta.Tipo = @tipo";
             cmd2.Parameters.Clear();
             cmd2.Parameters.AddWithValue("@nomeclientes", "%" + nome + "%");
             cmd2.Parameters.AddWithValue("@tipo", "V");
@@ -359,34 +359,34 @@ namespace LMFinanciamentos.DAL
             try
             {
                 cmd2.Connection = con2.conectar();
-                drclients = cmd2.ExecuteReader();
-                while (drclients.Read())
+                drvebdedor = cmd2.ExecuteReader();
+                while (drvebdedor.Read())
                 {
-                    Cliente clients = new Cliente();
-                    clients.Id_cliente = drclients["id"].ToString();
-                    clients.Nome_cliente = drclients["Nome"].ToString();
-                    clients.Email_cliente = drclients["Email"].ToString();
-                    clients.Telefone_cliente = drclients["Telefone"].ToString();
-                    clients.Celular_cliente = drclients["Celular"].ToString();
-                    clients.CPF_cliente = drclients["CPF"].ToString();
-                    clients.CNPJ_cliente = drclients["CNPJ"].ToString();
-                    //clients.StatusCPF_cliente = drclients["StatusCPF"].ToString();
-                    //clients.StatusCiweb_cliente = drclients["Ciweb"].ToString();
-                    //clients.StatusCadmut_cliente = drclients["Cadmut"].ToString();
-                    //clients.StatusIR_cliente = drclients["IR"].ToString();
-                    //clients.StatusFGTS_cliente = drclients["FGTS"].ToString();
-                    //clients.RG_cliente = drclients["RG"].ToString();
-                    //clients.Nascimento_cliente = drclients["Nascimento"].ToString();
-                    //clients.Sexo_cliente = drclients["Sexo"].ToString();
-                    //clients.Status_cliente = drclients["Status"].ToString();
-                    //clients.Renda_cliente = drclients["Renda"].ToString();
-                    clients.Agencia_cliente = drclients["Agencia"].ToString();
-                    clients.Conta_cliente = drclients["Conta"].ToString();
+                    Vendedor vendedor = new Vendedor();
+                    vendedor.Id_vendedor = drvebdedor["id"].ToString();
+                    vendedor.Nome_vendedor = drvebdedor["Nome"].ToString();
+                    vendedor.Email_vendedor = drvebdedor["Email"].ToString();
+                    vendedor.Telefone_vendedor = drvebdedor["Telefone"].ToString();
+                    vendedor.Celular_vendedor = drvebdedor["Celular"].ToString();
+                    vendedor.CPF_vendedor = drvebdedor["CPF"].ToString();
+                    vendedor.CNPJ_vendedor = drvebdedor["CNPJ"].ToString();
+                    //vendedor.StatusCPF_vendedor = drvebdedor["StatusCPF"].ToString();
+                    //vendedor.StatusCiweb_vendedor = drvebdedor["Ciweb"].ToString();
+                    //vendedor.StatusCadmut_vendedor = drvebdedor["Cadmut"].ToString();
+                    //vendedor.StatusIR_vendedor = drvebdedor["IR"].ToString();
+                    //vendedor.StatusFGTS_vendedor = drvebdedor["FGTS"].ToString();
+                    //vendedor.RG_vendedor = drvebdedor["RG"].ToString();
+                    //vendedor.Nascimento_vendedor = drvebdedor["Nascimento"].ToString();
+                    //vendedor.Sexo_vendedor = drvebdedor["Sexo"].ToString();
+                    //vendedor.Status_vendedor = drvebdedor["Status"].ToString();
+                    //vendedor.Renda_vendedor = drvebdedor["Renda"].ToString();
+                    vendedor.Agencia_vendedor = drvebdedor["Agencia"].ToString();
+                    vendedor.Conta_vendedor = drvebdedor["Conta"].ToString();
                     //Byte[] byteBLOBData = new Byte[0];
-                    //client.Foto_Func = (Byte[])(drclient["Foto"]);
-                    list.Add(clients);
+                    //vendedor.Foto_Func = (Byte[])(drvebdedor["Foto"]);
+                    list.Add(vendedor);
                 }
-                drclients.Close();
+                drvebdedor.Close();
                 con2.desconectar();
 
             }
@@ -397,6 +397,51 @@ namespace LMFinanciamentos.DAL
 
             //return client;
             return list;
+        }
+        public String CriarProcesso(String idCliente, String idVendedor, String idresponsavel, String idCorretora, String idCorretor, String status)
+        {
+
+            try
+            {
+
+                cmd1.CommandText = "INSERT INTO Processos (idCliente, idVendedor, idresponsavel, idCorretora, idCorretor, Data, Status) VALUES " +
+                "(@idCliente, @idVendedor, @idresponsavel, @idCorretora, @idCorretor, @Data, @Status) ";
+
+                cmd1.Parameters.AddWithValue("@idCliente", idCliente);
+                cmd1.Parameters.AddWithValue("@idVendedor", idVendedor);
+                cmd1.Parameters.AddWithValue("@idresponsavel", idresponsavel);
+                cmd1.Parameters.AddWithValue("@idCorretora", idCorretora);
+                cmd1.Parameters.AddWithValue("@idCorretor", idCorretor);
+                cmd1.Parameters.AddWithValue("@Data", DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
+                cmd1.Parameters.AddWithValue("@Status", status);
+
+
+                cmd1.Connection = conn.conectar();
+                //drupdatecli = cmd1.ExecuteReader();
+                int recordsAffected = cmd1.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "Processo Adicionado Com Sucesso";
+                }
+                else
+                {
+                    mensagem = "Erro ao Adicionar Processo";
+                }
+
+
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+            }
+            catch (Exception err)
+            {
+                //throw new Exception("Erro ao Alterar senha: " + err.Message);
+                mensagem = ("Erro ao Adicionar o Processo: " + err.Message);
+            }
+
+            return mensagem;
         }
         public String UpdateProcesso(String id, String scpf, String sciweb, String scadmut, String sir, String sfgts, DateTime datastatuscpf, DateTime datastatusciweb, DateTime datastatuscadmut, DateTime datastatusir, DateTime datastatusfgts, DateTime datastatusanalise, DateTime datastatuseng, DateTime datastatuscartorio, DateTime datastatus, String status)
         {
@@ -452,6 +497,7 @@ namespace LMFinanciamentos.DAL
 
             return mensagem;
         }
+        
         public string AlterarSenha(String id, String login, String senha, String novasenha)
         {
 

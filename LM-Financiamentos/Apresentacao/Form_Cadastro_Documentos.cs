@@ -15,11 +15,11 @@ namespace LMFinanciamentos.Apresentacao
     public partial class Form_Cadastro_Documentos : Form
     {
 
-        bool bPopCombo;
+        bool bPopCombo, cadastrar;
 
-        string idcli;
-        private int cadastrar = 0;
-        private int newProgressValue;
+        string idcli, idVendedor, idresponsavel, idCorretora, idCorretor, Status;
+        //private int cadastrar = 0;
+        //private int newProgressValue;
 
         public Form_Cadastro_Documentos()
         {
@@ -65,17 +65,25 @@ namespace LMFinanciamentos.Apresentacao
 
             textnomevendedor.Controls.Add(btnvendedor);
 
-            
+
 
             //this.clientesTableAdapter.Fill(this.dS_Clientes.Clientes);
 
             //var btn = new Button();
+
+            idresponsavel = "1";
+            idCorretora = "1";
+            idCorretor = "1";
+            Status = "Lançado";
 
             ComboBoxClient.Text = "";
             txtStatusCPF.Text = "";
             ComboBoxClient.Select();
             this.ActiveControl = ComboBoxClient;
             ComboBoxClient.Focus();
+
+            tabControl.TabPages.Remove(tabcartorio);
+            tabControl.TabPages.Remove(tabdoc);
         }
 
         private void btncloseconf_Click(object sender, EventArgs e)
@@ -86,147 +94,33 @@ namespace LMFinanciamentos.Apresentacao
         private void btnsalvardoc_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(ComboBoxClient.Text))
-            { 
+            {
 
                 MessageBox.Show("Nome do Cliente necessario!");
                 ComboBoxClient.Select();
                 ComboBoxClient.Focus();
 
-            }else
-	        {
-                //string message = "Não foram encontrados registro para:  " + ComboBoxClient.Text + " Deseja Cadastrar o Cliente?";
-                //const string caption = "Cadastrar Cliente";
-                //var result = MessageBox.Show(message, caption,
-                //                             MessageBoxButtons.YesNo,
-                //                             MessageBoxIcon.Question);
-
-                //// If the no button was pressed ...
-                //if (result == DialogResult.Yes)
-                //{
-                //    //MessageBox.Show("Abriu");
-                //    Form_Cadastro_cliente frm_Cadastro_cliente = new Form_Cadastro_cliente();
-                //    //frm_Cadastro_cliente.Name;
-                //    //frm_Cadastro_cliente.setLabel(func, ola);
-                //    frm_Cadastro_cliente.Show();
-                //}
-                //else
-                //{
-                //    LimparCampos();
-                //    ComboBoxClient.Select();
-                //    ComboBoxClient.Focus();
-                //}
-
-                //pctr_Click(this, EventArgs.Empty);
-                //Console.Write("Enter your selection (1, 2, or 3): ");
-                //string s = Console.ReadLine();
-                //int n = Int32.Parse(s);
+            }
+            else
+            {
 
                 pctr_Click(this, EventArgs.Empty);
 
+
                 switch (cadastrar)
                 {
-                    case 1:
-                        //MessageBox.Show("Current value is Yes");
-                        cadastrar = 0;
-
+                    case false:
+                        LoginDaoComandos criarprocesso = new LoginDaoComandos();
+                        criarprocesso.CriarProcesso(idcli, idVendedor, idresponsavel, idCorretora, idCorretor, Status);
+                        MessageBox.Show(criarprocesso.mensagem);
+                        Close();
+                        break;
+                    case true:
 
                         break;
-                    case 0:
-                        //MessageBox.Show("Current value is No");
-                        
-                        if (String.IsNullOrEmpty(comboBox_analise.Text))
-                        {
-                            MessageBox.Show("Status da Análise é necessario!, caso não tenha feito selecione Não Consultado.");
-                            tabControl.SelectedIndex = 1;
 
-                            comboBox_analise.Select();
-                            comboBox_analise.Focus();
-                            comboBox_analise.DroppedDown = true;
-                        }
-                        else if (String.IsNullOrEmpty(comboBox_statuseng.Text))
-                        {
-                            MessageBox.Show("Status da Engenharia é necessario!, caso não tenha feito selecione Não Consultado.");
-                            tabControl.SelectedIndex = 1;
-                            comboBox_statuseng.Select();
-                            comboBox_statuseng.Focus();
-                        }
-                        else if (String.IsNullOrEmpty(comboBox_agencia.Text))
-                        {
-                            MessageBox.Show("Agência é necessario!, caso não tenha feito selecione Não Consultado.");
-                            tabControl.SelectedIndex = 1;
-                            comboBox_agencia.Select();
-                            comboBox_agencia.Focus();
-                        }
-                        else if (String.IsNullOrEmpty(comboBox_programa.Text))
-                        {
-                            MessageBox.Show("Programa é necessario!, caso não tenha feito selecione Não Consultado.");
-                            tabControl.SelectedIndex = 1;
-                            comboBox_programa.Select();
-                            comboBox_programa.Focus();
-                        }
-                        else if (String.IsNullOrEmpty(valorproduto.Text))
-                        {
-                            MessageBox.Show("Valor do Ímovel é necessario!, caso não tenha feito selecione Não Consultado.");
-                            tabControl.SelectedIndex = 1;
-                            valorproduto.Select();
-                            valorproduto.Focus();
-                        }
-                        else if (String.IsNullOrEmpty(txtcorretora.Text))
-                        {
-                            MessageBox.Show("Corretora é necessario!, caso não tenha, selecione Não Tem");
-                            tabControl.SelectedIndex = 1;
-                            txtcorretora.Select();
-                            txtcorretora.Focus();
-                        }
-                        else if (String.IsNullOrEmpty(comboBox_corretor.Text))
-                        {
-                            MessageBox.Show("Corretor é necessario!, caso não tenha, selecione Não Tem");
-                            tabControl.SelectedIndex = 1;
-                            comboBox_corretor.Select();
-                            comboBox_corretor.Focus();
-                        }
-                        else if (String.IsNullOrEmpty(comboBox_empreendimentos.Text))
-                        {
-                            MessageBox.Show("Empreendimento é necessario!, caso não tenha, selecione Não Tem");
-                            tabControl.SelectedIndex = 1;
-                            comboBox_empreendimentos.Select();
-                            comboBox_empreendimentos.Focus();
-                        }
-                        else if (String.IsNullOrEmpty(comboBox_nomecartorio.Text))
-                        {
-                            MessageBox.Show("Nome do Cartório é necessario!, caso não Enviado, selecione Não Enviado");
-                            tabControl.SelectedIndex = 2;
-                            comboBox_nomecartorio.Select();
-                            comboBox_nomecartorio.Focus();
-                        }
-                        else if (String.IsNullOrEmpty(comboBox_statuscartorio.Text))
-                        {
-                            MessageBox.Show("Status Cartório é necessario!, caso não Enviado, selecione Não Enviado");
-                            tabControl.SelectedIndex = 2;
-                            comboBox_statuscartorio.Select();
-                            comboBox_statuscartorio.Focus();
-                        }
-
-                        else
-                        {
-                            MessageBox.Show("Cadastro efetuado com Sucesso!");
-                        }
-
-                        break;
-                    default:
-                        Console.WriteLine("Sorry, invalid selection.");
-                        break;
                 }
             }
-
-
-
-
-            //LoginDaoComandos updatecliente = new LoginDaoComandos();
-
-            //updatecliente.UpdateClienteProcesso(idcli, txtStatusCPF.Text, txtciweb.Text, txtcadmut.Text, txtir.Text, txtfgts.Text);
-
-            //MessageBox.Show(updatecliente.mensagem);
         }
         private void LimparCampos()
         {
@@ -251,7 +145,7 @@ namespace LMFinanciamentos.Apresentacao
             //ComboBoxClient.Text = "";
             textnomevendedor.Text = "";
             textcnpjcpf.Text = "";
-            textagencia.Text = "";
+            textagenciavendedor.Text = "";
             txtcontavendedor.Text = "";
             textemailvendedor.Text = "";
             texttelefonevendedor.Text = "";
@@ -313,7 +207,7 @@ namespace LMFinanciamentos.Apresentacao
                     // If the no button was pressed ...
                     if (result == DialogResult.Yes)
                     {
-                        //cadastrar = 1;
+                        cadastrar = true;
                         ComboBoxClient.Select();
                         ComboBoxClient.Focus();
                         //MessageBox.Show("Abriu");
@@ -323,7 +217,7 @@ namespace LMFinanciamentos.Apresentacao
                     }
                     else
                     {
-                        //cadastrar = 0;
+                        cadastrar = false;
                         LimparCampos();
                         ComboBoxClient.Select();
                         ComboBoxClient.Focus();
@@ -377,26 +271,26 @@ namespace LMFinanciamentos.Apresentacao
 
                 if (cont == 1)
                 {
-                    Cliente[] myArray = gett.GetVendedor(textnomevendedor.Text).ToArray();
-                    foreach (Cliente c in myArray)
+                    Vendedor[] myArray = gett.GetVendedor(textnomevendedor.Text).ToArray();
+                    foreach (Vendedor v in myArray)
                     {
 
-                        //idcli = c.Id_cliente;
-                        textnomevendedor.Text = c.Nome_cliente;
-                        if (c.CNPJ_cliente == "")
+                        idVendedor = v.Id_vendedor;
+                        textnomevendedor.Text = v.Nome_vendedor;
+                        if (v.CNPJ_vendedor == "")
                         {
-                            textcnpjcpf.Text = c.CPF_cliente;
+                            textcnpjcpf.Text = v.CPF_vendedor;
                         }
                         else
                         {
-                            textcnpjcpf.Text = c.CNPJ_cliente;
+                            textcnpjcpf.Text = v.CNPJ_vendedor;
                         }
                         
-                        textagencia.Text = c.Agencia_cliente;
-                        txtcontavendedor.Text = c.Conta_cliente;
-                        textemailvendedor.Text = c.Email_cliente;
-                        texttelefonevendedor.Text = c.Telefone_cliente;
-                        textcelularvendedor.Text = c.Celular_cliente;
+                        textagenciavendedor.Text = v.Agencia_vendedor;
+                        txtcontavendedor.Text = v.Conta_vendedor;
+                        textemailvendedor.Text = v.Email_vendedor;
+                        texttelefonevendedor.Text = v.Telefone_vendedor;
+                        textcelularvendedor.Text = v.Celular_vendedor;
 
                        // txtrg.Text = c.RG_cliente;
                         //txtnasc.Text = c.Nascimento_cliente;
@@ -470,10 +364,6 @@ namespace LMFinanciamentos.Apresentacao
 
         }
 
-        private void ComboBoxClient_SelectedIndexChanged(object sender, EventArgs e)
-        {
-    
-        }
         private void backgroundWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
             for (int i = 0; i <= 100; i++)
@@ -637,26 +527,6 @@ namespace LMFinanciamentos.Apresentacao
             Close();
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel12_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label35_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void ComboBoxClient_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
@@ -677,8 +547,13 @@ namespace LMFinanciamentos.Apresentacao
 
         private void ComboBoxClient_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            var selected = this.ComboBoxClient.GetItemText(this.ComboBoxClient.SelectedItem);
+            MessageBox.Show(selected);
+
+            String selecionado = this.ComboBoxClient.GetItemText(this.ComboBoxClient.SelectedItem);
+
             LoginDaoComandos gett = new LoginDaoComandos();
-            Cliente[] myArray = gett.GetClientes(ComboBoxClient.Text).ToArray();
+            Cliente[] myArray = gett.GetClientes(selecionado).ToArray();
             foreach (Cliente c in myArray)
             {
                 idcli = c.Id_cliente;
@@ -702,28 +577,5 @@ namespace LMFinanciamentos.Apresentacao
                 tabControl.Focus();
             }
         }
-
-        //private Task ProcessData(List<Tuple<int, string>> list, IProgress<ProgressReport> progress)
-        //{
-        //    int index = 1;
-        //    int totalprogress = list.Count;
-        //    var progressreport = new ProgressReport();
-
-        //    return Task.Run(() => {
-        //        for (int i = 0; i < totalprogress; i++)
-        //        {
-        //            Tuple<int, string> temp = list[i];
-        //            int id = temp.Item1;
-        //            string address = temp.Item2;
-        //            //label_autoupdate.Text = string.Format("Processing ...{0}", address);
-        //            //excuteAutoUpdate(id, address);
-        //            progressreport.PercentComplete = i++ * 100 / totalprogress;
-        //            progress.Report(progressreport);
-        //            Thread.Sleep(10);
-        //        }
-        //        // groupBox_autoupdate.Visible = false;
-
-        //    });
-        //}
     }
 }

@@ -486,6 +486,7 @@ namespace LMFinanciamentos.DAL {
                 base.Columns.Add(this.columnCorretor);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnProcesso}, true));
+                this.columnData.AllowDBNull = false;
                 this.columnStatus.MaxLength = 50;
                 this.columnProcesso.AutoIncrement = true;
                 this.columnProcesso.AutoIncrementSeed = -1;
@@ -493,9 +494,7 @@ namespace LMFinanciamentos.DAL {
                 this.columnProcesso.AllowDBNull = false;
                 this.columnProcesso.Unique = true;
                 this.columnCliente.MaxLength = 60;
-                this.columnFuncionario.AllowDBNull = false;
                 this.columnFuncionario.MaxLength = 50;
-                this.columnCorretora.AllowDBNull = false;
                 this.columnCorretora.MaxLength = 100;
                 this.columnCorretor.MaxLength = 100;
             }
@@ -642,12 +641,7 @@ namespace LMFinanciamentos.DAL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public System.DateTime Data {
                 get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableProcessos.DataColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'Data\' na tabela \'Processos\' é DBNull.", e);
-                    }
+                    return ((global::System.DateTime)(this[this.tableProcessos.DataColumn]));
                 }
                 set {
                     this[this.tableProcessos.DataColumn] = value;
@@ -701,7 +695,12 @@ namespace LMFinanciamentos.DAL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Funcionario {
                 get {
-                    return ((string)(this[this.tableProcessos.FuncionarioColumn]));
+                    try {
+                        return ((string)(this[this.tableProcessos.FuncionarioColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'Funcionario\' na tabela \'Processos\' é DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableProcessos.FuncionarioColumn] = value;
@@ -712,7 +711,12 @@ namespace LMFinanciamentos.DAL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Corretora {
                 get {
-                    return ((string)(this[this.tableProcessos.CorretoraColumn]));
+                    try {
+                        return ((string)(this[this.tableProcessos.CorretoraColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'Corretora\' na tabela \'Processos\' é DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableProcessos.CorretoraColumn] = value;
@@ -737,18 +741,6 @@ namespace LMFinanciamentos.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsDataNull() {
-                return this.IsNull(this.tableProcessos.DataColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetDataNull() {
-                this[this.tableProcessos.DataColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsStatusNull() {
                 return this.IsNull(this.tableProcessos.StatusColumn);
             }
@@ -769,6 +761,30 @@ namespace LMFinanciamentos.DAL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetClienteNull() {
                 this[this.tableProcessos.ClienteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsFuncionarioNull() {
+                return this.IsNull(this.tableProcessos.FuncionarioColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetFuncionarioNull() {
+                this[this.tableProcessos.FuncionarioColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsCorretoraNull() {
+                return this.IsNull(this.tableProcessos.CorretoraColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetCorretoraNull() {
+                this[this.tableProcessos.CorretoraColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -967,10 +983,10 @@ namespace LMFinanciamentos.DAL.DS_DocumentosTableAdapters {
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        P.id AS Processo, C.Nome AS Cliente, F.Nome AS Funcionario, Corretora.Descricao AS Corretora, Corretores.Nome AS Corretor, Data, P.Status
-FROM            Processos P INNER JOIN
-                         Clientes C ON P.id = C.id INNER JOIN
-                         Funcionarios F ON F.id = P.idFunc INNER JOIN
-                         Corretora ON Corretora.id = P.idCorretora INNER JOIN
+FROM            Processos P LEFT JOIN
+                         Clientes C ON P.id = C.id LEFT JOIN
+                         Funcionarios F ON F.id = P.idFunc LEFT JOIN
+                         Corretora ON Corretora.id = P.idCorretora LEFT JOIN
                          Corretores ON Corretores.id = P.idCorretor";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
