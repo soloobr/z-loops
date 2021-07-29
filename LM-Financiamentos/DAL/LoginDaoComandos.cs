@@ -66,7 +66,6 @@ namespace LMFinanciamentos.DAL
 
             return tem;
         }
-
         public String CadastrarCliente(String nome, String email, String telefone, String celular, String cpf, String statuscpf, String stciweb, String stcadmut
                 , String stir, String stfgts, String rg, String nascimento, String sexo, String status, String renda)
         {
@@ -119,7 +118,6 @@ namespace LMFinanciamentos.DAL
 
             return mensagem;
         }
-
         public Funcionario GetFunc(String login, String senha)
         {
             cmd.CommandText = "Select Funcionarios.Login as id, Funcionarios.Nome, Login.Login, Login.Senha, Permission, Foto From Login inner join Funcionarios on Login.id = Funcionarios.Login inner join Foto F on Login.id = F.IdFunc  where Login.Login = @login and Senha = @senha";
@@ -200,18 +198,23 @@ namespace LMFinanciamentos.DAL
             //var list = new List<Cliente>();
 
             cmd.CommandText = "SELECT P.id as idpross, P.idresponsavel as idresponsavel, P.Data as Data, P.Observacao as Observacao , P.StatusCPF as StatusCPF, P.StatusCiweb as StatusCiweb, P.StatusCadmut as StatusCadmut, P.StatusIR as StatusIR, P.StatusFGTS as StatusFGTS,  " +
-                "C.id as idCliente, C.Nome as clinome, C.Email as EmailCli,  C.Telefone as Telefonecli , C.Celular as celularcli, C.CPF as cpfcli, C.RG as rgcli, Conta.Agencia as agenciacli, Conta.Conta as contacli, C.Nascimento as Nascimento, C.Renda as rendacli, " +
+                "P.StatusAnalise as	StatusAnalise, P.StatusEng as StatusEng, P.SaqueFGTS as SaqueFGTS, P.SIOPI as SIOPI, P.SICTD as SICTD, P.StatusPA as StatusPA, P.StatusCartorio as StatusCartorio, " + 
+                "Clientes.id as idCliente, Clientes.Nome as clinome, Clientes.Email as EmailCli,  Clientes.Telefone as Telefonecli , Clientes.Celular as celularcli, Clientes.CPF as cpfcli, Clientes.RG as rgcli, Conta.Agencia as agenciacli, Conta.Conta as contacli, Clientes.Nascimento as Nascimento, Clientes.Renda as rendacli, " +
                 "V.id as idVendedor, V.Nome as vendnome, V.Email as Emailvendedor, V.Telefone as Telefonevendedor, V.Celular as celularvendedor, V.CPF as cpfvendedor, V.CNPJ as cnpjvendedor, V.Agencia as agenciavendedor, V.Conta as contavendedor,   " +
-                "idCorretora, idCorretor,  " +
+                "Corretora.Descricao as Corretora, Corretores.Nome as Corretor, P.idCorretora, P.idCorretor, Agencia.Agencia as AgenciaImovel, Programa.Descricao as Programa, Empreendimentos.Descricao as EmpDescricao,     " +
                 "F.Nome as nomeresponsavel, F.Permission as permissionresponsavel,  " +
-                "P.DataStatusCPF, P.DataStatusCiweb, P.DataStatusCadmut, P.DataStatusIR, P.DataStatusFGTS, P.DataStatusAnalise, P.DataStatusEng, P.DataStatusCartorio, P.DataStatus " +
+                "P.DataStatusCPF, P.DataStatusCiweb, P.DataStatusCadmut, P.DataStatusIR, P.DataStatusFGTS, P.DataStatusAnalise, P.DataStatusEng, P.DataSaqueFGTS, P.DataSIOP, P.DataSICTD, P.DataPA, P.DataStatusCartorio, P.DataStatus   " +
 
                 "FROM Processos P " +
-                "inner join Clientes C on C.id = P.idCliente " +
+                "inner join Clientes on Clientes.id = P.idCliente " +
                 "inner join Vendedor V on V.id = P.idVendedor " +
                 "inner join Funcionarios F on F.id = P.idresponsavel " +
-                "Left join Conta on Conta.idcliente = C.id and Conta.Tipo =@tipo  " +
-                //"Left join P_Status H on P.id = H.idprocesso " +
+                "Left join Conta on Conta.idcliente = Clientes.id and Conta.Tipo =@tipo  " +
+                "Left join Agencia on P.idAgenciaImovel = Agencia.id " +
+                "Left join Programa on P.idPrograma = Programa.id " +
+                "Left join Empreendimentos on P.idEmpreendimento = Empreendimentos.id "+
+                "Left join Corretora on P.idCorretora = Corretora.id " +
+                "Left join Corretores on P.idCorretor = Corretores.id " +
                 "WHERE P.id = @idprocesso";
             cmd.Parameters.AddWithValue("@idprocesso", idprocess);
             cmd.Parameters.AddWithValue("@tipo", "C");
@@ -227,13 +230,21 @@ namespace LMFinanciamentos.DAL
                     process.Id_responsavel = drprocess["idresponsavel"].ToString();
                     process.Nome_responsavel = drprocess["nomeresponsavel"].ToString();
                     process.Permission_responsavel = drprocess["permissionresponsavel"].ToString();
-                    process.Data_processo = drprocess["Data"].ToString();
                     process.Obs_processo = drprocess["Observacao"].ToString();
+                    process.Data_processo = drprocess["Data"].ToString();
+
                     process.StatusCPF_cliente = drprocess["StatusCPF"].ToString();
                     process.StatusCiweb_cliente = drprocess["StatusCiweb"].ToString();
                     process.StatusCadmut_cliente = drprocess["StatusCadmut"].ToString();
                     process.StatusIR_cliente = drprocess["StatusIR"].ToString();
                     process.StatusFGTS_cliente = drprocess["StatusFGTS"].ToString();
+                    process.StatusAnalise_cliente = drprocess["StatusAnalise"].ToString();
+                    process.StatusEng_cliente = drprocess["StatusEng"].ToString();
+                    process.SaqueFGTS_cliente = drprocess["SaqueFGTS"].ToString();
+                    process.SIOPI_cliente = drprocess["SIOPI"].ToString();
+                    process.SICTD_cliente = drprocess["SICTD"].ToString();
+                    process.StatusPA_cliente = drprocess["StatusPA"].ToString();
+
 
                     process.H_DataStatusCPF = drprocess["DataStatusCPF"].ToString();
                     process.H_DataStatusCiweb = drprocess["DataStatusCiweb"].ToString();
@@ -242,6 +253,10 @@ namespace LMFinanciamentos.DAL
                     process.H_DataStatusFGTS = drprocess["DataStatusFGTS"].ToString();
                     process.H_DataStatusAnalise = drprocess["DataStatusAnalise"].ToString();
                     process.H_DataStatusEng = drprocess["DataStatusEng"].ToString();
+                    process.H_DataSaqueFGTS = drprocess["DataSaqueFGTS"].ToString();
+                    process.H_DataSIOP = drprocess["DataSIOP"].ToString();
+                    process.H_DataSICTD = drprocess["DataSICTD"].ToString();
+                    process.H_DataPA = drprocess["DataPA"].ToString();
                     process.H_DataStatusCartorio = drprocess["DataStatusCartorio"].ToString();
                     process.H_DataStatus = drprocess["DataStatus"].ToString();
 
@@ -279,6 +294,13 @@ namespace LMFinanciamentos.DAL
                     #region imovel
                     process.Id_corretora = drprocess["idCorretora"].ToString();
                     process.Id_corretor = drprocess["idCorretor"].ToString();
+                    process.AgenciaImovel_imovel = drprocess["AgenciaImovel"].ToString();
+                    process.Programa_imovel = drprocess["Programa"].ToString();
+                    process.Nome_corretor = drprocess["Corretor"].ToString();
+                    process.Descricao_corretora = drprocess["Corretora"].ToString();
+                    process.EmpDescricao_imovel = drprocess["EmpDescricao"].ToString();
+                    
+
                     #endregion
 
                 }
@@ -293,10 +315,7 @@ namespace LMFinanciamentos.DAL
 
             return process;
         }
-        //public List<Cliente> GetCliente(String nome)
-
         public List<Processo> GetProcessos(String tipo, String nome)
-
         {
             var listprocessos = new List<Processo>();
 

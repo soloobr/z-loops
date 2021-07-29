@@ -97,6 +97,21 @@ namespace LMFinanciamentos.Apresentacao
             txtcadmut.Text = process.StatusCadmut_cliente;
             txtir.Text = process.StatusIR_cliente;
             txtfgts.Text = process.StatusFGTS_cliente;
+            comboBox_analise.Text = process.StatusAnalise_cliente;
+            comboBox_statuseng.Text = process.StatusEng_cliente;
+            comboBox_saque.Text = process.SaqueFGTS_cliente;
+            comboBox_SIOPI.Text = process.SIOPI_cliente;
+            comboBox_SICTD.Text = process.SICTD_cliente;
+            comboBox_PA.Text = process.StatusPA_cliente;
+            comboBox_agencia.Text = process.AgenciaImovel_imovel.PadLeft(4, '0'); 
+            comboBox_programa.Text = process.Programa_imovel;
+            txtcorretora.Text = process.Descricao_corretora;
+            comboBox_corretor.Text = process.Nome_corretor;
+            comboBox_empreendimentos.Text = process.EmpDescricao_imovel;
+
+
+
+
 
             if (process.H_DataStatusCPF != "")
             {

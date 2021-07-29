@@ -14,8 +14,13 @@
         public string StatusCadmut_cliente { get; set; }
         public string StatusIR_cliente { get; set; }
         public string StatusFGTS_cliente { get; set; }
+        public string StatusAnalise_cliente { get; set; }
+        public string StatusEng_cliente { get; set; }
+        public string SaqueFGTS_cliente { get; set; }
+        public string SIOPI_cliente { get; set; }
+        public string SICTD_cliente { get; set; }
+        public string StatusPA_cliente { get; set; }
         public string Status_processo { get; set; }
-
         public string H_id { get; set; }
         public string H_idprocesso { get; set; }
         public string H_idresponsavel { get; set; }
@@ -26,8 +31,13 @@
         public string H_DataStatusFGTS { get; set; }
         public string H_DataStatusAnalise { get; set; }
         public string H_DataStatusEng { get; set; }
+        public string H_DataSaqueFGTS { get; set; }
+        public string H_DataSIOP { get; set; }
+        public string H_DataSICTD { get; set; }
+        public string H_DataPA { get; set; }
         public string H_DataStatusCartorio { get; set; }
         public string H_DataStatus { get; set; }
+
 
 
         #endregion
@@ -67,6 +77,14 @@
         public string Id_corretor { get; set; }
         public string Descricao_corretora { get; set; }
         public string Nome_corretor { get; set; }
+        public string AgenciaImovel_imovel { get; set; }
+        public string Programa_imovel { get; set; }
+        public string EmpDescricao_imovel { get; set; }
+
+        
+
+
+
 
         #endregion
 
