@@ -14,6 +14,7 @@
         public string StatusCadmut_cliente { get; set; }
         public string StatusIR_cliente { get; set; }
         public string StatusFGTS_cliente { get; set; }
+        public string Status_processo { get; set; }
 
         public string H_id { get; set; }
         public string H_idprocesso { get; set; }
@@ -64,6 +65,9 @@
         #region Imovel
         public string Id_corretora { get; set; }
         public string Id_corretor { get; set; }
+        public string Descricao_corretora { get; set; }
+        public string Nome_corretor { get; set; }
+
         #endregion
 
 

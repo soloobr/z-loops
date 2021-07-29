@@ -389,7 +389,7 @@ namespace LMFinanciamentos.Apresentacao
 
         private void btncadastrocliente_Click_1(object sender, EventArgs e)
         {
-            AbrirFormulario<Form_Cadastro_cliente>();
+            AbrirFormulario<Form_Controle_cliente>();
             btncadastro.BackColor = Color.FromArgb(12, 61, 92);
             btncadastrocliente.BackColor = Color.FromArgb(12, 61, 92);
             //..

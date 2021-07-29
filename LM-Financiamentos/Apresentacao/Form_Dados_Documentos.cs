@@ -69,7 +69,7 @@ namespace LMFinanciamentos.Apresentacao
             txttelefone.Text = process.Telefone_cliente;
             txtcelular.Text = process.Celular_cliente;
             txtrenda.Text = process.Renda_cliente;
-            txtagencia.Text = process.Agencia_cliente;
+            txtagenciacliente.Text = process.Agencia_cliente;
             txtcontacliente.Text = process.Conta_cliente;
             #endregion
 

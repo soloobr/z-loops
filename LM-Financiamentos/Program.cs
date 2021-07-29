@@ -15,9 +15,9 @@ namespace LMFinanciamentos
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form_Login());
-            //Application.Run(new Form_Principal());
+            Application.Run(new Form_Principal());
             //Application.Run(new Form_Cadastro_Documentos());
-            Application.Run(new Form_Controle_Documento());
+            //Application.Run(new Form_Controle_Documento());
         }
     }
 }

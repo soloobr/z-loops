@@ -148,6 +148,18 @@
     <Compile Include="Apresentacao\Form_Cadastro_cliente.Designer.cs">
       <DependentUpon>Form_Cadastro_cliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Apresentacao\Form_Dados_cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\Form_Dados_cliente.Designer.cs">
+      <DependentUpon>Form_Dados_cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apresentacao\Form_Controle_cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\Form_Controle_cliente.Designer.cs">
+      <DependentUpon>Form_Controle_cliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apresentacao\Form_Dados_Documentos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -249,6 +261,12 @@
     </Compile>
     <EmbeddedResource Include="Apresentacao\Form_Cadastro_cliente.resx">
       <DependentUpon>Form_Cadastro_cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\Form_Dados_cliente.resx">
+      <DependentUpon>Form_Dados_cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\Form_Controle_cliente.resx">
+      <DependentUpon>Form_Controle_cliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\Form_Dados_Documentos.resx">
       <DependentUpon>Form_Dados_Documentos.cs</DependentUpon>

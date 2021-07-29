@@ -1,7 +1,7 @@
 ﻿
 namespace LMFinanciamentos.Apresentacao
 {
-    partial class Form_Cadastro_cliente
+    partial class Form_Dados_cliente
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace LMFinanciamentos.Apresentacao
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Cadastro_cliente));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Dados_cliente));
             this.panelcentralcadcli = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tabControl = new System.Windows.Forms.TabControl();
@@ -143,7 +143,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tabcliente.Padding = new System.Windows.Forms.Padding(20);
             this.tabcliente.Size = new System.Drawing.Size(971, 472);
             this.tabcliente.TabIndex = 0;
-            this.tabcliente.Text = "Cadastro do Cliente";
+            this.tabcliente.Text = "Dados do Cliente";
             this.tabcliente.UseVisualStyleBackColor = true;
             // 
             // groupBox1
@@ -698,7 +698,7 @@ namespace LMFinanciamentos.Apresentacao
             this.lbl_topo.Name = "lbl_topo";
             this.lbl_topo.Size = new System.Drawing.Size(317, 49);
             this.lbl_topo.TabIndex = 50;
-            this.lbl_topo.Text = "Cadastro de Cliente";
+            this.lbl_topo.Text = "Dados do Cliente";
             this.lbl_topo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // img_topo
@@ -713,17 +713,17 @@ namespace LMFinanciamentos.Apresentacao
             this.img_topo.TabIndex = 5;
             this.img_topo.TabStop = false;
             // 
-            // Form_Cadastro_cliente
+            // Form_Dados_cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(979, 617);
             this.Controls.Add(this.panelcentralcadcli);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form_Cadastro_cliente";
+            this.Name = "Form_Dados_cliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cadastro de Cliente";
-            this.Load += new System.EventHandler(this.Form_Cadastro_cliente_Load);
+            this.Text = "Dados de Cliente";
+            this.Load += new System.EventHandler(this.Form_Dados_cliente_Load);
             this.panelcentralcadcli.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);

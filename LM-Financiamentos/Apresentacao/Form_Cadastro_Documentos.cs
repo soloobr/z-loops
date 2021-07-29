@@ -31,7 +31,7 @@ namespace LMFinanciamentos.Apresentacao
         {
             lblstatus.Text = statuslbl;
         }
-
+        public event Action ProcessoSalvo;
         private void Form_Cadastro_Documentos_Load(object sender, EventArgs e)
         {
             var pctr = new Button();
@@ -113,6 +113,8 @@ namespace LMFinanciamentos.Apresentacao
                         LoginDaoComandos criarprocesso = new LoginDaoComandos();
                         criarprocesso.CriarProcesso(idcli, idVendedor, idresponsavel, idCorretora, idCorretor, Status);
                         MessageBox.Show(criarprocesso.mensagem);
+                        if (ProcessoSalvo != null)
+                            ProcessoSalvo.Invoke();
                         Close();
                         break;
                     case true:
@@ -211,7 +213,7 @@ namespace LMFinanciamentos.Apresentacao
                         ComboBoxClient.Select();
                         ComboBoxClient.Focus();
                         //MessageBox.Show("Abriu");
-                        Form_Cadastro_cliente frm_Cadastro_cliente = new Form_Cadastro_cliente();
+                        Form_Dados_cliente frm_Cadastro_cliente = new Form_Dados_cliente();
                         frm_Cadastro_cliente.setTextNome(ComboBoxClient.Text);
                         frm_Cadastro_cliente.Show();
                     }
@@ -324,7 +326,7 @@ namespace LMFinanciamentos.Apresentacao
                         textnomevendedor.Select();
                         textnomevendedor.Focus();
                         //MessageBox.Show("Abriu");
-                        Form_Cadastro_cliente frm_Cadastro_cliente = new Form_Cadastro_cliente();
+                        Form_Dados_cliente frm_Cadastro_cliente = new Form_Dados_cliente();
                         frm_Cadastro_cliente.setTextNome(textnomevendedor.Text);
                         frm_Cadastro_cliente.Show();
                     }

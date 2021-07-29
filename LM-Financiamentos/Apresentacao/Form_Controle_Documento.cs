@@ -1,4 +1,7 @@
-﻿using System;
+﻿using LMFinanciamentos.DAL;
+using LMFinanciamentos.Entidades;
+using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 
@@ -28,9 +31,16 @@ namespace LMFinanciamentos.Apresentacao
             this.ActiveControl = txtprocurar;
             txtprocurar.Focus();
             // TODO: esta linha de código carrega dados na tabela 'dS_Documentos.Processos'. Você pode movê-la ou removê-la conforme necessário.
-            this.processosTableAdapter.Fill(this.dS_Documentos.Processos);
+            //this.processosTableAdapter.Fill(this.dS_Documentos.Processos);
             // TODO: esta linha de código carrega dados na tabela 'dS_Funcionario.Funcionarios'. Você pode movê-la ou removê-la conforme necessário.
-            this.funcionariosTableAdapter.Fill(this.dS_Funcionario.Funcionarios);
+            //this.funcionariosTableAdapter.Fill(this.dS_Funcionario.Funcionarios);
+
+            LoginDaoComandos getprocessos = new LoginDaoComandos();
+
+            dgv_process.AutoGenerateColumns = false;
+            dgv_process.DataSource = getprocessos.GetProcessos("C","%");
+            dgv_process.Refresh();
+
 
         }
 
@@ -48,18 +58,31 @@ namespace LMFinanciamentos.Apresentacao
             }
             else
             {
-                DAL.DS_DocumentosTableAdapters.ProcessosTableAdapter consulta = new DAL.DS_DocumentosTableAdapters.ProcessosTableAdapter();
+   
+                //DAL.DS_DocumentosTableAdapters.ProcessosTableAdapter consulta = new DAL.DS_DocumentosTableAdapters.ProcessosTableAdapter();
                 consultar = "%" + txtprocurar.Text + "%";
 
+                LoginDaoComandos getprocessos = new LoginDaoComandos();
+                Processo[] myArray = getprocessos.GetProcessos("C", consultar).ToArray();
+                bool verifica = false;
 
-                if(consulta.GetDataConsulta(consultar) != null && consulta.GetDataConsulta(consultar).Rows.Count > 0)
+                foreach (Processo c in myArray)
                 {
-                    dgv_process.DataSource = consulta.GetDataConsulta(consultar);
+                    if (c.Id_processo != null)
+                    {
+                        verifica = true;
+                    }
+                }
+
+                if (verifica)
+                {
+                    dgv_process.DataSource = getprocessos.GetProcessos("C", consultar);
                     dgv_process.Refresh();
+                    verifica = false;
                 }
                 else
                 {
-                    MessageBox.Show("Não foi encontrado entradas para a pesquisa: \n (" + txtprocurar.Text + ") ", "Não Encontrado!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Não foi encontrado Processos para a pesquisa: \n (" + txtprocurar.Text + ") ", "Não Encontrado!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtprocurar.Focus();
                 }
             }
@@ -78,6 +101,7 @@ namespace LMFinanciamentos.Apresentacao
         private void btnnovodoc_Click(object sender, EventArgs e)
         {
             Form_Cadastro_Documentos frm_cadastro_documentos = new Form_Cadastro_Documentos();
+            frm_cadastro_documentos.ProcessoSalvo += new Action(frm_dados_documentos_ProcessoSalvo);
             frm_cadastro_documentos.setLabel("Em Preenchimento");
             frm_cadastro_documentos.Show();
         }
@@ -100,11 +124,14 @@ namespace LMFinanciamentos.Apresentacao
         private void AtualizaGrid()
         {
             // TODO: esta linha de código carrega dados na tabela 'dS_Documentos.Processos'. Você pode movê-la ou removê-la conforme necessário.
-            this.processosTableAdapter.Fill(this.dS_Documentos.Processos);
+            //this.processosTableAdapter.Fill(this.dS_Documentos.Processos);
             // TODO: esta linha de código carrega dados na tabela 'dS_Funcionario.Funcionarios'. Você pode movê-la ou removê-la conforme necessário.
-            this.funcionariosTableAdapter.Fill(this.dS_Funcionario.Funcionarios);
+            //this.funcionariosTableAdapter.Fill(this.dS_Funcionario.Funcionarios);
             //dS_Documentos.Reset();
             //DAL.DS_DocumentosTableAdapters.ProcessosTableAdapter.Fill(DAL.DS_Documentos.ProcessosDataTable.);
+            
+            LoginDaoComandos getprocessos = new LoginDaoComandos();
+            dgv_process.DataSource = getprocessos.GetProcessos("C", "%");
             dgv_process.Refresh();
 
         }

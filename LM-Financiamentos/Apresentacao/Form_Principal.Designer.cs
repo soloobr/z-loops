@@ -411,7 +411,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btncontroledoc.Name = "btncontroledoc";
             this.btncontroledoc.Size = new System.Drawing.Size(220, 36);
             this.btncontroledoc.TabIndex = 22;
-            this.btncontroledoc.Text = "Controle de Documentos";
+            this.btncontroledoc.Text = "Controle de Processos";
             this.btncontroledoc.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btncontroledoc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btncontroledoc.UseVisualStyleBackColor = false;
