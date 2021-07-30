@@ -16,9 +16,10 @@ namespace LMFinanciamentos.Apresentacao
     {
 
         bool Next;
+        string valor;
 
 
-        string  idProcess, datacpf, dataciweb, datacadmut, datair, datafgts, dataanalise, dataeng, datacartorio, datastatus, statusprocesso;
+        string  idProcess, datacpf, dataciweb, datacadmut, datair, datafgts, dataanalise, dataeng, datastatus, statusprocesso, datasiopi, datasictd, datasaquefgts, datapa, datacartorio;
 
         //private int cadastrar = 0;
         //private int newProgressValue;
@@ -44,24 +45,27 @@ namespace LMFinanciamentos.Apresentacao
             LoginDaoComandos gettpross = new LoginDaoComandos();
             process = gettpross.GetProcesso(idProcess);
 
+            var parsedDate = DateTime.Parse(process.Data_processo);
+            string asString = parsedDate.ToString("dd/MMMM/yyyy");
+
             #region Processos
             lblnumeroprocesso.Text = idProcess;
             lblfuncresponsavel.Text = process.Nome_responsavel;
-            ComboBoxClient.Text = process.Nome_cliente;
-
-            var parsedDate = DateTime.Parse(process.Data_processo);
-
-            string asString = parsedDate.ToString("dd/MMMM/yyyy");
             lbldata.Text = asString;
 
-            //txtStatusCPF.Text = process.StatusCPF_cliente;
-            //txtciweb.Text = c.StatusCiweb_cliente;
-            //txtcadmut.Text = c.StatusCadmut_cliente;
-            //txtir.Text = c.StatusIR_cliente;
-            //txtfgts.Text = c.StatusFGTS_cliente;
+            //txt_valor.Text = string.Format("{0:C}", Convert.ToDouble(process.Valor_imovel));
+            //txt_valor.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            txt_valor.Select(txt_valor.Text.Length, 0);
+            double preco = double.Parse(process.Valor_imovel, System.Globalization.CultureInfo.InvariantCulture); 
+            txt_valor.Text = preco.ToString();
+            txt_valor.Select(txt_valor.Text.Length, 0);
+            //txt_valor1.Text = preco.ToString("C");
+            //txt_valor.Text = process.Valor_imovel;
+
             #endregion
 
             #region Cliente
+            ComboBoxClient.Text = process.Nome_cliente;
             txtcpf.Text = process.CPF_cliente;
             txtrg.Text = process.RG_cliente;
             txtnasc.Text = process.Nascimento_cliente;
@@ -71,47 +75,11 @@ namespace LMFinanciamentos.Apresentacao
             txtrenda.Text = process.Renda_cliente;
             txtagenciacliente.Text = process.Agencia_cliente;
             txtcontacliente.Text = process.Conta_cliente;
-            #endregion
-
-            #region Vendedor
-            textnomevendedor.Text = process.Nome_vendedor;
-            if(process.CNPJ_vendedor == "")
-            {
-                textcnpjcpf.Text = process.CPF_vendedor;
-            }
-            else
-            {
-                textcnpjcpf.Text = process.CNPJ_vendedor;
-            }
-            textemailvendedor.Text = process.Email_vendedor;
-            texttelefonevendedor.Text = process.Telefone_vendedor;
-            textcelularvendedor.Text = process.Celular_vendedor;
-            //txtrenda.Text = process.Renda_vendedor;
-            textagenciavendedor.Text = process.Agencia_vendedor;
-            txtcontavendedor.Text = process.Conta_vendedor;
-            #endregion
-
-            #region Status
             txtStatusCPF.Text = process.StatusCPF_cliente;
             txtciweb.Text = process.StatusCiweb_cliente;
             txtcadmut.Text = process.StatusCadmut_cliente;
             txtir.Text = process.StatusIR_cliente;
             txtfgts.Text = process.StatusFGTS_cliente;
-            comboBox_analise.Text = process.StatusAnalise_cliente;
-            comboBox_statuseng.Text = process.StatusEng_cliente;
-            comboBox_saque.Text = process.SaqueFGTS_cliente;
-            comboBox_SIOPI.Text = process.SIOPI_cliente;
-            comboBox_SICTD.Text = process.SICTD_cliente;
-            comboBox_PA.Text = process.StatusPA_cliente;
-            comboBox_agencia.Text = process.AgenciaImovel_imovel.PadLeft(4, '0'); 
-            comboBox_programa.Text = process.Programa_imovel;
-            txtcorretora.Text = process.Descricao_corretora;
-            comboBox_corretor.Text = process.Nome_corretor;
-            comboBox_empreendimentos.Text = process.EmpDescricao_imovel;
-
-
-
-
 
             if (process.H_DataStatusCPF != "")
             {
@@ -120,7 +88,6 @@ namespace LMFinanciamentos.Apresentacao
                     lbldatacpf.Text = process.H_DataStatusCPF;
                     lbldatacpf.Visible = true;
                 }
-
             }
             if (process.H_DataStatusCiweb != "")
             {
@@ -155,6 +122,98 @@ namespace LMFinanciamentos.Apresentacao
                 }
             }
 
+            #endregion
+
+            #region Vendedor
+            textnomevendedor.Text = process.Nome_vendedor;
+            if(process.CNPJ_vendedor == "")
+            {
+                textcnpjcpf.Text = process.CPF_vendedor;
+            }
+            else
+            {
+                textcnpjcpf.Text = process.CNPJ_vendedor;
+            }
+            textemailvendedor.Text = process.Email_vendedor;
+            texttelefonevendedor.Text = process.Telefone_vendedor;
+            textcelularvendedor.Text = process.Celular_vendedor;
+            //txtrenda.Text = process.Renda_vendedor;
+            textagenciavendedor.Text = process.Agencia_vendedor;
+            txtcontavendedor.Text = process.Conta_vendedor;
+            #endregion
+
+            #region imovel
+
+            comboBox_analise.Text = process.StatusAnalise_cliente;
+            comboBox_statuseng.Text = process.StatusEng_cliente;
+            comboBox_saque.Text = process.SaqueFGTS_cliente;
+            comboBox_SIOPI.Text = process.SIOPI_cliente;
+            comboBox_SICTD.Text = process.SICTD_cliente;
+            comboBox_PA.Text = process.StatusPA_cliente;
+            comboBox_agencia.Text = process.AgenciaImovel_imovel.PadLeft(4, '0'); 
+            comboBox_programa.Text = process.Programa_imovel;
+            valorimovel.Text = process.Valor_imovel;
+            valorfinanciado.Text = process.ValorFinanciado_imovel;
+            txtcorretora.Text = process.Descricao_corretora;
+            comboBox_corretor.Text = process.Nome_corretor;
+            comboBox_empreendimentos.Text = process.EmpDescricao_imovel;
+
+            lbldataanalise.Text = process.H_DataStatusAnalise;
+            lbldataeng.Text = process.H_DataStatusEng;
+            lbldatasaquefgts.Text = process.H_DataSaqueFGTS;
+            lbldatasiopi.Text = process.H_DataSIOP;
+            lbldatasictd.Text = process.H_DataSICTD;
+            lbldatapa.Text = process.H_DataPA;
+
+            if (process.H_DataStatusAnalise != "")
+            {
+                if (process.H_DataStatusAnalise != "01/01/0001 00:00:00")
+                {
+                    lbldataanalise.Text = process.H_DataStatusAnalise;
+                    lbldataanalise.Visible = true;
+                    //MessageBox.Show(process.H_DataStatusAnalise);
+                }
+            }
+            if (process.H_DataStatusEng != "")
+            {
+                if (process.H_DataStatusEng != "01/01/0001 00:00:00")
+                {
+                    lbldataeng.Text = process.H_DataStatusEng;
+                    lbldataeng.Visible = true;
+                }
+            }
+            if (process.H_DataSIOP != "")
+            {
+                if (process.H_DataSIOP != "01/01/0001 00:00:00")
+                {
+                    lbldatasiopi.Text = process.H_DataSIOP;
+                    lbldatasiopi.Visible = true;
+                }
+            }
+            if (process.H_DataSICTD != "")
+            {
+                if (process.H_DataSICTD != "01/01/0001 00:00:00")
+                {
+                    lbldatasictd.Text = process.H_DataSICTD;
+                    lbldatasictd.Visible = true;
+                }
+            }
+            if (process.H_DataSaqueFGTS != "")
+            {
+                if (process.H_DataSaqueFGTS != "01/01/0001 00:00:00")
+                {
+                    lbldatasaquefgts.Text = process.H_DataStatusFGTS;
+                    lbldatasaquefgts.Visible = true;
+                }
+            }
+            if (process.H_DataPA != "")
+            {
+                if (process.H_DataPA != "01/01/0001 00:00:00")
+                {
+                    lbldatapa.Text = process.H_DataPA;
+                    lbldatapa.Visible = true;
+                }
+            }
             #endregion
 
             #region Checkstatus
@@ -450,8 +509,6 @@ namespace LMFinanciamentos.Apresentacao
         private void btnsalvardoc_Click(object sender, EventArgs e)
         {
             Get_Status();
-
-
             LoginDaoComandos updateprocesso = new LoginDaoComandos();
 
             if (lbldatacpf.Text != "__/ ___/ ____")
@@ -518,24 +575,48 @@ namespace LMFinanciamentos.Apresentacao
             {
                 dataeng = "01/01/0001 00:00:00";
             }
-            if (lbldatacartorio.Text != "__/ ___/ ____")
+
+            if (lbldatasiopi.Text != "__/ ___/ ____")
             {
-                datacartorio = lbldatacartorio.Text;
+                datasiopi = lbldatasiopi.Text;
             }
             else
             {
-                datacartorio = "01/01/0001 00:00:00";
+                datasiopi = "01/01/0001 00:00:00";
             }
-            //if (lbldatastatus.Text != "Data")
-            //{
-            //    datastatus = lbldatastatus.Text;
-            //}
-            //else
-            //{
-                datastatus = "01/01/0001 00:00:00";
-            //}
 
-            
+
+            if (lbldatasictd.Text != "__/ ___/ ____")
+            {
+                datasictd = lbldatasictd.Text;
+            }
+            else
+            {
+                datasictd = "01/01/0001 00:00:00";
+            }
+
+            if (lbldatasaquefgts.Text != "__/ ___/ ____")
+            {
+                datasaquefgts = lbldatasaquefgts.Text;
+            }
+            else
+            {
+                datasaquefgts = "01/01/0001 00:00:00";
+            }
+
+            if (lbldatapa.Text != "__/ ___/ ____")
+            {
+                datapa = lbldatapa.Text;
+            }
+            else
+            {
+                datapa = "01/01/0001 00:00:00";
+            }
+
+            datastatus = "01/01/0001 00:00:00";
+
+            datacartorio = "01/01/0001 00:00:00";
+
 
             DateTime datecpf = DateTime.Parse(datacpf);
             DateTime dateciweb = DateTime.Parse(dataciweb);
@@ -544,12 +625,17 @@ namespace LMFinanciamentos.Apresentacao
             DateTime datefgts = DateTime.Parse(datafgts);
             DateTime dateanalise = DateTime.Parse(dataanalise);
             DateTime dateeng = DateTime.Parse(dataeng);
+
+            DateTime datesiopi = DateTime.Parse(datasiopi);
+            DateTime datesictd = DateTime.Parse(datasictd);
+            DateTime datesaquefgts = DateTime.Parse(datasaquefgts);
+            DateTime datepa = DateTime.Parse(datapa);
             DateTime datecartorio = DateTime.Parse(datacartorio);
             DateTime datestatus = DateTime.Parse(datastatus);
 
             lblstatus.Text = statusprocesso;
 
-            updateprocesso.UpdateProcesso(idProcess, txtStatusCPF.Text, txtciweb.Text, txtcadmut.Text, txtir.Text, txtfgts.Text, datecpf, dateciweb, datecadmut, dateir, datefgts, dateanalise, dateeng, datecartorio, datestatus, statusprocesso);
+            updateprocesso.UpdateProcesso(idProcess, txtStatusCPF.Text, txtciweb.Text, txtcadmut.Text, txtir.Text, txtfgts.Text, datecpf, dateciweb, datecadmut, dateir, datefgts, dateanalise, dateeng, datesiopi, datesictd, datesaquefgts, datepa, valorimovel.Text, valorfinanciado.Text, datecartorio, datestatus, statusprocesso);
             MessageBox.Show(updateprocesso.mensagem);
 
 
@@ -576,6 +662,262 @@ namespace LMFinanciamentos.Apresentacao
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form_Dados_Documentos_Paint(object sender, PaintEventArgs e)
+        {
+            Functions.Arredonda(pnlAnalise, 15, true, true);
+            Functions.Arredonda(pnleng, 15, true, true);
+            Functions.Arredonda(pnlfgts, 15, true, true);
+            Functions.Arredonda(pnlsiopi, 15, true, true);
+            Functions.Arredonda(pnlsictd, 15, true, true);
+            Functions.Arredonda(pnlpa, 15, true, true);
+        }
+
+        private void comboBox_analise_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            lbldataanalise.Text = "";
+
+            switch (comboBox_analise.SelectedItem.ToString()) 
+            {
+                case "Não Consultado":
+                    String Data = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                    lbldataanalise.Text = Data;
+                    lbldataanalise.Visible = true;
+                    break;
+                case "Aprovado":
+                    String Data1 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                    lbldataanalise.Text = Data1;
+                    lbldataanalise.Visible = true;
+                    break;
+                case "Condicionado":
+                    String Data2 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                    lbldataanalise.Text = Data2;
+                    lbldataanalise.Visible = true;
+                    break;
+                case "Em analise":
+                    String Data3 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                    lbldataanalise.Text = Data3;
+                    lbldataanalise.Visible = true;
+                    break;
+                case "Reprovado":
+                    String Data4 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                    lbldataanalise.Text = Data4;
+                    lbldataanalise.Visible = true;
+                    break;
+                case "Comando":
+                    String Data5 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                    lbldataanalise.Text = Data5;
+                    lbldataanalise.Visible = true;
+                    break;
+                case "Desistiu":
+                    String Data6 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                    lbldataanalise.Visible = true;
+                    lbldataanalise.Text = Data6;
+                    lbldataanalise.Visible = true;
+                    break;
+                case "Bloqueado em ourto CCA":
+                    String Data7 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                    lbldataanalise.Text = Data7;
+                    lbldataanalise.Visible = true;
+                    break;
+        }
+    
+    }
+
+        private void comboBox_statuseng_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            lbldataeng.Text = "";
+
+            switch (comboBox_statuseng.SelectedItem.ToString())
+            {
+                case "Não Consultado":
+                    String Data0 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                    lbldataeng.Text = Data0;
+                    lbldataeng.Visible = true;
+                    break;
+                case "Aguardando Pagamento":
+                    String Data = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                    lbldataeng.Text = Data;
+                    lbldataeng.Visible = true;
+                    break;
+                case "Aprovado Abaixo":
+                    String Data1 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                    lbldataeng.Text = Data1;
+                    lbldataeng.Visible = true;
+                    break;
+                case "Aprovado Normal":
+                    String Data2 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                    lbldataeng.Text = Data2;
+                    lbldataeng.Visible = true;
+                    break;
+                case "Contestação":
+                    String Data3 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                    lbldataeng.Text = Data3;
+                    lbldataeng.Visible = true;
+                    break;
+                case "Solicitado":
+                    String Data4 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                    lbldataeng.Text = Data4;
+                    lbldataeng.Visible = true;
+                    break;
+            }
+        }
+
+        private void txt_valor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(Keys.Back))
+            {
+                if (e.KeyChar == ',')
+                {
+                    e.Handled = (txt_valor.Text.Contains(","));
+                }
+                else
+                    e.Handled = true;
+            }
+        }
+
+        private void txt_valor_Leave(object sender, EventArgs e)
+        {
+            valor = txt_valor.Text.Replace("R$", "");
+            txt_valor.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+        }
+
+        private void txt_valor_KeyUp(object sender, KeyEventArgs e)
+        {
+            valor = txt_valor.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+            if (valor.Length == 0)
+            {
+                txt_valor.Text = "0,00" + valor;
+            }
+            if (valor.Length == 1)
+            {
+                txt_valor.Text = "0,0" + valor;
+            }
+            if (valor.Length == 2)
+            {
+                txt_valor.Text = "0," + valor;
+            }
+            else if (valor.Length >= 3)
+            {
+                if (txt_valor.Text.StartsWith("0,"))
+                {
+                    txt_valor.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
+                }
+                else if (txt_valor.Text.Contains("00,"))
+                {
+                    txt_valor.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
+                }
+                else
+                {
+                    txt_valor.Text = valor.Insert(valor.Length - 2, ",");
+                }
+            }
+            valor = txt_valor.Text;
+            txt_valor.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            txt_valor.Select(txt_valor.Text.Length, 0);
+        }
+
+        private void tabControl_Selected(object sender, TabControlEventArgs e)
+        {
+            txt_valor.Select(txt_valor.Text.Length, 0);
+        }
+
+        private void comboBox_SIOPI_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            lbldatasiopi.Text = "";
+            switch (comboBox_SIOPI.SelectedItem.ToString())
+            {
+                case "Não Consultado":
+                    String Data = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                    lbldatasiopi.Text = Data;
+                    lbldatasiopi.Visible = true;
+                    break;
+                case "Enviado":
+                    String Data1 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                    lbldatasiopi.Text = Data1;
+                    lbldatasiopi.Visible = true;
+                    break;
+                case "Não Enviado":
+                    String Data2 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                    lbldatasiopi.Text = Data2;
+                    lbldatasiopi.Visible = true;
+                    break;
+            }
+        }
+
+        private void comboBox_SICTD_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            lbldatasictd.Text = "";
+            switch (comboBox_SICTD.SelectedItem.ToString())
+            {
+                case "Não Consultado":
+                    String Data = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                    lbldatasictd.Text = Data;
+                    lbldatasictd.Visible = true;
+                    break;
+                case "Enviado":
+                    String Data1 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                    lbldatasictd.Text = Data1;
+                    lbldatasictd.Visible = true;
+                    break;
+                case "Não Enviado":
+                    String Data2 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                    lbldatasictd.Text = Data2;
+                    lbldatasictd.Visible = true;
+                    break;
+            }
+        }
+
+        private void comboBox_saque_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            lbldatasaquefgts.Text = "";
+            switch (comboBox_saque.SelectedItem.ToString())
+            {
+                case "Não Consultado":
+                    String Data = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                    lbldatasaquefgts.Text = Data;
+                    lbldatasaquefgts.Visible = true;
+                    break;
+                case "Total":
+                    String Data1 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                    lbldatasaquefgts.Text = Data1;
+                    lbldatasaquefgts.Visible = true;
+                    break;
+                case "Parcial":
+                    String Data2 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                    lbldatasaquefgts.Text = Data2;
+                    lbldatasaquefgts.Visible = true;
+                    break;
+                case "Não Usar":
+                    String Data3 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                    lbldatasaquefgts.Text = Data3;
+                    lbldatasaquefgts.Visible = true;
+                    break;
+             }
+        }
+
+        private void comboBox_PA_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            lbldatapa.Text = "";
+            switch (comboBox_PA.SelectedItem.ToString())
+            {
+                case "Não Consultado":
+                    String Data = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                    lbldatapa.Text = Data;
+                    lbldatapa.Visible = true;
+                    break;
+                case "Conforme":
+                    String Data1 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                    lbldatapa.Text = Data1;
+                    lbldatapa.Visible = true;
+                    break;
+                case "Inconforme":
+                    String Data2 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                    lbldatapa.Text = Data2;
+                    lbldatapa.Visible = true;
+                    break;
+            }
         }
 
         private void panel12_Paint(object sender, PaintEventArgs e)

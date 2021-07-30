@@ -197,7 +197,7 @@ namespace LMFinanciamentos.DAL
         {
             //var list = new List<Cliente>();
 
-            cmd.CommandText = "SELECT P.id as idpross, P.idresponsavel as idresponsavel, P.Data as Data, P.Observacao as Observacao , P.StatusCPF as StatusCPF, P.StatusCiweb as StatusCiweb, P.StatusCadmut as StatusCadmut, P.StatusIR as StatusIR, P.StatusFGTS as StatusFGTS,  " +
+            cmd.CommandText = "SELECT P.id as idpross, P.idresponsavel as idresponsavel, P.Data as Data, P.Observacao as Observacao , ValorImovel, ValorFinanciado, P.StatusCPF as StatusCPF, P.StatusCiweb as StatusCiweb, P.StatusCadmut as StatusCadmut, P.StatusIR as StatusIR, P.StatusFGTS as StatusFGTS,  " +
                 "P.StatusAnalise as	StatusAnalise, P.StatusEng as StatusEng, P.SaqueFGTS as SaqueFGTS, P.SIOPI as SIOPI, P.SICTD as SICTD, P.StatusPA as StatusPA, P.StatusCartorio as StatusCartorio, " + 
                 "Clientes.id as idCliente, Clientes.Nome as clinome, Clientes.Email as EmailCli,  Clientes.Telefone as Telefonecli , Clientes.Celular as celularcli, Clientes.CPF as cpfcli, Clientes.RG as rgcli, Conta.Agencia as agenciacli, Conta.Conta as contacli, Clientes.Nascimento as Nascimento, Clientes.Renda as rendacli, " +
                 "V.id as idVendedor, V.Nome as vendnome, V.Email as Emailvendedor, V.Telefone as Telefonevendedor, V.Celular as celularvendedor, V.CPF as cpfvendedor, V.CNPJ as cnpjvendedor, V.Agencia as agenciavendedor, V.Conta as contavendedor,   " +
@@ -296,6 +296,10 @@ namespace LMFinanciamentos.DAL
                     process.Id_corretor = drprocess["idCorretor"].ToString();
                     process.AgenciaImovel_imovel = drprocess["AgenciaImovel"].ToString();
                     process.Programa_imovel = drprocess["Programa"].ToString();
+
+                    process.Valor_imovel = drprocess["ValorImovel"].ToString();
+                    process.ValorFinanciado_imovel = drprocess["ValorFinanciado"].ToString();
+
                     process.Nome_corretor = drprocess["Corretor"].ToString();
                     process.Descricao_corretora = drprocess["Corretora"].ToString();
                     process.EmpDescricao_imovel = drprocess["EmpDescricao"].ToString();
@@ -578,7 +582,7 @@ namespace LMFinanciamentos.DAL
 
             return mensagem;
         }
-        public String UpdateProcesso(String id, String scpf, String sciweb, String scadmut, String sir, String sfgts, DateTime datastatuscpf, DateTime datastatusciweb, DateTime datastatuscadmut, DateTime datastatusir, DateTime datastatusfgts, DateTime datastatusanalise, DateTime datastatuseng, DateTime datastatuscartorio, DateTime datastatus, String status)
+        public String UpdateProcesso(String id, String scpf, String sciweb, String scadmut, String sir, String sfgts, DateTime datastatuscpf, DateTime datastatusciweb, DateTime datastatuscadmut, DateTime datastatusir, DateTime datastatusfgts, DateTime datastatusanalise, DateTime datastatuseng, DateTime datasiopi, DateTime datasictd, DateTime datasaquefgts, DateTime datapa, String valorimovel, String valorfinanciado, DateTime datastatuscartorio, DateTime datastatus, String status)
         {
 
             try
@@ -587,7 +591,9 @@ namespace LMFinanciamentos.DAL
                     //"INNER JOIN  H_Status ON PID = H_Status.idprocesso " +
                 "SET Status = @Status, StatusCPF = @cpf, StatusCiweb = @Ciweb, StatusCadmut = @Cadmut, StatusIR = @IR, StatusFGTS = @FGTS , " +
                 "DataStatusCPF = @DataStatusCPF, DataStatusCiweb = @DataStatusCiweb, DataStatusCadmut = @DataStatusCadmut, DataStatusIR = @DataStatusIR, DataStatusFGTS = @DataStatusFGTS, " +
-                "DataStatusAnalise = @DataStatusAnalise, DataStatusEng = @DataStatusEng, DataStatusCartorio = @DataStatusCartorio, DataStatus = @DataStatus WHERE id = @Id ";
+                "DataStatusAnalise = @DataStatusAnalise, DataStatusEng = @DataStatusEng, DataSaqueFGTS = @DataStatussaquefgts, DataSIOP = @DataStatussiopi, DataSICTD = @DataStatussictd, DataPA = @DataStatuspa, " +
+                "ValorImovel = @valorimovel, ValorFinanciado = @valorfinanciado, " +
+                "DataStatusCartorio = @DataStatusCartorio, DataStatus = @DataStatus WHERE id = @Id ";
                 cmd1.Parameters.AddWithValue("@Id", id);
                 cmd1.Parameters.AddWithValue("@cpf", scpf);
                 cmd1.Parameters.AddWithValue("@Ciweb", sciweb);
@@ -601,6 +607,15 @@ namespace LMFinanciamentos.DAL
                 cmd1.Parameters.AddWithValue("@DataStatusFGTS", datastatusfgts);
                 cmd1.Parameters.AddWithValue("@DataStatusAnalise", datastatusanalise);
                 cmd1.Parameters.AddWithValue("@DataStatusEng", datastatuseng);
+                cmd1.Parameters.AddWithValue("@DataStatussiopi", datasiopi);
+                cmd1.Parameters.AddWithValue("@DataStatussictd", datasictd);
+                cmd1.Parameters.AddWithValue("@DataStatussaquefgts", datasaquefgts);
+                cmd1.Parameters.AddWithValue("@DataStatuspa", datapa);
+
+                cmd1.Parameters.AddWithValue("@valorimovel", valorimovel);
+                cmd1.Parameters.AddWithValue("@valorfinanciado", valorfinanciado);
+
+
                 cmd1.Parameters.AddWithValue("@DataStatusCartorio", datastatuscartorio);
                 cmd1.Parameters.AddWithValue("@DataStatus", datastatus);
                 cmd1.Parameters.AddWithValue("@Status", status);

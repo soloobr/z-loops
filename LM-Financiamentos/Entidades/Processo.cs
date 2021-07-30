@@ -80,10 +80,8 @@
         public string AgenciaImovel_imovel { get; set; }
         public string Programa_imovel { get; set; }
         public string EmpDescricao_imovel { get; set; }
-
-        
-
-
+        public string Valor_imovel { get; set; }
+        public string ValorFinanciado_imovel { get; set; }
 
 
         #endregion
