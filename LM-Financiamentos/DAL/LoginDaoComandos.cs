@@ -3,6 +3,7 @@ using LMFinanciamentos.Entidades;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -201,7 +202,7 @@ namespace LMFinanciamentos.DAL
                 "P.StatusAnalise as	StatusAnalise, P.StatusEng as StatusEng, P.SaqueFGTS as SaqueFGTS, P.SIOPI as SIOPI, P.SICTD as SICTD, P.StatusPA as StatusPA, P.StatusCartorio as StatusCartorio, " + 
                 "Clientes.id as idCliente, Clientes.Nome as clinome, Clientes.Email as EmailCli,  Clientes.Telefone as Telefonecli , Clientes.Celular as celularcli, Clientes.CPF as cpfcli, Clientes.RG as rgcli, Conta.Agencia as agenciacli, Conta.Conta as contacli, Clientes.Nascimento as Nascimento, Clientes.Renda as rendacli, " +
                 "V.id as idVendedor, V.Nome as vendnome, V.Email as Emailvendedor, V.Telefone as Telefonevendedor, V.Celular as celularvendedor, V.CPF as cpfvendedor, V.CNPJ as cnpjvendedor, V.Agencia as agenciavendedor, V.Conta as contavendedor,   " +
-                "Corretora.Descricao as Corretora, Corretores.Nome as Corretor, P.idCorretora, P.idCorretor, Agencia.Agencia as AgenciaImovel, Programa.Descricao as Programa, Empreendimentos.Descricao as EmpDescricao,     " +
+                "Corretora.Descricao as Corretora, Corretores.Nome as Corretor, P.idCorretora, P.idCorretor, Agencia.id as idAgenciaImovel, Agencia.Agencia as AgenciaImovel, Programa.id as idPrograma, Programa.Descricao as DescriPrograma, Agencia.Agencia as AgenciaImovel, Programa.Descricao as Programa, Empreendimentos.Descricao as EmpDescricao,     " +
                 "F.Nome as nomeresponsavel, F.Permission as permissionresponsavel,  " +
                 "P.DataStatusCPF, P.DataStatusCiweb, P.DataStatusCadmut, P.DataStatusIR, P.DataStatusFGTS, P.DataStatusAnalise, P.DataStatusEng, P.DataSaqueFGTS, P.DataSIOP, P.DataSICTD, P.DataPA, P.DataStatusCartorio, P.DataStatus   " +
 
@@ -294,14 +295,20 @@ namespace LMFinanciamentos.DAL
                     #region imovel
                     process.Id_corretora = drprocess["idCorretora"].ToString();
                     process.Id_corretor = drprocess["idCorretor"].ToString();
+                    process.Nome_corretor = drprocess["Corretor"].ToString();
+                    process.Descricao_corretora = drprocess["Corretora"].ToString();
+
+
+                    process.Id_AgenciaImovel = drprocess["idAgenciaImovel"].ToString();
+                    process.Id_Programa = drprocess["idPrograma"].ToString();
+
                     process.AgenciaImovel_imovel = drprocess["AgenciaImovel"].ToString();
-                    process.Programa_imovel = drprocess["Programa"].ToString();
+                    process.Programa_imovel = drprocess["DescriPrograma"].ToString();
 
                     process.Valor_imovel = drprocess["ValorImovel"].ToString();
                     process.ValorFinanciado_imovel = drprocess["ValorFinanciado"].ToString();
 
-                    process.Nome_corretor = drprocess["Corretor"].ToString();
-                    process.Descricao_corretora = drprocess["Corretora"].ToString();
+
                     process.EmpDescricao_imovel = drprocess["EmpDescricao"].ToString();
                     
 
@@ -582,7 +589,7 @@ namespace LMFinanciamentos.DAL
 
             return mensagem;
         }
-        public String UpdateProcesso(String id, String scpf, String sciweb, String scadmut, String sir, String sfgts, DateTime datastatuscpf, DateTime datastatusciweb, DateTime datastatuscadmut, DateTime datastatusir, DateTime datastatusfgts, DateTime datastatusanalise, DateTime datastatuseng, DateTime datasiopi, DateTime datasictd, DateTime datasaquefgts, DateTime datapa, String valorimovel, String valorfinanciado, DateTime datastatuscartorio, DateTime datastatus, String status)
+        public String UpdateProcesso(String id, String sidAgenciaImovel, String sidPrograma, String scpf, String sciweb, String scadmut, String sir, String sfgts, DateTime datastatuscpf, DateTime datastatusciweb, DateTime datastatuscadmut, DateTime datastatusir, DateTime datastatusfgts, DateTime datastatusanalise, DateTime datastatuseng, DateTime datasiopi, DateTime datasictd, DateTime datasaquefgts, DateTime datapa, String valorimovel, String valorfinanciado, DateTime datastatuscartorio, DateTime datastatus, String status)
         {
 
             try
@@ -592,7 +599,7 @@ namespace LMFinanciamentos.DAL
                 "SET Status = @Status, StatusCPF = @cpf, StatusCiweb = @Ciweb, StatusCadmut = @Cadmut, StatusIR = @IR, StatusFGTS = @FGTS , " +
                 "DataStatusCPF = @DataStatusCPF, DataStatusCiweb = @DataStatusCiweb, DataStatusCadmut = @DataStatusCadmut, DataStatusIR = @DataStatusIR, DataStatusFGTS = @DataStatusFGTS, " +
                 "DataStatusAnalise = @DataStatusAnalise, DataStatusEng = @DataStatusEng, DataSaqueFGTS = @DataStatussaquefgts, DataSIOP = @DataStatussiopi, DataSICTD = @DataStatussictd, DataPA = @DataStatuspa, " +
-                "ValorImovel = @valorimovel, ValorFinanciado = @valorfinanciado, " +
+                "idAgenciaImovel = @idAgenciaImovel, idPrograma = @idPrograma, ValorImovel = @valorimovel, ValorFinanciado = @valorfinanciado, " +
                 "DataStatusCartorio = @DataStatusCartorio, DataStatus = @DataStatus WHERE id = @Id ";
                 cmd1.Parameters.AddWithValue("@Id", id);
                 cmd1.Parameters.AddWithValue("@cpf", scpf);
@@ -600,6 +607,10 @@ namespace LMFinanciamentos.DAL
                 cmd1.Parameters.AddWithValue("@Cadmut", scadmut);
                 cmd1.Parameters.AddWithValue("@IR", sir);
                 cmd1.Parameters.AddWithValue("@FGTS", sfgts);
+
+                cmd1.Parameters.AddWithValue("@idAgenciaImovel", sidAgenciaImovel);
+                cmd1.Parameters.AddWithValue("@idPrograma", sidPrograma);
+
                 cmd1.Parameters.AddWithValue("@DataStatusCPF", datastatuscpf);
                 cmd1.Parameters.AddWithValue("@DataStatusCiweb", datastatusciweb);
                 cmd1.Parameters.AddWithValue("@DataStatusCadmut", datastatuscadmut);
@@ -679,8 +690,7 @@ namespace LMFinanciamentos.DAL
 
             return mensagem;
         }
-        //KryptonComboBox
-        public void autoCompletar(ComboBox novoText, String nome)
+         public void autoCompletar(ComboBox novoText, String nome)
         {
             cmd2.CommandText = "SELECT Nome FROM Clientes WHERE Nome LIKE @nomeclientes";
             cmd2.Parameters.Clear();
@@ -709,6 +719,76 @@ namespace LMFinanciamentos.DAL
             }
 
         }
+
+        public DataTable GetDataAgencia()
+        {
+            cmd.CommandText = "SELECT id, Descricao, Endereco, Agencia FROM Agencia ";
+
+            cmd.Connection = con.conectar();
+            //drprocessos = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            con.desconectar();
+
+            return dt;
+        }
+
+        public DataTable GetDataPrograma()
+        {
+            cmd.CommandText = "SELECT id, Descricao FROM Programa ";
+
+            cmd.Connection = con.conectar();
+            //drprocessos = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            con.desconectar();
+
+            return dt;
+        }
+
+        public List<Combobox_Agencia> ComboboxAgencia()
+        //public List<string[]> GetListaString()
+        {
+            var listcombobox = new List<Combobox_Agencia>();
+            //var lista = new List<string[]>();
+
+            cmd.CommandText = "SELECT id, Descricao, Endereco, Agencia FROM Agencia ";
+ 
+            try
+            {
+                cmd.Connection = con.conectar();
+                drprocessos = cmd.ExecuteReader();
+
+                if (drprocessos.HasRows)
+                {
+                    while (drprocessos.Read())
+                    {
+                        //Combobox_Agencia items = new Combobox_Agencia();
+                        //items.Id_agencia = (drprocessos["id"].ToString()).PadLeft(4, '0');
+                        //items.Decricao_agencia = drprocessos["Descricao"].ToString();
+                        //items.Endereco_agencia = drprocessos["Endereco"].ToString();
+                        //items.Agencia_agencia = drprocessos["Agencia"].ToString();
+
+                       // listcombobox.Add(items);
+
+                       // lista.Add(new string[] { (drprocessos["id"].ToString()).PadLeft(4, '0'), drprocessos["Descricao"].ToString(), drprocessos["Endereco"].ToString(), drprocessos["Agencia"].ToString() });
+                    }
+                }
+                drprocessos.Close();
+                con.desconectar();
+
+            }
+            catch (SqlException err)
+            {
+                throw new Exception("Erro ao obter itens Combobox Agencia: " + err.Message);
+            }
+
+            return listcombobox;
+            //return lista;
+        }
+
 
         public void autoCompletarVendedor(ComboBox novoText, String nome)
         {

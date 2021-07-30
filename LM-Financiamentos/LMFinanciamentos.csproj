@@ -133,6 +133,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="ToFullText, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ToFullText.1.0.2\lib\net40\ToFullText.dll</HintPath>
+    </Reference>
     <Reference Include="Ubiety.Dns.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.0.25\lib\net452\Ubiety.Dns.Core.dll</HintPath>
     </Reference>
@@ -160,11 +163,11 @@
     <Compile Include="Apresentacao\Form_Controle_cliente.Designer.cs">
       <DependentUpon>Form_Controle_cliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apresentacao\Form_Dados_Documentos.cs">
+    <Compile Include="Apresentacao\Form_Dados_Processos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apresentacao\Form_Dados_Documentos.Designer.cs">
-      <DependentUpon>Form_Dados_Documentos.cs</DependentUpon>
+    <Compile Include="Apresentacao\Form_Dados_Processos.Designer.cs">
+      <DependentUpon>Form_Dados_Processos.cs</DependentUpon>
     </Compile>
     <Compile Include="Apresentacao\Form_Cadastro_Documentos.cs">
       <SubType>Form</SubType>
@@ -239,6 +242,7 @@
       <DependentUpon>DS_Funcionario.xsd</DependentUpon>
     </Compile>
     <Compile Include="DAL\LoginDaoComandos.cs" />
+    <Compile Include="Entidades\Combobox_Agencia.cs" />
     <Compile Include="Entidades\Processo.cs" />
     <Compile Include="Entidades\Cliente.cs" />
     <Compile Include="Entidades\Funcionario.cs" />
@@ -268,8 +272,8 @@
     <EmbeddedResource Include="Apresentacao\Form_Controle_cliente.resx">
       <DependentUpon>Form_Controle_cliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apresentacao\Form_Dados_Documentos.resx">
-      <DependentUpon>Form_Dados_Documentos.cs</DependentUpon>
+    <EmbeddedResource Include="Apresentacao\Form_Dados_Processos.resx">
+      <DependentUpon>Form_Dados_Processos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\Form_Cadastro_Documentos.resx">
       <DependentUpon>Form_Cadastro_Documentos.cs</DependentUpon>

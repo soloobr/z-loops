@@ -109,7 +109,7 @@ namespace LMFinanciamentos.Apresentacao
         private void dgv_process_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            Form_Dados_Documentos frm_dados_documentos = new Form_Dados_Documentos();
+            Form_Dados_Processos frm_dados_documentos = new Form_Dados_Processos();
             //frm_dados_documentos.setIdProcess(dgv_process.Rows[1].Cells[0].Value.ToString());
             frm_dados_documentos.setIdProcess(dgv_process.SelectedRows[0].Cells["id"].Value.ToString());
             frm_dados_documentos.ProcessoSalvo += new Action(frm_dados_documentos_ProcessoSalvo);

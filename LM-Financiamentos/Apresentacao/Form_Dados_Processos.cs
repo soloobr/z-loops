@@ -9,14 +9,17 @@ using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using br.corp.bonus630.FullText;
+using System.Data;
 
 namespace LMFinanciamentos.Apresentacao
 {
-    public partial class Form_Dados_Documentos : Form
+    public partial class Form_Dados_Processos : Form
     {
 
         bool Next;
-        string valor;
+        string valor, svalorimovel, svalorfinanciado;
+        ToFullText tft;
 
 
         string  idProcess, datacpf, dataciweb, datacadmut, datair, datafgts, dataanalise, dataeng, datastatus, statusprocesso, datasiopi, datasictd, datasaquefgts, datapa, datacartorio;
@@ -24,10 +27,11 @@ namespace LMFinanciamentos.Apresentacao
         //private int cadastrar = 0;
         //private int newProgressValue;
 
-        public Form_Dados_Documentos()
+        public Form_Dados_Processos()
         {
             InitializeComponent();
             Control.CheckForIllegalCrossThreadCalls = false;
+            tft = new ToFullText();
             //bPopCombo = false;
         }
         public void setLabel(string statuslbl)
@@ -55,13 +59,17 @@ namespace LMFinanciamentos.Apresentacao
 
             //txt_valor.Text = string.Format("{0:C}", Convert.ToDouble(process.Valor_imovel));
             //txt_valor.Text = string.Format("{0:C}", Convert.ToDouble(valor));
-            txt_valor.Select(txt_valor.Text.Length, 0);
-            double preco = double.Parse(process.Valor_imovel, System.Globalization.CultureInfo.InvariantCulture); 
-            txt_valor.Text = preco.ToString();
-            txt_valor.Select(txt_valor.Text.Length, 0);
-            //txt_valor1.Text = preco.ToString("C");
-            //txt_valor.Text = process.Valor_imovel;
+            //txt_valor.Select(txt_valor.Text.Length, 0);
+            //double preco = double.Parse(process.Valor_imovel, System.Globalization.CultureInfo.InvariantCulture); 
 
+
+            //txt_valor1.Text = preco.ToString("C");
+            svalorimovel = process.Valor_imovel;
+            valorimovel.Text = process.Valor_imovel;
+            valorimovel.Select(valorimovel.Text.Length, 0);
+
+            valorfinanciado.Text = process.ValorFinanciado_imovel;
+            valorfinanciado.Select(valorfinanciado.Text.Length, 0);
             #endregion
 
             #region Cliente
@@ -140,6 +148,17 @@ namespace LMFinanciamentos.Apresentacao
             //txtrenda.Text = process.Renda_vendedor;
             textagenciavendedor.Text = process.Agencia_vendedor;
             txtcontavendedor.Text = process.Conta_vendedor;
+            #endregion
+
+            #region Popular combobox
+            comboBox_agencia.DataSource = gettpross.GetDataAgencia();
+            comboBox_agencia.DisplayMember = "Agencia";
+            comboBox_agencia.ValueMember = "Id";
+
+
+            comboBox_programa.DataSource = gettpross.GetDataPrograma();
+            comboBox_programa.DisplayMember = "Descricao";
+            comboBox_programa.ValueMember = "Id";
             #endregion
 
             #region imovel
@@ -511,6 +530,7 @@ namespace LMFinanciamentos.Apresentacao
             Get_Status();
             LoginDaoComandos updateprocesso = new LoginDaoComandos();
 
+            #region Check Datas
             if (lbldatacpf.Text != "__/ ___/ ____")
             {
                 datacpf = lbldatacpf.Text;
@@ -612,6 +632,7 @@ namespace LMFinanciamentos.Apresentacao
             {
                 datapa = "01/01/0001 00:00:00";
             }
+            #endregion
 
             datastatus = "01/01/0001 00:00:00";
 
@@ -635,7 +656,24 @@ namespace LMFinanciamentos.Apresentacao
 
             lblstatus.Text = statusprocesso;
 
-            updateprocesso.UpdateProcesso(idProcess, txtStatusCPF.Text, txtciweb.Text, txtcadmut.Text, txtir.Text, txtfgts.Text, datecpf, dateciweb, datecadmut, dateir, datefgts, dateanalise, dateeng, datesiopi, datesictd, datesaquefgts, datepa, valorimovel.Text, valorfinanciado.Text, datecartorio, datestatus, statusprocesso);
+            String Valorimov = valorimovel.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
+            String Valorfinan = valorfinanciado.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
+            //MessageBox.Show(Valorimov);
+
+            //if (comboBox_agencia.SelectedValue == null)
+            //{
+            //    return;
+            //}
+            string comboagencia = comboBox_agencia.SelectedValue.ToString();
+
+            //if (comboBox_programa.SelectedValue == null)
+            //{
+            //    return;
+            //}
+            string comboprograma = comboBox_programa.SelectedValue.ToString();
+
+
+            updateprocesso.UpdateProcesso(idProcess, comboagencia, comboprograma, txtStatusCPF.Text, txtciweb.Text, txtcadmut.Text, txtir.Text, txtfgts.Text, datecpf, dateciweb, datecadmut, dateir, datefgts, dateanalise, dateeng, datesiopi, datesictd, datesaquefgts, datepa, Valorimov, Valorfinan, datecartorio, datestatus, statusprocesso);
             MessageBox.Show(updateprocesso.mensagem);
 
 
@@ -770,7 +808,7 @@ namespace LMFinanciamentos.Apresentacao
             {
                 if (e.KeyChar == ',')
                 {
-                    e.Handled = (txt_valor.Text.Contains(","));
+                    e.Handled = (valorimovel.Text.Contains(","));
                 }
                 else
                     e.Handled = true;
@@ -779,48 +817,286 @@ namespace LMFinanciamentos.Apresentacao
 
         private void txt_valor_Leave(object sender, EventArgs e)
         {
-            valor = txt_valor.Text.Replace("R$", "");
-            txt_valor.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            valor = valorimovel.Text.Replace("R$", "");
+            valorimovel.Text = string.Format("{0:C}", Convert.ToDouble(valor));
         }
 
         private void txt_valor_KeyUp(object sender, KeyEventArgs e)
         {
-            valor = txt_valor.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+            valor = valorimovel.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
             if (valor.Length == 0)
             {
-                txt_valor.Text = "0,00" + valor;
+                valorimovel.Text = "0,00" + valor;
             }
             if (valor.Length == 1)
             {
-                txt_valor.Text = "0,0" + valor;
+                valorimovel.Text = "0,0" + valor;
             }
             if (valor.Length == 2)
             {
-                txt_valor.Text = "0," + valor;
+                valorimovel.Text = "0," + valor;
             }
             else if (valor.Length >= 3)
             {
-                if (txt_valor.Text.StartsWith("0,"))
+                if (valorimovel.Text.StartsWith("0,"))
                 {
-                    txt_valor.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
+                    valorimovel.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
                 }
-                else if (txt_valor.Text.Contains("00,"))
+                else if (valorimovel.Text.Contains("00,"))
                 {
-                    txt_valor.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
+                    valorimovel.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
                 }
                 else
                 {
-                    txt_valor.Text = valor.Insert(valor.Length - 2, ",");
+                    valorimovel.Text = valor.Insert(valor.Length - 2, ",");
                 }
             }
-            valor = txt_valor.Text;
-            txt_valor.Text = string.Format("{0:C}", Convert.ToDouble(valor));
-            txt_valor.Select(txt_valor.Text.Length, 0);
+            valor = valorimovel.Text;
+            valorimovel.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            valorimovel.Select(valorimovel.Text.Length, 0);
+        }
+
+        private void valorimovel_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void valorimovel_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(Keys.Back))
+            {
+                if (e.KeyChar == ',')
+                {
+                    e.Handled = (valorimovel.Text.Contains(","));
+                }
+                else
+                    e.Handled = true;
+            }
+        }
+
+        private void valorimovel_Leave(object sender, EventArgs e)
+        {
+            valor = valorimovel.Text.Replace("R$", "");
+            valorimovel.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+        }
+
+        private void valorimovel_KeyUp(object sender, KeyEventArgs e)
+        {
+            valor = valorimovel.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+            if (valor.Length == 0)
+            {
+                valorimovel.Text = "0,00" + valor;
+            }
+            if (valor.Length == 1)
+            {
+                valorimovel.Text = "0,0" + valor;
+            }
+            if (valor.Length == 2)
+            {
+                valorimovel.Text = "0," + valor;
+            }
+            else if (valor.Length >= 3)
+            {
+                if (valorimovel.Text.StartsWith("0,"))
+                {
+                    valorimovel.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
+                }
+                else if (valorimovel.Text.Contains("00,"))
+                {
+                    valorimovel.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
+                }
+                else
+                {
+                    valorimovel.Text = valor.Insert(valor.Length - 2, ",");
+                }
+            }
+            valor = valorimovel.Text;
+            valorimovel.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            valorimovel.Select(valorimovel.Text.Length, 0);
+        }
+
+        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl.SelectedTab == tabControl.TabPages["tabimovel"])//your specific tabname
+            {
+                #region Valor Imovel
+                valor = valorimovel.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+                if (valor.Length == 0)
+                {
+                    valorimovel.Text = "0,00" + valor;
+                }
+                if (valor.Length == 1)
+                {
+                    valorimovel.Text = "0,0" + valor;
+                }
+                if (valor.Length == 2)
+                {
+                    valorimovel.Text = "0," + valor;
+                }
+                else if (valor.Length >= 3)
+                {
+                    if (valorimovel.Text.StartsWith("0,"))
+                    {
+                        valorimovel.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
+                    }
+                    else if (valorimovel.Text.Contains("00,"))
+                    {
+                        valorimovel.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
+                    }
+                    else
+                    {
+                        valorimovel.Text = valor.Insert(valor.Length - 2, ",");
+                    }
+                }
+                valor = valorimovel.Text;
+                valorimovel.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+                valorimovel.Select(valorimovel.Text.Length, 0);
+                #endregion
+
+                #region Valor Financiado
+                valor = valorfinanciado.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+                if (valor.Length == 0)
+                {
+                    valorfinanciado.Text = "0,00" + valor;
+                }
+                if (valor.Length == 1)
+                {
+                    valorfinanciado.Text = "0,0" + valor;
+                }
+                if (valor.Length == 2)
+                {
+                    valorfinanciado.Text = "0," + valor;
+                }
+                else if (valor.Length >= 3)
+                {
+                    if (valorfinanciado.Text.StartsWith("0,"))
+                    {
+                        valorfinanciado.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
+                    }
+                    else if (valorfinanciado.Text.Contains("00,"))
+                    {
+                        valorfinanciado.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
+                    }
+                    else
+                    {
+                        valorfinanciado.Text = valor.Insert(valor.Length - 2, ",");
+                    }
+                }
+                valor = valorfinanciado.Text;
+                valorfinanciado.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+                valorfinanciado.Select(valorfinanciado.Text.Length, 0);
+                #endregion
+
+                LoginDaoComandos getitenscomboagengia = new LoginDaoComandos();
+
+
+                #region Popular combobox
+                //comboBox_agencia.DataSource = getitenscomboagengia.GetDataAgencia();
+                //comboBox_agencia.DisplayMember = "Agencia";
+                //comboBox_agencia.ValueMember = "Id";
+               
+
+                //comboBox_programa.DataSource = getitenscomboagengia.GetDataPrograma();
+                //comboBox_programa.DisplayMember = "Descricao";
+                //comboBox_programa.ValueMember = "Id";
+                #endregion
+            }
+        }
+
+        private void comboBox_empreendimentos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+        public class ConverteListaDataTable
+        {
+            public static DataTable ConverteListaString(List<string[]> lista)
+            {
+                // Cria Novo DataTable
+                DataTable table = new DataTable();
+                // Numero maximo de colunas
+                int columns = 0;
+                foreach (var array in lista)
+                {
+                    if (array.Length > columns)
+                    {
+                        columns = array.Length;
+                    }
+                }
+                // incluir colunas
+                for (int i = 0; i < columns; i++)
+                {
+                    table.Columns.Add();
+                }
+                // inclui linhas
+                foreach (var array in lista)
+                {
+                    table.Rows.Add(array);
+                }
+                return table;
+            }
+        }
+        private void valorfinanciado_KeyUp(object sender, KeyEventArgs e)
+        {
+            valor = valorfinanciado.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+            if (valor.Length == 0)
+            {
+                valorfinanciado.Text = "0,00" + valor;
+            }
+            if (valor.Length == 1)
+            {
+                valorfinanciado.Text = "0,0" + valor;
+            }
+            if (valor.Length == 2)
+            {
+                valorfinanciado.Text = "0," + valor;
+            }
+            else if (valor.Length >= 3)
+            {
+                if (valorfinanciado.Text.StartsWith("0,"))
+                {
+                    valorfinanciado.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
+                }
+                else if (valorfinanciado.Text.Contains("00,"))
+                {
+                    valorfinanciado.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
+                }
+                else
+                {
+                    valorfinanciado.Text = valor.Insert(valor.Length - 2, ",");
+                }
+            }
+            valor = valorfinanciado.Text;
+            valorfinanciado.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            valorfinanciado.Select(valorfinanciado.Text.Length, 0);
+        }
+
+        private void valorfinanciado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(Keys.Back))
+            {
+                if (e.KeyChar == ',')
+                {
+                    e.Handled = (valorfinanciado.Text.Contains(","));
+                }
+                else
+                    e.Handled = true;
+            }
+        }
+
+        private void valorfinanciado_Leave(object sender, EventArgs e)
+        {
+            valor = valorfinanciado.Text.Replace("R$", "");
+            valorfinanciado.Text = string.Format("{0:C}", Convert.ToDouble(valor));
         }
 
         private void tabControl_Selected(object sender, TabControlEventArgs e)
         {
-            txt_valor.Select(txt_valor.Text.Length, 0);
+
+        }
+
+        private void txt_valor_TextChanged(object sender, EventArgs e)
+        {
+            //label31.Text = tft.showText(txt_valor.Text);
         }
 
         private void comboBox_SIOPI_SelectionChangeCommitted(object sender, EventArgs e)

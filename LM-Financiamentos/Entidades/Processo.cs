@@ -78,10 +78,15 @@
         public string Descricao_corretora { get; set; }
         public string Nome_corretor { get; set; }
         public string AgenciaImovel_imovel { get; set; }
+        public string Id_AgenciaImovel { get; set; }
         public string Programa_imovel { get; set; }
+        public string Id_Programa { get; set; }
         public string EmpDescricao_imovel { get; set; }
         public string Valor_imovel { get; set; }
         public string ValorFinanciado_imovel { get; set; }
+
+        
+
 
 
         #endregion
