@@ -81,6 +81,8 @@ namespace LMFinanciamentos.Apresentacao
             this.paneltop = new System.Windows.Forms.Panel();
             this.lbl_topo = new System.Windows.Forms.Label();
             this.img_topo = new System.Windows.Forms.PictureBox();
+            this.txtrendacli = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panelcentralcadcli.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -349,6 +351,8 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.label4, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.txtrendacli, 3, 3);
             this.tableLayoutPanel1.Controls.Add(this.label3, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.groupBox2, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.txtcelular, 2, 3);
@@ -713,6 +717,25 @@ namespace LMFinanciamentos.Apresentacao
             this.img_topo.TabIndex = 5;
             this.img_topo.TabStop = false;
             // 
+            // txtrendacli
+            // 
+            this.txtrendacli.Location = new System.Drawing.Point(701, 85);
+            this.txtrendacli.Name = "txtrendacli";
+            this.txtrendacli.Size = new System.Drawing.Size(216, 27);
+            this.txtrendacli.TabIndex = 53;
+            this.txtrendacli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtrendacli_KeyPress);
+            this.txtrendacli.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrendacli_KeyUp);
+            this.txtrendacli.Leave += new System.EventHandler(this.txtrendacli_Leave);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(701, 59);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(98, 23);
+            this.label4.TabIndex = 54;
+            this.label4.Text = "Renda Bruta:";
+            // 
             // Form_Cadastro_cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -808,5 +831,7 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.TextBox txtnomecli;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtrg;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtrendacli;
     }
 }

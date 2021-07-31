@@ -85,13 +85,21 @@
         public string Valor_imovel { get; set; }
         public string ValorFinanciado_imovel { get; set; }
 
-        
+
 
 
 
         #endregion
 
+        #region Cartorio
+        public string id_Carftorio { get; set; }
+        public string Descricao_Carftorio { get; set; }
+        public string end_Cartorio { get; set; }
+        public string StatusCartorio { get; set; }
 
+        
+
+        #endregion
 
 
 

@@ -18,7 +18,7 @@ namespace LMFinanciamentos.Apresentacao
     {
 
         bool Next;
-        string valor, svalorimovel, svalorfinanciado;
+        string valor, svalorimovel, svalorfinanciado, idCartorio;
         ToFullText tft;
 
 
@@ -57,13 +57,6 @@ namespace LMFinanciamentos.Apresentacao
             lblfuncresponsavel.Text = process.Nome_responsavel;
             lbldata.Text = asString;
 
-            //txt_valor.Text = string.Format("{0:C}", Convert.ToDouble(process.Valor_imovel));
-            //txt_valor.Text = string.Format("{0:C}", Convert.ToDouble(valor));
-            //txt_valor.Select(txt_valor.Text.Length, 0);
-            //double preco = double.Parse(process.Valor_imovel, System.Globalization.CultureInfo.InvariantCulture); 
-
-
-            //txt_valor1.Text = preco.ToString("C");
             svalorimovel = process.Valor_imovel;
             valorimovel.Text = process.Valor_imovel;
             valorimovel.Select(valorimovel.Text.Length, 0);
@@ -81,6 +74,7 @@ namespace LMFinanciamentos.Apresentacao
             txttelefone.Text = process.Telefone_cliente;
             txtcelular.Text = process.Celular_cliente;
             txtrenda.Text = process.Renda_cliente;
+            txtrenda.Select(txtrenda.Text.Length, 0);
             txtagenciacliente.Text = process.Agencia_cliente;
             txtcontacliente.Text = process.Conta_cliente;
             txtStatusCPF.Text = process.StatusCPF_cliente;
@@ -88,6 +82,40 @@ namespace LMFinanciamentos.Apresentacao
             txtcadmut.Text = process.StatusCadmut_cliente;
             txtir.Text = process.StatusIR_cliente;
             txtfgts.Text = process.StatusFGTS_cliente;
+
+            #region Valor Renda Cliente
+            valor = txtrenda.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+            if (valor.Length == 0)
+            {
+                txtrenda.Text = "0,00" + valor;
+            }
+            if (valor.Length == 1)
+            {
+                txtrenda.Text = "0,0" + valor;
+            }
+            if (valor.Length == 2)
+            {
+                txtrenda.Text = "0," + valor;
+            }
+            else if (valor.Length >= 3)
+            {
+                if (txtrenda.Text.StartsWith("0,"))
+                {
+                    txtrenda.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
+                }
+                else if (txtrenda.Text.Contains("00,"))
+                {
+                    txtrenda.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
+                }
+                else
+                {
+                    txtrenda.Text = valor.Insert(valor.Length - 2, ",");
+                }
+            }
+            valor = txtrenda.Text;
+            txtrenda.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            txtrenda.Select(txtrenda.Text.Length, 0);
+            #endregion
 
             if (process.H_DataStatusCPF != "")
             {
@@ -159,6 +187,19 @@ namespace LMFinanciamentos.Apresentacao
             comboBox_programa.DataSource = gettpross.GetDataPrograma();
             comboBox_programa.DisplayMember = "Descricao";
             comboBox_programa.ValueMember = "Id";
+
+            comboBox_corretora.DataSource = gettpross.GetDataCorretora();
+            comboBox_corretora.DisplayMember = "Descricao";
+            comboBox_corretora.ValueMember = "Id";
+
+            comboBox_corretor.DataSource = gettpross.GetDataCorretores();
+            comboBox_corretor.DisplayMember = "Nome";
+            comboBox_corretor.ValueMember = "Id";
+
+            comboBox_empreendimentos.DataSource = gettpross.GetDataEmpreendimentos();
+            comboBox_empreendimentos.DisplayMember = "Descricao";
+            comboBox_empreendimentos.ValueMember = "Id";
+
             #endregion
 
             #region imovel
@@ -173,7 +214,7 @@ namespace LMFinanciamentos.Apresentacao
             comboBox_programa.Text = process.Programa_imovel;
             valorimovel.Text = process.Valor_imovel;
             valorfinanciado.Text = process.ValorFinanciado_imovel;
-            txtcorretora.Text = process.Descricao_corretora;
+            comboBox_corretora.Text = process.Descricao_corretora;
             comboBox_corretor.Text = process.Nome_corretor;
             comboBox_empreendimentos.Text = process.EmpDescricao_imovel;
 
@@ -233,6 +274,29 @@ namespace LMFinanciamentos.Apresentacao
                     lbldatapa.Visible = true;
                 }
             }
+            #endregion
+
+            #region Cartorio
+
+            comboBox_nomecartorio.DataSource = gettpross.GetDataCartorio();
+            comboBox_nomecartorio.DisplayMember = "Descricao";
+            comboBox_nomecartorio.ValueMember = "Id";
+            comboBox_nomecartorio.SelectedIndex = -1;
+
+            idCartorio = process.id_Carftorio;
+
+            comboBox_statuscartorio.Text = process.StatusCartorio;
+            if (process.H_DataStatusCartorio != "" && process.H_DataStatusCartorio != "01/01/0001 00:00:00")
+            {
+                lbldatacartorio.Text = process.H_DataStatusCartorio;
+                lbldatacartorio.Visible = true;
+                lblnomecartorio.Text = process.Descricao_Carftorio;
+
+            }
+            
+            
+
+
             #endregion
 
             #region Checkstatus
@@ -632,11 +696,25 @@ namespace LMFinanciamentos.Apresentacao
             {
                 datapa = "01/01/0001 00:00:00";
             }
+
+            if (lbldatacartorio.Text != "__/ ___/ ____")
+            {
+                datacartorio = lbldatacartorio.Text;
+            }
+            else
+            {
+                datacartorio = "01/01/0001 00:00:00";
+            }
+
+            if (lblstatus.Text != "__/ ___/ ____")
+            {
+                datastatus = lblstatus.Text;
+            }
+            else
+            {
+                datastatus = "01/01/0001 00:00:00";
+            }
             #endregion
-
-            datastatus = "01/01/0001 00:00:00";
-
-            datacartorio = "01/01/0001 00:00:00";
 
 
             DateTime datecpf = DateTime.Parse(datacpf);
@@ -652,7 +730,7 @@ namespace LMFinanciamentos.Apresentacao
             DateTime datesaquefgts = DateTime.Parse(datasaquefgts);
             DateTime datepa = DateTime.Parse(datapa);
             DateTime datecartorio = DateTime.Parse(datacartorio);
-            DateTime datestatus = DateTime.Parse(datastatus);
+            //DateTime datestatus = DateTime.Parse(datastatus);
 
             lblstatus.Text = statusprocesso;
 
@@ -672,8 +750,14 @@ namespace LMFinanciamentos.Apresentacao
             //}
             string comboprograma = comboBox_programa.SelectedValue.ToString();
 
+            string combocorretora = comboBox_corretora.SelectedValue.ToString();
+            string combocorretores = comboBox_corretor.SelectedValue.ToString();
+            string combocoempreendimentos = comboBox_empreendimentos.SelectedValue.ToString();
 
-            updateprocesso.UpdateProcesso(idProcess, comboagencia, comboprograma, txtStatusCPF.Text, txtciweb.Text, txtcadmut.Text, txtir.Text, txtfgts.Text, datecpf, dateciweb, datecadmut, dateir, datefgts, dateanalise, dateeng, datesiopi, datesictd, datesaquefgts, datepa, Valorimov, Valorfinan, datecartorio, datestatus, statusprocesso);
+            //MessageBox.Show(idCartorio);
+
+
+                      updateprocesso.UpdateProcesso(idProcess, comboagencia, comboprograma, combocorretora, combocorretores, combocoempreendimentos, txtStatusCPF.Text, txtciweb.Text, txtcadmut.Text, txtir.Text, txtfgts.Text, datecpf, dateciweb, datecadmut, dateir, datefgts, dateanalise, dateeng, datesiopi, datesictd, datesaquefgts, datepa, Valorimov, Valorfinan, idCartorio, comboBox_statuscartorio.Text, datecartorio,  statusprocesso);
             MessageBox.Show(updateprocesso.mensagem);
 
 
@@ -710,6 +794,7 @@ namespace LMFinanciamentos.Apresentacao
             Functions.Arredonda(pnlsiopi, 15, true, true);
             Functions.Arredonda(pnlsictd, 15, true, true);
             Functions.Arredonda(pnlpa, 15, true, true);
+            Functions.Arredonda(btnenviar, 10, true, true);
         }
 
         private void comboBox_analise_SelectionChangeCommitted(object sender, EventArgs e)
@@ -1001,6 +1086,42 @@ namespace LMFinanciamentos.Apresentacao
                 //comboBox_programa.ValueMember = "Id";
                 #endregion
             }
+            if (tabControl.SelectedTab == tabControl.TabPages["tabcliente"])//your specific tabname
+            {
+                #region Valor Renda Cliente
+                valor = txtrenda.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+                if (valor.Length == 0)
+                {
+                    txtrenda.Text = "0,00" + valor;
+                }
+                if (valor.Length == 1)
+                {
+                    txtrenda.Text = "0,0" + valor;
+                }
+                if (valor.Length == 2)
+                {
+                    txtrenda.Text = "0," + valor;
+                }
+                else if (valor.Length >= 3)
+                {
+                    if (txtrenda.Text.StartsWith("0,"))
+                    {
+                        txtrenda.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
+                    }
+                    else if (txtrenda.Text.Contains("00,"))
+                    {
+                        txtrenda.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
+                    }
+                    else
+                    {
+                        txtrenda.Text = valor.Insert(valor.Length - 2, ",");
+                    }
+                }
+                valor = txtrenda.Text;
+                txtrenda.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+                txtrenda.Select(txtrenda.Text.Length, 0);
+                #endregion
+            }
         }
 
         private void comboBox_empreendimentos_KeyPress(object sender, KeyPressEventArgs e)
@@ -1087,6 +1208,171 @@ namespace LMFinanciamentos.Apresentacao
         {
             valor = valorfinanciado.Text.Replace("R$", "");
             valorfinanciado.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+        }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel12_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtrenda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(Keys.Back))
+            {
+                if (e.KeyChar == ',')
+                {
+                    e.Handled = (valorimovel.Text.Contains(","));
+                }
+                else
+                    e.Handled = true;
+            }
+        }
+
+        private void txtrenda_KeyUp(object sender, KeyEventArgs e)
+        {
+            valor = txtrenda.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+            if (valor.Length == 0)
+            {
+                txtrenda.Text = "0,00" + valor;
+            }
+            if (valor.Length == 1)
+            {
+                txtrenda.Text = "0,0" + valor;
+            }
+            if (valor.Length == 2)
+            {
+                txtrenda.Text = "0," + valor;
+            }
+            else if (valor.Length >= 3)
+            {
+                if (txtrenda.Text.StartsWith("0,"))
+                {
+                    txtrenda.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
+                }
+                else if (txtrenda.Text.Contains("00,"))
+                {
+                    txtrenda.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
+                }
+                else
+                {
+                    txtrenda.Text = valor.Insert(valor.Length - 2, ",");
+                }
+            }
+            valor = txtrenda.Text;
+            txtrenda.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            txtrenda.Select(txtrenda.Text.Length, 0);
+        }
+
+        private void txtrenda_Leave(object sender, EventArgs e)
+        {
+            valor = txtrenda.Text.Replace("R$", "");
+            txtrenda.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+        }
+
+        private void btnenviar_Click(object sender, EventArgs e)
+        {
+            if(comboBox_nomecartorio.Text == "")
+            {
+                MessageBox.Show("Favor Selecione o cartorio");
+                comboBox_nomecartorio.DroppedDown = true;
+            }
+            else
+            {
+                if(lblnomecartorio.Text != comboBox_nomecartorio.Text && lblnomecartorio.Text != "Selecione o Cartório" && lblnomecartorio.Text != "")
+                {
+                    if (MessageBox.Show("Já entregue ao Cartório: "+ "\n" +  lblnomecartorio.Text + "\n" + " Deseja alterar o cartório?", "Systema Informa", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                    {
+                        
+                        idCartorio = comboBox_nomecartorio.SelectedValue.ToString();
+
+                        //MessageBox.Show(comboBox_nomecartorio.SelectedValue.ToString());
+                        lblnomecartorio.Text = comboBox_nomecartorio.Text;
+                        int index = comboBox_statuscartorio.FindString("Entregue");
+                        comboBox_statuscartorio.SelectedIndex = index;
+
+                        String Data = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                        lbldatacartorio.Text = Data;
+                        lbldatacartorio.Visible = true;
+
+                        comboBox_nomecartorio.SelectedIndex = -1;
+                    }
+                    else
+                    {
+                        comboBox_nomecartorio.SelectedIndex = -1;
+                    }
+
+                }
+                else
+                {
+                    idCartorio = comboBox_nomecartorio.SelectedValue.ToString();
+                    lblnomecartorio.Text = comboBox_nomecartorio.Text;
+                    int index = comboBox_statuscartorio.FindString("Entregue");
+                    comboBox_statuscartorio.SelectedIndex = index;
+
+                    String Data = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                    lbldatacartorio.Text = Data;
+                    lbldatacartorio.Visible = true;
+
+                    comboBox_nomecartorio.SelectedIndex = -1;
+                }
+            }
+            
+
+            
+
+
+
+
+        }
+
+        private void comboBox_statuscartorio_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if(lblnomecartorio.Text == "Selecione o Cartório")
+            {
+                comboBox_statuscartorio.SelectedIndex = -1;
+                MessageBox.Show("Favor Selecione o cartorio");
+                comboBox_nomecartorio.DroppedDown = true;
+            }else if(lblnomecartorio.Text == "")
+            {
+                comboBox_statuscartorio.SelectedIndex = -1;
+                MessageBox.Show("Favor Selecione o cartorio");
+                comboBox_nomecartorio.DroppedDown = true;
+            }
+            else
+            {
+                lbldatacartorio.Text = "";
+
+                switch (comboBox_statuscartorio.SelectedItem.ToString())
+                {
+                    case "Entregue":
+                        String Data = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                        lbldatacartorio.Text = Data;
+                        lbldatacartorio.Visible = true;
+                        break;
+                    case "A retirar":
+                        String Data1 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                        lbldatacartorio.Text = Data1;
+                        lbldatacartorio.Visible = true;
+                        break;
+                    case "Aguardando":
+                        String Data2 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                        lbldatacartorio.Text = Data2;
+                        lbldatacartorio.Visible = true;
+                        break;
+                    case "Retirado":
+                        String Data3 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                        lbldatacartorio.Text = Data3;
+                        lbldatacartorio.Visible = true;
+                        break;
+                }
+            }
+            
+           
         }
 
         private void tabControl_Selected(object sender, TabControlEventArgs e)

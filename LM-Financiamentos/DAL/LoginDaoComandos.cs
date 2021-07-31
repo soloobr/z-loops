@@ -25,23 +25,14 @@ namespace LMFinanciamentos.DAL
             set { slogin = value; }
 
         }
-        /*public string NomeFunc
-        {
-            get { return NomeFunc; }
-            set { NomeFunc = value; }
-
-        }*/
-
-        //public int idFunc;
         MySqlCommand cmd = new MySqlCommand();
         MySqlCommand cmd1 = new MySqlCommand();
         MySqlCommand cmd2 = new MySqlCommand();
         Conecxao con = new Conecxao();
         Conecxao conn = new Conecxao();
         Conecxao con2 = new Conecxao();
-        //SqlDataReader dr;
-        MySqlDataReader dr, drfunc, drsenha, drclient, drclients, drprocess, drvebdedor, drprocessos;
 
+        MySqlDataReader dr, drfunc, drsenha, drclient, drclients, drprocess, drvebdedor, drprocessos;
 
         public bool verificarLogin(String login, String senha)
         {
@@ -61,7 +52,6 @@ namespace LMFinanciamentos.DAL
             }
             catch (SqlException)
             {
-                //throw;
                 tem = false;
             }
 
@@ -196,13 +186,11 @@ namespace LMFinanciamentos.DAL
         }
         public Processo GetProcesso(String idprocess)
         {
-            //var list = new List<Cliente>();
-
             cmd.CommandText = "SELECT P.id as idpross, P.idresponsavel as idresponsavel, P.Data as Data, P.Observacao as Observacao , ValorImovel, ValorFinanciado, P.StatusCPF as StatusCPF, P.StatusCiweb as StatusCiweb, P.StatusCadmut as StatusCadmut, P.StatusIR as StatusIR, P.StatusFGTS as StatusFGTS,  " +
                 "P.StatusAnalise as	StatusAnalise, P.StatusEng as StatusEng, P.SaqueFGTS as SaqueFGTS, P.SIOPI as SIOPI, P.SICTD as SICTD, P.StatusPA as StatusPA, P.StatusCartorio as StatusCartorio, " + 
                 "Clientes.id as idCliente, Clientes.Nome as clinome, Clientes.Email as EmailCli,  Clientes.Telefone as Telefonecli , Clientes.Celular as celularcli, Clientes.CPF as cpfcli, Clientes.RG as rgcli, Conta.Agencia as agenciacli, Conta.Conta as contacli, Clientes.Nascimento as Nascimento, Clientes.Renda as rendacli, " +
                 "V.id as idVendedor, V.Nome as vendnome, V.Email as Emailvendedor, V.Telefone as Telefonevendedor, V.Celular as celularvendedor, V.CPF as cpfvendedor, V.CNPJ as cnpjvendedor, V.Agencia as agenciavendedor, V.Conta as contavendedor,   " +
-                "Corretora.Descricao as Corretora, Corretores.Nome as Corretor, P.idCorretora, P.idCorretor, Agencia.id as idAgenciaImovel, Agencia.Agencia as AgenciaImovel, Programa.id as idPrograma, Programa.Descricao as DescriPrograma, Agencia.Agencia as AgenciaImovel, Programa.Descricao as Programa, Empreendimentos.Descricao as EmpDescricao,     " +
+                "Corretora.Descricao as Corretora, Corretores.Nome as Corretor, P.idCorretora, P.idCorretor, Agencia.id as idAgenciaImovel, Agencia.Agencia as AgenciaImovel, Programa.id as idPrograma, Programa.Descricao as DescriPrograma, Agencia.Agencia as AgenciaImovel, Programa.Descricao as Programa, Empreendimentos.Descricao as EmpDescricao, P.idCartorio as idCartorio, Cartorio.Descricao as sCartorio, Cartorio.Endereco as endCartorio, P.StatusCartorio as StatusCartorio,  " +
                 "F.Nome as nomeresponsavel, F.Permission as permissionresponsavel,  " +
                 "P.DataStatusCPF, P.DataStatusCiweb, P.DataStatusCadmut, P.DataStatusIR, P.DataStatusFGTS, P.DataStatusAnalise, P.DataStatusEng, P.DataSaqueFGTS, P.DataSIOP, P.DataSICTD, P.DataPA, P.DataStatusCartorio, P.DataStatus   " +
 
@@ -216,6 +204,7 @@ namespace LMFinanciamentos.DAL
                 "Left join Empreendimentos on P.idEmpreendimento = Empreendimentos.id "+
                 "Left join Corretora on P.idCorretora = Corretora.id " +
                 "Left join Corretores on P.idCorretor = Corretores.id " +
+                "Left join Cartorio on P.idCartorio = Cartorio.id " +
                 "WHERE P.id = @idprocesso";
             cmd.Parameters.AddWithValue("@idprocesso", idprocess);
             cmd.Parameters.AddWithValue("@tipo", "C");
@@ -310,7 +299,15 @@ namespace LMFinanciamentos.DAL
 
 
                     process.EmpDescricao_imovel = drprocess["EmpDescricao"].ToString();
-                    
+
+
+                    #endregion
+
+                    #region Cartorio  
+                    process.id_Carftorio = drprocess["idCartorio"].ToString();
+                    process.Descricao_Carftorio = drprocess["sCartorio"].ToString();
+                    process.end_Cartorio = drprocess["endCartorio"].ToString();
+                    process.StatusCartorio = drprocess["StatusCartorio"].ToString();
 
                     #endregion
 
@@ -436,7 +433,6 @@ namespace LMFinanciamentos.DAL
             {
                 throw new Exception("Erro ao obter processosos: " + err.Message);
             }
-
             return listprocessos;
         }
 
@@ -589,28 +585,31 @@ namespace LMFinanciamentos.DAL
 
             return mensagem;
         }
-        public String UpdateProcesso(String id, String sidAgenciaImovel, String sidPrograma, String scpf, String sciweb, String scadmut, String sir, String sfgts, DateTime datastatuscpf, DateTime datastatusciweb, DateTime datastatuscadmut, DateTime datastatusir, DateTime datastatusfgts, DateTime datastatusanalise, DateTime datastatuseng, DateTime datasiopi, DateTime datasictd, DateTime datasaquefgts, DateTime datapa, String valorimovel, String valorfinanciado, DateTime datastatuscartorio, DateTime datastatus, String status)
+        public String UpdateProcesso(String id, String sidAgenciaImovel, String sidPrograma, String sidCorretora, String sidCorretores, String sidEmpreendimentos, String scpf, String sciweb, String scadmut, String sir, String sfgts, DateTime datastatuscpf, DateTime datastatusciweb, DateTime datastatuscadmut, DateTime datastatusir, DateTime datastatusfgts, DateTime datastatusanalise, DateTime datastatuseng, DateTime datasiopi, DateTime datasictd, DateTime datasaquefgts, DateTime datapa, String valorimovel, String valorfinanciado,String sidcartorio, String scartorio, DateTime datastatuscartorio, String status)
         {
-
             try
             {
                 cmd1.CommandText = "UPDATE Processos " +
-                    //"INNER JOIN  H_Status ON PID = H_Status.idprocesso " +
                 "SET Status = @Status, StatusCPF = @cpf, StatusCiweb = @Ciweb, StatusCadmut = @Cadmut, StatusIR = @IR, StatusFGTS = @FGTS , " +
                 "DataStatusCPF = @DataStatusCPF, DataStatusCiweb = @DataStatusCiweb, DataStatusCadmut = @DataStatusCadmut, DataStatusIR = @DataStatusIR, DataStatusFGTS = @DataStatusFGTS, " +
                 "DataStatusAnalise = @DataStatusAnalise, DataStatusEng = @DataStatusEng, DataSaqueFGTS = @DataStatussaquefgts, DataSIOP = @DataStatussiopi, DataSICTD = @DataStatussictd, DataPA = @DataStatuspa, " +
                 "idAgenciaImovel = @idAgenciaImovel, idPrograma = @idPrograma, ValorImovel = @valorimovel, ValorFinanciado = @valorfinanciado, " +
-                "DataStatusCartorio = @DataStatusCartorio, DataStatus = @DataStatus WHERE id = @Id ";
+                "idCorretora = @idCorretora, idCorretor = @idCorretor, idEmpreendimento = @idEmpreendimentos, " +
+                "idCartorio = @idCartorio, StatusCartorio = @Cartorio, DataStatusCartorio = @DataStatusCartorio " +
+                "WHERE id = @Id ";
+                
+                cmd1.Parameters.Clear();
                 cmd1.Parameters.AddWithValue("@Id", id);
                 cmd1.Parameters.AddWithValue("@cpf", scpf);
                 cmd1.Parameters.AddWithValue("@Ciweb", sciweb);
                 cmd1.Parameters.AddWithValue("@Cadmut", scadmut);
                 cmd1.Parameters.AddWithValue("@IR", sir);
                 cmd1.Parameters.AddWithValue("@FGTS", sfgts);
-
                 cmd1.Parameters.AddWithValue("@idAgenciaImovel", sidAgenciaImovel);
                 cmd1.Parameters.AddWithValue("@idPrograma", sidPrograma);
-
+                cmd1.Parameters.AddWithValue("@idCorretora", sidCorretora);
+                cmd1.Parameters.AddWithValue("@idCorretor", sidCorretores);
+                cmd1.Parameters.AddWithValue("@idEmpreendimentos", sidEmpreendimentos);
                 cmd1.Parameters.AddWithValue("@DataStatusCPF", datastatuscpf);
                 cmd1.Parameters.AddWithValue("@DataStatusCiweb", datastatusciweb);
                 cmd1.Parameters.AddWithValue("@DataStatusCadmut", datastatuscadmut);
@@ -622,38 +621,38 @@ namespace LMFinanciamentos.DAL
                 cmd1.Parameters.AddWithValue("@DataStatussictd", datasictd);
                 cmd1.Parameters.AddWithValue("@DataStatussaquefgts", datasaquefgts);
                 cmd1.Parameters.AddWithValue("@DataStatuspa", datapa);
-
                 cmd1.Parameters.AddWithValue("@valorimovel", valorimovel);
                 cmd1.Parameters.AddWithValue("@valorfinanciado", valorfinanciado);
-
-
+                cmd1.Parameters.AddWithValue("@idCartorio", sidcartorio);
+                cmd1.Parameters.AddWithValue("@Cartorio", scartorio);
                 cmd1.Parameters.AddWithValue("@DataStatusCartorio", datastatuscartorio);
-                cmd1.Parameters.AddWithValue("@DataStatus", datastatus);
+                //cmd1.Parameters.AddWithValue("@DataStatus", datastatus);
                 cmd1.Parameters.AddWithValue("@Status", status);
 
 
                 cmd1.Connection = conn.conectar();
-                //drupdatecli = cmd1.ExecuteReader();
+
                 int recordsAffected = cmd1.ExecuteNonQuery();
 
                 if(recordsAffected > 0) {
                     mensagem = "Processo Alterado Com Sucesso";
+                    conn.desconectar();
                 }
                 else
                 {
                     mensagem = "Erro ao Alterar Processo";
+                    conn.desconectar();
                 }
-
-
             }
             catch (MySqlException error)
             {
                 mensagem = ("Erro ao conectar: " + error.Message);
+                conn.desconectar();
             }
             catch (Exception err)
             {
-                //throw new Exception("Erro ao Alterar senha: " + err.Message);
                 mensagem = ("Erro ao Alterar Processo: " + err.Message);
+                conn.desconectar();
             }
 
             return mensagem;
@@ -747,7 +746,58 @@ namespace LMFinanciamentos.DAL
 
             return dt;
         }
+        public DataTable GetDataCorretora()
+        {
+            cmd.CommandText = "SELECT id, Descricao FROM Corretora ";
 
+            cmd.Connection = con.conectar();
+            //drprocessos = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            con.desconectar();
+
+            return dt;
+        }
+
+        public DataTable GetDataCorretores()
+        {
+            cmd.CommandText = "SELECT id, Nome FROM Corretores ";
+
+            cmd.Connection = con.conectar();
+            //drprocessos = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            con.desconectar();
+
+            return dt;
+        }
+        public DataTable GetDataEmpreendimentos()
+        {
+            cmd.CommandText = "SELECT id, Descricao FROM Empreendimentos ";
+
+            cmd.Connection = con.conectar();
+            //drprocessos = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            con.desconectar();
+
+            return dt;
+        }
+
+        public DataTable GetDataCartorio()
+        {
+            cmd.CommandText = "SELECT id, Descricao FROM Cartorio ";
+
+            cmd.Connection = con.conectar();
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            con.desconectar();
+
+            return dt;
+        }
         public List<Combobox_Agencia> ComboboxAgencia()
         //public List<string[]> GetListaString()
         {
