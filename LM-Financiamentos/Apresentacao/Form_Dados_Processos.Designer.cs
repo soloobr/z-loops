@@ -30,7 +30,15 @@ namespace LMFinanciamentos.Apresentacao
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Dados_Processos));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnsalvardoc = new System.Windows.Forms.Button();
             this.dS_Documentos = new LMFinanciamentos.DAL.DS_Documentos();
             this.dSDocumentosBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -45,7 +53,6 @@ namespace LMFinanciamentos.Apresentacao
             this.lblnumeroprocesso = new System.Windows.Forms.Label();
             this.ProgressBar = new Guna.UI2.WinForms.Guna2CircleProgressBar();
             this.lblstatus = new System.Windows.Forms.Label();
-            this.img_topo = new System.Windows.Forms.PictureBox();
             this.btncloseconf = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btncancelardoc = new System.Windows.Forms.Button();
@@ -107,6 +114,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcpf = new System.Windows.Forms.TextBox();
             this.lblcliente = new System.Windows.Forms.Label();
             this.lblemail = new System.Windows.Forms.Label();
+            this.txtrenda = new System.Windows.Forms.TextBox();
             this.tabvendedor = new System.Windows.Forms.TabPage();
             this.panel20 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
@@ -128,6 +136,15 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.comboBox_corretora = new System.Windows.Forms.ComboBox();
+            this.lblcorretora = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.comboBox_corretor = new System.Windows.Forms.ComboBox();
+            this.lblcorretor = new System.Windows.Forms.Label();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.comboBox_empreendimentos = new System.Windows.Forms.ComboBox();
+            this.lblempresendimentos = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
@@ -186,7 +203,16 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBoxsituacao = new System.Windows.Forms.GroupBox();
             this.pnlsituacao = new System.Windows.Forms.Panel();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.lbldatacartorio = new System.Windows.Forms.Label();
+            this.lblalterado = new System.Windows.Forms.Label();
+            this.comboBox_statuscartorio = new System.Windows.Forms.ComboBox();
+            this.lblstatuscart = new System.Windows.Forms.Label();
             this.panel16 = new System.Windows.Forms.Panel();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.lblenderecocartorio = new System.Windows.Forms.Label();
+            this.lblnomecartorio = new System.Windows.Forms.Label();
             this.lbldescricart = new System.Windows.Forms.Label();
             this.groupBoxcartorio = new System.Windows.Forms.GroupBox();
             this.pnlenviar = new System.Windows.Forms.Panel();
@@ -196,20 +222,16 @@ namespace LMFinanciamentos.Apresentacao
             this.label14 = new System.Windows.Forms.Label();
             this.tabdoc = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apagar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.panel17 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.panel18 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnAnexar = new System.Windows.Forms.Button();
+            this.comboBox_tipoArquivo = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtArquivo = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.dataGridView_Arquivos = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -226,25 +248,16 @@ namespace LMFinanciamentos.Apresentacao
             this.lbldatalbl = new System.Windows.Forms.Label();
             this.lblfunc = new System.Windows.Forms.Label();
             this.lblfuncresponsavel = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lblcorretora = new System.Windows.Forms.Label();
-            this.comboBox_corretora = new System.Windows.Forms.ComboBox();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.lblcorretor = new System.Windows.Forms.Label();
-            this.comboBox_corretor = new System.Windows.Forms.ComboBox();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.lblempresendimentos = new System.Windows.Forms.Label();
-            this.comboBox_empreendimentos = new System.Windows.Forms.ComboBox();
-            this.txtrenda = new System.Windows.Forms.TextBox();
-            this.panel21 = new System.Windows.Forms.Panel();
-            this.panel22 = new System.Windows.Forms.Panel();
-            this.lbldatacartorio = new System.Windows.Forms.Label();
-            this.lblalterado = new System.Windows.Forms.Label();
-            this.comboBox_statuscartorio = new System.Windows.Forms.ComboBox();
-            this.lblstatuscart = new System.Windows.Forms.Label();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.lblnomecartorio = new System.Windows.Forms.Label();
-            this.lblenderecocartorio = new System.Windows.Forms.Label();
+            this.ofd1 = new System.Windows.Forms.OpenFileDialog();
+            this.btnSelecionarArquivos = new System.Windows.Forms.Button();
+            this.img_topo = new System.Windows.Forms.PictureBox();
+            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apagar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Baixar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Documentos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSDocumentosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.processosBindingSource)).BeginInit();
@@ -253,7 +266,6 @@ namespace LMFinanciamentos.Apresentacao
             ((System.ComponentModel.ISupportInitialize)(this.dS_Funcionario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).BeginInit();
             this.paneltop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.img_topo)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabcliente.SuspendLayout();
@@ -278,6 +290,9 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel12.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
@@ -304,28 +319,25 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel6.SuspendLayout();
             this.groupBoxsituacao.SuspendLayout();
             this.pnlsituacao.SuspendLayout();
+            this.panel21.SuspendLayout();
+            this.panel22.SuspendLayout();
             this.panel16.SuspendLayout();
+            this.panel19.SuspendLayout();
             this.groupBoxcartorio.SuspendLayout();
             this.pnlenviar.SuspendLayout();
             this.pnlnome.SuspendLayout();
             this.tabdoc.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
-            this.groupBox7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox8.SuspendLayout();
-            this.panel17.SuspendLayout();
-            this.panel18.SuspendLayout();
+            this.tableLayoutPanel10.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Arquivos)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource2)).BeginInit();
             this.panelfuncresp.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel11.SuspendLayout();
-            this.panel12.SuspendLayout();
-            this.panel21.SuspendLayout();
-            this.panel22.SuspendLayout();
-            this.panel19.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.img_topo)).BeginInit();
             this.SuspendLayout();
             // 
             // btnsalvardoc
@@ -454,17 +466,6 @@ namespace LMFinanciamentos.Apresentacao
             this.lblstatus.TabIndex = 7;
             this.lblstatus.Text = "Status";
             this.lblstatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // img_topo
-            // 
-            this.img_topo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.img_topo.Image = ((System.Drawing.Image)(resources.GetObject("img_topo.Image")));
-            this.img_topo.Location = new System.Drawing.Point(4, 4);
-            this.img_topo.Name = "img_topo";
-            this.img_topo.Size = new System.Drawing.Size(52, 49);
-            this.img_topo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.img_topo.TabIndex = 5;
-            this.img_topo.TabStop = false;
             // 
             // btncloseconf
             // 
@@ -1227,6 +1228,18 @@ namespace LMFinanciamentos.Apresentacao
             this.lblemail.TabIndex = 11;
             this.lblemail.Text = "Email:";
             // 
+            // txtrenda
+            // 
+            this.txtrenda.Enabled = false;
+            this.txtrenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtrenda.Location = new System.Drawing.Point(3, 137);
+            this.txtrenda.Name = "txtrenda";
+            this.txtrenda.Size = new System.Drawing.Size(216, 24);
+            this.txtrenda.TabIndex = 32;
+            this.txtrenda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtrenda_KeyPress);
+            this.txtrenda.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrenda_KeyUp);
+            this.txtrenda.Leave += new System.EventHandler(this.txtrenda_Leave);
+            // 
             // tabvendedor
             // 
             this.tabvendedor.Controls.Add(this.panel20);
@@ -1478,6 +1491,118 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1046, 87);
             this.tableLayoutPanel2.TabIndex = 21;
             this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
+            // 
+            // panel2
+            // 
+            this.panel2.AutoSize = true;
+            this.panel2.Controls.Add(this.comboBox_corretora);
+            this.panel2.Controls.Add(this.lblcorretora);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(3);
+            this.panel2.Size = new System.Drawing.Size(342, 81);
+            this.panel2.TabIndex = 28;
+            // 
+            // comboBox_corretora
+            // 
+            this.comboBox_corretora.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comboBox_corretora.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_corretora.BackColor = System.Drawing.SystemColors.Control;
+            this.comboBox_corretora.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBox_corretora.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_corretora.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox_corretora.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox_corretora.FormattingEnabled = true;
+            this.comboBox_corretora.Location = new System.Drawing.Point(3, 26);
+            this.comboBox_corretora.Name = "comboBox_corretora";
+            this.comboBox_corretora.Size = new System.Drawing.Size(336, 28);
+            this.comboBox_corretora.TabIndex = 22;
+            // 
+            // lblcorretora
+            // 
+            this.lblcorretora.AutoSize = true;
+            this.lblcorretora.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblcorretora.Location = new System.Drawing.Point(3, 3);
+            this.lblcorretora.Name = "lblcorretora";
+            this.lblcorretora.Size = new System.Drawing.Size(80, 23);
+            this.lblcorretora.TabIndex = 4;
+            this.lblcorretora.Text = "Corretora:";
+            // 
+            // panel11
+            // 
+            this.panel11.AutoSize = true;
+            this.panel11.Controls.Add(this.comboBox_corretor);
+            this.panel11.Controls.Add(this.lblcorretor);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel11.Location = new System.Drawing.Point(351, 3);
+            this.panel11.Name = "panel11";
+            this.panel11.Padding = new System.Windows.Forms.Padding(3);
+            this.panel11.Size = new System.Drawing.Size(342, 81);
+            this.panel11.TabIndex = 29;
+            // 
+            // comboBox_corretor
+            // 
+            this.comboBox_corretor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comboBox_corretor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_corretor.BackColor = System.Drawing.SystemColors.Control;
+            this.comboBox_corretor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBox_corretor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_corretor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox_corretor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox_corretor.FormattingEnabled = true;
+            this.comboBox_corretor.Location = new System.Drawing.Point(3, 26);
+            this.comboBox_corretor.Name = "comboBox_corretor";
+            this.comboBox_corretor.Size = new System.Drawing.Size(336, 28);
+            this.comboBox_corretor.TabIndex = 24;
+            // 
+            // lblcorretor
+            // 
+            this.lblcorretor.AutoSize = true;
+            this.lblcorretor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblcorretor.Location = new System.Drawing.Point(3, 3);
+            this.lblcorretor.Name = "lblcorretor";
+            this.lblcorretor.Size = new System.Drawing.Size(71, 23);
+            this.lblcorretor.TabIndex = 23;
+            this.lblcorretor.Text = "Corretor:";
+            // 
+            // panel12
+            // 
+            this.panel12.AutoSize = true;
+            this.panel12.Controls.Add(this.comboBox_empreendimentos);
+            this.panel12.Controls.Add(this.lblempresendimentos);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel12.Location = new System.Drawing.Point(699, 3);
+            this.panel12.Name = "panel12";
+            this.panel12.Padding = new System.Windows.Forms.Padding(3);
+            this.panel12.Size = new System.Drawing.Size(344, 81);
+            this.panel12.TabIndex = 30;
+            this.panel12.Paint += new System.Windows.Forms.PaintEventHandler(this.panel12_Paint_1);
+            // 
+            // comboBox_empreendimentos
+            // 
+            this.comboBox_empreendimentos.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comboBox_empreendimentos.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_empreendimentos.BackColor = System.Drawing.SystemColors.Control;
+            this.comboBox_empreendimentos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBox_empreendimentos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_empreendimentos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox_empreendimentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox_empreendimentos.FormattingEnabled = true;
+            this.comboBox_empreendimentos.Location = new System.Drawing.Point(3, 26);
+            this.comboBox_empreendimentos.Name = "comboBox_empreendimentos";
+            this.comboBox_empreendimentos.Size = new System.Drawing.Size(338, 28);
+            this.comboBox_empreendimentos.TabIndex = 28;
+            // 
+            // lblempresendimentos
+            // 
+            this.lblempresendimentos.AutoSize = true;
+            this.lblempresendimentos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblempresendimentos.Location = new System.Drawing.Point(3, 3);
+            this.lblempresendimentos.Name = "lblempresendimentos";
+            this.lblempresendimentos.Size = new System.Drawing.Size(132, 23);
+            this.lblempresendimentos.TabIndex = 27;
+            this.lblempresendimentos.Text = "Empreendimento:";
             // 
             // tableLayoutPanel4
             // 
@@ -2262,6 +2387,85 @@ namespace LMFinanciamentos.Apresentacao
             this.pnlsituacao.Size = new System.Drawing.Size(534, 113);
             this.pnlsituacao.TabIndex = 7;
             // 
+            // panel21
+            // 
+            this.panel21.Controls.Add(this.panel22);
+            this.panel21.Controls.Add(this.comboBox_statuscartorio);
+            this.panel21.Controls.Add(this.lblstatuscart);
+            this.panel21.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel21.Location = new System.Drawing.Point(3, 3);
+            this.panel21.Name = "panel21";
+            this.panel21.Padding = new System.Windows.Forms.Padding(3);
+            this.panel21.Size = new System.Drawing.Size(334, 107);
+            this.panel21.TabIndex = 7;
+            // 
+            // panel22
+            // 
+            this.panel22.Controls.Add(this.lbldatacartorio);
+            this.panel22.Controls.Add(this.lblalterado);
+            this.panel22.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel22.Location = new System.Drawing.Point(3, 50);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(160, 54);
+            this.panel22.TabIndex = 23;
+            // 
+            // lbldatacartorio
+            // 
+            this.lbldatacartorio.AutoSize = true;
+            this.lbldatacartorio.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbldatacartorio.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbldatacartorio.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbldatacartorio.Location = new System.Drawing.Point(0, 27);
+            this.lbldatacartorio.Name = "lbldatacartorio";
+            this.lbldatacartorio.Padding = new System.Windows.Forms.Padding(2);
+            this.lbldatacartorio.Size = new System.Drawing.Size(122, 27);
+            this.lbldatacartorio.TabIndex = 1;
+            this.lbldatacartorio.Text = "__/ ___/ ____";
+            this.lbldatacartorio.Visible = false;
+            // 
+            // lblalterado
+            // 
+            this.lblalterado.AutoSize = true;
+            this.lblalterado.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblalterado.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblalterado.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblalterado.Location = new System.Drawing.Point(0, 0);
+            this.lblalterado.Name = "lblalterado";
+            this.lblalterado.Padding = new System.Windows.Forms.Padding(2);
+            this.lblalterado.Size = new System.Drawing.Size(73, 27);
+            this.lblalterado.TabIndex = 0;
+            this.lblalterado.Text = "Alterado:";
+            // 
+            // comboBox_statuscartorio
+            // 
+            this.comboBox_statuscartorio.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comboBox_statuscartorio.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_statuscartorio.Dock = System.Windows.Forms.DockStyle.Top;
+            this.comboBox_statuscartorio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_statuscartorio.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.comboBox_statuscartorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox_statuscartorio.FormattingEnabled = true;
+            this.comboBox_statuscartorio.Items.AddRange(new object[] {
+            "Entregue",
+            "A retirar",
+            "Aguardando",
+            "Retirado"});
+            this.comboBox_statuscartorio.Location = new System.Drawing.Point(3, 26);
+            this.comboBox_statuscartorio.Name = "comboBox_statuscartorio";
+            this.comboBox_statuscartorio.Size = new System.Drawing.Size(328, 24);
+            this.comboBox_statuscartorio.TabIndex = 20;
+            this.comboBox_statuscartorio.SelectionChangeCommitted += new System.EventHandler(this.comboBox_statuscartorio_SelectionChangeCommitted);
+            // 
+            // lblstatuscart
+            // 
+            this.lblstatuscart.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblstatuscart.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblstatuscart.Location = new System.Drawing.Point(3, 3);
+            this.lblstatuscart.Name = "lblstatuscart";
+            this.lblstatuscart.Size = new System.Drawing.Size(328, 23);
+            this.lblstatuscart.TabIndex = 19;
+            this.lblstatuscart.Text = "Status:";
+            // 
             // panel16
             // 
             this.panel16.Controls.Add(this.panel19);
@@ -2272,6 +2476,40 @@ namespace LMFinanciamentos.Apresentacao
             this.panel16.Padding = new System.Windows.Forms.Padding(3);
             this.panel16.Size = new System.Drawing.Size(334, 113);
             this.panel16.TabIndex = 6;
+            // 
+            // panel19
+            // 
+            this.panel19.Controls.Add(this.lblenderecocartorio);
+            this.panel19.Controls.Add(this.lblnomecartorio);
+            this.panel19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel19.Location = new System.Drawing.Point(3, 26);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(328, 84);
+            this.panel19.TabIndex = 25;
+            // 
+            // lblenderecocartorio
+            // 
+            this.lblenderecocartorio.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblenderecocartorio.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblenderecocartorio.Location = new System.Drawing.Point(0, 27);
+            this.lblenderecocartorio.Name = "lblenderecocartorio";
+            this.lblenderecocartorio.Padding = new System.Windows.Forms.Padding(2);
+            this.lblenderecocartorio.Size = new System.Drawing.Size(328, 27);
+            this.lblenderecocartorio.TabIndex = 26;
+            this.lblenderecocartorio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblnomecartorio
+            // 
+            this.lblnomecartorio.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblnomecartorio.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblnomecartorio.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblnomecartorio.Location = new System.Drawing.Point(0, 0);
+            this.lblnomecartorio.Name = "lblnomecartorio";
+            this.lblnomecartorio.Padding = new System.Windows.Forms.Padding(2);
+            this.lblnomecartorio.Size = new System.Drawing.Size(328, 27);
+            this.lblnomecartorio.TabIndex = 25;
+            this.lblnomecartorio.Text = "Selecione o Cartório";
+            this.lblnomecartorio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbldescricart
             // 
@@ -2363,7 +2601,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tabdoc.Location = new System.Drawing.Point(4, 32);
             this.tabdoc.Name = "tabdoc";
             this.tabdoc.Padding = new System.Windows.Forms.Padding(20);
-            this.tabdoc.Size = new System.Drawing.Size(1104, 492);
+            this.tabdoc.Size = new System.Drawing.Size(1104, 510);
             this.tabdoc.TabIndex = 2;
             this.tabdoc.Text = "Documentação";
             this.tabdoc.UseVisualStyleBackColor = true;
@@ -2371,147 +2609,179 @@ namespace LMFinanciamentos.Apresentacao
             // tableLayoutPanel7
             // 
             this.tableLayoutPanel7.ColumnCount = 1;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.85185F));
-            this.tableLayoutPanel7.Controls.Add(this.groupBox7, 0, 1);
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel7.Controls.Add(this.groupBox8, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.groupBox7, 0, 4);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(20, 20);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 2;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 199F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(1064, 332);
+            this.tableLayoutPanel7.RowCount = 4;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(1064, 375);
             this.tableLayoutPanel7.TabIndex = 24;
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.dataGridView1);
-            this.groupBox7.Location = new System.Drawing.Point(3, 136);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Padding = new System.Windows.Forms.Padding(6);
-            this.groupBox7.Size = new System.Drawing.Size(938, 132);
-            this.groupBox7.TabIndex = 27;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Anexos:";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Numero,
-            this.descricao,
-            this.data,
-            this.status,
-            this.apagar});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 26);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(926, 100);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // Numero
-            // 
-            this.Numero.HeaderText = "Nº";
-            this.Numero.Name = "Numero";
-            // 
-            // descricao
-            // 
-            this.descricao.HeaderText = "Descrição";
-            this.descricao.Name = "descricao";
-            // 
-            // data
-            // 
-            this.data.HeaderText = "Data";
-            this.data.Name = "data";
-            // 
-            // status
-            // 
-            this.status.HeaderText = "Status";
-            this.status.Name = "status";
-            // 
-            // apagar
-            // 
-            this.apagar.HeaderText = "Excluir";
-            this.apagar.Name = "apagar";
-            this.apagar.Text = "Excluir";
             // 
             // groupBox8
             // 
-            this.groupBox8.Controls.Add(this.panel17);
-            this.groupBox8.Controls.Add(this.panel18);
+            this.groupBox8.Controls.Add(this.tableLayoutPanel10);
             this.groupBox8.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox8.Location = new System.Drawing.Point(3, 3);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(1058, 112);
+            this.groupBox8.Size = new System.Drawing.Size(1058, 165);
             this.groupBox8.TabIndex = 26;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Anexar";
             // 
-            // panel17
+            // tableLayoutPanel10
             // 
-            this.panel17.Controls.Add(this.button1);
-            this.panel17.Controls.Add(this.button3);
-            this.panel17.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel17.Location = new System.Drawing.Point(317, 23);
-            this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(468, 86);
-            this.panel17.TabIndex = 1;
+            this.tableLayoutPanel10.ColumnCount = 4;
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel10.Controls.Add(this.btnAnexar, 1, 3);
+            this.tableLayoutPanel10.Controls.Add(this.comboBox_tipoArquivo, 0, 3);
+            this.tableLayoutPanel10.Controls.Add(this.label3, 0, 2);
+            this.tableLayoutPanel10.Controls.Add(this.btnSelecionarArquivos, 1, 1);
+            this.tableLayoutPanel10.Controls.Add(this.txtArquivo, 0, 1);
+            this.tableLayoutPanel10.Controls.Add(this.label8, 0, 0);
+            this.tableLayoutPanel10.Controls.Add(this.flowLayoutPanel1, 3, 0);
+            this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 23);
+            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
+            this.tableLayoutPanel10.RowCount = 4;
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(1052, 139);
+            this.tableLayoutPanel10.TabIndex = 1;
             // 
-            // button1
+            // btnAnexar
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(51, 18);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(104, 32);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Anexar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnAnexar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.tableLayoutPanel10.SetColumnSpan(this.btnAnexar, 2);
+            this.btnAnexar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAnexar.FlatAppearance.BorderSize = 0;
+            this.btnAnexar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAnexar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnexar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnAnexar.Location = new System.Drawing.Point(474, 87);
+            this.btnAnexar.Name = "btnAnexar";
+            this.btnAnexar.Size = new System.Drawing.Size(104, 32);
+            this.btnAnexar.TabIndex = 33;
+            this.btnAnexar.Text = "Anexar";
+            this.btnAnexar.UseVisualStyleBackColor = false;
+            this.btnAnexar.Click += new System.EventHandler(this.btnAnexar_Click);
             // 
-            // button3
+            // comboBox_tipoArquivo
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(10, 18);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(35, 32);
-            this.button3.TabIndex = 4;
-            this.button3.UseVisualStyleBackColor = false;
+            this.comboBox_tipoArquivo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.comboBox_tipoArquivo.FormattingEnabled = true;
+            this.comboBox_tipoArquivo.Items.AddRange(new object[] {
+            "CPF",
+            "RG",
+            "Contrato",
+            "Ficha Cadastro",
+            "Comprovante de renda"});
+            this.comboBox_tipoArquivo.Location = new System.Drawing.Point(3, 87);
+            this.comboBox_tipoArquivo.Name = "comboBox_tipoArquivo";
+            this.comboBox_tipoArquivo.Size = new System.Drawing.Size(465, 31);
+            this.comboBox_tipoArquivo.TabIndex = 32;
             // 
-            // panel18
+            // label3
             // 
-            this.panel18.Controls.Add(this.textBox1);
-            this.panel18.Controls.Add(this.label8);
-            this.panel18.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel18.Location = new System.Drawing.Point(3, 23);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(314, 86);
-            this.panel18.TabIndex = 0;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 61);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(120, 23);
+            this.label3.TabIndex = 31;
+            this.label3.Text = "Tipo de Arquivo:";
             // 
-            // textBox1
+            // txtArquivo
             // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBox1.Location = new System.Drawing.Point(0, 23);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(314, 27);
-            this.textBox1.TabIndex = 16;
+            this.txtArquivo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtArquivo.Location = new System.Drawing.Point(3, 26);
+            this.txtArquivo.Name = "txtArquivo";
+            this.txtArquivo.Size = new System.Drawing.Size(465, 27);
+            this.txtArquivo.TabIndex = 17;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label8.Location = new System.Drawing.Point(0, 0);
+            this.label8.Location = new System.Drawing.Point(3, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(54, 23);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Nome:";
+            this.label8.Size = new System.Drawing.Size(465, 23);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Arquivo:";
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(584, 3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.tableLayoutPanel10.SetRowSpan(this.flowLayoutPanel1, 4);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(465, 133);
+            this.flowLayoutPanel1.TabIndex = 34;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.dataGridView_Arquivos);
+            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox7.Location = new System.Drawing.Point(3, 174);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Padding = new System.Windows.Forms.Padding(6);
+            this.tableLayoutPanel7.SetRowSpan(this.groupBox7, 2);
+            this.groupBox7.Size = new System.Drawing.Size(1058, 198);
+            this.groupBox7.TabIndex = 27;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Anexos:";
+            // 
+            // dataGridView_Arquivos
+            // 
+            this.dataGridView_Arquivos.AllowUserToAddRows = false;
+            this.dataGridView_Arquivos.AllowUserToDeleteRows = false;
+            this.dataGridView_Arquivos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView_Arquivos.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridView_Arquivos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridView_Arquivos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_Arquivos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Numero,
+            this.Tipo,
+            this.descricao,
+            this.data,
+            this.status,
+            this.apagar,
+            this.Baixar});
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_Arquivos.DefaultCellStyle = dataGridViewCellStyle16;
+            this.dataGridView_Arquivos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView_Arquivos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dataGridView_Arquivos.GridColor = System.Drawing.SystemColors.Control;
+            this.dataGridView_Arquivos.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.dataGridView_Arquivos.Location = new System.Drawing.Point(6, 26);
+            this.dataGridView_Arquivos.MultiSelect = false;
+            this.dataGridView_Arquivos.Name = "dataGridView_Arquivos";
+            this.dataGridView_Arquivos.RowHeadersVisible = false;
+            this.dataGridView_Arquivos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dataGridView_Arquivos.Size = new System.Drawing.Size(1046, 166);
+            this.dataGridView_Arquivos.TabIndex = 0;
+            this.dataGridView_Arquivos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Arquivos_CellClick);
+            this.dataGridView_Arquivos.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_Arquivos_CellPainting);
             // 
             // contextMenuStrip1
             // 
@@ -2626,242 +2896,117 @@ namespace LMFinanciamentos.Apresentacao
             this.lblfuncresponsavel.TabIndex = 9;
             this.lblfuncresponsavel.Text = "Nome Funcionário(a)";
             // 
-            // panel2
+            // ofd1
             // 
-            this.panel2.AutoSize = true;
-            this.panel2.Controls.Add(this.comboBox_corretora);
-            this.panel2.Controls.Add(this.lblcorretora);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(3);
-            this.panel2.Size = new System.Drawing.Size(342, 81);
-            this.panel2.TabIndex = 28;
+            this.ofd1.DefaultExt = "pdf";
+            this.ofd1.FileName = "openFileDialog";
+            this.ofd1.Title = "Localizar Arquivos";
             // 
-            // lblcorretora
+            // btnSelecionarArquivos
             // 
-            this.lblcorretora.AutoSize = true;
-            this.lblcorretora.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblcorretora.Location = new System.Drawing.Point(3, 3);
-            this.lblcorretora.Name = "lblcorretora";
-            this.lblcorretora.Size = new System.Drawing.Size(80, 23);
-            this.lblcorretora.TabIndex = 4;
-            this.lblcorretora.Text = "Corretora:";
+            this.btnSelecionarArquivos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.btnSelecionarArquivos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSelecionarArquivos.FlatAppearance.BorderSize = 0;
+            this.btnSelecionarArquivos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSelecionarArquivos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelecionarArquivos.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnSelecionarArquivos.Image = ((System.Drawing.Image)(resources.GetObject("btnSelecionarArquivos.Image")));
+            this.btnSelecionarArquivos.Location = new System.Drawing.Point(474, 26);
+            this.btnSelecionarArquivos.Name = "btnSelecionarArquivos";
+            this.btnSelecionarArquivos.Size = new System.Drawing.Size(44, 32);
+            this.btnSelecionarArquivos.TabIndex = 18;
+            this.btnSelecionarArquivos.UseVisualStyleBackColor = false;
+            this.btnSelecionarArquivos.Click += new System.EventHandler(this.btnSelecionarArquivos_Click);
             // 
-            // comboBox_corretora
+            // img_topo
             // 
-            this.comboBox_corretora.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBox_corretora.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox_corretora.BackColor = System.Drawing.SystemColors.Control;
-            this.comboBox_corretora.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox_corretora.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_corretora.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox_corretora.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_corretora.FormattingEnabled = true;
-            this.comboBox_corretora.Location = new System.Drawing.Point(3, 26);
-            this.comboBox_corretora.Name = "comboBox_corretora";
-            this.comboBox_corretora.Size = new System.Drawing.Size(336, 28);
-            this.comboBox_corretora.TabIndex = 22;
+            this.img_topo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.img_topo.Image = ((System.Drawing.Image)(resources.GetObject("img_topo.Image")));
+            this.img_topo.Location = new System.Drawing.Point(4, 4);
+            this.img_topo.Name = "img_topo";
+            this.img_topo.Size = new System.Drawing.Size(52, 49);
+            this.img_topo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.img_topo.TabIndex = 5;
+            this.img_topo.TabStop = false;
             // 
-            // panel11
+            // Numero
             // 
-            this.panel11.AutoSize = true;
-            this.panel11.Controls.Add(this.comboBox_corretor);
-            this.panel11.Controls.Add(this.lblcorretor);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel11.Location = new System.Drawing.Point(351, 3);
-            this.panel11.Name = "panel11";
-            this.panel11.Padding = new System.Windows.Forms.Padding(3);
-            this.panel11.Size = new System.Drawing.Size(342, 81);
-            this.panel11.TabIndex = 29;
+            this.Numero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Numero.DataPropertyName = "idDoc";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.NullValue = "0";
+            this.Numero.DefaultCellStyle = dataGridViewCellStyle9;
+            this.Numero.HeaderText = "Nº";
+            this.Numero.Name = "Numero";
+            this.Numero.ReadOnly = true;
             // 
-            // lblcorretor
+            // Tipo
             // 
-            this.lblcorretor.AutoSize = true;
-            this.lblcorretor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblcorretor.Location = new System.Drawing.Point(3, 3);
-            this.lblcorretor.Name = "lblcorretor";
-            this.lblcorretor.Size = new System.Drawing.Size(71, 23);
-            this.lblcorretor.TabIndex = 23;
-            this.lblcorretor.Text = "Corretor:";
+            this.Tipo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Tipo.DataPropertyName = "Tipo";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Tipo.DefaultCellStyle = dataGridViewCellStyle10;
+            this.Tipo.HeaderText = "Tipo";
+            this.Tipo.Name = "Tipo";
+            this.Tipo.ReadOnly = true;
+            this.Tipo.Width = 120;
             // 
-            // comboBox_corretor
+            // descricao
             // 
-            this.comboBox_corretor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBox_corretor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox_corretor.BackColor = System.Drawing.SystemColors.Control;
-            this.comboBox_corretor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox_corretor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_corretor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox_corretor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_corretor.FormattingEnabled = true;
-            this.comboBox_corretor.Location = new System.Drawing.Point(3, 26);
-            this.comboBox_corretor.Name = "comboBox_corretor";
-            this.comboBox_corretor.Size = new System.Drawing.Size(336, 28);
-            this.comboBox_corretor.TabIndex = 24;
+            this.descricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.descricao.DataPropertyName = "Descricao";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.descricao.DefaultCellStyle = dataGridViewCellStyle11;
+            this.descricao.HeaderText = "Descrição";
+            this.descricao.Name = "descricao";
+            this.descricao.Width = 250;
             // 
-            // panel12
+            // data
             // 
-            this.panel12.AutoSize = true;
-            this.panel12.Controls.Add(this.comboBox_empreendimentos);
-            this.panel12.Controls.Add(this.lblempresendimentos);
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel12.Location = new System.Drawing.Point(699, 3);
-            this.panel12.Name = "panel12";
-            this.panel12.Padding = new System.Windows.Forms.Padding(3);
-            this.panel12.Size = new System.Drawing.Size(344, 81);
-            this.panel12.TabIndex = 30;
-            this.panel12.Paint += new System.Windows.Forms.PaintEventHandler(this.panel12_Paint_1);
+            this.data.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.data.DataPropertyName = "Data";
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.data.DefaultCellStyle = dataGridViewCellStyle12;
+            this.data.HeaderText = "Data";
+            this.data.Name = "data";
             // 
-            // lblempresendimentos
+            // status
             // 
-            this.lblempresendimentos.AutoSize = true;
-            this.lblempresendimentos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblempresendimentos.Location = new System.Drawing.Point(3, 3);
-            this.lblempresendimentos.Name = "lblempresendimentos";
-            this.lblempresendimentos.Size = new System.Drawing.Size(132, 23);
-            this.lblempresendimentos.TabIndex = 27;
-            this.lblempresendimentos.Text = "Empreendimento:";
+            this.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.status.DataPropertyName = "Status";
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.status.DefaultCellStyle = dataGridViewCellStyle13;
+            this.status.HeaderText = "Status";
+            this.status.Name = "status";
+            this.status.Width = 150;
             // 
-            // comboBox_empreendimentos
+            // apagar
             // 
-            this.comboBox_empreendimentos.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBox_empreendimentos.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox_empreendimentos.BackColor = System.Drawing.SystemColors.Control;
-            this.comboBox_empreendimentos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox_empreendimentos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_empreendimentos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox_empreendimentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_empreendimentos.FormattingEnabled = true;
-            this.comboBox_empreendimentos.Location = new System.Drawing.Point(3, 26);
-            this.comboBox_empreendimentos.Name = "comboBox_empreendimentos";
-            this.comboBox_empreendimentos.Size = new System.Drawing.Size(338, 28);
-            this.comboBox_empreendimentos.TabIndex = 28;
+            this.apagar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.Padding = new System.Windows.Forms.Padding(1);
+            this.apagar.DefaultCellStyle = dataGridViewCellStyle14;
+            this.apagar.FillWeight = 30F;
+            this.apagar.HeaderText = "Excluir";
+            this.apagar.MinimumWidth = 60;
+            this.apagar.Name = "apagar";
+            this.apagar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.apagar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.apagar.Width = 62;
             // 
-            // txtrenda
+            // Baixar
             // 
-            this.txtrenda.Enabled = false;
-            this.txtrenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtrenda.Location = new System.Drawing.Point(3, 137);
-            this.txtrenda.Name = "txtrenda";
-            this.txtrenda.Size = new System.Drawing.Size(216, 24);
-            this.txtrenda.TabIndex = 32;
-            this.txtrenda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtrenda_KeyPress);
-            this.txtrenda.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrenda_KeyUp);
-            this.txtrenda.Leave += new System.EventHandler(this.txtrenda_Leave);
-            // 
-            // panel21
-            // 
-            this.panel21.Controls.Add(this.panel22);
-            this.panel21.Controls.Add(this.comboBox_statuscartorio);
-            this.panel21.Controls.Add(this.lblstatuscart);
-            this.panel21.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel21.Location = new System.Drawing.Point(3, 3);
-            this.panel21.Name = "panel21";
-            this.panel21.Padding = new System.Windows.Forms.Padding(3);
-            this.panel21.Size = new System.Drawing.Size(334, 107);
-            this.panel21.TabIndex = 7;
-            // 
-            // panel22
-            // 
-            this.panel22.Controls.Add(this.lbldatacartorio);
-            this.panel22.Controls.Add(this.lblalterado);
-            this.panel22.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel22.Location = new System.Drawing.Point(3, 50);
-            this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(160, 54);
-            this.panel22.TabIndex = 23;
-            // 
-            // lbldatacartorio
-            // 
-            this.lbldatacartorio.AutoSize = true;
-            this.lbldatacartorio.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbldatacartorio.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldatacartorio.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbldatacartorio.Location = new System.Drawing.Point(0, 27);
-            this.lbldatacartorio.Name = "lbldatacartorio";
-            this.lbldatacartorio.Padding = new System.Windows.Forms.Padding(2);
-            this.lbldatacartorio.Size = new System.Drawing.Size(122, 27);
-            this.lbldatacartorio.TabIndex = 1;
-            this.lbldatacartorio.Text = "__/ ___/ ____";
-            this.lbldatacartorio.Visible = false;
-            // 
-            // lblalterado
-            // 
-            this.lblalterado.AutoSize = true;
-            this.lblalterado.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblalterado.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblalterado.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblalterado.Location = new System.Drawing.Point(0, 0);
-            this.lblalterado.Name = "lblalterado";
-            this.lblalterado.Padding = new System.Windows.Forms.Padding(2);
-            this.lblalterado.Size = new System.Drawing.Size(73, 27);
-            this.lblalterado.TabIndex = 0;
-            this.lblalterado.Text = "Alterado:";
-            // 
-            // comboBox_statuscartorio
-            // 
-            this.comboBox_statuscartorio.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBox_statuscartorio.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox_statuscartorio.Dock = System.Windows.Forms.DockStyle.Top;
-            this.comboBox_statuscartorio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_statuscartorio.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.comboBox_statuscartorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_statuscartorio.FormattingEnabled = true;
-            this.comboBox_statuscartorio.Items.AddRange(new object[] {
-            "Entregue",
-            "A retirar",
-            "Aguardando",
-            "Retirado"});
-            this.comboBox_statuscartorio.Location = new System.Drawing.Point(3, 26);
-            this.comboBox_statuscartorio.Name = "comboBox_statuscartorio";
-            this.comboBox_statuscartorio.Size = new System.Drawing.Size(328, 24);
-            this.comboBox_statuscartorio.TabIndex = 20;
-            this.comboBox_statuscartorio.SelectionChangeCommitted += new System.EventHandler(this.comboBox_statuscartorio_SelectionChangeCommitted);
-            // 
-            // lblstatuscart
-            // 
-            this.lblstatuscart.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblstatuscart.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblstatuscart.Location = new System.Drawing.Point(3, 3);
-            this.lblstatuscart.Name = "lblstatuscart";
-            this.lblstatuscart.Size = new System.Drawing.Size(328, 23);
-            this.lblstatuscart.TabIndex = 19;
-            this.lblstatuscart.Text = "Status:";
-            // 
-            // panel19
-            // 
-            this.panel19.Controls.Add(this.lblenderecocartorio);
-            this.panel19.Controls.Add(this.lblnomecartorio);
-            this.panel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel19.Location = new System.Drawing.Point(3, 26);
-            this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(328, 84);
-            this.panel19.TabIndex = 25;
-            // 
-            // lblnomecartorio
-            // 
-            this.lblnomecartorio.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblnomecartorio.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblnomecartorio.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblnomecartorio.Location = new System.Drawing.Point(0, 0);
-            this.lblnomecartorio.Name = "lblnomecartorio";
-            this.lblnomecartorio.Padding = new System.Windows.Forms.Padding(2);
-            this.lblnomecartorio.Size = new System.Drawing.Size(328, 27);
-            this.lblnomecartorio.TabIndex = 25;
-            this.lblnomecartorio.Text = "Selecione o Cartório";
-            this.lblnomecartorio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblenderecocartorio
-            // 
-            this.lblenderecocartorio.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblenderecocartorio.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblenderecocartorio.Location = new System.Drawing.Point(0, 27);
-            this.lblenderecocartorio.Name = "lblenderecocartorio";
-            this.lblenderecocartorio.Padding = new System.Windows.Forms.Padding(2);
-            this.lblenderecocartorio.Size = new System.Drawing.Size(328, 27);
-            this.lblenderecocartorio.TabIndex = 26;
-            this.lblenderecocartorio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Baixar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.Padding = new System.Windows.Forms.Padding(1);
+            this.Baixar.DefaultCellStyle = dataGridViewCellStyle15;
+            this.Baixar.FillWeight = 30F;
+            this.Baixar.HeaderText = "Baixar";
+            this.Baixar.MinimumWidth = 60;
+            this.Baixar.Name = "Baixar";
+            this.Baixar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Baixar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Baixar.Width = 62;
             // 
             // Form_Dados_Processos
             // 
@@ -2888,7 +3033,6 @@ namespace LMFinanciamentos.Apresentacao
             ((System.ComponentModel.ISupportInitialize)(this.dS_Funcionario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).EndInit();
             this.paneltop.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.img_topo)).EndInit();
             this.panel1.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
             this.tabcliente.ResumeLayout(false);
@@ -2923,6 +3067,12 @@ namespace LMFinanciamentos.Apresentacao
             this.groupBox4.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.tableLayoutPanel9.ResumeLayout(false);
@@ -2960,35 +3110,29 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel6.ResumeLayout(false);
             this.groupBoxsituacao.ResumeLayout(false);
             this.pnlsituacao.ResumeLayout(false);
+            this.panel21.ResumeLayout(false);
+            this.panel22.ResumeLayout(false);
+            this.panel22.PerformLayout();
             this.panel16.ResumeLayout(false);
+            this.panel19.ResumeLayout(false);
             this.groupBoxcartorio.ResumeLayout(false);
             this.pnlenviar.ResumeLayout(false);
             this.pnlnome.ResumeLayout(false);
             this.pnlnome.PerformLayout();
             this.tabdoc.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
-            this.groupBox7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox8.ResumeLayout(false);
-            this.panel17.ResumeLayout(false);
-            this.panel18.ResumeLayout(false);
-            this.panel18.PerformLayout();
+            this.tableLayoutPanel10.ResumeLayout(false);
+            this.tableLayoutPanel10.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Arquivos)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource2)).EndInit();
             this.panelfuncresp.ResumeLayout(false);
             this.panelfuncresp.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel11.ResumeLayout(false);
-            this.panel11.PerformLayout();
-            this.panel12.ResumeLayout(false);
-            this.panel12.PerformLayout();
-            this.panel21.ResumeLayout(false);
-            this.panel22.ResumeLayout(false);
-            this.panel22.PerformLayout();
-            this.panel19.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.img_topo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3044,19 +3188,8 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView_Arquivos;
         private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.Panel panel17;
-        public System.Windows.Forms.Button button1;
-        public System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Panel panel18;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descricao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn data;
-        private System.Windows.Forms.DataGridViewTextBoxColumn status;
-        private System.Windows.Forms.DataGridViewButtonColumn apagar;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.BindingSource clientesBindingSource1;
         private System.Windows.Forms.BindingSource clientesBindingSource2;
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems1;
@@ -3212,6 +3345,22 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.Label lblenderecocartorio;
         private System.Windows.Forms.Label lblnomecartorio;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
+        public System.Windows.Forms.Button btnAnexar;
+        private System.Windows.Forms.ComboBox comboBox_tipoArquivo;
+        private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Button btnSelecionarArquivos;
+        private System.Windows.Forms.TextBox txtArquivo;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.OpenFileDialog ofd1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descricao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn data;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.DataGridViewButtonColumn apagar;
+        private System.Windows.Forms.DataGridViewButtonColumn Baixar;
         //private System.Windows.Forms.BindingSource corretoraBindingSource;
         //private System.Windows.Forms.BindingSource corretoresBindingSource;
         //private System.Windows.Forms.BindingSource vendedorBindingSource;

@@ -11,6 +11,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using br.corp.bonus630.FullText;
 using System.Data;
+using System.Security;
+using System;
+using System.Drawing;
+using System.IO;
 
 namespace LMFinanciamentos.Apresentacao
 {
@@ -18,7 +22,12 @@ namespace LMFinanciamentos.Apresentacao
     {
 
         bool Next;
-        string valor, svalorimovel, svalorfinanciado, idCartorio;
+        string valor, svalorimovel, svalorfinanciado, idCartorio ;
+        string curFile, NewFile, extension, Local, numArquivo, descArquivo, dataAruivo, statusArquivo;
+        int count;
+        FileStream fs;
+        BinaryReader br;
+        byte ImageData;
         ToFullText tft;
 
 
@@ -42,7 +51,7 @@ namespace LMFinanciamentos.Apresentacao
         {
             idProcess = idprocesso.PadLeft(4, '0');
         }
-        
+
         private void Form_Dados_Documentos_Load(object sender, EventArgs e)
         {
             Processo process = null;
@@ -1122,6 +1131,20 @@ namespace LMFinanciamentos.Apresentacao
                 txtrenda.Select(txtrenda.Text.Length, 0);
                 #endregion
             }
+            if (tabControl.SelectedTab == tabControl.TabPages["tabdoc"])
+            {
+
+                #region Ducumentos
+                LoginDaoComandos documento = new LoginDaoComandos();
+
+                dataGridView_Arquivos.AutoGenerateColumns = false;
+                dataGridView_Arquivos.Columns["Numero"].DefaultCellStyle.Format = "D6";
+                dataGridView_Arquivos.DataSource = documento.GetDataDocumentos(idProcess);
+                dataGridView_Arquivos.Refresh();
+
+
+                #endregion
+            }
         }
 
         private void comboBox_empreendimentos_KeyPress(object sender, KeyPressEventArgs e)
@@ -1220,6 +1243,49 @@ namespace LMFinanciamentos.Apresentacao
 
         }
 
+        private void dataGridView_Arquivos_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            //if (e.ColumnIndex == 0)
+            //{
+            //    //e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+            //    //e.Value(value);
+            //    //e.Handled = true;
+
+            //}
+                //I supposed your button column is at index 0
+                if (e.ColumnIndex == 5)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                var w = Properties.Resources.icons8_delete_file_16.Width;
+                var h = Properties.Resources.icons8_delete_file_16.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.icons8_delete_file_16, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+
+
+            //I supposed your button column is at index 0
+            if (e.ColumnIndex == 6)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                var w = Properties.Resources.icons8_download_16.Width;
+                var h = Properties.Resources.icons8_download_16.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.icons8_download_16, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+            
+        }
+
         private void txtrenda_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(Keys.Back))
@@ -1230,6 +1296,31 @@ namespace LMFinanciamentos.Apresentacao
                 }
                 else
                     e.Handled = true;
+            }
+        }
+
+        private void dataGridView_Arquivos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dataGridView_Arquivos.Columns["apagar"].Index && e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView_Arquivos.Rows[e.RowIndex];
+
+                String iddoc = row.Cells[0].Value.ToString().PadLeft(6, '0');
+
+                LoginDaoComandos delete = new LoginDaoComandos();
+
+                delete.DeleteDocumento(iddoc);
+
+                MessageBox.Show(delete.mensagem);
+
+
+                LoginDaoComandos documento = new LoginDaoComandos();
+
+                dataGridView_Arquivos.AutoGenerateColumns = false;
+                dataGridView_Arquivos.Columns["Numero"].DefaultCellStyle.Format = "D6";
+                dataGridView_Arquivos.DataSource = documento.GetDataDocumentos(idProcess);
+                dataGridView_Arquivos.Refresh();
+                txtArquivo.Clear();
             }
         }
 
@@ -1330,6 +1421,163 @@ namespace LMFinanciamentos.Apresentacao
 
         }
 
+        private void btnSelecionarArquivos_Click(object sender, EventArgs e)
+        {
+            //define as propriedades do controle 
+            //OpenFileDialog
+            this.ofd1.Multiselect = true;
+            this.ofd1.Title = "Selecionar Fotos";
+            ofd1.InitialDirectory = @"C:\Users\Luis\Pictures";
+            //filtra para exibir somente arquivos de imagens
+            ofd1.Filter = "Images (*.BMP;*.JPG;*.GIF,*.PNG,*.TIFF)|*.BMP;*.JPG;*.GIF;*.PNG;*.TIFF|" + "All files (*.*)|*.*";
+            ofd1.CheckFileExists = true;
+            ofd1.CheckPathExists = true;
+            ofd1.FilterIndex = 2;
+            ofd1.RestoreDirectory = true;
+            ofd1.ReadOnlyChecked = true;
+            ofd1.ShowReadOnly = true;
+
+            DialogResult dr = this.ofd1.ShowDialog();
+
+            if (dr == System.Windows.Forms.DialogResult.OK)
+            {
+                // Le os arquivos selecionados 
+                foreach (String arquivo in ofd1.FileNames)
+                {
+                    txtArquivo.Text += arquivo;
+                    // cria um PictureBox
+                    //try
+                    //{
+                    //    PictureBox pb = new PictureBox();
+                    //    Image Imagem = Image.FromFile(arquivo);
+                    //    pb.SizeMode = PictureBoxSizeMode.StretchImage;
+                    //    //para exibir as imagens em tamanho natural 
+                    //    //descomente as linhas abaixo e comente as duas seguintes
+                    //    //pb.Height = loadedImage.Height;
+                    //    //pb.Width = loadedImage.Width;
+                    //    pb.Height = 100;
+                    //    pb.Width = 100;
+                    //    //atribui a imagem ao PictureBox - pb
+                    //    pb.Image = Imagem;
+                    //    //inclui a imagem no containter flowLayoutPanel
+                    //    flowLayoutPanel1.Controls.Add(pb);
+                    //}
+                    //catch (SecurityException ex)
+                    //{
+                    //    // O usuário  não possui permissão para ler arquivos
+                    //    MessageBox.Show("Erro de segurança Contate o administrador de segurança da rede.\n\n" +
+                    //                                "Mensagem : " + ex.Message + "\n\n" +
+                    //                                "Detalhes (enviar ao suporte):\n\n" + ex.StackTrace);
+                    //}
+                    //catch (Exception ex)
+                    //{
+                    //    // Não pode carregar a imagem (problemas de permissão)
+                    //    MessageBox.Show("Não é possível exibir a imagem : " + arquivo.Substring(arquivo.LastIndexOf('\\'))
+                    //                               + ". Você pode não ter permissão para ler o arquivo , ou " +
+                    //                               " ele pode estar corrompido.\n\nErro reportado : " + ex.Message);
+                    //}
+                }
+            }
+        }
+
+        private void btnAnexar_Click(object sender, EventArgs e)
+        {
+            if(txtArquivo.Text == "")
+            {
+                MessageBox.Show("Selecione o Arquivo para Anexar");
+                txtArquivo.Select();
+                txtArquivo.Focus();
+            }else if(comboBox_tipoArquivo.Text == "")
+            {
+                MessageBox.Show("Selecione o Tipo de Arquivo para Anexar");
+                comboBox_tipoArquivo.Select();
+                comboBox_tipoArquivo.DroppedDown = true;
+            }
+            else
+            {
+                curFile = txtArquivo.Text;
+                if (File.Exists(curFile))
+                {
+                    //criar tablea conf e guardar essa informaçao
+                    //Local = Path.GetDirectoryName(curFile);
+                    Local = @"\\desktop\Psexec\LM";
+                    extension = Path.GetExtension(curFile);
+                    count = dataGridView_Arquivos.RowCount+1;
+                    String counts = count.ToString().PadLeft(2, '0');
+                    NewFile = Local + @"\" + idProcess + @"\" + idProcess + counts + extension;
+
+                    if (Directory.Exists(Local + @"\" + idProcess))
+                    {
+                        RenameFile(curFile, NewFile);
+                        EnviarDocumentos();
+
+                        LoginDaoComandos documento = new LoginDaoComandos();
+
+                        dataGridView_Arquivos.AutoGenerateColumns = false;
+                        dataGridView_Arquivos.Columns["Numero"].DefaultCellStyle.Format = "D6";
+                        dataGridView_Arquivos.DataSource = documento.GetDataDocumentos(idProcess);
+                        dataGridView_Arquivos.Refresh();
+                        txtArquivo.Clear();
+
+                    }
+                    else
+                    {
+                        Directory.CreateDirectory(Local + @"\" + idProcess);
+                        RenameFile(curFile, NewFile);
+                        EnviarDocumentos();
+
+                        LoginDaoComandos documento = new LoginDaoComandos();
+
+                        dataGridView_Arquivos.AutoGenerateColumns = false;
+                        dataGridView_Arquivos.Columns["Numero"].DefaultCellStyle.Format = "D6";
+                        dataGridView_Arquivos.DataSource = documento.GetDataDocumentos(idProcess);
+                        dataGridView_Arquivos.Refresh();
+                        txtArquivo.Clear();
+
+                    }
+
+                    MessageBox.Show(NewFile);
+                    if (File.Exists(NewFile))
+                    {
+                        MessageBox.Show(NewFile);
+                    }
+
+                }
+                
+                // curFile = 
+
+            }
+        }
+        public void EnviarDocumentos()
+        {
+            LoginDaoComandos enviar = new LoginDaoComandos();
+
+            descArquivo = comboBox_tipoArquivo.Text + " do Cliente";
+            String stipo = comboBox_tipoArquivo.Text;
+            numArquivo = idProcess + count.ToString().PadLeft(2, '0');
+            statusArquivo = "Local";
+
+            if (txtArquivo.Text.Length > 0 )
+            {
+                string FileName = txtArquivo.Text;
+                
+                //fs = new FileStream(FileName, FileMode.Open, FileAccess.Read);
+                //br = new BinaryReader(fs);
+                //ImageData = br.ReadBytes((int)fs.Length);
+                //br.Close();
+                //fs.Close();
+                enviar.CriarDocumento(numArquivo, idProcess, stipo, descArquivo, ImageData, statusArquivo);
+            }
+            else
+            {
+                MessageBox.Show("Incomplete data!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void RenameFile(string originalName, string newName)
+        {
+            File.Move(originalName, newName);
+        }
         private void comboBox_statuscartorio_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if(lblnomecartorio.Text == "Selecione o Cartório")

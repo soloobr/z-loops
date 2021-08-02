@@ -243,6 +243,7 @@
     </Compile>
     <Compile Include="DAL\LoginDaoComandos.cs" />
     <Compile Include="Entidades\Combobox_Agencia.cs" />
+    <Compile Include="Entidades\Documento.cs" />
     <Compile Include="Entidades\Processo.cs" />
     <Compile Include="Entidades\Cliente.cs" />
     <Compile Include="Entidades\Funcionario.cs" />
@@ -364,6 +365,9 @@
     <Content Include="Content\knockout.combobox-1.0.80.0.min.css" />
     <Content Include="Ico.ico" />
     <Content Include="icologo.ico" />
+    <None Include="Resources\icons8-delete-16.png" />
+    <None Include="Resources\icons8-delete-file-16.png" />
+    <None Include="Resources\icons8-download-16.png" />
     <Content Include="Scripts\knockout-3.0.0.debug.js" />
     <Content Include="Scripts\knockout-3.0.0.js" />
     <Content Include="Scripts\knockout.combobox-1.0.80.0.js" />

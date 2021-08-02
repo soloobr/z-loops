@@ -32,7 +32,7 @@ namespace LMFinanciamentos.DAL
         Conecxao conn = new Conecxao();
         Conecxao con2 = new Conecxao();
 
-        MySqlDataReader dr, drfunc, drsenha, drclient, drclients, drprocess, drvebdedor, drprocessos;
+        MySqlDataReader dr, drfunc, drsenha, drclient, drclients, drprocess, drvebdedor, drprocessos, drdocumentos;
 
         public bool verificarLogin(String login, String senha)
         {
@@ -540,6 +540,49 @@ namespace LMFinanciamentos.DAL
             //return client;
             return list;
         }
+
+        public List<Documento> GetDocumentos(String iddoc)
+        {
+            var listdoc = new List<Documento>();
+
+            cmd.CommandText = "select * From Documentos where idProcesso = @idProcess";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@idProcess", iddoc);
+            //cmd.Parameters.AddWithValue("@consulta", "%" + nome + "%");
+
+            try
+            {
+                cmd.Connection = con.conectar();
+                drdocumentos = cmd.ExecuteReader();
+
+                if (drdocumentos.HasRows)
+                {
+                    while (drdocumentos.Read())
+                    {
+                        Documento documentos = new Documento();
+                        #region Documentos
+                        documentos.Id_Doc = drdocumentos["idDoc"].ToString();
+                        documentos.IdProcesso_Doc = drdocumentos["idDoc"].ToString();
+                        documentos.Tipo_Doc = drdocumentos["Tipo"].ToString();
+                        documentos.Descricao_Doc = drdocumentos["Descricao"].ToString();
+                        documentos.Data_Doc = drdocumentos["Data"].ToString();
+                        documentos.Status_Doc = drdocumentos["Status"].ToString();
+                        Byte[] byteBLOBData = new Byte[0];
+                        documentos.Arquivo_Doc = (Byte[])(drdocumentos["Arquivo"]);
+                        #endregion
+                        listdoc.Add(documentos);
+                    }
+                }
+                drdocumentos.Close();
+                con.desconectar();
+
+            }
+            catch (SqlException err)
+            {
+                throw new Exception("Erro ao obter documentos: " + err.Message);
+            }
+            return listdoc;
+        }
         public String CriarProcesso(String idCliente, String idVendedor, String idresponsavel, String idCorretora, String idCorretor, String status)
         {
 
@@ -657,7 +700,44 @@ namespace LMFinanciamentos.DAL
 
             return mensagem;
         }
-        
+        public String DeleteDocumento(String iddoc)
+        {
+            try
+            {
+                cmd1.CommandText = "DELETE FROM Documentos " +
+                "WHERE idDoc = @IdDoc ";
+
+                cmd1.Parameters.Clear();
+                cmd1.Parameters.AddWithValue("@IdDoc", iddoc);
+
+                cmd1.Connection = conn.conectar();
+
+                int recordsAffected = cmd1.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "Documento Excluido Com Sucesso";
+                    conn.desconectar();
+                }
+                else
+                {
+                    mensagem = "Erro ao Excluir Docuumento";
+                    conn.desconectar();
+                }
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+                conn.desconectar();
+            }
+            catch (Exception err)
+            {
+                mensagem = ("Erro ao Excluir Docuumento: " + err.Message);
+                conn.desconectar();
+            }
+
+            return mensagem;
+        }
         public string AlterarSenha(String id, String login, String senha, String novasenha)
         {
 
@@ -719,6 +799,133 @@ namespace LMFinanciamentos.DAL
 
         }
 
+        public DataTable GetDataDocumentos(String idproces)
+        {
+            cmd.CommandText = "select idDoc, 	idProcesso, Tipo, Descricao, Data, Status From Documentos where idProcesso = @idProcess ";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@idProcess", idproces);
+            cmd.Connection = con.conectar();
+
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            con.desconectar();
+
+            return dt;
+        }
+
+        public String CriarDocumento(String idDoc, String idProcesso, String Tipo, String Descricao, Byte Arquivo, String Status)
+        {
+
+            try
+            {
+
+                cmd1.CommandText = "INSERT INTO Documentos (idDoc, idProcesso, Tipo, Descricao, Data, Arquivo, Status) VALUES" +
+                    " (@idDoc, @idProcesso, @Tipo, @Descricao, @Data, @Arquivo, @Status)";
+
+                //cmd1.Parameters.AddWithValue("@id", id);
+                cmd1.Parameters.AddWithValue("@idDoc", idDoc);
+                cmd1.Parameters.AddWithValue("@idProcesso", idProcesso);
+                cmd1.Parameters.AddWithValue("@Tipo", Tipo);
+                cmd1.Parameters.AddWithValue("@Descricao", Descricao);
+                cmd1.Parameters.AddWithValue("@Data", DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
+                cmd1.Parameters.AddWithValue("@Arquivo", Arquivo);
+                cmd1.Parameters.AddWithValue("@Status", Status);
+
+
+                cmd1.Connection = conn.conectar();
+
+                int recordsAffected = cmd1.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "Documento Adicionado Com Sucesso";
+                }
+                else
+                {
+                    mensagem = "Erro ao Adicionar Documento";
+                }
+
+
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+            }
+            catch (Exception err)
+            {
+                //throw new Exception("Erro ao Alterar senha: " + err.Message);
+                mensagem = ("Erro ao Adicionar o Documento: " + err.Message);
+            }
+
+            return mensagem;
+        }
+        public String UpdateDocumento(String id, String sidAgenciaImovel, String sidPrograma, String sidCorretora, String sidCorretores, String sidEmpreendimentos, String scpf, String sciweb, String scadmut, String sir, String sfgts, DateTime datastatuscpf, DateTime datastatusciweb, DateTime datastatuscadmut, DateTime datastatusir, DateTime datastatusfgts, DateTime datastatusanalise, DateTime datastatuseng, DateTime datasiopi, DateTime datasictd, DateTime datasaquefgts, DateTime datapa, String valorimovel, String valorfinanciado, String sidcartorio, String scartorio, DateTime datastatuscartorio, String status)
+        {
+            try
+            {
+                cmd1.CommandText = "UPDATE Documentos SET " +
+                    "idDoc = @idDoc,idProcesso = @idProcesso,Tipo = @Tipo,Descricao = @Descricao,Data = @Data,Arquivo = @Arquivo,Status = @Status " +
+                    "WHERE id = @idProcesso ";
+                cmd1.Parameters.Clear();
+                cmd1.Parameters.AddWithValue("@Id", id);
+                cmd1.Parameters.AddWithValue("@cpf", scpf);
+                cmd1.Parameters.AddWithValue("@Ciweb", sciweb);
+                cmd1.Parameters.AddWithValue("@Cadmut", scadmut);
+                cmd1.Parameters.AddWithValue("@IR", sir);
+                cmd1.Parameters.AddWithValue("@FGTS", sfgts);
+                cmd1.Parameters.AddWithValue("@idAgenciaImovel", sidAgenciaImovel);
+                cmd1.Parameters.AddWithValue("@idPrograma", sidPrograma);
+                cmd1.Parameters.AddWithValue("@idCorretora", sidCorretora);
+                cmd1.Parameters.AddWithValue("@idCorretor", sidCorretores);
+                cmd1.Parameters.AddWithValue("@idEmpreendimentos", sidEmpreendimentos);
+                cmd1.Parameters.AddWithValue("@DataStatusCPF", datastatuscpf);
+                cmd1.Parameters.AddWithValue("@DataStatusCiweb", datastatusciweb);
+                cmd1.Parameters.AddWithValue("@DataStatusCadmut", datastatuscadmut);
+                cmd1.Parameters.AddWithValue("@DataStatusIR", datastatusir);
+                cmd1.Parameters.AddWithValue("@DataStatusFGTS", datastatusfgts);
+                cmd1.Parameters.AddWithValue("@DataStatusAnalise", datastatusanalise);
+                cmd1.Parameters.AddWithValue("@DataStatusEng", datastatuseng);
+                cmd1.Parameters.AddWithValue("@DataStatussiopi", datasiopi);
+                cmd1.Parameters.AddWithValue("@DataStatussictd", datasictd);
+                cmd1.Parameters.AddWithValue("@DataStatussaquefgts", datasaquefgts);
+                cmd1.Parameters.AddWithValue("@DataStatuspa", datapa);
+                cmd1.Parameters.AddWithValue("@valorimovel", valorimovel);
+                cmd1.Parameters.AddWithValue("@valorfinanciado", valorfinanciado);
+                cmd1.Parameters.AddWithValue("@idCartorio", sidcartorio);
+                cmd1.Parameters.AddWithValue("@Cartorio", scartorio);
+                cmd1.Parameters.AddWithValue("@DataStatusCartorio", datastatuscartorio);
+                //cmd1.Parameters.AddWithValue("@DataStatus", datastatus);
+                cmd1.Parameters.AddWithValue("@Status", status);
+
+
+                cmd1.Connection = conn.conectar();
+
+                int recordsAffected = cmd1.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "Processo Alterado Com Sucesso";
+                    conn.desconectar();
+                }
+                else
+                {
+                    mensagem = "Erro ao Alterar Processo";
+                    conn.desconectar();
+                }
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+                conn.desconectar();
+            }
+            catch (Exception err)
+            {
+                mensagem = ("Erro ao Alterar Processo: " + err.Message);
+                conn.desconectar();
+            }
+
+            return mensagem;
+        }
         public DataTable GetDataAgencia()
         {
             cmd.CommandText = "SELECT id, Descricao, Endereco, Agencia FROM Agencia ";
