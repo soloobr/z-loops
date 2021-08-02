@@ -1133,9 +1133,12 @@ namespace LMFinanciamentos.Apresentacao
             }
             if (tabControl.SelectedTab == tabControl.TabPages["tabdoc"])
             {
+                
 
                 #region Ducumentos
                 LoginDaoComandos documento = new LoginDaoComandos();
+
+                Local = documento.GetServer().ServerFilesPath_Server;
 
                 dataGridView_Arquivos.AutoGenerateColumns = false;
                 dataGridView_Arquivos.Columns["Numero"].DefaultCellStyle.Format = "D6";
@@ -1500,7 +1503,7 @@ namespace LMFinanciamentos.Apresentacao
                 {
                     //criar tablea conf e guardar essa informaçao
                     //Local = Path.GetDirectoryName(curFile);
-                    Local = @"\\desktop\Psexec\LM";
+                    //Local = @"\\desktop\Psexec\LM";
                     extension = Path.GetExtension(curFile);
                     count = dataGridView_Arquivos.RowCount+1;
                     String counts = count.ToString().PadLeft(2, '0');
@@ -1508,8 +1511,13 @@ namespace LMFinanciamentos.Apresentacao
 
                     if (Directory.Exists(Local + @"\" + idProcess))
                     {
-                        RenameFile(curFile, NewFile);
-                        EnviarDocumentos();
+                        if (File.Exists(NewFile))
+                        {
+                            RenameFile(NewFile, NewFile + ".bkp");
+                        }
+                            
+                            RenameFile(curFile, NewFile);
+                            EnviarDocumentos();
 
                         LoginDaoComandos documento = new LoginDaoComandos();
 

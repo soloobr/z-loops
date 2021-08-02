@@ -57,6 +57,147 @@ namespace LMFinanciamentos.DAL
 
             return tem;
         }
+
+        public Processo GetProcesso(String idprocess)
+        {
+            cmd.CommandText = "SELECT P.id as idpross, P.idresponsavel as idresponsavel, P.Data as Data, P.Observacao as Observacao , ValorImovel, ValorFinanciado, P.StatusCPF as StatusCPF, P.StatusCiweb as StatusCiweb, P.StatusCadmut as StatusCadmut, P.StatusIR as StatusIR, P.StatusFGTS as StatusFGTS,  " +
+                "P.StatusAnalise as	StatusAnalise, P.StatusEng as StatusEng, P.SaqueFGTS as SaqueFGTS, P.SIOPI as SIOPI, P.SICTD as SICTD, P.StatusPA as StatusPA, P.StatusCartorio as StatusCartorio, " +
+                "Clientes.id as idCliente, Clientes.Nome as clinome, Clientes.Email as EmailCli,  Clientes.Telefone as Telefonecli , Clientes.Celular as celularcli, Clientes.CPF as cpfcli, Clientes.RG as rgcli, Conta.Agencia as agenciacli, Conta.Conta as contacli, Clientes.Nascimento as Nascimento, Clientes.Renda as rendacli, " +
+                "V.id as idVendedor, V.Nome as vendnome, V.Email as Emailvendedor, V.Telefone as Telefonevendedor, V.Celular as celularvendedor, V.CPF as cpfvendedor, V.CNPJ as cnpjvendedor, V.Agencia as agenciavendedor, V.Conta as contavendedor,   " +
+                "Corretora.Descricao as Corretora, Corretores.Nome as Corretor, P.idCorretora, P.idCorretor, Agencia.id as idAgenciaImovel, Agencia.Agencia as AgenciaImovel, Programa.id as idPrograma, Programa.Descricao as DescriPrograma, Agencia.Agencia as AgenciaImovel, Programa.Descricao as Programa, Empreendimentos.Descricao as EmpDescricao, P.idCartorio as idCartorio, Cartorio.Descricao as sCartorio, Cartorio.Endereco as endCartorio, P.StatusCartorio as StatusCartorio,  " +
+                "F.Nome as nomeresponsavel, F.Permission as permissionresponsavel,  " +
+                "P.DataStatusCPF, P.DataStatusCiweb, P.DataStatusCadmut, P.DataStatusIR, P.DataStatusFGTS, P.DataStatusAnalise, P.DataStatusEng, P.DataSaqueFGTS, P.DataSIOP, P.DataSICTD, P.DataPA, P.DataStatusCartorio, P.DataStatus   " +
+
+                "FROM Processos P " +
+                "inner join Clientes on Clientes.id = P.idCliente " +
+                "inner join Vendedor V on V.id = P.idVendedor " +
+                "inner join Funcionarios F on F.id = P.idresponsavel " +
+                "Left join Conta on Conta.idcliente = Clientes.id and Conta.Tipo =@tipo  " +
+                "Left join Agencia on P.idAgenciaImovel = Agencia.id " +
+                "Left join Programa on P.idPrograma = Programa.id " +
+                "Left join Empreendimentos on P.idEmpreendimento = Empreendimentos.id " +
+                "Left join Corretora on P.idCorretora = Corretora.id " +
+                "Left join Corretores on P.idCorretor = Corretores.id " +
+                "Left join Cartorio on P.idCartorio = Cartorio.id " +
+                "WHERE P.id = @idprocesso";
+            cmd.Parameters.AddWithValue("@idprocesso", idprocess);
+            cmd.Parameters.AddWithValue("@tipo", "C");
+            Processo process = new Processo();
+            try
+            {
+                cmd.Connection = con.conectar();
+                drprocess = cmd.ExecuteReader();
+                while (drprocess.Read())
+                {
+                    #region Processo
+                    process.Id_processo = drprocess["idpross"].ToString();
+                    process.Id_responsavel = drprocess["idresponsavel"].ToString();
+                    process.Nome_responsavel = drprocess["nomeresponsavel"].ToString();
+                    process.Permission_responsavel = drprocess["permissionresponsavel"].ToString();
+                    process.Obs_processo = drprocess["Observacao"].ToString();
+                    process.Data_processo = drprocess["Data"].ToString();
+
+                    process.StatusCPF_cliente = drprocess["StatusCPF"].ToString();
+                    process.StatusCiweb_cliente = drprocess["StatusCiweb"].ToString();
+                    process.StatusCadmut_cliente = drprocess["StatusCadmut"].ToString();
+                    process.StatusIR_cliente = drprocess["StatusIR"].ToString();
+                    process.StatusFGTS_cliente = drprocess["StatusFGTS"].ToString();
+                    process.StatusAnalise_cliente = drprocess["StatusAnalise"].ToString();
+                    process.StatusEng_cliente = drprocess["StatusEng"].ToString();
+                    process.SaqueFGTS_cliente = drprocess["SaqueFGTS"].ToString();
+                    process.SIOPI_cliente = drprocess["SIOPI"].ToString();
+                    process.SICTD_cliente = drprocess["SICTD"].ToString();
+                    process.StatusPA_cliente = drprocess["StatusPA"].ToString();
+
+
+                    process.H_DataStatusCPF = drprocess["DataStatusCPF"].ToString();
+                    process.H_DataStatusCiweb = drprocess["DataStatusCiweb"].ToString();
+                    process.H_DataStatusCadmut = drprocess["DataStatusCadmut"].ToString();
+                    process.H_DataStatusIR = drprocess["DataStatusIR"].ToString();
+                    process.H_DataStatusFGTS = drprocess["DataStatusFGTS"].ToString();
+                    process.H_DataStatusAnalise = drprocess["DataStatusAnalise"].ToString();
+                    process.H_DataStatusEng = drprocess["DataStatusEng"].ToString();
+                    process.H_DataSaqueFGTS = drprocess["DataSaqueFGTS"].ToString();
+                    process.H_DataSIOP = drprocess["DataSIOP"].ToString();
+                    process.H_DataSICTD = drprocess["DataSICTD"].ToString();
+                    process.H_DataPA = drprocess["DataPA"].ToString();
+                    process.H_DataStatusCartorio = drprocess["DataStatusCartorio"].ToString();
+                    process.H_DataStatus = drprocess["DataStatus"].ToString();
+
+                    #endregion
+
+                    #region Cliente
+                    process.Id_cliente = drprocess["idCliente"].ToString();
+                    process.Nome_cliente = drprocess["clinome"].ToString();
+                    process.Email_cliente = drprocess["EmailCli"].ToString();
+                    process.Telefone_cliente = drprocess["Telefonecli"].ToString();
+                    process.Celular_cliente = drprocess["celularcli"].ToString();
+                    process.CPF_cliente = drprocess["cpfcli"].ToString();
+                    process.RG_cliente = drprocess["rgcli"].ToString();
+                    process.Nascimento_cliente = drprocess["Nascimento"].ToString();
+                    process.Renda_cliente = drprocess["rendacli"].ToString();
+                    process.Agencia_cliente = drprocess["agenciacli"].ToString();
+                    process.Conta_cliente = drprocess["contacli"].ToString();
+                    #endregion
+
+
+                    #region Vendedor
+                    process.Id_vendedor = drprocess["idVendedor"].ToString();
+                    process.Nome_vendedor = drprocess["vendnome"].ToString();
+                    process.Email_vendedor = drprocess["Emailvendedor"].ToString();
+                    process.Telefone_vendedor = drprocess["Telefonevendedor"].ToString();
+                    process.Celular_vendedor = drprocess["celularvendedor"].ToString();
+                    process.CPF_vendedor = drprocess["cpfvendedor"].ToString();
+                    process.CNPJ_vendedor = drprocess["cnpjvendedor"].ToString();
+                    //process.Nascimento_vendedor = drprocess["Nascimento"].ToString();
+                    //process.Renda_vendedor = drprocess["rendavendedor"].ToString();
+                    process.Agencia_vendedor = drprocess["agenciavendedor"].ToString();
+                    process.Conta_vendedor = drprocess["contavendedor"].ToString();
+                    #endregion
+
+                    #region imovel
+                    process.Id_corretora = drprocess["idCorretora"].ToString();
+                    process.Id_corretor = drprocess["idCorretor"].ToString();
+                    process.Nome_corretor = drprocess["Corretor"].ToString();
+                    process.Descricao_corretora = drprocess["Corretora"].ToString();
+
+
+                    process.Id_AgenciaImovel = drprocess["idAgenciaImovel"].ToString();
+                    process.Id_Programa = drprocess["idPrograma"].ToString();
+
+                    process.AgenciaImovel_imovel = drprocess["AgenciaImovel"].ToString();
+                    process.Programa_imovel = drprocess["DescriPrograma"].ToString();
+
+                    process.Valor_imovel = drprocess["ValorImovel"].ToString();
+                    process.ValorFinanciado_imovel = drprocess["ValorFinanciado"].ToString();
+
+
+                    process.EmpDescricao_imovel = drprocess["EmpDescricao"].ToString();
+
+
+                    #endregion
+
+                    #region Cartorio  
+                    process.id_Carftorio = drprocess["idCartorio"].ToString();
+                    process.Descricao_Carftorio = drprocess["sCartorio"].ToString();
+                    process.end_Cartorio = drprocess["endCartorio"].ToString();
+                    process.StatusCartorio = drprocess["StatusCartorio"].ToString();
+
+                    #endregion
+
+                }
+                drprocess.Close();
+                con.desconectar();
+
+            }
+            catch (SqlException err)
+            {
+                throw new Exception("Erro ao obter Processo: " + err.Message);
+            }
+
+            return process;
+        }
+
         public String CadastrarCliente(String nome, String email, String telefone, String celular, String cpf, String statuscpf, String stciweb, String stcadmut
                 , String stir, String stfgts, String rg, String nascimento, String sexo, String status, String renda)
         {
@@ -184,130 +325,25 @@ namespace LMFinanciamentos.DAL
             return client;
             //return list;
         }
-        public Processo GetProcesso(String idprocess)
+        public Servidor GetServer()
         {
-            cmd.CommandText = "SELECT P.id as idpross, P.idresponsavel as idresponsavel, P.Data as Data, P.Observacao as Observacao , ValorImovel, ValorFinanciado, P.StatusCPF as StatusCPF, P.StatusCiweb as StatusCiweb, P.StatusCadmut as StatusCadmut, P.StatusIR as StatusIR, P.StatusFGTS as StatusFGTS,  " +
-                "P.StatusAnalise as	StatusAnalise, P.StatusEng as StatusEng, P.SaqueFGTS as SaqueFGTS, P.SIOPI as SIOPI, P.SICTD as SICTD, P.StatusPA as StatusPA, P.StatusCartorio as StatusCartorio, " + 
-                "Clientes.id as idCliente, Clientes.Nome as clinome, Clientes.Email as EmailCli,  Clientes.Telefone as Telefonecli , Clientes.Celular as celularcli, Clientes.CPF as cpfcli, Clientes.RG as rgcli, Conta.Agencia as agenciacli, Conta.Conta as contacli, Clientes.Nascimento as Nascimento, Clientes.Renda as rendacli, " +
-                "V.id as idVendedor, V.Nome as vendnome, V.Email as Emailvendedor, V.Telefone as Telefonevendedor, V.Celular as celularvendedor, V.CPF as cpfvendedor, V.CNPJ as cnpjvendedor, V.Agencia as agenciavendedor, V.Conta as contavendedor,   " +
-                "Corretora.Descricao as Corretora, Corretores.Nome as Corretor, P.idCorretora, P.idCorretor, Agencia.id as idAgenciaImovel, Agencia.Agencia as AgenciaImovel, Programa.id as idPrograma, Programa.Descricao as DescriPrograma, Agencia.Agencia as AgenciaImovel, Programa.Descricao as Programa, Empreendimentos.Descricao as EmpDescricao, P.idCartorio as idCartorio, Cartorio.Descricao as sCartorio, Cartorio.Endereco as endCartorio, P.StatusCartorio as StatusCartorio,  " +
-                "F.Nome as nomeresponsavel, F.Permission as permissionresponsavel,  " +
-                "P.DataStatusCPF, P.DataStatusCiweb, P.DataStatusCadmut, P.DataStatusIR, P.DataStatusFGTS, P.DataStatusAnalise, P.DataStatusEng, P.DataSaqueFGTS, P.DataSIOP, P.DataSICTD, P.DataPA, P.DataStatusCartorio, P.DataStatus   " +
-
-                "FROM Processos P " +
-                "inner join Clientes on Clientes.id = P.idCliente " +
-                "inner join Vendedor V on V.id = P.idVendedor " +
-                "inner join Funcionarios F on F.id = P.idresponsavel " +
-                "Left join Conta on Conta.idcliente = Clientes.id and Conta.Tipo =@tipo  " +
-                "Left join Agencia on P.idAgenciaImovel = Agencia.id " +
-                "Left join Programa on P.idPrograma = Programa.id " +
-                "Left join Empreendimentos on P.idEmpreendimento = Empreendimentos.id "+
-                "Left join Corretora on P.idCorretora = Corretora.id " +
-                "Left join Corretores on P.idCorretor = Corretores.id " +
-                "Left join Cartorio on P.idCartorio = Cartorio.id " +
-                "WHERE P.id = @idprocesso";
-            cmd.Parameters.AddWithValue("@idprocesso", idprocess);
-            cmd.Parameters.AddWithValue("@tipo", "C");
-            Processo process = new Processo();
+            cmd.CommandText = "Select id, ServerNome, ServerFilesPath From Configuracoes";
+            //cmd.Parameters.AddWithValue("@idprocesso", idprocess);
+            //cmd.Parameters.AddWithValue("@tipo", "C");
+            Servidor server = new Servidor();
             try
             {
                 cmd.Connection = con.conectar();
                 drprocess = cmd.ExecuteReader();
                 while (drprocess.Read())
                 {
-                    #region Processo
-                    process.Id_processo = drprocess["idpross"].ToString();
-                    process.Id_responsavel = drprocess["idresponsavel"].ToString();
-                    process.Nome_responsavel = drprocess["nomeresponsavel"].ToString();
-                    process.Permission_responsavel = drprocess["permissionresponsavel"].ToString();
-                    process.Obs_processo = drprocess["Observacao"].ToString();
-                    process.Data_processo = drprocess["Data"].ToString();
-
-                    process.StatusCPF_cliente = drprocess["StatusCPF"].ToString();
-                    process.StatusCiweb_cliente = drprocess["StatusCiweb"].ToString();
-                    process.StatusCadmut_cliente = drprocess["StatusCadmut"].ToString();
-                    process.StatusIR_cliente = drprocess["StatusIR"].ToString();
-                    process.StatusFGTS_cliente = drprocess["StatusFGTS"].ToString();
-                    process.StatusAnalise_cliente = drprocess["StatusAnalise"].ToString();
-                    process.StatusEng_cliente = drprocess["StatusEng"].ToString();
-                    process.SaqueFGTS_cliente = drprocess["SaqueFGTS"].ToString();
-                    process.SIOPI_cliente = drprocess["SIOPI"].ToString();
-                    process.SICTD_cliente = drprocess["SICTD"].ToString();
-                    process.StatusPA_cliente = drprocess["StatusPA"].ToString();
 
 
-                    process.H_DataStatusCPF = drprocess["DataStatusCPF"].ToString();
-                    process.H_DataStatusCiweb = drprocess["DataStatusCiweb"].ToString();
-                    process.H_DataStatusCadmut = drprocess["DataStatusCadmut"].ToString();
-                    process.H_DataStatusIR = drprocess["DataStatusIR"].ToString();
-                    process.H_DataStatusFGTS = drprocess["DataStatusFGTS"].ToString();
-                    process.H_DataStatusAnalise = drprocess["DataStatusAnalise"].ToString();
-                    process.H_DataStatusEng = drprocess["DataStatusEng"].ToString();
-                    process.H_DataSaqueFGTS = drprocess["DataSaqueFGTS"].ToString();
-                    process.H_DataSIOP = drprocess["DataSIOP"].ToString();
-                    process.H_DataSICTD = drprocess["DataSICTD"].ToString();
-                    process.H_DataPA = drprocess["DataPA"].ToString();
-                    process.H_DataStatusCartorio = drprocess["DataStatusCartorio"].ToString();
-                    process.H_DataStatus = drprocess["DataStatus"].ToString();
-
-                    #endregion
-
-                    #region Cliente
-                    process.Id_cliente = drprocess["idCliente"].ToString();
-                    process.Nome_cliente = drprocess["clinome"].ToString();
-                    process.Email_cliente = drprocess["EmailCli"].ToString();
-                    process.Telefone_cliente = drprocess["Telefonecli"].ToString();
-                    process.Celular_cliente = drprocess["celularcli"].ToString();
-                    process.CPF_cliente = drprocess["cpfcli"].ToString();
-                    process.RG_cliente = drprocess["rgcli"].ToString();
-                    process.Nascimento_cliente = drprocess["Nascimento"].ToString();
-                    process.Renda_cliente = drprocess["rendacli"].ToString();
-                    process.Agencia_cliente = drprocess["agenciacli"].ToString();
-                    process.Conta_cliente = drprocess["contacli"].ToString();
-                    #endregion
-
-
-                    #region Vendedor
-                    process.Id_vendedor = drprocess["idVendedor"].ToString();
-                    process.Nome_vendedor = drprocess["vendnome"].ToString();
-                    process.Email_vendedor = drprocess["Emailvendedor"].ToString();
-                    process.Telefone_vendedor = drprocess["Telefonevendedor"].ToString();
-                    process.Celular_vendedor = drprocess["celularvendedor"].ToString();
-                    process.CPF_vendedor = drprocess["cpfvendedor"].ToString();
-                    process.CNPJ_vendedor = drprocess["cnpjvendedor"].ToString();
-                    //process.Nascimento_vendedor = drprocess["Nascimento"].ToString();
-                    //process.Renda_vendedor = drprocess["rendavendedor"].ToString();
-                    process.Agencia_vendedor = drprocess["agenciavendedor"].ToString();
-                    process.Conta_vendedor = drprocess["contavendedor"].ToString();
-                    #endregion
-
-                    #region imovel
-                    process.Id_corretora = drprocess["idCorretora"].ToString();
-                    process.Id_corretor = drprocess["idCorretor"].ToString();
-                    process.Nome_corretor = drprocess["Corretor"].ToString();
-                    process.Descricao_corretora = drprocess["Corretora"].ToString();
-
-
-                    process.Id_AgenciaImovel = drprocess["idAgenciaImovel"].ToString();
-                    process.Id_Programa = drprocess["idPrograma"].ToString();
-
-                    process.AgenciaImovel_imovel = drprocess["AgenciaImovel"].ToString();
-                    process.Programa_imovel = drprocess["DescriPrograma"].ToString();
-
-                    process.Valor_imovel = drprocess["ValorImovel"].ToString();
-                    process.ValorFinanciado_imovel = drprocess["ValorFinanciado"].ToString();
-
-
-                    process.EmpDescricao_imovel = drprocess["EmpDescricao"].ToString();
-
-
-                    #endregion
-
-                    #region Cartorio  
-                    process.id_Carftorio = drprocess["idCartorio"].ToString();
-                    process.Descricao_Carftorio = drprocess["sCartorio"].ToString();
-                    process.end_Cartorio = drprocess["endCartorio"].ToString();
-                    process.StatusCartorio = drprocess["StatusCartorio"].ToString();
+                    #region Servidor  
+                    
+                    server.id_Server = drprocess["id"].ToString();
+                    server.Nome_Server = drprocess["ServerNome"].ToString();
+                    server.ServerFilesPath_Server = drprocess["ServerFilesPath"].ToString();
 
                     #endregion
 
@@ -318,10 +354,10 @@ namespace LMFinanciamentos.DAL
             }
             catch (SqlException err)
             {
-                throw new Exception("Erro ao obter Processo: " + err.Message);
+                throw new Exception("Erro ao obter Configurações: " + err.Message);
             }
 
-            return process;
+            return server;
         }
         public List<Processo> GetProcessos(String tipo, String nome)
         {
