@@ -15,6 +15,8 @@ using System.Security;
 using System;
 using System.Drawing;
 using System.IO;
+using System.Net;
+using System.ComponentModel;
 
 namespace LMFinanciamentos.Apresentacao
 {
@@ -1345,6 +1347,137 @@ namespace LMFinanciamentos.Apresentacao
                 dataGridView_Arquivos.Refresh();
                 txtArquivo.Clear();
             }
+
+            if (e.ColumnIndex == dataGridView_Arquivos.Columns["Baixar"].Index && e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView_Arquivos.Rows[e.RowIndex];
+
+                SaveFileDialog sfd = new SaveFileDialog();
+
+                #region Filter
+                switch (row.Cells[7].Value.ToString())
+                {
+                    case ".pdf":
+                        sfd.Filter = "PDF document (*.pdf)|*.pdf";
+                        break;
+                    case ".jpeg":
+                        sfd.Filter = "JPEG Image(.jpeg)| *.jpeg";
+                        break;
+                    case "Aprovado Abaixo":
+                        String Data1 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                        lbldataeng.Text = Data1;
+                        lbldataeng.Visible = true;
+                        break;
+                    case ".png":
+                        sfd.Filter = "Png Image(.png)| *.png";
+                        break;
+                    case "Contestação":
+                        String Data3 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                        lbldataeng.Text = Data3;
+                        lbldataeng.Visible = true;
+                        break;
+                    case "Solicitado":
+                        String Data4 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                        lbldataeng.Text = Data4;
+                        lbldataeng.Visible = true;
+                        break;
+                    default:
+                        sfd.Filter = "All files (*.*)|*.*";
+                        break;
+                }
+                #endregion
+
+                sfd.Filter = "PDF document (*.pdf)|*.pdf| All files (*.*)|*.*";
+                string sfdname = saveFileDialog1.FileName;
+                sfd.Title = "Salvar Arquivo";
+                sfd.FileName = idProcess + row.Cells[0].Value.ToString().PadLeft(2, '0') + row.Cells[7].Value.ToString(); //"Mac_" + DateTime.Now.ToString("ddMMyyyy_HHmmss");
+                sfd.RestoreDirectory = true;
+
+                String Filedownload = Local + @"\" + idProcess+@"\"+ sfd.FileName;
+                MessageBox.Show(Filedownload);
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    Download(Filedownload, Path.GetFullPath(sfd.FileName));
+                }
+
+                //define o titulo
+                
+                //Define as extensões permitidas
+                //saveFileDialog1.Filter = "Text File|.txt";
+                //define o indice do filtro
+                //saveFileDialog1.FilterIndex = 0;
+                //Atribui um valor vazio ao nome do arquivo
+                
+                //Define a extensão padrão como .txt
+                //saveFileDialog1.DefaultExt = ".txt";
+                //define o diretório padrão
+                //saveFileDialog1.InitialDirectory = @"c:\dados";
+                //restaura o diretorio atual antes de fechar a janela
+                
+
+                ////Abre a caixa de dialogo e determina qual botão foi pressionado
+                //DialogResult resultado = saveFileDialog1.ShowDialog();
+
+                ////Se o ousuário pressionar o botão Salvar
+                //if (resultado == DialogResult.OK)
+                //{
+                //    ////Cria um stream usando o nome do arquivo
+                //    //FileStream fs = new FileStream(saveFileDialog1.FileName, FileMode.Create);
+
+                //    ////Cria um escrito que irá escrever no stream
+                //    //StreamWriter writer = new StreamWriter(fs);
+                //    ////escreve o conteúdo da caixa de texto no stream
+                //    //writer.Write(@"D:\psexec\LM\0002\000233.pdf");
+                //    ////fecha o escrito e o stream
+                //    //writer.Close();
+                //    //downloadFile(@"D:\psexec\LM\0002\000233.pdf");
+                //    //Download(@"D:\psexec\LM\0002\000233.pdf,");
+                //}
+                //else
+                //{
+                //    //exibe mensagem informando que a operação foi cancelada
+                //    MessageBox.Show("Operação cancelada");
+                //}
+            }
+        }
+
+        public void Download(string remoteUri, String folderdestino)
+        {
+            //string FilePath = Directory.GetCurrentDirectory() + "/tepdownload/" + Path.GetFileName(remoteUri); // path where download file to be saved, with filename, here I have taken file name from supplied remote url
+            string FilePath = folderdestino;//+  Path.GetFileName(remoteUri); // path where download file to be saved, with filename, here I have taken file name from supplied remote url
+            
+            using (WebClient client = new WebClient())
+            {
+                try
+                {
+                    if (!Directory.Exists("tepdownload"))
+                    {
+                        Directory.CreateDirectory("tepdownload");
+                    }
+                    Uri uri = new Uri(remoteUri);
+                    //password username of your file server eg. ftp username and password
+                    client.Credentials = new NetworkCredential("username", "password");
+                    //delegate method, which will be called after file download has been complete.
+                    client.DownloadFileCompleted += new AsyncCompletedEventHandler(Extract);
+                    //delegate method for progress notification handler.
+                    client.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgessChanged);
+                    // uri is the remote url where filed needs to be downloaded, and FilePath is the location where file to be saved
+                    client.DownloadFileAsync(uri, FilePath);
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+        public void Extract(object sender, AsyncCompletedEventArgs e)
+        {
+            Console.WriteLine("File has been downloaded.");
+        }
+        public void ProgessChanged(object sender, DownloadProgressChangedEventArgs e)
+        {
+            Console.WriteLine($"Download status: {e.ProgressPercentage}%.");
         }
 
         private void txtrenda_KeyUp(object sender, KeyEventArgs e)
