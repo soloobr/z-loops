@@ -23,12 +23,13 @@ namespace LMFinanciamentos.Apresentacao
 
         bool Next;
         string valor, svalorimovel, svalorfinanciado, idCartorio ;
-        string curFile, NewFile, extension, Local, numArquivo, descArquivo, dataAruivo, statusArquivo;
+        string curFile, NewFile, extension, Local, idArquivo, numArquivo, descArquivo, dataAruivo, statusArquivo;
         int count;
         FileStream fs;
         BinaryReader br;
         byte ImageData;
         ToFullText tft;
+        int ultimoID;
 
 
         string  idProcess, datacpf, dataciweb, datacadmut, datair, datafgts, dataanalise, dataeng, datastatus, statusprocesso, datasiopi, datasictd, datasaquefgts, datapa, datacartorio;
@@ -1133,15 +1134,15 @@ namespace LMFinanciamentos.Apresentacao
             }
             if (tabControl.SelectedTab == tabControl.TabPages["tabdoc"])
             {
-                
+             
 
                 #region Ducumentos
                 LoginDaoComandos documento = new LoginDaoComandos();
-
+                
                 Local = documento.GetServer().ServerFilesPath_Server;
-
+              
                 dataGridView_Arquivos.AutoGenerateColumns = false;
-                dataGridView_Arquivos.Columns["Numero"].DefaultCellStyle.Format = "D6";
+                //dataGridView_Arquivos.Columns["Numero"].DefaultCellStyle.Format = "D6";
                 dataGridView_Arquivos.DataSource = documento.GetDataDocumentos(idProcess);
                 dataGridView_Arquivos.Refresh();
 
@@ -1308,19 +1309,38 @@ namespace LMFinanciamentos.Apresentacao
             {
                 DataGridViewRow row = dataGridView_Arquivos.Rows[e.RowIndex];
 
-                String iddoc = row.Cells[0].Value.ToString().PadLeft(6, '0');
+                String iddoc = row.Cells[0].Value.ToString();//.PadLeft(6, '0');
+
+                String extension = row.Cells[7].Value.ToString();
+                String pasta = idProcess;
+
 
                 LoginDaoComandos delete = new LoginDaoComandos();
 
                 delete.DeleteDocumento(iddoc);
 
-                MessageBox.Show(delete.mensagem);
 
+                #region Deletar arquivo fisico
+                
+                String Excluir = delete.GetServer().ServerFilesPath_Server + @"\" + pasta + @"\"+ idProcess + iddoc+ extension;
+
+                if (File.Exists(Excluir))
+                {
+                    File.Delete(Excluir);
+                }
+                else
+                {
+                    MessageBox.Show("Arquivo "+ Excluir + " não encontrado");
+                }
+                
+                
+                #endregion
+                MessageBox.Show(delete.mensagem);
 
                 LoginDaoComandos documento = new LoginDaoComandos();
 
                 dataGridView_Arquivos.AutoGenerateColumns = false;
-                dataGridView_Arquivos.Columns["Numero"].DefaultCellStyle.Format = "D6";
+                //dataGridView_Arquivos.Columns["Numero"].DefaultCellStyle.Format = "D6";
                 dataGridView_Arquivos.DataSource = documento.GetDataDocumentos(idProcess);
                 dataGridView_Arquivos.Refresh();
                 txtArquivo.Clear();
@@ -1501,59 +1521,123 @@ namespace LMFinanciamentos.Apresentacao
                 curFile = txtArquivo.Text;
                 if (File.Exists(curFile))
                 {
-                    //criar tablea conf e guardar essa informaçao
-                    //Local = Path.GetDirectoryName(curFile);
-                    //Local = @"\\desktop\Psexec\LM";
-                    extension = Path.GetExtension(curFile);
-                    count = dataGridView_Arquivos.RowCount+1;
-                    String counts = count.ToString().PadLeft(2, '0');
-                    NewFile = Local + @"\" + idProcess + @"\" + idProcess + counts + extension;
-
-                    if (Directory.Exists(Local + @"\" + idProcess))
+                    if (Directory.Exists(Local + @"\" + idProcess)) //Pasta
                     {
+                        //Salvo referencia
+                        #region Salvar no Banco
+
+                        LoginDaoComandos enviar = new LoginDaoComandos();
+
+                        descArquivo = comboBox_tipoArquivo.Text + " do Cliente";
+                        String stipo = comboBox_tipoArquivo.Text;
+                        numArquivo = idProcess + count.ToString().PadLeft(2, '0');
+                        statusArquivo = "Local";
+                        ImageData = 0;
+                        extension = Path.GetExtension(curFile);
+                        //if (txtArquivo.Text.Length > 0)
+                        //{
+                        //    string FileName = txtArquivo.Text;
+
+                        //fs = new FileStream(FileName, FileMode.Open, FileAccess.Read);
+                        //br = new BinaryReader(fs);
+                        //ImageData = br.ReadBytes((int)fs.Length);
+                        //br.Close();
+                        //fs.Close();
+                        int ultimoID = enviar.CriarDocumento( idProcess, stipo, descArquivo, ImageData, extension, statusArquivo);
+                        //}
+                        //else
+                        //{
+                        //    MessageBox.Show("Incomplete data!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //}
+                        #endregion
+
+                        #region Salva arquivo no Caminho do servidor
+                        String counts = ultimoID.ToString().PadLeft(2, '0');
+                        NewFile = Local + @"\" + idProcess + @"\" + idProcess + counts + extension;
+
                         if (File.Exists(NewFile))
                         {
                             RenameFile(NewFile, NewFile + ".bkp");
                         }
-                            
-                            RenameFile(curFile, NewFile);
-                            EnviarDocumentos();
+
+                        RenameFile(curFile, NewFile);
+
+                        #endregion
+
+                        #region  Load Grid
 
                         LoginDaoComandos documento = new LoginDaoComandos();
 
                         dataGridView_Arquivos.AutoGenerateColumns = false;
-                        dataGridView_Arquivos.Columns["Numero"].DefaultCellStyle.Format = "D6";
+                        //dataGridView_Arquivos.Columns["Numero"].DefaultCellStyle.Format = "D6";
                         dataGridView_Arquivos.DataSource = documento.GetDataDocumentos(idProcess);
                         dataGridView_Arquivos.Refresh();
                         txtArquivo.Clear();
+                        comboBox_tipoArquivo.Text = "";
+
+                        #endregion
 
                     }
                     else
                     {
                         Directory.CreateDirectory(Local + @"\" + idProcess);
+
+                        #region Salvar no Banco
+
+                        LoginDaoComandos enviar = new LoginDaoComandos();
+
+                        descArquivo = comboBox_tipoArquivo.Text + " do Cliente";
+                        String stipo = comboBox_tipoArquivo.Text;
+                        numArquivo = idProcess + count.ToString().PadLeft(2, '0');
+                        statusArquivo = "Local";
+                        ImageData = 0;
+                        extension = Path.GetExtension(curFile);
+                        //if (txtArquivo.Text.Length > 0)
+                        //{
+                        //    string FileName = txtArquivo.Text;
+
+                        //fs = new FileStream(FileName, FileMode.Open, FileAccess.Read);
+                        //br = new BinaryReader(fs);
+                        //ImageData = br.ReadBytes((int)fs.Length);
+                        //br.Close();
+                        //fs.Close();
+                        int ultimoID = enviar.CriarDocumento(idProcess, stipo, descArquivo, ImageData, extension, statusArquivo);
+                        //}
+                        //else
+                        //{
+                        //    MessageBox.Show("Incomplete data!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //}
+                        #endregion
+
+                        #region Salva arquivo no Caminho do servidor
+                        String counts = ultimoID.ToString().PadLeft(2, '0');
+                        NewFile = Local + @"\" + idProcess + @"\" + idProcess + counts + extension;
+
+                        if (File.Exists(NewFile))
+                        {
+                            RenameFile(NewFile, NewFile + ".bkp");
+                        }
+
                         RenameFile(curFile, NewFile);
-                        EnviarDocumentos();
+
+                        #endregion
+
+                        #region  Load Grid
 
                         LoginDaoComandos documento = new LoginDaoComandos();
 
                         dataGridView_Arquivos.AutoGenerateColumns = false;
-                        dataGridView_Arquivos.Columns["Numero"].DefaultCellStyle.Format = "D6";
+                        //dataGridView_Arquivos.Columns["Numero"].DefaultCellStyle.Format = "D6";
                         dataGridView_Arquivos.DataSource = documento.GetDataDocumentos(idProcess);
                         dataGridView_Arquivos.Refresh();
                         txtArquivo.Clear();
+                        comboBox_tipoArquivo.Text = "";
 
-                    }
+                        #endregion
 
-                    MessageBox.Show(NewFile);
-                    if (File.Exists(NewFile))
-                    {
-                        MessageBox.Show(NewFile);
                     }
 
                 }
-                
-                // curFile = 
-
             }
         }
         public void EnviarDocumentos()
@@ -1565,16 +1649,16 @@ namespace LMFinanciamentos.Apresentacao
             numArquivo = idProcess + count.ToString().PadLeft(2, '0');
             statusArquivo = "Local";
 
-            if (txtArquivo.Text.Length > 0 )
+            if (txtArquivo.Text.Length > 0)
             {
                 string FileName = txtArquivo.Text;
-                
+
                 //fs = new FileStream(FileName, FileMode.Open, FileAccess.Read);
                 //br = new BinaryReader(fs);
                 //ImageData = br.ReadBytes((int)fs.Length);
                 //br.Close();
                 //fs.Close();
-                enviar.CriarDocumento(numArquivo, idProcess, stipo, descArquivo, ImageData, statusArquivo);
+                enviar.CriarDocumento( idProcess, stipo, descArquivo, ImageData, extension, statusArquivo);
             }
             else
             {

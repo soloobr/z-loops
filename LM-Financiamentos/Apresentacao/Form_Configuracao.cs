@@ -1,5 +1,6 @@
 ﻿using LMFinanciamentos.Entidades;
 using LMFinanciamentos.Modelo;
+using LMFinanciamentos.DAL;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -14,6 +15,7 @@ namespace LMFinanciamentos.Apresentacao
         public string login;
         public string senha;
         public string novasenha;
+        string idserver;
 
         public Form_Configuracao()
         {
@@ -55,6 +57,12 @@ namespace LMFinanciamentos.Apresentacao
 
             txt_novasenha.Controls.Add(btn);
             txt_confirmasenha.Controls.Add(btn1);
+
+            LoginDaoComandos server = new LoginDaoComandos();
+
+            txtnameserver.Text = server.GetServer().Nome_Server;
+            txtcaminhoarquivos.Text = server.GetServer().ServerFilesPath_Server;
+            idserver = server.GetServer().id_Server;
         }
 
         private void btncloseconf_Click(object sender, EventArgs e)
@@ -175,6 +183,13 @@ namespace LMFinanciamentos.Apresentacao
             //login = func.Login_Func;
             //senha = func.Senha_Func;
 
+        }
+
+        private void btnsalvarserver_Click(object sender, EventArgs e)
+        {
+            LoginDaoComandos upserver = new LoginDaoComandos();
+            upserver.SaveServer(idserver, txtnameserver.Text, txtcaminhoarquivos.Text);
+            MessageBox.Show(upserver.mensagem);
         }
     }
 }

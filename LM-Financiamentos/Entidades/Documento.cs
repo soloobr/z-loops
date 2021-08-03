@@ -8,6 +8,7 @@ namespace LMFinanciamentos.Entidades
 {
     public class Documento
     {
+        public string Id { get; set; }
         public string Id_Doc { get; set; }
         public string IdProcesso_Doc { get; set; }
         public string Tipo_Doc { get; set; }

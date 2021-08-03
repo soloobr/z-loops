@@ -359,6 +359,49 @@ namespace LMFinanciamentos.DAL
 
             return server;
         }
+
+        public String SaveServer(String id, String ServerNome, String ServerFilesPath)
+        {
+            try
+            {
+                cmd1.CommandText = "UPDATE Configuracoes " +
+                "SET ServerNome = @ServerNome, ServerFilesPath = @ServerFilesPath " +
+                "WHERE id = @Id ";
+
+                cmd1.Parameters.Clear();
+                cmd1.Parameters.AddWithValue("@Id", id);
+                cmd1.Parameters.AddWithValue("@ServerNome", ServerNome);
+                cmd1.Parameters.AddWithValue("@ServerFilesPath", ServerFilesPath);
+                
+                cmd1.Connection = conn.conectar();
+
+                int recordsAffected = cmd1.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "Servidor Alterado Com Sucesso";
+                    conn.desconectar();
+                }
+                else
+                {
+                    mensagem = "Erro ao Alterar Servidor";
+                    conn.desconectar();
+                }
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+                conn.desconectar();
+            }
+            catch (Exception err)
+            {
+                mensagem = ("Erro ao Alterar Servidor: " + err.Message);
+                conn.desconectar();
+            }
+
+            return mensagem;
+        }
+
         public List<Processo> GetProcessos(String tipo, String nome)
         {
             var listprocessos = new List<Processo>();
@@ -597,6 +640,7 @@ namespace LMFinanciamentos.DAL
                     {
                         Documento documentos = new Documento();
                         #region Documentos
+                        documentos.Id = drdocumentos["id"].ToString();
                         documentos.Id_Doc = drdocumentos["idDoc"].ToString();
                         documentos.IdProcesso_Doc = drdocumentos["idDoc"].ToString();
                         documentos.Tipo_Doc = drdocumentos["Tipo"].ToString();
@@ -741,7 +785,7 @@ namespace LMFinanciamentos.DAL
             try
             {
                 cmd1.CommandText = "DELETE FROM Documentos " +
-                "WHERE idDoc = @IdDoc ";
+                "WHERE id = @IdDoc ";
 
                 cmd1.Parameters.Clear();
                 cmd1.Parameters.AddWithValue("@IdDoc", iddoc);
@@ -837,7 +881,7 @@ namespace LMFinanciamentos.DAL
 
         public DataTable GetDataDocumentos(String idproces)
         {
-            cmd.CommandText = "select idDoc, 	idProcesso, Tipo, Descricao, Data, Status From Documentos where idProcesso = @idProcess ";
+            cmd.CommandText = "select id, 	idProcesso, Tipo, Descricao, Data, Extensao, Status From Documentos where idProcesso = @idProcess ";
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@idProcess", idproces);
             cmd.Connection = con.conectar();
@@ -849,51 +893,64 @@ namespace LMFinanciamentos.DAL
             return dt;
         }
 
-        public String CriarDocumento(String idDoc, String idProcesso, String Tipo, String Descricao, Byte Arquivo, String Status)
+        public int CriarDocumento(string idProcesso, string Tipo, string Descricao, byte Arquivo, String exxtension, string Status)
         {
-
+            //string idDoc, string idProcesso, string Tipo, string Descricao, byte Arquivo, string Status
             try
             {
 
-                cmd1.CommandText = "INSERT INTO Documentos (idDoc, idProcesso, Tipo, Descricao, Data, Arquivo, Status) VALUES" +
-                    " (@idDoc, @idProcesso, @Tipo, @Descricao, @Data, @Arquivo, @Status)";
+                cmd1.CommandText = "INSERT INTO Documentos (idProcesso, Tipo, Descricao, Data, Arquivo, Extensao, Status) VALUES" +
+                    " ( @idProcesso, @Tipo, @Descricao, @Data, @Arquivo, @exxtension, @Status )";
 
                 //cmd1.Parameters.AddWithValue("@id", id);
-                cmd1.Parameters.AddWithValue("@idDoc", idDoc);
+                //cmd1.Parameters.AddWithValue("@idDoc", idDoc);
                 cmd1.Parameters.AddWithValue("@idProcesso", idProcesso);
                 cmd1.Parameters.AddWithValue("@Tipo", Tipo);
                 cmd1.Parameters.AddWithValue("@Descricao", Descricao);
                 cmd1.Parameters.AddWithValue("@Data", DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
                 cmd1.Parameters.AddWithValue("@Arquivo", Arquivo);
+                cmd1.Parameters.AddWithValue("@exxtension", exxtension);
                 cmd1.Parameters.AddWithValue("@Status", Status);
+                
 
 
                 cmd1.Connection = conn.conectar();
 
-                int recordsAffected = cmd1.ExecuteNonQuery();
+                //int recordsAffected = cmd1.ExecuteNonQuery();
+                cmd1.ExecuteNonQuery();
 
-                if (recordsAffected > 0)
-                {
-                    mensagem = "Documento Adicionado Com Sucesso";
-                }
-                else
-                {
-                    mensagem = "Erro ao Adicionar Documento";
-                }
+                if (cmd1.LastInsertedId != 0)
+                    cmd1.Parameters.Add(new MySqlParameter("ultimoId", cmd1.LastInsertedId));
+
+                return Convert.ToInt32(cmd1.Parameters["@ultimoId"].Value);
+
+                //if (recordsAffected > 0)
+                //{
+                //    mensagem = "Documento Adicionado Com Sucesso";
+                //}
+                //else
+                //{
+                //    mensagem = "Erro ao Adicionar Documento";
+                //}
 
 
             }
-            catch (MySqlException error)
-            {
-                mensagem = ("Erro ao conectar: " + error.Message);
-            }
+            //catch (MySqlException error)
+            //{
+            //    mensagem = ("Erro ao conectar: " + error.Message);
+            //}
             catch (Exception err)
             {
                 //throw new Exception("Erro ao Alterar senha: " + err.Message);
-                mensagem = ("Erro ao Adicionar o Documento: " + err.Message);
+                //mensagem = ("Erro ao Adicionar o Documento: " + err.Message);
+                throw err;
+            }
+            finally
+            {
+                conn.desconectar();
             }
 
-            return mensagem;
+            //return mensagem;
         }
         public String UpdateDocumento(String id, String sidAgenciaImovel, String sidPrograma, String sidCorretora, String sidCorretores, String sidEmpreendimentos, String scpf, String sciweb, String scadmut, String sir, String sfgts, DateTime datastatuscpf, DateTime datastatusciweb, DateTime datastatuscadmut, DateTime datastatusir, DateTime datastatusfgts, DateTime datastatusanalise, DateTime datastatuseng, DateTime datasiopi, DateTime datasictd, DateTime datasaquefgts, DateTime datapa, String valorimovel, String valorfinanciado, String sidcartorio, String scartorio, DateTime datastatuscartorio, String status)
         {

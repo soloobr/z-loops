@@ -31,6 +31,12 @@ namespace LMFinanciamentos.Apresentacao
         {
             this.panel2 = new System.Windows.Forms.Panel();
             this.pnl_centerconf = new System.Windows.Forms.Panel();
+            this.groupBox_servidor = new System.Windows.Forms.GroupBox();
+            this.btnsalvarserver = new System.Windows.Forms.Button();
+            this.txtcaminhoarquivos = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtnameserver = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
@@ -63,6 +69,7 @@ namespace LMFinanciamentos.Apresentacao
             this.img_topo = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             this.pnl_centerconf.SuspendLayout();
+            this.groupBox_servidor.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.grp_seguranca.SuspendLayout();
@@ -93,6 +100,7 @@ namespace LMFinanciamentos.Apresentacao
             // 
             // pnl_centerconf
             // 
+            this.pnl_centerconf.Controls.Add(this.groupBox_servidor);
             this.pnl_centerconf.Controls.Add(this.groupBox1);
             this.pnl_centerconf.Controls.Add(this.grp_seguranca);
             this.pnl_centerconf.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -101,6 +109,64 @@ namespace LMFinanciamentos.Apresentacao
             this.pnl_centerconf.Padding = new System.Windows.Forms.Padding(43);
             this.pnl_centerconf.Size = new System.Drawing.Size(686, 365);
             this.pnl_centerconf.TabIndex = 8;
+            // 
+            // groupBox_servidor
+            // 
+            this.groupBox_servidor.Controls.Add(this.btnsalvarserver);
+            this.groupBox_servidor.Controls.Add(this.txtcaminhoarquivos);
+            this.groupBox_servidor.Controls.Add(this.label5);
+            this.groupBox_servidor.Controls.Add(this.txtnameserver);
+            this.groupBox_servidor.Controls.Add(this.label4);
+            this.groupBox_servidor.Location = new System.Drawing.Point(285, 174);
+            this.groupBox_servidor.Name = "groupBox_servidor";
+            this.groupBox_servidor.Size = new System.Drawing.Size(333, 143);
+            this.groupBox_servidor.TabIndex = 6;
+            this.groupBox_servidor.TabStop = false;
+            this.groupBox_servidor.Text = "Servidor";
+            // 
+            // btnsalvarserver
+            // 
+            this.btnsalvarserver.Location = new System.Drawing.Point(197, 90);
+            this.btnsalvarserver.Name = "btnsalvarserver";
+            this.btnsalvarserver.Size = new System.Drawing.Size(101, 34);
+            this.btnsalvarserver.TabIndex = 7;
+            this.btnsalvarserver.Text = "Salvar";
+            this.btnsalvarserver.UseVisualStyleBackColor = true;
+            this.btnsalvarserver.Click += new System.EventHandler(this.btnsalvarserver_Click);
+            // 
+            // txtcaminhoarquivos
+            // 
+            this.txtcaminhoarquivos.Location = new System.Drawing.Point(130, 64);
+            this.txtcaminhoarquivos.Name = "txtcaminhoarquivos";
+            this.txtcaminhoarquivos.Size = new System.Drawing.Size(168, 20);
+            this.txtcaminhoarquivos.TabIndex = 6;
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(6, 55);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(142, 39);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Caminho:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtnameserver
+            // 
+            this.txtnameserver.Location = new System.Drawing.Point(130, 25);
+            this.txtnameserver.Name = "txtnameserver";
+            this.txtnameserver.Size = new System.Drawing.Size(168, 20);
+            this.txtnameserver.TabIndex = 4;
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(6, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(142, 39);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Hostname:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBox1
             // 
@@ -460,6 +526,8 @@ namespace LMFinanciamentos.Apresentacao
             this.Load += new System.EventHandler(this.Form_Configuracao_Load);
             this.panel2.ResumeLayout(false);
             this.pnl_centerconf.ResumeLayout(false);
+            this.groupBox_servidor.ResumeLayout(false);
+            this.groupBox_servidor.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.grp_seguranca.ResumeLayout(false);
@@ -519,5 +587,11 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.Button btn_cancelsenha;
         private System.Windows.Forms.Button btn_alterar;
         private System.Windows.Forms.Button btn_logoff;
+        private System.Windows.Forms.GroupBox groupBox_servidor;
+        private System.Windows.Forms.Button btnsalvarserver;
+        private System.Windows.Forms.TextBox txtcaminhoarquivos;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtnameserver;
+        private System.Windows.Forms.Label label4;
     }
 }
