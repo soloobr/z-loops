@@ -271,7 +271,7 @@ namespace LMFinanciamentos.Apresentacao
 
         private void btncdoc_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<Form_Controle_Documento>();
+            AbrirFormulario<Form_Controle_Processo>();
             btncdoc.BackColor = Color.FromArgb(12, 61, 92);
             //..
             //your codes
@@ -360,7 +360,7 @@ namespace LMFinanciamentos.Apresentacao
 
         private void btncontroledoc_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<Form_Controle_Documento>();
+            AbrirFormulario<Form_Controle_Processo>();
             btncontroledoc.BackColor = Color.FromArgb(12, 61, 92);
             //..
             //your codes

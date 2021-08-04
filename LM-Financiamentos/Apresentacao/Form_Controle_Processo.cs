@@ -7,10 +7,10 @@ using System.Windows.Forms;
 
 namespace LMFinanciamentos.Apresentacao
 {
-    public partial class Form_Controle_Documento : Form
+    public partial class Form_Controle_Processo : Form
     {
         public string consultar;
-        public Form_Controle_Documento()
+        public Form_Controle_Processo()
         {
             InitializeComponent();
         }
@@ -100,7 +100,7 @@ namespace LMFinanciamentos.Apresentacao
 
         private void btnnovodoc_Click(object sender, EventArgs e)
         {
-            Form_Cadastro_Documentos frm_cadastro_documentos = new Form_Cadastro_Documentos();
+            Form_Cadastro_Processos frm_cadastro_documentos = new Form_Cadastro_Processos();
             frm_cadastro_documentos.ProcessoSalvo += new Action(frm_dados_documentos_ProcessoSalvo);
             frm_cadastro_documentos.setLabel("Em Preenchimento");
             frm_cadastro_documentos.Show();

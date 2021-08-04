@@ -169,11 +169,11 @@
     <Compile Include="Apresentacao\Form_Dados_Processos.Designer.cs">
       <DependentUpon>Form_Dados_Processos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apresentacao\Form_Cadastro_Documentos.cs">
+    <Compile Include="Apresentacao\Form_Cadastro_Processos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apresentacao\Form_Cadastro_Documentos.Designer.cs">
-      <DependentUpon>Form_Cadastro_Documentos.cs</DependentUpon>
+    <Compile Include="Apresentacao\Form_Cadastro_Processos.Designer.cs">
+      <DependentUpon>Form_Cadastro_Processos.cs</DependentUpon>
     </Compile>
     <Compile Include="Apresentacao\Form_Cadastro_Fornecedor.cs">
       <SubType>Form</SubType>
@@ -193,11 +193,11 @@
     <Compile Include="Apresentacao\Form_Configuracao.Designer.cs">
       <DependentUpon>Form_Configuracao.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apresentacao\Form_Controle_Documento.cs">
+    <Compile Include="Apresentacao\Form_Controle_Processo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apresentacao\Form_Controle_Documento.Designer.cs">
-      <DependentUpon>Form_Controle_Documento.cs</DependentUpon>
+    <Compile Include="Apresentacao\Form_Controle_Processo.Designer.cs">
+      <DependentUpon>Form_Controle_Processo.cs</DependentUpon>
     </Compile>
     <Compile Include="Apresentacao\Form_Login.cs">
       <SubType>Form</SubType>
@@ -277,8 +277,8 @@
     <EmbeddedResource Include="Apresentacao\Form_Dados_Processos.resx">
       <DependentUpon>Form_Dados_Processos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apresentacao\Form_Cadastro_Documentos.resx">
-      <DependentUpon>Form_Cadastro_Documentos.cs</DependentUpon>
+    <EmbeddedResource Include="Apresentacao\Form_Cadastro_Processos.resx">
+      <DependentUpon>Form_Cadastro_Processos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\Form_Cadastro_Fornecedor.resx">
       <DependentUpon>Form_Cadastro_Fornecedor.cs</DependentUpon>
@@ -289,8 +289,8 @@
     <EmbeddedResource Include="Apresentacao\Form_Configuracao.resx">
       <DependentUpon>Form_Configuracao.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apresentacao\Form_Controle_Documento.resx">
-      <DependentUpon>Form_Controle_Documento.cs</DependentUpon>
+    <EmbeddedResource Include="Apresentacao\Form_Controle_Processo.resx">
+      <DependentUpon>Form_Controle_Processo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\Form_Login.resx">
       <DependentUpon>Form_Login.cs</DependentUpon>

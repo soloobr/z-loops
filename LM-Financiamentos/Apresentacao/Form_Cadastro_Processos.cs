@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace LMFinanciamentos.Apresentacao
 {
-    public partial class Form_Cadastro_Documentos : Form
+    public partial class Form_Cadastro_Processos : Form
     {
 
         bool bPopCombo, cadastrar;
@@ -21,7 +21,7 @@ namespace LMFinanciamentos.Apresentacao
         //private int cadastrar = 0;
         //private int newProgressValue;
 
-        public Form_Cadastro_Documentos()
+        public Form_Cadastro_Processos()
         {
             InitializeComponent();
             Control.CheckForIllegalCrossThreadCalls = false;
@@ -84,6 +84,8 @@ namespace LMFinanciamentos.Apresentacao
 
             tabControl.TabPages.Remove(tabcartorio);
             tabControl.TabPages.Remove(tabdoc);
+
+
         }
 
         private void btncloseconf_Click(object sender, EventArgs e)
@@ -179,7 +181,6 @@ namespace LMFinanciamentos.Apresentacao
 
                         idcli = c.Id_cliente;
                         ComboBoxClient.Text = c.Nome_cliente;
-                        //txtnomecli.Text = c.Nome_cliente;
                         txtcpf.Text = c.CPF_cliente;
                         txtrg.Text = c.RG_cliente;
                         txtnasc.Text = c.Nascimento_cliente;
@@ -187,11 +188,6 @@ namespace LMFinanciamentos.Apresentacao
                         txttelefone.Text = c.Telefone_cliente;
                         txtcelular.Text = c.Celular_cliente;
                         txtrenda.Text = c.Renda_cliente;
-                        //txtStatusCPF.Text = c.StatusCPF_cliente;
-                        //txtciweb.Text = c.StatusCiweb_cliente;
-                        //txtcadmut.Text = c.StatusCadmut_cliente;
-                        //txtir.Text = c.StatusIR_cliente;
-                        //txtfgts.Text = c.StatusFGTS_cliente;
                         txtagencia.Text = c.Agencia_cliente;
                         txtcontacliente.Text = c.Conta_cliente;
                         tabControl.Select();
@@ -206,13 +202,12 @@ namespace LMFinanciamentos.Apresentacao
                                                  MessageBoxButtons.YesNo,
                                                  MessageBoxIcon.Question);
 
-                    // If the no button was pressed ...
                     if (result == DialogResult.Yes)
                     {
                         cadastrar = true;
                         ComboBoxClient.Select();
                         ComboBoxClient.Focus();
-                        //MessageBox.Show("Abriu");
+
                         Form_Dados_cliente frm_Cadastro_cliente = new Form_Dados_cliente();
                         frm_Cadastro_cliente.setTextNome(ComboBoxClient.Text);
                         frm_Cadastro_cliente.Show();
@@ -224,10 +219,6 @@ namespace LMFinanciamentos.Apresentacao
                         ComboBoxClient.Select();
                         ComboBoxClient.Focus();
                     }
-
-
-                    //MessageBox.Show("Não foram encontrados registro para:  " + ComboBoxClient.Text + "Deseja Cadastrar o Cliente?");
-
 
                 }
                 else
@@ -246,7 +237,7 @@ namespace LMFinanciamentos.Apresentacao
             }
             else
             {
-                MessageBox.Show("Favor digitar Almenos 3 Caracteres para persquisa");
+                MessageBox.Show("Favor digitar Almenos 3 Caracteres para persquisa","Informe",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 ComboBoxClient.Select();
                 ComboBoxClient.Focus();
             }
@@ -293,20 +284,6 @@ namespace LMFinanciamentos.Apresentacao
                         textemailvendedor.Text = v.Email_vendedor;
                         texttelefonevendedor.Text = v.Telefone_vendedor;
                         textcelularvendedor.Text = v.Celular_vendedor;
-
-                       // txtrg.Text = c.RG_cliente;
-                        //txtnasc.Text = c.Nascimento_cliente;
-
-
-                        
-                        //txtrenda.Text = c.Renda_cliente;
-                        //txtStatusCPF.Text = c.StatusCPF_cliente;
-                        //txtciweb.Text = c.StatusCiweb_cliente;
-                        //txtcadmut.Text = c.StatusCadmut_cliente;
-                        //txtir.Text = c.StatusIR_cliente;
-                        //txtfgts.Text = c.StatusFGTS_cliente;
-
-                       
                         tabControl.Select();
                         tabControl.Focus();
                     }
@@ -493,6 +470,110 @@ namespace LMFinanciamentos.Apresentacao
             //));
             //        backgroundThread.Start();
         }
+
+        private void textnomevendedor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            int chars = textnomevendedor.Text.Length;
+
+            if (chars >= 3)
+            {
+                if (e.KeyChar == (char)Keys.Enter)
+                {
+                    //
+
+                    //btnvendedor_Click(this, EventArgs.Empty);
+                    #region Load Combobox
+                    LoginDaoComandos getcombo = new LoginDaoComandos();
+                    
+                    int numberOfRecords = getcombo.GetDataVendedor().Rows.Count;
+
+                    if(numberOfRecords > 1)
+                    {
+                        bPopCombo = true;
+                    }
+                    else
+                    {
+                        LoginDaoComandos gett = new LoginDaoComandos();
+
+                        Vendedor[] myArray = gett.GetVendedor(textnomevendedor.Text).ToArray();
+                        foreach (Vendedor v in myArray)
+                        {
+
+                            idVendedor = v.Id_vendedor;
+                            textnomevendedor.Text = v.Nome_vendedor;
+                            if (v.CNPJ_vendedor == "")
+                            {
+                                textcnpjcpf.Text = v.CPF_vendedor;
+                            }
+                            else
+                            {
+                                textcnpjcpf.Text = v.CNPJ_vendedor;
+                            }
+
+                            textagenciavendedor.Text = v.Agencia_vendedor;
+                            txtcontavendedor.Text = v.Conta_vendedor;
+                            textemailvendedor.Text = v.Email_vendedor;
+                            texttelefonevendedor.Text = v.Telefone_vendedor;
+                            textcelularvendedor.Text = v.Celular_vendedor;
+                            tabControl.Select();
+                            tabControl.Focus();
+                        }
+                    }
+                    #endregion
+
+
+                }
+            }
+        }
+
+        private void textnomevendedor_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (bPopCombo)
+            {
+                bPopCombo = false;
+                LoginDaoComandos getcombo = new LoginDaoComandos();
+                textnomevendedor.DataSource = getcombo.GetDataVendedor();
+                textnomevendedor.DisplayMember = "Nome";
+                textnomevendedor.ValueMember = "Id";
+                //textnomevendedor.DroppedDown = true;
+                textnomevendedor.DroppedDown = true;
+                
+            }
+
+        }
+
+        private void textnomevendedor_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            var selected = this.textnomevendedor.GetItemText(this.textnomevendedor.SelectedItem);
+            //MessageBox.Show(selected);
+
+            String selecionado = this.textnomevendedor.GetItemText(this.textnomevendedor.SelectedItem);
+
+            LoginDaoComandos gett = new LoginDaoComandos();
+            Vendedor[] myArray = gett.GetVendedor(selecionado).ToArray();
+            foreach (Vendedor v in myArray)
+            {
+                idVendedor = v.Id_vendedor;
+                textnomevendedor.Text = v.Nome_vendedor;
+                if (v.CNPJ_vendedor == "")
+                {
+                    textcnpjcpf.Text = v.CPF_vendedor;
+                }
+                else
+                {
+                    textcnpjcpf.Text = v.CNPJ_vendedor;
+                }
+
+                textagenciavendedor.Text = v.Agencia_vendedor;
+                txtcontavendedor.Text = v.Conta_vendedor;
+                textemailvendedor.Text = v.Email_vendedor;
+                texttelefonevendedor.Text = v.Telefone_vendedor;
+                textcelularvendedor.Text = v.Celular_vendedor;
+                tabControl.Select();
+                tabControl.Focus();
+            }
+        }
+
         private async Task simulateHeavyJobAsync()
         {
             Thread backgroundThread = new Thread(
@@ -550,7 +631,7 @@ namespace LMFinanciamentos.Apresentacao
         private void ComboBoxClient_SelectionChangeCommitted(object sender, EventArgs e)
         {
             var selected = this.ComboBoxClient.GetItemText(this.ComboBoxClient.SelectedItem);
-            MessageBox.Show(selected);
+            //MessageBox.Show(selected);
 
             String selecionado = this.ComboBoxClient.GetItemText(this.ComboBoxClient.SelectedItem);
 
@@ -560,7 +641,6 @@ namespace LMFinanciamentos.Apresentacao
             {
                 idcli = c.Id_cliente;
                 ComboBoxClient.Text = c.Nome_cliente;
-                //txtnomecli.Text = c.Nome_cliente;
                 txtcpf.Text = c.CPF_cliente;
                 txtnasc.Text = c.Nascimento_cliente;
                 txtemail.Text = c.Email_cliente;

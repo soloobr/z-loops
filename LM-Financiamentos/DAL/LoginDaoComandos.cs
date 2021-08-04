@@ -1098,6 +1098,17 @@ namespace LMFinanciamentos.DAL
 
             return dt;
         }
+        public DataTable GetDataVendedor()
+        {
+            cmd.CommandText = "SELECT id, Nome FROM Vendedor ";
+
+            cmd.Connection = con.conectar();
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            con.desconectar();
+
+            return dt;
+        }
         public List<Combobox_Agencia> ComboboxAgencia()
         //public List<string[]> GetListaString()
         {
