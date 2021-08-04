@@ -796,7 +796,7 @@ namespace LMFinanciamentos.DAL
 
                 if (recordsAffected > 0)
                 {
-                    mensagem = "Documento Excluido Com Sucesso";
+                    mensagem = "Documento Excluído com sucesso!";
                     conn.desconectar();
                 }
                 else

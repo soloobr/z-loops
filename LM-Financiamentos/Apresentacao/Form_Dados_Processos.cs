@@ -1291,7 +1291,6 @@ namespace LMFinanciamentos.Apresentacao
             }
             
         }
-
         private void txtrenda_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(Keys.Back))
@@ -1304,41 +1303,41 @@ namespace LMFinanciamentos.Apresentacao
                     e.Handled = true;
             }
         }
-
         private void dataGridView_Arquivos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == dataGridView_Arquivos.Columns["apagar"].Index && e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGridView_Arquivos.Rows[e.RowIndex];
 
-                String iddoc = row.Cells[0].Value.ToString();//.PadLeft(6, '0');
-
+                String iddoc = row.Cells[0].Value.ToString();
                 String extension = row.Cells[7].Value.ToString();
                 String pasta = idProcess;
 
-
-                LoginDaoComandos delete = new LoginDaoComandos();
-
-                delete.DeleteDocumento(iddoc);
-
-
-                #region Deletar arquivo fisico
-                
-                String Excluir = delete.GetServer().ServerFilesPath_Server + @"\" + pasta + @"\"+ idProcess + iddoc+ extension;
-
-                if (File.Exists(Excluir))
+                DialogResult dialogResult = MessageBox.Show("Confima a exclusão do arquivo "+ idProcess+ iddoc+ extension, "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
                 {
-                    File.Delete(Excluir);
-                }
-                else
-                {
-                    MessageBox.Show("Arquivo "+ Excluir + " não encontrado");
-                }
-                
-                
-                #endregion
-                MessageBox.Show(delete.mensagem);
+                    LoginDaoComandos delete = new LoginDaoComandos();
+                    #region Deletar arquivo fisico
 
+                    String Excluir = delete.GetServer().ServerFilesPath_Server + @"\" + pasta + @"\" + idProcess + iddoc + extension;
+
+                    if (File.Exists(Excluir))
+                    {
+                        delete.DeleteDocumento(iddoc);
+                        File.Delete(Excluir);
+                        MessageBox.Show(delete.mensagem, "Excluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("O arquivo " + Excluir + " não foi encontrado! \n Contate o Suporte Técnico!","Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    #endregion
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    return;
+                }
+                #region Load Grid
                 LoginDaoComandos documento = new LoginDaoComandos();
 
                 dataGridView_Arquivos.AutoGenerateColumns = false;
@@ -1346,6 +1345,7 @@ namespace LMFinanciamentos.Apresentacao
                 dataGridView_Arquivos.DataSource = documento.GetDataDocumentos(idProcess);
                 dataGridView_Arquivos.Refresh();
                 txtArquivo.Clear();
+                #endregion
             }
 
             if (e.ColumnIndex == dataGridView_Arquivos.Columns["Baixar"].Index && e.RowIndex >= 0)
@@ -1363,23 +1363,23 @@ namespace LMFinanciamentos.Apresentacao
                     case ".jpeg":
                         sfd.Filter = "JPEG Image(.jpeg)| *.jpeg";
                         break;
-                    case "Aprovado Abaixo":
-                        String Data1 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
-                        lbldataeng.Text = Data1;
-                        lbldataeng.Visible = true;
+                    case ".jpg":
+                        sfd.Filter = "JPG Image(.jpg)| *.jpg";
                         break;
                     case ".png":
                         sfd.Filter = "Png Image(.png)| *.png";
                         break;
-                    case "Contestação":
-                        String Data3 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
-                        lbldataeng.Text = Data3;
-                        lbldataeng.Visible = true;
+                    case ".doc":
+                        sfd.Filter =  "Word Documents|*.doc";
                         break;
-                    case "Solicitado":
-                        String Data4 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
-                        lbldataeng.Text = Data4;
-                        lbldataeng.Visible = true;
+                    case ".docx":
+                        sfd.Filter = "Word Documents|*.docx";
+                        break;
+                    case ".xlsx":
+                        sfd.Filter = "Excel Worksheets|*.xlsx";
+                        break;
+                    case ".xls":
+                        sfd.Filter = "Excel Worksheets|*.xls";
                         break;
                     default:
                         sfd.Filter = "All files (*.*)|*.*";
@@ -1387,61 +1387,31 @@ namespace LMFinanciamentos.Apresentacao
                 }
                 #endregion
 
-                sfd.Filter = "PDF document (*.pdf)|*.pdf| All files (*.*)|*.*";
-                string sfdname = saveFileDialog1.FileName;
+                //sfd.Filter = "PDF document (*.pdf)|*.pdf| All files (*.*)|*.*";
+                //string sfdname = saveFileDialog1.FileName;
                 sfd.Title = "Salvar Arquivo";
                 sfd.FileName = idProcess + row.Cells[0].Value.ToString().PadLeft(2, '0') + row.Cells[7].Value.ToString(); //"Mac_" + DateTime.Now.ToString("ddMMyyyy_HHmmss");
                 sfd.RestoreDirectory = true;
 
                 String Filedownload = Local + @"\" + idProcess+@"\"+ sfd.FileName;
-                MessageBox.Show(Filedownload);
+                //MessageBox.Show(Filedownload);
 
-                if (sfd.ShowDialog() == DialogResult.OK)
+                if (File.Exists(Filedownload))
                 {
-                    Download(Filedownload, Path.GetFullPath(sfd.FileName));
+                    if (sfd.ShowDialog() == DialogResult.OK)
+                    {
+                        Download(Filedownload, Path.GetFullPath(sfd.FileName));
+                        MessageBox.Show("Arquivo Salvo!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+
                 }
-
-                //define o titulo
-                
-                //Define as extensões permitidas
-                //saveFileDialog1.Filter = "Text File|.txt";
-                //define o indice do filtro
-                //saveFileDialog1.FilterIndex = 0;
-                //Atribui um valor vazio ao nome do arquivo
-                
-                //Define a extensão padrão como .txt
-                //saveFileDialog1.DefaultExt = ".txt";
-                //define o diretório padrão
-                //saveFileDialog1.InitialDirectory = @"c:\dados";
-                //restaura o diretorio atual antes de fechar a janela
-                
-
-                ////Abre a caixa de dialogo e determina qual botão foi pressionado
-                //DialogResult resultado = saveFileDialog1.ShowDialog();
-
-                ////Se o ousuário pressionar o botão Salvar
-                //if (resultado == DialogResult.OK)
-                //{
-                //    ////Cria um stream usando o nome do arquivo
-                //    //FileStream fs = new FileStream(saveFileDialog1.FileName, FileMode.Create);
-
-                //    ////Cria um escrito que irá escrever no stream
-                //    //StreamWriter writer = new StreamWriter(fs);
-                //    ////escreve o conteúdo da caixa de texto no stream
-                //    //writer.Write(@"D:\psexec\LM\0002\000233.pdf");
-                //    ////fecha o escrito e o stream
-                //    //writer.Close();
-                //    //downloadFile(@"D:\psexec\LM\0002\000233.pdf");
-                //    //Download(@"D:\psexec\LM\0002\000233.pdf,");
-                //}
-                //else
-                //{
-                //    //exibe mensagem informando que a operação foi cancelada
-                //    MessageBox.Show("Operação cancelada");
-                //}
+                else
+                {
+                    MessageBox.Show("Arquivo não encontrado \n Contate o Suporte Técnico!","Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
-
         public void Download(string remoteUri, String folderdestino)
         {
             //string FilePath = Directory.GetCurrentDirectory() + "/tepdownload/" + Path.GetFileName(remoteUri); // path where download file to be saved, with filename, here I have taken file name from supplied remote url
@@ -1514,13 +1484,11 @@ namespace LMFinanciamentos.Apresentacao
             txtrenda.Text = string.Format("{0:C}", Convert.ToDouble(valor));
             txtrenda.Select(txtrenda.Text.Length, 0);
         }
-
         private void txtrenda_Leave(object sender, EventArgs e)
         {
             valor = txtrenda.Text.Replace("R$", "");
             txtrenda.Text = string.Format("{0:C}", Convert.ToDouble(valor));
         }
-
         private void btnenviar_Click(object sender, EventArgs e)
         {
             if(comboBox_nomecartorio.Text == "")
@@ -1576,7 +1544,6 @@ namespace LMFinanciamentos.Apresentacao
 
 
         }
-
         private void btnSelecionarArquivos_Click(object sender, EventArgs e)
         {
             //define as propriedades do controle 
@@ -1635,7 +1602,6 @@ namespace LMFinanciamentos.Apresentacao
                 }
             }
         }
-
         private void btnAnexar_Click(object sender, EventArgs e)
         {
             if(txtArquivo.Text == "")
@@ -1661,7 +1627,15 @@ namespace LMFinanciamentos.Apresentacao
 
                         LoginDaoComandos enviar = new LoginDaoComandos();
 
-                        descArquivo = comboBox_tipoArquivo.Text + " do Cliente";
+                        if(txtdescricao.Text == "")
+                        {
+                            descArquivo = comboBox_tipoArquivo.Text + " do Cliente";
+                        }
+                        else
+                        {
+                            descArquivo = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtdescricao.Text.ToLower());
+                        }
+                        
                         String stipo = comboBox_tipoArquivo.Text;
                         numArquivo = idProcess + count.ToString().PadLeft(2, '0');
                         statusArquivo = "Local";
@@ -1695,6 +1669,7 @@ namespace LMFinanciamentos.Apresentacao
 
                         RenameFile(curFile, NewFile);
 
+                        MessageBox.Show("Arquivo Anexado!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         #endregion
 
                         #region  Load Grid
@@ -1705,8 +1680,14 @@ namespace LMFinanciamentos.Apresentacao
                         //dataGridView_Arquivos.Columns["Numero"].DefaultCellStyle.Format = "D6";
                         dataGridView_Arquivos.DataSource = documento.GetDataDocumentos(idProcess);
                         dataGridView_Arquivos.Refresh();
+                        dataGridView_Arquivos.ClearSelection();
+                        int nRowIndex = dataGridView_Arquivos.Rows.Count - 1;
+                        dataGridView_Arquivos.Rows[nRowIndex].Selected = true;
+                        dataGridView_Arquivos.Rows[nRowIndex].Cells[0].Selected = true;
+
                         txtArquivo.Clear();
                         comboBox_tipoArquivo.Text = "";
+                        txtdescricao.Clear();
 
                         #endregion
 
@@ -1798,7 +1779,6 @@ namespace LMFinanciamentos.Apresentacao
                 MessageBox.Show("Incomplete data!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         public void RenameFile(string originalName, string newName)
         {
             File.Move(originalName, newName);
@@ -1847,17 +1827,14 @@ namespace LMFinanciamentos.Apresentacao
             
            
         }
-
         private void tabControl_Selected(object sender, TabControlEventArgs e)
         {
 
         }
-
         private void txt_valor_TextChanged(object sender, EventArgs e)
         {
             //label31.Text = tft.showText(txt_valor.Text);
         }
-
         private void comboBox_SIOPI_SelectionChangeCommitted(object sender, EventArgs e)
         {
             lbldatasiopi.Text = "";
@@ -1880,7 +1857,6 @@ namespace LMFinanciamentos.Apresentacao
                     break;
             }
         }
-
         private void comboBox_SICTD_SelectionChangeCommitted(object sender, EventArgs e)
         {
             lbldatasictd.Text = "";
@@ -1903,7 +1879,6 @@ namespace LMFinanciamentos.Apresentacao
                     break;
             }
         }
-
         private void comboBox_saque_SelectionChangeCommitted(object sender, EventArgs e)
         {
             lbldatasaquefgts.Text = "";
@@ -1931,7 +1906,6 @@ namespace LMFinanciamentos.Apresentacao
                     break;
              }
         }
-
         private void comboBox_PA_SelectionChangeCommitted(object sender, EventArgs e)
         {
             lbldatapa.Text = "";
@@ -1954,27 +1928,22 @@ namespace LMFinanciamentos.Apresentacao
                     break;
             }
         }
-
         private void panel12_Paint(object sender, PaintEventArgs e)
         {
 
         }
-
         private void panel33_Paint(object sender, PaintEventArgs e)
         {
 
         }
-
         private void label54_Click(object sender, EventArgs e)
         {
 
         }
-
         private void txtStatusCPF_SelectedValueChanged(object sender, EventArgs e)
         {
             
         }
-
         private void txtStatusCPF_SelectionChangeCommitted(object sender, EventArgs e)
         {
 
@@ -2015,7 +1984,6 @@ namespace LMFinanciamentos.Apresentacao
                     break;
             }
         }
-
         private void txtciweb_SelectionChangeCommitted(object sender, EventArgs e)
         {
             lbldataciweb.Text = "";
@@ -2055,9 +2023,6 @@ namespace LMFinanciamentos.Apresentacao
                     //    break;
             }
         }
-
-
-
         private void txtir_SelectionChangeCommitted(object sender, EventArgs e)
         {
             lbldatair.Text = "";
@@ -2096,7 +2061,6 @@ namespace LMFinanciamentos.Apresentacao
                 //    break;
             }
         }
-
         private void txtfgts_SelectionChangeCommitted(object sender, EventArgs e)
         {
             lbldatafgts.Text = "";
@@ -2135,7 +2099,6 @@ namespace LMFinanciamentos.Apresentacao
                 //    break;
             }
         }
-
         private void txtcadmut_SelectionChangeCommitted(object sender, EventArgs e)
         {
             lbldatacadmut.Text = "";
@@ -2169,12 +2132,9 @@ namespace LMFinanciamentos.Apresentacao
 
             }
         }
-
         private void label35_Click(object sender, EventArgs e)
         {
 
         }
-
-  
     }
 }
