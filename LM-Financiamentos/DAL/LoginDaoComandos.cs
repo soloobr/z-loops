@@ -572,7 +572,7 @@ namespace LMFinanciamentos.DAL
         {
             var list = new List<Vendedor>();
 
-            cmd2.CommandText = "SELECT Vendedor.id as id, Nome, Email, Telefone, Celular, CPF, CNPJ, Conta.Agencia, Conta.Conta FROM Vendedor Left join Conta on Vendedor.id = Conta.idcliente WHERE Nome LIKE @nomeclientes and Conta.Tipo = @tipo";
+            cmd2.CommandText = "SELECT Vendedor.id as id, Nome, Email, Telefone, Celular, CPF, CNPJ, Conta.Agencia, Conta.Conta FROM Vendedor Left join Conta on Vendedor.id = Conta.idcliente and Conta.Tipo = @tipo WHERE Nome LIKE @nomeclientes ";
             cmd2.Parameters.Clear();
             cmd2.Parameters.AddWithValue("@nomeclientes", "%" + nome + "%");
             cmd2.Parameters.AddWithValue("@tipo", "V");
@@ -663,20 +663,23 @@ namespace LMFinanciamentos.DAL
             }
             return listdoc;
         }
-        public String CriarProcesso(String idCliente, String idVendedor, String idresponsavel, String idCorretora, String idCorretor, String status)
+        public String CriarProcesso(String idCliente, String idVendedor, String idresponsavel, String idCorretora, String idCorretor, String idempreendimentos, String ValorImovel, String ValorFinanciado, String status)
         {
 
             try
             {
 
-                cmd1.CommandText = "INSERT INTO Processos (idCliente, idVendedor, idresponsavel, idCorretora, idCorretor, Data, Status) VALUES " +
-                "(@idCliente, @idVendedor, @idresponsavel, @idCorretora, @idCorretor, @Data, @Status) ";
+                cmd1.CommandText = "INSERT INTO Processos (idCliente, idVendedor, idresponsavel, idCorretora, idCorretor, idEmpreendimento, ValorImovel, ValorFinanciado, Data, Status) VALUES " +
+                "(@idCliente, @idVendedor, @idresponsavel, @idCorretora, @idCorretor, @idempreendimentos,@ValorImovel, @ValorFinanciado, @Data, @Status) ";
 
                 cmd1.Parameters.AddWithValue("@idCliente", idCliente);
                 cmd1.Parameters.AddWithValue("@idVendedor", idVendedor);
                 cmd1.Parameters.AddWithValue("@idresponsavel", idresponsavel);
                 cmd1.Parameters.AddWithValue("@idCorretora", idCorretora);
                 cmd1.Parameters.AddWithValue("@idCorretor", idCorretor);
+                cmd1.Parameters.AddWithValue("@idempreendimentos", idempreendimentos);
+                cmd1.Parameters.AddWithValue("@ValorImovel", ValorImovel);
+                cmd1.Parameters.AddWithValue("@ValorFinanciado", ValorFinanciado);
                 cmd1.Parameters.AddWithValue("@Data", DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
                 cmd1.Parameters.AddWithValue("@Status", status);
 
@@ -1065,7 +1068,6 @@ namespace LMFinanciamentos.DAL
             cmd.CommandText = "SELECT id, Nome FROM Corretores ";
 
             cmd.Connection = con.conectar();
-            //drprocessos = cmd.ExecuteReader(CommandBehavior.CloseConnection);
 
             DataTable dt = new DataTable();
             dt.Load(cmd.ExecuteReader());
@@ -1098,9 +1100,11 @@ namespace LMFinanciamentos.DAL
 
             return dt;
         }
-        public DataTable GetDataVendedor()
+        public DataTable GetDataVendedor(String nome)
         {
-            cmd.CommandText = "SELECT id, Nome FROM Vendedor ";
+            cmd.CommandText = "SELECT id, Nome, CPF, CNPJ, Agencia, Conta, Email, Telefone, Celular  FROM Vendedor Where (Nome Like @nomevendedor)";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@nomevendedor", "%" + nome + "%");
 
             cmd.Connection = con.conectar();
             DataTable dt = new DataTable();
@@ -1153,9 +1157,9 @@ namespace LMFinanciamentos.DAL
 
         public void autoCompletarVendedor(ComboBox novoText, String nome)
         {
-            cmd2.CommandText = "SELECT Nome FROM Vendedor WHERE Nome LIKE @nomeclientes";
+            cmd2.CommandText = "SELECT Nome FROM Vendedor WHERE Nome LIKE @nomevendedor";
             cmd2.Parameters.Clear();
-            cmd2.Parameters.AddWithValue("@nomeclientes", "%" + nome + "%");
+            cmd2.Parameters.AddWithValue("@nomevendedor", "%" + nome + "%");
 
 
 

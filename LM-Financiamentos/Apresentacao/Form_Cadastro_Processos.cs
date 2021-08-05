@@ -4,6 +4,7 @@ using LMFinanciamentos.Entidades;
 using LMFinanciamentos.Modelo;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Threading;
@@ -17,7 +18,7 @@ namespace LMFinanciamentos.Apresentacao
 
         bool bPopCombo, cadastrar;
 
-        string idcli, idVendedor, idresponsavel, idCorretora, idCorretor, Status;
+        string idcli, idVendedor, idresponsavel, idCorretora, idCorretor, idempreendimentos, Status, valor, svalorimovel, svalorfinanciado;
         //private int cadastrar = 0;
         //private int newProgressValue;
 
@@ -72,8 +73,8 @@ namespace LMFinanciamentos.Apresentacao
             //var btn = new Button();
 
             idresponsavel = "1";
-            idCorretora = "1";
-            idCorretor = "1";
+            //idCorretora = "1";
+            //idCorretor = "1";
             Status = "Lançado";
 
             ComboBoxClient.Text = "";
@@ -84,6 +85,74 @@ namespace LMFinanciamentos.Apresentacao
 
             tabControl.TabPages.Remove(tabcartorio);
             tabControl.TabPages.Remove(tabdoc);
+
+            #region Valor Imovel
+            valor = valorimovel.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+            if (valor.Length == 0)
+            {
+                valorimovel.Text = "0,00" + valor;
+            }
+            if (valor.Length == 1)
+            {
+                valorimovel.Text = "0,0" + valor;
+            }
+            if (valor.Length == 2)
+            {
+                valorimovel.Text = "0," + valor;
+            }
+            else if (valor.Length >= 3)
+            {
+                if (valorimovel.Text.StartsWith("0,"))
+                {
+                    valorimovel.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
+                }
+                else if (valorimovel.Text.Contains("00,"))
+                {
+                    valorimovel.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
+                }
+                else
+                {
+                    valorimovel.Text = valor.Insert(valor.Length - 2, ",");
+                }
+            }
+            valor = valorimovel.Text;
+            valorimovel.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            valorimovel.Select(valorimovel.Text.Length, 0);
+            #endregion
+
+            #region Valor Financiado
+            valor = valorfinanciado.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+            if (valor.Length == 0)
+            {
+                valorfinanciado.Text = "0,00" + valor;
+            }
+            if (valor.Length == 1)
+            {
+                valorfinanciado.Text = "0,0" + valor;
+            }
+            if (valor.Length == 2)
+            {
+                valorfinanciado.Text = "0," + valor;
+            }
+            else if (valor.Length >= 3)
+            {
+                if (valorfinanciado.Text.StartsWith("0,"))
+                {
+                    valorfinanciado.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
+                }
+                else if (valorfinanciado.Text.Contains("00,"))
+                {
+                    valorfinanciado.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
+                }
+                else
+                {
+                    valorfinanciado.Text = valor.Insert(valor.Length - 2, ",");
+                }
+            }
+            valor = valorfinanciado.Text;
+            valorfinanciado.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            valorfinanciado.Select(valorfinanciado.Text.Length, 0);
+            #endregion
 
 
         }
@@ -112,9 +181,11 @@ namespace LMFinanciamentos.Apresentacao
                 switch (cadastrar)
                 {
                     case false:
+                        svalorimovel = valorimovel.Text.Replace("R$", "").Replace(".", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+                        svalorfinanciado = valorfinanciado.Text.Replace("R$", "").Replace(".", "").Replace(",", "").Replace(" ", "").Replace("00,", ""); ;
                         LoginDaoComandos criarprocesso = new LoginDaoComandos();
-                        criarprocesso.CriarProcesso(idcli, idVendedor, idresponsavel, idCorretora, idCorretor, Status);
-                        MessageBox.Show(criarprocesso.mensagem);
+                        criarprocesso.CriarProcesso(idcli, idVendedor, idresponsavel, idCorretora, idCorretor, idempreendimentos, svalorimovel, svalorfinanciado, Status);
+                        MessageBox.Show(criarprocesso.mensagem,"Salvar",MessageBoxButtons.OK,MessageBoxIcon.Information);
                         if (ProcessoSalvo != null)
                             ProcessoSalvo.Invoke();
                         Close();
@@ -175,6 +246,7 @@ namespace LMFinanciamentos.Apresentacao
 
                 if (cont == 1)
                 {
+                    bPopCombo = false;
                     Cliente[] myArray = gett.GetClientes(ComboBoxClient.Text).ToArray();
                     foreach (Cliente c in myArray)
                     {
@@ -218,6 +290,7 @@ namespace LMFinanciamentos.Apresentacao
                         LimparCampos();
                         ComboBoxClient.Select();
                         ComboBoxClient.Focus();
+                        bPopCombo = false;
                     }
 
                 }
@@ -247,7 +320,7 @@ namespace LMFinanciamentos.Apresentacao
         
         private async void btnvendedor_Click(object sender, EventArgs e)
         {
-
+            
             //backgroundWorker.RunWorkerAsync();
 
             int chars = textnomevendedor.Text.Length;
@@ -264,6 +337,7 @@ namespace LMFinanciamentos.Apresentacao
 
                 if (cont == 1)
                 {
+                    bPopCombo = false;
                     Vendedor[] myArray = gett.GetVendedor(textnomevendedor.Text).ToArray();
                     foreach (Vendedor v in myArray)
                     {
@@ -473,56 +547,10 @@ namespace LMFinanciamentos.Apresentacao
 
         private void textnomevendedor_KeyPress(object sender, KeyPressEventArgs e)
         {
-            int chars = textnomevendedor.Text.Length;
-
-            if (chars >= 3)
+            if (e.KeyChar == (char)Keys.Enter)
             {
-                if (e.KeyChar == (char)Keys.Enter)
-                {
-                    //
-
-                    //btnvendedor_Click(this, EventArgs.Empty);
-                    #region Load Combobox
-                    LoginDaoComandos getcombo = new LoginDaoComandos();
-                    
-                    int numberOfRecords = getcombo.GetDataVendedor().Rows.Count;
-
-                    if(numberOfRecords > 1)
-                    {
-                        bPopCombo = true;
-                    }
-                    else
-                    {
-                        LoginDaoComandos gett = new LoginDaoComandos();
-
-                        Vendedor[] myArray = gett.GetVendedor(textnomevendedor.Text).ToArray();
-                        foreach (Vendedor v in myArray)
-                        {
-
-                            idVendedor = v.Id_vendedor;
-                            textnomevendedor.Text = v.Nome_vendedor;
-                            if (v.CNPJ_vendedor == "")
-                            {
-                                textcnpjcpf.Text = v.CPF_vendedor;
-                            }
-                            else
-                            {
-                                textcnpjcpf.Text = v.CNPJ_vendedor;
-                            }
-
-                            textagenciavendedor.Text = v.Agencia_vendedor;
-                            txtcontavendedor.Text = v.Conta_vendedor;
-                            textemailvendedor.Text = v.Email_vendedor;
-                            texttelefonevendedor.Text = v.Telefone_vendedor;
-                            textcelularvendedor.Text = v.Celular_vendedor;
-                            tabControl.Select();
-                            tabControl.Focus();
-                        }
-                    }
-                    #endregion
-
-
-                }
+                bPopCombo = true;
+                btnvendedor_Click(this, EventArgs.Empty);
             }
         }
 
@@ -530,16 +558,9 @@ namespace LMFinanciamentos.Apresentacao
         {
             if (bPopCombo)
             {
-                bPopCombo = false;
-                LoginDaoComandos getcombo = new LoginDaoComandos();
-                textnomevendedor.DataSource = getcombo.GetDataVendedor();
-                textnomevendedor.DisplayMember = "Nome";
-                textnomevendedor.ValueMember = "Id";
-                //textnomevendedor.DroppedDown = true;
                 textnomevendedor.DroppedDown = true;
-                
+                bPopCombo = false;
             }
-
         }
 
         private void textnomevendedor_SelectionChangeCommitted(object sender, EventArgs e)
@@ -572,6 +593,316 @@ namespace LMFinanciamentos.Apresentacao
                 tabControl.Select();
                 tabControl.Focus();
             }
+        }
+
+        private void ComboBoxClient_KeyDown(object sender, KeyEventArgs e)
+        {
+           
+        }
+
+        private void textnomevendedor_KeyDown(object sender, KeyEventArgs e)
+        {
+            //int chars = textnomevendedor.Text.Length;
+
+            //if (chars >= 3)
+            //{
+            //    if (e.KeyCode == Keys.Enter)
+            //    //if (e.KeyChar == (char)Keys.Enter)
+            //    {
+            //        //btnvendedor_Click(this, EventArgs.Empty);
+
+            //        #region Load Combobox
+            //        LoginDaoComandos getcombo = new LoginDaoComandos();
+
+            //        int numberOfRecords = getcombo.GetDataVendedor(textnomevendedor.Text).Rows.Count;
+
+            //        if (numberOfRecords > 1)
+            //        {
+            //            bPopCombo = true;
+            //        }
+            //        else if (numberOfRecords == 1)
+            //        {
+            //            bPopCombo = false;
+            //            ///                   MessageBox.Show(" = 1");
+            //        }
+            //        else
+            //        {
+            //            MessageBox.Show("não encontrado clientes");
+            //            return;
+            //        }
+            //        #endregion
+
+
+            //    }
+            //}
+        }
+
+        private void valorproduto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(Keys.Back))
+            {
+                if (e.KeyChar == ',')
+                {
+                    e.Handled = (valorimovel.Text.Contains(","));
+                }
+                else
+                    e.Handled = true;
+            }
+        }
+
+        private void valorproduto_Leave(object sender, EventArgs e)
+        {
+            valor = valorimovel.Text.Replace("R$", "");
+            valorimovel.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+        }
+
+        private void valorfinanciado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(Keys.Back))
+            {
+                if (e.KeyChar == ',')
+                {
+                    e.Handled = (valorfinanciado.Text.Contains(","));
+                }
+                else
+                    e.Handled = true;
+            }
+        }
+
+        private void valorfinanciado_KeyUp(object sender, KeyEventArgs e)
+        {
+            valor = valorfinanciado.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+            if (valor.Length == 0)
+            {
+                valorfinanciado.Text = "0,00" + valor;
+            }
+            if (valor.Length == 1)
+            {
+                valorfinanciado.Text = "0,0" + valor;
+            }
+            if (valor.Length == 2)
+            {
+                valorfinanciado.Text = "0," + valor;
+            }
+            else if (valor.Length >= 3)
+            {
+                if (valorfinanciado.Text.StartsWith("0,"))
+                {
+                    valorfinanciado.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
+                }
+                else if (valorfinanciado.Text.Contains("00,"))
+                {
+                    valorfinanciado.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
+                }
+                else
+                {
+                    valorfinanciado.Text = valor.Insert(valor.Length - 2, ",");
+                }
+            }
+            valor = valorfinanciado.Text;
+            valorfinanciado.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            valorfinanciado.Select(valorfinanciado.Text.Length, 0);
+        }
+
+        private void valorfinanciado_Leave(object sender, EventArgs e)
+        {
+            valor = valorfinanciado.Text.Replace("R$", "");
+            valorfinanciado.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+        }
+
+        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl.SelectedTab == tabControl.TabPages["tabimovel"])//your specific tabname
+            {
+
+            }
+        }
+
+        private void comboBox_agencia_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox_agencia_MouseClick(object sender, MouseEventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            if (comboBox_agencia.DataSource is null )
+            {
+                comboBox_agencia.IntegralHeight = false;
+                LoginDaoComandos gettpross = new LoginDaoComandos();
+                #region Popular combobox
+                comboBox_agencia.DataSource = gettpross.GetDataAgencia();
+                comboBox_agencia.DisplayMember = "Agencia";
+                comboBox_agencia.ValueMember = "Id";
+                //comboBox_agencia.Text = "";
+                #endregion
+
+                comboBox_agencia.DroppedDown = true;
+                Cursor = Cursors.Default;
+            }
+            else
+            {
+                Cursor = Cursors.Default;
+            }
+           
+        }
+
+        private void comboBox_programa_MouseClick(object sender, MouseEventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            if (comboBox_programa.DataSource is null)
+            {
+                txtcorretora.IntegralHeight = false;
+                LoginDaoComandos gettpross = new LoginDaoComandos();
+                #region Popular combobox
+                comboBox_programa.DataSource = gettpross.GetDataPrograma();
+                comboBox_programa.DisplayMember = "Descricao";
+                comboBox_programa.ValueMember = "Id";
+                //comboBox_agencia.Text = "";
+                #endregion
+                comboBox_programa.DroppedDown = true;
+                Cursor = Cursors.Default;
+            }
+            else
+            {
+                Cursor = Cursors.Default;
+            }
+        }
+
+        private void comboBox_programa_DataSourceChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox_programa_DisplayMemberChanged(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void comboBox_agencia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtcorretora_MouseClick(object sender, MouseEventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            if (txtcorretora.DataSource is null)
+            {
+                txtcorretora.IntegralHeight = false;
+                LoginDaoComandos gettpross = new LoginDaoComandos();
+                #region Popular combobox
+                txtcorretora.DataSource = gettpross.GetDataCorretora();
+                txtcorretora.DisplayMember = "Descricao";
+                txtcorretora.ValueMember = "Id";
+                //txtcorretora.Text = "";
+                #endregion
+
+                txtcorretora.DroppedDown = true;
+                Cursor = Cursors.Default;
+            }
+            else
+            {
+                Cursor = Cursors.Default;
+            }
+        }
+
+        private void comboBox_corretor_MouseClick(object sender, MouseEventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            if (comboBox_corretor.DataSource is null)
+            {
+                comboBox_corretor.IntegralHeight = false;
+                LoginDaoComandos gettpross = new LoginDaoComandos();
+                #region Popular combobox
+                comboBox_corretor.DataSource = gettpross.GetDataCorretores ();
+                comboBox_corretor.DisplayMember = "Nome";
+                comboBox_corretor.ValueMember = "Id";
+                //comboBox_corretor.Text = "";
+                #endregion
+
+                comboBox_corretor.DroppedDown = true;
+                Cursor = Cursors.Default;
+            }
+            else
+            {
+                Cursor = Cursors.Default;
+            }
+        }
+
+        private void comboBox_empreendimentos_MouseClick(object sender, MouseEventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            if (comboBox_empreendimentos.DataSource is null)
+            {
+                comboBox_empreendimentos.IntegralHeight = false;
+                LoginDaoComandos gettpross = new LoginDaoComandos();
+                #region Popular combobox
+                comboBox_empreendimentos.DataSource = gettpross.GetDataEmpreendimentos();
+                comboBox_empreendimentos.DisplayMember = "Descricao";
+                comboBox_empreendimentos.ValueMember = "Id";
+                comboBox_empreendimentos.MaxDropDownItems = 10;
+                //comboBox_empreendimentos.Text = "";
+                #endregion
+
+                comboBox_empreendimentos.DroppedDown = true;
+                Cursor = Cursors.Default;
+            }
+            else
+            {
+                Cursor = Cursors.Default;
+            }
+        }
+
+        private void txtcorretora_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            idCorretora = txtcorretora.SelectedValue.ToString();
+        }
+
+        private void comboBox_empreendimentos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            idempreendimentos = comboBox_empreendimentos.SelectedValue.ToString();
+        }
+
+        private void comboBox_corretor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            idCorretor = comboBox_corretor.SelectedValue.ToString();
+        }
+
+        private void valorproduto_KeyUp(object sender, KeyEventArgs e)
+        {
+            valor = valorimovel.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+            if (valor.Length == 0)
+            {
+                valorimovel.Text = "0,00" + valor;
+            }
+            if (valor.Length == 1)
+            {
+                valorimovel.Text = "0,0" + valor;
+            }
+            if (valor.Length == 2)
+            {
+                valorimovel.Text = "0," + valor;
+            }
+            else if (valor.Length >= 3)
+            {
+                if (valorimovel.Text.StartsWith("0,"))
+                {
+                    valorimovel.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
+                }
+                else if (valorimovel.Text.Contains("00,"))
+                {
+                    valorimovel.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
+                }
+                else
+                {
+                    valorimovel.Text = valor.Insert(valor.Length - 2, ",");
+                }
+            }
+            valor = valorimovel.Text;
+            valorimovel.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            valorimovel.Select(valorimovel.Text.Length, 0);
         }
 
         private async Task simulateHeavyJobAsync()
