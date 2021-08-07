@@ -6,14 +6,17 @@ namespace LMFinanciamentos.Apresentacao
 {
     public partial class Form_Dados_cliente : Form
     {
-        String sexo, status;
+        String sexo, status, idCliente;
         
         
         public Form_Dados_cliente()
         {
             InitializeComponent();
         }
-
+        public void setIdCliente(string idprocesso)
+        {
+            idCliente = idprocesso.PadLeft(4, '0');
+        }
         public void setTextNome(String sNome)
         {
             txtnomecli.Text = sNome;

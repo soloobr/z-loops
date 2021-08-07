@@ -29,36 +29,35 @@ namespace LMFinanciamentos.Apresentacao
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Controle_cliente));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Controle_cliente));
             this.panelcentralcadcli = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dgv_process = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Funcionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Corretora = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Corretor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlcontrol = new System.Windows.Forms.Panel();
             this.lblprocurar = new System.Windows.Forms.Label();
             this.btnprocurar = new System.Windows.Forms.Button();
             this.txtprocurar = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_salvar = new System.Windows.Forms.Button();
+            this.btn_new_client = new System.Windows.Forms.Button();
             this.btnclosecli = new System.Windows.Forms.Button();
             this.paneltop = new System.Windows.Forms.Panel();
             this.lbl_topo = new System.Windows.Forms.Label();
             this.img_topo = new System.Windows.Forms.PictureBox();
+            this.dgv_clientes = new System.Windows.Forms.DataGridView();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Celular = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelcentralcadcli.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_process)).BeginInit();
             this.pnlcontrol.SuspendLayout();
             this.panel1.SuspendLayout();
             this.paneltop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_clientes)).BeginInit();
             this.SuspendLayout();
             // 
             // panelcentralcadcli
@@ -74,106 +73,13 @@ namespace LMFinanciamentos.Apresentacao
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dgv_process);
+            this.panel2.Controls.Add(this.dgv_clientes);
             this.panel2.Controls.Add(this.pnlcontrol);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 57);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(979, 508);
             this.panel2.TabIndex = 9;
-            // 
-            // dgv_process
-            // 
-            this.dgv_process.AllowUserToAddRows = false;
-            this.dgv_process.AllowUserToDeleteRows = false;
-            this.dgv_process.AllowUserToOrderColumns = true;
-            this.dgv_process.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_process.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgv_process.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgv_process.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgv_process.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgv_process.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_process.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv_process.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_process.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
-            this.Cliente,
-            this.Data,
-            this.Funcionario,
-            this.Corretora,
-            this.Corretor});
-            this.dgv_process.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_process.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgv_process.GridColor = System.Drawing.SystemColors.Control;
-            this.dgv_process.Location = new System.Drawing.Point(0, 138);
-            this.dgv_process.MultiSelect = false;
-            this.dgv_process.Name = "dgv_process";
-            this.dgv_process.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_process.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.NullValue = " - ";
-            this.dgv_process.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgv_process.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_process.Size = new System.Drawing.Size(979, 370);
-            this.dgv_process.TabIndex = 12;
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id_processo";
-            this.Id.HeaderText = "Nº Processo";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            // 
-            // Cliente
-            // 
-            this.Cliente.DataPropertyName = "Nome_cliente";
-            this.Cliente.HeaderText = "Cliente";
-            this.Cliente.Name = "Cliente";
-            this.Cliente.ReadOnly = true;
-            // 
-            // Data
-            // 
-            this.Data.DataPropertyName = "Data_processo";
-            this.Data.HeaderText = "Data";
-            this.Data.Name = "Data";
-            this.Data.ReadOnly = true;
-            // 
-            // Funcionario
-            // 
-            this.Funcionario.DataPropertyName = "Nome_responsavel";
-            this.Funcionario.HeaderText = "Funcionário";
-            this.Funcionario.Name = "Funcionario";
-            this.Funcionario.ReadOnly = true;
-            // 
-            // Corretora
-            // 
-            this.Corretora.DataPropertyName = "Descricao_corretora";
-            this.Corretora.HeaderText = "Corretora";
-            this.Corretora.Name = "Corretora";
-            this.Corretora.ReadOnly = true;
-            // 
-            // Corretor
-            // 
-            this.Corretor.DataPropertyName = "Nome_corretor";
-            this.Corretor.HeaderText = "Corretor";
-            this.Corretor.Name = "Corretor";
-            this.Corretor.ReadOnly = true;
             // 
             // pnlcontrol
             // 
@@ -224,7 +130,7 @@ namespace LMFinanciamentos.Apresentacao
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.panel1.Controls.Add(this.btn_salvar);
+            this.panel1.Controls.Add(this.btn_new_client);
             this.panel1.Controls.Add(this.btnclosecli);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 565);
@@ -233,23 +139,23 @@ namespace LMFinanciamentos.Apresentacao
             this.panel1.Size = new System.Drawing.Size(979, 52);
             this.panel1.TabIndex = 8;
             // 
-            // btn_salvar
+            // btn_new_client
             // 
-            this.btn_salvar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.btn_salvar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btn_salvar.FlatAppearance.BorderSize = 0;
-            this.btn_salvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_salvar.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_salvar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_salvar.Location = new System.Drawing.Point(10, 10);
-            this.btn_salvar.Name = "btn_salvar";
-            this.btn_salvar.Padding = new System.Windows.Forms.Padding(4);
-            this.btn_salvar.Size = new System.Drawing.Size(104, 32);
-            this.btn_salvar.TabIndex = 19;
-            this.btn_salvar.Text = "Novo";
-            this.btn_salvar.UseCompatibleTextRendering = true;
-            this.btn_salvar.UseVisualStyleBackColor = false;
-            this.btn_salvar.Click += new System.EventHandler(this.btn_salvar_Click);
+            this.btn_new_client.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.btn_new_client.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_new_client.FlatAppearance.BorderSize = 0;
+            this.btn_new_client.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_new_client.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_new_client.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_new_client.Location = new System.Drawing.Point(10, 10);
+            this.btn_new_client.Name = "btn_new_client";
+            this.btn_new_client.Padding = new System.Windows.Forms.Padding(4);
+            this.btn_new_client.Size = new System.Drawing.Size(104, 32);
+            this.btn_new_client.TabIndex = 19;
+            this.btn_new_client.Text = "Novo";
+            this.btn_new_client.UseCompatibleTextRendering = true;
+            this.btn_new_client.UseVisualStyleBackColor = false;
+            this.btn_new_client.Click += new System.EventHandler(this.btn_new_client_Click);
             // 
             // btnclosecli
             // 
@@ -307,6 +213,100 @@ namespace LMFinanciamentos.Apresentacao
             this.img_topo.TabIndex = 5;
             this.img_topo.TabStop = false;
             // 
+            // dgv_clientes
+            // 
+            this.dgv_clientes.AllowUserToAddRows = false;
+            this.dgv_clientes.AllowUserToDeleteRows = false;
+            this.dgv_clientes.AllowUserToOrderColumns = true;
+            this.dgv_clientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_clientes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgv_clientes.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgv_clientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgv_clientes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgv_clientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_clientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_clientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_clientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Nome,
+            this.CPF,
+            this.Nascimento,
+            this.Email,
+            this.Celular});
+            this.dgv_clientes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_clientes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgv_clientes.GridColor = System.Drawing.SystemColors.Control;
+            this.dgv_clientes.Location = new System.Drawing.Point(0, 138);
+            this.dgv_clientes.MultiSelect = false;
+            this.dgv_clientes.Name = "dgv_clientes";
+            this.dgv_clientes.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_clientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.NullValue = " - ";
+            this.dgv_clientes.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgv_clientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_clientes.Size = new System.Drawing.Size(979, 370);
+            this.dgv_clientes.TabIndex = 12;
+            this.dgv_clientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_clientes_CellDoubleClick);
+            // 
+            // Nome
+            // 
+            this.Nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Nome.DataPropertyName = "Nome_cliente";
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
+            this.Nome.Width = 90;
+            // 
+            // CPF
+            // 
+            this.CPF.DataPropertyName = "CPF_cliente";
+            this.CPF.FillWeight = 100.8F;
+            this.CPF.HeaderText = "CPF";
+            this.CPF.MinimumWidth = 145;
+            this.CPF.Name = "CPF";
+            this.CPF.ReadOnly = true;
+            // 
+            // Nascimento
+            // 
+            this.Nascimento.DataPropertyName = "Nascimento_cliente";
+            this.Nascimento.FillWeight = 100.8F;
+            this.Nascimento.HeaderText = "Nascimento";
+            this.Nascimento.Name = "Nascimento";
+            this.Nascimento.ReadOnly = true;
+            // 
+            // Email
+            // 
+            this.Email.DataPropertyName = "Email_cliente";
+            this.Email.FillWeight = 96F;
+            this.Email.HeaderText = "Email";
+            this.Email.MinimumWidth = 35;
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            // 
+            // Celular
+            // 
+            this.Celular.DataPropertyName = "Celular_cliente";
+            this.Celular.FillWeight = 100.8F;
+            this.Celular.HeaderText = "Celular";
+            this.Celular.Name = "Celular";
+            this.Celular.ReadOnly = true;
+            // 
             // Form_Controle_cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -320,13 +320,13 @@ namespace LMFinanciamentos.Apresentacao
             this.Load += new System.EventHandler(this.Form_Cadastro_cliente_Load);
             this.panelcentralcadcli.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_process)).EndInit();
             this.pnlcontrol.ResumeLayout(false);
             this.pnlcontrol.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.paneltop.ResumeLayout(false);
             this.paneltop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_clientes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -338,19 +338,18 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.Label lbl_topo;
         private System.Windows.Forms.PictureBox img_topo;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btn_salvar;
+        private System.Windows.Forms.Button btn_new_client;
         private System.Windows.Forms.Button btnclosecli;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel pnlcontrol;
         private System.Windows.Forms.Label lblprocurar;
         private System.Windows.Forms.Button btnprocurar;
         private System.Windows.Forms.TextBox txtprocurar;
-        private System.Windows.Forms.DataGridView dgv_process;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Data;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Funcionario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Corretora;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Corretor;
+        private System.Windows.Forms.DataGridView dgv_clientes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CPF;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nascimento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Celular;
     }
 }

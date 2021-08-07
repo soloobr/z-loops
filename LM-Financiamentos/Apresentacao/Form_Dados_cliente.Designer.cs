@@ -51,6 +51,8 @@ namespace LMFinanciamentos.Apresentacao
             this.txtStatusCPF = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtrendacli = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.checkBox_Feminino = new System.Windows.Forms.RadioButton();
@@ -81,8 +83,6 @@ namespace LMFinanciamentos.Apresentacao
             this.paneltop = new System.Windows.Forms.Panel();
             this.lbl_topo = new System.Windows.Forms.Label();
             this.img_topo = new System.Windows.Forms.PictureBox();
-            this.txtrendacli = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.panelcentralcadcli.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -382,6 +382,22 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel1.Size = new System.Drawing.Size(931, 196);
             this.tableLayoutPanel1.TabIndex = 2;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(701, 59);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(98, 23);
+            this.label4.TabIndex = 55;
+            this.label4.Text = "Renda Bruta:";
+            // 
+            // txtrendacli
+            // 
+            this.txtrendacli.Location = new System.Drawing.Point(701, 85);
+            this.txtrendacli.Name = "txtrendacli";
+            this.txtrendacli.Size = new System.Drawing.Size(216, 27);
+            this.txtrendacli.TabIndex = 54;
             // 
             // label3
             // 
@@ -716,22 +732,6 @@ namespace LMFinanciamentos.Apresentacao
             this.img_topo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.img_topo.TabIndex = 5;
             this.img_topo.TabStop = false;
-            // 
-            // txtrendacli
-            // 
-            this.txtrendacli.Location = new System.Drawing.Point(701, 85);
-            this.txtrendacli.Name = "txtrendacli";
-            this.txtrendacli.Size = new System.Drawing.Size(216, 27);
-            this.txtrendacli.TabIndex = 54;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(701, 59);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 23);
-            this.label4.TabIndex = 55;
-            this.label4.Text = "Renda Bruta:";
             // 
             // Form_Dados_cliente
             // 

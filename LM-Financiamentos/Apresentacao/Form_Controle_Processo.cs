@@ -41,7 +41,7 @@ namespace LMFinanciamentos.Apresentacao
             dgv_process.AutoGenerateColumns = false;
             dgv_process.DataSource = getprocessos.GetProcessos("C","%");
             dgv_process.Refresh();
-            Cursor = Cursors.Default;
+            
 
 
         }
@@ -137,5 +137,6 @@ namespace LMFinanciamentos.Apresentacao
             dgv_process.Refresh();
 
         }
+
     }
 }

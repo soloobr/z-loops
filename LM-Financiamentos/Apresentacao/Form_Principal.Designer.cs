@@ -237,7 +237,6 @@ namespace LMFinanciamentos.Apresentacao
             this.panelContenedor.Name = "panelContenedor";
             this.panelContenedor.Size = new System.Drawing.Size(1022, 613);
             this.panelContenedor.TabIndex = 0;
-            this.panelContenedor.UseWaitCursor = true;
             // 
             // panelformularios
             // 
@@ -276,7 +275,6 @@ namespace LMFinanciamentos.Apresentacao
             this.panelMenu.Padding = new System.Windows.Forms.Padding(5);
             this.panelMenu.Size = new System.Drawing.Size(230, 581);
             this.panelMenu.TabIndex = 1;
-            this.panelMenu.UseWaitCursor = true;
             // 
             // btnconf
             // 
@@ -306,7 +304,6 @@ namespace LMFinanciamentos.Apresentacao
             this.panelmenuitens.Name = "panelmenuitens";
             this.panelmenuitens.Size = new System.Drawing.Size(220, 175);
             this.panelmenuitens.TabIndex = 19;
-            this.panelmenuitens.UseWaitCursor = true;
             // 
             // panelsubmenucadastro
             // 

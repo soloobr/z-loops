@@ -49,18 +49,17 @@ namespace LMFinanciamentos.Apresentacao
             this.lblprocurar = new System.Windows.Forms.Label();
             this.btnprocurar = new System.Windows.Forms.Button();
             this.txtprocurar = new System.Windows.Forms.TextBox();
-            this.dgv_process = new System.Windows.Forms.DataGridView();
             this.processosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dSDocumentosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dS_Documentos = new LMFinanciamentos.DAL.DS_Documentos();
             this.processosTableAdapter = new LMFinanciamentos.DAL.DS_DocumentosTableAdapters.ProcessosTableAdapter();
+            this.dgv_process = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Funcionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Corretora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Corretor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.paneltop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).BeginInit();
@@ -69,10 +68,10 @@ namespace LMFinanciamentos.Apresentacao
             ((System.ComponentModel.ISupportInitialize)(this.dSClientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Clientes)).BeginInit();
             this.pnlcontrol.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_process)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.processosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSDocumentosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Documentos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_process)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -228,6 +227,25 @@ namespace LMFinanciamentos.Apresentacao
             this.txtprocurar.TabIndex = 0;
             this.txtprocurar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtprocurar_KeyPress);
             // 
+            // processosBindingSource
+            // 
+            this.processosBindingSource.DataMember = "Processos";
+            this.processosBindingSource.DataSource = this.dSDocumentosBindingSource;
+            // 
+            // dSDocumentosBindingSource
+            // 
+            this.dSDocumentosBindingSource.DataSource = this.dS_Documentos;
+            this.dSDocumentosBindingSource.Position = 0;
+            // 
+            // dS_Documentos
+            // 
+            this.dS_Documentos.DataSetName = "DS_Documentos";
+            this.dS_Documentos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // processosTableAdapter
+            // 
+            this.processosTableAdapter.ClearBeforeFill = true;
+            // 
             // dgv_process
             // 
             this.dgv_process.AllowUserToAddRows = false;
@@ -255,8 +273,7 @@ namespace LMFinanciamentos.Apresentacao
             this.Data,
             this.Funcionario,
             this.Corretora,
-            this.Corretor,
-            this.Status});
+            this.Corretor});
             this.dgv_process.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_process.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgv_process.GridColor = System.Drawing.SystemColors.Control;
@@ -278,51 +295,26 @@ namespace LMFinanciamentos.Apresentacao
             this.dgv_process.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_process.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_process.Size = new System.Drawing.Size(1010, 143);
-            this.dgv_process.TabIndex = 11;
-            this.dgv_process.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_process_CellContentClick);
+            this.dgv_process.TabIndex = 13;
             this.dgv_process.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_process_CellDoubleClick);
-            // 
-            // processosBindingSource
-            // 
-            this.processosBindingSource.DataMember = "Processos";
-            this.processosBindingSource.DataSource = this.dSDocumentosBindingSource;
-            // 
-            // dSDocumentosBindingSource
-            // 
-            this.dSDocumentosBindingSource.DataSource = this.dS_Documentos;
-            this.dSDocumentosBindingSource.Position = 0;
-            // 
-            // dS_Documentos
-            // 
-            this.dS_Documentos.DataSetName = "DS_Documentos";
-            this.dS_Documentos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // processosTableAdapter
-            // 
-            this.processosTableAdapter.ClearBeforeFill = true;
             // 
             // Id
             // 
-            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.Id.DataPropertyName = "Id_processo";
-            this.Id.HeaderText = "Nº Proc.";
+            this.Id.HeaderText = "Nº Processo";
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
-            this.Id.Width = 105;
             // 
             // Cliente
             // 
             this.Cliente.DataPropertyName = "Nome_cliente";
-            this.Cliente.FillWeight = 100.8F;
             this.Cliente.HeaderText = "Cliente";
-            this.Cliente.MinimumWidth = 145;
             this.Cliente.Name = "Cliente";
             this.Cliente.ReadOnly = true;
             // 
             // Data
             // 
             this.Data.DataPropertyName = "Data_processo";
-            this.Data.FillWeight = 100.8F;
             this.Data.HeaderText = "Data";
             this.Data.Name = "Data";
             this.Data.ReadOnly = true;
@@ -330,16 +322,13 @@ namespace LMFinanciamentos.Apresentacao
             // Funcionario
             // 
             this.Funcionario.DataPropertyName = "Nome_responsavel";
-            this.Funcionario.FillWeight = 96F;
             this.Funcionario.HeaderText = "Funcionário";
-            this.Funcionario.MinimumWidth = 35;
             this.Funcionario.Name = "Funcionario";
             this.Funcionario.ReadOnly = true;
             // 
             // Corretora
             // 
             this.Corretora.DataPropertyName = "Descricao_corretora";
-            this.Corretora.FillWeight = 100.8F;
             this.Corretora.HeaderText = "Corretora";
             this.Corretora.Name = "Corretora";
             this.Corretora.ReadOnly = true;
@@ -347,20 +336,11 @@ namespace LMFinanciamentos.Apresentacao
             // Corretor
             // 
             this.Corretor.DataPropertyName = "Nome_corretor";
-            this.Corretor.FillWeight = 100.8F;
             this.Corretor.HeaderText = "Corretor";
             this.Corretor.Name = "Corretor";
             this.Corretor.ReadOnly = true;
             // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "Status_processo";
-            this.Status.FillWeight = 100.8F;
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            // 
-            // Form_Controle_Documento
+            // Form_Controle_Processo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -369,7 +349,7 @@ namespace LMFinanciamentos.Apresentacao
             this.Controls.Add(this.pnlcontrol);
             this.Controls.Add(this.paneltop);
             this.Controls.Add(this.panel1);
-            this.Name = "Form_Controle_Documento";
+            this.Name = "Form_Controle_Processo";
             this.Text = "Form_Controle_Documento";
             this.Load += new System.EventHandler(this.Form_Controle_Documento_Load);
             this.panel1.ResumeLayout(false);
@@ -381,10 +361,10 @@ namespace LMFinanciamentos.Apresentacao
             ((System.ComponentModel.ISupportInitialize)(this.dS_Clientes)).EndInit();
             this.pnlcontrol.ResumeLayout(false);
             this.pnlcontrol.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_process)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.processosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSDocumentosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Documentos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_process)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -401,7 +381,6 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.BindingSource dSClientesBindingSource;
         private DAL.DS_Clientes dS_Clientes;
         private System.Windows.Forms.Panel pnlcontrol;
-        private System.Windows.Forms.DataGridView dgv_process;
         private System.Windows.Forms.BindingSource dSDocumentosBindingSource;
         private DAL.DS_Documentos dS_Documentos;
         private System.Windows.Forms.BindingSource processosBindingSource;
@@ -411,12 +390,12 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.Label lblprocurar;
         public System.Windows.Forms.Button btncloseconf;
         public System.Windows.Forms.Button btnnovodoc;
+        private System.Windows.Forms.DataGridView dgv_process;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Data;
         private System.Windows.Forms.DataGridViewTextBoxColumn Funcionario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Corretora;
         private System.Windows.Forms.DataGridViewTextBoxColumn Corretor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
     }
 }

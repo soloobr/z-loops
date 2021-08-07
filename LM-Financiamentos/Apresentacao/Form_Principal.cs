@@ -352,6 +352,7 @@ namespace LMFinanciamentos.Apresentacao
 
         private void btnconf_Click_1(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
             AbrirFormulario<Form_Configuracao>();
             btnconf.BackColor = Color.FromArgb(12, 61, 92);
             //..
@@ -362,21 +363,14 @@ namespace LMFinanciamentos.Apresentacao
 
         private void btncontroledoc_Click(object sender, EventArgs e)
         {
-            try
-            {
-                this.UseWaitCursor = true;
-                AbrirFormulario<Form_Controle_Processo>();
-                btncontroledoc.BackColor = Color.FromArgb(12, 61, 92);
-                //..
-                //your codes
-                //..
-                hideSubMenu();
-            }
-            finally
-            {
-                //this.Enabled = true;//optional
-                this.UseWaitCursor = false;
-            }
+            Cursor.Current = Cursors.WaitCursor;
+            AbrirFormulario<Form_Controle_Processo>();
+            btncontroledoc.BackColor = Color.FromArgb(12, 61, 92);
+            //..
+            //your codes
+            //..
+            hideSubMenu();
+
         }
         private void btncadastro_Click_1(object sender, EventArgs e)
         {

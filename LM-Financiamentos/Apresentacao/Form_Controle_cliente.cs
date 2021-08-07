@@ -22,7 +22,10 @@ namespace LMFinanciamentos.Apresentacao
 
         private void Form_Cadastro_cliente_Load(object sender, EventArgs e)
         {
-            
+            LoginDaoComandos getclientes = new LoginDaoComandos();
+            dgv_clientes.AutoGenerateColumns = false;
+            dgv_clientes.DataSource = getclientes.GetClientes("%");
+            dgv_clientes.Refresh();
             //txtnomecli.Select();
             //txtnomecli.ScrollToCaret();
             //txtnomecli.Focus();
@@ -37,33 +40,29 @@ namespace LMFinanciamentos.Apresentacao
 
         }
 
+        private void btn_new_client_Click(object sender, EventArgs e)
+        {
+            Form_Cadastro_cliente frm_cadastro_clientes = new Form_Cadastro_cliente();
+            //frm_cadastro_clientes.ProcessoSalvo += new Action(frm_dados_documentos_ProcessoSalvo);
+            //frm_cadastro_clientes.setLabel("Em Preenchimento");
+            frm_cadastro_clientes.Show();
+        }
+
+        private void dgv_clientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Form_Dados_cliente frm_dados_clientes = new Form_Dados_cliente();
+            //frm_dados_documentos.setIdProcess(dgv_process.Rows[1].Cells[0].Value.ToString());
+            frm_dados_clientes.setIdCliente(dgv_clientes.SelectedRows[0].Cells["id"].Value.ToString());
+            //frm_dados_clientes.ProcessoSalvo += new Action(frm_dados_documentos_ProcessoSalvo);
+            //frm_dados_documentos.setIdProcess("1");
+            frm_dados_clientes.Show();
+        }
+
         private void btnprocurar_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btn_salvar_Click(object sender, EventArgs e)
-        {
-            //if (checkBox_Masculino.Checked)
-            //{
-            //    sexo = "Masculino"; 
-            //} else if (checkBox_Feminino.Checked)
-            //{ 
-            //    sexo = "Feminino";
-            //}
-            //else
-            //{
-            //    sexo = "";
-            //}
 
-            //status = "Ativo";
-
-            //LoginDaoComandos inserircliente = new LoginDaoComandos();
-
-            //inserircliente.CadastrarCliente(txtnomecli.Text, txtemail.Text, txttelefone.Text, txtcelular.Text, txtcpf.Text, txtStatusCPF.Text, txtciweb.Text, txtcadmut.Text, txtir.Text, txtfgts.Text, txtrg.Text,
-            //    txtnasc.Text, sexo, status, txtrenda.Text);
-
-            //MessageBox.Show(inserircliente.mensagem);
-        }
     }
 }

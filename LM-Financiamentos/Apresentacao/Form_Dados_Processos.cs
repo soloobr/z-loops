@@ -1584,6 +1584,11 @@ namespace LMFinanciamentos.Apresentacao
             idCartorio = comboBox_nomecartorio.SelectedValue.ToString();
         }
 
+        private void Form_Dados_Processos_Shown(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.Default;
+        }
+
         public void Download(string remoteUri, String folderdestino)
         {
             //string FilePath = Directory.GetCurrentDirectory() + "/tepdownload/" + Path.GetFileName(remoteUri); // path where download file to be saved, with filename, here I have taken file name from supplied remote url
