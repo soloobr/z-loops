@@ -55,6 +55,7 @@ namespace LMFinanciamentos.Apresentacao
         }
         private void Form_Principal_Load(object sender, EventArgs e)
         {
+            //Cursor = Cursors.Default;
             if (this.WindowState == FormWindowState.Maximized)
             {
                 btnRestaurar.Visible = true;
@@ -200,6 +201,7 @@ namespace LMFinanciamentos.Apresentacao
                 formulario.Show();
                 formulario.BringToFront();
                 formulario.FormClosed += new FormClosedEventHandler(CloseForms);
+
             }
             //si el formulario/instancia existe
             else
@@ -360,12 +362,21 @@ namespace LMFinanciamentos.Apresentacao
 
         private void btncontroledoc_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<Form_Controle_Processo>();
-            btncontroledoc.BackColor = Color.FromArgb(12, 61, 92);
-            //..
-            //your codes
-            //..
-            hideSubMenu();
+            try
+            {
+                this.UseWaitCursor = true;
+                AbrirFormulario<Form_Controle_Processo>();
+                btncontroledoc.BackColor = Color.FromArgb(12, 61, 92);
+                //..
+                //your codes
+                //..
+                hideSubMenu();
+            }
+            finally
+            {
+                //this.Enabled = true;//optional
+                this.UseWaitCursor = false;
+            }
         }
         private void btncadastro_Click_1(object sender, EventArgs e)
         {

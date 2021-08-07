@@ -26,6 +26,7 @@ namespace LMFinanciamentos.Apresentacao
         bool Next;
         string valor, svalorimovel, svalorfinanciado, idCartorio ;
         string curFile, NewFile, extension, Local, idArquivo, numArquivo, descArquivo, dataAruivo, statusArquivo;
+        string idagencia, idprograma, idcorretora, idcorretor, idempreendimentos;
         int count;
         FileStream fs;
         BinaryReader br;
@@ -57,7 +58,9 @@ namespace LMFinanciamentos.Apresentacao
 
         private void Form_Dados_Documentos_Load(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
             Processo process = null;
+
             LoginDaoComandos gettpross = new LoginDaoComandos();
             process = gettpross.GetProcesso(idProcess);
 
@@ -94,6 +97,7 @@ namespace LMFinanciamentos.Apresentacao
             txtcadmut.Text = process.StatusCadmut_cliente;
             txtir.Text = process.StatusIR_cliente;
             txtfgts.Text = process.StatusFGTS_cliente;
+            #endregion
 
             #region Valor Renda Cliente
             valor = txtrenda.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
@@ -129,6 +133,7 @@ namespace LMFinanciamentos.Apresentacao
             txtrenda.Select(txtrenda.Text.Length, 0);
             #endregion
 
+            #region Ajusta Datas
             if (process.H_DataStatusCPF != "")
             {
                 if (process.H_DataStatusCPF != "01/01/0001 00:00:00")
@@ -190,29 +195,6 @@ namespace LMFinanciamentos.Apresentacao
             txtcontavendedor.Text = process.Conta_vendedor;
             #endregion
 
-            #region Popular combobox
-            comboBox_agencia.DataSource = gettpross.GetDataAgencia();
-            comboBox_agencia.DisplayMember = "Agencia";
-            comboBox_agencia.ValueMember = "Id";
-
-
-            comboBox_programa.DataSource = gettpross.GetDataPrograma();
-            comboBox_programa.DisplayMember = "Descricao";
-            comboBox_programa.ValueMember = "Id";
-
-            comboBox_corretora.DataSource = gettpross.GetDataCorretora();
-            comboBox_corretora.DisplayMember = "Descricao";
-            comboBox_corretora.ValueMember = "Id";
-
-            comboBox_corretor.DataSource = gettpross.GetDataCorretores();
-            comboBox_corretor.DisplayMember = "Nome";
-            comboBox_corretor.ValueMember = "Id";
-
-            comboBox_empreendimentos.DataSource = gettpross.GetDataEmpreendimentos();
-            comboBox_empreendimentos.DisplayMember = "Descricao";
-            comboBox_empreendimentos.ValueMember = "Id";
-
-            #endregion
 
             #region imovel
 
@@ -222,13 +204,34 @@ namespace LMFinanciamentos.Apresentacao
             comboBox_SIOPI.Text = process.SIOPI_cliente;
             comboBox_SICTD.Text = process.SICTD_cliente;
             comboBox_PA.Text = process.StatusPA_cliente;
-            comboBox_agencia.Text = process.AgenciaImovel_imovel.PadLeft(4, '0'); 
+
+            idagencia = process.Id_AgenciaImovel;
+            comboBox_agencia.Items.Add(process.AgenciaImovel_imovel.PadLeft(4, '0'));
+            comboBox_agencia.Text = process.AgenciaImovel_imovel.PadLeft(4, '0');
+            
+
+            idprograma = process.Id_Programa;
+            comboBox_programa.Items.Add(process.Programa_imovel);
             comboBox_programa.Text = process.Programa_imovel;
+            
+
             valorimovel.Text = process.Valor_imovel;
             valorfinanciado.Text = process.ValorFinanciado_imovel;
+
+            idcorretora = process.Id_corretora;
+            comboBox_corretora.Items.Add(process.Descricao_corretora);
             comboBox_corretora.Text = process.Descricao_corretora;
+            
+
+            idcorretor = process.Id_corretor;
+            comboBox_corretor.Items.Add(process.Nome_corretor);
             comboBox_corretor.Text = process.Nome_corretor;
+            
+
+            idempreendimentos = process.id_Empreendimentos_imovel;
+            comboBox_empreendimentos.Items.Add(process.EmpDescricao_imovel);
             comboBox_empreendimentos.Text = process.EmpDescricao_imovel;
+            
 
             lbldataanalise.Text = process.H_DataStatusAnalise;
             lbldataeng.Text = process.H_DataStatusEng;
@@ -290,12 +293,10 @@ namespace LMFinanciamentos.Apresentacao
 
             #region Cartorio
 
-            comboBox_nomecartorio.DataSource = gettpross.GetDataCartorio();
-            comboBox_nomecartorio.DisplayMember = "Descricao";
-            comboBox_nomecartorio.ValueMember = "Id";
-            comboBox_nomecartorio.SelectedIndex = -1;
+
 
             idCartorio = process.id_Carftorio;
+            comboBox_nomecartorio.Items.Add(process.Descricao_Carftorio);
 
             comboBox_statuscartorio.Text = process.StatusCartorio;
             if (process.H_DataStatusCartorio != "" && process.H_DataStatusCartorio != "01/01/0001 00:00:00")
@@ -306,9 +307,6 @@ namespace LMFinanciamentos.Apresentacao
 
             }
             
-            
-
-
             #endregion
 
             #region Checkstatus
@@ -460,7 +458,7 @@ namespace LMFinanciamentos.Apresentacao
 
             #endregion
 
-
+            Cursor = Cursors.Default;
 
         }
         public event Action ProcessoSalvo;
@@ -728,56 +726,67 @@ namespace LMFinanciamentos.Apresentacao
             }
             #endregion
 
+            #region Combox Status
 
+            String cpf = txtStatusCPF.Text;
             DateTime datecpf = DateTime.Parse(datacpf);
+
+            String ciweb = txtciweb.Text;
             DateTime dateciweb = DateTime.Parse(dataciweb);
+
+            String cadmut = txtcadmut.Text;
             DateTime datecadmut = DateTime.Parse(datacadmut);
+
+            String ir = txtir.Text;
             DateTime dateir = DateTime.Parse(datair);
+
+            String fgts = txtfgts.Text;
             DateTime datefgts = DateTime.Parse(datafgts);
+
+            String analise = comboBox_analise.Text;
             DateTime dateanalise = DateTime.Parse(dataanalise);
+
+            String eng = comboBox_statuseng.Text;
             DateTime dateeng = DateTime.Parse(dataeng);
 
+            String siopi = comboBox_SIOPI.Text;
             DateTime datesiopi = DateTime.Parse(datasiopi);
-            DateTime datesictd = DateTime.Parse(datasictd);
-            DateTime datesaquefgts = DateTime.Parse(datasaquefgts);
-            DateTime datepa = DateTime.Parse(datapa);
-            DateTime datecartorio = DateTime.Parse(datacartorio);
-            //DateTime datestatus = DateTime.Parse(datastatus);
 
-            lblstatus.Text = statusprocesso;
+            String sictd = comboBox_SICTD.Text;
+            DateTime datesictd = DateTime.Parse(datasictd);
+
+            String saquefgts = comboBox_saque.Text;
+            DateTime datesaquefgts = DateTime.Parse(datasaquefgts);
+
+            String pa = comboBox_PA.Text;
+            DateTime datepa = DateTime.Parse(datapa);
+
+
+            //idagencia = comboBox_agencia.SelectedValue.ToString();
+
+            //idprograma = comboBox_programa.SelectedValue.ToString();
 
             String Valorimov = valorimovel.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
             String Valorfinan = valorfinanciado.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
-            //MessageBox.Show(Valorimov);
 
-            //if (comboBox_agencia.SelectedValue == null)
-            //{
-            //    return;
-            //}
-            string comboagencia = comboBox_agencia.SelectedValue.ToString();
+            String combocorretora = idcorretora;
+            String combocorretores = idcorretor;
+            String combocoempreendimentos = idempreendimentos;
 
-            //if (comboBox_programa.SelectedValue == null)
-            //{
-            //    return;
-            //}
-            string comboprograma = comboBox_programa.SelectedValue.ToString();
+            // idCartorio = idCartorio;Get process load or set combobox click
+            String cartorio = comboBox_statuscartorio.Text;
+            DateTime datecartorio = DateTime.Parse(datacartorio);
 
-            string combocorretora = comboBox_corretora.SelectedValue.ToString();
-            string combocorretores = comboBox_corretor.SelectedValue.ToString();
-            string combocoempreendimentos = comboBox_empreendimentos.SelectedValue.ToString();
+            lblstatus.Text = statusprocesso;
+            //DateTime datestatus = DateTime.Parse(datastatus);
+            #endregion
 
-            //MessageBox.Show(idCartorio);
-
-
-                      updateprocesso.UpdateProcesso(idProcess, comboagencia, comboprograma, combocorretora, combocorretores, combocoempreendimentos, txtStatusCPF.Text, txtciweb.Text, txtcadmut.Text, txtir.Text, txtfgts.Text, datecpf, dateciweb, datecadmut, dateir, datefgts, dateanalise, dateeng, datesiopi, datesictd, datesaquefgts, datepa, Valorimov, Valorfinan, idCartorio, comboBox_statuscartorio.Text, datecartorio,  statusprocesso);
-            MessageBox.Show(updateprocesso.mensagem);
+            updateprocesso.UpdateProcesso(idProcess, cpf, datecpf, ciweb, dateciweb, cadmut, datecadmut, ir,dateir,fgts,datefgts,analise,dateanalise,eng,dateeng,siopi,datesiopi,sictd,datesictd,saquefgts,datesaquefgts,pa,datepa,idagencia,idprograma,Valorimov,Valorfinan,combocorretora,combocorretores,combocoempreendimentos,idCartorio,cartorio,datecartorio,statusprocesso);
+            MessageBox.Show(updateprocesso.mensagem,"Salvar",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
 
             if (ProcessoSalvo != null)
-            //{
                 ProcessoSalvo.Invoke();
-            //}
-                
 
             Close();
 
@@ -1084,18 +1093,32 @@ namespace LMFinanciamentos.Apresentacao
                 valorfinanciado.Select(valorfinanciado.Text.Length, 0);
                 #endregion
 
-                LoginDaoComandos getitenscomboagengia = new LoginDaoComandos();
+                LoginDaoComandos gettpross = new LoginDaoComandos();
+
 
 
                 #region Popular combobox
-                //comboBox_agencia.DataSource = getitenscomboagengia.GetDataAgencia();
+                //comboBox_agencia.DataSource = gettpross.GetDataAgencia();
                 //comboBox_agencia.DisplayMember = "Agencia";
                 //comboBox_agencia.ValueMember = "Id";
-               
 
-                //comboBox_programa.DataSource = getitenscomboagengia.GetDataPrograma();
+
+                //comboBox_programa.DataSource = gettpross.GetDataPrograma();
                 //comboBox_programa.DisplayMember = "Descricao";
                 //comboBox_programa.ValueMember = "Id";
+
+                //comboBox_corretora.DataSource = gettpross.GetDataCorretora();
+                //comboBox_corretora.DisplayMember = "Descricao";
+                //comboBox_corretora.ValueMember = "Id";
+
+                //comboBox_corretor.DataSource = gettpross.GetDataCorretores();
+                //comboBox_corretor.DisplayMember = "Nome";
+                //comboBox_corretor.ValueMember = "Id";
+
+                //comboBox_empreendimentos.DataSource = gettpross.GetDataEmpreendimentos();
+                //comboBox_empreendimentos.DisplayMember = "Descricao";
+                //comboBox_empreendimentos.ValueMember = "Id";
+
                 #endregion
             }
             if (tabControl.SelectedTab == tabControl.TabPages["tabcliente"])//your specific tabname
@@ -1136,8 +1159,8 @@ namespace LMFinanciamentos.Apresentacao
             }
             if (tabControl.SelectedTab == tabControl.TabPages["tabdoc"])
             {
-             
 
+                Cursor = Cursors.WaitCursor;
                 #region Ducumentos
                 LoginDaoComandos documento = new LoginDaoComandos();
                 
@@ -1148,9 +1171,33 @@ namespace LMFinanciamentos.Apresentacao
                 dataGridView_Arquivos.DataSource = documento.GetDataDocumentos(idProcess);
                 dataGridView_Arquivos.Refresh();
 
-
+                Cursor = Cursors.Default;
                 #endregion
             }
+            if (tabControl.SelectedTab == tabControl.TabPages["tabcartorio"])
+            {
+
+                //Cursor = Cursors.WaitCursor;
+                //#region Ducumentos
+                //LoginDaoComandos documento = new LoginDaoComandos();
+
+                //Local = documento.GetServer().ServerFilesPath_Server;
+
+                //dataGridView_Arquivos.AutoGenerateColumns = false;
+                ////dataGridView_Arquivos.Columns["Numero"].DefaultCellStyle.Format = "D6";
+                //dataGridView_Arquivos.DataSource = documento.GetDataDocumentos(idProcess);
+                //dataGridView_Arquivos.Refresh();
+
+                //comboBox_nomecartorio.DataSource = gettpross.GetDataCartorio();
+                //comboBox_nomecartorio.DisplayMember = "Descricao";
+                //comboBox_nomecartorio.ValueMember = "Id";
+                //comboBox_nomecartorio.SelectedIndex = -1;
+
+                //Cursor = Cursors.Default;
+                //#endregion
+            }
+
+
         }
 
         private void comboBox_empreendimentos_KeyPress(object sender, KeyPressEventArgs e)
@@ -1412,6 +1459,131 @@ namespace LMFinanciamentos.Apresentacao
                 }
             }
         }
+
+        private void comboBox_empreendimentos_MouseClick(object sender, MouseEventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            if (comboBox_empreendimentos.DataSource is null)
+            {
+                comboBox_empreendimentos.IntegralHeight = false;
+                LoginDaoComandos gettpross = new LoginDaoComandos();
+                #region Popular combobox
+                comboBox_empreendimentos.DataSource = gettpross.GetDataEmpreendimentos();
+                comboBox_empreendimentos.DisplayMember = "Descricao";
+                comboBox_empreendimentos.ValueMember = "Id";
+                comboBox_empreendimentos.MaxDropDownItems = 10;
+                //comboBox_empreendimentos.Text = "";
+                #endregion
+
+                comboBox_empreendimentos.DroppedDown = true;
+                Cursor = Cursors.Default;
+            }
+            else
+            {
+                Cursor = Cursors.Default;
+            }
+        }
+
+        private void comboBox_corretora_MouseClick(object sender, MouseEventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            if (comboBox_corretora.DataSource is null)
+            {
+                comboBox_corretora.IntegralHeight = false;
+                LoginDaoComandos gettpross = new LoginDaoComandos();
+                #region Popular combobox
+                comboBox_corretora.DataSource = gettpross.GetDataCorretora();
+                comboBox_corretora.DisplayMember = "Descricao";
+                comboBox_corretora.ValueMember = "Id";
+                //txtcorretora.Text = "";
+                #endregion
+
+                comboBox_corretora.DroppedDown = true;
+                Cursor = Cursors.Default;
+            }
+            else
+            {
+                Cursor = Cursors.Default;
+            }
+        }
+
+        private void comboBox_corretor_MouseClick(object sender, MouseEventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            if (comboBox_corretor.DataSource is null)
+            {
+                comboBox_corretor.IntegralHeight = false;
+                LoginDaoComandos gettpross = new LoginDaoComandos();
+                #region Popular combobox
+                comboBox_corretor.DataSource = gettpross.GetDataCorretores();
+                comboBox_corretor.DisplayMember = "Nome";
+                comboBox_corretor.ValueMember = "Id";
+                //comboBox_corretor.Text = "";
+                #endregion
+
+                comboBox_corretor.DroppedDown = true;
+                Cursor = Cursors.Default;
+            }
+            else
+            {
+                Cursor = Cursors.Default;
+            }
+        }
+
+        private void comboBox_agencia_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            idagencia = comboBox_agencia.SelectedValue.ToString();
+        }
+
+        private void comboBox_corretora_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            idcorretora = comboBox_corretora.SelectedValue.ToString();
+        }
+
+        private void comboBox_empreendimentos_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            idempreendimentos = comboBox_empreendimentos.SelectedValue.ToString();
+        }
+
+        private void comboBox_programa_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            idprograma = comboBox_programa.SelectedValue.ToString();
+        }
+
+        private void comboBox_corretor_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            idcorretor = comboBox_corretor.SelectedValue.ToString();
+        }
+
+        private void comboBox_nomecartorio_MouseClick(object sender, MouseEventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            if (comboBox_nomecartorio.DataSource is null)
+            {
+                comboBox_nomecartorio.IntegralHeight = false;
+                LoginDaoComandos gettpross = new LoginDaoComandos();
+                #region Popular combobox
+                comboBox_nomecartorio.DataSource = gettpross.GetDataCartorio();
+                comboBox_nomecartorio.DisplayMember = "Descricao";
+                comboBox_nomecartorio.ValueMember = "Id";
+                //comboBox_agencia.Text = "";
+                #endregion
+
+                comboBox_nomecartorio.DroppedDown = true;
+                Cursor = Cursors.Default;
+            }
+            else
+            {
+                Cursor = Cursors.Default;
+            }
+        }
+
+        private void comboBox_nomecartorio_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+
+            idCartorio = comboBox_nomecartorio.SelectedValue.ToString();
+        }
+
         public void Download(string remoteUri, String folderdestino)
         {
             //string FilePath = Directory.GetCurrentDirectory() + "/tepdownload/" + Path.GetFileName(remoteUri); // path where download file to be saved, with filename, here I have taken file name from supplied remote url
@@ -1445,6 +1617,52 @@ namespace LMFinanciamentos.Apresentacao
         {
             Console.WriteLine("File has been downloaded.");
         }
+
+        private void comboBox_agencia_MouseClick(object sender, MouseEventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            if (comboBox_agencia.DataSource is null)
+            {
+                comboBox_agencia.IntegralHeight = false;
+                LoginDaoComandos gettpross = new LoginDaoComandos();
+                #region Popular combobox
+                comboBox_agencia.DataSource = gettpross.GetDataAgencia();
+                comboBox_agencia.DisplayMember = "Agencia";
+                comboBox_agencia.ValueMember = "Id";
+                //comboBox_agencia.Text = "";
+                #endregion
+
+                comboBox_agencia.DroppedDown = true;
+                Cursor = Cursors.Default;
+            }
+            else
+            {
+                Cursor = Cursors.Default;
+            }
+        }
+
+        private void comboBox_programa_MouseClick(object sender, MouseEventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            if (comboBox_programa.DataSource is null)
+            {
+                comboBox_programa.IntegralHeight = false;
+                LoginDaoComandos gettpross = new LoginDaoComandos();
+                #region Popular combobox
+                comboBox_programa.DataSource = gettpross.GetDataPrograma();
+                comboBox_programa.DisplayMember = "Descricao";
+                comboBox_programa.ValueMember = "Id";
+                //comboBox_agencia.Text = "";
+                #endregion
+                comboBox_programa.DroppedDown = true;
+                Cursor = Cursors.Default;
+            }
+            else
+            {
+                Cursor = Cursors.Default;
+            }
+        }
+
         public void ProgessChanged(object sender, DownloadProgressChangedEventArgs e)
         {
             Console.WriteLine($"Download status: {e.ProgressPercentage}%.");
@@ -1604,16 +1822,20 @@ namespace LMFinanciamentos.Apresentacao
         }
         private void btnAnexar_Click(object sender, EventArgs e)
         {
-            if(txtArquivo.Text == "")
+            Cursor = Cursors.WaitCursor;
+            if (txtArquivo.Text == "")
             {
                 MessageBox.Show("Selecione o Arquivo para Anexar");
                 txtArquivo.Select();
                 txtArquivo.Focus();
-            }else if(comboBox_tipoArquivo.Text == "")
+                Cursor = Cursors.Default;
+            }
+            else if(comboBox_tipoArquivo.Text == "")
             {
                 MessageBox.Show("Selecione o Tipo de Arquivo para Anexar");
                 comboBox_tipoArquivo.Select();
                 comboBox_tipoArquivo.DroppedDown = true;
+                Cursor = Cursors.Default;
             }
             else
             {
@@ -1669,7 +1891,7 @@ namespace LMFinanciamentos.Apresentacao
 
                         RenameFile(curFile, NewFile);
 
-                        MessageBox.Show("Arquivo Anexado!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        
                         #endregion
 
                         #region  Load Grid
@@ -1688,7 +1910,8 @@ namespace LMFinanciamentos.Apresentacao
                         txtArquivo.Clear();
                         comboBox_tipoArquivo.Text = "";
                         txtdescricao.Clear();
-
+                        Cursor = Cursors.Default;
+                        MessageBox.Show("Arquivo Anexado!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         #endregion
 
                     }
@@ -1746,7 +1969,8 @@ namespace LMFinanciamentos.Apresentacao
                         dataGridView_Arquivos.Refresh();
                         txtArquivo.Clear();
                         comboBox_tipoArquivo.Text = "";
-
+                        Cursor = Cursors.Default;
+                        MessageBox.Show("Arquivo Anexado!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         #endregion
 
                     }

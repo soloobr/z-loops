@@ -27,6 +27,7 @@ namespace LMFinanciamentos.Apresentacao
 
         private void Form_Controle_Documento_Load(object sender, EventArgs e)
         {
+
             txtprocurar.Select();
             this.ActiveControl = txtprocurar;
             txtprocurar.Focus();
@@ -40,6 +41,7 @@ namespace LMFinanciamentos.Apresentacao
             dgv_process.AutoGenerateColumns = false;
             dgv_process.DataSource = getprocessos.GetProcessos("C","%");
             dgv_process.Refresh();
+            Cursor = Cursors.Default;
 
 
         }

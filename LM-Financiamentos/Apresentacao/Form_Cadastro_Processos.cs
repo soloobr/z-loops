@@ -18,7 +18,7 @@ namespace LMFinanciamentos.Apresentacao
 
         bool bPopCombo, cadastrar;
 
-        string idcli, idVendedor, idresponsavel, idCorretora, idCorretor, idempreendimentos, Status, valor, svalorimovel, svalorfinanciado;
+        string idcli, idVendedor, idresponsavel, idCorretora, idCorretor, idempreendimentos, idagenciaimovel, idprograma, Status, valor, svalorimovel, svalorfinanciado;
         //private int cadastrar = 0;
         //private int newProgressValue;
 
@@ -83,8 +83,8 @@ namespace LMFinanciamentos.Apresentacao
             this.ActiveControl = ComboBoxClient;
             ComboBoxClient.Focus();
 
-            tabControl.TabPages.Remove(tabcartorio);
-            tabControl.TabPages.Remove(tabdoc);
+           // tabControl.TabPages.Remove(tabcartorio);
+            //tabControl.TabPages.Remove(tabdoc);
 
             #region Valor Imovel
             valor = valorimovel.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
@@ -184,7 +184,7 @@ namespace LMFinanciamentos.Apresentacao
                         svalorimovel = valorimovel.Text.Replace("R$", "").Replace(".", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
                         svalorfinanciado = valorfinanciado.Text.Replace("R$", "").Replace(".", "").Replace(",", "").Replace(" ", "").Replace("00,", ""); ;
                         LoginDaoComandos criarprocesso = new LoginDaoComandos();
-                        criarprocesso.CriarProcesso(idcli, idVendedor, idresponsavel, idCorretora, idCorretor, idempreendimentos, svalorimovel, svalorfinanciado, Status);
+                        criarprocesso.CriarProcesso(idcli, idVendedor, idresponsavel, idCorretora, idCorretor, idempreendimentos, idagenciaimovel, idprograma, svalorimovel, svalorfinanciado, Status);
                         MessageBox.Show(criarprocesso.mensagem,"Salvar",MessageBoxButtons.OK,MessageBoxIcon.Information);
                         if (ProcessoSalvo != null)
                             ProcessoSalvo.Invoke();
@@ -752,7 +752,7 @@ namespace LMFinanciamentos.Apresentacao
             Cursor = Cursors.WaitCursor;
             if (comboBox_programa.DataSource is null)
             {
-                txtcorretora.IntegralHeight = false;
+                comboBox_programa.IntegralHeight = false;
                 LoginDaoComandos gettpross = new LoginDaoComandos();
                 #region Popular combobox
                 comboBox_programa.DataSource = gettpross.GetDataPrograma();
@@ -806,6 +806,21 @@ namespace LMFinanciamentos.Apresentacao
             {
                 Cursor = Cursors.Default;
             }
+        }
+
+        private void comboBox_agencia_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            idagenciaimovel = comboBox_agencia.SelectedValue.ToString();
+        }
+
+        private void comboBox_programa_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            idprograma = comboBox_programa.SelectedValue.ToString();
+        }
+
+        private void comboBox_corretor_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            idCorretor = comboBox_corretor.SelectedValue.ToString();
         }
 
         private void comboBox_corretor_MouseClick(object sender, MouseEventArgs e)

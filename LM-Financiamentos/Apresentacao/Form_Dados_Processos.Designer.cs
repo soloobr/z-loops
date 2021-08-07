@@ -31,14 +31,14 @@ namespace LMFinanciamentos.Apresentacao
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Dados_Processos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnsalvardoc = new System.Windows.Forms.Button();
             this.dS_Documentos = new LMFinanciamentos.DAL.DS_Documentos();
             this.dSDocumentosBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -200,7 +200,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label33 = new System.Windows.Forms.Label();
             this.comboBox_analise = new System.Windows.Forms.ComboBox();
             this.label29 = new System.Windows.Forms.Label();
-            this.tabdocumentos = new System.Windows.Forms.TabPage();
+            this.tabcartorio = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBoxsituacao = new System.Windows.Forms.GroupBox();
             this.pnlsituacao = new System.Windows.Forms.Panel();
@@ -319,7 +319,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panel28.SuspendLayout();
             this.pnlAnalise.SuspendLayout();
             this.paneldataanalise.SuspendLayout();
-            this.tabdocumentos.SuspendLayout();
+            this.tabcartorio.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.groupBoxsituacao.SuspendLayout();
             this.pnlsituacao.SuspendLayout();
@@ -544,7 +544,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tabControl.Controls.Add(this.tabcliente);
             this.tabControl.Controls.Add(this.tabvendedor);
             this.tabControl.Controls.Add(this.tabimovel);
-            this.tabControl.Controls.Add(this.tabdocumentos);
+            this.tabControl.Controls.Add(this.tabcartorio);
             this.tabControl.Controls.Add(this.tabdoc);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1532,6 +1532,8 @@ namespace LMFinanciamentos.Apresentacao
             this.comboBox_corretora.Name = "comboBox_corretora";
             this.comboBox_corretora.Size = new System.Drawing.Size(336, 28);
             this.comboBox_corretora.TabIndex = 22;
+            this.comboBox_corretora.SelectionChangeCommitted += new System.EventHandler(this.comboBox_corretora_SelectionChangeCommitted);
+            this.comboBox_corretora.MouseClick += new System.Windows.Forms.MouseEventHandler(this.comboBox_corretora_MouseClick);
             // 
             // lblcorretora
             // 
@@ -1569,6 +1571,8 @@ namespace LMFinanciamentos.Apresentacao
             this.comboBox_corretor.Name = "comboBox_corretor";
             this.comboBox_corretor.Size = new System.Drawing.Size(336, 28);
             this.comboBox_corretor.TabIndex = 24;
+            this.comboBox_corretor.SelectionChangeCommitted += new System.EventHandler(this.comboBox_corretor_SelectionChangeCommitted);
+            this.comboBox_corretor.MouseClick += new System.Windows.Forms.MouseEventHandler(this.comboBox_corretor_MouseClick);
             // 
             // lblcorretor
             // 
@@ -1607,6 +1611,8 @@ namespace LMFinanciamentos.Apresentacao
             this.comboBox_empreendimentos.Name = "comboBox_empreendimentos";
             this.comboBox_empreendimentos.Size = new System.Drawing.Size(338, 28);
             this.comboBox_empreendimentos.TabIndex = 28;
+            this.comboBox_empreendimentos.SelectionChangeCommitted += new System.EventHandler(this.comboBox_empreendimentos_SelectionChangeCommitted);
+            this.comboBox_empreendimentos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.comboBox_empreendimentos_MouseClick);
             // 
             // lblempresendimentos
             // 
@@ -1752,19 +1758,12 @@ namespace LMFinanciamentos.Apresentacao
             this.comboBox_programa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBox_programa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_programa.FormattingEnabled = true;
-            this.comboBox_programa.Items.AddRange(new object[] {
-            "CCFGTS",
-            "Construção",
-            "Construção e Terreno",
-            "Crédito Fácil",
-            "PCVA",
-            "SBPE",
-            "Terreno",
-            "Construção em Terreno proprio"});
             this.comboBox_programa.Location = new System.Drawing.Point(3, 24);
             this.comboBox_programa.Name = "comboBox_programa";
             this.comboBox_programa.Size = new System.Drawing.Size(249, 28);
             this.comboBox_programa.TabIndex = 20;
+            this.comboBox_programa.SelectionChangeCommitted += new System.EventHandler(this.comboBox_programa_SelectionChangeCommitted);
+            this.comboBox_programa.MouseClick += new System.Windows.Forms.MouseEventHandler(this.comboBox_programa_MouseClick);
             // 
             // label15
             // 
@@ -1797,17 +1796,12 @@ namespace LMFinanciamentos.Apresentacao
             this.comboBox_agencia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox_agencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_agencia.FormattingEnabled = true;
-            this.comboBox_agencia.Items.AddRange(new object[] {
-            "0356",
-            "2025",
-            "2088",
-            "2757",
-            "4090",
-            "4892"});
             this.comboBox_agencia.Location = new System.Drawing.Point(3, 26);
             this.comboBox_agencia.Name = "comboBox_agencia";
             this.comboBox_agencia.Size = new System.Drawing.Size(249, 28);
             this.comboBox_agencia.TabIndex = 20;
+            this.comboBox_agencia.SelectionChangeCommitted += new System.EventHandler(this.comboBox_agencia_SelectionChangeCommitted);
+            this.comboBox_agencia.MouseClick += new System.Windows.Forms.MouseEventHandler(this.comboBox_agencia_MouseClick);
             // 
             // label16
             // 
@@ -2352,17 +2346,17 @@ namespace LMFinanciamentos.Apresentacao
             this.label29.TabIndex = 19;
             this.label29.Text = "Status Análise:";
             // 
-            // tabdocumentos
+            // tabcartorio
             // 
-            this.tabdocumentos.Controls.Add(this.tableLayoutPanel6);
-            this.tabdocumentos.Controls.Add(this.groupBoxcartorio);
-            this.tabdocumentos.Location = new System.Drawing.Point(4, 32);
-            this.tabdocumentos.Name = "tabdocumentos";
-            this.tabdocumentos.Padding = new System.Windows.Forms.Padding(20);
-            this.tabdocumentos.Size = new System.Drawing.Size(1104, 510);
-            this.tabdocumentos.TabIndex = 1;
-            this.tabdocumentos.Text = "Cartório";
-            this.tabdocumentos.UseVisualStyleBackColor = true;
+            this.tabcartorio.Controls.Add(this.tableLayoutPanel6);
+            this.tabcartorio.Controls.Add(this.groupBoxcartorio);
+            this.tabcartorio.Location = new System.Drawing.Point(4, 32);
+            this.tabcartorio.Name = "tabcartorio";
+            this.tabcartorio.Padding = new System.Windows.Forms.Padding(20);
+            this.tabcartorio.Size = new System.Drawing.Size(1104, 510);
+            this.tabcartorio.TabIndex = 1;
+            this.tabcartorio.Text = "Cartório";
+            this.tabcartorio.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel6
             // 
@@ -2599,6 +2593,8 @@ namespace LMFinanciamentos.Apresentacao
             this.comboBox_nomecartorio.Name = "comboBox_nomecartorio";
             this.comboBox_nomecartorio.Size = new System.Drawing.Size(360, 31);
             this.comboBox_nomecartorio.TabIndex = 16;
+            this.comboBox_nomecartorio.SelectionChangeCommitted += new System.EventHandler(this.comboBox_nomecartorio_SelectionChangeCommitted);
+            this.comboBox_nomecartorio.MouseClick += new System.Windows.Forms.MouseEventHandler(this.comboBox_nomecartorio_MouseClick);
             // 
             // label14
             // 
@@ -2700,7 +2696,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btnAnexar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAnexar.Font = new System.Drawing.Font("Poppins SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnexar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnAnexar.Location = new System.Drawing.Point(632, 87);
+            this.btnAnexar.Location = new System.Drawing.Point(674, 87);
             this.btnAnexar.Name = "btnAnexar";
             this.btnAnexar.Size = new System.Drawing.Size(109, 32);
             this.btnAnexar.TabIndex = 33;
@@ -2780,7 +2776,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtdescricao.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdescricao.Location = new System.Drawing.Point(238, 87);
             this.txtdescricao.Name = "txtdescricao";
-            this.txtdescricao.Size = new System.Drawing.Size(388, 30);
+            this.txtdescricao.Size = new System.Drawing.Size(430, 30);
             this.txtdescricao.TabIndex = 35;
             // 
             // groupBox7
@@ -2814,14 +2810,14 @@ namespace LMFinanciamentos.Apresentacao
             this.apagar,
             this.Baixar,
             this.Extensao});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Poppins SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_Arquivos.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Poppins SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_Arquivos.DefaultCellStyle = dataGridViewCellStyle24;
             this.dataGridView_Arquivos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_Arquivos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView_Arquivos.GridColor = System.Drawing.SystemColors.Control;
@@ -2840,9 +2836,9 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.Numero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Numero.DataPropertyName = "id";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = "0";
-            this.Numero.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.NullValue = "0";
+            this.Numero.DefaultCellStyle = dataGridViewCellStyle17;
             this.Numero.HeaderText = "Nº";
             this.Numero.Name = "Numero";
             this.Numero.ReadOnly = true;
@@ -2852,8 +2848,8 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.Tipo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.Tipo.DataPropertyName = "Tipo";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Tipo.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Tipo.DefaultCellStyle = dataGridViewCellStyle18;
             this.Tipo.HeaderText = "Tipo";
             this.Tipo.Name = "Tipo";
             this.Tipo.ReadOnly = true;
@@ -2863,8 +2859,8 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.descricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.descricao.DataPropertyName = "Descricao";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.descricao.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.descricao.DefaultCellStyle = dataGridViewCellStyle19;
             this.descricao.HeaderText = "Descrição";
             this.descricao.Name = "descricao";
             this.descricao.Width = 250;
@@ -2873,8 +2869,8 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.data.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.data.DataPropertyName = "Data";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.data.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.data.DefaultCellStyle = dataGridViewCellStyle20;
             this.data.HeaderText = "Data";
             this.data.Name = "data";
             // 
@@ -2882,8 +2878,8 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.status.DataPropertyName = "Status";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.status.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.status.DefaultCellStyle = dataGridViewCellStyle21;
             this.status.HeaderText = "Status";
             this.status.Name = "status";
             this.status.Width = 150;
@@ -2891,9 +2887,9 @@ namespace LMFinanciamentos.Apresentacao
             // apagar
             // 
             this.apagar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(1);
-            this.apagar.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle22.Padding = new System.Windows.Forms.Padding(1);
+            this.apagar.DefaultCellStyle = dataGridViewCellStyle22;
             this.apagar.FillWeight = 30F;
             this.apagar.HeaderText = "Excluir";
             this.apagar.MinimumWidth = 60;
@@ -2905,9 +2901,9 @@ namespace LMFinanciamentos.Apresentacao
             // Baixar
             // 
             this.Baixar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(1);
-            this.Baixar.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle23.Padding = new System.Windows.Forms.Padding(1);
+            this.Baixar.DefaultCellStyle = dataGridViewCellStyle23;
             this.Baixar.FillWeight = 30F;
             this.Baixar.HeaderText = "Baixar";
             this.Baixar.MinimumWidth = 60;
@@ -3140,7 +3136,7 @@ namespace LMFinanciamentos.Apresentacao
             this.pnlAnalise.ResumeLayout(false);
             this.paneldataanalise.ResumeLayout(false);
             this.paneldataanalise.PerformLayout();
-            this.tabdocumentos.ResumeLayout(false);
+            this.tabcartorio.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.groupBoxsituacao.ResumeLayout(false);
             this.pnlsituacao.ResumeLayout(false);
@@ -3191,7 +3187,7 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabcliente;
-        private System.Windows.Forms.TabPage tabdocumentos;
+        private System.Windows.Forms.TabPage tabcartorio;
         private System.Windows.Forms.TabPage tabdoc;
         private System.Windows.Forms.TabPage tabimovel;
         private System.Windows.Forms.Label lblstatus;

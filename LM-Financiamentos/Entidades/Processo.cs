@@ -82,6 +82,8 @@
         public string Programa_imovel { get; set; }
         public string Id_Programa { get; set; }
         public string EmpDescricao_imovel { get; set; }
+        public string id_Empreendimentos_imovel { get; set; }
+        
         public string Valor_imovel { get; set; }
         public string ValorFinanciado_imovel { get; set; }
 

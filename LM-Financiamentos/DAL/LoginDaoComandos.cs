@@ -64,7 +64,7 @@ namespace LMFinanciamentos.DAL
                 "P.StatusAnalise as	StatusAnalise, P.StatusEng as StatusEng, P.SaqueFGTS as SaqueFGTS, P.SIOPI as SIOPI, P.SICTD as SICTD, P.StatusPA as StatusPA, P.StatusCartorio as StatusCartorio, " +
                 "Clientes.id as idCliente, Clientes.Nome as clinome, Clientes.Email as EmailCli,  Clientes.Telefone as Telefonecli , Clientes.Celular as celularcli, Clientes.CPF as cpfcli, Clientes.RG as rgcli, Conta.Agencia as agenciacli, Conta.Conta as contacli, Clientes.Nascimento as Nascimento, Clientes.Renda as rendacli, " +
                 "V.id as idVendedor, V.Nome as vendnome, V.Email as Emailvendedor, V.Telefone as Telefonevendedor, V.Celular as celularvendedor, V.CPF as cpfvendedor, V.CNPJ as cnpjvendedor, V.Agencia as agenciavendedor, V.Conta as contavendedor,   " +
-                "Corretora.Descricao as Corretora, Corretores.Nome as Corretor, P.idCorretora, P.idCorretor, Agencia.id as idAgenciaImovel, Agencia.Agencia as AgenciaImovel, Programa.id as idPrograma, Programa.Descricao as DescriPrograma, Agencia.Agencia as AgenciaImovel, Programa.Descricao as Programa, Empreendimentos.Descricao as EmpDescricao, P.idCartorio as idCartorio, Cartorio.Descricao as sCartorio, Cartorio.Endereco as endCartorio, P.StatusCartorio as StatusCartorio,  " +
+                "Corretora.Descricao as Corretora, Corretores.Nome as Corretor, P.idCorretora, P.idCorretor, Agencia.id as idAgenciaImovel, Agencia.Agencia as AgenciaImovel, Programa.id as idPrograma, Programa.Descricao as DescriPrograma, Agencia.Agencia as AgenciaImovel, Programa.Descricao as Programa, Empreendimentos.Descricao as EmpDescricao, Empreendimentos.id as Empreid, P.idCartorio as idCartorio, Cartorio.Descricao as sCartorio, Cartorio.Endereco as endCartorio, P.StatusCartorio as StatusCartorio,  " +
                 "F.Nome as nomeresponsavel, F.Permission as permissionresponsavel,  " +
                 "P.DataStatusCPF, P.DataStatusCiweb, P.DataStatusCadmut, P.DataStatusIR, P.DataStatusFGTS, P.DataStatusAnalise, P.DataStatusEng, P.DataSaqueFGTS, P.DataSIOP, P.DataSICTD, P.DataPA, P.DataStatusCartorio, P.DataStatus   " +
 
@@ -171,7 +171,8 @@ namespace LMFinanciamentos.DAL
                     process.Valor_imovel = drprocess["ValorImovel"].ToString();
                     process.ValorFinanciado_imovel = drprocess["ValorFinanciado"].ToString();
 
-
+                    
+                    process.id_Empreendimentos_imovel = drprocess["Empreid"].ToString();
                     process.EmpDescricao_imovel = drprocess["EmpDescricao"].ToString();
 
 
@@ -512,6 +513,7 @@ namespace LMFinanciamentos.DAL
             {
                 throw new Exception("Erro ao obter processosos: " + err.Message);
             }
+
             return listprocessos;
         }
 
@@ -663,14 +665,14 @@ namespace LMFinanciamentos.DAL
             }
             return listdoc;
         }
-        public String CriarProcesso(String idCliente, String idVendedor, String idresponsavel, String idCorretora, String idCorretor, String idempreendimentos, String ValorImovel, String ValorFinanciado, String status)
+        public String CriarProcesso(String idCliente, String idVendedor, String idresponsavel, String idCorretora, String idCorretor, String idempreendimentos, String idagenciaimovel, String idprograma, String ValorImovel, String ValorFinanciado, String status)
         {
 
             try
             {
 
-                cmd1.CommandText = "INSERT INTO Processos (idCliente, idVendedor, idresponsavel, idCorretora, idCorretor, idEmpreendimento, ValorImovel, ValorFinanciado, Data, Status) VALUES " +
-                "(@idCliente, @idVendedor, @idresponsavel, @idCorretora, @idCorretor, @idempreendimentos,@ValorImovel, @ValorFinanciado, @Data, @Status) ";
+                cmd1.CommandText = "INSERT INTO Processos (idCliente, idVendedor, idresponsavel, idCorretora, idCorretor, idEmpreendimento, idAgenciaImovel, idPrograma, ValorImovel, ValorFinanciado, Data, Status) VALUES " +
+                "(@idCliente, @idVendedor, @idresponsavel, @idCorretora, @idCorretor, @idempreendimentos, @idagenciaimovel,@idprograma, @ValorImovel, @ValorFinanciado, @Data, @Status) ";
 
                 cmd1.Parameters.AddWithValue("@idCliente", idCliente);
                 cmd1.Parameters.AddWithValue("@idVendedor", idVendedor);
@@ -678,6 +680,8 @@ namespace LMFinanciamentos.DAL
                 cmd1.Parameters.AddWithValue("@idCorretora", idCorretora);
                 cmd1.Parameters.AddWithValue("@idCorretor", idCorretor);
                 cmd1.Parameters.AddWithValue("@idempreendimentos", idempreendimentos);
+                cmd1.Parameters.AddWithValue("@idagenciaimovel", idagenciaimovel);
+                cmd1.Parameters.AddWithValue("@idprograma", idprograma);
                 cmd1.Parameters.AddWithValue("@ValorImovel", ValorImovel);
                 cmd1.Parameters.AddWithValue("@ValorFinanciado", ValorFinanciado);
                 cmd1.Parameters.AddWithValue("@Data", DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
@@ -711,49 +715,100 @@ namespace LMFinanciamentos.DAL
 
             return mensagem;
         }
-        public String UpdateProcesso(String id, String sidAgenciaImovel, String sidPrograma, String sidCorretora, String sidCorretores, String sidEmpreendimentos, String scpf, String sciweb, String scadmut, String sir, String sfgts, DateTime datastatuscpf, DateTime datastatusciweb, DateTime datastatuscadmut, DateTime datastatusir, DateTime datastatusfgts, DateTime datastatusanalise, DateTime datastatuseng, DateTime datasiopi, DateTime datasictd, DateTime datasaquefgts, DateTime datapa, String valorimovel, String valorfinanciado,String sidcartorio, String scartorio, DateTime datastatuscartorio, String status)
+                                   
+        public String UpdateProcesso(
+            String id, 
+            String StatusCPF,
+            DateTime datastatuscpf,
+            String Statusciweb,
+            DateTime datastatusciweb,
+            String Stauscadmut,
+            DateTime datastatuscadmut,
+            String Statusir,
+            DateTime datastatusir,
+            String Statusfgts,
+            DateTime datastatusfgts,
+
+
+            String StatusAnalise,
+            DateTime datastatusanalise,
+            String StatusEng,
+            DateTime datastatuseng,
+            String StatusSiopi,
+            DateTime datasiopi,
+            String StatusSictd,
+            DateTime datasictd,
+            String StatusSaquefgts,
+            DateTime datasaquefgts,
+            String StatusPA,
+            DateTime datapa,
+
+            String sidAgenciaImovel, 
+            String sidPrograma,
+            String valorimovel,
+            String valorfinanciado,
+            String sidCorretora, 
+            String sidCorretores, 
+            String sidEmpreendimentos,
+
+            String sidcartorio,
+            String StatusCartorio,
+            DateTime datastatuscartorio,
+            
+             
+            String status
+            
+            )
         {
             try
             {
                 cmd1.CommandText = "UPDATE Processos " +
-                "SET Status = @Status, StatusCPF = @cpf, StatusCiweb = @Ciweb, StatusCadmut = @Cadmut, StatusIR = @IR, StatusFGTS = @FGTS , " +
-                "DataStatusCPF = @DataStatusCPF, DataStatusCiweb = @DataStatusCiweb, DataStatusCadmut = @DataStatusCadmut, DataStatusIR = @DataStatusIR, DataStatusFGTS = @DataStatusFGTS, " +
-                "DataStatusAnalise = @DataStatusAnalise, DataStatusEng = @DataStatusEng, DataSaqueFGTS = @DataStatussaquefgts, DataSIOP = @DataStatussiopi, DataSICTD = @DataStatussictd, DataPA = @DataStatuspa, " +
-                "idAgenciaImovel = @idAgenciaImovel, idPrograma = @idPrograma, ValorImovel = @valorimovel, ValorFinanciado = @valorfinanciado, " +
-                "idCorretora = @idCorretora, idCorretor = @idCorretor, idEmpreendimento = @idEmpreendimentos, " +
-                "idCartorio = @idCartorio, StatusCartorio = @Cartorio, DataStatusCartorio = @DataStatusCartorio " +
-                "WHERE id = @Id ";
+                "SET StatusCPF = @StatusCPF, DataStatusCPF = @datastatuscpf, StatusCiweb = @Statusciweb, DataStatusCiweb = @datastatusciweb, StatusCadmut = @Stauscadmut, DataStatusCadmut = @datastatuscadmut, StatusIR = @Statusir, DataStatusIR = @datastatusir, StatusFGTS = @Statusfgts, DataStatusFGTS = @datastatusfgts, " +
+                "StatusAnalise = @StatusAnalise, DataStatusAnalise = @datastatusanalise, StatusEng = @StatusEng, DataStatusEng = @datastatuseng, SIOPI = @StatusSiopi, DataSIOP = @datasiopi, SICTD = @StatusSictd, DataSICTD = @datasictd, SaqueFGTS = @StatusSaquefgts, DataSaqueFGTS = @datasaquefgts, StatusPA = @StatusPA, DataPA = @datapa, " +
+                "idAgenciaImovel = @sidAgenciaImovel, idPrograma = @sidPrograma, ValorImovel = @valorimovel, ValorFinanciado = @valorfinanciado, idCorretora = @sidCorretora, idCorretor = @sidCorretores, idEmpreendimento = @sidEmpreendimentos, " +
+                "idCartorio = @sidcartorio, StatusCartorio = @StatusCartorio, DataStatusCartorio = @datastatuscartorio, " +
+                "Status = @status, DataStatus = @Data " +
+                "WHERE id = @id ";
                 
                 cmd1.Parameters.Clear();
-                cmd1.Parameters.AddWithValue("@Id", id);
-                cmd1.Parameters.AddWithValue("@cpf", scpf);
-                cmd1.Parameters.AddWithValue("@Ciweb", sciweb);
-                cmd1.Parameters.AddWithValue("@Cadmut", scadmut);
-                cmd1.Parameters.AddWithValue("@IR", sir);
-                cmd1.Parameters.AddWithValue("@FGTS", sfgts);
-                cmd1.Parameters.AddWithValue("@idAgenciaImovel", sidAgenciaImovel);
-                cmd1.Parameters.AddWithValue("@idPrograma", sidPrograma);
-                cmd1.Parameters.AddWithValue("@idCorretora", sidCorretora);
-                cmd1.Parameters.AddWithValue("@idCorretor", sidCorretores);
-                cmd1.Parameters.AddWithValue("@idEmpreendimentos", sidEmpreendimentos);
-                cmd1.Parameters.AddWithValue("@DataStatusCPF", datastatuscpf);
-                cmd1.Parameters.AddWithValue("@DataStatusCiweb", datastatusciweb);
-                cmd1.Parameters.AddWithValue("@DataStatusCadmut", datastatuscadmut);
-                cmd1.Parameters.AddWithValue("@DataStatusIR", datastatusir);
-                cmd1.Parameters.AddWithValue("@DataStatusFGTS", datastatusfgts);
-                cmd1.Parameters.AddWithValue("@DataStatusAnalise", datastatusanalise);
-                cmd1.Parameters.AddWithValue("@DataStatusEng", datastatuseng);
-                cmd1.Parameters.AddWithValue("@DataStatussiopi", datasiopi);
-                cmd1.Parameters.AddWithValue("@DataStatussictd", datasictd);
-                cmd1.Parameters.AddWithValue("@DataStatussaquefgts", datasaquefgts);
-                cmd1.Parameters.AddWithValue("@DataStatuspa", datapa);
+                cmd1.Parameters.AddWithValue("@id", id);
+                cmd1.Parameters.AddWithValue("@StatusCPF", StatusCPF);
+                cmd1.Parameters.AddWithValue("@datastatuscpf", datastatuscpf);
+                cmd1.Parameters.AddWithValue("@Statusciweb", Statusciweb);
+                cmd1.Parameters.AddWithValue("@datastatusciweb", datastatusciweb);
+                cmd1.Parameters.AddWithValue("@Stauscadmut", Stauscadmut);
+                cmd1.Parameters.AddWithValue("@datastatuscadmut", datastatuscadmut);
+                cmd1.Parameters.AddWithValue("@Statusir", Statusir);
+                cmd1.Parameters.AddWithValue("@datastatusir", datastatusir);
+                cmd1.Parameters.AddWithValue("@Statusfgts", Statusfgts);
+                cmd1.Parameters.AddWithValue("@datastatusfgts", datastatusfgts);
+                cmd1.Parameters.AddWithValue("@StatusAnalise", StatusAnalise);
+                cmd1.Parameters.AddWithValue("@datastatusanalise", datastatusanalise);
+                cmd1.Parameters.AddWithValue("@StatusEng", StatusEng);
+                cmd1.Parameters.AddWithValue("@datastatuseng", datastatuseng);
+                cmd1.Parameters.AddWithValue("@StatusSiopi", StatusSiopi);
+                cmd1.Parameters.AddWithValue("@datasiopi", datasiopi);
+                cmd1.Parameters.AddWithValue("@StatusSictd", StatusSictd);
+                cmd1.Parameters.AddWithValue("@datasictd", datasictd);
+                cmd1.Parameters.AddWithValue("@StatusSaquefgts", StatusSaquefgts);
+                cmd1.Parameters.AddWithValue("@datasaquefgts", datasaquefgts);
+                cmd1.Parameters.AddWithValue("@StatusPA", StatusPA);
+                cmd1.Parameters.AddWithValue("@datapa", datapa);
+                cmd1.Parameters.AddWithValue("@sidAgenciaImovel", sidAgenciaImovel);
+                cmd1.Parameters.AddWithValue("@sidPrograma", sidPrograma);
                 cmd1.Parameters.AddWithValue("@valorimovel", valorimovel);
                 cmd1.Parameters.AddWithValue("@valorfinanciado", valorfinanciado);
-                cmd1.Parameters.AddWithValue("@idCartorio", sidcartorio);
-                cmd1.Parameters.AddWithValue("@Cartorio", scartorio);
-                cmd1.Parameters.AddWithValue("@DataStatusCartorio", datastatuscartorio);
-                //cmd1.Parameters.AddWithValue("@DataStatus", datastatus);
-                cmd1.Parameters.AddWithValue("@Status", status);
+                cmd1.Parameters.AddWithValue("@sidCorretora", sidCorretora);
+                cmd1.Parameters.AddWithValue("@sidCorretores", sidCorretores);
+                cmd1.Parameters.AddWithValue("@sidEmpreendimentos", sidEmpreendimentos);
+                cmd1.Parameters.AddWithValue("@sidcartorio", sidcartorio);
+                cmd1.Parameters.AddWithValue("@StatusCartorio", StatusCartorio);
+                cmd1.Parameters.AddWithValue("@datastatuscartorio", datastatuscartorio);
+                cmd1.Parameters.AddWithValue("@status", status);
+                cmd1.Parameters.AddWithValue("@Data", DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
+
+
+
 
 
                 cmd1.Connection = conn.conectar();
@@ -884,7 +939,7 @@ namespace LMFinanciamentos.DAL
 
         public DataTable GetDataDocumentos(String idproces)
         {
-            cmd.CommandText = "select id, 	idProcesso, Tipo, Descricao, Data, Extensao, Status From Documentos where idProcesso = @idProcess ";
+            cmd.CommandText = "select id, idProcesso, Tipo, Descricao, Data, Extensao, Status From Documentos where idProcesso = @idProcess ";
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@idProcess", idproces);
             cmd.Connection = con.conectar();

@@ -31,22 +31,6 @@ namespace LMFinanciamentos.Apresentacao
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Cadastro_Processos));
-            this.tabdoc = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apagar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.panel17 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.panel18 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.btnsalvardoc = new System.Windows.Forms.Button();
             this.dS_Documentos = new LMFinanciamentos.DAL.DS_Documentos();
             this.dSDocumentosBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -153,57 +137,6 @@ namespace LMFinanciamentos.Apresentacao
             this.panel9 = new System.Windows.Forms.Panel();
             this.comboBox_agencia = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.panel25 = new System.Windows.Forms.Panel();
-            this.panel31 = new System.Windows.Forms.Panel();
-            this.label43 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.panel24 = new System.Windows.Forms.Panel();
-            this.panel30 = new System.Windows.Forms.Panel();
-            this.label41 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.panel23 = new System.Windows.Forms.Panel();
-            this.panel29 = new System.Windows.Forms.Panel();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.panel22 = new System.Windows.Forms.Panel();
-            this.panel27 = new System.Windows.Forms.Panel();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.comboBox_saque = new System.Windows.Forms.ComboBox();
-            this.lblsaque = new System.Windows.Forms.Label();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.panel28 = new System.Windows.Forms.Panel();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.comboBox_statuseng = new System.Windows.Forms.ComboBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.paneldataanalise = new System.Windows.Forms.Panel();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.comboBox_analise = new System.Windows.Forms.ComboBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.tabcartorio = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.comboBox_statuscartorio = new System.Windows.Forms.ComboBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.comboBox_nomecartorio = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -215,13 +148,6 @@ namespace LMFinanciamentos.Apresentacao
             this.kryptonContextMenuItems1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.kryptonContextMenuItems2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
-            this.tabdoc.SuspendLayout();
-            this.tableLayoutPanel7.SuspendLayout();
-            this.groupBox7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox8.SuspendLayout();
-            this.panel17.SuspendLayout();
-            this.panel18.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Documentos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSDocumentosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.processosBindingSource)).BeginInit();
@@ -257,188 +183,11 @@ namespace LMFinanciamentos.Apresentacao
             this.panel10.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel9.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.panel25.SuspendLayout();
-            this.panel31.SuspendLayout();
-            this.panel24.SuspendLayout();
-            this.panel30.SuspendLayout();
-            this.panel23.SuspendLayout();
-            this.panel29.SuspendLayout();
-            this.panel22.SuspendLayout();
-            this.panel27.SuspendLayout();
-            this.panel11.SuspendLayout();
-            this.panel28.SuspendLayout();
-            this.panel12.SuspendLayout();
-            this.paneldataanalise.SuspendLayout();
-            this.tabcartorio.SuspendLayout();
-            this.tableLayoutPanel6.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            this.panel16.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.panel14.SuspendLayout();
-            this.panel13.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // tabdoc
-            // 
-            this.tabdoc.Controls.Add(this.tableLayoutPanel7);
-            this.tabdoc.Location = new System.Drawing.Point(4, 32);
-            this.tabdoc.Name = "tabdoc";
-            this.tabdoc.Padding = new System.Windows.Forms.Padding(20);
-            this.tabdoc.Size = new System.Drawing.Size(984, 428);
-            this.tabdoc.TabIndex = 2;
-            this.tabdoc.Text = "Documentação";
-            this.tabdoc.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel7
-            // 
-            this.tableLayoutPanel7.ColumnCount = 1;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.85185F));
-            this.tableLayoutPanel7.Controls.Add(this.groupBox7, 0, 1);
-            this.tableLayoutPanel7.Controls.Add(this.groupBox8, 0, 0);
-            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(20, 20);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 2;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 199F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(944, 332);
-            this.tableLayoutPanel7.TabIndex = 24;
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.dataGridView1);
-            this.groupBox7.Location = new System.Drawing.Point(3, 136);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Padding = new System.Windows.Forms.Padding(6);
-            this.groupBox7.Size = new System.Drawing.Size(938, 132);
-            this.groupBox7.TabIndex = 27;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Anexos:";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Numero,
-            this.descricao,
-            this.data,
-            this.status,
-            this.apagar});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 26);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(926, 100);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // Numero
-            // 
-            this.Numero.HeaderText = "Nº";
-            this.Numero.Name = "Numero";
-            // 
-            // descricao
-            // 
-            this.descricao.HeaderText = "Descrição";
-            this.descricao.Name = "descricao";
-            // 
-            // data
-            // 
-            this.data.HeaderText = "Data";
-            this.data.Name = "data";
-            // 
-            // status
-            // 
-            this.status.HeaderText = "Status";
-            this.status.Name = "status";
-            // 
-            // apagar
-            // 
-            this.apagar.HeaderText = "Excluir";
-            this.apagar.Name = "apagar";
-            this.apagar.Text = "Excluir";
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.panel17);
-            this.groupBox8.Controls.Add(this.panel18);
-            this.groupBox8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox8.Location = new System.Drawing.Point(3, 3);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(938, 112);
-            this.groupBox8.TabIndex = 26;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Anexar";
-            // 
-            // panel17
-            // 
-            this.panel17.Controls.Add(this.button1);
-            this.panel17.Controls.Add(this.button3);
-            this.panel17.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel17.Location = new System.Drawing.Point(317, 23);
-            this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(468, 86);
-            this.panel17.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(51, 18);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(104, 32);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Anexar";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(10, 18);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(35, 32);
-            this.button3.TabIndex = 4;
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // panel18
-            // 
-            this.panel18.Controls.Add(this.textBox1);
-            this.panel18.Controls.Add(this.label8);
-            this.panel18.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel18.Location = new System.Drawing.Point(3, 23);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(314, 86);
-            this.panel18.TabIndex = 0;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBox1.Location = new System.Drawing.Point(0, 23);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(314, 27);
-            this.textBox1.TabIndex = 16;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label8.Location = new System.Drawing.Point(0, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(54, 23);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Nome:";
             // 
             // btnsalvardoc
             // 
@@ -626,8 +375,6 @@ namespace LMFinanciamentos.Apresentacao
             this.tabControl.Controls.Add(this.tabcliente);
             this.tabControl.Controls.Add(this.tabvendedor);
             this.tabControl.Controls.Add(this.tabimovel);
-            this.tabControl.Controls.Add(this.tabcartorio);
-            this.tabControl.Controls.Add(this.tabdoc);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl.Location = new System.Drawing.Point(0, 57);
@@ -1397,7 +1144,6 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.tabimovel.Controls.Add(this.tableLayoutPanel5);
             this.tabimovel.Controls.Add(this.tableLayoutPanel4);
-            this.tabimovel.Controls.Add(this.tableLayoutPanel3);
             this.tabimovel.Location = new System.Drawing.Point(4, 32);
             this.tabimovel.Name = "tabimovel";
             this.tabimovel.Padding = new System.Windows.Forms.Padding(20);
@@ -1412,7 +1158,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.85185F));
             this.tableLayoutPanel5.Controls.Add(this.groupBox4, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(20, 309);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(20, 150);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -1495,6 +1241,7 @@ namespace LMFinanciamentos.Apresentacao
             this.comboBox_corretor.Size = new System.Drawing.Size(268, 24);
             this.comboBox_corretor.TabIndex = 23;
             this.comboBox_corretor.SelectedIndexChanged += new System.EventHandler(this.comboBox_corretor_SelectedIndexChanged);
+            this.comboBox_corretor.SelectionChangeCommitted += new System.EventHandler(this.comboBox_corretor_SelectionChangeCommitted);
             this.comboBox_corretor.MouseClick += new System.Windows.Forms.MouseEventHandler(this.comboBox_corretor_MouseClick);
             // 
             // label4
@@ -1539,7 +1286,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.85185F));
             this.tableLayoutPanel4.Controls.Add(this.groupBox3, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(20, 179);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(20, 20);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -1654,6 +1401,7 @@ namespace LMFinanciamentos.Apresentacao
             this.comboBox_programa.Name = "comboBox_programa";
             this.comboBox_programa.Size = new System.Drawing.Size(177, 24);
             this.comboBox_programa.TabIndex = 20;
+            this.comboBox_programa.SelectionChangeCommitted += new System.EventHandler(this.comboBox_programa_SelectionChangeCommitted);
             this.comboBox_programa.DataSourceChanged += new System.EventHandler(this.comboBox_programa_DataSourceChanged);
             this.comboBox_programa.DisplayMemberChanged += new System.EventHandler(this.comboBox_programa_DisplayMemberChanged);
             this.comboBox_programa.MouseClick += new System.Windows.Forms.MouseEventHandler(this.comboBox_programa_MouseClick);
@@ -1694,6 +1442,7 @@ namespace LMFinanciamentos.Apresentacao
             this.comboBox_agencia.Size = new System.Drawing.Size(177, 24);
             this.comboBox_agencia.TabIndex = 20;
             this.comboBox_agencia.SelectedIndexChanged += new System.EventHandler(this.comboBox_agencia_SelectedIndexChanged);
+            this.comboBox_agencia.SelectionChangeCommitted += new System.EventHandler(this.comboBox_agencia_SelectionChangeCommitted);
             this.comboBox_agencia.Click += new System.EventHandler(this.comboBox_agencia_Click);
             this.comboBox_agencia.MouseClick += new System.Windows.Forms.MouseEventHandler(this.comboBox_agencia_MouseClick);
             // 
@@ -1705,651 +1454,6 @@ namespace LMFinanciamentos.Apresentacao
             this.label16.Size = new System.Drawing.Size(177, 23);
             this.label16.TabIndex = 19;
             this.label16.Text = "Agência:";
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 1;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.85185F));
-            this.tableLayoutPanel3.Controls.Add(this.groupBox2, 0, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(20, 20);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(944, 159);
-            this.tableLayoutPanel3.TabIndex = 21;
-            this.tableLayoutPanel3.Visible = false;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.panel25);
-            this.groupBox2.Controls.Add(this.panel24);
-            this.groupBox2.Controls.Add(this.panel23);
-            this.groupBox2.Controls.Add(this.panel22);
-            this.groupBox2.Controls.Add(this.panel11);
-            this.groupBox2.Controls.Add(this.panel12);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox2.Location = new System.Drawing.Point(3, 3);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(6);
-            this.groupBox2.Size = new System.Drawing.Size(938, 153);
-            this.groupBox2.TabIndex = 6;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Situações:";
-            this.groupBox2.Visible = false;
-            // 
-            // panel25
-            // 
-            this.panel25.AutoSize = true;
-            this.panel25.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel25.Controls.Add(this.panel31);
-            this.panel25.Controls.Add(this.comboBox3);
-            this.panel25.Controls.Add(this.label31);
-            this.panel25.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel25.Location = new System.Drawing.Point(794, 26);
-            this.panel25.Name = "panel25";
-            this.panel25.Padding = new System.Windows.Forms.Padding(3);
-            this.panel25.Size = new System.Drawing.Size(143, 121);
-            this.panel25.TabIndex = 11;
-            // 
-            // panel31
-            // 
-            this.panel31.Controls.Add(this.label43);
-            this.panel31.Controls.Add(this.label44);
-            this.panel31.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel31.Location = new System.Drawing.Point(3, 50);
-            this.panel31.Name = "panel31";
-            this.panel31.Size = new System.Drawing.Size(135, 66);
-            this.panel31.TabIndex = 27;
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label43.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(0, 27);
-            this.label43.Name = "label43";
-            this.label43.Padding = new System.Windows.Forms.Padding(2);
-            this.label43.Size = new System.Drawing.Size(122, 27);
-            this.label43.TabIndex = 1;
-            this.label43.Text = "__/ ___/ ____";
-            this.label43.Visible = false;
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label44.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.Location = new System.Drawing.Point(0, 0);
-            this.label44.Name = "label44";
-            this.label44.Padding = new System.Windows.Forms.Padding(2);
-            this.label44.Size = new System.Drawing.Size(73, 27);
-            this.label44.TabIndex = 0;
-            this.label44.Text = "Alterado:";
-            this.label44.Visible = false;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBox3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "Conforme ",
-            "Não Conforme"});
-            this.comboBox3.Location = new System.Drawing.Point(3, 26);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(135, 24);
-            this.comboBox3.TabIndex = 20;
-            // 
-            // label31
-            // 
-            this.label31.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label31.Location = new System.Drawing.Point(3, 3);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(135, 23);
-            this.label31.TabIndex = 19;
-            this.label31.Text = "PA:";
-            // 
-            // panel24
-            // 
-            this.panel24.AutoSize = true;
-            this.panel24.Controls.Add(this.panel30);
-            this.panel24.Controls.Add(this.comboBox2);
-            this.panel24.Controls.Add(this.label25);
-            this.panel24.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel24.Location = new System.Drawing.Point(653, 26);
-            this.panel24.Name = "panel24";
-            this.panel24.Padding = new System.Windows.Forms.Padding(3);
-            this.panel24.Size = new System.Drawing.Size(141, 121);
-            this.panel24.TabIndex = 10;
-            // 
-            // panel30
-            // 
-            this.panel30.Controls.Add(this.label41);
-            this.panel30.Controls.Add(this.label42);
-            this.panel30.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel30.Location = new System.Drawing.Point(3, 50);
-            this.panel30.Name = "panel30";
-            this.panel30.Size = new System.Drawing.Size(135, 68);
-            this.panel30.TabIndex = 26;
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label41.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.Location = new System.Drawing.Point(0, 27);
-            this.label41.Name = "label41";
-            this.label41.Padding = new System.Windows.Forms.Padding(2);
-            this.label41.Size = new System.Drawing.Size(122, 27);
-            this.label41.TabIndex = 1;
-            this.label41.Text = "__/ ___/ ____";
-            this.label41.Visible = false;
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label42.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.Location = new System.Drawing.Point(0, 0);
-            this.label42.Name = "label42";
-            this.label42.Padding = new System.Windows.Forms.Padding(2);
-            this.label42.Size = new System.Drawing.Size(73, 27);
-            this.label42.TabIndex = 0;
-            this.label42.Text = "Alterado:";
-            this.label42.Visible = false;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Enviado",
-            "Não Enviado"});
-            this.comboBox2.Location = new System.Drawing.Point(3, 26);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(135, 24);
-            this.comboBox2.TabIndex = 20;
-            // 
-            // label25
-            // 
-            this.label25.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label25.Location = new System.Drawing.Point(3, 3);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(135, 23);
-            this.label25.TabIndex = 19;
-            this.label25.Text = "SICTD:";
-            // 
-            // panel23
-            // 
-            this.panel23.AutoSize = true;
-            this.panel23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel23.Controls.Add(this.panel29);
-            this.panel23.Controls.Add(this.comboBox1);
-            this.panel23.Controls.Add(this.label13);
-            this.panel23.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel23.Location = new System.Drawing.Point(510, 26);
-            this.panel23.Name = "panel23";
-            this.panel23.Padding = new System.Windows.Forms.Padding(3);
-            this.panel23.Size = new System.Drawing.Size(143, 121);
-            this.panel23.TabIndex = 9;
-            // 
-            // panel29
-            // 
-            this.panel29.Controls.Add(this.label39);
-            this.panel29.Controls.Add(this.label40);
-            this.panel29.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel29.Location = new System.Drawing.Point(3, 50);
-            this.panel29.Name = "panel29";
-            this.panel29.Size = new System.Drawing.Size(135, 66);
-            this.panel29.TabIndex = 25;
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label39.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.Location = new System.Drawing.Point(0, 27);
-            this.label39.Name = "label39";
-            this.label39.Padding = new System.Windows.Forms.Padding(2);
-            this.label39.Size = new System.Drawing.Size(122, 27);
-            this.label39.TabIndex = 1;
-            this.label39.Text = "__/ ___/ ____";
-            this.label39.Visible = false;
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label40.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label40.Location = new System.Drawing.Point(0, 0);
-            this.label40.Name = "label40";
-            this.label40.Padding = new System.Windows.Forms.Padding(2);
-            this.label40.Size = new System.Drawing.Size(73, 27);
-            this.label40.TabIndex = 0;
-            this.label40.Text = "Alterado:";
-            this.label40.Visible = false;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Enviado",
-            "Não Enviado"});
-            this.comboBox1.Location = new System.Drawing.Point(3, 26);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(135, 24);
-            this.comboBox1.TabIndex = 20;
-            // 
-            // label13
-            // 
-            this.label13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label13.Location = new System.Drawing.Point(3, 3);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(135, 23);
-            this.label13.TabIndex = 19;
-            this.label13.Text = "SIOPI:";
-            // 
-            // panel22
-            // 
-            this.panel22.AutoSize = true;
-            this.panel22.Controls.Add(this.panel27);
-            this.panel22.Controls.Add(this.comboBox_saque);
-            this.panel22.Controls.Add(this.lblsaque);
-            this.panel22.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel22.Location = new System.Drawing.Point(344, 26);
-            this.panel22.Name = "panel22";
-            this.panel22.Padding = new System.Windows.Forms.Padding(3);
-            this.panel22.Size = new System.Drawing.Size(166, 121);
-            this.panel22.TabIndex = 8;
-            // 
-            // panel27
-            // 
-            this.panel27.Controls.Add(this.label37);
-            this.panel27.Controls.Add(this.label38);
-            this.panel27.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel27.Location = new System.Drawing.Point(3, 50);
-            this.panel27.Name = "panel27";
-            this.panel27.Size = new System.Drawing.Size(160, 68);
-            this.panel27.TabIndex = 24;
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label37.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(0, 27);
-            this.label37.Name = "label37";
-            this.label37.Padding = new System.Windows.Forms.Padding(2);
-            this.label37.Size = new System.Drawing.Size(122, 27);
-            this.label37.TabIndex = 1;
-            this.label37.Text = "__/ ___/ ____";
-            this.label37.Visible = false;
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label38.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(0, 0);
-            this.label38.Name = "label38";
-            this.label38.Padding = new System.Windows.Forms.Padding(2);
-            this.label38.Size = new System.Drawing.Size(73, 27);
-            this.label38.TabIndex = 0;
-            this.label38.Text = "Alterado:";
-            this.label38.Visible = false;
-            // 
-            // comboBox_saque
-            // 
-            this.comboBox_saque.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBox_saque.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox_saque.Dock = System.Windows.Forms.DockStyle.Top;
-            this.comboBox_saque.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_saque.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.comboBox_saque.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_saque.FormattingEnabled = true;
-            this.comboBox_saque.Items.AddRange(new object[] {
-            "Total",
-            "Parcial",
-            "Não Usar"});
-            this.comboBox_saque.Location = new System.Drawing.Point(3, 26);
-            this.comboBox_saque.Name = "comboBox_saque";
-            this.comboBox_saque.Size = new System.Drawing.Size(160, 24);
-            this.comboBox_saque.TabIndex = 20;
-            // 
-            // lblsaque
-            // 
-            this.lblsaque.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblsaque.Location = new System.Drawing.Point(3, 3);
-            this.lblsaque.Name = "lblsaque";
-            this.lblsaque.Size = new System.Drawing.Size(160, 23);
-            this.lblsaque.TabIndex = 19;
-            this.lblsaque.Text = "Saque FGTS:";
-            // 
-            // panel11
-            // 
-            this.panel11.AutoSize = true;
-            this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel11.Controls.Add(this.panel28);
-            this.panel11.Controls.Add(this.comboBox_statuseng);
-            this.panel11.Controls.Add(this.label28);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel11.Location = new System.Drawing.Point(176, 26);
-            this.panel11.Name = "panel11";
-            this.panel11.Padding = new System.Windows.Forms.Padding(3);
-            this.panel11.Size = new System.Drawing.Size(168, 121);
-            this.panel11.TabIndex = 7;
-            // 
-            // panel28
-            // 
-            this.panel28.Controls.Add(this.label35);
-            this.panel28.Controls.Add(this.label36);
-            this.panel28.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel28.Location = new System.Drawing.Point(3, 50);
-            this.panel28.Name = "panel28";
-            this.panel28.Size = new System.Drawing.Size(160, 66);
-            this.panel28.TabIndex = 23;
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label35.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(0, 27);
-            this.label35.Name = "label35";
-            this.label35.Padding = new System.Windows.Forms.Padding(2);
-            this.label35.Size = new System.Drawing.Size(122, 27);
-            this.label35.TabIndex = 1;
-            this.label35.Text = "__/ ___/ ____";
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label36.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(0, 0);
-            this.label36.Name = "label36";
-            this.label36.Padding = new System.Windows.Forms.Padding(2);
-            this.label36.Size = new System.Drawing.Size(73, 27);
-            this.label36.TabIndex = 0;
-            this.label36.Text = "Alterado:";
-            // 
-            // comboBox_statuseng
-            // 
-            this.comboBox_statuseng.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBox_statuseng.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox_statuseng.Dock = System.Windows.Forms.DockStyle.Top;
-            this.comboBox_statuseng.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_statuseng.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.comboBox_statuseng.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_statuseng.FormattingEnabled = true;
-            this.comboBox_statuseng.Items.AddRange(new object[] {
-            "Não Consultado",
-            "Aguardando Pagamento",
-            "Aprovado Abaixo",
-            "Aprovado Normal",
-            "Contestação",
-            "Solicitado"});
-            this.comboBox_statuseng.Location = new System.Drawing.Point(3, 26);
-            this.comboBox_statuseng.Name = "comboBox_statuseng";
-            this.comboBox_statuseng.Size = new System.Drawing.Size(160, 24);
-            this.comboBox_statuseng.TabIndex = 20;
-            // 
-            // label28
-            // 
-            this.label28.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label28.Location = new System.Drawing.Point(3, 3);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(160, 23);
-            this.label28.TabIndex = 19;
-            this.label28.Text = "Status Eng.:";
-            // 
-            // panel12
-            // 
-            this.panel12.AutoSize = true;
-            this.panel12.Controls.Add(this.paneldataanalise);
-            this.panel12.Controls.Add(this.comboBox_analise);
-            this.panel12.Controls.Add(this.label29);
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel12.Location = new System.Drawing.Point(6, 26);
-            this.panel12.Name = "panel12";
-            this.panel12.Padding = new System.Windows.Forms.Padding(5);
-            this.panel12.Size = new System.Drawing.Size(170, 121);
-            this.panel12.TabIndex = 6;
-            // 
-            // paneldataanalise
-            // 
-            this.paneldataanalise.Controls.Add(this.label34);
-            this.paneldataanalise.Controls.Add(this.label33);
-            this.paneldataanalise.Dock = System.Windows.Forms.DockStyle.Left;
-            this.paneldataanalise.Location = new System.Drawing.Point(5, 52);
-            this.paneldataanalise.Name = "paneldataanalise";
-            this.paneldataanalise.Size = new System.Drawing.Size(160, 64);
-            this.paneldataanalise.TabIndex = 22;
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label34.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(0, 27);
-            this.label34.Name = "label34";
-            this.label34.Padding = new System.Windows.Forms.Padding(2);
-            this.label34.Size = new System.Drawing.Size(122, 27);
-            this.label34.TabIndex = 1;
-            this.label34.Text = "__/ ___/ ____";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label33.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(0, 0);
-            this.label33.Name = "label33";
-            this.label33.Padding = new System.Windows.Forms.Padding(2);
-            this.label33.Size = new System.Drawing.Size(73, 27);
-            this.label33.TabIndex = 0;
-            this.label33.Text = "Alterado:";
-            // 
-            // comboBox_analise
-            // 
-            this.comboBox_analise.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBox_analise.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox_analise.Dock = System.Windows.Forms.DockStyle.Top;
-            this.comboBox_analise.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_analise.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.comboBox_analise.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_analise.FormattingEnabled = true;
-            this.comboBox_analise.Items.AddRange(new object[] {
-            "Não Consultado",
-            "Aprovado",
-            "Condicionado",
-            "Em analise",
-            "Reprovado",
-            "Comando",
-            "Desistiu",
-            "Bloqueado em ourto CCA"});
-            this.comboBox_analise.Location = new System.Drawing.Point(5, 28);
-            this.comboBox_analise.Name = "comboBox_analise";
-            this.comboBox_analise.Size = new System.Drawing.Size(160, 24);
-            this.comboBox_analise.TabIndex = 20;
-            // 
-            // label29
-            // 
-            this.label29.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label29.Location = new System.Drawing.Point(5, 5);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(160, 23);
-            this.label29.TabIndex = 19;
-            this.label29.Text = "Status Análise:";
-            // 
-            // tabcartorio
-            // 
-            this.tabcartorio.Controls.Add(this.tableLayoutPanel6);
-            this.tabcartorio.Controls.Add(this.groupBox5);
-            this.tabcartorio.Location = new System.Drawing.Point(4, 32);
-            this.tabcartorio.Name = "tabcartorio";
-            this.tabcartorio.Padding = new System.Windows.Forms.Padding(20);
-            this.tabcartorio.Size = new System.Drawing.Size(984, 428);
-            this.tabcartorio.TabIndex = 1;
-            this.tabcartorio.Text = "Cartório";
-            this.tabcartorio.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel6
-            // 
-            this.tableLayoutPanel6.ColumnCount = 1;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.85185F));
-            this.tableLayoutPanel6.Controls.Add(this.groupBox6, 0, 0);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(20, 132);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 1;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(944, 130);
-            this.tableLayoutPanel6.TabIndex = 22;
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.panel15);
-            this.groupBox6.Controls.Add(this.panel16);
-            this.groupBox6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox6.Location = new System.Drawing.Point(3, 3);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Padding = new System.Windows.Forms.Padding(6);
-            this.groupBox6.Size = new System.Drawing.Size(938, 106);
-            this.groupBox6.TabIndex = 6;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Situação:";
-            // 
-            // panel15
-            // 
-            this.panel15.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel15.Location = new System.Drawing.Point(340, 26);
-            this.panel15.Name = "panel15";
-            this.panel15.Padding = new System.Windows.Forms.Padding(3);
-            this.panel15.Size = new System.Drawing.Size(534, 74);
-            this.panel15.TabIndex = 7;
-            // 
-            // panel16
-            // 
-            this.panel16.Controls.Add(this.comboBox_statuscartorio);
-            this.panel16.Controls.Add(this.label18);
-            this.panel16.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel16.Location = new System.Drawing.Point(6, 26);
-            this.panel16.Name = "panel16";
-            this.panel16.Padding = new System.Windows.Forms.Padding(3);
-            this.panel16.Size = new System.Drawing.Size(334, 74);
-            this.panel16.TabIndex = 6;
-            // 
-            // comboBox_statuscartorio
-            // 
-            this.comboBox_statuscartorio.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBox_statuscartorio.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox_statuscartorio.Dock = System.Windows.Forms.DockStyle.Left;
-            this.comboBox_statuscartorio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_statuscartorio.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.comboBox_statuscartorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_statuscartorio.FormattingEnabled = true;
-            this.comboBox_statuscartorio.Items.AddRange(new object[] {
-            "A retirar",
-            "Aguardando",
-            "Entregue",
-            "Retirado"});
-            this.comboBox_statuscartorio.Location = new System.Drawing.Point(3, 26);
-            this.comboBox_statuscartorio.Name = "comboBox_statuscartorio";
-            this.comboBox_statuscartorio.Size = new System.Drawing.Size(252, 24);
-            this.comboBox_statuscartorio.TabIndex = 20;
-            // 
-            // label18
-            // 
-            this.label18.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label18.Location = new System.Drawing.Point(3, 3);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(328, 23);
-            this.label18.TabIndex = 19;
-            this.label18.Text = "Status:";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.panel14);
-            this.groupBox5.Controls.Add(this.panel13);
-            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox5.Location = new System.Drawing.Point(20, 20);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(944, 112);
-            this.groupBox5.TabIndex = 18;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Cartorio";
-            // 
-            // panel14
-            // 
-            this.panel14.Controls.Add(this.button2);
-            this.panel14.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel14.Location = new System.Drawing.Point(317, 23);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(200, 86);
-            this.panel14.TabIndex = 1;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Location = new System.Drawing.Point(10, 23);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(104, 32);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Enviar";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // panel13
-            // 
-            this.panel13.Controls.Add(this.comboBox_nomecartorio);
-            this.panel13.Controls.Add(this.label14);
-            this.panel13.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel13.Location = new System.Drawing.Point(3, 23);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(314, 86);
-            this.panel13.TabIndex = 0;
-            // 
-            // comboBox_nomecartorio
-            // 
-            this.comboBox_nomecartorio.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBox_nomecartorio.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox_nomecartorio.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox_nomecartorio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.comboBox_nomecartorio.FormattingEnabled = true;
-            this.comboBox_nomecartorio.Location = new System.Drawing.Point(0, 23);
-            this.comboBox_nomecartorio.Name = "comboBox_nomecartorio";
-            this.comboBox_nomecartorio.Size = new System.Drawing.Size(314, 31);
-            this.comboBox_nomecartorio.TabIndex = 16;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label14.Location = new System.Drawing.Point(0, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(54, 23);
-            this.label14.TabIndex = 15;
-            this.label14.Text = "Nome:";
             // 
             // contextMenuStrip1
             // 
@@ -2427,14 +1531,6 @@ namespace LMFinanciamentos.Apresentacao
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Processos";
             this.Load += new System.EventHandler(this.Form_Cadastro_Documentos_Load);
-            this.tabdoc.ResumeLayout(false);
-            this.tableLayoutPanel7.ResumeLayout(false);
-            this.groupBox7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox8.ResumeLayout(false);
-            this.panel17.ResumeLayout(false);
-            this.panel18.ResumeLayout(false);
-            this.panel18.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Documentos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSDocumentosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.processosBindingSource)).EndInit();
@@ -2483,35 +1579,6 @@ namespace LMFinanciamentos.Apresentacao
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel9.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.panel25.ResumeLayout(false);
-            this.panel31.ResumeLayout(false);
-            this.panel31.PerformLayout();
-            this.panel24.ResumeLayout(false);
-            this.panel30.ResumeLayout(false);
-            this.panel30.PerformLayout();
-            this.panel23.ResumeLayout(false);
-            this.panel29.ResumeLayout(false);
-            this.panel29.PerformLayout();
-            this.panel22.ResumeLayout(false);
-            this.panel27.ResumeLayout(false);
-            this.panel27.PerformLayout();
-            this.panel11.ResumeLayout(false);
-            this.panel28.ResumeLayout(false);
-            this.panel28.PerformLayout();
-            this.panel12.ResumeLayout(false);
-            this.paneldataanalise.ResumeLayout(false);
-            this.paneldataanalise.PerformLayout();
-            this.tabcartorio.ResumeLayout(false);
-            this.tableLayoutPanel6.ResumeLayout(false);
-            this.groupBox6.ResumeLayout(false);
-            this.panel16.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.panel14.ResumeLayout(false);
-            this.panel13.ResumeLayout(false);
-            this.panel13.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).EndInit();
@@ -2541,7 +1608,6 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabcliente;
-        private System.Windows.Forms.TabPage tabcartorio;
         private System.Windows.Forms.TabPage tabimovel;
         private System.Windows.Forms.Label lblstatus;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -2600,34 +1666,6 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.ComboBox comboBox_agencia;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.ComboBox comboBox_statuscartorio;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Panel panel14;
-        public System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.ComboBox comboBox_nomecartorio;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
-        private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.Panel panel17;
-        public System.Windows.Forms.Button button1;
-        public System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Panel panel18;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descricao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn data;
-        private System.Windows.Forms.DataGridViewTextBoxColumn status;
-        private System.Windows.Forms.DataGridViewButtonColumn apagar;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.BindingSource clientesBindingSource1;
         private System.Windows.Forms.BindingSource clientesBindingSource2;
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems1;
@@ -2669,44 +1707,6 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.Panel panel32;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Label label48;
-        private System.Windows.Forms.TabPage tabdoc;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Panel panel25;
-        private System.Windows.Forms.Panel panel31;
-        private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Panel panel24;
-        private System.Windows.Forms.Panel panel30;
-        private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Panel panel23;
-        private System.Windows.Forms.Panel panel29;
-        private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Panel panel22;
-        private System.Windows.Forms.Panel panel27;
-        private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.ComboBox comboBox_saque;
-        private System.Windows.Forms.Label lblsaque;
-        private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Panel panel28;
-        private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.ComboBox comboBox_statuseng;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Panel paneldataanalise;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.ComboBox comboBox_analise;
-        private System.Windows.Forms.Label label29;
         private System.Windows.Forms.TextBox valorimovel;
         private System.Windows.Forms.TextBox valorfinanciado;
         //private System.Windows.Forms.BindingSource corretoraBindingSource;
