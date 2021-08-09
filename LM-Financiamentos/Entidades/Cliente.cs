@@ -24,6 +24,9 @@
         public string Agencia_cliente { get; internal set; }
         public string Conta_cliente { get; internal set; }
 
+        public byte[] Foto_cliente { get; set; }
+        
+
 
 
         //public string Permision { get; set; }

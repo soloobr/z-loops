@@ -255,6 +255,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Modelo\Controle.cs" />
+    <Compile Include="Modelo\FormatCnpjCpf.cs" />
     <Compile Include="Modelo\Functions.cs" />
     <Compile Include="Modelo\ProgressReport.cs" />
     <Compile Include="Program.cs" />

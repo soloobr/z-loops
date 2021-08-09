@@ -1,5 +1,6 @@
 ﻿using ComponentFactory.Krypton.Toolkit;
 using LMFinanciamentos.Entidades;
+using LMFinanciamentos.Modelo;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace LMFinanciamentos.DAL
     class LoginDaoComandos
 
     {
-        
+        private const string V = "MM/dd/yyyy";
         public bool tem = false;
         public string mensagem = "";
         private String slogin;
@@ -199,30 +200,29 @@ namespace LMFinanciamentos.DAL
             return process;
         }
 
-        public String CadastrarCliente(String nome, String email, String telefone, String celular, String cpf, String statuscpf, String stciweb, String stcadmut
-                , String stir, String stfgts, String rg, String nascimento, String sexo, String status, String renda)
+        public String UpdateCliente(String id,String nome, String email, String telefone, String celular, String cpf, String rg, DateTime nascimento, String sexo, String status, String renda)
         {
 
 
             try
             {
-                cmd.CommandText = "INSERT INTO Clientes (Nome, Email, Telefone, Celular, CPF, StatusCPF, Ciweb, Cadmut, IR, FGTS, RG, Nascimento, Sexo, Status, Renda) Values  (@nome, @email, @telefone, @celular, @cpf, @statuscpf, @stciweb, @stcadmut, @stir, @stfgts, @rg, @nascimento, @sexo, @status, @renda)";
+                cmd.CommandText = "UPDATE Clientes " +
+                "SET Nome = @nome, Email = @email, Telefone = @telefone, Celular = @celular, CPF = @cpf, RG = @rg, Nascimento = @nascimento, Sexo = @sexo, Status = @status, Renda = @renda " +
+                "WHERE Clientes.id = @id ";
 
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", id);
                 cmd.Parameters.AddWithValue("@nome", nome);
                 cmd.Parameters.AddWithValue("@email", email);
                 cmd.Parameters.AddWithValue("@telefone", telefone);
                 cmd.Parameters.AddWithValue("@celular", celular);
                 cmd.Parameters.AddWithValue("@cpf", cpf);
-                cmd.Parameters.AddWithValue("@statuscpf", statuscpf);
-                cmd.Parameters.AddWithValue("@stciweb", stciweb);
-                cmd.Parameters.AddWithValue("@stcadmut", stcadmut);
-                cmd.Parameters.AddWithValue("@stir", stir);
-                cmd.Parameters.AddWithValue("@stfgts", stfgts);
                 cmd.Parameters.AddWithValue("@rg", rg);
                 cmd.Parameters.AddWithValue("@nascimento", nascimento);
                 cmd.Parameters.AddWithValue("@sexo", sexo);
                 cmd.Parameters.AddWithValue("@status", status);
                 cmd.Parameters.AddWithValue("@renda", renda);
+
 
                 cmd.Connection = con.conectar();
 
@@ -230,11 +230,11 @@ namespace LMFinanciamentos.DAL
 
                 if (recordsAffected > 0)
                 {
-                    mensagem = "Cliente Cadastrado Com Sucesso";
+                    mensagem = "Cliente Atualizado com Sucesso!";
                 }
                 else
                 {
-                    mensagem = "Erro ao Cadastrar Cliente";
+                    mensagem = "Erro ao Atualizar Cliente";
                 }
 
 
@@ -246,10 +246,191 @@ namespace LMFinanciamentos.DAL
             catch (Exception err)
             {
                 //throw new Exception("Erro ao Alterar senha: " + err.Message);
-                mensagem = ("Erro ao Cadastrar Cliente: " + err.Message);
+                mensagem = ("Erro ao Atualizar Cliente: " + err.Message);
             }
 
             return mensagem;
+        }
+        public String InsertFotoCliente(String id,  Byte[] foto, String descricao)
+        {
+
+
+            try
+            {
+                cmd.CommandText = "INSERT INTO Foto(idCliente, Foto, Descricao) VALUES (@id,@foto,@descricao)";
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@foto", foto);
+                cmd.Parameters.AddWithValue("@descricao", descricao);
+
+                cmd.Connection = con.conectar();
+
+                int recordsAffected = cmd.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "OK";
+                }
+                else
+                {
+                    mensagem = "Erro ao Inserir Foto do Cliente";
+                }
+
+                con.desconectar();
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+            }
+            catch (Exception err)
+            {
+                //throw new Exception("Erro ao Alterar senha: " + err.Message);
+                mensagem = ("Erro ao Inserir a Foto do Cliente!: " + err.Message);
+            }
+
+            return mensagem;
+        }
+        public String DeleteFotoCliente(String id)
+        {
+
+
+            try
+            {
+                cmd.CommandText = "DELETE FROM Foto WHERE idCliente = @id; ";
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", id);
+
+
+                cmd.Connection = con.conectar();
+
+                int recordsAffected = cmd.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "Excluido";
+                }
+                else
+                {
+                    mensagem = "Erro ao Excluir Foto do Cliente";
+                }
+
+                con.desconectar();
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+            }
+            catch (Exception err)
+            {
+                //throw new Exception("Erro ao Alterar senha: " + err.Message);
+                mensagem = ("Erro ao Excluir a Foto do Cliente!: " + err.Message);
+            }
+
+            return mensagem;
+        }
+        public String UpdateFotoCliente(String id,  Byte[] foto)
+        {
+
+
+            try
+            {
+                cmd.CommandText = "UPDATE Foto " +
+                "SET Foto = @foto " +
+                "WHERE Foto.idCliente = @id ";
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@foto", foto);
+
+                cmd.Connection = con.conectar();
+
+                int recordsAffected = cmd.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "OK";
+                }
+                else
+                {
+                    mensagem = "Erro ao Atualizar Foto do Cliente";
+                }
+
+                con.desconectar();
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+            }
+            catch (Exception err)
+            {
+                //throw new Exception("Erro ao Alterar senha: " + err.Message);
+                mensagem = ("Erro ao Atualizar a Foto Cliente!: " + err.Message);
+            }
+
+            return mensagem;
+        }
+        public int CadastrarCliente(String nome, String email, String telefone, String celular, String cpf, String rg, DateTime nascimento, String sexo, String status, String renda)
+        {
+
+
+            try
+            {
+                cmd.CommandText = "INSERT INTO Clientes (Nome, Email, Telefone, Celular, CPF, RG, Nascimento, Sexo, Status, Renda) Values  (@nome, @email, @telefone, @celular, @cpf, @rg, @nascimento, @sexo, @status, @renda)";
+
+                cmd.Parameters.AddWithValue("@nome", nome);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@telefone", telefone);
+                cmd.Parameters.AddWithValue("@celular", celular);
+                cmd.Parameters.AddWithValue("@cpf", cpf);
+                //cmd.Parameters.AddWithValue("@statuscpf", statuscpf);
+                //cmd.Parameters.AddWithValue("@stciweb", stciweb);
+                //cmd.Parameters.AddWithValue("@stcadmut", stcadmut);
+                //cmd.Parameters.AddWithValue("@stir", stir);
+                //cmd.Parameters.AddWithValue("@stfgts", stfgts);
+                cmd.Parameters.AddWithValue("@rg", rg);
+                cmd.Parameters.AddWithValue("@nascimento", nascimento);
+                cmd.Parameters.AddWithValue("@sexo", sexo);
+                cmd.Parameters.AddWithValue("@status", status);
+                cmd.Parameters.AddWithValue("@renda", renda);
+
+                cmd.Connection = con.conectar();
+
+                cmd.ExecuteNonQuery();
+
+                if (cmd.LastInsertedId != 0)
+                    cmd.Parameters.Add(new MySqlParameter("ultimoId", cmd.LastInsertedId));
+
+                return Convert.ToInt32(cmd.Parameters["@ultimoId"].Value);
+
+                //if (recordsAffected > 0)
+                //{
+                //    mensagem = "Documento Adicionado Com Sucesso";
+                //}
+                //else
+                //{
+                //    mensagem = "Erro ao Adicionar Documento";
+                //}
+
+
+            }
+            //catch (MySqlException error)
+            //{
+            //    mensagem = ("Erro ao conectar: " + error.Message);
+            //}
+            catch (Exception err)
+            {
+                //throw new Exception("Erro ao Alterar senha: " + err.Message);
+                //mensagem = ("Erro ao Adicionar o Documento: " + err.Message);
+                throw err;
+            }
+            finally
+            {
+                con.desconectar();
+            }
+
+            //return mensagem;
         }
         public Funcionario GetFunc(String login, String senha)
         {
@@ -268,8 +449,17 @@ namespace LMFinanciamentos.DAL
                     func.Login_Func = drfunc["Login"].ToString();
                     func.Senha_Func = drfunc["Senha"].ToString();
                     func.Permision = drfunc["Permission"].ToString();
-                    Byte[] byteBLOBData = new Byte[0];
-                    func.Foto_Func = (Byte[])(drfunc["Foto"]);
+
+                    if (System.DBNull.Value == drfunc["Foto"])
+                    {
+
+                    }
+                    else
+                    {
+                        Byte[] byteBLOBData = new Byte[0];
+                        func.Foto_Func = (Byte[])(drfunc["Foto"]);
+                    }
+
                 }
                 drfunc.Close();
             }
@@ -280,12 +470,49 @@ namespace LMFinanciamentos.DAL
 
             return func;
         }
-        public Cliente GetCliente(String nome)
+        public Cliente GetFotoCliente(String id)
+        {
+            cmd.CommandText = "Select Clientes.id, F.Descricao, F.Foto From Clientes left join Foto F on Clientes.id = F.IdCliente  where Clientes.id = @id";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@id", id);
+
+            Cliente cli = new Cliente();
+            try
+            {
+                cmd.Connection = con.conectar();
+                drfunc = cmd.ExecuteReader();
+                while (drfunc.Read())
+                {
+                    cli.Id_cliente = drfunc["id"].ToString();
+                    //cli.descr = drfunc["Descricao"].ToString();
+                    if (System.DBNull.Value == drfunc["Foto"])
+                    {
+
+                    }
+                    else
+                    {
+                        Byte[] byteBLOBData = new Byte[0];
+                        cli.Foto_cliente = (Byte[])(drfunc["Foto"]);
+                    }
+
+
+                }
+                drfunc.Close();
+                con.desconectar();
+            }
+            catch (SqlException err)
+            {
+                throw new Exception("Erro ao obter Foto do cliente: " + err.Message);
+            }
+
+            return cli;
+        }
+        public Cliente GetCliente(String id)
         {
            //var list = new List<Cliente>();
 
-            cmd.CommandText = "SELECT id, Nome, Email, Telefone, Celular, CPF, StatusCPF, Ciweb, Cadmut, IR, FGTS, RG, Nascimento, Sexo, Renda, Status FROM Clientes WHERE Nome LIKE @nomecliente";
-            cmd.Parameters.AddWithValue("@nomecliente", "%"+nome+"%");
+            cmd.CommandText = "SELECT id, Nome, Email, Telefone, Celular, CPF, StatusCPF, Ciweb, Cadmut, IR, FGTS, RG, Nascimento, Sexo, Renda, Status FROM Clientes WHERE id = @id";
+            cmd.Parameters.AddWithValue("@id", id);
             Cliente client = new Cliente();
             try
             {
@@ -299,13 +526,14 @@ namespace LMFinanciamentos.DAL
                     client.Email_cliente = drclient["Email"].ToString();
                     client.Telefone_cliente = drclient["Telefone"].ToString();
                     client.Celular_cliente = drclient["Celular"].ToString();
-                    client.CPF_cliente = drclient["CPF"].ToString();
+                    client.CPF_cliente = FormatCnpjCpf.FormatCPF(drclient["CPF"].ToString());
                     client.StatusCPF_cliente = drclient["StatusCPF"].ToString();
                     client.StatusCiweb_cliente = drclient["Ciweb"].ToString();
                     client.StatusCadmut_cliente = drclient["Cadmut"].ToString();
                     client.StatusIR_cliente = drclient["IR"].ToString();
                     client.StatusFGTS_cliente = drclient["FGTS"].ToString();
-                    client.RG_cliente = drclient["RG"].ToString();
+                    client.RG_cliente = FormatCnpjCpf.FormatRG(drclient["RG"].ToString());
+                    //client.RG_cliente = drclient["RG"].ToString();
                     client.Nascimento_cliente = drclient["Nascimento"].ToString();
                     client.Sexo_cliente = drclient["Sexo"].ToString();
                     client.Status_cliente = drclient["Status"].ToString();
@@ -444,7 +672,8 @@ namespace LMFinanciamentos.DAL
                         //processos.Id_responsavel = drprocessos["idresponsavel"].ToString();
                         processos.Nome_responsavel = drprocessos["nomeresponsavel"].ToString();
                         //processos.Permission_responsavel = drprocessos["permissionresponsavel"].ToString();
-                        processos.Data_processo = drprocessos["Data"].ToString();
+                        processos.Data_processo = Convert.ToDateTime(drprocessos["Data"]).ToString("dd/MM/yyyy");
+                        //processos.Data_processo = drprocessos["Data"].ToString();
                         //processos.Obs_processo = drprocessos["Observacao"].ToString();
                         //processos.StatusCPF_cliente = drprocessos["StatusCPF"].ToString();
                         //processos.StatusCiweb_cliente = drprocessos["StatusCiweb"].ToString();
@@ -539,15 +768,17 @@ namespace LMFinanciamentos.DAL
                     clients.Email_cliente = drclients["Email"].ToString();
                     clients.Telefone_cliente = drclients["Telefone"].ToString();
                     clients.Celular_cliente = drclients["Celular"].ToString();
-                    clients.CPF_cliente = drclients["CPF"].ToString();
+                    clients.CPF_cliente = Convert.ToUInt64(drclients["CPF"].ToString()).ToString(@"000\.000\.000\-00");
+                    //clients.CPF_cliente = drclients["CPF"].ToString().ToString();
                     clients.RG_cliente = drclients["RG"].ToString();
                     clients.StatusCPF_cliente = drclients["StatusCPF"].ToString();
+                    
                     clients.StatusCiweb_cliente = drclients["Ciweb"].ToString();
                     clients.StatusCadmut_cliente = drclients["Cadmut"].ToString();
                     clients.StatusIR_cliente = drclients["IR"].ToString();
                     clients.StatusFGTS_cliente = drclients["FGTS"].ToString();
                     clients.RG_cliente = drclients["RG"].ToString();
-                    clients.Nascimento_cliente = drclients["Nascimento"].ToString();
+                    clients.Nascimento_cliente =  Convert.ToDateTime(drclients["Nascimento"]).ToString("dd/MM/yyyy");
                     clients.Sexo_cliente = drclients["Sexo"].ToString();
                     clients.Status_cliente = drclients["Status"].ToString();
                     clients.Renda_cliente = drclients["Renda"].ToString();
@@ -716,49 +947,7 @@ namespace LMFinanciamentos.DAL
             return mensagem;
         }
                                    
-        public String UpdateProcesso(
-            String id, 
-            String StatusCPF,
-            DateTime datastatuscpf,
-            String Statusciweb,
-            DateTime datastatusciweb,
-            String Stauscadmut,
-            DateTime datastatuscadmut,
-            String Statusir,
-            DateTime datastatusir,
-            String Statusfgts,
-            DateTime datastatusfgts,
-
-
-            String StatusAnalise,
-            DateTime datastatusanalise,
-            String StatusEng,
-            DateTime datastatuseng,
-            String StatusSiopi,
-            DateTime datasiopi,
-            String StatusSictd,
-            DateTime datasictd,
-            String StatusSaquefgts,
-            DateTime datasaquefgts,
-            String StatusPA,
-            DateTime datapa,
-
-            String sidAgenciaImovel, 
-            String sidPrograma,
-            String valorimovel,
-            String valorfinanciado,
-            String sidCorretora, 
-            String sidCorretores, 
-            String sidEmpreendimentos,
-
-            String sidcartorio,
-            String StatusCartorio,
-            DateTime datastatuscartorio,
-            
-             
-            String status
-            
-            )
+        public String UpdateProcesso(String id,String StatusCPF,DateTime datastatuscpf,String Statusciweb,DateTime datastatusciweb,String Stauscadmut,            DateTime datastatuscadmut, String Statusir, DateTime datastatusir, String Statusfgts, DateTime datastatusfgts, String StatusAnalise, DateTime datastatusanalise, String StatusEng, DateTime datastatuseng, String StatusSiopi, DateTime datasiopi, String StatusSictd, DateTime datasictd, String StatusSaquefgts, DateTime datasaquefgts, String StatusPA, DateTime datapa, String sidAgenciaImovel,  String sidPrograma, String valorimovel, String valorfinanciado, String sidCorretora,  String sidCorretores,  String sidEmpreendimentos, String sidcartorio, String StatusCartorio, DateTime datastatuscartorio, String status  )
         {
             try
             {

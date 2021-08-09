@@ -21,17 +21,21 @@ namespace LMFinanciamentos.Apresentacao
             lblfunc.Text = func.Nome_Func;
             lblsaudacao.Text = saudacao.Saudacoes;
         }
-        public void setFoto(Funcionario imagem)
-        {
-            MemoryStream stmBLOBData = new MemoryStream(imagem.Foto_Func);
-            img_foto.Image = Image.FromStream(stmBLOBData);
+        //public void setFoto(Funcionario imagem)
+        //{
+        //    MemoryStream stmBLOBData = new MemoryStream(imagem.Foto_Func);
+        //    img_foto.Image = Image.FromStream(stmBLOBData);
 
-        }
+        //}
         internal void setFoto(byte[] foto_Func)
         {
             // throw new NotImplementedException();
-            MemoryStream stmBLOBData = new MemoryStream(foto_Func);
-            img_foto.Image = Image.FromStream(stmBLOBData);
+            if(foto_Func != null)
+            {
+                MemoryStream stmBLOBData = new MemoryStream(foto_Func);
+                //img_foto.Image = Image.FromStream(stmBLOBData);
+            }
+
         }
         private void hideSubMenu()
         {
@@ -161,8 +165,8 @@ namespace LMFinanciamentos.Apresentacao
 
         private void panelBarraTitulo_MouseMove(object sender, MouseEventArgs e)
         {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
+            //ReleaseCapture();
+            //SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -374,6 +378,7 @@ namespace LMFinanciamentos.Apresentacao
         }
         private void btncadastro_Click_1(object sender, EventArgs e)
         {
+            
             if (panelLogo.Visible == false)
             {
                 btnmenurigth.Visible = false;
@@ -394,6 +399,7 @@ namespace LMFinanciamentos.Apresentacao
 
         private void btncadastrocliente_Click_1(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             AbrirFormulario<Form_Controle_cliente>();
             btncadastro.BackColor = Color.FromArgb(12, 61, 92);
             btncadastrocliente.BackColor = Color.FromArgb(12, 61, 92);

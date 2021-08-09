@@ -34,22 +34,6 @@ namespace LMFinanciamentos.Apresentacao
             this.panel2 = new System.Windows.Forms.Panel();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabcliente = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.txtfgts = new System.Windows.Forms.ComboBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.txtir = new System.Windows.Forms.ComboBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.txtcadmut = new System.Windows.Forms.ComboBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.txtciweb = new System.Windows.Forms.ComboBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.txtStatusCPF = new System.Windows.Forms.ComboBox();
-            this.label17 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.txtrendacli = new System.Windows.Forms.TextBox();
@@ -67,40 +51,33 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcpf = new System.Windows.Forms.TextBox();
             this.lblcliente = new System.Windows.Forms.Label();
             this.lblemail = new System.Windows.Forms.Label();
-            this.txtnasc = new System.Windows.Forms.MaskedTextBox();
             this.txtnomecli = new System.Windows.Forms.TextBox();
             this.txtrg = new System.Windows.Forms.TextBox();
-            this.tabfinanceiro = new System.Windows.Forms.TabPage();
-            this.txtrenda = new System.Windows.Forms.MaskedTextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.tabproduto = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.img_foto = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_salvar = new System.Windows.Forms.Button();
             this.btnclosecli = new System.Windows.Forms.Button();
             this.paneltop = new System.Windows.Forms.Panel();
             this.lbl_topo = new System.Windows.Forms.Label();
             this.img_topo = new System.Windows.Forms.PictureBox();
+            this.btn_limpar_foto = new System.Windows.Forms.Button();
+            this.btn_add_foto = new System.Windows.Forms.Button();
+            this.img_foto = new System.Windows.Forms.PictureBox();
+            this.txtnasc = new System.Windows.Forms.MaskedTextBox();
+            this.btn_cancelar = new System.Windows.Forms.Button();
+            this.splitter2 = new System.Windows.Forms.Splitter();
+            this.ofd1 = new System.Windows.Forms.OpenFileDialog();
             this.panelcentralcadcli.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabcliente.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.tabfinanceiro.SuspendLayout();
             this.tabproduto.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.img_foto)).BeginInit();
             this.panel1.SuspendLayout();
             this.paneltop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.img_foto)).BeginInit();
             this.SuspendLayout();
             // 
             // panelcentralcadcli
@@ -126,7 +103,6 @@ namespace LMFinanciamentos.Apresentacao
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tabcliente);
-            this.tabControl.Controls.Add(this.tabfinanceiro);
             this.tabControl.Controls.Add(this.tabproduto);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -134,11 +110,10 @@ namespace LMFinanciamentos.Apresentacao
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(979, 508);
-            this.tabControl.TabIndex = 15;
+            this.tabControl.TabIndex = 10;
             // 
             // tabcliente
             // 
-            this.tabcliente.Controls.Add(this.groupBox1);
             this.tabcliente.Controls.Add(this.tableLayoutPanel1);
             this.tabcliente.Location = new System.Drawing.Point(4, 32);
             this.tabcliente.Name = "tabcliente";
@@ -147,202 +122,6 @@ namespace LMFinanciamentos.Apresentacao
             this.tabcliente.TabIndex = 0;
             this.tabcliente.Text = "Cadastro do Cliente";
             this.tabcliente.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.panel8);
-            this.groupBox1.Controls.Add(this.panel7);
-            this.groupBox1.Controls.Add(this.panel6);
-            this.groupBox1.Controls.Add(this.panel5);
-            this.groupBox1.Controls.Add(this.panel4);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Location = new System.Drawing.Point(20, 216);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(6);
-            this.groupBox1.Size = new System.Drawing.Size(931, 106);
-            this.groupBox1.TabIndex = 52;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Situações:";
-            this.groupBox1.Visible = false;
-            // 
-            // panel8
-            // 
-            this.panel8.AutoSize = true;
-            this.panel8.Controls.Add(this.txtfgts);
-            this.panel8.Controls.Add(this.label24);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel8.Location = new System.Drawing.Point(738, 26);
-            this.panel8.Name = "panel8";
-            this.panel8.Padding = new System.Windows.Forms.Padding(3);
-            this.panel8.Size = new System.Drawing.Size(183, 74);
-            this.panel8.TabIndex = 10;
-            // 
-            // txtfgts
-            // 
-            this.txtfgts.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtfgts.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.txtfgts.DisplayMember = "Descricao";
-            this.txtfgts.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtfgts.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.txtfgts.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtfgts.FormattingEnabled = true;
-            this.txtfgts.Location = new System.Drawing.Point(3, 26);
-            this.txtfgts.Name = "txtfgts";
-            this.txtfgts.Size = new System.Drawing.Size(177, 31);
-            this.txtfgts.TabIndex = 20;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label24.Location = new System.Drawing.Point(3, 3);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(47, 23);
-            this.label24.TabIndex = 19;
-            this.label24.Text = "FGTS:";
-            // 
-            // panel7
-            // 
-            this.panel7.AutoSize = true;
-            this.panel7.Controls.Add(this.txtir);
-            this.panel7.Controls.Add(this.label23);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel7.Location = new System.Drawing.Point(555, 26);
-            this.panel7.Name = "panel7";
-            this.panel7.Padding = new System.Windows.Forms.Padding(3);
-            this.panel7.Size = new System.Drawing.Size(183, 74);
-            this.panel7.TabIndex = 9;
-            // 
-            // txtir
-            // 
-            this.txtir.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtir.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.txtir.DisplayMember = "Descricao";
-            this.txtir.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtir.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.txtir.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtir.FormattingEnabled = true;
-            this.txtir.Location = new System.Drawing.Point(3, 26);
-            this.txtir.Name = "txtir";
-            this.txtir.Size = new System.Drawing.Size(177, 31);
-            this.txtir.TabIndex = 20;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label23.Location = new System.Drawing.Point(3, 3);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(107, 23);
-            this.label23.TabIndex = 19;
-            this.label23.Text = "Declaração IR:";
-            // 
-            // panel6
-            // 
-            this.panel6.AutoSize = true;
-            this.panel6.Controls.Add(this.txtcadmut);
-            this.panel6.Controls.Add(this.label22);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel6.Location = new System.Drawing.Point(372, 26);
-            this.panel6.Name = "panel6";
-            this.panel6.Padding = new System.Windows.Forms.Padding(3);
-            this.panel6.Size = new System.Drawing.Size(183, 74);
-            this.panel6.TabIndex = 8;
-            // 
-            // txtcadmut
-            // 
-            this.txtcadmut.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtcadmut.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.txtcadmut.DisplayMember = "Descricao";
-            this.txtcadmut.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtcadmut.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.txtcadmut.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcadmut.FormattingEnabled = true;
-            this.txtcadmut.Location = new System.Drawing.Point(3, 26);
-            this.txtcadmut.Name = "txtcadmut";
-            this.txtcadmut.Size = new System.Drawing.Size(177, 31);
-            this.txtcadmut.TabIndex = 20;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label22.Location = new System.Drawing.Point(3, 3);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(133, 23);
-            this.label22.TabIndex = 19;
-            this.label22.Text = "Situação Cadmut:";
-            // 
-            // panel5
-            // 
-            this.panel5.AutoSize = true;
-            this.panel5.Controls.Add(this.txtciweb);
-            this.panel5.Controls.Add(this.label21);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel5.Location = new System.Drawing.Point(189, 26);
-            this.panel5.Name = "panel5";
-            this.panel5.Padding = new System.Windows.Forms.Padding(3);
-            this.panel5.Size = new System.Drawing.Size(183, 74);
-            this.panel5.TabIndex = 7;
-            // 
-            // txtciweb
-            // 
-            this.txtciweb.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtciweb.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.txtciweb.DisplayMember = "Descricao";
-            this.txtciweb.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtciweb.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.txtciweb.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtciweb.FormattingEnabled = true;
-            this.txtciweb.Location = new System.Drawing.Point(3, 26);
-            this.txtciweb.Name = "txtciweb";
-            this.txtciweb.Size = new System.Drawing.Size(177, 31);
-            this.txtciweb.TabIndex = 10;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label21.Location = new System.Drawing.Point(3, 3);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(119, 23);
-            this.label21.TabIndex = 19;
-            this.label21.Text = "Situação Ciweb:";
-            // 
-            // panel4
-            // 
-            this.panel4.AutoSize = true;
-            this.panel4.Controls.Add(this.txtStatusCPF);
-            this.panel4.Controls.Add(this.label17);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel4.Location = new System.Drawing.Point(6, 26);
-            this.panel4.Name = "panel4";
-            this.panel4.Padding = new System.Windows.Forms.Padding(3);
-            this.panel4.Size = new System.Drawing.Size(183, 74);
-            this.panel4.TabIndex = 6;
-            // 
-            // txtStatusCPF
-            // 
-            this.txtStatusCPF.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtStatusCPF.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.txtStatusCPF.DisplayMember = "Descricao";
-            this.txtStatusCPF.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtStatusCPF.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.txtStatusCPF.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStatusCPF.FormattingEnabled = true;
-            this.txtStatusCPF.Location = new System.Drawing.Point(3, 26);
-            this.txtStatusCPF.Name = "txtStatusCPF";
-            this.txtStatusCPF.Size = new System.Drawing.Size(177, 31);
-            this.txtStatusCPF.TabIndex = 9;
-            // 
-            // label17
-            // 
-            this.label17.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label17.Location = new System.Drawing.Point(3, 3);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(177, 23);
-            this.label17.TabIndex = 19;
-            this.label17.Text = "Situação CPF:";
             // 
             // tableLayoutPanel1
             // 
@@ -365,9 +144,9 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel1.Controls.Add(this.txtcpf, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblcliente, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblemail, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.txtnasc, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtnomecli, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtrg, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txtnasc, 3, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(20, 20);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -386,7 +165,7 @@ namespace LMFinanciamentos.Apresentacao
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(701, 59);
+            this.label4.Location = new System.Drawing.Point(699, 59);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(98, 23);
             this.label4.TabIndex = 54;
@@ -394,10 +173,11 @@ namespace LMFinanciamentos.Apresentacao
             // 
             // txtrendacli
             // 
-            this.txtrendacli.Location = new System.Drawing.Point(701, 85);
+            this.txtrendacli.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtrendacli.Location = new System.Drawing.Point(699, 85);
             this.txtrendacli.Name = "txtrendacli";
             this.txtrendacli.Size = new System.Drawing.Size(216, 27);
-            this.txtrendacli.TabIndex = 53;
+            this.txtrendacli.TabIndex = 7;
             this.txtrendacli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtrendacli_KeyPress);
             this.txtrendacli.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrendacli_KeyUp);
             this.txtrendacli.Leave += new System.EventHandler(this.txtrendacli_Leave);
@@ -405,7 +185,7 @@ namespace LMFinanciamentos.Apresentacao
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(538, 0);
+            this.label3.Location = new System.Drawing.Point(536, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(32, 23);
             this.label3.TabIndex = 52;
@@ -426,10 +206,11 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.checkBox_Feminino.AutoSize = true;
             this.checkBox_Feminino.Dock = System.Windows.Forms.DockStyle.Left;
-            this.checkBox_Feminino.Location = new System.Drawing.Point(101, 23);
+            this.checkBox_Feminino.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_Feminino.Location = new System.Drawing.Point(96, 23);
             this.checkBox_Feminino.Name = "checkBox_Feminino";
-            this.checkBox_Feminino.Size = new System.Drawing.Size(91, 26);
-            this.checkBox_Feminino.TabIndex = 8;
+            this.checkBox_Feminino.Size = new System.Drawing.Size(86, 26);
+            this.checkBox_Feminino.TabIndex = 9;
             this.checkBox_Feminino.TabStop = true;
             this.checkBox_Feminino.Text = "Feminino";
             this.checkBox_Feminino.UseVisualStyleBackColor = true;
@@ -438,10 +219,11 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.checkBox_Masculino.AutoSize = true;
             this.checkBox_Masculino.Dock = System.Windows.Forms.DockStyle.Left;
+            this.checkBox_Masculino.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox_Masculino.Location = new System.Drawing.Point(3, 23);
             this.checkBox_Masculino.Name = "checkBox_Masculino";
-            this.checkBox_Masculino.Size = new System.Drawing.Size(98, 26);
-            this.checkBox_Masculino.TabIndex = 7;
+            this.checkBox_Masculino.Size = new System.Drawing.Size(93, 26);
+            this.checkBox_Masculino.TabIndex = 8;
             this.checkBox_Masculino.TabStop = true;
             this.checkBox_Masculino.Text = "Masculino";
             this.checkBox_Masculino.UseVisualStyleBackColor = true;
@@ -449,7 +231,7 @@ namespace LMFinanciamentos.Apresentacao
             // txtcelular
             // 
             this.txtcelular.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcelular.Location = new System.Drawing.Point(538, 85);
+            this.txtcelular.Location = new System.Drawing.Point(536, 85);
             this.txtcelular.Mask = "(99) 00000-0000";
             this.txtcelular.Name = "txtcelular";
             this.txtcelular.Size = new System.Drawing.Size(157, 27);
@@ -459,7 +241,7 @@ namespace LMFinanciamentos.Apresentacao
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(538, 59);
+            this.label20.Location = new System.Drawing.Point(536, 59);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(64, 23);
             this.label20.TabIndex = 51;
@@ -488,9 +270,9 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Location = new System.Drawing.Point(701, 0);
+            this.label1.Location = new System.Drawing.Point(699, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(227, 23);
+            this.label1.Size = new System.Drawing.Size(229, 23);
             this.label1.TabIndex = 51;
             this.label1.Text = "Data Nasc.";
             // 
@@ -514,12 +296,15 @@ namespace LMFinanciamentos.Apresentacao
             // 
             // txtcpf
             // 
-            this.txtcpf.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtcpf.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtcpf.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcpf.Location = new System.Drawing.Point(373, 26);
             this.txtcpf.Name = "txtcpf";
-            this.txtcpf.Size = new System.Drawing.Size(159, 30);
+            this.txtcpf.Size = new System.Drawing.Size(157, 30);
             this.txtcpf.TabIndex = 1;
+            this.txtcpf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcpf_KeyPress);
+            this.txtcpf.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtcpf_KeyUp);
+            this.txtcpf.Leave += new System.EventHandler(this.txtcpf_Leave);
             // 
             // lblcliente
             // 
@@ -540,16 +325,6 @@ namespace LMFinanciamentos.Apresentacao
             this.lblemail.TabIndex = 51;
             this.lblemail.Text = "Email:";
             // 
-            // txtnasc
-            // 
-            this.txtnasc.Location = new System.Drawing.Point(701, 26);
-            this.txtnasc.Mask = "00/00/0000";
-            this.txtnasc.Name = "txtnasc";
-            this.txtnasc.Size = new System.Drawing.Size(110, 27);
-            this.txtnasc.TabIndex = 3;
-            this.txtnasc.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
-            this.txtnasc.ValidatingType = typeof(System.DateTime);
-            // 
             // txtnomecli
             // 
             this.txtnomecli.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -561,45 +336,19 @@ namespace LMFinanciamentos.Apresentacao
             // 
             // txtrg
             // 
-            this.txtrg.Location = new System.Drawing.Point(538, 26);
+            this.txtrg.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtrg.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtrg.Location = new System.Drawing.Point(536, 26);
             this.txtrg.Name = "txtrg";
             this.txtrg.Size = new System.Drawing.Size(157, 27);
             this.txtrg.TabIndex = 2;
-            // 
-            // tabfinanceiro
-            // 
-            this.tabfinanceiro.Controls.Add(this.txtrenda);
-            this.tabfinanceiro.Controls.Add(this.label2);
-            this.tabfinanceiro.Location = new System.Drawing.Point(4, 32);
-            this.tabfinanceiro.Name = "tabfinanceiro";
-            this.tabfinanceiro.Size = new System.Drawing.Size(971, 472);
-            this.tabfinanceiro.TabIndex = 4;
-            this.tabfinanceiro.Text = "Financeiro";
-            this.tabfinanceiro.UseVisualStyleBackColor = true;
-            // 
-            // txtrenda
-            // 
-            this.txtrenda.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtrenda.Location = new System.Drawing.Point(6, 31);
-            this.txtrenda.Mask = "$9.999,00";
-            this.txtrenda.Name = "txtrenda";
-            this.txtrenda.Size = new System.Drawing.Size(155, 27);
-            this.txtrenda.TabIndex = 9;
-            this.txtrenda.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 14);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 23);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "Renda:";
+            this.txtrg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtrg_KeyPress);
+            this.txtrg.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrg_KeyUp);
             // 
             // tabproduto
             // 
-            this.tabproduto.Controls.Add(this.button2);
-            this.tabproduto.Controls.Add(this.button1);
+            this.tabproduto.Controls.Add(this.btn_limpar_foto);
+            this.tabproduto.Controls.Add(this.btn_add_foto);
             this.tabproduto.Controls.Add(this.img_foto);
             this.tabproduto.Location = new System.Drawing.Point(4, 32);
             this.tabproduto.Name = "tabproduto";
@@ -609,50 +358,11 @@ namespace LMFinanciamentos.Apresentacao
             this.tabproduto.Text = "Foto";
             this.tabproduto.UseVisualStyleBackColor = true;
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Location = new System.Drawing.Point(187, 316);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(4);
-            this.button2.Size = new System.Drawing.Size(104, 31);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Delete";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(64, 316);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(4);
-            this.button1.Size = new System.Drawing.Size(104, 31);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Adicionar";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // img_foto
-            // 
-            this.img_foto.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.img_foto.Image = ((System.Drawing.Image)(resources.GetObject("img_foto.Image")));
-            this.img_foto.Location = new System.Drawing.Point(64, 34);
-            this.img_foto.Name = "img_foto";
-            this.img_foto.Size = new System.Drawing.Size(227, 262);
-            this.img_foto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.img_foto.TabIndex = 0;
-            this.img_foto.TabStop = false;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.panel1.Controls.Add(this.btn_cancelar);
+            this.panel1.Controls.Add(this.splitter2);
             this.panel1.Controls.Add(this.btn_salvar);
             this.panel1.Controls.Add(this.btnclosecli);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -736,6 +446,90 @@ namespace LMFinanciamentos.Apresentacao
             this.img_topo.TabIndex = 5;
             this.img_topo.TabStop = false;
             // 
+            // btn_limpar_foto
+            // 
+            this.btn_limpar_foto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.btn_limpar_foto.FlatAppearance.BorderSize = 0;
+            this.btn_limpar_foto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_limpar_foto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btn_limpar_foto.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_limpar_foto.Location = new System.Drawing.Point(186, 329);
+            this.btn_limpar_foto.Name = "btn_limpar_foto";
+            this.btn_limpar_foto.Padding = new System.Windows.Forms.Padding(4);
+            this.btn_limpar_foto.Size = new System.Drawing.Size(104, 31);
+            this.btn_limpar_foto.TabIndex = 8;
+            this.btn_limpar_foto.Text = "Limpar";
+            this.btn_limpar_foto.UseVisualStyleBackColor = false;
+            // 
+            // btn_add_foto
+            // 
+            this.btn_add_foto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.btn_add_foto.FlatAppearance.BorderSize = 0;
+            this.btn_add_foto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_add_foto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btn_add_foto.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_add_foto.Location = new System.Drawing.Point(63, 329);
+            this.btn_add_foto.Name = "btn_add_foto";
+            this.btn_add_foto.Padding = new System.Windows.Forms.Padding(4);
+            this.btn_add_foto.Size = new System.Drawing.Size(104, 31);
+            this.btn_add_foto.TabIndex = 7;
+            this.btn_add_foto.Text = "Adicionar";
+            this.btn_add_foto.UseVisualStyleBackColor = false;
+            this.btn_add_foto.Click += new System.EventHandler(this.btn_add_foto_Click);
+            // 
+            // img_foto
+            // 
+            this.img_foto.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.img_foto.InitialImage = null;
+            this.img_foto.Location = new System.Drawing.Point(63, 47);
+            this.img_foto.Name = "img_foto";
+            this.img_foto.Size = new System.Drawing.Size(227, 262);
+            this.img_foto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.img_foto.TabIndex = 6;
+            this.img_foto.TabStop = false;
+            // 
+            // txtnasc
+            // 
+            this.txtnasc.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtnasc.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtnasc.Location = new System.Drawing.Point(699, 26);
+            this.txtnasc.Mask = "00/00/0000";
+            this.txtnasc.Name = "txtnasc";
+            this.txtnasc.Size = new System.Drawing.Size(114, 27);
+            this.txtnasc.TabIndex = 3;
+            this.txtnasc.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
+            this.txtnasc.ValidatingType = typeof(System.DateTime);
+            // 
+            // btn_cancelar
+            // 
+            this.btn_cancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.btn_cancelar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_cancelar.FlatAppearance.BorderSize = 0;
+            this.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_cancelar.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cancelar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_cancelar.Location = new System.Drawing.Point(124, 10);
+            this.btn_cancelar.Name = "btn_cancelar";
+            this.btn_cancelar.Padding = new System.Windows.Forms.Padding(4);
+            this.btn_cancelar.Size = new System.Drawing.Size(104, 32);
+            this.btn_cancelar.TabIndex = 27;
+            this.btn_cancelar.Text = "Cancelar";
+            this.btn_cancelar.UseCompatibleTextRendering = true;
+            this.btn_cancelar.UseVisualStyleBackColor = false;
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
+            // 
+            // splitter2
+            // 
+            this.splitter2.Location = new System.Drawing.Point(114, 10);
+            this.splitter2.Name = "splitter2";
+            this.splitter2.Size = new System.Drawing.Size(10, 32);
+            this.splitter2.TabIndex = 26;
+            this.splitter2.TabStop = false;
+            // 
+            // ofd1
+            // 
+            this.ofd1.FileName = "openFileDialog1";
+            // 
             // Form_Cadastro_cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -751,29 +545,16 @@ namespace LMFinanciamentos.Apresentacao
             this.panel2.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
             this.tabcliente.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel4.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.tabfinanceiro.ResumeLayout(false);
-            this.tabfinanceiro.PerformLayout();
             this.tabproduto.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.img_foto)).EndInit();
             this.panel1.ResumeLayout(false);
             this.paneltop.ResumeLayout(false);
             this.paneltop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.img_foto)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -790,22 +571,6 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabcliente;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.ComboBox txtfgts;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.ComboBox txtir;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.ComboBox txtcadmut;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.ComboBox txtciweb;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.ComboBox txtStatusCPF;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.MaskedTextBox txtcelular;
         private System.Windows.Forms.Label label20;
@@ -817,15 +582,8 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.TextBox txtcpf;
         private System.Windows.Forms.Label lblcliente;
         private System.Windows.Forms.Label lblemail;
-        private System.Windows.Forms.TabPage tabfinanceiro;
-        private System.Windows.Forms.MaskedTextBox txtrenda;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabPage tabproduto;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.PictureBox img_foto;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.MaskedTextBox txtnasc;
         private System.Windows.Forms.RadioButton checkBox_Masculino;
         private System.Windows.Forms.RadioButton checkBox_Feminino;
         private System.Windows.Forms.TextBox txtnomecli;
@@ -833,5 +591,12 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.TextBox txtrg;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtrendacli;
+        private System.Windows.Forms.Button btn_limpar_foto;
+        private System.Windows.Forms.Button btn_add_foto;
+        private System.Windows.Forms.PictureBox img_foto;
+        private System.Windows.Forms.MaskedTextBox txtnasc;
+        private System.Windows.Forms.Button btn_cancelar;
+        private System.Windows.Forms.Splitter splitter2;
+        private System.Windows.Forms.OpenFileDialog ofd1;
     }
 }

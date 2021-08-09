@@ -127,7 +127,7 @@ namespace LMFinanciamentos.Apresentacao
             this.lblfunc.Name = "lblfunc";
             this.lblfunc.Size = new System.Drawing.Size(202, 29);
             this.lblfunc.TabIndex = 0;
-            this.lblfunc.Text = "Funcionario";
+            this.lblfunc.Text = "Funcionário";
             this.lblfunc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnmenurigth

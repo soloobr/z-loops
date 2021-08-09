@@ -10,8 +10,9 @@
 
 namespace LMFinanciamentos.Properties {
     using System;
-    
-    
+    using System.Drawing;
+
+
     /// <summary>
     ///   Uma classe de recurso de tipo de alta segurança, para pesquisar cadeias de caracteres localizadas etc.
     /// </summary>
@@ -23,7 +24,7 @@ namespace LMFinanciamentos.Properties {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
-        
+        internal static Image icons8_contacts_250;
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;

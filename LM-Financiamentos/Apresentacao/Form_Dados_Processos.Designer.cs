@@ -31,14 +31,14 @@ namespace LMFinanciamentos.Apresentacao
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Dados_Processos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnsalvardoc = new System.Windows.Forms.Button();
             this.dS_Documentos = new LMFinanciamentos.DAL.DS_Documentos();
             this.dSDocumentosBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -2696,7 +2696,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btnAnexar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAnexar.Font = new System.Drawing.Font("Poppins SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnexar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnAnexar.Location = new System.Drawing.Point(758, 87);
+            this.btnAnexar.Location = new System.Drawing.Point(1220, 87);
             this.btnAnexar.Name = "btnAnexar";
             this.btnAnexar.Size = new System.Drawing.Size(109, 32);
             this.btnAnexar.TabIndex = 33;
@@ -2776,7 +2776,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtdescricao.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdescricao.Location = new System.Drawing.Point(238, 87);
             this.txtdescricao.Name = "txtdescricao";
-            this.txtdescricao.Size = new System.Drawing.Size(514, 30);
+            this.txtdescricao.Size = new System.Drawing.Size(976, 30);
             this.txtdescricao.TabIndex = 35;
             // 
             // groupBox7
@@ -2810,14 +2810,14 @@ namespace LMFinanciamentos.Apresentacao
             this.apagar,
             this.Baixar,
             this.Extensao});
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Poppins SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_Arquivos.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Poppins SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_Arquivos.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView_Arquivos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_Arquivos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView_Arquivos.GridColor = System.Drawing.SystemColors.Control;
@@ -2836,9 +2836,9 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.Numero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Numero.DataPropertyName = "id";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.NullValue = "0";
-            this.Numero.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = "0";
+            this.Numero.DefaultCellStyle = dataGridViewCellStyle1;
             this.Numero.HeaderText = "Nº";
             this.Numero.Name = "Numero";
             this.Numero.ReadOnly = true;
@@ -2848,8 +2848,8 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.Tipo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.Tipo.DataPropertyName = "Tipo";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Tipo.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Tipo.DefaultCellStyle = dataGridViewCellStyle2;
             this.Tipo.HeaderText = "Tipo";
             this.Tipo.Name = "Tipo";
             this.Tipo.ReadOnly = true;
@@ -2859,8 +2859,8 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.descricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.descricao.DataPropertyName = "Descricao";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.descricao.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.descricao.DefaultCellStyle = dataGridViewCellStyle3;
             this.descricao.HeaderText = "Descrição";
             this.descricao.Name = "descricao";
             this.descricao.Width = 250;
@@ -2869,8 +2869,8 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.data.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.data.DataPropertyName = "Data";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.data.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.data.DefaultCellStyle = dataGridViewCellStyle4;
             this.data.HeaderText = "Data";
             this.data.Name = "data";
             // 
@@ -2878,8 +2878,8 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.status.DataPropertyName = "Status";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.status.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.status.DefaultCellStyle = dataGridViewCellStyle5;
             this.status.HeaderText = "Status";
             this.status.Name = "status";
             this.status.Width = 150;
@@ -2887,9 +2887,9 @@ namespace LMFinanciamentos.Apresentacao
             // apagar
             // 
             this.apagar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.Padding = new System.Windows.Forms.Padding(1);
-            this.apagar.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(1);
+            this.apagar.DefaultCellStyle = dataGridViewCellStyle6;
             this.apagar.FillWeight = 30F;
             this.apagar.HeaderText = "Excluir";
             this.apagar.MinimumWidth = 60;
@@ -2901,9 +2901,9 @@ namespace LMFinanciamentos.Apresentacao
             // Baixar
             // 
             this.Baixar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.Padding = new System.Windows.Forms.Padding(1);
-            this.Baixar.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(1);
+            this.Baixar.DefaultCellStyle = dataGridViewCellStyle7;
             this.Baixar.FillWeight = 30F;
             this.Baixar.HeaderText = "Baixar";
             this.Baixar.MinimumWidth = 60;

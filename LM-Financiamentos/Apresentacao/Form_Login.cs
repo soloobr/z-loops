@@ -135,12 +135,15 @@ namespace LMFinanciamentos
                         // Funcionario dadosfunc = new Funcionario();
 
                         func = gett.GetFunc(txt_login.Text, txtpassword.Text);
-                        Byte[] foto = func.Foto_Func;
+                        //Byte[] foto = func.Foto_Func;
                         ola = saudar.GetSaudacao();
 
                         //MessageBox.Show("Logado com sucesso! ", "Entrando", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Form_Principal frm_Principal = new Form_Principal();
-                        frm_Principal.setFoto(func.Foto_Func);
+                        if(func.Foto_Func != null)
+                        {
+                            frm_Principal.setFoto(func.Foto_Func);
+                        }
                         frm_Principal.setLabel(func, ola);
                         frm_Principal.Show();
                         lblverifica.Visible = false;

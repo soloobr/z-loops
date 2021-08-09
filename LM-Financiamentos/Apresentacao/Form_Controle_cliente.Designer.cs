@@ -29,12 +29,18 @@ namespace LMFinanciamentos.Apresentacao
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Controle_cliente));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Controle_cliente));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelcentralcadcli = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dgv_clientes = new System.Windows.Forms.DataGridView();
             this.pnlcontrol = new System.Windows.Forms.Panel();
             this.lblprocurar = new System.Windows.Forms.Label();
             this.btnprocurar = new System.Windows.Forms.Button();
@@ -45,7 +51,7 @@ namespace LMFinanciamentos.Apresentacao
             this.paneltop = new System.Windows.Forms.Panel();
             this.lbl_topo = new System.Windows.Forms.Label();
             this.img_topo = new System.Windows.Forms.PictureBox();
-            this.dgv_clientes = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,11 +59,11 @@ namespace LMFinanciamentos.Apresentacao
             this.Celular = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelcentralcadcli.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_clientes)).BeginInit();
             this.pnlcontrol.SuspendLayout();
             this.panel1.SuspendLayout();
             this.paneltop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_clientes)).BeginInit();
             this.SuspendLayout();
             // 
             // panelcentralcadcli
@@ -68,7 +74,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panelcentralcadcli.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelcentralcadcli.Location = new System.Drawing.Point(0, 0);
             this.panelcentralcadcli.Name = "panelcentralcadcli";
-            this.panelcentralcadcli.Size = new System.Drawing.Size(979, 617);
+            this.panelcentralcadcli.Size = new System.Drawing.Size(1142, 617);
             this.panelcentralcadcli.TabIndex = 0;
             // 
             // panel2
@@ -78,8 +84,70 @@ namespace LMFinanciamentos.Apresentacao
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 57);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(979, 508);
+            this.panel2.Size = new System.Drawing.Size(1142, 508);
             this.panel2.TabIndex = 9;
+            // 
+            // dgv_clientes
+            // 
+            this.dgv_clientes.AllowUserToAddRows = false;
+            this.dgv_clientes.AllowUserToDeleteRows = false;
+            this.dgv_clientes.AllowUserToOrderColumns = true;
+            this.dgv_clientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_clientes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+            this.dgv_clientes.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgv_clientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgv_clientes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgv_clientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_clientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_clientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_clientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.Nome,
+            this.CPF,
+            this.Nascimento,
+            this.Email,
+            this.Celular});
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.NullValue = null;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_clientes.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgv_clientes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_clientes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgv_clientes.GridColor = System.Drawing.SystemColors.Control;
+            this.dgv_clientes.Location = new System.Drawing.Point(0, 138);
+            this.dgv_clientes.MultiSelect = false;
+            this.dgv_clientes.Name = "dgv_clientes";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_clientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgv_clientes.RowHeadersVisible = false;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.NullValue = " - ";
+            this.dgv_clientes.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgv_clientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_clientes.Size = new System.Drawing.Size(1142, 370);
+            this.dgv_clientes.TabIndex = 12;
+            this.dgv_clientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_clientes_CellDoubleClick);
+            this.dgv_clientes.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_clientes_CellFormatting);
             // 
             // pnlcontrol
             // 
@@ -89,7 +157,7 @@ namespace LMFinanciamentos.Apresentacao
             this.pnlcontrol.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlcontrol.Location = new System.Drawing.Point(0, 0);
             this.pnlcontrol.Name = "pnlcontrol";
-            this.pnlcontrol.Size = new System.Drawing.Size(979, 138);
+            this.pnlcontrol.Size = new System.Drawing.Size(1142, 138);
             this.pnlcontrol.TabIndex = 11;
             // 
             // lblprocurar
@@ -126,6 +194,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtprocurar.Name = "txtprocurar";
             this.txtprocurar.Size = new System.Drawing.Size(218, 27);
             this.txtprocurar.TabIndex = 0;
+            this.txtprocurar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtprocurar_KeyPress);
             // 
             // panel1
             // 
@@ -136,7 +205,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panel1.Location = new System.Drawing.Point(0, 565);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(10);
-            this.panel1.Size = new System.Drawing.Size(979, 52);
+            this.panel1.Size = new System.Drawing.Size(1142, 52);
             this.panel1.TabIndex = 8;
             // 
             // btn_new_client
@@ -165,7 +234,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btnclosecli.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnclosecli.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnclosecli.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnclosecli.Location = new System.Drawing.Point(865, 10);
+            this.btnclosecli.Location = new System.Drawing.Point(1028, 10);
             this.btnclosecli.Name = "btnclosecli";
             this.btnclosecli.Padding = new System.Windows.Forms.Padding(4);
             this.btnclosecli.Size = new System.Drawing.Size(104, 32);
@@ -184,7 +253,7 @@ namespace LMFinanciamentos.Apresentacao
             this.paneltop.Location = new System.Drawing.Point(0, 0);
             this.paneltop.Name = "paneltop";
             this.paneltop.Padding = new System.Windows.Forms.Padding(4);
-            this.paneltop.Size = new System.Drawing.Size(979, 57);
+            this.paneltop.Size = new System.Drawing.Size(1142, 57);
             this.paneltop.TabIndex = 6;
             // 
             // lbl_topo
@@ -213,120 +282,95 @@ namespace LMFinanciamentos.Apresentacao
             this.img_topo.TabIndex = 5;
             this.img_topo.TabStop = false;
             // 
-            // dgv_clientes
+            // id
             // 
-            this.dgv_clientes.AllowUserToAddRows = false;
-            this.dgv_clientes.AllowUserToDeleteRows = false;
-            this.dgv_clientes.AllowUserToOrderColumns = true;
-            this.dgv_clientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_clientes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgv_clientes.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgv_clientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgv_clientes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgv_clientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_clientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv_clientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_clientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Nome,
-            this.CPF,
-            this.Nascimento,
-            this.Email,
-            this.Celular});
-            this.dgv_clientes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_clientes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgv_clientes.GridColor = System.Drawing.SystemColors.Control;
-            this.dgv_clientes.Location = new System.Drawing.Point(0, 138);
-            this.dgv_clientes.MultiSelect = false;
-            this.dgv_clientes.Name = "dgv_clientes";
-            this.dgv_clientes.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_clientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.NullValue = " - ";
-            this.dgv_clientes.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgv_clientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_clientes.Size = new System.Drawing.Size(979, 370);
-            this.dgv_clientes.TabIndex = 12;
-            this.dgv_clientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_clientes_CellDoubleClick);
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.id.DataPropertyName = "Id_cliente";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.NullValue = "0000";
+            this.id.DefaultCellStyle = dataGridViewCellStyle2;
+            this.id.HeaderText = "Nº";
+            this.id.Name = "id";
+            this.id.Width = 80;
             // 
             // Nome
             // 
-            this.Nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.Nome.DataPropertyName = "Nome_cliente";
             this.Nome.HeaderText = "Nome";
             this.Nome.Name = "Nome";
-            this.Nome.ReadOnly = true;
-            this.Nome.Width = 90;
+            this.Nome.Width = 250;
             // 
             // CPF
             // 
+            this.CPF.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.CPF.DataPropertyName = "CPF_cliente";
+            dataGridViewCellStyle3.Format = "@\"000\\.000\\.000\\-00\"";
+            dataGridViewCellStyle3.NullValue = "0";
+            this.CPF.DefaultCellStyle = dataGridViewCellStyle3;
             this.CPF.FillWeight = 100.8F;
             this.CPF.HeaderText = "CPF";
             this.CPF.MinimumWidth = 145;
             this.CPF.Name = "CPF";
-            this.CPF.ReadOnly = true;
+            this.CPF.Width = 200;
             // 
             // Nascimento
             // 
+            this.Nascimento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.Nascimento.DataPropertyName = "Nascimento_cliente";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Format = "d";
+            dataGridViewCellStyle4.NullValue = null;
+            this.Nascimento.DefaultCellStyle = dataGridViewCellStyle4;
             this.Nascimento.FillWeight = 100.8F;
             this.Nascimento.HeaderText = "Nascimento";
             this.Nascimento.Name = "Nascimento";
-            this.Nascimento.ReadOnly = true;
+            this.Nascimento.Width = 150;
             // 
             // Email
             // 
+            this.Email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Email.DataPropertyName = "Email_cliente";
             this.Email.FillWeight = 96F;
             this.Email.HeaderText = "Email";
             this.Email.MinimumWidth = 35;
             this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
+            this.Email.Width = 88;
             // 
             // Celular
             // 
+            this.Celular.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.Celular.DataPropertyName = "Celular_cliente";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.NullValue = "0";
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Celular.DefaultCellStyle = dataGridViewCellStyle5;
             this.Celular.FillWeight = 100.8F;
             this.Celular.HeaderText = "Celular";
             this.Celular.Name = "Celular";
-            this.Celular.ReadOnly = true;
+            this.Celular.Width = 200;
             // 
             // Form_Controle_cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(979, 617);
+            this.ClientSize = new System.Drawing.Size(1142, 617);
             this.Controls.Add(this.panelcentralcadcli);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_Controle_cliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Cliente";
             this.Load += new System.EventHandler(this.Form_Cadastro_cliente_Load);
+            this.Shown += new System.EventHandler(this.Form_Controle_cliente_Shown);
             this.panelcentralcadcli.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_clientes)).EndInit();
             this.pnlcontrol.ResumeLayout(false);
             this.pnlcontrol.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.paneltop.ResumeLayout(false);
             this.paneltop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_clientes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -346,6 +390,7 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.Button btnprocurar;
         private System.Windows.Forms.TextBox txtprocurar;
         private System.Windows.Forms.DataGridView dgv_clientes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn CPF;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nascimento;
