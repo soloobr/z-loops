@@ -10,7 +10,7 @@ namespace LMFinanciamentos.Apresentacao
     {
         String sexo, status, idcliente;
         public string consultar;
-
+        int clienteselecionado;
         public Form_Controle_cliente()
         {
             InitializeComponent();
@@ -39,6 +39,7 @@ namespace LMFinanciamentos.Apresentacao
             Cursor = Cursors.Default;
         }
 
+        public event Action ClienteSalvo;
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -46,10 +47,13 @@ namespace LMFinanciamentos.Apresentacao
 
         private void btn_new_client_Click(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
             Form_Cadastro_cliente frm_cadastro_clientes = new Form_Cadastro_cliente();
-            //frm_cadastro_clientes.ProcessoSalvo += new Action(frm_dados_documentos_ProcessoSalvo);
+
+            frm_cadastro_clientes.ClienteSalvo += new Action(frm_cadastro_clientes_ClienteSalvo);
             //frm_cadastro_clientes.setLabel("Em Preenchimento");
             frm_cadastro_clientes.Show();
+            Cursor = Cursors.Default;
         }
 
         private void txtprocurar_KeyPress(object sender, KeyPressEventArgs e)
@@ -74,10 +78,9 @@ namespace LMFinanciamentos.Apresentacao
         private void dgv_clientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Form_Dados_cliente frm_dados_clientes = new Form_Dados_cliente();
-            //frm_dados_documentos.setIdProcess(dgv_process.Rows[1].Cells[0].Value.ToString());
             frm_dados_clientes.setIdCliente(dgv_clientes.SelectedRows[0].Cells["id"].Value.ToString());
-            //frm_dados_clientes.ProcessoSalvo += new Action(frm_dados_documentos_ProcessoSalvo);
-            //frm_dados_documentos.setIdProcess("1");
+            clienteselecionado = dgv_clientes.CurrentCell.RowIndex;
+            frm_dados_clientes.ClienteSalvo += new Action(frm_dados_clientes_ClienteSalvo);
             frm_dados_clientes.Show();
         }
 
@@ -121,6 +124,102 @@ namespace LMFinanciamentos.Apresentacao
                     Cursor.Current = Cursors.Default;
                 }
             }
+        }
+
+        private void dgv_clientes_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            //this.dgv_clientes.Rows[e.RowIndex].Selected = true;
+        }
+
+        private void dgv_clientes_SelectionChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgv_clientes_CurrentCellChanged(object sender, EventArgs e)
+        {
+
+
+        }
+
+        void frm_dados_clientes_ClienteSalvo()
+        {
+            AtualizaGrid();
+
+            dgv_clientes.ClearSelection();
+            dgv_clientes.Rows[clienteselecionado].Selected = true;
+            dgv_clientes.Rows[clienteselecionado].Cells[0].Selected = true;
+        }
+
+        private void btn_editar_Click(object sender, EventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            Form_Dados_cliente frm_dados_clientes = new Form_Dados_cliente();
+            frm_dados_clientes.setIdCliente(dgv_clientes.SelectedRows[0].Cells["id"].Value.ToString());
+            clienteselecionado = dgv_clientes.CurrentCell.RowIndex;
+            frm_dados_clientes.ClienteSalvo += new Action(frm_dados_clientes_ClienteSalvo);
+            frm_dados_clientes.Show();
+            Cursor = Cursors.Default;
+        }
+
+        private void btn_excluir_Click(object sender, EventArgs e)
+        {
+            String idclienteexclude = dgv_clientes.SelectedRows[0].Cells["id"].Value.ToString();
+            var result =  MessageBox.Show("Deseja Excluir o Cliente: \n "+ dgv_clientes.SelectedRows[0].Cells["Nome"].Value.ToString() + "  ?","excluir",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                
+
+                LoginDaoComandos deletecliente = new LoginDaoComandos();
+
+                if(deletecliente.GetFotoCliente(idclienteexclude).Foto_cliente != null)
+                {
+                    //MessageBox.Show("Tem foto");
+                    deletecliente.DeleteFotoCliente(idclienteexclude);
+                    deletecliente.DeleteCliente(idclienteexclude);
+                    MessageBox.Show(deletecliente.mensagem, "Excluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (ClienteSalvo != null)
+                        ClienteSalvo.Invoke();
+                    AtualizaGrid();
+                }
+                else
+                {
+                    deletecliente.DeleteCliente(idclienteexclude);
+                    MessageBox.Show(deletecliente.mensagem, "Excluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (ClienteSalvo != null)
+                        ClienteSalvo.Invoke();
+                    AtualizaGrid();
+                }
+
+
+                
+            }
+        }
+
+        private void splitter2_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+
+        }
+
+        void frm_cadastro_clientes_ClienteSalvo()
+        {
+            AtualizaGrid();
+    
+            dgv_clientes.ClearSelection();
+
+            int nRowIndex = dgv_clientes.Rows.Count - 1;
+            //clienteselecionado = dgv_clientes.Rows.Count - 1;
+            dgv_clientes.Rows[nRowIndex].Selected = true;
+            dgv_clientes.Rows[nRowIndex].Cells[0].Selected = true;
+            dgv_clientes.FirstDisplayedScrollingRowIndex = nRowIndex;
+        }
+        private void AtualizaGrid()
+        {
+            LoginDaoComandos getclientes = new LoginDaoComandos();
+            dgv_clientes.DataSource = getclientes.GetClientes("%");
+
+
         }
 
 

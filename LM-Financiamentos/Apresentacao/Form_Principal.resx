@@ -677,6 +677,13 @@
         AwMAA64vtSouadQAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="btncadastrocvendedor.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAABGdBTUEAALGPC/xhBQAAAEZJREFUKFNj
+        IA9M2sbO0XI8GsrDDThbjhcBFf7naD7WBBXCAVatYuZoPr4YpJi95XgnVBQHIFoxUQqJNY14zxAbPLgB
+        AwMAA64vtSouadQAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="btncadastrocliente.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAABGdBTUEAALGPC/xhBQAAAEZJREFUKFNj

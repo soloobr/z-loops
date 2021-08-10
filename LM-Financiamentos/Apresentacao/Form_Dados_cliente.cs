@@ -14,7 +14,7 @@ namespace LMFinanciamentos.Apresentacao
 {
     public partial class Form_Dados_cliente : Form
     {
-        String sexo, status, idCliente, valor, renda, nascimento, arquivo;
+        String sexo, status, idCliente, valor, renda, nascimento, arquivo, RG, CPF;
         String excluirimage;
         FileStream fsObj = null;
         BinaryReader binRdr = null;
@@ -95,6 +95,14 @@ namespace LMFinanciamentos.Apresentacao
         private void btn_salvar_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
+            if (txtnomecli.Text == "")
+            {
+                MessageBox.Show("Campo Nome do Cliente é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtnomecli.Select();
+                Cursor = Cursors.Default;
+                return;
+            }
+
             if (checkBox_Masculino.Checked)
             {
                 sexo = "Masculino";
@@ -115,9 +123,25 @@ namespace LMFinanciamentos.Apresentacao
                 status = "Inativo";
             }
 
-            String CPF = FormatCnpjCpf.SemFormatacao(txtcpf.Text);
+            if (txtcpf.Text == "")
+            {
+                MessageBox.Show("Campo CPF é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtcpf.Select();
+                Cursor = Cursors.Default;
+                return;
+            }
+            CPF = FormatCnpjCpf.SemFormatacao(txtcpf.Text);
 
-            String RG = FormatCnpjCpf.SemFormatacao(txtrg.Text);
+
+            if (txtrg.Text == "")
+            {
+                RG = "0";
+            }
+            else
+            {
+                RG = FormatCnpjCpf.SemFormatacao(txtrg.Text);
+            }
+            //String RG = FormatCnpjCpf.SemFormatacao(txtrg.Text);
 
             DateTime dataa;
             DateTime.TryParse(txtnasc.Text + " " + "00:00:00", out dataa);
@@ -183,23 +207,33 @@ namespace LMFinanciamentos.Apresentacao
 
             MessageBox.Show(updatecliente.mensagem, "Atualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+
             btn_editar.Visible = true;
-            splitter1.Visible = true;
-            btn_salvar.Visible = false;
+            splitter1.Visible = false;
             btn_cancelar.Visible = false;
-
-
+            splitter2.Visible = false;
+            btn_salvar.Visible = false;
+            
+            
+            splitter3.Visible = true;
+            btn_excluir.Visible = true;
 
             DesabilitarEdicao();
+
+            if (ClienteSalvo != null)
+                ClienteSalvo.Invoke();
 
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
             btn_editar.Visible = true;
-            splitter1.Visible = true;
-            btn_salvar.Visible = false;
+            splitter1.Visible = false;
+            splitter2.Visible = false;
             btn_cancelar.Visible = false;
+            btn_salvar.Visible = false;
+            splitter3.Visible = true;
+            btn_excluir.Visible = true;
 
             excluirimage = "";
 
@@ -306,6 +340,7 @@ namespace LMFinanciamentos.Apresentacao
             txtnomecli.Focus();
             Cursor = Cursors.Default;
         }
+        public event Action ClienteSalvo;
         private void btn_add_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
@@ -435,6 +470,55 @@ namespace LMFinanciamentos.Apresentacao
             Cursor = Cursors.Default;
         }
 
+        private void splitter2_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+
+        }
+
+        private void splitter1_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+
+        }
+
+        private void btn_excluir_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Deseja Excluir o Cliente: \n " + txtnomecli.Text + "  ?", "excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+
+
+                LoginDaoComandos deletecliente = new LoginDaoComandos();
+
+                if (img_foto.Image != null)
+                {
+                    deletecliente.DeleteFotoCliente(idCliente);
+                    deletecliente.DeleteCliente(idCliente);
+                    MessageBox.Show(deletecliente.mensagem, "Excluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (ClienteSalvo != null)
+                        ClienteSalvo.Invoke();
+                    Close();
+                }
+                else
+                {
+                    deletecliente.DeleteCliente(idCliente);
+                    MessageBox.Show(deletecliente.mensagem, "Excluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (ClienteSalvo != null)
+                        ClienteSalvo.Invoke();
+                    Close();
+                }
+
+
+
+            }
+
+        }
+
+        private void splitter3_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+
+        }
+
         private void btn_limpar_foto_Click(object sender, EventArgs e)
         {
             img_foto.Image = null;
@@ -472,10 +556,13 @@ namespace LMFinanciamentos.Apresentacao
         private void btn_editar_Click(object sender, EventArgs e)
         {
             btn_editar.Visible = false;
-            splitter1.Visible = false;
+            splitter1.Visible = true;
             btn_salvar.Visible = true;
+            splitter2.Visible = true;
             btn_cancelar.Visible = true;
-
+            splitter3.Visible = false;
+            btn_excluir.Visible = false;
+            
 
             HabilitarEdicao();
         }

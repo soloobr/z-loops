@@ -92,6 +92,8 @@ namespace LMFinanciamentos.Apresentacao
             this.lbl_topo = new System.Windows.Forms.Label();
             this.img_topo = new System.Windows.Forms.PictureBox();
             this.ofd1 = new System.Windows.Forms.OpenFileDialog();
+            this.btn_excluir = new System.Windows.Forms.Button();
+            this.splitter3 = new System.Windows.Forms.Splitter();
             this.panelcentralcadcli.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -666,6 +668,8 @@ namespace LMFinanciamentos.Apresentacao
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.panel1.Controls.Add(this.btn_excluir);
+            this.panel1.Controls.Add(this.splitter3);
             this.panel1.Controls.Add(this.btn_cancelar);
             this.panel1.Controls.Add(this.splitter2);
             this.panel1.Controls.Add(this.btn_salvar);
@@ -705,6 +709,8 @@ namespace LMFinanciamentos.Apresentacao
             this.splitter2.Size = new System.Drawing.Size(10, 32);
             this.splitter2.TabIndex = 24;
             this.splitter2.TabStop = false;
+            this.splitter2.Visible = false;
+            this.splitter2.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitter2_SplitterMoved);
             // 
             // btn_salvar
             // 
@@ -733,6 +739,7 @@ namespace LMFinanciamentos.Apresentacao
             this.splitter1.TabIndex = 22;
             this.splitter1.TabStop = false;
             this.splitter1.Visible = false;
+            this.splitter1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitter1_SplitterMoved);
             // 
             // btn_editar
             // 
@@ -811,6 +818,34 @@ namespace LMFinanciamentos.Apresentacao
             // ofd1
             // 
             this.ofd1.FileName = "openFileDialog1";
+            // 
+            // btn_excluir
+            // 
+            this.btn_excluir.BackColor = System.Drawing.Color.LightGray;
+            this.btn_excluir.CausesValidation = false;
+            this.btn_excluir.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_excluir.FlatAppearance.BorderSize = 0;
+            this.btn_excluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_excluir.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_excluir.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_excluir.Location = new System.Drawing.Point(352, 10);
+            this.btn_excluir.Name = "btn_excluir";
+            this.btn_excluir.Padding = new System.Windows.Forms.Padding(4);
+            this.btn_excluir.Size = new System.Drawing.Size(104, 32);
+            this.btn_excluir.TabIndex = 31;
+            this.btn_excluir.Text = "Excluir";
+            this.btn_excluir.UseCompatibleTextRendering = true;
+            this.btn_excluir.UseVisualStyleBackColor = false;
+            this.btn_excluir.Click += new System.EventHandler(this.btn_excluir_Click);
+            // 
+            // splitter3
+            // 
+            this.splitter3.Location = new System.Drawing.Point(342, 10);
+            this.splitter3.Name = "splitter3";
+            this.splitter3.Size = new System.Drawing.Size(10, 32);
+            this.splitter3.TabIndex = 30;
+            this.splitter3.TabStop = false;
+            this.splitter3.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitter3_SplitterMoved);
             // 
             // Form_Dados_cliente
             // 
@@ -912,5 +947,7 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.CheckBox checkBox_status;
         private OpenFileDialog ofd1;
         private Button btn_limpar_foto;
+        private Button btn_excluir;
+        private Splitter splitter3;
     }
 }

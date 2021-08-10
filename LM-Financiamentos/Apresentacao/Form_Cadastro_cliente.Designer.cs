@@ -53,19 +53,19 @@ namespace LMFinanciamentos.Apresentacao
             this.lblemail = new System.Windows.Forms.Label();
             this.txtnomecli = new System.Windows.Forms.TextBox();
             this.txtrg = new System.Windows.Forms.TextBox();
+            this.txtnasc = new System.Windows.Forms.MaskedTextBox();
             this.tabproduto = new System.Windows.Forms.TabPage();
+            this.btn_limpar_foto = new System.Windows.Forms.Button();
+            this.btn_add_foto = new System.Windows.Forms.Button();
+            this.img_foto = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_cancelar = new System.Windows.Forms.Button();
+            this.splitter2 = new System.Windows.Forms.Splitter();
             this.btn_salvar = new System.Windows.Forms.Button();
             this.btnclosecli = new System.Windows.Forms.Button();
             this.paneltop = new System.Windows.Forms.Panel();
             this.lbl_topo = new System.Windows.Forms.Label();
             this.img_topo = new System.Windows.Forms.PictureBox();
-            this.btn_limpar_foto = new System.Windows.Forms.Button();
-            this.btn_add_foto = new System.Windows.Forms.Button();
-            this.img_foto = new System.Windows.Forms.PictureBox();
-            this.txtnasc = new System.Windows.Forms.MaskedTextBox();
-            this.btn_cancelar = new System.Windows.Forms.Button();
-            this.splitter2 = new System.Windows.Forms.Splitter();
             this.ofd1 = new System.Windows.Forms.OpenFileDialog();
             this.panelcentralcadcli.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -74,10 +74,10 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabproduto.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.img_foto)).BeginInit();
             this.panel1.SuspendLayout();
             this.paneltop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.img_foto)).BeginInit();
             this.SuspendLayout();
             // 
             // panelcentralcadcli
@@ -197,7 +197,8 @@ namespace LMFinanciamentos.Apresentacao
             this.groupBox2.Controls.Add(this.checkBox_Masculino);
             this.groupBox2.Location = new System.Drawing.Point(3, 118);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(226, 52);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(0);
+            this.groupBox2.Size = new System.Drawing.Size(220, 66);
             this.groupBox2.TabIndex = 28;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Sexo:";
@@ -207,9 +208,10 @@ namespace LMFinanciamentos.Apresentacao
             this.checkBox_Feminino.AutoSize = true;
             this.checkBox_Feminino.Dock = System.Windows.Forms.DockStyle.Left;
             this.checkBox_Feminino.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_Feminino.Location = new System.Drawing.Point(96, 23);
+            this.checkBox_Feminino.Location = new System.Drawing.Point(113, 20);
             this.checkBox_Feminino.Name = "checkBox_Feminino";
-            this.checkBox_Feminino.Size = new System.Drawing.Size(86, 26);
+            this.checkBox_Feminino.Padding = new System.Windows.Forms.Padding(10);
+            this.checkBox_Feminino.Size = new System.Drawing.Size(106, 46);
             this.checkBox_Feminino.TabIndex = 9;
             this.checkBox_Feminino.TabStop = true;
             this.checkBox_Feminino.Text = "Feminino";
@@ -220,9 +222,10 @@ namespace LMFinanciamentos.Apresentacao
             this.checkBox_Masculino.AutoSize = true;
             this.checkBox_Masculino.Dock = System.Windows.Forms.DockStyle.Left;
             this.checkBox_Masculino.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_Masculino.Location = new System.Drawing.Point(3, 23);
+            this.checkBox_Masculino.Location = new System.Drawing.Point(0, 20);
             this.checkBox_Masculino.Name = "checkBox_Masculino";
-            this.checkBox_Masculino.Size = new System.Drawing.Size(93, 26);
+            this.checkBox_Masculino.Padding = new System.Windows.Forms.Padding(10);
+            this.checkBox_Masculino.Size = new System.Drawing.Size(113, 46);
             this.checkBox_Masculino.TabIndex = 8;
             this.checkBox_Masculino.TabStop = true;
             this.checkBox_Masculino.Text = "Masculino";
@@ -345,6 +348,18 @@ namespace LMFinanciamentos.Apresentacao
             this.txtrg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtrg_KeyPress);
             this.txtrg.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrg_KeyUp);
             // 
+            // txtnasc
+            // 
+            this.txtnasc.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtnasc.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtnasc.Location = new System.Drawing.Point(699, 26);
+            this.txtnasc.Mask = "00/00/0000";
+            this.txtnasc.Name = "txtnasc";
+            this.txtnasc.Size = new System.Drawing.Size(114, 27);
+            this.txtnasc.TabIndex = 3;
+            this.txtnasc.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
+            this.txtnasc.ValidatingType = typeof(System.DateTime);
+            // 
             // tabproduto
             // 
             this.tabproduto.Controls.Add(this.btn_limpar_foto);
@@ -357,6 +372,48 @@ namespace LMFinanciamentos.Apresentacao
             this.tabproduto.TabIndex = 3;
             this.tabproduto.Text = "Foto";
             this.tabproduto.UseVisualStyleBackColor = true;
+            // 
+            // btn_limpar_foto
+            // 
+            this.btn_limpar_foto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.btn_limpar_foto.FlatAppearance.BorderSize = 0;
+            this.btn_limpar_foto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_limpar_foto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btn_limpar_foto.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_limpar_foto.Location = new System.Drawing.Point(186, 329);
+            this.btn_limpar_foto.Name = "btn_limpar_foto";
+            this.btn_limpar_foto.Padding = new System.Windows.Forms.Padding(4);
+            this.btn_limpar_foto.Size = new System.Drawing.Size(104, 31);
+            this.btn_limpar_foto.TabIndex = 8;
+            this.btn_limpar_foto.Text = "Limpar";
+            this.btn_limpar_foto.UseVisualStyleBackColor = false;
+            // 
+            // btn_add_foto
+            // 
+            this.btn_add_foto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.btn_add_foto.FlatAppearance.BorderSize = 0;
+            this.btn_add_foto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_add_foto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btn_add_foto.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_add_foto.Location = new System.Drawing.Point(63, 329);
+            this.btn_add_foto.Name = "btn_add_foto";
+            this.btn_add_foto.Padding = new System.Windows.Forms.Padding(4);
+            this.btn_add_foto.Size = new System.Drawing.Size(104, 31);
+            this.btn_add_foto.TabIndex = 7;
+            this.btn_add_foto.Text = "Adicionar";
+            this.btn_add_foto.UseVisualStyleBackColor = false;
+            this.btn_add_foto.Click += new System.EventHandler(this.btn_add_foto_Click);
+            // 
+            // img_foto
+            // 
+            this.img_foto.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.img_foto.InitialImage = null;
+            this.img_foto.Location = new System.Drawing.Point(63, 47);
+            this.img_foto.Name = "img_foto";
+            this.img_foto.Size = new System.Drawing.Size(227, 262);
+            this.img_foto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.img_foto.TabIndex = 6;
+            this.img_foto.TabStop = false;
             // 
             // panel1
             // 
@@ -371,6 +428,32 @@ namespace LMFinanciamentos.Apresentacao
             this.panel1.Padding = new System.Windows.Forms.Padding(10);
             this.panel1.Size = new System.Drawing.Size(979, 52);
             this.panel1.TabIndex = 8;
+            // 
+            // btn_cancelar
+            // 
+            this.btn_cancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.btn_cancelar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_cancelar.FlatAppearance.BorderSize = 0;
+            this.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_cancelar.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cancelar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_cancelar.Location = new System.Drawing.Point(124, 10);
+            this.btn_cancelar.Name = "btn_cancelar";
+            this.btn_cancelar.Padding = new System.Windows.Forms.Padding(4);
+            this.btn_cancelar.Size = new System.Drawing.Size(104, 32);
+            this.btn_cancelar.TabIndex = 27;
+            this.btn_cancelar.Text = "Cancelar";
+            this.btn_cancelar.UseCompatibleTextRendering = true;
+            this.btn_cancelar.UseVisualStyleBackColor = false;
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
+            // 
+            // splitter2
+            // 
+            this.splitter2.Location = new System.Drawing.Point(114, 10);
+            this.splitter2.Name = "splitter2";
+            this.splitter2.Size = new System.Drawing.Size(10, 32);
+            this.splitter2.TabIndex = 26;
+            this.splitter2.TabStop = false;
             // 
             // btn_salvar
             // 
@@ -446,86 +529,6 @@ namespace LMFinanciamentos.Apresentacao
             this.img_topo.TabIndex = 5;
             this.img_topo.TabStop = false;
             // 
-            // btn_limpar_foto
-            // 
-            this.btn_limpar_foto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.btn_limpar_foto.FlatAppearance.BorderSize = 0;
-            this.btn_limpar_foto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_limpar_foto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btn_limpar_foto.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_limpar_foto.Location = new System.Drawing.Point(186, 329);
-            this.btn_limpar_foto.Name = "btn_limpar_foto";
-            this.btn_limpar_foto.Padding = new System.Windows.Forms.Padding(4);
-            this.btn_limpar_foto.Size = new System.Drawing.Size(104, 31);
-            this.btn_limpar_foto.TabIndex = 8;
-            this.btn_limpar_foto.Text = "Limpar";
-            this.btn_limpar_foto.UseVisualStyleBackColor = false;
-            // 
-            // btn_add_foto
-            // 
-            this.btn_add_foto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.btn_add_foto.FlatAppearance.BorderSize = 0;
-            this.btn_add_foto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_add_foto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btn_add_foto.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_add_foto.Location = new System.Drawing.Point(63, 329);
-            this.btn_add_foto.Name = "btn_add_foto";
-            this.btn_add_foto.Padding = new System.Windows.Forms.Padding(4);
-            this.btn_add_foto.Size = new System.Drawing.Size(104, 31);
-            this.btn_add_foto.TabIndex = 7;
-            this.btn_add_foto.Text = "Adicionar";
-            this.btn_add_foto.UseVisualStyleBackColor = false;
-            this.btn_add_foto.Click += new System.EventHandler(this.btn_add_foto_Click);
-            // 
-            // img_foto
-            // 
-            this.img_foto.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.img_foto.InitialImage = null;
-            this.img_foto.Location = new System.Drawing.Point(63, 47);
-            this.img_foto.Name = "img_foto";
-            this.img_foto.Size = new System.Drawing.Size(227, 262);
-            this.img_foto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.img_foto.TabIndex = 6;
-            this.img_foto.TabStop = false;
-            // 
-            // txtnasc
-            // 
-            this.txtnasc.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtnasc.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnasc.Location = new System.Drawing.Point(699, 26);
-            this.txtnasc.Mask = "00/00/0000";
-            this.txtnasc.Name = "txtnasc";
-            this.txtnasc.Size = new System.Drawing.Size(114, 27);
-            this.txtnasc.TabIndex = 3;
-            this.txtnasc.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
-            this.txtnasc.ValidatingType = typeof(System.DateTime);
-            // 
-            // btn_cancelar
-            // 
-            this.btn_cancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.btn_cancelar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btn_cancelar.FlatAppearance.BorderSize = 0;
-            this.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cancelar.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancelar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_cancelar.Location = new System.Drawing.Point(124, 10);
-            this.btn_cancelar.Name = "btn_cancelar";
-            this.btn_cancelar.Padding = new System.Windows.Forms.Padding(4);
-            this.btn_cancelar.Size = new System.Drawing.Size(104, 32);
-            this.btn_cancelar.TabIndex = 27;
-            this.btn_cancelar.Text = "Cancelar";
-            this.btn_cancelar.UseCompatibleTextRendering = true;
-            this.btn_cancelar.UseVisualStyleBackColor = false;
-            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
-            // 
-            // splitter2
-            // 
-            this.splitter2.Location = new System.Drawing.Point(114, 10);
-            this.splitter2.Name = "splitter2";
-            this.splitter2.Size = new System.Drawing.Size(10, 32);
-            this.splitter2.TabIndex = 26;
-            this.splitter2.TabStop = false;
-            // 
             // ofd1
             // 
             this.ofd1.FileName = "openFileDialog1";
@@ -550,11 +553,11 @@ namespace LMFinanciamentos.Apresentacao
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.tabproduto.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.img_foto)).EndInit();
             this.panel1.ResumeLayout(false);
             this.paneltop.ResumeLayout(false);
             this.paneltop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.img_foto)).EndInit();
             this.ResumeLayout(false);
 
         }

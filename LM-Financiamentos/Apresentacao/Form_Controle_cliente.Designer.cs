@@ -46,6 +46,10 @@ namespace LMFinanciamentos.Apresentacao
             this.btnprocurar = new System.Windows.Forms.Button();
             this.txtprocurar = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_excluir = new System.Windows.Forms.Button();
+            this.splitter2 = new System.Windows.Forms.Splitter();
+            this.btn_editar = new System.Windows.Forms.Button();
+            this.splitter1 = new System.Windows.Forms.Splitter();
             this.btn_new_client = new System.Windows.Forms.Button();
             this.btnclosecli = new System.Windows.Forms.Button();
             this.paneltop = new System.Windows.Forms.Panel();
@@ -124,7 +128,7 @@ namespace LMFinanciamentos.Apresentacao
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_clientes.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dgv_clientes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_clientes.Dock = System.Windows.Forms.DockStyle.Right;
             this.dgv_clientes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgv_clientes.GridColor = System.Drawing.SystemColors.Control;
             this.dgv_clientes.Location = new System.Drawing.Point(0, 138);
@@ -148,6 +152,9 @@ namespace LMFinanciamentos.Apresentacao
             this.dgv_clientes.TabIndex = 12;
             this.dgv_clientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_clientes_CellDoubleClick);
             this.dgv_clientes.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_clientes_CellFormatting);
+            this.dgv_clientes.CurrentCellChanged += new System.EventHandler(this.dgv_clientes_CurrentCellChanged);
+            this.dgv_clientes.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgv_clientes_RowsAdded);
+            this.dgv_clientes.SelectionChanged += new System.EventHandler(this.dgv_clientes_SelectionChanged);
             // 
             // pnlcontrol
             // 
@@ -199,6 +206,10 @@ namespace LMFinanciamentos.Apresentacao
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.panel1.Controls.Add(this.btn_excluir);
+            this.panel1.Controls.Add(this.splitter2);
+            this.panel1.Controls.Add(this.btn_editar);
+            this.panel1.Controls.Add(this.splitter1);
             this.panel1.Controls.Add(this.btn_new_client);
             this.panel1.Controls.Add(this.btnclosecli);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -207,6 +218,60 @@ namespace LMFinanciamentos.Apresentacao
             this.panel1.Padding = new System.Windows.Forms.Padding(10);
             this.panel1.Size = new System.Drawing.Size(1142, 52);
             this.panel1.TabIndex = 8;
+            // 
+            // btn_excluir
+            // 
+            this.btn_excluir.BackColor = System.Drawing.Color.LightGray;
+            this.btn_excluir.CausesValidation = false;
+            this.btn_excluir.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_excluir.FlatAppearance.BorderSize = 0;
+            this.btn_excluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_excluir.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_excluir.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_excluir.Location = new System.Drawing.Point(238, 10);
+            this.btn_excluir.Name = "btn_excluir";
+            this.btn_excluir.Padding = new System.Windows.Forms.Padding(4);
+            this.btn_excluir.Size = new System.Drawing.Size(104, 32);
+            this.btn_excluir.TabIndex = 29;
+            this.btn_excluir.Text = "Excluir";
+            this.btn_excluir.UseCompatibleTextRendering = true;
+            this.btn_excluir.UseVisualStyleBackColor = false;
+            this.btn_excluir.Click += new System.EventHandler(this.btn_excluir_Click);
+            // 
+            // splitter2
+            // 
+            this.splitter2.Location = new System.Drawing.Point(228, 10);
+            this.splitter2.Name = "splitter2";
+            this.splitter2.Size = new System.Drawing.Size(10, 32);
+            this.splitter2.TabIndex = 28;
+            this.splitter2.TabStop = false;
+            this.splitter2.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitter2_SplitterMoved);
+            // 
+            // btn_editar
+            // 
+            this.btn_editar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.btn_editar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_editar.FlatAppearance.BorderSize = 0;
+            this.btn_editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_editar.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_editar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_editar.Location = new System.Drawing.Point(124, 10);
+            this.btn_editar.Name = "btn_editar";
+            this.btn_editar.Padding = new System.Windows.Forms.Padding(4);
+            this.btn_editar.Size = new System.Drawing.Size(104, 32);
+            this.btn_editar.TabIndex = 27;
+            this.btn_editar.Text = "Editar";
+            this.btn_editar.UseCompatibleTextRendering = true;
+            this.btn_editar.UseVisualStyleBackColor = false;
+            this.btn_editar.Click += new System.EventHandler(this.btn_editar_Click);
+            // 
+            // splitter1
+            // 
+            this.splitter1.Location = new System.Drawing.Point(114, 10);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(10, 32);
+            this.splitter1.TabIndex = 26;
+            this.splitter1.TabStop = false;
             // 
             // btn_new_client
             // 
@@ -339,7 +404,7 @@ namespace LMFinanciamentos.Apresentacao
             // 
             // Celular
             // 
-            this.Celular.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Celular.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Celular.DataPropertyName = "Celular_cliente";
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.NullValue = "0";
@@ -348,7 +413,6 @@ namespace LMFinanciamentos.Apresentacao
             this.Celular.FillWeight = 100.8F;
             this.Celular.HeaderText = "Celular";
             this.Celular.Name = "Celular";
-            this.Celular.Width = 200;
             // 
             // Form_Controle_cliente
             // 
@@ -390,6 +454,10 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.Button btnprocurar;
         private System.Windows.Forms.TextBox txtprocurar;
         private System.Windows.Forms.DataGridView dgv_clientes;
+        private System.Windows.Forms.Button btn_excluir;
+        private System.Windows.Forms.Splitter splitter2;
+        private System.Windows.Forms.Button btn_editar;
+        private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn CPF;

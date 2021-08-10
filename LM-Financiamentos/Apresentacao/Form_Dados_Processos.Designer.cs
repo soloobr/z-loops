@@ -2696,7 +2696,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btnAnexar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAnexar.Font = new System.Drawing.Font("Poppins SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnexar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnAnexar.Location = new System.Drawing.Point(1220, 87);
+            this.btnAnexar.Location = new System.Drawing.Point(1346, 87);
             this.btnAnexar.Name = "btnAnexar";
             this.btnAnexar.Size = new System.Drawing.Size(109, 32);
             this.btnAnexar.TabIndex = 33;
@@ -2776,7 +2776,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtdescricao.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdescricao.Location = new System.Drawing.Point(238, 87);
             this.txtdescricao.Name = "txtdescricao";
-            this.txtdescricao.Size = new System.Drawing.Size(976, 30);
+            this.txtdescricao.Size = new System.Drawing.Size(1102, 30);
             this.txtdescricao.TabIndex = 35;
             // 
             // groupBox7

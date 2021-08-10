@@ -235,11 +235,11 @@ namespace LMFinanciamentos.Apresentacao
                 if (Application.OpenForms["Form_Cadastro_cliente"] == null)
                 {
                     btncadastro.BackColor = Color.FromArgb(4, 41, 68);
-                    btncadastrocfuncionarios.BackColor = Color.FromArgb(4, 41, 68);
+                    btncadastrocvendedor.BackColor = Color.FromArgb(4, 41, 68);
                 }
                 else
                 {
-                    btncadastrocfuncionarios.BackColor = Color.FromArgb(4, 41, 68);
+                    btncadastrocvendedor.BackColor = Color.FromArgb(4, 41, 68);
                 }
             }
 
@@ -403,9 +403,6 @@ namespace LMFinanciamentos.Apresentacao
             AbrirFormulario<Form_Controle_cliente>();
             btncadastro.BackColor = Color.FromArgb(12, 61, 92);
             btncadastrocliente.BackColor = Color.FromArgb(12, 61, 92);
-            //..
-            //your codes
-            //..
             hideSubMenu();
         }
 
@@ -413,16 +410,24 @@ namespace LMFinanciamentos.Apresentacao
         {
             AbrirFormulario<Form_Cadastro_Funcionarios>();
             btncadastro.BackColor = Color.FromArgb(12, 61, 92);
-            btncadastrocfuncionarios.BackColor = Color.FromArgb(12, 61, 92);
-            //..
-            //your codes
-            //..
+            btncadastrocvendedor.BackColor = Color.FromArgb(12, 61, 92);
             hideSubMenu();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<Form_Cadastro_Funcionarios>();
+            btncadastro.BackColor = Color.FromArgb(12, 61, 92);
+            btncadastrocvendedor.BackColor = Color.FromArgb(12, 61, 92);
+            //..
+            //your codes
+            //..
+            hideSubMenu();
         }
 
         private Form activeForm = null;

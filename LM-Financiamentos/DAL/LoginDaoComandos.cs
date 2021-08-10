@@ -1059,6 +1059,44 @@ namespace LMFinanciamentos.DAL
             }
             catch (Exception err)
             {
+                mensagem = ("Erro ao Excluir Documento: " + err.Message);
+                conn.desconectar();
+            }
+
+            return mensagem;
+        }
+        public String DeleteCliente(String idcli)
+        {
+            try
+            {
+                cmd1.CommandText = "DELETE FROM Clientes " +
+                "WHERE id = @idcli ";
+
+                cmd1.Parameters.Clear();
+                cmd1.Parameters.AddWithValue("@idcli", idcli);
+
+                cmd1.Connection = conn.conectar();
+
+                int recordsAffected = cmd1.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "Cliente Excluído com sucesso!";
+                    conn.desconectar();
+                }
+                else
+                {
+                    mensagem = "Erro ao Excluir Cliente";
+                    conn.desconectar();
+                }
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+                conn.desconectar();
+            }
+            catch (Exception err)
+            {
                 mensagem = ("Erro ao Excluir Docuumento: " + err.Message);
                 conn.desconectar();
             }

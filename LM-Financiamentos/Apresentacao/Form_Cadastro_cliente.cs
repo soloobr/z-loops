@@ -12,7 +12,7 @@ namespace LMFinanciamentos.Apresentacao
     public partial class Form_Cadastro_cliente : Form
     {
 
-        String sexo, status, idCliente, valor, renda, nascimento, arquivo, CPF;
+        String sexo, status, idCliente, valor, renda, nascimento, arquivo, CPF, RG;
         String excluirimage;
         FileStream fsObj = null;
         BinaryReader binRdr = null;
@@ -193,6 +193,21 @@ namespace LMFinanciamentos.Apresentacao
 
         private void txtrg_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(Keys.Back))
+            {
+                if (e.KeyChar == ',')
+                {
+                    e.Handled = (txtrendacli.Text.Contains(","));
+                }
+                else
+                    e.Handled = true;
+            }
+
+
+        }
+
+        private void txtrg_KeyUp(object sender, KeyEventArgs e)
+        {
             int cont = 0;
             //int cursorPos = SelectionStart;
 
@@ -211,23 +226,18 @@ namespace LMFinanciamentos.Apresentacao
                 }
 
 
-                if ((c == '-') && (cont != 9) && (txtrg.Text.Length >= cont) )
+                if ((c == '-') && (cont != 10) && (txtrg.Text.Length >= cont))
                 {
                     txtrg.Text = txtrg.Text.Remove(cont, 1);
                     txtrg.Select(txtrg.Text.Length, 0);
                 }
-                if ((cont == 9) && (c != '-') && (txtrg.Text.Length >= cont))
+                if ((cont == 10) && (c != '-') && (txtrg.Text.Length >= cont))
                 {
                     txtrg.Text = txtrg.Text.Insert(10, "-");
                     txtrg.Select(txtrg.Text.Length, 0);
                 }
                 cont++;
             }
-        }
-
-        private void txtrg_KeyUp(object sender, KeyEventArgs e)
-        {
-
 
             valor = txtrg.Text;
             if (valor.Length >= 13)
@@ -380,14 +390,35 @@ namespace LMFinanciamentos.Apresentacao
             }
             Cursor = Cursors.Default;
         }
-
+        public event Action ClienteSalvo;
         private void btn_salvar_Click(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
+            if (txtnomecli.Text == "")
+            {
+                MessageBox.Show("Campo Nome do Cliente é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtnomecli.Select();
+                Cursor = Cursors.Default;
+                return;
+            }
+
+            if(txtcpf.Text == "")
+            {
+                MessageBox.Show("Campo CPF é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtcpf.Select();
+                Cursor = Cursors.Default;
+                return;
+            }
+            CPF = FormatCnpjCpf.SemFormatacao(txtcpf.Text);
+
+            status = "Ativo";
+
             if (checkBox_Masculino.Checked)
             {
-                sexo = "Masculino"; 
-            } else if (checkBox_Feminino.Checked)
-            { 
+                sexo = "Masculino";
+            }
+            else if (checkBox_Feminino.Checked)
+            {
                 sexo = "Feminino";
             }
             else
@@ -395,31 +426,26 @@ namespace LMFinanciamentos.Apresentacao
                 sexo = "";
             }
 
-            status = "Ativo";
-
-
-            CPF = FormatCnpjCpf.SemFormatacao(txtcpf.Text);
-       
-
-            
-
-            String RG = FormatCnpjCpf.SemFormatacao(txtrg.Text);
+            if(txtrg.Text == "")
+            {
+                RG = "0";
+            }
+            else
+            {
+                RG = FormatCnpjCpf.SemFormatacao(txtrg.Text);
+            }
 
             DateTime dataa;
             DateTime.TryParse(txtnasc.Text + " " + "00:00:00", out dataa);
 
             DateTime datanasc = dataa;
 
-
             String renda = txtrendacli.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
-
 
             LoginDaoComandos inserircliente = new LoginDaoComandos();
 
             int newidcli = inserircliente.CadastrarCliente(txtnomecli.Text, txtemail.Text, txttelefone.Text, txtcelular.Text, CPF, RG, datanasc, sexo, status, renda);
-
-
-            
+       
             if (newidcli >= 0)
             {
                 if(excluirimage == "Update")
@@ -436,22 +462,27 @@ namespace LMFinanciamentos.Apresentacao
                     if (insertfotocliente.mensagem == "OK")
                     {
                         MessageBox.Show("Cliente Cadastrado com Sucesso!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Cursor = Cursors.Default;
                         Close();
+                        if (ClienteSalvo != null)
+                            ClienteSalvo.Invoke();
                     }
                     else
                     {
+                        Cursor = Cursors.Default;
                         MessageBox.Show(insertfotocliente.mensagem, "Inserindo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 else
                 {
                     MessageBox.Show("Cliente Cadastrado com Sucesso!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Cursor = Cursors.Default;
                     Close();
+                    if (ClienteSalvo != null)
+                        ClienteSalvo.Invoke();
                 }
-               
+                Cursor = Cursors.Default;
             }
-
-            //MessageBox.Show(inserircliente.mensagem,"Salvar",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
     }
 }
