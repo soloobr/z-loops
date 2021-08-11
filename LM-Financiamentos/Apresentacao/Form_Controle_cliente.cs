@@ -48,7 +48,7 @@ namespace LMFinanciamentos.Apresentacao
         private void btn_new_client_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
-            Form_Cadastro_cliente frm_cadastro_clientes = new Form_Cadastro_cliente();
+            Form_Cadastro_Cliente frm_cadastro_clientes = new Form_Cadastro_Cliente();
 
             frm_cadastro_clientes.ClienteSalvo += new Action(frm_cadastro_clientes_ClienteSalvo);
             //frm_cadastro_clientes.setLabel("Em Preenchimento");

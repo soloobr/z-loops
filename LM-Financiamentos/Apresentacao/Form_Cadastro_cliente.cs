@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace LMFinanciamentos.Apresentacao
 {
-    public partial class Form_Cadastro_cliente : Form
+    public partial class Form_Cadastro_Cliente : Form
     {
 
         String sexo, status, idCliente, valor, renda, nascimento, arquivo, CPF, RG;
@@ -20,7 +20,7 @@ namespace LMFinanciamentos.Apresentacao
 
 
 
-        public Form_Cadastro_cliente()
+        public Form_Cadastro_Cliente()
         {
             InitializeComponent();
             

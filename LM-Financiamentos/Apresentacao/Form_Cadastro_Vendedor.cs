@@ -12,7 +12,7 @@ namespace LMFinanciamentos.Apresentacao
     public partial class Form_Cadastro_Vendedor : Form
     {
 
-        String sexo, status, idCliente, valor, renda, nascimento, arquivo, CPF, RG;
+        String sexo, status, idVendedor, valor, renda, nascimento, arquivo, CPF, CNPJ, Agencia, Conta;
         String excluirimage;
         FileStream fsObj = null;
         BinaryReader binRdr = null;
@@ -191,13 +191,13 @@ namespace LMFinanciamentos.Apresentacao
 
         }
 
-        private void txtrg_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtcnpj_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(Keys.Back))
             {
                 if (e.KeyChar == ',')
                 {
-                    e.Handled = (txtrendacli.Text.Contains(","));
+                    e.Handled = (txtcnpj.Text.Contains(","));
                 }
                 else
                     e.Handled = true;
@@ -211,40 +211,45 @@ namespace LMFinanciamentos.Apresentacao
             int cont = 0;
             //int cursorPos = SelectionStart;
 
-            foreach (Char c in txtrg.Text)
+            foreach (Char c in txtcnpj.Text)
             {
-                if (((cont == 2) || (cont == 6)) && (c != '.') && (txtrg.Text.Length >= cont))
+                if (((cont == 2) || (cont == 6)) && (c != '.') && (txtcnpj.Text.Length >= cont))
                 {
-                    txtrg.Text = txtrg.Text.Insert(cont, ".");
+                    txtcnpj.Text = txtcnpj.Text.Insert(cont, ".");
                     //SelectionStart = cursorPos + 1;
-                    txtrg.Select(txtrg.Text.Length, 0);
+                    txtcnpj.Select(txtcnpj.Text.Length, 0);
                 }
-                if ((c == '.') && (txtrg.Text.Length >= cont) && (cont != 2) && (cont != 6))
+                if ((c == '.') && (txtcnpj.Text.Length >= cont) && (cont != 2) && (cont != 6))
                 {
-                    txtrg.Text = txtrg.Text.Remove(cont, 1);
-                    txtrg.Select(txtrg.Text.Length, 0);
+                    txtcnpj.Text = txtcnpj.Text.Remove(cont, 1);
+                    txtcnpj.Select(txtcnpj.Text.Length, 0);
+                }
+                if ((cont == 10) && (c != '/') && (txtcnpj.Text.Length >= cont))
+                {
+                    txtcnpj.Text = txtcnpj.Text.Insert(10, @"/");
+                    txtcnpj.Select(txtcnpj.Text.Length, 0);
                 }
 
 
-                if ((c == '-') && (cont != 10) && (txtrg.Text.Length >= cont))
+                if ((cont == 14) && (c != '-') && (txtcnpj.Text.Length >= cont))
                 {
-                    txtrg.Text = txtrg.Text.Remove(cont, 1);
-                    txtrg.Select(txtrg.Text.Length, 0);
+                    txtcnpj.Text = txtcnpj.Text.Insert(15, "-");
+                    txtcnpj.Select(txtcnpj.Text.Length, 0);
                 }
-                if ((cont == 10) && (c != '-') && (txtrg.Text.Length >= cont))
+                if ((c == '-') && (cont != 16) && (txtcnpj.Text.Length >= cont))
                 {
-                    txtrg.Text = txtrg.Text.Insert(10, "-");
-                    txtrg.Select(txtrg.Text.Length, 0);
+                    txtcnpj.Text = txtcnpj.Text.Remove(cont, 1);
+                    txtcnpj.Select(txtcnpj.Text.Length, 0);
                 }
                 cont++;
             }
 
-            valor = txtrg.Text;
-            if (valor.Length >= 13)
+            valor = txtcnpj.Text;
+            if (valor.Length >= 19)
             {
-                MessageBox.Show("Limete maximo para o RG", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                txtrg.Text = txtrg.Text.Remove(txtrg.Text.Length - 1);
-                txtrg.Select(txtrg.Text.Length, 0);
+                MessageBox.Show("Limete maximo para o CNPJ", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                txtcnpj.Text = txtcnpj.Text.Remove(txtcnpj.Text.Length - 1);
+                txtcnpj.Select(txtcnpj.Text.Length, 0);
             }
         }
 
@@ -396,93 +401,135 @@ namespace LMFinanciamentos.Apresentacao
             Cursor = Cursors.WaitCursor;
             if (txtnomecli.Text == "")
             {
-                MessageBox.Show("Campo Nome do Cliente é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Campo Nome do Vendedor é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtnomecli.Select();
                 Cursor = Cursors.Default;
                 return;
             }
 
-            if(txtcpf.Text == "")
+            if(txtcpf.Text == "" && txtcnpj.Text == "")
             {
-                MessageBox.Show("Campo CPF é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Campo CPF ou CNPJ é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtcpf.Select();
                 Cursor = Cursors.Default;
                 return;
             }
-            CPF = FormatCnpjCpf.SemFormatacao(txtcpf.Text);
+            if (txtcpf.Text == "")
+            {
+                CPF = "0";
+            }
+            else
+            {
+                CPF = FormatCnpjCpf.SemFormatacao(txtcpf.Text);
+            
+            }
 
+            if (txtcnpj.Text == "")
+            {
+                CNPJ = "0";
+            }
+            else
+            {
+                CNPJ = FormatCnpjCpf.SemFormatacao(txtcnpj.Text);
+            }
             status = "Ativo";
 
-            if (checkBox_Masculino.Checked)
-            {
-                sexo = "Masculino";
-            }
-            else if (checkBox_Feminino.Checked)
-            {
-                sexo = "Feminino";
-            }
-            else
-            {
-                sexo = "";
-            }
+            //if (checkBox_Masculino.Checked)
+            //{
+            //    sexo = "Masculino";
+            //}
+            //else if (checkBox_Feminino.Checked)
+            //{
+            //    sexo = "Feminino";
+            //}
+            //else
+            //{
+            //    sexo = "";
+            //}
 
-            if(txtrg.Text == "")
-            {
-                RG = "0";
-            }
-            else
-            {
-                RG = FormatCnpjCpf.SemFormatacao(txtrg.Text);
-            }
 
-            DateTime dataa;
-            DateTime.TryParse(txtnasc.Text + " " + "00:00:00", out dataa);
 
-            DateTime datanasc = dataa;
+            //DateTime dataa;
+            //DateTime.TryParse(txtnasc.Text + " " + "00:00:00", out dataa);
 
-            String renda = txtrendacli.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
+            //DateTime datanasc = dataa;
 
-            LoginDaoComandos inserircliente = new LoginDaoComandos();
+            //String renda = txtrendacli.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
 
-            int newidcli = inserircliente.CadastrarCliente(txtnomecli.Text, txtemail.Text, txttelefone.Text, txtcelular.Text, CPF, RG, datanasc, sexo, status, renda);
+            LoginDaoComandos inserirvendedor = new LoginDaoComandos();
+
+            int newidcli = inserirvendedor.CadastrarVendedor(txtnomecli.Text, txtemail.Text, txttelefone.Text, txtcelular.Text, CPF, CNPJ, status);
        
             if (newidcli >= 0)
             {
                 if(excluirimage == "Update")
                 {
-                    LoginDaoComandos insertfotocliente = new LoginDaoComandos();
+                    LoginDaoComandos insertfotovendedor = new LoginDaoComandos();
                     fsObj = File.OpenRead(arquivo);
                     //MessageBox.Show(fsObj.ToString());
                     byte[] imgContent = new byte[fsObj.Length];
                     binRdr = new BinaryReader(fsObj);
                     imgContent = binRdr.ReadBytes((int)fsObj.Length);
 
-                    insertfotocliente.InsertFotoCliente(newidcli.ToString(), imgContent, txtnomecli.Text);
+                    insertfotovendedor.InsertFotoVendedor(newidcli.ToString(), imgContent, txtnomecli.Text);
 
-                    if (insertfotocliente.mensagem == "OK")
+                    if (insertfotovendedor.mensagem == "OK")
                     {
-                        MessageBox.Show("Cliente Cadastrado com Sucesso!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Cursor = Cursors.Default;
-                        Close();
-                        if (VendedorSalvo != null)
-                            VendedorSalvo.Invoke();
+                        //MessageBox.Show("Vendedor Cadastrado com Sucesso!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //Cursor = Cursors.Default;
+                        //Close();
+                        //if (VendedorSalvo != null)
+                        //    VendedorSalvo.Invoke();
                     }
                     else
                     {
                         Cursor = Cursors.Default;
-                        MessageBox.Show(insertfotocliente.mensagem, "Inserindo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(insertfotovendedor.mensagem, "Inserindo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
-                else
+                if (txtcontavendedor != null && txtagenciavendedor != null)
                 {
-                    MessageBox.Show("Cliente Cadastrado com Sucesso!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Cursor = Cursors.Default;
-                    Close();
-                    if (VendedorSalvo != null)
-                        VendedorSalvo.Invoke();
+                    idVendedor = newidcli.ToString();
+
+                    Conta = txtcontavendedor.Text;
+                    Agencia = txtagenciavendedor.Text;
+
+                    LoginDaoComandos updateconta = new LoginDaoComandos();
+
+                    updateconta.InsertContaVendedor(idVendedor, Agencia, Conta);
+                    if(updateconta.mensagem != "OK")
+                    {
+                        MessageBox.Show("Vendedor Cadastrado! \n Agencia e Conta com erro! \n "+updateconta.mensagem, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Close();
+                    }
+
                 }
+                else if (txtagenciavendedor != null && txtcontavendedor == null)
+                {
+                    MessageBox.Show("é necessario preenchar a conta!", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                else if (txtagenciavendedor == null && txtcontavendedor != null)
+                {
+                    MessageBox.Show("é necessario preenchar a Agância!", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                MessageBox.Show("Vendedor Cadastrado com Sucesso!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Cursor = Cursors.Default;
+
+                if (VendedorSalvo != null)
+                        VendedorSalvo.Invoke();
+
+                Cursor = Cursors.Default;
+                Close();
             }
+            else
+            {
+                Cursor = Cursors.Default;
+                MessageBox.Show("Erro ao Cadastrar o Vendedor!", "Cadastrando", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        
         }
     }
 }

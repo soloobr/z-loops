@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace LMFinanciamentos.Apresentacao
 {
     partial class Form_Controle_Vendedor
@@ -151,11 +153,11 @@ namespace LMFinanciamentos.Apresentacao
             this.dgv_vendedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_vendedores.Size = new System.Drawing.Size(1142, 370);
             this.dgv_vendedores.TabIndex = 12;
-            this.dgv_vendedores.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_clientes_CellDoubleClick);
-            this.dgv_vendedores.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_clientes_CellFormatting);
-            this.dgv_vendedores.CurrentCellChanged += new System.EventHandler(this.dgv_clientes_CurrentCellChanged);
-            this.dgv_vendedores.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgv_clientes_RowsAdded);
-            this.dgv_vendedores.SelectionChanged += new System.EventHandler(this.dgv_clientes_SelectionChanged);
+            this.dgv_vendedores.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_vendedores_CellDoubleClick);
+            this.dgv_vendedores.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_vendedores_CellFormatting);
+            this.dgv_vendedores.CurrentCellChanged += new System.EventHandler(this.dgv_vendedores_CurrentCellChanged);
+            this.dgv_vendedores.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgv_vendedores_RowsAdded);
+            this.dgv_vendedores.SelectionChanged += new System.EventHandler(this.dgv_vendedores_SelectionChanged);
             // 
             // pnlcontrol
             // 
@@ -424,8 +426,8 @@ namespace LMFinanciamentos.Apresentacao
             this.Name = "Form_Controle_Vendedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Cliente";
-            this.Load += new System.EventHandler(this.Form_Cadastro_cliente_Load);
-            this.Shown += new System.EventHandler(this.Form_Controle_cliente_Shown);
+            this.Load += new System.EventHandler(this.Form_Cadastro_Vendedor_Load);
+            this.Shown += new System.EventHandler(this.Form_Controle_Vendedor_Shown);
             this.panelcentralcadcli.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_vendedores)).EndInit();
@@ -438,6 +440,7 @@ namespace LMFinanciamentos.Apresentacao
             this.ResumeLayout(false);
 
         }
+
 
         #endregion
 

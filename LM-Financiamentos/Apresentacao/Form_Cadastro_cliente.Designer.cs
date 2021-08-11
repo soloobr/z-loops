@@ -1,7 +1,7 @@
 ﻿
 namespace LMFinanciamentos.Apresentacao
 {
-    partial class Form_Cadastro_cliente
+    partial class Form_Cadastro_Cliente
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace LMFinanciamentos.Apresentacao
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Cadastro_cliente));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Cadastro_Cliente));
             this.panelcentralcadcli = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tabControl = new System.Windows.Forms.TabControl();

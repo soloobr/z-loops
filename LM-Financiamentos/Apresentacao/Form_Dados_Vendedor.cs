@@ -200,9 +200,36 @@ namespace LMFinanciamentos.Apresentacao
                 }
             }
 
+            if (txtcontavendedor != null && txtagenciavendedor != null)
+            {
+
+                Conta = txtcontavendedor.Text;
+                Agencia = txtagenciavendedor.Text;
+
+                LoginDaoComandos updateconta = new LoginDaoComandos();
+
+                updateconta.UpdateContaVendedor(idVendedor, Agencia, Conta);
+
+                //MessageBox.Show(updateconta.mensagem);
+                if(updateconta.mensagem == "Erro")
+                {
+                    updateconta.InsertContaVendedor(idVendedor, Agencia, Conta);
+                }
+
+            }else if(txtagenciavendedor != null  &&  txtcontavendedor == null)
+            {
+                MessageBox.Show("é necessario preenchar a conta!", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else if (txtagenciavendedor == null && txtcontavendedor != null)
+            {
+                MessageBox.Show("é necessario preenchar a Agância!", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             LoginDaoComandos updatevendedor = new LoginDaoComandos();
             
-            updatevendedor.UpdateVendedor(idVendedor, txtnomevendedor.Text, CPF, CNPJ, Agencia, Conta, txtemail.Text, txttelefone.Text, txtcelular.Text, status);
+            updatevendedor.UpdateVendedor(idVendedor, txtnomevendedor.Text, CPF, CNPJ,  txtemail.Text, txttelefone.Text, txtcelular.Text, status);
 
             Cursor = Cursors.Default;
 
@@ -583,6 +610,8 @@ namespace LMFinanciamentos.Apresentacao
             checkBox_status.Enabled = true;
             checkBox_Masculino.Enabled = true;
             checkBox_Feminino.Enabled = true;
+            txtagenciavendedor.ReadOnly = false;
+            txtcontavendedor.ReadOnly = false;
 
             img_foto.Enabled = true;
             if(img_foto.Image == null)
@@ -608,7 +637,8 @@ namespace LMFinanciamentos.Apresentacao
             txtrendavendedor.ReadOnly = true;
             checkBox_status.Enabled = false;
             checkBox_Masculino.Enabled = false;
-            checkBox_Feminino.Enabled = false;
+            checkBox_Feminino.Enabled = true;
+            txtcontavendedor.ReadOnly = true;
 
             img_foto.Enabled = false;
             btn_add_foto.Enabled = false;

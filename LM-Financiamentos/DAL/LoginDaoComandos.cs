@@ -253,15 +253,15 @@ namespace LMFinanciamentos.DAL
 
             return mensagem;
         }
-        public String UpdateVendedor(String id, String nome, String cpf, String cnpj, String agencia, String conta, String email, String telefone, String celular, String status)
+        public String UpdateVendedor(String id, String nome, String cpf, String cnpj, String email, String telefone, String celular, String status)
         {
 
 
             try
             {
-                cmd.CommandText = "UPDATE Vendedores " +
-                "SET Nome = @nome, Email = @email, Telefone = @telefone, Celular = @celular, CPF = @cpf, CNPJ =@cnpj, Conta =@conta, Agencia = @agencia,  Status = @status " +
-                "WHERE Vendedores.id = @id ";
+                cmd.CommandText = "UPDATE Vendedor " +
+                "SET Nome = @nome, Email = @email, Telefone = @telefone, Celular = @celular, CPF = @cpf, CNPJ =@cnpj,  Status = @status " +
+                "WHERE Vendedor.id = @id ";
 
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@id", id);
@@ -272,9 +272,9 @@ namespace LMFinanciamentos.DAL
                 cmd.Parameters.AddWithValue("@cpf", cpf);
                 //cmd.Parameters.AddWithValue("@rg", rg);
                 cmd.Parameters.AddWithValue("@cnpj", cnpj);
-                cmd.Parameters.AddWithValue("@agencia", agencia);
+                //cmd.Parameters.AddWithValue("@agencia", agencia);
                 cmd.Parameters.AddWithValue("@status", status);
-                cmd.Parameters.AddWithValue("@conta", conta);
+                //cmd.Parameters.AddWithValue("@conta", conta);
 
 
                 cmd.Connection = con.conectar();
@@ -300,6 +300,92 @@ namespace LMFinanciamentos.DAL
             {
                 //throw new Exception("Erro ao Alterar senha: " + err.Message);
                 mensagem = ("Erro ao Atualizar Vendedor: " + err.Message);
+            }
+
+            return mensagem;
+            
+        }
+        public String InsertContaVendedor(String id,String agencia, String conta)
+        {
+
+
+            try
+            {
+                cmd.CommandText = "INSERT INTO Conta (idcliente, Agencia, Conta, Tipo) VALUES (@id,@agencia,@conta,@tipo)";
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@agencia", agencia);
+                cmd.Parameters.AddWithValue("@conta", conta);
+                cmd.Parameters.AddWithValue("@tipo", "V");
+
+                cmd.Connection = con.conectar();
+
+                int recordsAffected = cmd.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "OK";
+                }
+                else
+                {
+                    mensagem = "Erro ao Inserir Conta do Vendedor";
+                }
+
+                con.desconectar();
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+            }
+            catch (Exception err)
+            {
+                //throw new Exception("Erro ao Alterar senha: " + err.Message);
+                mensagem = ("Erro ao Inserir a Conta do Vendedor!: " + err.Message);
+            }
+
+            return mensagem;
+        }
+        public String UpdateContaVendedor(String id, String agencia, String conta)
+        {
+
+
+            try
+            {
+                cmd.CommandText = "UPDATE Conta " +
+                "SET Agencia = @agencia, Conta = @conta " +
+                "WHERE Conta.idcliente = @id AND Tipo = @tipo";
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@agencia", agencia);
+                cmd.Parameters.AddWithValue("@conta", conta);
+                cmd.Parameters.AddWithValue("@tipo", "V");
+
+
+                cmd.Connection = con.conectar();
+
+                int recordsAffected = cmd.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "OK";
+                }
+                else
+                {
+                    mensagem = "Erro";
+                }
+
+                con.desconectar();
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+            }
+            catch (Exception err)
+            {
+                //throw new Exception("Erro ao Alterar senha: " + err.Message);
+                mensagem = ("Erro ao Atualizar a Conta Vendedor!: " + err.Message);
             }
 
             return mensagem;
@@ -567,6 +653,67 @@ namespace LMFinanciamentos.DAL
                 cmd.Parameters.AddWithValue("@sexo", sexo);
                 cmd.Parameters.AddWithValue("@status", status);
                 cmd.Parameters.AddWithValue("@renda", renda);
+
+                cmd.Connection = con.conectar();
+
+                cmd.ExecuteNonQuery();
+
+                if (cmd.LastInsertedId != 0)
+                    cmd.Parameters.Add(new MySqlParameter("ultimoId", cmd.LastInsertedId));
+
+                return Convert.ToInt32(cmd.Parameters["@ultimoId"].Value);
+
+                //if (recordsAffected > 0)
+                //{
+                //    mensagem = "Documento Adicionado Com Sucesso";
+                //}
+                //else
+                //{
+                //    mensagem = "Erro ao Adicionar Documento";
+                //}
+
+
+            }
+            //catch (MySqlException error)
+            //{
+            //    mensagem = ("Erro ao conectar: " + error.Message);
+            //}
+            catch (Exception err)
+            {
+                //throw new Exception("Erro ao Alterar senha: " + err.Message);
+                //mensagem = ("Erro ao Adicionar o Documento: " + err.Message);
+                throw err;
+            }
+            finally
+            {
+                con.desconectar();
+            }
+
+            //return mensagem;
+        }
+        public int CadastrarVendedor(String nome, String email, String telefone, String celular, String cpf, String cnpj, String status)
+        {
+
+
+            try
+            {
+                cmd.CommandText = "INSERT INTO Vendedor (Nome, Email, Telefone, Celular, CPF, CNPJ,   Status ) Values  (@nome, @email, @telefone, @celular, @cpf, @cnpj, @status)";
+
+                cmd.Parameters.AddWithValue("@nome", nome);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@telefone", telefone);
+                cmd.Parameters.AddWithValue("@celular", celular);
+                cmd.Parameters.AddWithValue("@cpf", cpf);
+                //cmd.Parameters.AddWithValue("@statuscpf", statuscpf);
+                //cmd.Parameters.AddWithValue("@stciweb", stciweb);
+                //cmd.Parameters.AddWithValue("@stcadmut", stcadmut);
+                //cmd.Parameters.AddWithValue("@stir", stir);
+                //cmd.Parameters.AddWithValue("@stfgts", stfgts);
+                cmd.Parameters.AddWithValue("@cnpj", cnpj);
+                //cmd.Parameters.AddWithValue("@nascimento", nascimento);
+                //cmd.Parameters.AddWithValue("@sexo", sexo);
+                cmd.Parameters.AddWithValue("@status", status);
+                //cmd.Parameters.AddWithValue("@renda", renda);
 
                 cmd.Connection = con.conectar();
 
@@ -1017,7 +1164,8 @@ namespace LMFinanciamentos.DAL
         {
             var list = new List<Vendedor>();
 
-            cmd2.CommandText = "SELECT Vendedor.id, Nome,  CPF, CNPJ, Telefone, Celular, Email, Cnta.Agencia, Conta.Conta, Vendedor.Status  FROM Vendedor Left join Conta on Conta.idcliente = Vendedor.id and Conta.Tipo = @tipo WHERE Nome LIKE @nomevendedor";
+            cmd2.CommandText = "SELECT Vendedor.id, Nome,  CPF, CNPJ, Telefone, Celular, Email, Conta.Agencia, Conta.Conta, Vendedor.Status  FROM Vendedor " +
+                "Left join Conta on Conta.idcliente = Vendedor.id and Conta.Tipo = @tipo WHERE Nome LIKE @nomevendedor";
             cmd2.Parameters.Clear();
             cmd2.Parameters.AddWithValue("@nomevendedor", "%" + nome + "%");
             cmd2.Parameters.AddWithValue("@tipo", "V");

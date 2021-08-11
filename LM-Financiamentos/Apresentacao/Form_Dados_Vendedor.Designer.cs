@@ -61,6 +61,8 @@ namespace LMFinanciamentos.Apresentacao
             this.txtnomevendedor = new System.Windows.Forms.TextBox();
             this.txtcnpj = new System.Windows.Forms.TextBox();
             this.checkBox_status = new System.Windows.Forms.CheckBox();
+            this.txtcontavendedor = new System.Windows.Forms.TextBox();
+            this.txtagenciavendedor = new System.Windows.Forms.TextBox();
             this.Foto = new System.Windows.Forms.TabPage();
             this.btn_limpar_foto = new System.Windows.Forms.Button();
             this.btn_add_foto = new System.Windows.Forms.Button();
@@ -78,8 +80,8 @@ namespace LMFinanciamentos.Apresentacao
             this.lbl_topo = new System.Windows.Forms.Label();
             this.img_topo = new System.Windows.Forms.PictureBox();
             this.ofd1 = new System.Windows.Forms.OpenFileDialog();
-            this.txtcontavendedor = new System.Windows.Forms.TextBox();
-            this.txtagenciavendedor = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.panelcentralcadcli.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -144,6 +146,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.label5, 4, 6);
             this.tableLayoutPanel1.Controls.Add(this.label4, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtrendavendedor, 3, 3);
             this.tableLayoutPanel1.Controls.Add(this.label3, 2, 0);
@@ -162,8 +165,9 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel1.Controls.Add(this.txtnomevendedor, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtcnpj, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.checkBox_status, 1, 6);
-            this.tableLayoutPanel1.Controls.Add(this.txtcontavendedor, 2, 6);
-            this.tableLayoutPanel1.Controls.Add(this.txtagenciavendedor, 3, 6);
+            this.tableLayoutPanel1.Controls.Add(this.txtcontavendedor, 3, 7);
+            this.tableLayoutPanel1.Controls.Add(this.txtagenciavendedor, 2, 7);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 2, 6);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(20, 20);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -174,8 +178,14 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(931, 196);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(931, 203);
             this.tableLayoutPanel1.TabIndex = 2;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
@@ -213,9 +223,11 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.groupBox2.Controls.Add(this.checkBox_Feminino);
             this.groupBox2.Controls.Add(this.checkBox_Masculino);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(3, 118);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(226, 52);
+            this.tableLayoutPanel1.SetRowSpan(this.groupBox2, 2);
+            this.groupBox2.Size = new System.Drawing.Size(364, 82);
             this.groupBox2.TabIndex = 28;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Sexo:";
@@ -228,7 +240,7 @@ namespace LMFinanciamentos.Apresentacao
             this.checkBox_Feminino.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox_Feminino.Location = new System.Drawing.Point(96, 25);
             this.checkBox_Feminino.Name = "checkBox_Feminino";
-            this.checkBox_Feminino.Size = new System.Drawing.Size(85, 24);
+            this.checkBox_Feminino.Size = new System.Drawing.Size(85, 54);
             this.checkBox_Feminino.TabIndex = 8;
             this.checkBox_Feminino.TabStop = true;
             this.checkBox_Feminino.Text = "Feminino";
@@ -242,7 +254,7 @@ namespace LMFinanciamentos.Apresentacao
             this.checkBox_Masculino.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox_Masculino.Location = new System.Drawing.Point(3, 25);
             this.checkBox_Masculino.Name = "checkBox_Masculino";
-            this.checkBox_Masculino.Size = new System.Drawing.Size(93, 24);
+            this.checkBox_Masculino.Size = new System.Drawing.Size(93, 54);
             this.checkBox_Masculino.TabIndex = 7;
             this.checkBox_Masculino.TabStop = true;
             this.checkBox_Masculino.Text = "Masculino";
@@ -385,11 +397,28 @@ namespace LMFinanciamentos.Apresentacao
             this.checkBox_status.ForeColor = System.Drawing.SystemColors.Highlight;
             this.checkBox_status.Location = new System.Drawing.Point(373, 118);
             this.checkBox_status.Name = "checkBox_status";
-            this.checkBox_status.Size = new System.Drawing.Size(159, 75);
+            this.tableLayoutPanel1.SetRowSpan(this.checkBox_status, 2);
+            this.checkBox_status.Size = new System.Drawing.Size(159, 82);
             this.checkBox_status.TabIndex = 56;
             this.checkBox_status.Text = "Vendedor Ativo";
             this.checkBox_status.UseVisualStyleBackColor = true;
             this.checkBox_status.CheckedChanged += new System.EventHandler(this.checkBox_status_CheckedChanged);
+            // 
+            // txtcontavendedor
+            // 
+            this.txtcontavendedor.Location = new System.Drawing.Point(701, 142);
+            this.txtcontavendedor.Name = "txtcontavendedor";
+            this.txtcontavendedor.ReadOnly = true;
+            this.txtcontavendedor.Size = new System.Drawing.Size(170, 29);
+            this.txtcontavendedor.TabIndex = 57;
+            // 
+            // txtagenciavendedor
+            // 
+            this.txtagenciavendedor.Location = new System.Drawing.Point(538, 142);
+            this.txtagenciavendedor.Name = "txtagenciavendedor";
+            this.txtagenciavendedor.ReadOnly = true;
+            this.txtagenciavendedor.Size = new System.Drawing.Size(157, 29);
+            this.txtagenciavendedor.TabIndex = 58;
             // 
             // Foto
             // 
@@ -632,19 +661,25 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.ofd1.FileName = "openFileDialog1";
             // 
-            // txtcontavendedor
+            // label2
             // 
-            this.txtcontavendedor.Location = new System.Drawing.Point(538, 118);
-            this.txtcontavendedor.Name = "txtcontavendedor";
-            this.txtcontavendedor.Size = new System.Drawing.Size(100, 29);
-            this.txtcontavendedor.TabIndex = 57;
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Location = new System.Drawing.Point(538, 115);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(157, 24);
+            this.label2.TabIndex = 59;
+            this.label2.Text = "Agencia:";
             // 
-            // txtagenciavendedor
+            // label5
             // 
-            this.txtagenciavendedor.Location = new System.Drawing.Point(701, 118);
-            this.txtagenciavendedor.Name = "txtagenciavendedor";
-            this.txtagenciavendedor.Size = new System.Drawing.Size(100, 29);
-            this.txtagenciavendedor.TabIndex = 58;
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Location = new System.Drawing.Point(701, 115);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(227, 24);
+            this.label5.TabIndex = 60;
+            this.label5.Text = "Conta:";
             // 
             // Form_Dados_Vendedor
             // 
@@ -723,5 +758,7 @@ namespace LMFinanciamentos.Apresentacao
         private Splitter splitter3;
         private TextBox txtcontavendedor;
         private TextBox txtagenciavendedor;
+        private Label label5;
+        private Label label2;
     }
 }
