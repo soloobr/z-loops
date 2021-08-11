@@ -153,11 +153,9 @@
     </Compile>
     <Compile Include="Apresentacao\Form_Dados_cliente.cs">
       <SubType>Form</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Apresentacao\Form_Dados_cliente.Designer.cs">
       <DependentUpon>Form_Dados_cliente.cs</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Apresentacao\Form_Controle_cliente.cs">
       <SubType>Form</SubType>
@@ -273,7 +271,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\Form_Dados_cliente.resx">
       <DependentUpon>Form_Dados_cliente.cs</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\Form_Controle_cliente.resx">
       <DependentUpon>Form_Controle_cliente.cs</DependentUpon>
