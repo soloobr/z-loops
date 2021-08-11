@@ -419,12 +419,14 @@ namespace LMFinanciamentos.Apresentacao
 
         }
 
-        private void btncadastrocvendedor_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<Form_Controle_Vendedor>();
+            AbrirFormulario<Form_Cadastro_Funcionarios>();
             btncadastro.BackColor = Color.FromArgb(12, 61, 92);
             btncadastrocvendedor.BackColor = Color.FromArgb(12, 61, 92);
-            btncadastrocfuncionarios.BackColor = Color.FromArgb(12, 61, 92);
+            //..
+            //your codes
+            //..
             hideSubMenu();
         }
 
