@@ -145,29 +145,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Apresentacao\Form_Cadastro_Vendedor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Apresentacao\Form_Cadastro_Vendedor.Designer.cs">
-      <DependentUpon>Form_Cadastro_Vendedor.cs</DependentUpon>
-    </Compile>
     <Compile Include="Apresentacao\Form_Cadastro_cliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Apresentacao\Form_Cadastro_cliente.Designer.cs">
       <DependentUpon>Form_Cadastro_cliente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Apresentacao\Form_Controle_Vendedor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Apresentacao\Form_Controle_Vendedor.Designer.cs">
-      <DependentUpon>Form_Controle_Vendedor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Apresentacao\Form_Dados_Vendedor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Apresentacao\Form_Dados_Vendedor.Designer.cs">
-      <DependentUpon>Form_Dados_Vendedor.cs</DependentUpon>
     </Compile>
     <Compile Include="Apresentacao\Form_Dados_cliente.cs">
       <SubType>Form</SubType>
@@ -286,17 +268,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Apresentacao\Form_Cadastro_Vendedor.resx">
-      <DependentUpon>Form_Cadastro_Vendedor.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\Form_Cadastro_cliente.resx">
       <DependentUpon>Form_Cadastro_cliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Apresentacao\Form_Controle_Vendedor.resx">
-      <DependentUpon>Form_Controle_Vendedor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Apresentacao\Form_Dados_Vendedor.resx">
-      <DependentUpon>Form_Dados_Vendedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\Form_Dados_cliente.resx">
       <DependentUpon>Form_Dados_cliente.cs</DependentUpon>

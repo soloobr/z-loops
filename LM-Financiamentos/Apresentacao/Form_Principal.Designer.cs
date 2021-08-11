@@ -52,8 +52,6 @@ namespace LMFinanciamentos.Apresentacao
             this.btnconf = new System.Windows.Forms.Button();
             this.panelmenuitens = new System.Windows.Forms.Panel();
             this.panelsubmenucadastro = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btncadastrocfuncionarios = new System.Windows.Forms.Button();
             this.panelsubmenucadastrofunc = new System.Windows.Forms.Panel();
             this.btncadastrocvendedor = new System.Windows.Forms.Button();
             this.panelsubmenucadastrocliente = new System.Windows.Forms.Panel();
@@ -66,6 +64,8 @@ namespace LMFinanciamentos.Apresentacao
             this.btnRestaurar = new System.Windows.Forms.PictureBox();
             this.btnMaximizar = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btncadastrocfuncionarios = new System.Windows.Forms.Button();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_foto)).BeginInit();
             this.panelcontrolmenu.SuspendLayout();
@@ -75,7 +75,6 @@ namespace LMFinanciamentos.Apresentacao
             this.panelMenu.SuspendLayout();
             this.panelmenuitens.SuspendLayout();
             this.panelsubmenucadastro.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.panelsubmenucadastrofunc.SuspendLayout();
             this.panelsubmenucadastrocliente.SuspendLayout();
             this.panelBarraTitulo.SuspendLayout();
@@ -83,6 +82,7 @@ namespace LMFinanciamentos.Apresentacao
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelLogo
@@ -263,7 +263,6 @@ namespace LMFinanciamentos.Apresentacao
             this.imgcenter.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.imgcenter.TabIndex = 0;
             this.imgcenter.TabStop = false;
-            this.imgcenter.Visible = false;
             // 
             // panelMenu
             // 
@@ -321,47 +320,15 @@ namespace LMFinanciamentos.Apresentacao
             this.panelsubmenucadastro.TabIndex = 24;
             this.panelsubmenucadastro.Visible = false;
             // 
-            // panel1
-            // 
-            this.panel1.AutoSize = true;
-            this.panel1.Controls.Add(this.btncadastrocfuncionarios);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 58);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
-            this.panel1.Size = new System.Drawing.Size(220, 29);
-            this.panel1.TabIndex = 2;
-            // 
-            // btncadastrocfuncionarios
-            // 
-            this.btncadastrocfuncionarios.AutoSize = true;
-            this.btncadastrocfuncionarios.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btncadastrocfuncionarios.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btncadastrocfuncionarios.FlatAppearance.BorderSize = 0;
-            this.btncadastrocfuncionarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btncadastrocfuncionarios.Font = new System.Drawing.Font("Poppins", 9F);
-            this.btncadastrocfuncionarios.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btncadastrocfuncionarios.Image = ((System.Drawing.Image)(resources.GetObject("btncadastrocfuncionarios.Image")));
-            this.btncadastrocfuncionarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btncadastrocfuncionarios.Location = new System.Drawing.Point(38, 0);
-            this.btncadastrocfuncionarios.Name = "btncadastrocfuncionarios";
-            this.btncadastrocfuncionarios.Size = new System.Drawing.Size(182, 29);
-            this.btncadastrocfuncionarios.TabIndex = 23;
-            this.btncadastrocfuncionarios.Text = "Cadastro de Funcionarios";
-            this.btncadastrocfuncionarios.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btncadastrocfuncionarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btncadastrocfuncionarios.UseVisualStyleBackColor = false;
-            this.btncadastrocfuncionarios.Click += new System.EventHandler(this.btncadastrocfuncionarios_Click);
-            // 
             // panelsubmenucadastrofunc
             // 
             this.panelsubmenucadastrofunc.AutoSize = true;
             this.panelsubmenucadastrofunc.Controls.Add(this.btncadastrocvendedor);
             this.panelsubmenucadastrofunc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelsubmenucadastrofunc.Location = new System.Drawing.Point(0, 29);
+            this.panelsubmenucadastrofunc.Location = new System.Drawing.Point(0, 32);
             this.panelsubmenucadastrofunc.Name = "panelsubmenucadastrofunc";
             this.panelsubmenucadastrofunc.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
-            this.panelsubmenucadastrofunc.Size = new System.Drawing.Size(220, 29);
+            this.panelsubmenucadastrofunc.Size = new System.Drawing.Size(220, 32);
             this.panelsubmenucadastrofunc.TabIndex = 1;
             // 
             // btncadastrocvendedor
@@ -377,13 +344,13 @@ namespace LMFinanciamentos.Apresentacao
             this.btncadastrocvendedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btncadastrocvendedor.Location = new System.Drawing.Point(38, 0);
             this.btncadastrocvendedor.Name = "btncadastrocvendedor";
-            this.btncadastrocvendedor.Size = new System.Drawing.Size(182, 29);
+            this.btncadastrocvendedor.Size = new System.Drawing.Size(182, 32);
             this.btncadastrocvendedor.TabIndex = 23;
             this.btncadastrocvendedor.Text = "Cadastro de Vendedor";
             this.btncadastrocvendedor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btncadastrocvendedor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btncadastrocvendedor.UseVisualStyleBackColor = false;
-            this.btncadastrocvendedor.Click += new System.EventHandler(this.btncadastrocvendedor_Click);
+            this.btncadastrocvendedor.Click += new System.EventHandler(this.btncadastrocfuncionarios_Click);
             // 
             // panelsubmenucadastrocliente
             // 
@@ -393,7 +360,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panelsubmenucadastrocliente.Location = new System.Drawing.Point(0, 0);
             this.panelsubmenucadastrocliente.Name = "panelsubmenucadastrocliente";
             this.panelsubmenucadastrocliente.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
-            this.panelsubmenucadastrocliente.Size = new System.Drawing.Size(220, 29);
+            this.panelsubmenucadastrocliente.Size = new System.Drawing.Size(220, 32);
             this.panelsubmenucadastrocliente.TabIndex = 0;
             // 
             // btncadastrocliente
@@ -409,7 +376,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btncadastrocliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btncadastrocliente.Location = new System.Drawing.Point(38, 0);
             this.btncadastrocliente.Name = "btncadastrocliente";
-            this.btncadastrocliente.Size = new System.Drawing.Size(182, 29);
+            this.btncadastrocliente.Size = new System.Drawing.Size(182, 32);
             this.btncadastrocliente.TabIndex = 23;
             this.btncadastrocliente.Text = "Cad. de Compradores";
             this.btncadastrocliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -481,7 +448,7 @@ namespace LMFinanciamentos.Apresentacao
             this.lbl_title.ForeColor = System.Drawing.SystemColors.MenuBar;
             this.lbl_title.Location = new System.Drawing.Point(2, 2);
             this.lbl_title.Name = "lbl_title";
-            this.lbl_title.Size = new System.Drawing.Size(210, 31);
+            this.lbl_title.Size = new System.Drawing.Size(206, 34);
             this.lbl_title.TabIndex = 0;
             this.lbl_title.Text = "LM Financiamentos";
             this.lbl_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -547,6 +514,38 @@ namespace LMFinanciamentos.Apresentacao
             this.btnCerrar.TabStop = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
+            // panel1
+            // 
+            this.panel1.AutoSize = true;
+            this.panel1.Controls.Add(this.btncadastrocfuncionarios);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 64);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
+            this.panel1.Size = new System.Drawing.Size(220, 32);
+            this.panel1.TabIndex = 2;
+            // 
+            // btncadastrocfuncionarios
+            // 
+            this.btncadastrocfuncionarios.AutoSize = true;
+            this.btncadastrocfuncionarios.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btncadastrocfuncionarios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btncadastrocfuncionarios.FlatAppearance.BorderSize = 0;
+            this.btncadastrocfuncionarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncadastrocfuncionarios.Font = new System.Drawing.Font("Poppins", 9F);
+            this.btncadastrocfuncionarios.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btncadastrocfuncionarios.Image = ((System.Drawing.Image)(resources.GetObject("btncadastrocfuncionarios.Image")));
+            this.btncadastrocfuncionarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btncadastrocfuncionarios.Location = new System.Drawing.Point(38, 0);
+            this.btncadastrocfuncionarios.Name = "btncadastrocfuncionarios";
+            this.btncadastrocfuncionarios.Size = new System.Drawing.Size(182, 32);
+            this.btncadastrocfuncionarios.TabIndex = 23;
+            this.btncadastrocfuncionarios.Text = "Cadastro de Funcionarios";
+            this.btncadastrocfuncionarios.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btncadastrocfuncionarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btncadastrocfuncionarios.UseVisualStyleBackColor = false;
+            this.btncadastrocfuncionarios.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form_Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -573,8 +572,6 @@ namespace LMFinanciamentos.Apresentacao
             this.panelmenuitens.ResumeLayout(false);
             this.panelsubmenucadastro.ResumeLayout(false);
             this.panelsubmenucadastro.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panelsubmenucadastrofunc.ResumeLayout(false);
             this.panelsubmenucadastrofunc.PerformLayout();
             this.panelsubmenucadastrocliente.ResumeLayout(false);
@@ -585,6 +582,8 @@ namespace LMFinanciamentos.Apresentacao
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
