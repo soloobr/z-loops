@@ -39,7 +39,7 @@ namespace LMFinanciamentos.Apresentacao
             LoginDaoComandos getprocessos = new LoginDaoComandos();
 
             dgv_process.AutoGenerateColumns = false;
-            dgv_process.DataSource = getprocessos.GetProcessos("C","%");
+            dgv_process.DataSource = getprocessos.GetProcessos("C","V","%");
             dgv_process.Refresh();
             
 
@@ -65,7 +65,7 @@ namespace LMFinanciamentos.Apresentacao
                 consultar = "%" + txtprocurar.Text + "%";
 
                 LoginDaoComandos getprocessos = new LoginDaoComandos();
-                Processo[] myArray = getprocessos.GetProcessos("C", consultar).ToArray();
+                Processo[] myArray = getprocessos.GetProcessos("C","V", consultar).ToArray();
                 bool verifica = false;
 
                 foreach (Processo c in myArray)
@@ -78,7 +78,7 @@ namespace LMFinanciamentos.Apresentacao
 
                 if (verifica)
                 {
-                    dgv_process.DataSource = getprocessos.GetProcessos("C", consultar);
+                    dgv_process.DataSource = getprocessos.GetProcessos("C","V", consultar);
                     dgv_process.Refresh();
                     verifica = false;
                 }
@@ -133,7 +133,7 @@ namespace LMFinanciamentos.Apresentacao
             //DAL.DS_DocumentosTableAdapters.ProcessosTableAdapter.Fill(DAL.DS_Documentos.ProcessosDataTable.);
             
             LoginDaoComandos getprocessos = new LoginDaoComandos();
-            dgv_process.DataSource = getprocessos.GetProcessos("C", "%");
+            dgv_process.DataSource = getprocessos.GetProcessos("C","V", "%");
             dgv_process.Refresh();
 
         }

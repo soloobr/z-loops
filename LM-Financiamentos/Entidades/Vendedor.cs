@@ -33,7 +33,7 @@ namespace LMFinanciamentos.Entidades
 
         //public string Permision { get; set; }
 
-        //public byte[] Foto_vendedor { get; set; }
+        public byte[] Foto_vendedor { get; set; }
 
         public string GetId()
         {

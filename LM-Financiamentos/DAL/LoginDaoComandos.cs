@@ -33,7 +33,7 @@ namespace LMFinanciamentos.DAL
         Conecxao conn = new Conecxao();
         Conecxao con2 = new Conecxao();
 
-        MySqlDataReader dr, drfunc, drsenha, drclient, drclients, drprocess, drvebdedor, drprocessos, drdocumentos;
+        MySqlDataReader dr, drfunc, drsenha, drclient, drclients, drprocess, drvendedor, drprocessos, drdocumentos, drvendedores;
 
         public bool verificarLogin(String login, String senha)
         {
@@ -64,7 +64,7 @@ namespace LMFinanciamentos.DAL
             cmd.CommandText = "SELECT P.id as idpross, P.idresponsavel as idresponsavel, P.Data as Data, P.Observacao as Observacao , ValorImovel, ValorFinanciado, P.StatusCPF as StatusCPF, P.StatusCiweb as StatusCiweb, P.StatusCadmut as StatusCadmut, P.StatusIR as StatusIR, P.StatusFGTS as StatusFGTS,  " +
                 "P.StatusAnalise as	StatusAnalise, P.StatusEng as StatusEng, P.SaqueFGTS as SaqueFGTS, P.SIOPI as SIOPI, P.SICTD as SICTD, P.StatusPA as StatusPA, P.StatusCartorio as StatusCartorio, " +
                 "Clientes.id as idCliente, Clientes.Nome as clinome, Clientes.Email as EmailCli,  Clientes.Telefone as Telefonecli , Clientes.Celular as celularcli, Clientes.CPF as cpfcli, Clientes.RG as rgcli, Conta.Agencia as agenciacli, Conta.Conta as contacli, Clientes.Nascimento as Nascimento, Clientes.Renda as rendacli, " +
-                "V.id as idVendedor, V.Nome as vendnome, V.Email as Emailvendedor, V.Telefone as Telefonevendedor, V.Celular as celularvendedor, V.CPF as cpfvendedor, V.CNPJ as cnpjvendedor, V.Agencia as agenciavendedor, V.Conta as contavendedor,   " +
+                "V.id as idVendedor, V.Nome as vendnome, V.Email as Emailvendedor, V.Telefone as Telefonevendedor, V.Celular as celularvendedor, V.CPF as cpfvendedor, V.CNPJ as cnpjvendedor, CV.Agencia as agenciavendedor, CV.Conta as contavendedor,   " +
                 "Corretora.Descricao as Corretora, Corretores.Nome as Corretor, P.idCorretora, P.idCorretor, Agencia.id as idAgenciaImovel, Agencia.Agencia as AgenciaImovel, Programa.id as idPrograma, Programa.Descricao as DescriPrograma, Agencia.Agencia as AgenciaImovel, Programa.Descricao as Programa, Empreendimentos.Descricao as EmpDescricao, Empreendimentos.id as Empreid, P.idCartorio as idCartorio, Cartorio.Descricao as sCartorio, Cartorio.Endereco as endCartorio, P.StatusCartorio as StatusCartorio,  " +
                 "F.Nome as nomeresponsavel, F.Permission as permissionresponsavel,  " +
                 "P.DataStatusCPF, P.DataStatusCiweb, P.DataStatusCadmut, P.DataStatusIR, P.DataStatusFGTS, P.DataStatusAnalise, P.DataStatusEng, P.DataSaqueFGTS, P.DataSIOP, P.DataSICTD, P.DataPA, P.DataStatusCartorio, P.DataStatus   " +
@@ -74,6 +74,7 @@ namespace LMFinanciamentos.DAL
                 "inner join Vendedor V on V.id = P.idVendedor " +
                 "inner join Funcionarios F on F.id = P.idresponsavel " +
                 "Left join Conta on Conta.idcliente = Clientes.id and Conta.Tipo =@tipo  " +
+                "Left join Conta CV on CV.idcliente = V.id and CV.Tipo =@tipov  " +
                 "Left join Agencia on P.idAgenciaImovel = Agencia.id " +
                 "Left join Programa on P.idPrograma = Programa.id " +
                 "Left join Empreendimentos on P.idEmpreendimento = Empreendimentos.id " +
@@ -83,6 +84,7 @@ namespace LMFinanciamentos.DAL
                 "WHERE P.id = @idprocesso";
             cmd.Parameters.AddWithValue("@idprocesso", idprocess);
             cmd.Parameters.AddWithValue("@tipo", "C");
+            cmd.Parameters.AddWithValue("@tipov", "V");
             Processo process = new Processo();
             try
             {
@@ -251,7 +253,98 @@ namespace LMFinanciamentos.DAL
 
             return mensagem;
         }
-        public String InsertFotoCliente(String id,  Byte[] foto, String descricao)
+        public String UpdateVendedor(String id, String nome, String cpf, String cnpj, String agencia, String conta, String email, String telefone, String celular, String status)
+        {
+
+
+            try
+            {
+                cmd.CommandText = "UPDATE Vendedores " +
+                "SET Nome = @nome, Email = @email, Telefone = @telefone, Celular = @celular, CPF = @cpf, CNPJ =@cnpj, Conta =@conta, Agencia = @agencia,  Status = @status " +
+                "WHERE Vendedores.id = @id ";
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@nome", nome);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@telefone", telefone);
+                cmd.Parameters.AddWithValue("@celular", celular);
+                cmd.Parameters.AddWithValue("@cpf", cpf);
+                //cmd.Parameters.AddWithValue("@rg", rg);
+                cmd.Parameters.AddWithValue("@cnpj", cnpj);
+                cmd.Parameters.AddWithValue("@agencia", agencia);
+                cmd.Parameters.AddWithValue("@status", status);
+                cmd.Parameters.AddWithValue("@conta", conta);
+
+
+                cmd.Connection = con.conectar();
+
+                int recordsAffected = cmd.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "Vendedor Atualizado com Sucesso!";
+                }
+                else
+                {
+                    mensagem = "Erro ao Atualizar Vendedor";
+                }
+
+
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+            }
+            catch (Exception err)
+            {
+                //throw new Exception("Erro ao Alterar senha: " + err.Message);
+                mensagem = ("Erro ao Atualizar Vendedor: " + err.Message);
+            }
+
+            return mensagem;
+        }
+        public String InsertFotoVendedor(String id,  Byte[] foto, String descricao)
+        {
+
+
+            try
+            {
+                cmd.CommandText = "INSERT INTO Foto(idVendedor, Foto, Descricao) VALUES (@id,@foto,@descricao)";
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@foto", foto);
+                cmd.Parameters.AddWithValue("@descricao", descricao);
+
+                cmd.Connection = con.conectar();
+
+                int recordsAffected = cmd.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "OK";
+                }
+                else
+                {
+                    mensagem = "Erro ao Inserir Foto do Vendedor";
+                }
+
+                con.desconectar();
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+            }
+            catch (Exception err)
+            {
+                //throw new Exception("Erro ao Alterar senha: " + err.Message);
+                mensagem = ("Erro ao Inserir a Foto do Vendedor!: " + err.Message);
+            }
+
+            return mensagem;
+        }
+        public String InsertFotoCliente(String id, Byte[] foto, String descricao)
         {
 
 
@@ -330,6 +423,45 @@ namespace LMFinanciamentos.DAL
 
             return mensagem;
         }
+        public String DeleteFotoVendedor(String id)
+        {
+
+
+            try
+            {
+                cmd.CommandText = "DELETE FROM Foto WHERE idVendedor = @id; ";
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", id);
+
+
+                cmd.Connection = con.conectar();
+
+                int recordsAffected = cmd.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "Excluido";
+                }
+                else
+                {
+                    mensagem = "Erro ao Excluir Foto do Vendedor";
+                }
+
+                con.desconectar();
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+            }
+            catch (Exception err)
+            {
+                //throw new Exception("Erro ao Alterar senha: " + err.Message);
+                mensagem = ("Erro ao Excluir a Foto do Vendedor!: " + err.Message);
+            }
+
+            return mensagem;
+        }
         public String UpdateFotoCliente(String id,  Byte[] foto)
         {
 
@@ -367,6 +499,47 @@ namespace LMFinanciamentos.DAL
             {
                 //throw new Exception("Erro ao Alterar senha: " + err.Message);
                 mensagem = ("Erro ao Atualizar a Foto Cliente!: " + err.Message);
+            }
+
+            return mensagem;
+        }
+        public String UpdateFotoVendedor(String id, Byte[] foto)
+        {
+
+
+            try
+            {
+                cmd.CommandText = "UPDATE Foto " +
+                "SET Foto = @foto " +
+                "WHERE Foto.idVendedor = @id ";
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@foto", foto);
+
+                cmd.Connection = con.conectar();
+
+                int recordsAffected = cmd.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "OK";
+                }
+                else
+                {
+                    mensagem = "Erro ao Atualizar Foto do Vendedor";
+                }
+
+                con.desconectar();
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+            }
+            catch (Exception err)
+            {
+                //throw new Exception("Erro ao Alterar senha: " + err.Message);
+                mensagem = ("Erro ao Atualizar a Foto Vendedor!: " + err.Message);
             }
 
             return mensagem;
@@ -507,6 +680,43 @@ namespace LMFinanciamentos.DAL
 
             return cli;
         }
+        public Vendedor GetFotoVendedor(String id)
+        {
+            cmd.CommandText = "Select Vendedores.id, F.Descricao, F.Foto From Vendedores left join Foto F on Vendedores.id = F.IdVendedor  where Vendedores.id = @id";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@id", id);
+
+            Vendedor vend = new Vendedor();
+            try
+            {
+                cmd.Connection = con.conectar();
+                drfunc = cmd.ExecuteReader();
+                while (drfunc.Read())
+                {
+                    vend.Id_vendedor = drfunc["id"].ToString();
+                    //cli.descr = drfunc["Descricao"].ToString();
+                    if (System.DBNull.Value == drfunc["Foto"])
+                    {
+
+                    }
+                    else
+                    {
+                        Byte[] byteBLOBData = new Byte[0];
+                        vend.Foto_vendedor = (Byte[])(drfunc["Foto"]);
+                    }
+
+
+                }
+                drfunc.Close();
+                con.desconectar();
+            }
+            catch (SqlException err)
+            {
+                throw new Exception("Erro ao obter Foto do Vendedor: " + err.Message);
+            }
+
+            return vend;
+        }
         public Cliente GetCliente(String id)
         {
            //var list = new List<Cliente>();
@@ -631,13 +841,13 @@ namespace LMFinanciamentos.DAL
             return mensagem;
         }
 
-        public List<Processo> GetProcessos(String tipo, String nome)
+        public List<Processo> GetProcessos(String tipo, String tipov, String nome)
         {
             var listprocessos = new List<Processo>();
 
             cmd.CommandText = "SELECT P.id as idpross, P.idresponsavel as idresponsavel, P.Data as Data, P.Observacao as Observacao , P.StatusCPF as StatusCPF, P.StatusCiweb as StatusCiweb, P.StatusCadmut as StatusCadmut, P.StatusIR as StatusIR, P.StatusFGTS as StatusFGTS, P.Status as Status, Corretora.Descricao as Corretora, Corretores.Nome as Corretor, " +
                 "C.id as idCliente, C.Nome as clinome, C.Email as EmailCli,  C.Telefone as Telefonecli , C.Celular as celularcli, C.CPF as cpfcli, C.RG as rgcli, Conta.Agencia as agenciacli, Conta.Conta as contacli, C.Nascimento as Nascimento, C.Renda as rendacli, " +
-                "V.id as idVendedor, V.Nome as vendnome, V.Email as Emailvendedor, V.Telefone as Telefonevendedor, V.Celular as celularvendedor, V.CPF as cpfvendedor, V.CNPJ as cnpjvendedor, V.Agencia as agenciavendedor, V.Conta as contavendedor,   " +
+                "V.id as idVendedor, V.Nome as vendnome, V.Email as Emailvendedor, V.Telefone as Telefonevendedor, V.Celular as celularvendedor, V.CPF as cpfvendedor, V.CNPJ as cnpjvendedor, CV.Agencia as agenciavendedor, CV.Conta as contavendedor,   " +
                 "Corretora.id as idcorretora, Corretores.id as idCorretor,  " +
                 "F.Nome as nomeresponsavel, F.Permission as permissionresponsavel,  " +
                 "P.DataStatusCPF, P.DataStatusCiweb, P.DataStatusCadmut, P.DataStatusIR, P.DataStatusFGTS, P.DataStatusAnalise, P.DataStatusEng, P.DataStatusCartorio, P.DataStatus " +
@@ -647,6 +857,7 @@ namespace LMFinanciamentos.DAL
                 "inner join Vendedor V on V.id = P.idVendedor " +
                 "inner join Funcionarios F on F.id = P.idresponsavel " +
                 "Left join Conta on C.id = Conta.idcliente and Conta.Tipo =@tipo " +
+                "Left join Conta CV on V.id = Conta.idcliente and Conta.Tipo =@tipov " +
                 "Left join Corretora on P.idCorretora = Corretora.id " +
                 "Left join Corretores on P.idCorretor = Corretores.id " +
                 //"Left join P_Status H on P.id = H.idprocesso " +
@@ -655,6 +866,7 @@ namespace LMFinanciamentos.DAL
                 ;
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@tipo", tipo);
+            cmd.Parameters.AddWithValue("@tipov", tipov);
             cmd.Parameters.AddWithValue("@consulta", "%" + nome + "%");
 
             try
@@ -719,8 +931,8 @@ namespace LMFinanciamentos.DAL
                         //processos.CNPJ_vendedor = drprocessos["cnpjvendedor"].ToString();
                         //processos.Nascimento_vendedor = drprocessos["Nascimento"].ToString();
                         //processos.Renda_vendedor = drprocessos["rendavendedor"].ToString();
-                        //processos.Agencia_vendedor = drprocessos["agenciavendedor"].ToString();
-                        //processos.Conta_vendedor = drprocessos["contavendedor"].ToString();
+                        processos.Agencia_vendedor = drprocessos["agenciavendedor"].ToString();
+                        processos.Conta_vendedor = drprocessos["contavendedor"].ToString();
                         #endregion
 
                         #region imovel
@@ -800,57 +1012,110 @@ namespace LMFinanciamentos.DAL
             //return client;
             return list;
         }
-        public List<Vendedor> GetVendedor(String nome)
+        public List<Vendedor> GetVendedores(String nome)
 
         {
             var list = new List<Vendedor>();
 
-            cmd2.CommandText = "SELECT Vendedor.id as id, Nome, Email, Telefone, Celular, CPF, CNPJ, Conta.Agencia, Conta.Conta FROM Vendedor Left join Conta on Vendedor.id = Conta.idcliente and Conta.Tipo = @tipo WHERE Nome LIKE @nomeclientes ";
+            cmd2.CommandText = "SELECT Vendedor.id, Nome,  CPF, CNPJ, Telefone, Celular, Email, Cnta.Agencia, Conta.Conta, Vendedor.Status  FROM Vendedor Left join Conta on Conta.idcliente = Vendedor.id and Conta.Tipo = @tipo WHERE Nome LIKE @nomevendedor";
             cmd2.Parameters.Clear();
-            cmd2.Parameters.AddWithValue("@nomeclientes", "%" + nome + "%");
+            cmd2.Parameters.AddWithValue("@nomevendedor", "%" + nome + "%");
             cmd2.Parameters.AddWithValue("@tipo", "V");
             //Cliente clients = new Cliente();
             try
             {
                 cmd2.Connection = con2.conectar();
-                drvebdedor = cmd2.ExecuteReader();
-                while (drvebdedor.Read())
+                drvendedores = cmd2.ExecuteReader();
+                while (drvendedores.Read())
                 {
-                    Vendedor vendedor = new Vendedor();
-                    vendedor.Id_vendedor = drvebdedor["id"].ToString();
-                    vendedor.Nome_vendedor = drvebdedor["Nome"].ToString();
-                    vendedor.Email_vendedor = drvebdedor["Email"].ToString();
-                    vendedor.Telefone_vendedor = drvebdedor["Telefone"].ToString();
-                    vendedor.Celular_vendedor = drvebdedor["Celular"].ToString();
-                    vendedor.CPF_vendedor = drvebdedor["CPF"].ToString();
-                    vendedor.CNPJ_vendedor = drvebdedor["CNPJ"].ToString();
-                    //vendedor.StatusCPF_vendedor = drvebdedor["StatusCPF"].ToString();
-                    //vendedor.StatusCiweb_vendedor = drvebdedor["Ciweb"].ToString();
-                    //vendedor.StatusCadmut_vendedor = drvebdedor["Cadmut"].ToString();
-                    //vendedor.StatusIR_vendedor = drvebdedor["IR"].ToString();
-                    //vendedor.StatusFGTS_vendedor = drvebdedor["FGTS"].ToString();
-                    //vendedor.RG_vendedor = drvebdedor["RG"].ToString();
-                    //vendedor.Nascimento_vendedor = drvebdedor["Nascimento"].ToString();
-                    //vendedor.Sexo_vendedor = drvebdedor["Sexo"].ToString();
-                    //vendedor.Status_vendedor = drvebdedor["Status"].ToString();
-                    //vendedor.Renda_vendedor = drvebdedor["Renda"].ToString();
-                    vendedor.Agencia_vendedor = drvebdedor["Agencia"].ToString();
-                    vendedor.Conta_vendedor = drvebdedor["Conta"].ToString();
+                    Vendedor vendedores = new Vendedor();
+                    vendedores.Id_vendedor = drvendedores["id"].ToString();
+                    vendedores.Nome_vendedor = drvendedores["Nome"].ToString();
+                    vendedores.Email_vendedor = drvendedores["Email"].ToString();
+                    vendedores.Telefone_vendedor = drvendedores["Telefone"].ToString();
+                    vendedores.Celular_vendedor = drvendedores["Celular"].ToString();
+                    vendedores.CPF_vendedor = Convert.ToUInt64(drvendedores["CPF"].ToString()).ToString(@"000\.000\.000\-00");
+                    //vendedores.CPF_cliente = drvendedores["CPF"].ToString().ToString();
+                    //vendedores.StatusCPF_vendedor = drvendedores["StatusCPF"].ToString();
+
+                    //vendedores.StatusCiweb_vendedor = drvendedores["Ciweb"].ToString();
+                    //vendedores.StatusCadmut_vendedor = drvendedores["Cadmut"].ToString();
+                    //vendedores.StatusIR_vendedor = drvendedores["IR"].ToString();
+                    //vendedores.StatusFGTS_vendedor = drvendedores["FGTS"].ToString();
+                    //vendedores.RG_vendedor = drvendedores["RG"].ToString();
+                    //vendedores.Nascimento_vendedor = Convert.ToDateTime(drvendedores["Nascimento"]).ToString("dd/MM/yyyy");
+                    //vendedores.Sexo_vendedor = drvendedores["Sexo"].ToString();
+                    vendedores.Status_vendedor = drvendedores["Status"].ToString();
+                    //vendedores.Renda_vendedor = drvendedores["Renda"].ToString();
+                    vendedores.Agencia_vendedor = drvendedores["Agencia"].ToString();
+                    vendedores.Conta_vendedor = drvendedores["Conta"].ToString();
                     //Byte[] byteBLOBData = new Byte[0];
-                    //vendedor.Foto_Func = (Byte[])(drvebdedor["Foto"]);
-                    list.Add(vendedor);
+                    //client.Foto_Func = (Byte[])(drclient["Foto"]);
+                    list.Add(vendedores);
                 }
-                drvebdedor.Close();
+                drvendedores.Close();
                 con2.desconectar();
 
             }
             catch (SqlException err)
             {
-                throw new Exception("Erro ao obter Cliente: " + err.Message);
+                throw new Exception("Erro ao obter Vendedor: " + err.Message);
             }
 
             //return client;
             return list;
+        }
+        public Vendedor GetVendedor(String id)
+
+        {
+           // var list = new List<Vendedor>();
+
+            cmd2.CommandText = "SELECT id, Nome, Email, Telefone, Celular, CPF, CNPJ FROM Vendedor WHERE id = @id ";
+            cmd2.Parameters.Clear();
+            cmd2.Parameters.AddWithValue("@id", id);
+            //cmd2.Parameters.AddWithValue("@tipo", "V");
+            Vendedor vendedor = new Vendedor();
+            try
+            {
+                cmd2.Connection = con2.conectar();
+                drvendedor = cmd2.ExecuteReader();
+                while (drvendedor.Read())
+                {
+                    //Vendedor vendedor = new Vendedor();
+                    vendedor.Id_vendedor = drvendedor["id"].ToString();
+                    vendedor.Nome_vendedor = drvendedor["Nome"].ToString();
+                    vendedor.Email_vendedor = drvendedor["Email"].ToString();
+                    vendedor.Telefone_vendedor = drvendedor["Telefone"].ToString();
+                    vendedor.Celular_vendedor = drvendedor["Celular"].ToString();
+                    vendedor.CPF_vendedor = drvendedor["CPF"].ToString();
+                    vendedor.CNPJ_vendedor = drvendedor["CNPJ"].ToString();
+                    //vendedor.StatusCPF_vendedor = drvendedor["StatusCPF"].ToString();
+                    //vendedor.StatusCiweb_vendedor = drvendedor["Ciweb"].ToString();
+                    //vendedor.StatusCadmut_vendedor = drvendedor["Cadmut"].ToString();
+                    //vendedor.StatusIR_vendedor = drvendedor["IR"].ToString();
+                    //vendedor.StatusFGTS_vendedor = drvendedor["FGTS"].ToString();
+                    //vendedor.RG_vendedor = drvendedor["RG"].ToString();
+                    //vendedor.Nascimento_vendedor = drvendedor["Nascimento"].ToString();
+                    //vendedor.Sexo_vendedor = drvendedor["Sexo"].ToString();
+                    //vendedor.Status_vendedor = drvendedor["Status"].ToString();
+                    //vendedor.Renda_vendedor = drvendedor["Renda"].ToString();
+                    //vendedor.Agencia_vendedor = drvendedor["Agencia"].ToString();
+                    //vendedor.Conta_vendedor = drvendedor["Conta"].ToString();
+                    //Byte[] byteBLOBData = new Byte[0];
+                    //vendedor.Foto_Func = (Byte[])(drvendedor["Foto"]);
+                    //list.Add(vendedor);
+                }
+                drvendedor.Close();
+                con2.desconectar();
+
+            }
+            catch (SqlException err)
+            {
+                throw new Exception("Erro ao obter Vendedor: " + err.Message);
+            }
+
+            return vendedor;
+            //return list;
         }
 
         public List<Documento> GetDocumentos(String iddoc)
@@ -1097,7 +1362,45 @@ namespace LMFinanciamentos.DAL
             }
             catch (Exception err)
             {
-                mensagem = ("Erro ao Excluir Docuumento: " + err.Message);
+                mensagem = ("Erro ao Excluir Cliente: " + err.Message);
+                conn.desconectar();
+            }
+
+            return mensagem;
+        }
+        public String DeleteVendedor(String idvend)
+        {
+            try
+            {
+                cmd1.CommandText = "DELETE FROM Vendedor " +
+                "WHERE id = @idvendedor ";
+
+                cmd1.Parameters.Clear();
+                cmd1.Parameters.AddWithValue("@idvendedor", idvend);
+
+                cmd1.Connection = conn.conectar();
+
+                int recordsAffected = cmd1.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "Vendedor Excluído com sucesso!";
+                    conn.desconectar();
+                }
+                else
+                {
+                    mensagem = "Erro ao Excluir Vendedor";
+                    conn.desconectar();
+                }
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+                conn.desconectar();
+            }
+            catch (Exception err)
+            {
+                mensagem = ("Erro ao Excluir Vendedor: " + err.Message);
                 conn.desconectar();
             }
 

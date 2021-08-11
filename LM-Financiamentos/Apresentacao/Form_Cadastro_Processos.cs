@@ -338,7 +338,7 @@ namespace LMFinanciamentos.Apresentacao
                 if (cont == 1)
                 {
                     bPopCombo = false;
-                    Vendedor[] myArray = gett.GetVendedor(textnomevendedor.Text).ToArray();
+                    Vendedor[] myArray = gett.GetVendedores(textnomevendedor.Text).ToArray();
                     foreach (Vendedor v in myArray)
                     {
 
@@ -571,7 +571,7 @@ namespace LMFinanciamentos.Apresentacao
             String selecionado = this.textnomevendedor.GetItemText(this.textnomevendedor.SelectedItem);
 
             LoginDaoComandos gett = new LoginDaoComandos();
-            Vendedor[] myArray = gett.GetVendedor(selecionado).ToArray();
+            Vendedor[] myArray = gett.GetVendedores(selecionado).ToArray();
             foreach (Vendedor v in myArray)
             {
                 idVendedor = v.Id_vendedor;
