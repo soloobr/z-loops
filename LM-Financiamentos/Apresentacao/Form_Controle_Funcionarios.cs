@@ -3,10 +3,10 @@ using System.Windows.Forms;
 
 namespace LMFinanciamentos.Apresentacao
 {
-    public partial class Form_Cadastro_Funcionarios : Form
+    public partial class Form_Controle_Funcionarios : Form
     {
         public string consultar;
-        public Form_Cadastro_Funcionarios()
+        public Form_Controle_Funcionarios()
         {
             InitializeComponent();
         }

@@ -35,13 +35,20 @@ namespace LMFinanciamentos.Apresentacao
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Controle_Vendedor));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Controle_Vendedor));
             this.panelcentralcadcli = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgv_vendedores = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Celular = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Agencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Conta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlcontrol = new System.Windows.Forms.Panel();
             this.lblprocurar = new System.Windows.Forms.Label();
             this.btnprocurar = new System.Windows.Forms.Button();
@@ -52,17 +59,10 @@ namespace LMFinanciamentos.Apresentacao
             this.btn_editar = new System.Windows.Forms.Button();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.btn_new_vendedor = new System.Windows.Forms.Button();
-            this.btnclosecli = new System.Windows.Forms.Button();
+            this.btnclosvend = new System.Windows.Forms.Button();
             this.paneltop = new System.Windows.Forms.Panel();
             this.lbl_topo = new System.Windows.Forms.Label();
             this.img_topo = new System.Windows.Forms.PictureBox();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Celular = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Agencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Conta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelcentralcadcli.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_vendedores)).BeginInit();
@@ -159,6 +159,72 @@ namespace LMFinanciamentos.Apresentacao
             this.dgv_vendedores.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgv_vendedores_RowsAdded);
             this.dgv_vendedores.SelectionChanged += new System.EventHandler(this.dgv_vendedores_SelectionChanged);
             // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.id.DataPropertyName = "Id_vendedor";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.NullValue = "0000";
+            this.id.DefaultCellStyle = dataGridViewCellStyle9;
+            this.id.HeaderText = "Nº";
+            this.id.Name = "id";
+            this.id.Width = 80;
+            // 
+            // Nome
+            // 
+            this.Nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Nome.DataPropertyName = "Nome_vendedor";
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
+            this.Nome.Width = 250;
+            // 
+            // Celular
+            // 
+            this.Celular.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Celular.DataPropertyName = "Celular_vendedor";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.NullValue = "0";
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Celular.DefaultCellStyle = dataGridViewCellStyle10;
+            this.Celular.FillWeight = 100.8F;
+            this.Celular.HeaderText = "Celular";
+            this.Celular.Name = "Celular";
+            // 
+            // CPF
+            // 
+            this.CPF.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CPF.DataPropertyName = "CPF_vendedor";
+            dataGridViewCellStyle11.Format = "@\"000\\.000\\.000\\-00\"";
+            dataGridViewCellStyle11.NullValue = "0";
+            this.CPF.DefaultCellStyle = dataGridViewCellStyle11;
+            this.CPF.FillWeight = 100.8F;
+            this.CPF.HeaderText = "CPF/CNPJ";
+            this.CPF.MinimumWidth = 145;
+            this.CPF.Name = "CPF";
+            this.CPF.Width = 200;
+            // 
+            // Agencia
+            // 
+            this.Agencia.DataPropertyName = "Agencia_vendedor";
+            this.Agencia.HeaderText = "Agência";
+            this.Agencia.Name = "Agencia";
+            // 
+            // Conta
+            // 
+            this.Conta.DataPropertyName = "Conta_vendedor";
+            this.Conta.HeaderText = "Conta";
+            this.Conta.Name = "Conta";
+            // 
+            // Email
+            // 
+            this.Email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Email.DataPropertyName = "Email_vendedor";
+            this.Email.FillWeight = 96F;
+            this.Email.HeaderText = "Email";
+            this.Email.MinimumWidth = 35;
+            this.Email.Name = "Email";
+            this.Email.Width = 88;
+            // 
             // pnlcontrol
             // 
             this.pnlcontrol.Controls.Add(this.lblprocurar);
@@ -176,7 +242,7 @@ namespace LMFinanciamentos.Apresentacao
             this.lblprocurar.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblprocurar.Location = new System.Drawing.Point(22, 20);
             this.lblprocurar.Name = "lblprocurar";
-            this.lblprocurar.Size = new System.Drawing.Size(87, 19);
+            this.lblprocurar.Size = new System.Drawing.Size(86, 22);
             this.lblprocurar.TabIndex = 2;
             this.lblprocurar.Text = "Procurar por:";
             // 
@@ -202,7 +268,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtprocurar.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtprocurar.Location = new System.Drawing.Point(26, 45);
             this.txtprocurar.Name = "txtprocurar";
-            this.txtprocurar.Size = new System.Drawing.Size(218, 29);
+            this.txtprocurar.Size = new System.Drawing.Size(218, 27);
             this.txtprocurar.TabIndex = 0;
             this.txtprocurar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtprocurar_KeyPress);
             // 
@@ -214,7 +280,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panel1.Controls.Add(this.btn_editar);
             this.panel1.Controls.Add(this.splitter1);
             this.panel1.Controls.Add(this.btn_new_vendedor);
-            this.panel1.Controls.Add(this.btnclosecli);
+            this.panel1.Controls.Add(this.btnclosvend);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 565);
             this.panel1.Name = "panel1";
@@ -294,23 +360,23 @@ namespace LMFinanciamentos.Apresentacao
             this.btn_new_vendedor.UseVisualStyleBackColor = false;
             this.btn_new_vendedor.Click += new System.EventHandler(this.btn_new_client_Click);
             // 
-            // btnclosecli
+            // btnclosvend
             // 
-            this.btnclosecli.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.btnclosecli.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnclosecli.FlatAppearance.BorderSize = 0;
-            this.btnclosecli.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnclosecli.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnclosecli.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnclosecli.Location = new System.Drawing.Point(1028, 10);
-            this.btnclosecli.Name = "btnclosecli";
-            this.btnclosecli.Padding = new System.Windows.Forms.Padding(4);
-            this.btnclosecli.Size = new System.Drawing.Size(104, 32);
-            this.btnclosecli.TabIndex = 20;
-            this.btnclosecli.Text = "Fechar";
-            this.btnclosecli.UseCompatibleTextRendering = true;
-            this.btnclosecli.UseVisualStyleBackColor = false;
-            this.btnclosecli.Click += new System.EventHandler(this.btnclosecli_Click);
+            this.btnclosvend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.btnclosvend.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnclosvend.FlatAppearance.BorderSize = 0;
+            this.btnclosvend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnclosvend.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnclosvend.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnclosvend.Location = new System.Drawing.Point(1028, 10);
+            this.btnclosvend.Name = "btnclosvend";
+            this.btnclosvend.Padding = new System.Windows.Forms.Padding(4);
+            this.btnclosvend.Size = new System.Drawing.Size(104, 32);
+            this.btnclosvend.TabIndex = 20;
+            this.btnclosvend.Text = "Fechar";
+            this.btnclosvend.UseCompatibleTextRendering = true;
+            this.btnclosvend.UseVisualStyleBackColor = false;
+            this.btnclosvend.Click += new System.EventHandler(this.btnclosvend_Click);
             // 
             // paneltop
             // 
@@ -350,72 +416,6 @@ namespace LMFinanciamentos.Apresentacao
             this.img_topo.TabIndex = 5;
             this.img_topo.TabStop = false;
             // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.id.DataPropertyName = "Id_vendedor";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.NullValue = "0000";
-            this.id.DefaultCellStyle = dataGridViewCellStyle9;
-            this.id.HeaderText = "Nº";
-            this.id.Name = "id";
-            this.id.Width = 80;
-            // 
-            // Nome
-            // 
-            this.Nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Nome.DataPropertyName = "Nome_vendedor";
-            this.Nome.HeaderText = "Nome";
-            this.Nome.Name = "Nome";
-            this.Nome.Width = 250;
-            // 
-            // Celular
-            // 
-            this.Celular.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Celular.DataPropertyName = "Celular_vendedor";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.NullValue = "0";
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Celular.DefaultCellStyle = dataGridViewCellStyle10;
-            this.Celular.FillWeight = 100.8F;
-            this.Celular.HeaderText = "Celular";
-            this.Celular.Name = "Celular";
-            // 
-            // CPF
-            // 
-            this.CPF.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CPF.DataPropertyName = "CPF_vendedor";
-            dataGridViewCellStyle11.Format = "@\"000\\.000\\.000\\-00\"";
-            dataGridViewCellStyle11.NullValue = "0";
-            this.CPF.DefaultCellStyle = dataGridViewCellStyle11;
-            this.CPF.FillWeight = 100.8F;
-            this.CPF.HeaderText = "CPF/CNPJ";
-            this.CPF.MinimumWidth = 145;
-            this.CPF.Name = "CPF";
-            this.CPF.Width = 200;
-            // 
-            // Agencia
-            // 
-            this.Agencia.DataPropertyName = "Agencia_vendedor";
-            this.Agencia.HeaderText = "Agência";
-            this.Agencia.Name = "Agencia";
-            // 
-            // Conta
-            // 
-            this.Conta.DataPropertyName = "Conta_vendedor";
-            this.Conta.HeaderText = "Conta";
-            this.Conta.Name = "Conta";
-            // 
-            // Email
-            // 
-            this.Email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Email.DataPropertyName = "Email_vendedor";
-            this.Email.FillWeight = 96F;
-            this.Email.HeaderText = "Email";
-            this.Email.MinimumWidth = 35;
-            this.Email.Name = "Email";
-            this.Email.Width = 88;
-            // 
             // Form_Controle_Vendedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -450,7 +450,7 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.PictureBox img_topo;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btn_new_vendedor;
-        private System.Windows.Forms.Button btnclosecli;
+        private System.Windows.Forms.Button btnclosvend;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel pnlcontrol;
         private System.Windows.Forms.Label lblprocurar;

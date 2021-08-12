@@ -6,12 +6,13 @@ using System.Windows.Forms;
 
 namespace LMFinanciamentos.Apresentacao
 {
-    public partial class Form_Controle_cliente : Form
+    public partial class Form_Controle_Cliente : Form
     {
         String sexo, status, idcliente;
         public string consultar;
         int clienteselecionado;
-        public Form_Controle_cliente()
+
+        public Form_Controle_Cliente()
         {
             InitializeComponent();
             dgv_clientes.Columns["Nascimento"].DefaultCellStyle.Format = "D";
@@ -66,7 +67,7 @@ namespace LMFinanciamentos.Apresentacao
             }
         }
 
-        private void Form_Controle_cliente_Shown(object sender, EventArgs e)
+        private void Form_Controle_Cliente_Shown(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.Default;
         }
@@ -201,6 +202,7 @@ namespace LMFinanciamentos.Apresentacao
         {
 
         }
+
 
         void frm_cadastro_clientes_ClienteSalvo()
         {

@@ -95,6 +95,9 @@ namespace LMFinanciamentos.Apresentacao
         private void btn_salvar_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
+
+         
+
             if (txtnomevendedor.Text == "")
             {
                 MessageBox.Show("Campo Nome do Vendedor é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -103,6 +106,32 @@ namespace LMFinanciamentos.Apresentacao
                 return;
             }
 
+            if (txtcpf.Text == "" && txtcnpj.Text == "")
+            {
+                MessageBox.Show("Campo CPF ou CNPJ é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtcpf.Select();
+                Cursor = Cursors.Default;
+                return;
+            }
+            if (txtcpf.Text == "")
+            {
+                CPF = "0";
+            }
+            else
+            {
+                CPF = FormatCnpjCpf.SemFormatacao(txtcpf.Text);
+
+            }
+
+            if (txtcnpj.Text == "")
+            {
+                CNPJ = "0";
+            }
+            else
+            {
+                CNPJ = FormatCnpjCpf.SemFormatacao(txtcnpj.Text);
+            }
+            //String RG = FormatCnpjCpf.SemFormatacao(txtrg.Text);
             if (checkBox_Masculino.Checked)
             {
                 sexo = "Masculino";
@@ -118,35 +147,16 @@ namespace LMFinanciamentos.Apresentacao
             if (checkBox_status.Checked)
             {
                 status = "Ativo";
-            }else
+            }
+            else
             {
                 status = "Inativo";
             }
 
-            if (txtcpf.Text == "")
-            {
-                MessageBox.Show("Campo CPF é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtcpf.Select();
-                Cursor = Cursors.Default;
-                return;
-            }
-            CPF = FormatCnpjCpf.SemFormatacao(txtcpf.Text);
+            //DateTime dataa;
+            //DateTime.TryParse(txtnasc.Text + " " + "00:00:00", out dataa);
 
-
-            if (txtcnpj.Text == "")
-            {
-                CNPJ = "0";
-            }
-            else
-            {
-                CNPJ = FormatCnpjCpf.SemFormatacao(txtcnpj.Text);
-            }
-            //String RG = FormatCnpjCpf.SemFormatacao(txtrg.Text);
-
-            DateTime dataa;
-            DateTime.TryParse(txtnasc.Text + " " + "00:00:00", out dataa);
-
-            DateTime datanasc = dataa;
+            //DateTime datanasc = dataa;
 
             //DateTime datanasc = DateTime.Parse(nascimento);
 
@@ -200,7 +210,7 @@ namespace LMFinanciamentos.Apresentacao
                 }
             }
 
-            if (txtcontavendedor != null && txtagenciavendedor != null)
+            if (txtcontavendedor.Text != null && txtagenciavendedor.Text != null)
             {
 
                 Conta = txtcontavendedor.Text;
@@ -216,7 +226,7 @@ namespace LMFinanciamentos.Apresentacao
                     updateconta.InsertContaVendedor(idVendedor, Agencia, Conta);
                 }
 
-            }else if(txtagenciavendedor != null  &&  txtcontavendedor == null)
+            }else if(txtagenciavendedor.Text != null  &&  txtcontavendedor.Text == null)
             {
                 MessageBox.Show("é necessario preenchar a conta!", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -304,6 +314,8 @@ namespace LMFinanciamentos.Apresentacao
             txttelefone.Text = vendedor.Telefone_vendedor;
             txtcelular.Text = vendedor.Celular_vendedor;
             txtrendavendedor.Text = vendedor.Renda_vendedor;
+            txtagenciavendedor.Text = vendedor.Agencia_vendedor;
+            txtcontavendedor.Text = vendedor.Conta_vendedor;
 
             if (vendedor.Sexo_vendedor == "Masculino")
             {
@@ -521,8 +533,8 @@ namespace LMFinanciamentos.Apresentacao
                 if (img_foto.Image != null)
                 {
                     deletevendedor.DeleteFotoVendedor(idVendedor);
-                    deletevendedor.DeleteFotoVendedor(idVendedor);
-                    MessageBox.Show(deletevendedor.mensagem, "Excluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //deletevendedor.DeleteFotoVendedor(idVendedor);
+                    MessageBox.Show(deletevendedor.mensagem, "Excluidor", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (VendedorSalvo != null)
                         VendedorSalvo.Invoke();
                     Close();

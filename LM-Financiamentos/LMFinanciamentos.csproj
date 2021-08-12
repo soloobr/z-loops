@@ -175,12 +175,12 @@
     <Compile Include="Apresentacao\Form_Dados_cliente.Designer.cs">
       <DependentUpon>Form_Dados_cliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apresentacao\Form_Controle_cliente.cs">
+    <Compile Include="Apresentacao\Form_Controle_Cliente.cs">
       <SubType>Form</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Apresentacao\Form_Controle_cliente.Designer.cs">
-      <DependentUpon>Form_Controle_cliente.cs</DependentUpon>
+    <Compile Include="Apresentacao\Form_Controle_Cliente.Designer.cs">
+      <DependentUpon>Form_Controle_Cliente.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Apresentacao\Form_Dados_Processos.cs">
@@ -201,11 +201,11 @@
     <Compile Include="Apresentacao\Form_Cadastro_Fornecedor.Designer.cs">
       <DependentUpon>Form_Cadastro_Fornecedor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apresentacao\Form_Cadastro_Funcionarios.cs">
+    <Compile Include="Apresentacao\Form_Controle_Funcionarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apresentacao\Form_Cadastro_Funcionarios.Designer.cs">
-      <DependentUpon>Form_Cadastro_Funcionarios.cs</DependentUpon>
+    <Compile Include="Apresentacao\Form_Controle_Funcionarios.Designer.cs">
+      <DependentUpon>Form_Controle_Funcionarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Apresentacao\Form_Configuracao.cs">
       <SubType>Form</SubType>
@@ -301,8 +301,8 @@
     <EmbeddedResource Include="Apresentacao\Form_Dados_cliente.resx">
       <DependentUpon>Form_Dados_cliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apresentacao\Form_Controle_cliente.resx">
-      <DependentUpon>Form_Controle_cliente.cs</DependentUpon>
+    <EmbeddedResource Include="Apresentacao\Form_Controle_Cliente.resx">
+      <DependentUpon>Form_Controle_Cliente.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\Form_Dados_Processos.resx">
@@ -314,8 +314,8 @@
     <EmbeddedResource Include="Apresentacao\Form_Cadastro_Fornecedor.resx">
       <DependentUpon>Form_Cadastro_Fornecedor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apresentacao\Form_Cadastro_Funcionarios.resx">
-      <DependentUpon>Form_Cadastro_Funcionarios.cs</DependentUpon>
+    <EmbeddedResource Include="Apresentacao\Form_Controle_Funcionarios.resx">
+      <DependentUpon>Form_Controle_Funcionarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\Form_Configuracao.resx">
       <DependentUpon>Form_Configuracao.cs</DependentUpon>

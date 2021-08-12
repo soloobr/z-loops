@@ -10,6 +10,7 @@ namespace LMFinanciamentos.Apresentacao
 {
     public partial class Form_Principal : Form
     {
+        bool Frmcli, Frmvend, Frmfunc;
         public Form_Principal()
         {
             InitializeComponent();
@@ -181,12 +182,6 @@ namespace LMFinanciamentos.Apresentacao
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        private void panelformularios_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-
         #endregion
         //METODO PARA ABRIR FORMULARIOS DENTRO DEL PANEL
         private void AbrirFormulario<MiForm>() where MiForm : Form, new()
@@ -216,74 +211,65 @@ namespace LMFinanciamentos.Apresentacao
         private void CloseForms(object sender, FormClosedEventArgs e)
         {
             if (Application.OpenForms["Form_Controle_Documento"] == null)
+            {
                 btncontroledoc.BackColor = Color.FromArgb(4, 41, 68);
-            if (Application.OpenForms["Form_Cadastro_cliente"] == null)
-            {
-                if (Application.OpenForms["Form_Cadastro_Funcionarios"] == null)
-                {
-                    btncadastro.BackColor = Color.FromArgb(4, 41, 68);
-                    btncadastrocliente.BackColor = Color.FromArgb(4, 41, 68);
-                }
-                else
-                {
-                    btncadastrocliente.BackColor = Color.FromArgb(4, 41, 68);
-                }
-
             }
-            if (Application.OpenForms["Form_Cadastro_Funcionarios"] == null)
-            {
-                if (Application.OpenForms["Form_Cadastro_cliente"] == null)
-                {
-                    btncadastro.BackColor = Color.FromArgb(4, 41, 68);
-                    btncadastrocvendedor.BackColor = Color.FromArgb(4, 41, 68);
-                }
-                else
-                {
-                    btncadastrocvendedor.BackColor = Color.FromArgb(4, 41, 68);
-                }
-            }
-
             if (Application.OpenForms["Form_Configuracao"] == null)
+            {
                 btnconf.BackColor = Color.FromArgb(4, 41, 68);
+            }
+            #region buttons
+            if (Application.OpenForms["Form_Controle_Cliente"] == null && Application.OpenForms["Form_Controle_Vendedor"] == null && Application.OpenForms["Form_Controle_Funcionarios"] == null)
+            {
+                btncadastro.BackColor = Color.FromArgb(4, 41, 68);
+                btncadastrocliente.BackColor = Color.FromArgb(4, 41, 68);
+                btncadastrocvendedor.BackColor = Color.FromArgb(4, 41, 68);
+                btncadastrocfuncionarios.BackColor = Color.FromArgb(4, 41, 68);
+            }
+    
+            if (Application.OpenForms["Form_Controle_Cliente"] == null)
+                btncadastrocliente.BackColor = Color.FromArgb(4, 41, 68);
+            if (Application.OpenForms["Form_Controle_Vendedor"] == null)
+                btncadastrocvendedor.BackColor = Color.FromArgb(4, 41, 68);
+            if (Application.OpenForms["Form_Controle_Funcionarios"] == null)
+                btncadastrocfuncionarios.BackColor = Color.FromArgb(4, 41, 68);
+            #endregion
+ 
 
         }
+        //private void btncadfor_Click(object sender, EventArgs e)
+        //{
+        //    AbrirFormulario<Form_Cadastro_Fornecedor>();
+        //    btncadastro.BackColor = Color.FromArgb(12, 61, 92);
+        //    btncadfor.BackColor = Color.FromArgb(12, 61, 92);
+        //    //..
+        //    //your codes
+        //    //..
+        //    hideSubMenu();
+        //}
 
-        private void btncadfor_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario<Form_Cadastro_Fornecedor>();
-            btncadastro.BackColor = Color.FromArgb(12, 61, 92);
-            btncadfor.BackColor = Color.FromArgb(12, 61, 92);
-            //..
-            //your codes
-            //..
-            hideSubMenu();
-        }
+        //private void btnconf_Click(object sender, EventArgs e)
+        //{
+        //    AbrirFormulario<Form_Configuracao>();
+        //    btnconf.BackColor = Color.FromArgb(12, 61, 92);
+        //    hideSubMenu();
+        //}
 
-        private void btnconf_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario<Form_Configuracao>();
-            btnconf.BackColor = Color.FromArgb(12, 61, 92);
-            //..
-            //your codes
-            //..
-            hideSubMenu();
-        }
+        //private void btncadastro_Click(object sender, EventArgs e)
+        //{
+        //    showSubMenu(panelsubmenucadastro);
 
-        private void btncadastro_Click(object sender, EventArgs e)
-        {
-            showSubMenu(panelsubmenucadastro);
+        //}
 
-        }
-
-        private void btncdoc_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario<Form_Controle_Processo>();
-            btncdoc.BackColor = Color.FromArgb(12, 61, 92);
-            //..
-            //your codes
-            //..
-            hideSubMenu();
-        }
+        //private void btncdoc_Click(object sender, EventArgs e)
+        //{
+        //    AbrirFormulario<Form_Controle_Processo>();
+        //    btncdoc.BackColor = Color.FromArgb(12, 61, 92);
+        //    //..
+        //    //your codes
+        //    //..
+        //    hideSubMenu();
+        //}
 
         private void btnmenuleft_Click(object sender, EventArgs e)
         {
@@ -315,44 +301,44 @@ namespace LMFinanciamentos.Apresentacao
             btncadastro.Text = "Configurações";
         }
 
-        private void btnicocad_Click(object sender, EventArgs e)
-        {
-            btnmenurigth.Visible = false;
-            btnmenuleft.Visible = true;
-            panelMenu.Size = new Size(230, 583);
-            showSubMenu(panelsubmenucadastro);
+        //private void btnicocad_Click(object sender, EventArgs e)
+        //{
+        //    btnmenurigth.Visible = false;
+        //    btnmenuleft.Visible = true;
+        //    panelMenu.Size = new Size(230, 583);
+        //    showSubMenu(panelsubmenucadastro);
 
-        }
+        //}
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void img_center_Click(object sender, EventArgs e)
-        {
+        //private void img_center_Click(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
-        private void panelBarraTitulo_Paint(object sender, PaintEventArgs e)
-        {
+        //private void panelBarraTitulo_Paint(object sender, PaintEventArgs e)
+        //{
 
-        }
+        //}
 
-        private void label1_Click(object sender, EventArgs e)
-        {
+        //private void label1_Click(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
         private void panelBarraTitulo_Paint_1(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
+        //private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
         private void btnconf_Click_1(object sender, EventArgs e)
         {
@@ -400,46 +386,48 @@ namespace LMFinanciamentos.Apresentacao
         private void btncadastrocliente_Click_1(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            AbrirFormulario<Form_Controle_cliente>();
+            AbrirFormulario<Form_Controle_Cliente>();
             btncadastro.BackColor = Color.FromArgb(12, 61, 92);
             btncadastrocliente.BackColor = Color.FromArgb(12, 61, 92);
+            Frmcli = true;
             hideSubMenu();
         }
 
         private void btncadastrocfuncionarios_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<Form_Cadastro_Funcionarios>();
+            AbrirFormulario<Form_Controle_Funcionarios>();
             btncadastro.BackColor = Color.FromArgb(12, 61, 92);
-            btncadastrocvendedor.BackColor = Color.FromArgb(12, 61, 92);
-            hideSubMenu();
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btncadastrocvendedor_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario<Form_Controle_Vendedor>();
-            btncadastro.BackColor = Color.FromArgb(12, 61, 92);
-            btncadastrocvendedor.BackColor = Color.FromArgb(12, 61, 92);
             btncadastrocfuncionarios.BackColor = Color.FromArgb(12, 61, 92);
             hideSubMenu();
         }
 
-        private Form activeForm = null;
-        private void openChildForm(Form childForm)
+        //private void pictureBox2_Click(object sender, EventArgs e)
+        //{
+
+        //}
+
+        private void btncadastrocvendedor_Click(object sender, EventArgs e)
         {
-            if (activeForm != null) activeForm.Close();
-            activeForm = childForm;
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            panelformularios.Controls.Add(childForm);
-            panelformularios.Tag = childForm;
-            childForm.BringToFront();
-            childForm.Show();
+            Cursor = Cursors.WaitCursor; 
+            AbrirFormulario<Form_Controle_Vendedor>();
+            btncadastro.BackColor = Color.FromArgb(12, 61, 92);
+            btncadastrocvendedor.BackColor = Color.FromArgb(12, 61, 92);
+            hideSubMenu();
+            Cursor = Cursors.Default;
         }
+
+        private Form activeForm = null;
+        //private void openChildForm(Form childForm)
+        //{
+        //    if (activeForm != null) activeForm.Close();
+        //    activeForm = childForm;
+        //    childForm.TopLevel = false;
+        //    childForm.FormBorderStyle = FormBorderStyle.None;
+        //    childForm.Dock = DockStyle.Fill;
+        //    panelformularios.Controls.Add(childForm);
+        //    panelformularios.Tag = childForm;
+        //    childForm.BringToFront();
+        //    childForm.Show();
+        //}
     }
 }

@@ -11,6 +11,7 @@ namespace LMFinanciamentos.Apresentacao
         String sexo, status, idvendedor;
         public string consultar;
         int vendedorselecionado;
+        int contgrid, contgridlast;
         public Form_Controle_Vendedor()
         {
             InitializeComponent();
@@ -77,12 +78,15 @@ namespace LMFinanciamentos.Apresentacao
 
         private void dgv_vendedores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
             Form_Dados_Vendedor frm_dados_vendedor = new Form_Dados_Vendedor();
             frm_dados_vendedor.setIdVendedor(dgv_vendedores.SelectedRows[0].Cells["id"].Value.ToString());
-            MessageBox.Show(dgv_vendedores.SelectedRows[0].Cells["id"].Value.ToString());
+            //MessageBox.Show(dgv_vendedores.SelectedRows[0].Cells["id"].Value.ToString());
             vendedorselecionado = dgv_vendedores.CurrentCell.RowIndex;
             frm_dados_vendedor.VendedorSalvo += new Action(frm_dados_vendedor_VendedorSalvo);
+            contgrid = dgv_vendedores.Rows.Count;
             frm_dados_vendedor.Show();
+            Cursor = Cursors.Default;
         }
 
         private void btnprocurar_Click(object sender, EventArgs e)
@@ -146,10 +150,14 @@ namespace LMFinanciamentos.Apresentacao
         void frm_dados_vendedor_VendedorSalvo()
         {
             AtualizaGrid();
+            contgridlast = dgv_vendedores.Rows.Count;
 
-            dgv_vendedores.ClearSelection();
-            dgv_vendedores.Rows[vendedorselecionado].Selected = true;
-            dgv_vendedores.Rows[vendedorselecionado].Cells[0].Selected = true;
+            if(contgrid  ==  contgridlast) 
+            {
+                dgv_vendedores.ClearSelection();
+                dgv_vendedores.Rows[vendedorselecionado].Selected = true;
+                dgv_vendedores.Rows[vendedorselecionado].Cells[0].Selected = true;
+            }
         }
 
         private void btn_editar_Click(object sender, EventArgs e)
@@ -159,6 +167,7 @@ namespace LMFinanciamentos.Apresentacao
             frm_dados_vendedor.setIdVendedor(dgv_vendedores.SelectedRows[0].Cells["id"].Value.ToString());
             vendedorselecionado = dgv_vendedores.CurrentCell.RowIndex;
             frm_dados_vendedor.VendedorSalvo += new Action(frm_dados_vendedor_VendedorSalvo);
+            contgrid = dgv_vendedores.Rows.Count;
             frm_dados_vendedor.Show();
             Cursor = Cursors.Default;
         }
@@ -201,6 +210,11 @@ namespace LMFinanciamentos.Apresentacao
         private void splitter2_SplitterMoved(object sender, SplitterEventArgs e)
         {
 
+        }
+
+        private void btnclosvend_Click(object sender, EventArgs e)
+        {
+            Close();
         }
 
         void frm_cadastro_vendedor_VendedorSalvo()

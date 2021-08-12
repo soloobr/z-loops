@@ -829,7 +829,7 @@ namespace LMFinanciamentos.DAL
         }
         public Vendedor GetFotoVendedor(String id)
         {
-            cmd.CommandText = "Select Vendedores.id, F.Descricao, F.Foto From Vendedores left join Foto F on Vendedores.id = F.IdVendedor  where Vendedores.id = @id";
+            cmd.CommandText = "Select Vendedor.id, F.Descricao, F.Foto From Vendedor left join Foto F on Vendedor.id = F.IdVendedor  where Vendedor.id = @id";
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@id", id);
 
@@ -1218,10 +1218,10 @@ namespace LMFinanciamentos.DAL
         {
            // var list = new List<Vendedor>();
 
-            cmd2.CommandText = "SELECT id, Nome, Email, Telefone, Celular, CPF, CNPJ FROM Vendedor WHERE id = @id ";
+            cmd2.CommandText = "SELECT Vendedor.id, Nome, Email, Telefone, Celular, CPF, CNPJ, Agencia, Conta, Renda, Status FROM Vendedor Left join Conta ON idcliente = @id AND Tipo = @tipo WHERE Vendedor.id = @id ";
             cmd2.Parameters.Clear();
             cmd2.Parameters.AddWithValue("@id", id);
-            //cmd2.Parameters.AddWithValue("@tipo", "V");
+            cmd2.Parameters.AddWithValue("@tipo", "V");
             Vendedor vendedor = new Vendedor();
             try
             {
@@ -1237,18 +1237,13 @@ namespace LMFinanciamentos.DAL
                     vendedor.Celular_vendedor = drvendedor["Celular"].ToString();
                     vendedor.CPF_vendedor = drvendedor["CPF"].ToString();
                     vendedor.CNPJ_vendedor = drvendedor["CNPJ"].ToString();
-                    //vendedor.StatusCPF_vendedor = drvendedor["StatusCPF"].ToString();
-                    //vendedor.StatusCiweb_vendedor = drvendedor["Ciweb"].ToString();
-                    //vendedor.StatusCadmut_vendedor = drvendedor["Cadmut"].ToString();
-                    //vendedor.StatusIR_vendedor = drvendedor["IR"].ToString();
-                    //vendedor.StatusFGTS_vendedor = drvendedor["FGTS"].ToString();
                     //vendedor.RG_vendedor = drvendedor["RG"].ToString();
                     //vendedor.Nascimento_vendedor = drvendedor["Nascimento"].ToString();
                     //vendedor.Sexo_vendedor = drvendedor["Sexo"].ToString();
-                    //vendedor.Status_vendedor = drvendedor["Status"].ToString();
-                    //vendedor.Renda_vendedor = drvendedor["Renda"].ToString();
-                    //vendedor.Agencia_vendedor = drvendedor["Agencia"].ToString();
-                    //vendedor.Conta_vendedor = drvendedor["Conta"].ToString();
+                    vendedor.Status_vendedor = drvendedor["Status"].ToString();
+                    vendedor.Renda_vendedor = drvendedor["Renda"].ToString();
+                    vendedor.Agencia_vendedor = drvendedor["Agencia"].ToString();
+                    vendedor.Conta_vendedor = drvendedor["Conta"].ToString();
                     //Byte[] byteBLOBData = new Byte[0];
                     //vendedor.Foto_Func = (Byte[])(drvendedor["Foto"]);
                     //list.Add(vendedor);

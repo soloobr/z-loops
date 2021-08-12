@@ -1,7 +1,7 @@
 ﻿
 namespace LMFinanciamentos.Apresentacao
 {
-    partial class Form_Cadastro_Funcionarios
+    partial class Form_Controle_Funcionarios
     {
         /// <summary>
         /// Required designer variable.
@@ -40,7 +40,7 @@ namespace LMFinanciamentos.Apresentacao
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Cadastro_Funcionarios));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Controle_Funcionarios));
             this.panelcentro = new System.Windows.Forms.Panel();
             this.dgv_funccionarios = new System.Windows.Forms.DataGridView();
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,7 +61,7 @@ namespace LMFinanciamentos.Apresentacao
             this.lbl_topo = new System.Windows.Forms.Label();
             this.img_topo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnclosecadfunc = new System.Windows.Forms.Button();
+            this.btnclosefunc = new System.Windows.Forms.Button();
             this.dSFuncionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.funcionariosTableAdapter = new LMFinanciamentos.DAL.DS_FuncionarioTableAdapters.FuncionariosTableAdapter();
             this.panelcentro.SuspendLayout();
@@ -287,7 +287,7 @@ namespace LMFinanciamentos.Apresentacao
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.panel2.Controls.Add(this.btnclosecadfunc);
+            this.panel2.Controls.Add(this.btnclosefunc);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 338);
             this.panel2.Name = "panel2";
@@ -295,21 +295,21 @@ namespace LMFinanciamentos.Apresentacao
             this.panel2.Size = new System.Drawing.Size(917, 52);
             this.panel2.TabIndex = 8;
             // 
-            // btnclosecadfunc
+            // btnclosefunc
             // 
-            this.btnclosecadfunc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.btnclosecadfunc.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnclosecadfunc.FlatAppearance.BorderSize = 0;
-            this.btnclosecadfunc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnclosecadfunc.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnclosecadfunc.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnclosecadfunc.Location = new System.Drawing.Point(803, 10);
-            this.btnclosecadfunc.Name = "btnclosecadfunc";
-            this.btnclosecadfunc.Size = new System.Drawing.Size(104, 32);
-            this.btnclosecadfunc.TabIndex = 2;
-            this.btnclosecadfunc.Text = "Fechar";
-            this.btnclosecadfunc.UseVisualStyleBackColor = false;
-            this.btnclosecadfunc.Click += new System.EventHandler(this.btnclosecadfunc_Click);
+            this.btnclosefunc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.btnclosefunc.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnclosefunc.FlatAppearance.BorderSize = 0;
+            this.btnclosefunc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnclosefunc.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnclosefunc.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnclosefunc.Location = new System.Drawing.Point(803, 10);
+            this.btnclosefunc.Name = "btnclosefunc";
+            this.btnclosefunc.Size = new System.Drawing.Size(104, 32);
+            this.btnclosefunc.TabIndex = 2;
+            this.btnclosefunc.Text = "Fechar";
+            this.btnclosefunc.UseVisualStyleBackColor = false;
+            this.btnclosefunc.Click += new System.EventHandler(this.btnclosecadfunc_Click);
             // 
             // dSFuncionarioBindingSource
             // 
@@ -320,13 +320,13 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.funcionariosTableAdapter.ClearBeforeFill = true;
             // 
-            // Form_Cadastro_Funcionarios
+            // Form_Controle_Funcionarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(917, 390);
             this.Controls.Add(this.panelcentro);
-            this.Name = "Form_Cadastro_Funcionarios";
+            this.Name = "Form_Controle_Funcionarios";
             this.Text = "Form_Cadastro_Funcionarios";
             this.Load += new System.EventHandler(this.Form_Cadastro_Funcionarios_Load);
             this.panelcentro.ResumeLayout(false);
@@ -350,7 +350,7 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.Label lbl_topo;
         private System.Windows.Forms.PictureBox img_topo;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnclosecadfunc;
+        private System.Windows.Forms.Button btnclosefunc;
         private System.Windows.Forms.Panel pnlcontrol;
         private System.Windows.Forms.Label lblprocurar;
         private System.Windows.Forms.Button btnprocurar;
