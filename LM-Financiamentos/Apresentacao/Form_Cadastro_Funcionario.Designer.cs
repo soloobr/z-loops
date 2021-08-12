@@ -1,7 +1,7 @@
 ﻿
 namespace LMFinanciamentos.Apresentacao
 {
-    partial class Form_Cadastro_Cliente
+    partial class Form_Cadastro_Funcionario
     {
         /// <summary>
         /// Required designer variable.
@@ -29,11 +29,11 @@ namespace LMFinanciamentos.Apresentacao
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Cadastro_Cliente));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Cadastro_Funcionario));
             this.panelcentralcadcli = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.tabcliente = new System.Windows.Forms.TabPage();
+            this.tabfuncionario = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.txtrendacli = new System.Windows.Forms.TextBox();
@@ -49,7 +49,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtemail = new System.Windows.Forms.TextBox();
             this.lblcpf = new System.Windows.Forms.Label();
             this.txtcpf = new System.Windows.Forms.TextBox();
-            this.lblcliente = new System.Windows.Forms.Label();
+            this.lblfuncionario = new System.Windows.Forms.Label();
             this.lblemail = new System.Windows.Forms.Label();
             this.txtnomecli = new System.Windows.Forms.TextBox();
             this.txtrg = new System.Windows.Forms.TextBox();
@@ -70,7 +70,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panelcentralcadcli.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl.SuspendLayout();
-            this.tabcliente.SuspendLayout();
+            this.tabfuncionario.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabproduto.SuspendLayout();
@@ -102,7 +102,7 @@ namespace LMFinanciamentos.Apresentacao
             // 
             // tabControl
             // 
-            this.tabControl.Controls.Add(this.tabcliente);
+            this.tabControl.Controls.Add(this.tabfuncionario);
             this.tabControl.Controls.Add(this.tabproduto);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -112,16 +112,16 @@ namespace LMFinanciamentos.Apresentacao
             this.tabControl.Size = new System.Drawing.Size(979, 508);
             this.tabControl.TabIndex = 10;
             // 
-            // tabcliente
+            // tabfuncionario
             // 
-            this.tabcliente.Controls.Add(this.tableLayoutPanel1);
-            this.tabcliente.Location = new System.Drawing.Point(4, 30);
-            this.tabcliente.Name = "tabcliente";
-            this.tabcliente.Padding = new System.Windows.Forms.Padding(20);
-            this.tabcliente.Size = new System.Drawing.Size(971, 474);
-            this.tabcliente.TabIndex = 0;
-            this.tabcliente.Text = "Cadastro do Cliente";
-            this.tabcliente.UseVisualStyleBackColor = true;
+            this.tabfuncionario.Controls.Add(this.tableLayoutPanel1);
+            this.tabfuncionario.Location = new System.Drawing.Point(4, 30);
+            this.tabfuncionario.Name = "tabfuncionario";
+            this.tabfuncionario.Padding = new System.Windows.Forms.Padding(20);
+            this.tabfuncionario.Size = new System.Drawing.Size(971, 474);
+            this.tabfuncionario.TabIndex = 0;
+            this.tabfuncionario.Text = "Cadastro do Funcionario";
+            this.tabfuncionario.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
             // 
@@ -142,7 +142,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel1.Controls.Add(this.txtemail, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.lblcpf, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtcpf, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lblcliente, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lblfuncionario, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblemail, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtnomecli, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtrg, 2, 1);
@@ -309,15 +309,15 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcpf.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtcpf_KeyUp);
             this.txtcpf.Leave += new System.EventHandler(this.txtcpf_Leave);
             // 
-            // lblcliente
+            // lblfuncionario
             // 
-            this.lblcliente.AutoSize = true;
-            this.lblcliente.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblcliente.Location = new System.Drawing.Point(3, 0);
-            this.lblcliente.Name = "lblcliente";
-            this.lblcliente.Size = new System.Drawing.Size(364, 21);
-            this.lblcliente.TabIndex = 51;
-            this.lblcliente.Text = "Nome do Cliente:";
+            this.lblfuncionario.AutoSize = true;
+            this.lblfuncionario.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblfuncionario.Location = new System.Drawing.Point(3, 0);
+            this.lblfuncionario.Name = "lblfuncionario";
+            this.lblfuncionario.Size = new System.Drawing.Size(364, 21);
+            this.lblfuncionario.TabIndex = 51;
+            this.lblfuncionario.Text = "Nome do Funcionario:";
             // 
             // lblemail
             // 
@@ -514,7 +514,7 @@ namespace LMFinanciamentos.Apresentacao
             this.lbl_topo.Name = "lbl_topo";
             this.lbl_topo.Size = new System.Drawing.Size(317, 49);
             this.lbl_topo.TabIndex = 50;
-            this.lbl_topo.Text = "Cadastro de Cliente";
+            this.lbl_topo.Text = "Cadastro de Funcionário";
             this.lbl_topo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // img_topo
@@ -533,21 +533,21 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.ofd1.FileName = "openFileDialog1";
             // 
-            // Form_Cadastro_Cliente
+            // Form_Cadastro_Funcionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(979, 617);
             this.Controls.Add(this.panelcentralcadcli);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form_Cadastro_Cliente";
+            this.Name = "Form_Cadastro_Funcionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cadastro de Cliente";
-            this.Load += new System.EventHandler(this.Form_Cadastro_cliente_Load);
+            this.Text = "Cadastro de Funcionario";
+            this.Load += new System.EventHandler(this.Form_Cadastro_Funcionario_Load);
             this.panelcentralcadcli.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
-            this.tabcliente.ResumeLayout(false);
+            this.tabfuncionario.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -573,7 +573,7 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.Button btnclosecli;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TabControl tabControl;
-        private System.Windows.Forms.TabPage tabcliente;
+        private System.Windows.Forms.TabPage tabfuncionario;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.MaskedTextBox txtcelular;
         private System.Windows.Forms.Label label20;
@@ -583,7 +583,7 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.TextBox txtemail;
         private System.Windows.Forms.Label lblcpf;
         private System.Windows.Forms.TextBox txtcpf;
-        private System.Windows.Forms.Label lblcliente;
+        private System.Windows.Forms.Label lblfuncionario;
         private System.Windows.Forms.Label lblemail;
         private System.Windows.Forms.TabPage tabproduto;
         private System.Windows.Forms.GroupBox groupBox2;

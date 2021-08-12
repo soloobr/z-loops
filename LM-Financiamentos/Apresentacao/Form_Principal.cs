@@ -349,6 +349,7 @@ namespace LMFinanciamentos.Apresentacao
             //your codes
             //..
             hideSubMenu();
+            Cursor = Cursors.Default;
         }
 
         private void btncontroledoc_Click(object sender, EventArgs e)

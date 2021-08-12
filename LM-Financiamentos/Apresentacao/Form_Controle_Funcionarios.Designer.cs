@@ -31,48 +31,46 @@ namespace LMFinanciamentos.Apresentacao
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Controle_Funcionarios));
             this.panelcentro = new System.Windows.Forms.Panel();
             this.dgv_funccionarios = new System.Windows.Forms.DataGridView();
-            this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.enderecoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nascimentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sexoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cPFDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.crachaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.funcionariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dS_Funcionario = new LMFinanciamentos.DAL.DS_Funcionario();
             this.pnlcontrol = new System.Windows.Forms.Panel();
             this.lblprocurar = new System.Windows.Forms.Label();
-            this.btnprocurar = new System.Windows.Forms.Button();
             this.txtprocurar = new System.Windows.Forms.TextBox();
             this.paneltop = new System.Windows.Forms.Panel();
             this.lbl_topo = new System.Windows.Forms.Label();
-            this.img_topo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnclosefunc = new System.Windows.Forms.Button();
             this.dSFuncionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.funcionariosTableAdapter = new LMFinanciamentos.DAL.DS_FuncionarioTableAdapters.FuncionariosTableAdapter();
+            this.btn_excluir_func = new System.Windows.Forms.Button();
+            this.splitter2 = new System.Windows.Forms.Splitter();
+            this.btn_editar_func = new System.Windows.Forms.Button();
+            this.splitter1 = new System.Windows.Forms.Splitter();
+            this.btn_new_func = new System.Windows.Forms.Button();
+            this.btnprocurar = new System.Windows.Forms.Button();
+            this.img_topo = new System.Windows.Forms.PictureBox();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cracha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelcentro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_funccionarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Funcionario)).BeginInit();
             this.pnlcontrol.SuspendLayout();
             this.paneltop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.img_topo)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dSFuncionarioBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.img_topo)).BeginInit();
             this.SuspendLayout();
             // 
             // panelcentro
@@ -84,14 +82,16 @@ namespace LMFinanciamentos.Apresentacao
             this.panelcentro.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelcentro.Location = new System.Drawing.Point(0, 0);
             this.panelcentro.Name = "panelcentro";
-            this.panelcentro.Size = new System.Drawing.Size(917, 390);
+            this.panelcentro.Size = new System.Drawing.Size(1066, 500);
             this.panelcentro.TabIndex = 2;
             // 
             // dgv_funccionarios
             // 
             this.dgv_funccionarios.AllowUserToAddRows = false;
-            this.dgv_funccionarios.AutoGenerateColumns = false;
+            this.dgv_funccionarios.AllowUserToDeleteRows = false;
+            this.dgv_funccionarios.AllowUserToOrderColumns = true;
             this.dgv_funccionarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_funccionarios.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.dgv_funccionarios.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgv_funccionarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_funccionarios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -105,90 +105,28 @@ namespace LMFinanciamentos.Apresentacao
             this.dgv_funccionarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_funccionarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_funccionarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nomeDataGridViewTextBoxColumn,
-            this.emailDataGridViewTextBoxColumn,
-            this.telefoneDataGridViewTextBoxColumn,
-            this.enderecoDataGridViewTextBoxColumn,
-            this.nascimentoDataGridViewTextBoxColumn,
-            this.sexoDataGridViewTextBoxColumn,
-            this.cPFDataGridViewTextBoxColumn,
-            this.crachaDataGridViewTextBoxColumn});
-            this.dgv_funccionarios.DataSource = this.funcionariosBindingSource;
+            this.id,
+            this.Nome,
+            this.Email,
+            this.Telefone,
+            this.Endereco,
+            this.Nascimento,
+            this.Sexo,
+            this.CPF,
+            this.Cracha});
             this.dgv_funccionarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_funccionarios.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgv_funccionarios.GridColor = System.Drawing.SystemColors.Control;
             this.dgv_funccionarios.Location = new System.Drawing.Point(0, 195);
             this.dgv_funccionarios.MultiSelect = false;
             this.dgv_funccionarios.Name = "dgv_funccionarios";
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgv_funccionarios.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            this.dgv_funccionarios.RowHeadersVisible = false;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgv_funccionarios.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_funccionarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_funccionarios.Size = new System.Drawing.Size(917, 143);
+            this.dgv_funccionarios.Size = new System.Drawing.Size(1066, 253);
             this.dgv_funccionarios.TabIndex = 12;
-            // 
-            // nomeDataGridViewTextBoxColumn
-            // 
-            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nomeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
-            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            // 
-            // telefoneDataGridViewTextBoxColumn
-            // 
-            this.telefoneDataGridViewTextBoxColumn.DataPropertyName = "Telefone";
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.telefoneDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
-            this.telefoneDataGridViewTextBoxColumn.HeaderText = "Telefone";
-            this.telefoneDataGridViewTextBoxColumn.Name = "telefoneDataGridViewTextBoxColumn";
-            // 
-            // enderecoDataGridViewTextBoxColumn
-            // 
-            this.enderecoDataGridViewTextBoxColumn.DataPropertyName = "Endereco";
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enderecoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
-            this.enderecoDataGridViewTextBoxColumn.HeaderText = "Endereco";
-            this.enderecoDataGridViewTextBoxColumn.Name = "enderecoDataGridViewTextBoxColumn";
-            // 
-            // nascimentoDataGridViewTextBoxColumn
-            // 
-            this.nascimentoDataGridViewTextBoxColumn.DataPropertyName = "Nascimento";
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nascimentoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
-            this.nascimentoDataGridViewTextBoxColumn.HeaderText = "Nascimento";
-            this.nascimentoDataGridViewTextBoxColumn.Name = "nascimentoDataGridViewTextBoxColumn";
-            // 
-            // sexoDataGridViewTextBoxColumn
-            // 
-            this.sexoDataGridViewTextBoxColumn.DataPropertyName = "Sexo";
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sexoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
-            this.sexoDataGridViewTextBoxColumn.HeaderText = "Sexo";
-            this.sexoDataGridViewTextBoxColumn.Name = "sexoDataGridViewTextBoxColumn";
-            // 
-            // cPFDataGridViewTextBoxColumn
-            // 
-            this.cPFDataGridViewTextBoxColumn.DataPropertyName = "CPF";
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cPFDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
-            this.cPFDataGridViewTextBoxColumn.HeaderText = "CPF";
-            this.cPFDataGridViewTextBoxColumn.Name = "cPFDataGridViewTextBoxColumn";
-            // 
-            // crachaDataGridViewTextBoxColumn
-            // 
-            this.crachaDataGridViewTextBoxColumn.DataPropertyName = "Cracha";
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.crachaDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
-            this.crachaDataGridViewTextBoxColumn.HeaderText = "Cracha";
-            this.crachaDataGridViewTextBoxColumn.Name = "crachaDataGridViewTextBoxColumn";
+            this.dgv_funccionarios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_funccionarios_CellDoubleClick);
             // 
             // funcionariosBindingSource
             // 
@@ -208,7 +146,7 @@ namespace LMFinanciamentos.Apresentacao
             this.pnlcontrol.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlcontrol.Location = new System.Drawing.Point(0, 57);
             this.pnlcontrol.Name = "pnlcontrol";
-            this.pnlcontrol.Size = new System.Drawing.Size(917, 138);
+            this.pnlcontrol.Size = new System.Drawing.Size(1066, 138);
             this.pnlcontrol.TabIndex = 11;
             // 
             // lblprocurar
@@ -217,9 +155,156 @@ namespace LMFinanciamentos.Apresentacao
             this.lblprocurar.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblprocurar.Location = new System.Drawing.Point(22, 20);
             this.lblprocurar.Name = "lblprocurar";
-            this.lblprocurar.Size = new System.Drawing.Size(86, 22);
+            this.lblprocurar.Size = new System.Drawing.Size(87, 19);
             this.lblprocurar.TabIndex = 2;
             this.lblprocurar.Text = "Procurar por:";
+            // 
+            // txtprocurar
+            // 
+            this.txtprocurar.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtprocurar.Location = new System.Drawing.Point(26, 45);
+            this.txtprocurar.Name = "txtprocurar";
+            this.txtprocurar.Size = new System.Drawing.Size(218, 29);
+            this.txtprocurar.TabIndex = 0;
+            this.txtprocurar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtprocurar_KeyPress);
+            // 
+            // paneltop
+            // 
+            this.paneltop.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.paneltop.Controls.Add(this.lbl_topo);
+            this.paneltop.Controls.Add(this.img_topo);
+            this.paneltop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.paneltop.Location = new System.Drawing.Point(0, 0);
+            this.paneltop.Name = "paneltop";
+            this.paneltop.Padding = new System.Windows.Forms.Padding(4);
+            this.paneltop.Size = new System.Drawing.Size(1066, 57);
+            this.paneltop.TabIndex = 9;
+            // 
+            // lbl_topo
+            // 
+            this.lbl_topo.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.lbl_topo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbl_topo.Font = new System.Drawing.Font("Poppins", 20.25F, System.Drawing.FontStyle.Bold);
+            this.lbl_topo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.lbl_topo.Location = new System.Drawing.Point(56, 4);
+            this.lbl_topo.Margin = new System.Windows.Forms.Padding(3);
+            this.lbl_topo.Name = "lbl_topo";
+            this.lbl_topo.Size = new System.Drawing.Size(401, 49);
+            this.lbl_topo.TabIndex = 6;
+            this.lbl_topo.Text = "Cadastro de Funcionários";
+            this.lbl_topo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.panel2.Controls.Add(this.btn_excluir_func);
+            this.panel2.Controls.Add(this.splitter2);
+            this.panel2.Controls.Add(this.btn_editar_func);
+            this.panel2.Controls.Add(this.splitter1);
+            this.panel2.Controls.Add(this.btn_new_func);
+            this.panel2.Controls.Add(this.btnclosefunc);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 448);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(10);
+            this.panel2.Size = new System.Drawing.Size(1066, 52);
+            this.panel2.TabIndex = 8;
+            // 
+            // btnclosefunc
+            // 
+            this.btnclosefunc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.btnclosefunc.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnclosefunc.FlatAppearance.BorderSize = 0;
+            this.btnclosefunc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnclosefunc.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnclosefunc.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnclosefunc.Location = new System.Drawing.Point(952, 10);
+            this.btnclosefunc.Name = "btnclosefunc";
+            this.btnclosefunc.Size = new System.Drawing.Size(104, 32);
+            this.btnclosefunc.TabIndex = 2;
+            this.btnclosefunc.Text = "Fechar";
+            this.btnclosefunc.UseVisualStyleBackColor = false;
+            this.btnclosefunc.Click += new System.EventHandler(this.btnclosecadfunc_Click);
+            // 
+            // dSFuncionarioBindingSource
+            // 
+            this.dSFuncionarioBindingSource.DataSource = this.dS_Funcionario;
+            this.dSFuncionarioBindingSource.Position = 0;
+            // 
+            // funcionariosTableAdapter
+            // 
+            this.funcionariosTableAdapter.ClearBeforeFill = true;
+            // 
+            // btn_excluir_func
+            // 
+            this.btn_excluir_func.BackColor = System.Drawing.Color.LightGray;
+            this.btn_excluir_func.CausesValidation = false;
+            this.btn_excluir_func.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_excluir_func.FlatAppearance.BorderSize = 0;
+            this.btn_excluir_func.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_excluir_func.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_excluir_func.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_excluir_func.Location = new System.Drawing.Point(238, 10);
+            this.btn_excluir_func.Name = "btn_excluir_func";
+            this.btn_excluir_func.Padding = new System.Windows.Forms.Padding(4);
+            this.btn_excluir_func.Size = new System.Drawing.Size(104, 32);
+            this.btn_excluir_func.TabIndex = 34;
+            this.btn_excluir_func.Text = "Excluir";
+            this.btn_excluir_func.UseCompatibleTextRendering = true;
+            this.btn_excluir_func.UseVisualStyleBackColor = false;
+            this.btn_excluir_func.Click += new System.EventHandler(this.btn_excluir_func_Click);
+            // 
+            // splitter2
+            // 
+            this.splitter2.Location = new System.Drawing.Point(228, 10);
+            this.splitter2.Name = "splitter2";
+            this.splitter2.Size = new System.Drawing.Size(10, 32);
+            this.splitter2.TabIndex = 33;
+            this.splitter2.TabStop = false;
+            // 
+            // btn_editar_func
+            // 
+            this.btn_editar_func.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.btn_editar_func.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_editar_func.FlatAppearance.BorderSize = 0;
+            this.btn_editar_func.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_editar_func.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_editar_func.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_editar_func.Location = new System.Drawing.Point(124, 10);
+            this.btn_editar_func.Name = "btn_editar_func";
+            this.btn_editar_func.Padding = new System.Windows.Forms.Padding(4);
+            this.btn_editar_func.Size = new System.Drawing.Size(104, 32);
+            this.btn_editar_func.TabIndex = 32;
+            this.btn_editar_func.Text = "Editar";
+            this.btn_editar_func.UseCompatibleTextRendering = true;
+            this.btn_editar_func.UseVisualStyleBackColor = false;
+            this.btn_editar_func.Click += new System.EventHandler(this.btn_editar_func_Click);
+            // 
+            // splitter1
+            // 
+            this.splitter1.Location = new System.Drawing.Point(114, 10);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(10, 32);
+            this.splitter1.TabIndex = 31;
+            this.splitter1.TabStop = false;
+            // 
+            // btn_new_func
+            // 
+            this.btn_new_func.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.btn_new_func.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_new_func.FlatAppearance.BorderSize = 0;
+            this.btn_new_func.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_new_func.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_new_func.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_new_func.Location = new System.Drawing.Point(10, 10);
+            this.btn_new_func.Name = "btn_new_func";
+            this.btn_new_func.Padding = new System.Windows.Forms.Padding(4);
+            this.btn_new_func.Size = new System.Drawing.Size(104, 32);
+            this.btn_new_func.TabIndex = 30;
+            this.btn_new_func.Text = "Novo";
+            this.btn_new_func.UseCompatibleTextRendering = true;
+            this.btn_new_func.UseVisualStyleBackColor = false;
+            this.btn_new_func.Click += new System.EventHandler(this.btn_new_func_Click);
             // 
             // btnprocurar
             // 
@@ -238,41 +323,6 @@ namespace LMFinanciamentos.Apresentacao
             this.btnprocurar.UseVisualStyleBackColor = false;
             this.btnprocurar.Click += new System.EventHandler(this.btnprocurar_Click);
             // 
-            // txtprocurar
-            // 
-            this.txtprocurar.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtprocurar.Location = new System.Drawing.Point(26, 45);
-            this.txtprocurar.Name = "txtprocurar";
-            this.txtprocurar.Size = new System.Drawing.Size(218, 27);
-            this.txtprocurar.TabIndex = 0;
-            this.txtprocurar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtprocurar_KeyPress);
-            // 
-            // paneltop
-            // 
-            this.paneltop.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.paneltop.Controls.Add(this.lbl_topo);
-            this.paneltop.Controls.Add(this.img_topo);
-            this.paneltop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.paneltop.Location = new System.Drawing.Point(0, 0);
-            this.paneltop.Name = "paneltop";
-            this.paneltop.Padding = new System.Windows.Forms.Padding(4);
-            this.paneltop.Size = new System.Drawing.Size(917, 57);
-            this.paneltop.TabIndex = 9;
-            // 
-            // lbl_topo
-            // 
-            this.lbl_topo.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.lbl_topo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbl_topo.Font = new System.Drawing.Font("Poppins", 20.25F, System.Drawing.FontStyle.Bold);
-            this.lbl_topo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.lbl_topo.Location = new System.Drawing.Point(56, 4);
-            this.lbl_topo.Margin = new System.Windows.Forms.Padding(3);
-            this.lbl_topo.Name = "lbl_topo";
-            this.lbl_topo.Size = new System.Drawing.Size(401, 49);
-            this.lbl_topo.TabIndex = 6;
-            this.lbl_topo.Text = "Cadastro de Funcionários";
-            this.lbl_topo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // img_topo
             // 
             this.img_topo.Dock = System.Windows.Forms.DockStyle.Left;
@@ -284,47 +334,65 @@ namespace LMFinanciamentos.Apresentacao
             this.img_topo.TabIndex = 5;
             this.img_topo.TabStop = false;
             // 
-            // panel2
+            // id
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.panel2.Controls.Add(this.btnclosefunc);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 338);
-            this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(10);
-            this.panel2.Size = new System.Drawing.Size(917, 52);
-            this.panel2.TabIndex = 8;
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "Nº";
+            this.id.Name = "id";
             // 
-            // btnclosefunc
+            // Nome
             // 
-            this.btnclosefunc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.btnclosefunc.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnclosefunc.FlatAppearance.BorderSize = 0;
-            this.btnclosefunc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnclosefunc.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnclosefunc.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnclosefunc.Location = new System.Drawing.Point(803, 10);
-            this.btnclosefunc.Name = "btnclosefunc";
-            this.btnclosefunc.Size = new System.Drawing.Size(104, 32);
-            this.btnclosefunc.TabIndex = 2;
-            this.btnclosefunc.Text = "Fechar";
-            this.btnclosefunc.UseVisualStyleBackColor = false;
-            this.btnclosefunc.Click += new System.EventHandler(this.btnclosecadfunc_Click);
+            this.Nome.DataPropertyName = "Nome";
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
             // 
-            // dSFuncionarioBindingSource
+            // Email
             // 
-            this.dSFuncionarioBindingSource.DataSource = this.dS_Funcionario;
-            this.dSFuncionarioBindingSource.Position = 0;
+            this.Email.DataPropertyName = "Email";
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
             // 
-            // funcionariosTableAdapter
+            // Telefone
             // 
-            this.funcionariosTableAdapter.ClearBeforeFill = true;
+            this.Telefone.DataPropertyName = "Telefone";
+            this.Telefone.HeaderText = "Telefone";
+            this.Telefone.Name = "Telefone";
+            // 
+            // Endereco
+            // 
+            this.Endereco.DataPropertyName = "Endereco";
+            this.Endereco.HeaderText = "Endereco";
+            this.Endereco.Name = "Endereco";
+            // 
+            // Nascimento
+            // 
+            this.Nascimento.DataPropertyName = "Nascimento";
+            this.Nascimento.HeaderText = "Nascimento";
+            this.Nascimento.Name = "Nascimento";
+            // 
+            // Sexo
+            // 
+            this.Sexo.DataPropertyName = "Sexo";
+            this.Sexo.HeaderText = "Sexo";
+            this.Sexo.Name = "Sexo";
+            // 
+            // CPF
+            // 
+            this.CPF.DataPropertyName = "CPF";
+            this.CPF.HeaderText = "CPF";
+            this.CPF.Name = "CPF";
+            // 
+            // Cracha
+            // 
+            this.Cracha.DataPropertyName = "Cracha";
+            this.Cracha.HeaderText = "Cracha";
+            this.Cracha.Name = "Cracha";
             // 
             // Form_Controle_Funcionarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(917, 390);
+            this.ClientSize = new System.Drawing.Size(1066, 500);
             this.Controls.Add(this.panelcentro);
             this.Name = "Form_Controle_Funcionarios";
             this.Text = "Form_Cadastro_Funcionarios";
@@ -336,9 +404,9 @@ namespace LMFinanciamentos.Apresentacao
             this.pnlcontrol.ResumeLayout(false);
             this.pnlcontrol.PerformLayout();
             this.paneltop.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.img_topo)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dSFuncionarioBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.img_topo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -355,18 +423,24 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.Label lblprocurar;
         private System.Windows.Forms.Button btnprocurar;
         private System.Windows.Forms.TextBox txtprocurar;
-        private System.Windows.Forms.DataGridView dgv_funccionarios;
         private System.Windows.Forms.BindingSource dSFuncionarioBindingSource;
         private DAL.DS_Funcionario dS_Funcionario;
         private System.Windows.Forms.BindingSource funcionariosBindingSource;
         private DAL.DS_FuncionarioTableAdapters.FuncionariosTableAdapter funcionariosTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telefoneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn enderecoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nascimentoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sexoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cPFDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn crachaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btn_excluir_func;
+        private System.Windows.Forms.Splitter splitter2;
+        private System.Windows.Forms.Button btn_editar_func;
+        private System.Windows.Forms.Splitter splitter1;
+        private System.Windows.Forms.Button btn_new_func;
+        private System.Windows.Forms.DataGridView dgv_funccionarios;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Telefone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Endereco;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nascimento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sexo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CPF;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cracha;
     }
 }

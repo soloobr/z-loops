@@ -253,6 +253,61 @@ namespace LMFinanciamentos.DAL
 
             return mensagem;
         }
+        public String UpdateFuncionario(String id, String nome, String email, String telefone, String celular, String endereco, DateTime nascimento, String sexo, String cpf, String rg, String cracha, String login,String permission, String status)
+        {
+
+
+            try
+            {
+                cmd.CommandText = "UPDATE Funcionarios " +
+                "SET Nome = @nome, Email = @email, Telefone = @telefone, Celular = @celular, Endereco = @endereco, Nascimento = @nascimento, Sexo = @sexo, CPF = @cpf, RG = @rg, Cracha = @cracha, Login = @login, Permission = @permission, Status = @status " +
+                "WHERE Funcionarios.id = @id ";
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@nome", nome);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@telefone", telefone);
+                cmd.Parameters.AddWithValue("@celular", celular);
+                cmd.Parameters.AddWithValue("@endereco", endereco);
+                cmd.Parameters.AddWithValue("@nascimento", nascimento);
+                cmd.Parameters.AddWithValue("@sexo", sexo);
+                cmd.Parameters.AddWithValue("@cpf", cpf);
+                cmd.Parameters.AddWithValue("@rg", rg);
+                cmd.Parameters.AddWithValue("@cracha", cracha);
+                cmd.Parameters.AddWithValue("@login", login);
+                cmd.Parameters.AddWithValue("@permission", permission);
+                cmd.Parameters.AddWithValue("@status", status);
+
+
+
+                cmd.Connection = con.conectar();
+
+                int recordsAffected = cmd.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "Funcionário Atualizado com Sucesso!";
+                }
+                else
+                {
+                    mensagem = "Erro ao Atualizar Funcionário";
+                }
+
+
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+            }
+            catch (Exception err)
+            {
+                //throw new Exception("Erro ao Alterar senha: " + err.Message);
+                mensagem = ("Erro ao Atualizar Funcionário: " + err.Message);
+            }
+
+            return mensagem;
+        }
         public String UpdateVendedor(String id, String nome, String cpf, String cnpj, String email, String telefone, String celular, String status)
         {
 
@@ -470,6 +525,46 @@ namespace LMFinanciamentos.DAL
 
             return mensagem;
         }
+        public String InsertFotoFuncionario(String id, Byte[] foto, String descricao)
+        {
+
+
+            try
+            {
+                cmd.CommandText = "INSERT INTO Foto(idFunc, Foto, Descricao) VALUES (@id,@foto,@descricao)";
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@foto", foto);
+                cmd.Parameters.AddWithValue("@descricao", descricao);
+
+                cmd.Connection = con.conectar();
+
+                int recordsAffected = cmd.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "OK";
+                }
+                else
+                {
+                    mensagem = "Erro ao Inserir Foto do Funcionário";
+                }
+
+                con.desconectar();
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+            }
+            catch (Exception err)
+            {
+                //throw new Exception("Erro ao Alterar senha: " + err.Message);
+                mensagem = ("Erro ao Inserir a Foto do Funcionário!: " + err.Message);
+            }
+
+            return mensagem;
+        }
         public String DeleteFotoCliente(String id)
         {
 
@@ -544,6 +639,45 @@ namespace LMFinanciamentos.DAL
             {
                 //throw new Exception("Erro ao Alterar senha: " + err.Message);
                 mensagem = ("Erro ao Excluir a Foto do Vendedor!: " + err.Message);
+            }
+
+            return mensagem;
+        }
+        public String DeleteFotoFuncionario(String id)
+        {
+
+
+            try
+            {
+                cmd.CommandText = "DELETE FROM Foto WHERE idFunc = @id; ";
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", id);
+
+
+                cmd.Connection = con.conectar();
+
+                int recordsAffected = cmd.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "Excluido";
+                }
+                else
+                {
+                    mensagem = "Erro ao Excluir Foto do Funcionario";
+                }
+
+                con.desconectar();
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+            }
+            catch (Exception err)
+            {
+                //throw new Exception("Erro ao Alterar senha: " + err.Message);
+                mensagem = ("Erro ao Excluir a Foto do Funcionário!: " + err.Message);
             }
 
             return mensagem;
@@ -630,6 +764,47 @@ namespace LMFinanciamentos.DAL
 
             return mensagem;
         }
+        public String UpdateFotoFuncionario(String id, Byte[] foto)
+        {
+
+
+            try
+            {
+                cmd.CommandText = "UPDATE Foto " +
+                "SET Foto = @foto " +
+                "WHERE Foto.idFunc = @id ";
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@foto", foto);
+
+                cmd.Connection = con.conectar();
+
+                int recordsAffected = cmd.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "OK";
+                }
+                else
+                {
+                    mensagem = "Erro ao Atualizar Foto do Funcionario";
+                }
+
+                con.desconectar();
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+            }
+            catch (Exception err)
+            {
+                //throw new Exception("Erro ao Alterar senha: " + err.Message);
+                mensagem = ("Erro ao Atualizar a Foto Funcionario!: " + err.Message);
+            }
+
+            return mensagem;
+        }
         public int CadastrarCliente(String nome, String email, String telefone, String celular, String cpf, String rg, DateTime nascimento, String sexo, String status, String renda)
         {
 
@@ -637,6 +812,67 @@ namespace LMFinanciamentos.DAL
             try
             {
                 cmd.CommandText = "INSERT INTO Clientes (Nome, Email, Telefone, Celular, CPF, RG, Nascimento, Sexo, Status, Renda) Values  (@nome, @email, @telefone, @celular, @cpf, @rg, @nascimento, @sexo, @status, @renda)";
+
+                cmd.Parameters.AddWithValue("@nome", nome);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@telefone", telefone);
+                cmd.Parameters.AddWithValue("@celular", celular);
+                cmd.Parameters.AddWithValue("@cpf", cpf);
+                //cmd.Parameters.AddWithValue("@statuscpf", statuscpf);
+                //cmd.Parameters.AddWithValue("@stciweb", stciweb);
+                //cmd.Parameters.AddWithValue("@stcadmut", stcadmut);
+                //cmd.Parameters.AddWithValue("@stir", stir);
+                //cmd.Parameters.AddWithValue("@stfgts", stfgts);
+                cmd.Parameters.AddWithValue("@rg", rg);
+                cmd.Parameters.AddWithValue("@nascimento", nascimento);
+                cmd.Parameters.AddWithValue("@sexo", sexo);
+                cmd.Parameters.AddWithValue("@status", status);
+                cmd.Parameters.AddWithValue("@renda", renda);
+
+                cmd.Connection = con.conectar();
+
+                cmd.ExecuteNonQuery();
+
+                if (cmd.LastInsertedId != 0)
+                    cmd.Parameters.Add(new MySqlParameter("ultimoId", cmd.LastInsertedId));
+
+                return Convert.ToInt32(cmd.Parameters["@ultimoId"].Value);
+
+                //if (recordsAffected > 0)
+                //{
+                //    mensagem = "Documento Adicionado Com Sucesso";
+                //}
+                //else
+                //{
+                //    mensagem = "Erro ao Adicionar Documento";
+                //}
+
+
+            }
+            //catch (MySqlException error)
+            //{
+            //    mensagem = ("Erro ao conectar: " + error.Message);
+            //}
+            catch (Exception err)
+            {
+                //throw new Exception("Erro ao Alterar senha: " + err.Message);
+                //mensagem = ("Erro ao Adicionar o Documento: " + err.Message);
+                throw err;
+            }
+            finally
+            {
+                con.desconectar();
+            }
+
+            //return mensagem;
+        }
+        public int CadastrarFuncionario(String nome, String email, String telefone, String celular, String cpf, String rg, DateTime nascimento, String sexo, String status, String renda)
+        {
+
+
+            try
+            {
+                cmd.CommandText = "INSERT INTO Funcionarios (Nome, Email, Telefone, Celular, CPF, RG, Nascimento, Sexo, Status, Renda) Values  (@nome, @email, @telefone, @celular, @cpf, @rg, @nascimento, @sexo, @status, @renda)";
 
                 cmd.Parameters.AddWithValue("@nome", nome);
                 cmd.Parameters.AddWithValue("@email", email);
@@ -764,7 +1000,7 @@ namespace LMFinanciamentos.DAL
                 drfunc = cmd.ExecuteReader();
                 while (drfunc.Read())
                 {
-                    func.Id_func = drfunc["id"].ToString();
+                    func.Id_Func = drfunc["id"].ToString();
                     func.Nome_Func = drfunc["Nome"].ToString();
                     func.Login_Func = drfunc["Login"].ToString();
                     func.Senha_Func = drfunc["Senha"].ToString();
@@ -864,6 +1100,43 @@ namespace LMFinanciamentos.DAL
 
             return vend;
         }
+        public Funcionario GetFotoFuncionario(String id)
+        {
+            cmd.CommandText = "Select Funcionarios.id, F.Descricao, F.Foto From Funcionarios left join Foto F on Funcionarios.id = F.IdFunc  where Funcionarios.id = @id";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@id", id);
+
+            Funcionario vend = new Funcionario();
+            try
+            {
+                cmd.Connection = con.conectar();
+                drfunc = cmd.ExecuteReader();
+                while (drfunc.Read())
+                {
+                    vend.Id_Func = drfunc["id"].ToString();
+                    //cli.descr = drfunc["Descricao"].ToString();
+                    if (System.DBNull.Value == drfunc["Foto"])
+                    {
+
+                    }
+                    else
+                    {
+                        Byte[] byteBLOBData = new Byte[0];
+                        vend.Foto_Func = (Byte[])(drfunc["Foto"]);
+                    }
+
+
+                }
+                drfunc.Close();
+                con.desconectar();
+            }
+            catch (SqlException err)
+            {
+                throw new Exception("Erro ao obter Foto do Funcionario: " + err.Message);
+            }
+
+            return vend;
+        }
         public Cliente GetCliente(String id)
         {
            //var list = new List<Cliente>();
@@ -910,6 +1183,54 @@ namespace LMFinanciamentos.DAL
 
             return client;
             //return list;
+        }
+        public Funcionario GetFuncionario(String sid)
+        {
+            //var list = new List<Cliente>();
+
+            cmd.CommandText = "SELECT id, Nome, Email, Telefone, Celular, Endereco, Nascimento, Sexo, CPF, RG, Cracha, Login, Permission, Status FROM Funcionarios WHERE id = @id";
+
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@id", sid);
+            Funcionario func = new Funcionario();
+            try
+            {
+                cmd.Connection = con.conectar();
+                drfunc = cmd.ExecuteReader();
+                while (drfunc.Read())
+                {
+                    //Cliente func = new Cliente();
+                    func.Id_Func = drfunc["id"].ToString();
+                    func.Nome_Func = drfunc["Nome"].ToString();
+                    func.Email_Func = drfunc["Email"].ToString();
+                    func.Telefone_Func = drfunc["Telefone"].ToString();
+                    func.Celular_Func = drfunc["Celular"].ToString();
+                    func.Endereco_Func = drfunc["Endereco"].ToString();
+                    func.Nascimento_Func = drfunc["Nascimento"].ToString();
+                    func.Sexo_Func = drfunc["Sexo"].ToString();
+                    func.CPF_Func = FormatCnpjCpf.FormatCPF(drfunc["CPF"].ToString());
+                    func.RG_Func = FormatCnpjCpf.FormatRG(drfunc["RG"].ToString());
+                    func.Cracha_Func = drfunc["Cracha"].ToString();
+                    func.Login_Func = drfunc["Login"].ToString();
+                    func.Permision = drfunc["Permission"].ToString();
+                    func.Status_Func = drfunc["Endereco"].ToString();
+                    func.Status_Func = drfunc["Status"].ToString(); 
+                    //func.RG_Func = drfunc["RG"].ToString();
+                    //func.Renda_func = drfunc["Renda"].ToString();
+                    //Byte[] byteBLOBData = new Byte[0];
+                    //func.Foto_Func = (Byte[])(drfunc["Foto"]);
+                    //list.Add(func);
+                }
+                drfunc.Close();
+                con.desconectar();
+
+            }
+            catch (SqlException err)
+            {
+                throw new Exception("Erro ao obter Funcionário: " + err.Message);
+            }
+
+            return func;
         }
         public Servidor GetServer()
         {
@@ -1544,6 +1865,44 @@ namespace LMFinanciamentos.DAL
             catch (Exception err)
             {
                 mensagem = ("Erro ao Excluir Vendedor: " + err.Message);
+                conn.desconectar();
+            }
+
+            return mensagem;
+        }
+        public String DeleteFuncionario(String idfunc)
+        {
+            try
+            {
+                cmd1.CommandText = "DELETE FROM Funcionarios " +
+                "WHERE id = @idfunc ";
+
+                cmd1.Parameters.Clear();
+                cmd1.Parameters.AddWithValue("@idfunc", idfunc);
+
+                cmd1.Connection = conn.conectar();
+
+                int recordsAffected = cmd1.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "Funcionário Excluído com sucesso!";
+                    conn.desconectar();
+                }
+                else
+                {
+                    mensagem = "Erro ao Excluir Funcionário";
+                    conn.desconectar();
+                }
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+                conn.desconectar();
+            }
+            catch (Exception err)
+            {
+                mensagem = ("Erro ao Excluir Funcionário: " + err.Message);
                 conn.desconectar();
             }
 
