@@ -154,6 +154,7 @@ namespace LMFinanciamentos.Apresentacao
 
             if(contgrid  ==  contgridlast) 
             {
+                MessageBox.Show(vendedorselecionado.ToString());
                 dgv_vendedores.ClearSelection();
                 dgv_vendedores.Rows[vendedorselecionado].Selected = true;
                 dgv_vendedores.Rows[vendedorselecionado].Cells[0].Selected = true;

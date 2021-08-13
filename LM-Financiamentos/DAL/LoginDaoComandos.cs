@@ -866,29 +866,26 @@ namespace LMFinanciamentos.DAL
 
             //return mensagem;
         }
-        public int CadastrarFuncionario(String nome, String email, String telefone, String celular, String cpf, String rg, DateTime nascimento, String sexo, String status, String renda)
+        public int CadastrarFuncionario(String nome, String email, String telefone, String celular, String endereco, DateTime nascimento,  String sexo, String cpf, String rg, String cracha, String permission, String status)
         {
-
-
             try
             {
-                cmd.CommandText = "INSERT INTO Funcionarios (Nome, Email, Telefone, Celular, CPF, RG, Nascimento, Sexo, Status, Renda) Values  (@nome, @email, @telefone, @celular, @cpf, @rg, @nascimento, @sexo, @status, @renda)";
+                cmd.CommandText = "INSERT INTO Funcionarios (Nome, Email, Telefone, Celular, Endereco, Nascimento, Sexo, CPF, RG, Cracha, Permission, Status) Values  " +
+                    "(@nome, @email, @telefone, @celular, @endereco, @nascimento, @sexo, @cpf, @rg, @cracha, @permission, @status)";
 
                 cmd.Parameters.AddWithValue("@nome", nome);
                 cmd.Parameters.AddWithValue("@email", email);
                 cmd.Parameters.AddWithValue("@telefone", telefone);
                 cmd.Parameters.AddWithValue("@celular", celular);
-                cmd.Parameters.AddWithValue("@cpf", cpf);
-                //cmd.Parameters.AddWithValue("@statuscpf", statuscpf);
-                //cmd.Parameters.AddWithValue("@stciweb", stciweb);
-                //cmd.Parameters.AddWithValue("@stcadmut", stcadmut);
-                //cmd.Parameters.AddWithValue("@stir", stir);
-                //cmd.Parameters.AddWithValue("@stfgts", stfgts);
-                cmd.Parameters.AddWithValue("@rg", rg);
+                cmd.Parameters.AddWithValue("@endereco", endereco);
                 cmd.Parameters.AddWithValue("@nascimento", nascimento);
                 cmd.Parameters.AddWithValue("@sexo", sexo);
+                cmd.Parameters.AddWithValue("@cpf", cpf);
+                cmd.Parameters.AddWithValue("@rg", rg);
+                cmd.Parameters.AddWithValue("@cracha", cracha);
+                //cmd.Parameters.AddWithValue("@login", login);
+                cmd.Parameters.AddWithValue("@permission", permission);
                 cmd.Parameters.AddWithValue("@status", status);
-                cmd.Parameters.AddWithValue("@renda", renda);
 
                 cmd.Connection = con.conectar();
 
@@ -899,33 +896,16 @@ namespace LMFinanciamentos.DAL
 
                 return Convert.ToInt32(cmd.Parameters["@ultimoId"].Value);
 
-                //if (recordsAffected > 0)
-                //{
-                //    mensagem = "Documento Adicionado Com Sucesso";
-                //}
-                //else
-                //{
-                //    mensagem = "Erro ao Adicionar Documento";
-                //}
-
 
             }
-            //catch (MySqlException error)
-            //{
-            //    mensagem = ("Erro ao conectar: " + error.Message);
-            //}
             catch (Exception err)
             {
-                //throw new Exception("Erro ao Alterar senha: " + err.Message);
-                //mensagem = ("Erro ao Adicionar o Documento: " + err.Message);
                 throw err;
             }
             finally
             {
                 con.desconectar();
             }
-
-            //return mensagem;
         }
         public int CadastrarVendedor(String nome, String email, String telefone, String celular, String cpf, String cnpj, String status)
         {
@@ -988,6 +968,44 @@ namespace LMFinanciamentos.DAL
 
             //return mensagem;
         }
+        public int CadastrarLogin(String login, String senha)
+        {
+
+
+            try
+            {
+                cmd.CommandText = "INSERT INTO Login (Login, Senha) Values  (@login, @senha)";
+
+                cmd.Parameters.AddWithValue("@login", login);
+                cmd.Parameters.AddWithValue("@senha", senha);
+               
+                cmd.Connection = con.conectar();
+
+                cmd.ExecuteNonQuery();
+
+                if (cmd.LastInsertedId != 0)
+                    cmd.Parameters.Add(new MySqlParameter("ultimoId", cmd.LastInsertedId));
+
+                return Convert.ToInt32(cmd.Parameters["@ultimoId"].Value);
+
+               
+            }
+            
+            catch (MySqlException err)
+            {
+                if (err.Number == 1062) // Cannot insert duplicate key row in object error
+                    return 10102121;
+                else
+                {
+                    // Handle duplicate key error
+                    throw; //
+                }
+            }
+            finally
+            {
+                con.desconectar();
+            }
+        }
         public Funcionario GetFunc(String login, String senha)
         {
             cmd.CommandText = "Select Funcionarios.Login as id, Funcionarios.Nome, Login.Login, Login.Senha, Permission, Foto From Login inner join Funcionarios on Login.id = Funcionarios.Login inner join Foto F on Login.id = F.IdFunc  where Login.Login = @login and Senha = @senha";
@@ -1000,11 +1018,11 @@ namespace LMFinanciamentos.DAL
                 drfunc = cmd.ExecuteReader();
                 while (drfunc.Read())
                 {
-                    func.Id_Func = drfunc["id"].ToString();
-                    func.Nome_Func = drfunc["Nome"].ToString();
-                    func.Login_Func = drfunc["Login"].ToString();
-                    func.Senha_Func = drfunc["Senha"].ToString();
-                    func.Permision = drfunc["Permission"].ToString();
+                    func.Id_Funcionario = drfunc["id"].ToString();
+                    func.Nome_Funcionario = drfunc["Nome"].ToString();
+                    func.Login_Funcionario = drfunc["Login"].ToString();
+                    func.Senha_Funcionario = drfunc["Senha"].ToString();
+                    func.Permission_Funcionario = drfunc["Permission"].ToString();
 
                     if (System.DBNull.Value == drfunc["Foto"])
                     {
@@ -1013,11 +1031,12 @@ namespace LMFinanciamentos.DAL
                     else
                     {
                         Byte[] byteBLOBData = new Byte[0];
-                        func.Foto_Func = (Byte[])(drfunc["Foto"]);
+                        func.Foto_Funcionario = (Byte[])(drfunc["Foto"]);
                     }
 
                 }
                 drfunc.Close();
+                con.desconectar();
             }
             catch (SqlException err)
             {
@@ -1113,7 +1132,7 @@ namespace LMFinanciamentos.DAL
                 drfunc = cmd.ExecuteReader();
                 while (drfunc.Read())
                 {
-                    vend.Id_Func = drfunc["id"].ToString();
+                    vend.Id_Funcionario = drfunc["id"].ToString();
                     //cli.descr = drfunc["Descricao"].ToString();
                     if (System.DBNull.Value == drfunc["Foto"])
                     {
@@ -1122,7 +1141,7 @@ namespace LMFinanciamentos.DAL
                     else
                     {
                         Byte[] byteBLOBData = new Byte[0];
-                        vend.Foto_Func = (Byte[])(drfunc["Foto"]);
+                        vend.Foto_Funcionario = (Byte[])(drfunc["Foto"]);
                     }
 
 
@@ -1200,21 +1219,20 @@ namespace LMFinanciamentos.DAL
                 while (drfunc.Read())
                 {
                     //Cliente func = new Cliente();
-                    func.Id_Func = drfunc["id"].ToString();
-                    func.Nome_Func = drfunc["Nome"].ToString();
-                    func.Email_Func = drfunc["Email"].ToString();
-                    func.Telefone_Func = drfunc["Telefone"].ToString();
-                    func.Celular_Func = drfunc["Celular"].ToString();
-                    func.Endereco_Func = drfunc["Endereco"].ToString();
-                    func.Nascimento_Func = drfunc["Nascimento"].ToString();
-                    func.Sexo_Func = drfunc["Sexo"].ToString();
-                    func.CPF_Func = FormatCnpjCpf.FormatCPF(drfunc["CPF"].ToString());
-                    func.RG_Func = FormatCnpjCpf.FormatRG(drfunc["RG"].ToString());
-                    func.Cracha_Func = drfunc["Cracha"].ToString();
-                    func.Login_Func = drfunc["Login"].ToString();
+                    func.Id_Funcionario = drfunc["id"].ToString();
+                    func.Nome_Funcionario = drfunc["Nome"].ToString();
+                    func.Email_Funcionario = drfunc["Email"].ToString();
+                    func.Telefone_Funcionario = drfunc["Telefone"].ToString();
+                    func.Celular_Funcionario = drfunc["Celular"].ToString();
+                    func.Endereco_Funcionario = drfunc["Endereco"].ToString();
+                    func.Nascimento_Funcionario = drfunc["Nascimento"].ToString();
+                    func.Sexo_Funcionario = drfunc["Sexo"].ToString();
+                    func.CPF_Funcionario = FormatCnpjCpf.FormatCPF(drfunc["CPF"].ToString());
+                    func.RG_Funcionario = FormatCnpjCpf.FormatRG(drfunc["RG"].ToString());
+                    func.Cracha_Funcionario = drfunc["Cracha"].ToString();
+                    func.Login_Funcionario = drfunc["Login"].ToString();
                     func.Permision = drfunc["Permission"].ToString();
-                    func.Status_Func = drfunc["Endereco"].ToString();
-                    func.Status_Func = drfunc["Status"].ToString(); 
+                    func.Status_Funcionario = drfunc["Status"].ToString(); 
                     //func.RG_Func = drfunc["RG"].ToString();
                     //func.Renda_func = drfunc["Renda"].ToString();
                     //Byte[] byteBLOBData = new Byte[0];
@@ -1530,8 +1548,55 @@ namespace LMFinanciamentos.DAL
             {
                 throw new Exception("Erro ao obter Vendedor: " + err.Message);
             }
+            return list;
+        }
 
-            //return client;
+        public List<Funcionario> GetFuncionarios(String nome)
+
+        {
+            var list = new List<Funcionario>();
+
+            cmd.CommandText = "SELECT id, Nome, Email, Telefone, Celular, Endereco, Nascimento, Sexo, CPF, RG, Cracha, Login, Permission, Status FROM Funcionarios WHERE Nome Like @nome ";
+            //cmd.CommandText = "SELECT * FROM Funcionarios";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@nome", "%" + nome + "%");
+            //Funcionario func = new Funcionario();
+            try
+            {
+                cmd.Connection = con.conectar();
+                drfunc = cmd.ExecuteReader();
+                while (drfunc.Read())
+                {
+                    Funcionario func = new Funcionario();
+                    func.Id_Funcionario = drfunc["id"].ToString();
+                    func.Nome_Funcionario = drfunc["Nome"].ToString();
+                    func.Email_Funcionario = drfunc["Email"].ToString();
+                    func.Telefone_Funcionario = drfunc["Telefone"].ToString();
+                    func.Celular_Funcionario = drfunc["Celular"].ToString();
+                    func.Endereco_Funcionario = drfunc["Endereco"].ToString();
+                    func.Nascimento_Funcionario = drfunc["Nascimento"].ToString();
+                    func.Sexo_Funcionario = drfunc["Sexo"].ToString();
+                    func.CPF_Funcionario = FormatCnpjCpf.FormatCPF(drfunc["CPF"].ToString());
+                    func.RG_Funcionario = FormatCnpjCpf.FormatRG(drfunc["RG"].ToString());
+                    func.Cracha_Funcionario = drfunc["Cracha"].ToString();
+                    func.Login_Funcionario = drfunc["Login"].ToString();
+                    func.Permission_Funcionario = drfunc["Permission"].ToString();
+                    func.Status_Funcionario = drfunc["Status"].ToString();
+                    //func.RG_Func = drfunc["RG"].ToString();
+                    //func.Renda_func = drfunc["Renda"].ToString();
+                    //Byte[] byteBLOBData = new Byte[0];
+                    //func.Foto_Func = (Byte[])(drfunc["Foto"]);
+                    list.Add(func);
+                }
+                drfunc.Close();
+                con.desconectar();
+
+            }
+            catch (SqlException err)
+            {
+                throw new Exception("Erro ao obter Funcionário: " + err.Message);
+            }
+
             return list;
         }
         public Vendedor GetVendedor(String id)
@@ -1939,7 +2004,36 @@ namespace LMFinanciamentos.DAL
 
             return mensagem;
         }
-         public void autoCompletar(ComboBox novoText, String nome)
+        public string UpdateLoginNewUser(String id,  String idfunc)
+        {
+            try
+            {
+                cmd1.CommandText = "UPDATE Funcionarios SET Login = @id WHERE id = @idfunc";
+
+                cmd1.Parameters.Clear();
+                cmd1.Parameters.AddWithValue("@id", id);
+                cmd1.Parameters.AddWithValue("@idfunc", idfunc);
+
+
+                cmd1.Connection = conn.conectar();
+                drsenha = cmd1.ExecuteReader();
+                //while (drsenha.Read())
+                //{
+                    mensagem = "OK";
+                //}
+
+                drsenha.Close();
+                conn.desconectar();
+
+            }
+            catch (MySqlException err)
+            {
+                mensagem = ("Erro ao lincar Login ao Funcionário: " + err.Message);
+            }
+
+            return mensagem;
+        }
+        public void autoCompletar(ComboBox novoText, String nome)
         {
             cmd2.CommandText = "SELECT Nome FROM Clientes WHERE Nome LIKE @nomeclientes";
             cmd2.Parameters.Clear();

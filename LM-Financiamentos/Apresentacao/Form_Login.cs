@@ -140,9 +140,9 @@ namespace LMFinanciamentos
 
                         //MessageBox.Show("Logado com sucesso! ", "Entrando", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Form_Principal frm_Principal = new Form_Principal();
-                        if(func.Foto_Func != null)
+                        if(func.Foto_Funcionario != null)
                         {
-                            frm_Principal.setFoto(func.Foto_Func);
+                            frm_Principal.setFoto(func.Foto_Funcionario);
                         }
                         frm_Principal.setLabel(func, ola);
                         frm_Principal.Show();

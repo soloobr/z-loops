@@ -1,4 +1,5 @@
 ﻿using LMFinanciamentos.DAL;
+using LMFinanciamentos.Entidades;
 using System;
 using System.Windows.Forms;
 
@@ -8,6 +9,7 @@ namespace LMFinanciamentos.Apresentacao
     {
         public string consultar;
         int funcionarioselecionado;
+        int contgrid, contgridlast;
         public Form_Controle_Funcionarios()
         {
             InitializeComponent();
@@ -20,31 +22,70 @@ namespace LMFinanciamentos.Apresentacao
 
         private void btnprocurar_Click(object sender, EventArgs e)
         {
-            if(txtprocurar.Text == "")
+            //if(txtprocurar.Text == "")
+            //{
+            //     MessageBox.Show("Favor Digitar o número do crachá ou nome do Funcionário para pesquisar!", "Campo Necessario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    txtprocurar.Focus();
+            //}
+            //else
+            //{
+            //    DAL.DS_FuncionarioTableAdapters.FuncionariosTableAdapter adp = new DAL.DS_FuncionarioTableAdapters.FuncionariosTableAdapter();
+            //    consultar = '%' + txtprocurar.Text + '%';
+
+            //    if (adp.GetDataBy1(consultar) != null && adp.GetDataBy1(consultar).Rows.Count > 0)
+            //    {
+            //        dgv_funcionarios.DataSource = adp.GetDataBy1(consultar);
+            //        dgv_funcionarios.Refresh();
+            //    }
+            //    else 
+            //    {
+            //        MessageBox.Show("Não foi encontrado entradas para a pesquisa: \n (" + txtprocurar.Text + ") ", "Não Encontrado!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //        txtprocurar.Focus();
+            //    }
+            //}
+            Cursor = Cursors.WaitCursor;
+            if (txtprocurar.Text == "")
             {
-                 MessageBox.Show("Favor Digitar o número do crachá ou nome do Funcionário para pesquisar!", "Campo Necessario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Favor Digitar o número ou Nome do Funcionario para pesquisar!", "Campo Necessario", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtprocurar.Focus();
             }
             else
             {
-                DAL.DS_FuncionarioTableAdapters.FuncionariosTableAdapter adp = new DAL.DS_FuncionarioTableAdapters.FuncionariosTableAdapter();
-                consultar = '%' + txtprocurar.Text + '%';
 
-                if (adp.GetDataBy1(consultar) != null && adp.GetDataBy1(consultar).Rows.Count > 0)
+                //DAL.DS_DocumentosTableAdapters.ProcessosTableAdapter consulta = new DAL.DS_DocumentosTableAdapters.ProcessosTableAdapter();
+                consultar = "%" + txtprocurar.Text + "%";
+
+                LoginDaoComandos getfunciuonario = new LoginDaoComandos();
+                Funcionario[] myArray = getfunciuonario.GetFuncionarios(consultar).ToArray();
+                bool verifica = false;
+
+                foreach (Funcionario c in myArray)
                 {
-                    dgv_funccionarios.DataSource = adp.GetDataBy1(consultar);
-                    dgv_funccionarios.Refresh();
+                    if (c.Id_Funcionario != null)
+                    {
+                        verifica = true;
+                    }
                 }
-                else 
+
+                if (verifica)
                 {
-                    MessageBox.Show("Não foi encontrado entradas para a pesquisa: \n (" + txtprocurar.Text + ") ", "Não Encontrado!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dgv_funcionarios.Columns[4].DefaultCellStyle.Format = "MM/dd/yyyy";
+                    dgv_funcionarios.DataSource = getfunciuonario.GetFuncionarios(consultar);
+                    dgv_funcionarios.Refresh();
+                    verifica = false;
+                    Cursor.Current = Cursors.Default;
+                }
+                else
+                {
+                    MessageBox.Show("Não foi encontrado Funcionario para a pesquisa: \n (" + txtprocurar.Text + ") ", "Não Encontrado!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtprocurar.Focus();
+                    Cursor.Current = Cursors.Default;
                 }
             }
-
+            Cursor = Cursors.Default;
         }
 
-        private void Form_Cadastro_Funcionarios_Load(object sender, EventArgs e)
+        private void Form_Controle_Funcionarios_Load(object sender, EventArgs e)
         {
             //txtprocurar.Select();
             //this.ActiveControl = txtprocurar;
@@ -57,13 +98,16 @@ namespace LMFinanciamentos.Apresentacao
 
             LoginDaoComandos getfuncionarios = new LoginDaoComandos();
             //dgv_clientes.Columns[3].DefaultCellStyle.Format = "d";
-            dgv_funccionarios.AutoGenerateColumns = false;
-            dgv_funccionarios.DataSource = getfuncionarios.GetFuncionario("%");
+            dgv_funcionarios.AutoGenerateColumns = false;
+            dgv_funcionarios.DataSource = getfuncionarios.GetFuncionarios("%");
             //this.dgv_clientes.Columns["Nascimento"].DefaultCellStyle.Format = "MM/dd/yyyy";
             //this.dgv_clientes.Columns["Nascimento"].DefaultCellStyle.ForeColor = Color.Blue;
             //this.dgv_clientes.DefaultCellStyle.ForeColor = Color.Blue;
-            dgv_funccionarios.Refresh();
+            dgv_funcionarios.Refresh();
 
+            //String idfuncionario = getfuncionarios.GetFuncionario("%").Nome_Funcionario;
+
+            //MessageBox.Show(idfuncionario);
             Cursor = Cursors.Default;
         }
         public event Action FuncionarioSalvo;
@@ -90,17 +134,17 @@ namespace LMFinanciamentos.Apresentacao
         {
             AtualizaGrid();
 
-            dgv_funccionarios.ClearSelection();
+            dgv_funcionarios.ClearSelection();
 
-            int nRowIndex = dgv_funccionarios.Rows.Count - 1;
-            dgv_funccionarios.Rows[nRowIndex].Selected = true;
-            dgv_funccionarios.Rows[nRowIndex].Cells[0].Selected = true;
-            dgv_funccionarios.FirstDisplayedScrollingRowIndex = nRowIndex;
+            int nRowIndex = dgv_funcionarios.Rows.Count - 1;
+            dgv_funcionarios.Rows[nRowIndex].Selected = true;
+            dgv_funcionarios.Rows[nRowIndex].Cells[0].Selected = true;
+            dgv_funcionarios.FirstDisplayedScrollingRowIndex = nRowIndex;
         }
         private void AtualizaGrid()
         {
             LoginDaoComandos getfuncionarios = new LoginDaoComandos();
-            dgv_funccionarios.DataSource = getfuncionarios.GetFuncionario("%");
+            dgv_funcionarios.DataSource = getfuncionarios.GetFuncionarios("%");
             //MessageBox.Show(getfuncionarios.GetFuncionario("%").Id_Func.ToString());
 
 
@@ -110,8 +154,9 @@ namespace LMFinanciamentos.Apresentacao
         {
 
             Form_Dados_Funcionario frm_dados_funcionarios = new Form_Dados_Funcionario();
-            frm_dados_funcionarios.setIdFuncionario(dgv_funccionarios.SelectedRows[0].Cells["id"].Value.ToString());
-            funcionarioselecionado = dgv_funccionarios.CurrentCell.RowIndex;
+            frm_dados_funcionarios.setIdFuncionario(dgv_funcionarios.SelectedRows[0].Cells["id"].Value.ToString());
+            funcionarioselecionado = dgv_funcionarios.CurrentCell.RowIndex;
+            contgrid = dgv_funcionarios.Rows.Count;
             frm_dados_funcionarios.FuncionarioSalvo += new Action(frm_dados_funcionario_FuncionarioSalvo);
             frm_dados_funcionarios.Show();
         }
@@ -119,8 +164,8 @@ namespace LMFinanciamentos.Apresentacao
 
         private void btn_excluir_func_Click(object sender, EventArgs e)
         {
-            String idclienteexclude = dgv_funccionarios.SelectedRows[0].Cells["id"].Value.ToString();
-            var result = MessageBox.Show("Deseja Excluir o Funcionário: \n " + dgv_funccionarios.SelectedRows[0].Cells["Nome"].Value.ToString() + "  ?", "excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            String idclienteexclude = dgv_funcionarios.SelectedRows[0].Cells["id"].Value.ToString();
+            var result = MessageBox.Show("Deseja Excluir o Funcionário: \n " + dgv_funcionarios.SelectedRows[0].Cells["Nome"].Value.ToString() + "  ?", "excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes)
             {
@@ -156,19 +201,42 @@ namespace LMFinanciamentos.Apresentacao
         {
             Cursor = Cursors.WaitCursor;
             Form_Dados_Funcionario frm_dados_funcionario = new Form_Dados_Funcionario();
-            frm_dados_funcionario.setIdFuncionario(dgv_funccionarios.SelectedRows[0].Cells["id"].Value.ToString());
-            funcionarioselecionado = dgv_funccionarios.CurrentCell.RowIndex;
+            frm_dados_funcionario.setIdFuncionario(dgv_funcionarios.SelectedRows[0].Cells["id"].Value.ToString());
+            funcionarioselecionado = dgv_funcionarios.CurrentCell.RowIndex;
+            contgrid = dgv_funcionarios.Rows.Count;
             frm_dados_funcionario.FuncionarioSalvo += new Action(frm_dados_funcionario_FuncionarioSalvo);
             frm_dados_funcionario.Show();
             Cursor = Cursors.Default;
         }
+
+        private void btn_reload_Click(object sender, EventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            LoginDaoComandos getfuncionarios = new LoginDaoComandos();
+            dgv_funcionarios.AutoGenerateColumns = false;
+            dgv_funcionarios.DataSource = getfuncionarios.GetFuncionarios("%");
+            dgv_funcionarios.Refresh();
+
+            Cursor = Cursors.Default;
+        }
+
+        private void Form_Controle_Funcionarios_Shown(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.Default;
+        }
+
         void frm_dados_funcionario_FuncionarioSalvo()
         {
             AtualizaGrid();
-
-            dgv_funccionarios.ClearSelection();
-            dgv_funccionarios.Rows[funcionarioselecionado].Selected = true;
-            dgv_funccionarios.Rows[funcionarioselecionado].Cells[0].Selected = true;
+           
+            contgridlast = dgv_funcionarios.Rows.Count;
+           
+            if (contgrid == contgridlast)
+            {
+                dgv_funcionarios.ClearSelection();
+                dgv_funcionarios.Rows[funcionarioselecionado].Selected = true;
+                dgv_funcionarios.Rows[funcionarioselecionado].Cells[0].Selected = true;
+            }
         }
 
     }

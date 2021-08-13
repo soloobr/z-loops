@@ -19,7 +19,7 @@ namespace LMFinanciamentos.Apresentacao
 
         public void setLabel(Funcionario func, Saudacao saudacao)
         {
-            lblfunc.Text = func.Nome_Func;
+            lblfunc.Text = func.Nome_Funcionario;
             lblsaudacao.Text = saudacao.Saudacoes;
         }
         //public void setFoto(Funcionario imagem)

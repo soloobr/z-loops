@@ -21,6 +21,8 @@ namespace LMFinanciamentos.Apresentacao
         bool arquivobase;
 
 
+
+
         public Form_Dados_Funcionario()
         {
             InitializeComponent();
@@ -200,7 +202,7 @@ namespace LMFinanciamentos.Apresentacao
                 }
             }
 
-            idLogin = idLogin;
+            
 
             LoginDaoComandos updatefuncionario = new LoginDaoComandos();
 
@@ -262,7 +264,7 @@ namespace LMFinanciamentos.Apresentacao
         {
             LoadDadosFuncionario();
          }
-
+        public event Action FuncionarioSalvo;
         public void LoadDadosFuncionario()
         {
             Cursor = Cursors.WaitCursor;
@@ -271,34 +273,34 @@ namespace LMFinanciamentos.Apresentacao
             LoginDaoComandos getfuncionario = new LoginDaoComandos();
             funcionario = getfuncionario.GetFuncionario(idFuncionario);
 
-            txtnomecli.Text = funcionario.Nome_Func;
-            txtcpf.Text = funcionario.CPF_Func;
-            txtrg.Text = funcionario.RG_Func;
-            txtnasc.Text = funcionario.Nascimento_Func;
-            txtemail.Text = funcionario.Email_Func;
-            txttelefone.Text = funcionario.Telefone_Func;
-            txtcelular.Text = funcionario.Celular_Func;
-            txtrendacli.Text = funcionario.Renda_Func;
+            txtnomecli.Text = funcionario.Nome_Funcionario;
+            txtcpf.Text = funcionario.CPF_Funcionario;
+            txtrg.Text = funcionario.RG_Funcionario;
+            txtnasc.Text = funcionario.Nascimento_Funcionario;
+            txtemail.Text = funcionario.Email_Funcionario;
+            txttelefone.Text = funcionario.Telefone_Funcionario;
+            txtcelular.Text = funcionario.Celular_Funcionario;
+            txtrendacli.Text = funcionario.Renda_Funcionario;
 
-            if (funcionario.Sexo_Func == "Masculino")
+            if (funcionario.Sexo_Funcionario == "Masculino")
             {
                 checkBox_Masculino.Checked = true;
 
             }
-            else if (funcionario.Sexo_Func == "Feminino")
+            else if (funcionario.Sexo_Funcionario == "Feminino")
             {
                 checkBox_Feminino.Checked = true;
             }
 
 
-            if (funcionario.Status_Func == "Ativo")
+            if (funcionario.Status_Funcionario == "Ativo")
             {
                 checkBox_status.Checked = true;
                 checkBox_status.ForeColor = System.Drawing.Color.Blue;
                 checkBox_status.Text = "Funcionario Ativo";
             }
 
-            if (funcionario.Status_Func == "Inativo")
+            if (funcionario.Status_Funcionario == "Inativo")
             {
                 checkBox_status.Text = "Funcionario Inativo";
                 checkBox_status.ForeColor = System.Drawing.Color.Red;
@@ -343,7 +345,7 @@ namespace LMFinanciamentos.Apresentacao
             txtnomecli.Focus();
             Cursor = Cursors.Default;
         }
-        public event Action FuncionarioSalvo;
+        
         private void btn_add_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
@@ -454,7 +456,7 @@ namespace LMFinanciamentos.Apresentacao
                         LoginDaoComandos getfoto = new LoginDaoComandos();
 
                         getfoto.GetFotoFuncionario(idFuncionario);
-                        setFoto(getfoto.GetFotoFuncionario(idFuncionario).Foto_Func);
+                        setFoto(getfoto.GetFotoFuncionario(idFuncionario).Foto_Funcionario);
                         if (img_foto.Image == null)
                         {
                             btn_add_foto.Text = "Adicionar";
