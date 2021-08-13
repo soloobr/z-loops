@@ -994,7 +994,7 @@ namespace LMFinanciamentos.DAL
             catch (MySqlException err)
             {
                 if (err.Number == 1062) // Cannot insert duplicate key row in object error
-                    return 10102121;
+                    return 99999;
                 else
                 {
                     // Handle duplicate key error

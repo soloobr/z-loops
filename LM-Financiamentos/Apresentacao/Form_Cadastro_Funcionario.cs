@@ -12,7 +12,7 @@ namespace LMFinanciamentos.Apresentacao
     public partial class Form_Cadastro_Funcionario : Form
     {
 
-        String sexo, status, idFuncionario, valor, renda, nascimento, arquivo, CPF, RG, Loginuser, Senhahauser;
+        String sexo, status, idFuncionario, valor, renda, nascimento, arquivo, CPF, RG, Loginuser, Senhahauser, newidlogin;
         String excluirimage;
         FileStream fsObj = null;
         BinaryReader binRdr = null;
@@ -394,6 +394,8 @@ namespace LMFinanciamentos.Apresentacao
         private void btn_salvar_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
+
+            #region Campos Obrigatórios
             if (string.IsNullOrEmpty(txtuserlogin.Text) || string.IsNullOrEmpty(txtsenhalogin.Text))
             {
                 MessageBox.Show("é necessario preenchar Login e senha!", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -401,15 +403,45 @@ namespace LMFinanciamentos.Apresentacao
                 Cursor = Cursors.Default;
                 return;
             }
-            if (txtnomecli.Text == "")
+            else
+            {
+                Loginuser = txtuserlogin.Text;
+                Senhahauser = txtsenhalogin.Text;
+
+                LoginDaoComandos updatelogin = new LoginDaoComandos();
+
+                int newlogin = updatelogin.CadastrarLogin(Loginuser, Senhahauser);
+                if (newlogin == 99999)
+                {
+
+                    MessageBox.Show("Login em uso !  \n " + updatelogin.mensagem + "\n Tente outro Login!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //MessageBox.Show("Funcionário Cadastrado! \n Usuario e Senha com erro! \n " + updatelogin.mensagem + "\n Contate o Suporte Técnico!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //if (FuncionarioSalvo != null)
+                    //   FuncionarioSalvo.Invoke();
+                    txtuserlogin.Select();
+
+                    Cursor = Cursors.Default;
+                    //Close();
+                    return;
+                }
+                else
+                {
+                    newidlogin = newlogin.ToString();
+                    MessageBox.Show(newidlogin);
+                }
+
+               
+            }
+            if (string.IsNullOrEmpty(txtnomecli.Text))
             {
                 MessageBox.Show("Campo Nome do Funcionario é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtnomecli.Select();
                 Cursor = Cursors.Default;
                 return;
             }
+            #endregion
 
-            if(txtcpf.Text == "")
+            if (txtcpf.Text == "")
             {
                 MessageBox.Show("Campo CPF é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtcpf.Select();
@@ -457,6 +489,7 @@ namespace LMFinanciamentos.Apresentacao
 
             if (newidfunc >= 0)
             {
+                #region Insert Foto
                 if (excluirimage == "Update")
                 {
                     LoginDaoComandos insertfotofuncionario = new LoginDaoComandos();
@@ -478,52 +511,40 @@ namespace LMFinanciamentos.Apresentacao
                         MessageBox.Show(insertfotofuncionario.mensagem, "Inserindo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
-  
-                
-                    idFuncionario = newidfunc.ToString();
+                #endregion
 
-                    Loginuser = txtuserlogin.Text;
-                    Senhahauser = txtsenhalogin.Text;
+                     //#region Inserir Login                
+                     idFuncionario = newidfunc.ToString();
+
+                #region Atualizar id Login cad Func
 
                     LoginDaoComandos updatelogin = new LoginDaoComandos();
+                MessageBox.Show(newidlogin);
+                    string novologin = newidlogin;
+                    string novoidfunc = newidfunc.ToString();
 
-                    int newlogin = updatelogin.CadastrarLogin( Loginuser, Senhahauser);
-                    if (newlogin >= 0)
+                    updatelogin.UpdateLoginNewUser(newidlogin, novoidfunc);
+
+                    if (updatelogin.mensagem == "OK")
                     {
-                        string novologin = newlogin.ToString();
-                        string novoidfunc = newidfunc.ToString();
-
-                        updatelogin.UpdateLoginNewUser(novologin, novoidfunc);
-
-                        if (updatelogin.mensagem == "OK")
-                        {
-                            MessageBox.Show("Funcionário Cadastrado com Sucesso!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            if (FuncionarioSalvo != null)
-                                FuncionarioSalvo.Invoke();
-
-                            Cursor = Cursors.Default;
-                            Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Funcionário Cadastrado!! \n Usuario e Senha com erro! \n " + updatelogin.mensagem + "\n Contate o Suporte Técnico!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                            if (FuncionarioSalvo != null)
-                                FuncionarioSalvo.Invoke();
-
-                            Cursor = Cursors.Default;
-                            Close();
-                        }
-                    }
-                    else
-                    { 
-                        MessageBox.Show("Funcionário Cadastrado! \n Usuario e Senha com erro! \n " + updatelogin.mensagem+ "\n Contate o Suporte Técnico!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Funcionário Cadastrado com Sucesso!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         if (FuncionarioSalvo != null)
                             FuncionarioSalvo.Invoke();
 
                         Cursor = Cursors.Default;
                         Close();
                     }
+                    else
+                    {
+                        MessageBox.Show("Funcionário Cadastrado!! \n Erro ai cadastrar o Login \n " + updatelogin.mensagem + "\n Contate o Suporte Técnico!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                        if (FuncionarioSalvo != null)
+                            FuncionarioSalvo.Invoke();
+
+                        Cursor = Cursors.Default;
+                        Close();
+                    }
+                #endregion
 
             }
             else
