@@ -31,13 +31,13 @@ namespace LMFinanciamentos.Apresentacao
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Controle_Vendedor));
             this.panelcentralcadcli = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -63,6 +63,7 @@ namespace LMFinanciamentos.Apresentacao
             this.paneltop = new System.Windows.Forms.Panel();
             this.lbl_topo = new System.Windows.Forms.Label();
             this.img_topo = new System.Windows.Forms.PictureBox();
+            this.btn_reload = new System.Windows.Forms.Button();
             this.panelcentralcadcli.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_vendedores)).BeginInit();
@@ -104,15 +105,15 @@ namespace LMFinanciamentos.Apresentacao
             this.dgv_vendedores.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_vendedores.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgv_vendedores.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_vendedores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_vendedores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_vendedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_vendedores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -122,34 +123,34 @@ namespace LMFinanciamentos.Apresentacao
             this.Agencia,
             this.Conta,
             this.Email});
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.NullValue = null;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_vendedores.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.NullValue = null;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_vendedores.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgv_vendedores.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_vendedores.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgv_vendedores.GridColor = System.Drawing.SystemColors.Control;
             this.dgv_vendedores.Location = new System.Drawing.Point(0, 138);
             this.dgv_vendedores.MultiSelect = false;
             this.dgv_vendedores.Name = "dgv_vendedores";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_vendedores.RowHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_vendedores.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgv_vendedores.RowHeadersVisible = false;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.NullValue = " - ";
-            this.dgv_vendedores.RowsDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.NullValue = " - ";
+            this.dgv_vendedores.RowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgv_vendedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_vendedores.Size = new System.Drawing.Size(1142, 370);
             this.dgv_vendedores.TabIndex = 12;
@@ -163,9 +164,9 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.id.DataPropertyName = "Id_vendedor";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.NullValue = "0000";
-            this.id.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.NullValue = "0000";
+            this.id.DefaultCellStyle = dataGridViewCellStyle2;
             this.id.HeaderText = "Nº";
             this.id.Name = "id";
             this.id.Width = 80;
@@ -182,10 +183,10 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.Celular.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Celular.DataPropertyName = "Celular_vendedor";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.NullValue = "0";
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Celular.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.NullValue = "0";
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Celular.DefaultCellStyle = dataGridViewCellStyle3;
             this.Celular.FillWeight = 100.8F;
             this.Celular.HeaderText = "Celular";
             this.Celular.Name = "Celular";
@@ -194,9 +195,9 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.CPF.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.CPF.DataPropertyName = "CPF_vendedor";
-            dataGridViewCellStyle11.Format = "@\"000\\.000\\.000\\-00\"";
-            dataGridViewCellStyle11.NullValue = "0";
-            this.CPF.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle4.Format = "@\"000\\.000\\.000\\-00\"";
+            dataGridViewCellStyle4.NullValue = "0";
+            this.CPF.DefaultCellStyle = dataGridViewCellStyle4;
             this.CPF.FillWeight = 100.8F;
             this.CPF.HeaderText = "CPF/CNPJ";
             this.CPF.MinimumWidth = 145;
@@ -227,6 +228,7 @@ namespace LMFinanciamentos.Apresentacao
             // 
             // pnlcontrol
             // 
+            this.pnlcontrol.Controls.Add(this.btn_reload);
             this.pnlcontrol.Controls.Add(this.lblprocurar);
             this.pnlcontrol.Controls.Add(this.btnprocurar);
             this.pnlcontrol.Controls.Add(this.txtprocurar);
@@ -416,6 +418,23 @@ namespace LMFinanciamentos.Apresentacao
             this.img_topo.TabIndex = 5;
             this.img_topo.TabStop = false;
             // 
+            // btn_reload
+            // 
+            this.btn_reload.AutoSize = true;
+            this.btn_reload.BackColor = System.Drawing.Color.Silver;
+            this.btn_reload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_reload.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_reload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_reload.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_reload.Image = ((System.Drawing.Image)(resources.GetObject("btn_reload.Image")));
+            this.btn_reload.Location = new System.Drawing.Point(294, 44);
+            this.btn_reload.Name = "btn_reload";
+            this.btn_reload.Padding = new System.Windows.Forms.Padding(2);
+            this.btn_reload.Size = new System.Drawing.Size(38, 30);
+            this.btn_reload.TabIndex = 5;
+            this.btn_reload.UseVisualStyleBackColor = false;
+            this.btn_reload.Click += new System.EventHandler(this.btn_reload_Click);
+            // 
             // Form_Controle_Vendedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -468,5 +487,6 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.DataGridViewTextBoxColumn Agencia;
         private System.Windows.Forms.DataGridViewTextBoxColumn Conta;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
+        private System.Windows.Forms.Button btn_reload;
     }
 }

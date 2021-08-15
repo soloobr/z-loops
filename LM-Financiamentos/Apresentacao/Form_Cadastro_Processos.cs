@@ -18,7 +18,7 @@ namespace LMFinanciamentos.Apresentacao
 
         bool bPopCombo, cadastrar;
 
-        string idcli, idVendedor, idresponsavel, idCorretora, idCorretor, idempreendimentos, idagenciaimovel, idprograma, Status, valor, svalorimovel, svalorfinanciado;
+        string idcli, idVendedor, idresponsavel, nomeresponsavel, idCorretora, idCorretor, idempreendimentos, idagenciaimovel, idprograma, Status, valor, svalorimovel, svalorfinanciado;
         //private int cadastrar = 0;
         //private int newProgressValue;
 
@@ -32,6 +32,18 @@ namespace LMFinanciamentos.Apresentacao
         {
             lblstatus.Text = statuslbl;
         }
+        internal void setidUserLoged(string idresp)
+        {
+            if (idresp != null)
+            {
+                idresponsavel = idresp;
+            }
+            //if (nomefunc != null)
+            //{
+            //    nomeresponsavel = nomefunc;
+            //}
+        }
+
         public event Action ProcessoSalvo;
         private void Form_Cadastro_Documentos_Load(object sender, EventArgs e)
         {
@@ -72,7 +84,7 @@ namespace LMFinanciamentos.Apresentacao
 
             //var btn = new Button();
 
-            idresponsavel = "1";
+            //idresponsavel = "1";
             //idCorretora = "1";
             //idCorretor = "1";
             Status = "Lançado";
@@ -83,7 +95,7 @@ namespace LMFinanciamentos.Apresentacao
             this.ActiveControl = ComboBoxClient;
             ComboBoxClient.Focus();
 
-           // tabControl.TabPages.Remove(tabcartorio);
+            // tabControl.TabPages.Remove(tabcartorio);
             //tabControl.TabPages.Remove(tabdoc);
 
             #region Valor Imovel
@@ -185,7 +197,7 @@ namespace LMFinanciamentos.Apresentacao
                         svalorfinanciado = valorfinanciado.Text.Replace("R$", "").Replace(".", "").Replace(",", "").Replace(" ", "").Replace("00,", ""); ;
                         LoginDaoComandos criarprocesso = new LoginDaoComandos();
                         criarprocesso.CriarProcesso(idcli, idVendedor, idresponsavel, idCorretora, idCorretor, idempreendimentos, idagenciaimovel, idprograma, svalorimovel, svalorfinanciado, Status);
-                        MessageBox.Show(criarprocesso.mensagem,"Salvar",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                        MessageBox.Show(criarprocesso.mensagem, "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         if (ProcessoSalvo != null)
                             ProcessoSalvo.Invoke();
                         Close();
@@ -304,23 +316,23 @@ namespace LMFinanciamentos.Apresentacao
                     {
                         ComboBoxClient.DroppedDown = true;
                     }
-                    
+
 
                 }
             }
             else
             {
-                MessageBox.Show("Favor digitar Almenos 3 Caracteres para persquisa","Informe",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Favor digitar Almenos 3 Caracteres para persquisa", "Informe", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ComboBoxClient.Select();
                 ComboBoxClient.Focus();
             }
 
         }
 
-        
+
         private async void btnvendedor_Click(object sender, EventArgs e)
         {
-            
+
             //backgroundWorker.RunWorkerAsync();
 
             int chars = textnomevendedor.Text.Length;
@@ -352,7 +364,7 @@ namespace LMFinanciamentos.Apresentacao
                         {
                             textcnpjcpf.Text = v.CNPJ_vendedor;
                         }
-                        
+
                         textagenciavendedor.Text = v.Agencia_vendedor;
                         txtcontavendedor.Text = v.Conta_vendedor;
                         textemailvendedor.Text = v.Email_vendedor;
@@ -377,7 +389,7 @@ namespace LMFinanciamentos.Apresentacao
                         textnomevendedor.Select();
                         textnomevendedor.Focus();
                         //MessageBox.Show("Abriu");
-                        Form_Dados_cliente frm_Cadastro_cliente = new Form_Dados_cliente();
+                        Form_Cadastro_Cliente frm_Cadastro_cliente = new Form_Cadastro_Cliente();
                         frm_Cadastro_cliente.setTextNome(textnomevendedor.Text);
                         frm_Cadastro_cliente.Show();
                     }
@@ -421,7 +433,7 @@ namespace LMFinanciamentos.Apresentacao
         {
             for (int i = 0; i <= 100; i++)
             {
-               
+
 
                 //CHECK FOR CANCELLATION FIRST
                 if (backgroundWorker.CancellationPending)
@@ -435,9 +447,9 @@ namespace LMFinanciamentos.Apresentacao
                     backgroundWorker.ReportProgress(i);
                 }
             }
-                
 
-            
+
+
         }
 
         private async void backgroundWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
@@ -445,7 +457,7 @@ namespace LMFinanciamentos.Apresentacao
             if (e.Cancelled)
             {
                 //display("You have Cancelled");
-               // progressBar1.Value = 0;
+                // progressBar1.Value = 0;
 
                 ProgressBar.Visible = false;
             }
@@ -457,54 +469,54 @@ namespace LMFinanciamentos.Apresentacao
 
 
 
-                    int cont = ComboBoxClient.Items.Count;
+                int cont = ComboBoxClient.Items.Count;
 
-                    if (cont == 1)
-                    {
+                if (cont == 1)
+                {
                     LoginDaoComandos gett = new LoginDaoComandos();
                     //await Task.Run(() => gett.GetClientes(ComboBoxClient.Text).ToArray());
                     Cliente[] myArray = await Task.Run(() => gett.GetClientes(ComboBoxClient.Text).ToArray());
-                        foreach (Cliente c in myArray)
-                        {
-
-                            idcli = c.Id_cliente;
-                            ComboBoxClient.Text = c.Nome_cliente;
-                            //txtnomecli.Text = c.Nome_cliente;
-                            txtcpf.Text = c.CPF_cliente;
-                            txtrg.Text = c.RG_cliente;
-                            txtnasc.Text = c.Nascimento_cliente;
-                            txtemail.Text = c.Email_cliente;
-                            txttelefone.Text = c.Telefone_cliente;
-                            txtcelular.Text = c.Celular_cliente;
-                            txtrenda.Text = c.Renda_cliente;
-                            txtStatusCPF.Text = c.StatusCPF_cliente;
-                            txtciweb.Text = c.StatusCiweb_cliente;
-                            txtcadmut.Text = c.StatusCadmut_cliente;
-                            txtir.Text = c.StatusIR_cliente;
-                            txtfgts.Text = c.StatusFGTS_cliente;
-                            txtagencia.Text = c.Agencia_cliente;
-                            txtcontacliente.Text = c.Conta_cliente;
-                            tabControl.Select();
-                            tabControl.Focus();
-                        }
-                    }
-                    else if (cont == 0)
+                    foreach (Cliente c in myArray)
                     {
-                        LimparCampos();
-                        MessageBox.Show("Não foram encontrados registro para:  " + ComboBoxClient.Text);
-                        ComboBoxClient.Select();
-                        ComboBoxClient.Focus();
 
+                        idcli = c.Id_cliente;
+                        ComboBoxClient.Text = c.Nome_cliente;
+                        //txtnomecli.Text = c.Nome_cliente;
+                        txtcpf.Text = c.CPF_cliente;
+                        txtrg.Text = c.RG_cliente;
+                        txtnasc.Text = c.Nascimento_cliente;
+                        txtemail.Text = c.Email_cliente;
+                        txttelefone.Text = c.Telefone_cliente;
+                        txtcelular.Text = c.Celular_cliente;
+                        txtrenda.Text = c.Renda_cliente;
+                        txtStatusCPF.Text = c.StatusCPF_cliente;
+                        txtciweb.Text = c.StatusCiweb_cliente;
+                        txtcadmut.Text = c.StatusCadmut_cliente;
+                        txtir.Text = c.StatusIR_cliente;
+                        txtfgts.Text = c.StatusFGTS_cliente;
+                        txtagencia.Text = c.Agencia_cliente;
+                        txtcontacliente.Text = c.Conta_cliente;
+                        tabControl.Select();
+                        tabControl.Focus();
                     }
-                    else
-                    {
-                        ComboBoxClient.DroppedDown = true;
+                }
+                else if (cont == 0)
+                {
+                    LimparCampos();
+                    MessageBox.Show("Não foram encontrados registro para:  " + ComboBoxClient.Text);
+                    ComboBoxClient.Select();
+                    ComboBoxClient.Focus();
 
-                    }
-            
+                }
+                else
+                {
+                    ComboBoxClient.DroppedDown = true;
+
+                }
+
 
             }
-            
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -597,7 +609,7 @@ namespace LMFinanciamentos.Apresentacao
 
         private void ComboBoxClient_KeyDown(object sender, KeyEventArgs e)
         {
-           
+
         }
 
         private void textnomevendedor_KeyDown(object sender, KeyEventArgs e)
@@ -726,7 +738,7 @@ namespace LMFinanciamentos.Apresentacao
         private void comboBox_agencia_MouseClick(object sender, MouseEventArgs e)
         {
             Cursor = Cursors.WaitCursor;
-            if (comboBox_agencia.DataSource is null )
+            if (comboBox_agencia.DataSource is null)
             {
                 comboBox_agencia.IntegralHeight = false;
                 LoginDaoComandos gettpross = new LoginDaoComandos();
@@ -744,7 +756,7 @@ namespace LMFinanciamentos.Apresentacao
             {
                 Cursor = Cursors.Default;
             }
-           
+
         }
 
         private void comboBox_programa_MouseClick(object sender, MouseEventArgs e)
@@ -776,13 +788,13 @@ namespace LMFinanciamentos.Apresentacao
 
         private void comboBox_programa_DisplayMemberChanged(object sender, EventArgs e)
         {
-            
+
 
         }
 
         private void comboBox_agencia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void txtcorretora_MouseClick(object sender, MouseEventArgs e)
@@ -831,7 +843,7 @@ namespace LMFinanciamentos.Apresentacao
                 comboBox_corretor.IntegralHeight = false;
                 LoginDaoComandos gettpross = new LoginDaoComandos();
                 #region Popular combobox
-                comboBox_corretor.DataSource = gettpross.GetDataCorretores ();
+                comboBox_corretor.DataSource = gettpross.GetDataCorretores();
                 comboBox_corretor.DisplayMember = "Nome";
                 comboBox_corretor.ValueMember = "Id";
                 //comboBox_corretor.Text = "";
@@ -922,29 +934,19 @@ namespace LMFinanciamentos.Apresentacao
 
         private async Task simulateHeavyJobAsync()
         {
-            Thread backgroundThread = new Thread(
-        new ThreadStart(() =>
-        {
-            LoginDaoComandos gett = new LoginDaoComandos();
-            //await Task.Run(() => gett.GetClientes(ComboBoxClient.Text).ToArray());
-            //LoginDaoComandos gett = new LoginDaoComandos();
-            //await Task.Run(() => gett.autoCompletar(ComboBoxClient, ComboBoxClient.Text));
+            Thread backgroundThread = new Thread(new ThreadStart(() =>
+            {
+                LoginDaoComandos gett = new LoginDaoComandos();
+                //await Task.Run(() => gett.GetClientes(ComboBoxClient.Text).ToArray());
+                //LoginDaoComandos gett = new LoginDaoComandos();
+                //await Task.Run(() => gett.autoCompletar(ComboBoxClient, ComboBoxClient.Text));
 
-            gett.GetClientes(ComboBoxClient.Text);
-
-
-        }
-    ));
-            backgroundThread.Start();
+                gett.GetClientes(ComboBoxClient.Text);
+            })); backgroundThread.Start();
 
             //LoginDaoComandos gett = new LoginDaoComandos();
 
             //await Task.Run(() => gett.autoCompletar(ComboBoxClient, ComboBoxClient.Text));
-
-
-
-
-
         }
         private void backgroundWorker_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
         {

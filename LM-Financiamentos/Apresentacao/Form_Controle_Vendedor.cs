@@ -81,7 +81,6 @@ namespace LMFinanciamentos.Apresentacao
             Cursor = Cursors.WaitCursor;
             Form_Dados_Vendedor frm_dados_vendedor = new Form_Dados_Vendedor();
             frm_dados_vendedor.setIdVendedor(dgv_vendedores.SelectedRows[0].Cells["id"].Value.ToString());
-            //MessageBox.Show(dgv_vendedores.SelectedRows[0].Cells["id"].Value.ToString());
             vendedorselecionado = dgv_vendedores.CurrentCell.RowIndex;
             frm_dados_vendedor.VendedorSalvo += new Action(frm_dados_vendedor_VendedorSalvo);
             contgrid = dgv_vendedores.Rows.Count;
@@ -91,6 +90,7 @@ namespace LMFinanciamentos.Apresentacao
 
         private void btnprocurar_Click(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
             if (txtprocurar.Text == "")
             {
                 MessageBox.Show("Favor Digitar o número ou Nome do Vendedor para pesquisar!", "Campo Necessario", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -129,6 +129,7 @@ namespace LMFinanciamentos.Apresentacao
                     Cursor.Current = Cursors.Default;
                 }
             }
+            Cursor = Cursors.Default;
         }
 
         private void dgv_vendedores_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
@@ -154,7 +155,7 @@ namespace LMFinanciamentos.Apresentacao
 
             if(contgrid  ==  contgridlast) 
             {
-                MessageBox.Show(vendedorselecionado.ToString());
+                //MessageBox.Show(vendedorselecionado.ToString());
                 dgv_vendedores.ClearSelection();
                 dgv_vendedores.Rows[vendedorselecionado].Selected = true;
                 dgv_vendedores.Rows[vendedorselecionado].Cells[0].Selected = true;
@@ -175,6 +176,7 @@ namespace LMFinanciamentos.Apresentacao
 
         private void btn_excluir_Click(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
             String idvendedorexclude = dgv_vendedores.SelectedRows[0].Cells["id"].Value.ToString();
             var result =  MessageBox.Show("Deseja Excluir o Vendedor: \n "+ dgv_vendedores.SelectedRows[0].Cells["Nome"].Value.ToString() + "  ?","excluir",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
 
@@ -193,6 +195,7 @@ namespace LMFinanciamentos.Apresentacao
                     if (VendedorSalvo != null)
                         VendedorSalvo.Invoke();
                     AtualizaGrid();
+                    Cursor = Cursors.Default;
                 }
                 else
                 {
@@ -201,6 +204,7 @@ namespace LMFinanciamentos.Apresentacao
                     if (VendedorSalvo != null)
                         VendedorSalvo.Invoke();
                     AtualizaGrid();
+                    Cursor = Cursors.Default;
                 }
 
 
@@ -211,6 +215,19 @@ namespace LMFinanciamentos.Apresentacao
         private void splitter2_SplitterMoved(object sender, SplitterEventArgs e)
         {
 
+        }
+
+        private void btn_reload_Click(object sender, EventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            LoginDaoComandos getvendedores = new LoginDaoComandos();
+            dgv_vendedores.AutoGenerateColumns = false;
+            dgv_vendedores.DataSource = getvendedores.GetVendedores("%");
+            dgv_vendedores.Refresh();
+            txtprocurar.Clear();
+            txtprocurar.Select();
+
+            Cursor = Cursors.Default;
         }
 
         private void btnclosvend_Click(object sender, EventArgs e)

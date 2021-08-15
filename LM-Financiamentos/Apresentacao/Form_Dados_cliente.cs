@@ -201,6 +201,14 @@ namespace LMFinanciamentos.Apresentacao
             }
 
             LoginDaoComandos updatecliente = new LoginDaoComandos();
+
+            updatecliente.UpdateConta(idCliente, txtagenciacliente.Text, txtcontacliente.Text,"C");
+            if (updatecliente.mensagem == "Erro")
+            {
+                updatecliente.InsertConta(idCliente, txtagenciacliente.Text, txtcontacliente.Text, "C");
+            }
+
+
             updatecliente.UpdateCliente(idCliente, txtnomecli.Text, txtemail.Text, txttelefone.Text, txtcelular.Text, CPF, RG, datanasc, sexo, status, renda);
 
             Cursor = Cursors.Default;
@@ -276,6 +284,8 @@ namespace LMFinanciamentos.Apresentacao
             txttelefone.Text = cliente.Telefone_cliente;
             txtcelular.Text = cliente.Celular_cliente;
             txtrendacli.Text = cliente.Renda_cliente;
+            txtagenciacliente.Text = cliente.Agencia_cliente;
+            txtcontacliente.Text = cliente.Conta_cliente;
 
             if (cliente.Sexo_cliente == "Masculino")
             {
@@ -556,10 +566,10 @@ namespace LMFinanciamentos.Apresentacao
         private void btn_editar_Click(object sender, EventArgs e)
         {
             btn_editar.Visible = false;
-            splitter1.Visible = true;
-            btn_salvar.Visible = true;
             splitter2.Visible = true;
             btn_cancelar.Visible = true;
+            splitter1.Visible = true;
+            btn_salvar.Visible = true;
             splitter3.Visible = false;
             btn_excluir.Visible = false;
             
@@ -581,6 +591,8 @@ namespace LMFinanciamentos.Apresentacao
             checkBox_status.Enabled = true;
             checkBox_Masculino.Enabled = true;
             checkBox_Feminino.Enabled = true;
+            txtagenciacliente.ReadOnly = false;
+            txtcontacliente.ReadOnly = false;
 
             img_foto.Enabled = true;
             if(img_foto.Image == null)
@@ -607,6 +619,8 @@ namespace LMFinanciamentos.Apresentacao
             checkBox_status.Enabled = false;
             checkBox_Masculino.Enabled = false;
             checkBox_Feminino.Enabled = false;
+            txtagenciacliente.ReadOnly = true;
+            txtcontacliente.ReadOnly = true;
 
             img_foto.Enabled = false;
             btn_add_foto.Enabled = false;

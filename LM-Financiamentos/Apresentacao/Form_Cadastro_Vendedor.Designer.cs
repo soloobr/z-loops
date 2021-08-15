@@ -197,14 +197,14 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcontavendedor.Location = new System.Drawing.Point(175, 143);
             this.txtcontavendedor.Name = "txtcontavendedor";
             this.txtcontavendedor.Size = new System.Drawing.Size(170, 27);
-            this.txtcontavendedor.TabIndex = 59;
+            this.txtcontavendedor.TabIndex = 9;
             // 
             // txtagenciavendedor
             // 
             this.txtagenciavendedor.Location = new System.Drawing.Point(3, 143);
             this.txtagenciavendedor.Name = "txtagenciavendedor";
             this.txtagenciavendedor.Size = new System.Drawing.Size(166, 27);
-            this.txtagenciavendedor.TabIndex = 60;
+            this.txtagenciavendedor.TabIndex = 8;
             // 
             // label4
             // 
@@ -245,7 +245,7 @@ namespace LMFinanciamentos.Apresentacao
             this.groupBox2.Padding = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.SetRowSpan(this.groupBox2, 2);
             this.groupBox2.Size = new System.Drawing.Size(277, 79);
-            this.groupBox2.TabIndex = 28;
+            this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Sexo:";
             this.groupBox2.Visible = false;
@@ -259,7 +259,7 @@ namespace LMFinanciamentos.Apresentacao
             this.checkBox_Feminino.Name = "checkBox_Feminino";
             this.checkBox_Feminino.Padding = new System.Windows.Forms.Padding(10);
             this.checkBox_Feminino.Size = new System.Drawing.Size(106, 59);
-            this.checkBox_Feminino.TabIndex = 9;
+            this.checkBox_Feminino.TabIndex = 12;
             this.checkBox_Feminino.TabStop = true;
             this.checkBox_Feminino.Text = "Feminino";
             this.checkBox_Feminino.UseVisualStyleBackColor = true;
@@ -273,7 +273,7 @@ namespace LMFinanciamentos.Apresentacao
             this.checkBox_Masculino.Name = "checkBox_Masculino";
             this.checkBox_Masculino.Padding = new System.Windows.Forms.Padding(10);
             this.checkBox_Masculino.Size = new System.Drawing.Size(113, 59);
-            this.checkBox_Masculino.TabIndex = 8;
+            this.checkBox_Masculino.TabIndex = 11;
             this.checkBox_Masculino.TabStop = true;
             this.checkBox_Masculino.Text = "Masculino";
             this.checkBox_Masculino.UseVisualStyleBackColor = true;
@@ -490,7 +490,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btn_cancelar.Name = "btn_cancelar";
             this.btn_cancelar.Padding = new System.Windows.Forms.Padding(4);
             this.btn_cancelar.Size = new System.Drawing.Size(104, 32);
-            this.btn_cancelar.TabIndex = 27;
+            this.btn_cancelar.TabIndex = 14;
             this.btn_cancelar.Text = "Cancelar";
             this.btn_cancelar.UseCompatibleTextRendering = true;
             this.btn_cancelar.UseVisualStyleBackColor = false;
@@ -516,7 +516,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btn_salvar.Name = "btn_salvar";
             this.btn_salvar.Padding = new System.Windows.Forms.Padding(4);
             this.btn_salvar.Size = new System.Drawing.Size(104, 32);
-            this.btn_salvar.TabIndex = 19;
+            this.btn_salvar.TabIndex = 13;
             this.btn_salvar.Text = "Salvar";
             this.btn_salvar.UseCompatibleTextRendering = true;
             this.btn_salvar.UseVisualStyleBackColor = false;
@@ -534,7 +534,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btnclosecli.Name = "btnclosecli";
             this.btnclosecli.Padding = new System.Windows.Forms.Padding(4);
             this.btnclosecli.Size = new System.Drawing.Size(104, 32);
-            this.btnclosecli.TabIndex = 20;
+            this.btnclosecli.TabIndex = 15;
             this.btnclosecli.Text = "Fechar";
             this.btnclosecli.UseCompatibleTextRendering = true;
             this.btnclosecli.UseVisualStyleBackColor = false;

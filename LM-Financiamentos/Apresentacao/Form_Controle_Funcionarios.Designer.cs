@@ -30,11 +30,22 @@ namespace LMFinanciamentos.Apresentacao
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Controle_Funcionarios));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelcentro = new System.Windows.Forms.Panel();
+            this.dgv_funcionarios = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cracha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlcontrol = new System.Windows.Forms.Panel();
+            this.btn_reload = new System.Windows.Forms.Button();
             this.lblprocurar = new System.Windows.Forms.Label();
             this.btnprocurar = new System.Windows.Forms.Button();
             this.txtprocurar = new System.Windows.Forms.TextBox();
@@ -52,18 +63,8 @@ namespace LMFinanciamentos.Apresentacao
             this.dS_Funcionario = new LMFinanciamentos.DAL.DS_Funcionario();
             this.dSFuncionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.funcionariosTableAdapter = new LMFinanciamentos.DAL.DS_FuncionarioTableAdapters.FuncionariosTableAdapter();
-            this.btn_reload = new System.Windows.Forms.Button();
-            this.Cracha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgv_funcionarios = new System.Windows.Forms.DataGridView();
             this.panelcentro.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_funcionarios)).BeginInit();
             this.pnlcontrol.SuspendLayout();
             this.paneltop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).BeginInit();
@@ -71,7 +72,6 @@ namespace LMFinanciamentos.Apresentacao
             ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Funcionario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSFuncionarioBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_funcionarios)).BeginInit();
             this.SuspendLayout();
             // 
             // panelcentro
@@ -86,6 +86,103 @@ namespace LMFinanciamentos.Apresentacao
             this.panelcentro.Size = new System.Drawing.Size(1066, 500);
             this.panelcentro.TabIndex = 2;
             // 
+            // dgv_funcionarios
+            // 
+            this.dgv_funcionarios.AllowUserToAddRows = false;
+            this.dgv_funcionarios.AllowUserToDeleteRows = false;
+            this.dgv_funcionarios.AllowUserToOrderColumns = true;
+            this.dgv_funcionarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_funcionarios.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+            this.dgv_funcionarios.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgv_funcionarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgv_funcionarios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_funcionarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_funcionarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_funcionarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.Nome,
+            this.Email,
+            this.Telefone,
+            this.Endereco,
+            this.Nascimento,
+            this.Sexo,
+            this.CPF,
+            this.Cracha});
+            this.dgv_funcionarios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_funcionarios.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgv_funcionarios.GridColor = System.Drawing.SystemColors.Control;
+            this.dgv_funcionarios.Location = new System.Drawing.Point(0, 195);
+            this.dgv_funcionarios.MultiSelect = false;
+            this.dgv_funcionarios.Name = "dgv_funcionarios";
+            this.dgv_funcionarios.RowHeadersVisible = false;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgv_funcionarios.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_funcionarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_funcionarios.Size = new System.Drawing.Size(1066, 253);
+            this.dgv_funcionarios.TabIndex = 12;
+            this.dgv_funcionarios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_funccionarios_CellDoubleClick);
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id_Funcionario";
+            this.id.HeaderText = "Nº";
+            this.id.Name = "id";
+            // 
+            // Nome
+            // 
+            this.Nome.DataPropertyName = "Nome_Funcionario";
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
+            // 
+            // Email
+            // 
+            this.Email.DataPropertyName = "Email_Funcionario";
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
+            // 
+            // Telefone
+            // 
+            this.Telefone.DataPropertyName = "Telefone_Funcionario";
+            this.Telefone.HeaderText = "Telefone";
+            this.Telefone.Name = "Telefone";
+            // 
+            // Endereco
+            // 
+            this.Endereco.DataPropertyName = "Endereco_Funcionario";
+            this.Endereco.HeaderText = "Endereco";
+            this.Endereco.Name = "Endereco";
+            // 
+            // Nascimento
+            // 
+            this.Nascimento.DataPropertyName = "Nascimento_Funcionario";
+            this.Nascimento.HeaderText = "Nascimento";
+            this.Nascimento.Name = "Nascimento";
+            // 
+            // Sexo
+            // 
+            this.Sexo.DataPropertyName = "Sexo_Funcionario";
+            this.Sexo.HeaderText = "Sexo";
+            this.Sexo.Name = "Sexo";
+            // 
+            // CPF
+            // 
+            this.CPF.DataPropertyName = "CPF_Funcionario";
+            this.CPF.HeaderText = "CPF";
+            this.CPF.Name = "CPF";
+            // 
+            // Cracha
+            // 
+            this.Cracha.DataPropertyName = "Cracha_Funcionario";
+            this.Cracha.HeaderText = "Cracha";
+            this.Cracha.Name = "Cracha";
+            // 
             // pnlcontrol
             // 
             this.pnlcontrol.Controls.Add(this.btn_reload);
@@ -97,6 +194,23 @@ namespace LMFinanciamentos.Apresentacao
             this.pnlcontrol.Name = "pnlcontrol";
             this.pnlcontrol.Size = new System.Drawing.Size(1066, 138);
             this.pnlcontrol.TabIndex = 11;
+            // 
+            // btn_reload
+            // 
+            this.btn_reload.AutoSize = true;
+            this.btn_reload.BackColor = System.Drawing.Color.Silver;
+            this.btn_reload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_reload.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_reload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_reload.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_reload.Image = ((System.Drawing.Image)(resources.GetObject("btn_reload.Image")));
+            this.btn_reload.Location = new System.Drawing.Point(294, 44);
+            this.btn_reload.Name = "btn_reload";
+            this.btn_reload.Padding = new System.Windows.Forms.Padding(2);
+            this.btn_reload.Size = new System.Drawing.Size(38, 30);
+            this.btn_reload.TabIndex = 3;
+            this.btn_reload.UseVisualStyleBackColor = false;
+            this.btn_reload.Click += new System.EventHandler(this.btn_reload_Click);
             // 
             // lblprocurar
             // 
@@ -293,120 +407,6 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.funcionariosTableAdapter.ClearBeforeFill = true;
             // 
-            // btn_reload
-            // 
-            this.btn_reload.AutoSize = true;
-            this.btn_reload.BackColor = System.Drawing.Color.Silver;
-            this.btn_reload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btn_reload.FlatAppearance.BorderSize = 0;
-            this.btn_reload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_reload.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_reload.Image = ((System.Drawing.Image)(resources.GetObject("btn_reload.Image")));
-            this.btn_reload.Location = new System.Drawing.Point(294, 46);
-            this.btn_reload.Name = "btn_reload";
-            this.btn_reload.Padding = new System.Windows.Forms.Padding(2);
-            this.btn_reload.Size = new System.Drawing.Size(38, 27);
-            this.btn_reload.TabIndex = 3;
-            this.btn_reload.UseVisualStyleBackColor = false;
-            this.btn_reload.Click += new System.EventHandler(this.btn_reload_Click);
-            // 
-            // Cracha
-            // 
-            this.Cracha.DataPropertyName = "Cracha_Funcionario";
-            this.Cracha.HeaderText = "Cracha";
-            this.Cracha.Name = "Cracha";
-            // 
-            // CPF
-            // 
-            this.CPF.DataPropertyName = "CPF_Funcionario";
-            this.CPF.HeaderText = "CPF";
-            this.CPF.Name = "CPF";
-            // 
-            // Sexo
-            // 
-            this.Sexo.DataPropertyName = "Sexo_Funcionario";
-            this.Sexo.HeaderText = "Sexo";
-            this.Sexo.Name = "Sexo";
-            // 
-            // Nascimento
-            // 
-            this.Nascimento.DataPropertyName = "Nascimento_Funcionario";
-            this.Nascimento.HeaderText = "Nascimento";
-            this.Nascimento.Name = "Nascimento";
-            // 
-            // Endereco
-            // 
-            this.Endereco.DataPropertyName = "Endereco_Funcionario";
-            this.Endereco.HeaderText = "Endereco";
-            this.Endereco.Name = "Endereco";
-            // 
-            // Telefone
-            // 
-            this.Telefone.DataPropertyName = "Telefone_Funcionario";
-            this.Telefone.HeaderText = "Telefone";
-            this.Telefone.Name = "Telefone";
-            // 
-            // Email
-            // 
-            this.Email.DataPropertyName = "Email_Funcionario";
-            this.Email.HeaderText = "Email";
-            this.Email.Name = "Email";
-            // 
-            // Nome
-            // 
-            this.Nome.DataPropertyName = "Nome_Funcionario";
-            this.Nome.HeaderText = "Nome";
-            this.Nome.Name = "Nome";
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id_Funcionario";
-            this.id.HeaderText = "Nº";
-            this.id.Name = "id";
-            // 
-            // dgv_funcionarios
-            // 
-            this.dgv_funcionarios.AllowUserToAddRows = false;
-            this.dgv_funcionarios.AllowUserToDeleteRows = false;
-            this.dgv_funcionarios.AllowUserToOrderColumns = true;
-            this.dgv_funcionarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_funcionarios.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
-            this.dgv_funcionarios.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgv_funcionarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgv_funcionarios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_funcionarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgv_funcionarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_funcionarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.Nome,
-            this.Email,
-            this.Telefone,
-            this.Endereco,
-            this.Nascimento,
-            this.Sexo,
-            this.CPF,
-            this.Cracha});
-            this.dgv_funcionarios.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_funcionarios.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgv_funcionarios.GridColor = System.Drawing.SystemColors.Control;
-            this.dgv_funcionarios.Location = new System.Drawing.Point(0, 195);
-            this.dgv_funcionarios.MultiSelect = false;
-            this.dgv_funcionarios.Name = "dgv_funcionarios";
-            this.dgv_funcionarios.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgv_funcionarios.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgv_funcionarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_funcionarios.Size = new System.Drawing.Size(1066, 253);
-            this.dgv_funcionarios.TabIndex = 12;
-            this.dgv_funcionarios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_funccionarios_CellDoubleClick);
-            // 
             // Form_Controle_Funcionarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -418,6 +418,7 @@ namespace LMFinanciamentos.Apresentacao
             this.Load += new System.EventHandler(this.Form_Controle_Funcionarios_Load);
             this.Shown += new System.EventHandler(this.Form_Controle_Funcionarios_Shown);
             this.panelcentro.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_funcionarios)).EndInit();
             this.pnlcontrol.ResumeLayout(false);
             this.pnlcontrol.PerformLayout();
             this.paneltop.ResumeLayout(false);
@@ -426,7 +427,6 @@ namespace LMFinanciamentos.Apresentacao
             ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Funcionario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSFuncionarioBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_funcionarios)).EndInit();
             this.ResumeLayout(false);
 
         }

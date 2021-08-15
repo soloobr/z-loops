@@ -496,7 +496,7 @@ namespace LMFinanciamentos.Apresentacao
 
                     LoginDaoComandos updateconta = new LoginDaoComandos();
 
-                    updateconta.InsertContaVendedor(idVendedor, Agencia, Conta);
+                    updateconta.InsertConta(idVendedor, Agencia, Conta,"V");
                     if(updateconta.mensagem != "OK")
                     {
                         MessageBox.Show("Vendedor Cadastrado! \n Agencia e Conta com erro! \n "+updateconta.mensagem, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);

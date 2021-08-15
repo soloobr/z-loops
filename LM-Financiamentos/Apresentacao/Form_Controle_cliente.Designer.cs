@@ -61,6 +61,7 @@ namespace LMFinanciamentos.Apresentacao
             this.paneltop = new System.Windows.Forms.Panel();
             this.lbl_topo = new System.Windows.Forms.Label();
             this.img_topo = new System.Windows.Forms.PictureBox();
+            this.btn_reload = new System.Windows.Forms.Button();
             this.panelcentralcadcli.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_clientes)).BeginInit();
@@ -225,6 +226,7 @@ namespace LMFinanciamentos.Apresentacao
             // 
             // pnlcontrol
             // 
+            this.pnlcontrol.Controls.Add(this.btn_reload);
             this.pnlcontrol.Controls.Add(this.lblprocurar);
             this.pnlcontrol.Controls.Add(this.btnprocurar);
             this.pnlcontrol.Controls.Add(this.txtprocurar);
@@ -414,6 +416,23 @@ namespace LMFinanciamentos.Apresentacao
             this.img_topo.TabIndex = 5;
             this.img_topo.TabStop = false;
             // 
+            // btn_reload
+            // 
+            this.btn_reload.AutoSize = true;
+            this.btn_reload.BackColor = System.Drawing.Color.Silver;
+            this.btn_reload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_reload.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_reload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_reload.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_reload.Image = ((System.Drawing.Image)(resources.GetObject("btn_reload.Image")));
+            this.btn_reload.Location = new System.Drawing.Point(293, 44);
+            this.btn_reload.Name = "btn_reload";
+            this.btn_reload.Padding = new System.Windows.Forms.Padding(2);
+            this.btn_reload.Size = new System.Drawing.Size(38, 30);
+            this.btn_reload.TabIndex = 4;
+            this.btn_reload.UseVisualStyleBackColor = false;
+            this.btn_reload.Click += new System.EventHandler(this.btn_reload_Click);
+            // 
             // Form_Controle_Cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -464,5 +483,6 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.DataGridViewTextBoxColumn Nascimento;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.DataGridViewTextBoxColumn Celular;
+        private System.Windows.Forms.Button btn_reload;
     }
 }

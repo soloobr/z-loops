@@ -10,31 +10,28 @@ namespace LMFinanciamentos.Apresentacao
 {
     public partial class Form_Principal : Form
     {
-        bool Frmcli, Frmvend, Frmfunc;
+        public string idresponsavel, nomeresponsavel, idResp;
         public Form_Principal()
         {
             InitializeComponent();
             hideSubMenu();
         }
-
         public void setLabel(Funcionario func, Saudacao saudacao)
         {
+
             lblfunc.Text = func.Nome_Funcionario;
             lblsaudacao.Text = saudacao.Saudacoes;
+            idresponsavel = func.Id_Funcionario;
+            nomeresponsavel = func.Nome_Funcionario;
+            idResp = func.Id_Funcionario;
         }
-        //public void setFoto(Funcionario imagem)
-        //{
-        //    MemoryStream stmBLOBData = new MemoryStream(imagem.Foto_Func);
-        //    img_foto.Image = Image.FromStream(stmBLOBData);
-
-        //}
         internal void setFoto(byte[] foto_Func)
         {
             // throw new NotImplementedException();
-            if(foto_Func != null)
+            if (foto_Func != null)
             {
                 MemoryStream stmBLOBData = new MemoryStream(foto_Func);
-                //img_foto.Image = Image.FromStream(stmBLOBData);
+                img_foto.Image = Image.FromStream(stmBLOBData);
             }
 
         }
@@ -60,6 +57,7 @@ namespace LMFinanciamentos.Apresentacao
         }
         private void Form_Principal_Load(object sender, EventArgs e)
         {
+
             //Cursor = Cursors.Default;
             if (this.WindowState == FormWindowState.Maximized)
             {
@@ -68,15 +66,6 @@ namespace LMFinanciamentos.Apresentacao
                 sw = 600;
                 sh = 600;
             }
-            /*
-            List<Funcionario> lFunc = new List<Funcionario>();
-
-            
-            lFunc.Add(new Funcionario 
-            { 
-                Nome_Func = linha.Nome 
-            });
-            */
         }
         #region Funcionalidades del formulario
         //RESIZE METODO PARA REDIMENCIONAR/CAMBIAR TAMAÑO A FORMULARIO EN TIEMPO DE EJECUCION ----------------------------------------------------------
@@ -187,8 +176,7 @@ namespace LMFinanciamentos.Apresentacao
         private void AbrirFormulario<MiForm>() where MiForm : Form, new()
         {
             Form formulario;
-            formulario = panelformularios.Controls.OfType<MiForm>().FirstOrDefault();//Busca en la colecion el formulario
-            //si el formulario/instancia no existe
+            formulario = panelformularios.Controls.OfType<MiForm>().FirstOrDefault();
             if (formulario == null)
             {
                 formulario = new MiForm();
@@ -200,9 +188,7 @@ namespace LMFinanciamentos.Apresentacao
                 formulario.Show();
                 formulario.BringToFront();
                 formulario.FormClosed += new FormClosedEventHandler(CloseForms);
-
             }
-            //si el formulario/instancia existe
             else
             {
                 formulario.BringToFront();
@@ -226,7 +212,7 @@ namespace LMFinanciamentos.Apresentacao
                 btncadastrocvendedor.BackColor = Color.FromArgb(4, 41, 68);
                 btncadastrocfuncionarios.BackColor = Color.FromArgb(4, 41, 68);
             }
-    
+
             if (Application.OpenForms["Form_Controle_Cliente"] == null)
                 btncadastrocliente.BackColor = Color.FromArgb(4, 41, 68);
             if (Application.OpenForms["Form_Controle_Vendedor"] == null)
@@ -234,43 +220,7 @@ namespace LMFinanciamentos.Apresentacao
             if (Application.OpenForms["Form_Controle_Funcionarios"] == null)
                 btncadastrocfuncionarios.BackColor = Color.FromArgb(4, 41, 68);
             #endregion
- 
-
         }
-        //private void btncadfor_Click(object sender, EventArgs e)
-        //{
-        //    AbrirFormulario<Form_Cadastro_Fornecedor>();
-        //    btncadastro.BackColor = Color.FromArgb(12, 61, 92);
-        //    btncadfor.BackColor = Color.FromArgb(12, 61, 92);
-        //    //..
-        //    //your codes
-        //    //..
-        //    hideSubMenu();
-        //}
-
-        //private void btnconf_Click(object sender, EventArgs e)
-        //{
-        //    AbrirFormulario<Form_Configuracao>();
-        //    btnconf.BackColor = Color.FromArgb(12, 61, 92);
-        //    hideSubMenu();
-        //}
-
-        //private void btncadastro_Click(object sender, EventArgs e)
-        //{
-        //    showSubMenu(panelsubmenucadastro);
-
-        //}
-
-        //private void btncdoc_Click(object sender, EventArgs e)
-        //{
-        //    AbrirFormulario<Form_Controle_Processo>();
-        //    btncdoc.BackColor = Color.FromArgb(12, 61, 92);
-        //    //..
-        //    //your codes
-        //    //..
-        //    hideSubMenu();
-        //}
-
         private void btnmenuleft_Click(object sender, EventArgs e)
         {
             btnmenurigth.Visible = true;
@@ -293,85 +243,67 @@ namespace LMFinanciamentos.Apresentacao
             btnmenuleft.Visible = true;
             panelMenu.Size = new Size(230, 583);
             panelLogo.Visible = true;
-            //img_foto.Visible = true;
-            //lblsaudacao.Visible = true;
             lblfunc.Visible = true;
             btncontroledoc.Text = "Controle de Documentos";
             btncadastro.Text = "Cadastro";
             btncadastro.Text = "Configurações";
         }
 
-        //private void btnicocad_Click(object sender, EventArgs e)
-        //{
-        //    btnmenurigth.Visible = false;
-        //    btnmenuleft.Visible = true;
-        //    panelMenu.Size = new Size(230, 583);
-        //    showSubMenu(panelsubmenucadastro);
-
-        //}
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
-
-        //private void img_center_Click(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private void panelBarraTitulo_Paint(object sender, PaintEventArgs e)
-        //{
-
-        //}
-
-        //private void label1_Click(object sender, EventArgs e)
-        //{
-
-        //}
 
         private void panelBarraTitulo_Paint_1(object sender, PaintEventArgs e)
         {
 
         }
 
-        //private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        //{
-
-        //}
-
         private void btnconf_Click_1(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
             AbrirFormulario<Form_Configuracao>();
             btnconf.BackColor = Color.FromArgb(12, 61, 92);
-            //..
-            //your codes
-            //..
             hideSubMenu();
             Cursor = Cursors.Default;
         }
-
+        private Form_Controle_Processo BuscarClientes = null;
         private void btncontroledoc_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            AbrirFormulario<Form_Controle_Processo>();
+            if (Application.OpenForms.OfType<Form_Controle_Processo>().Count() > 0)
+            {
+                this.BuscarClientes.WindowState = FormWindowState.Normal;
+                BuscarClientes.BringToFront();
+            }
+            else
+            {
+                this.BuscarClientes = new Form_Controle_Processo();
+                this.BuscarClientes.setUserLoged(idresponsavel, nomeresponsavel);
+                this.BuscarClientes.Text = "Buscar Clientes";//titulo do formulario
+                this.BuscarClientes.TopLevel = false;
+
+                this.BuscarClientes.TopLevel = false;
+                this.BuscarClientes.FormBorderStyle = FormBorderStyle.None;
+                this.BuscarClientes.Dock = DockStyle.Fill;
+                this.panelformularios.Controls.Add(BuscarClientes);
+                this.panelformularios.Tag = BuscarClientes;
+                this.BuscarClientes.Show();
+                this.BuscarClientes.BringToFront();
+                this.BuscarClientes.FormClosed += new FormClosedEventHandler(CloseForms);
+
+            }
             btncontroledoc.BackColor = Color.FromArgb(12, 61, 92);
-            //..
-            //your codes
-            //..
             hideSubMenu();
 
         }
         private void btncadastro_Click_1(object sender, EventArgs e)
         {
-            
             if (panelLogo.Visible == false)
             {
                 btnmenurigth.Visible = false;
                 btnmenuleft.Visible = true;
                 panelMenu.Size = new Size(230, 583);
-                //panelLogo.Visible = true;
                 btncontroledoc.Text = "Controle de Documentos";
                 btncadastro.Text = "Cadastro";
                 btnconf.Text = "Configurações";
@@ -381,7 +313,6 @@ namespace LMFinanciamentos.Apresentacao
             {
                 showSubMenu(panelsubmenucadastro);
             }
-
         }
 
         private void btncadastrocliente_Click_1(object sender, EventArgs e)
@@ -390,26 +321,22 @@ namespace LMFinanciamentos.Apresentacao
             AbrirFormulario<Form_Controle_Cliente>();
             btncadastro.BackColor = Color.FromArgb(12, 61, 92);
             btncadastrocliente.BackColor = Color.FromArgb(12, 61, 92);
-            Frmcli = true;
             hideSubMenu();
         }
 
         private void btncadastrocfuncionarios_Click(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
             AbrirFormulario<Form_Controle_Funcionarios>();
             btncadastro.BackColor = Color.FromArgb(12, 61, 92);
             btncadastrocfuncionarios.BackColor = Color.FromArgb(12, 61, 92);
             hideSubMenu();
+            Cursor = Cursors.Default;
         }
-
-        //private void pictureBox2_Click(object sender, EventArgs e)
-        //{
-
-        //}
 
         private void btncadastrocvendedor_Click(object sender, EventArgs e)
         {
-            Cursor = Cursors.WaitCursor; 
+            Cursor = Cursors.WaitCursor;
             AbrirFormulario<Form_Controle_Vendedor>();
             btncadastro.BackColor = Color.FromArgb(12, 61, 92);
             btncadastrocvendedor.BackColor = Color.FromArgb(12, 61, 92);
@@ -417,18 +344,7 @@ namespace LMFinanciamentos.Apresentacao
             Cursor = Cursors.Default;
         }
 
-        private Form activeForm = null;
-        //private void openChildForm(Form childForm)
-        //{
-        //    if (activeForm != null) activeForm.Close();
-        //    activeForm = childForm;
-        //    childForm.TopLevel = false;
-        //    childForm.FormBorderStyle = FormBorderStyle.None;
-        //    childForm.Dock = DockStyle.Fill;
-        //    panelformularios.Controls.Add(childForm);
-        //    panelformularios.Tag = childForm;
-        //    childForm.BringToFront();
-        //    childForm.Show();
-        //}
+       //private Form activeForm = null;
+
     }
 }

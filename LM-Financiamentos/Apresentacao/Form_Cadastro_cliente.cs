@@ -12,7 +12,7 @@ namespace LMFinanciamentos.Apresentacao
     public partial class Form_Cadastro_Cliente : Form
     {
 
-        String sexo, status, idCliente, valor, renda, nascimento, arquivo, CPF, RG;
+        String sexo, status, idCliente, valor, arquivo, CPF, RG, Agencia, Conta;
         String excluirimage;
         FileStream fsObj = null;
         BinaryReader binRdr = null;
@@ -442,13 +442,32 @@ namespace LMFinanciamentos.Apresentacao
 
             String renda = txtrendacli.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
 
+
             LoginDaoComandos inserircliente = new LoginDaoComandos();
 
             int newidcli = inserircliente.CadastrarCliente(txtnomecli.Text, txtemail.Text, txttelefone.Text, txtcelular.Text, CPF, RG, datanasc, sexo, status, renda);
        
             if (newidcli >= 0)
             {
-                if(excluirimage == "Update")
+                if (txtcontacliente != null && txtagenciacliente != null)
+                {
+                    idCliente = newidcli.ToString();
+
+                    Conta = txtcontacliente.Text;
+                    Agencia = txtagenciacliente.Text;
+
+                    LoginDaoComandos updateconta = new LoginDaoComandos();
+
+                    updateconta.InsertConta(idCliente, Agencia, Conta, "C");
+                    if (updateconta.mensagem != "OK")
+                    {
+                        MessageBox.Show("Cliente Cadastrado! \n Agência e Conta com erro! \n " + updateconta.mensagem, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Close();
+                    }
+
+                }
+
+                if (excluirimage == "Update")
                 {
                     LoginDaoComandos insertfotocliente = new LoginDaoComandos();
                     fsObj = File.OpenRead(arquivo);

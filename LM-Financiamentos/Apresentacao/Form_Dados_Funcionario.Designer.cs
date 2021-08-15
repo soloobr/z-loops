@@ -63,7 +63,7 @@ namespace LMFinanciamentos.Apresentacao
             this.lblfuncionario = new System.Windows.Forms.Label();
             this.lblemail = new System.Windows.Forms.Label();
             this.txtnasc = new System.Windows.Forms.MaskedTextBox();
-            this.txtnomecli = new System.Windows.Forms.TextBox();
+            this.txtnomefuncionario = new System.Windows.Forms.TextBox();
             this.txtrg = new System.Windows.Forms.TextBox();
             this.checkBox_status = new System.Windows.Forms.CheckBox();
             this.txtpermission = new System.Windows.Forms.ComboBox();
@@ -168,7 +168,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel1.Controls.Add(this.lblfuncionario, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblemail, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtnasc, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.txtnomecli, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txtnomefuncionario, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtrg, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.checkBox_status, 1, 8);
             this.tableLayoutPanel1.Controls.Add(this.txtpermission, 2, 7);
@@ -202,12 +202,12 @@ namespace LMFinanciamentos.Apresentacao
             // txtcracha
             // 
             this.txtcracha.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtcracha.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcracha.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcracha.Location = new System.Drawing.Point(373, 143);
             this.txtcracha.Name = "txtcracha";
             this.txtcracha.ReadOnly = true;
-            this.txtcracha.Size = new System.Drawing.Size(170, 30);
-            this.txtcracha.TabIndex = 60;
+            this.txtcracha.Size = new System.Drawing.Size(170, 27);
+            this.txtcracha.TabIndex = 9;
             // 
             // label5
             // 
@@ -230,12 +230,12 @@ namespace LMFinanciamentos.Apresentacao
             // txtendereco
             // 
             this.txtendereco.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtendereco.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtendereco.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtendereco.Location = new System.Drawing.Point(3, 143);
             this.txtendereco.Name = "txtendereco";
             this.txtendereco.ReadOnly = true;
-            this.txtendereco.Size = new System.Drawing.Size(355, 30);
-            this.txtendereco.TabIndex = 57;
+            this.txtendereco.Size = new System.Drawing.Size(355, 27);
+            this.txtendereco.TabIndex = 8;
             // 
             // label4
             // 
@@ -254,7 +254,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtrendacli.Name = "txtrendacli";
             this.txtrendacli.ReadOnly = true;
             this.txtrendacli.Size = new System.Drawing.Size(216, 27);
-            this.txtrendacli.TabIndex = 54;
+            this.txtrendacli.TabIndex = 7;
             this.txtrendacli.Visible = false;
             this.txtrendacli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtrendacli_KeyPress);
             this.txtrendacli.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrendacli_KeyUp);
@@ -277,7 +277,7 @@ namespace LMFinanciamentos.Apresentacao
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(5);
             this.groupBox2.Size = new System.Drawing.Size(226, 71);
-            this.groupBox2.TabIndex = 28;
+            this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Sexo:";
             // 
@@ -419,15 +419,15 @@ namespace LMFinanciamentos.Apresentacao
             this.txtnasc.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
             this.txtnasc.ValidatingType = typeof(System.DateTime);
             // 
-            // txtnomecli
+            // txtnomefuncionario
             // 
-            this.txtnomecli.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnomecli.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.txtnomecli.Location = new System.Drawing.Point(3, 26);
-            this.txtnomecli.Name = "txtnomecli";
-            this.txtnomecli.ReadOnly = true;
-            this.txtnomecli.Size = new System.Drawing.Size(364, 30);
-            this.txtnomecli.TabIndex = 0;
+            this.txtnomefuncionario.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtnomefuncionario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.txtnomefuncionario.Location = new System.Drawing.Point(3, 26);
+            this.txtnomefuncionario.Name = "txtnomefuncionario";
+            this.txtnomefuncionario.ReadOnly = true;
+            this.txtnomefuncionario.Size = new System.Drawing.Size(364, 30);
+            this.txtnomefuncionario.TabIndex = 0;
             // 
             // txtrg
             // 
@@ -447,7 +447,7 @@ namespace LMFinanciamentos.Apresentacao
             this.checkBox_status.Location = new System.Drawing.Point(373, 192);
             this.checkBox_status.Name = "checkBox_status";
             this.checkBox_status.Size = new System.Drawing.Size(170, 71);
-            this.checkBox_status.TabIndex = 56;
+            this.checkBox_status.TabIndex = 12;
             this.checkBox_status.Text = "Funcionário Ativo";
             this.checkBox_status.UseVisualStyleBackColor = true;
             this.checkBox_status.CheckedChanged += new System.EventHandler(this.checkBox_status_CheckedChanged);
@@ -459,7 +459,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtpermission.Location = new System.Drawing.Point(549, 143);
             this.txtpermission.Name = "txtpermission";
             this.txtpermission.Size = new System.Drawing.Size(157, 31);
-            this.txtpermission.TabIndex = 62;
+            this.txtpermission.TabIndex = 10;
             // 
             // Foto
             // 
@@ -551,7 +551,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btn_excluir_func.Name = "btn_excluir_func";
             this.btn_excluir_func.Padding = new System.Windows.Forms.Padding(4);
             this.btn_excluir_func.Size = new System.Drawing.Size(104, 32);
-            this.btn_excluir_func.TabIndex = 31;
+            this.btn_excluir_func.TabIndex = 16;
             this.btn_excluir_func.Text = "Excluir";
             this.btn_excluir_func.UseCompatibleTextRendering = true;
             this.btn_excluir_func.UseVisualStyleBackColor = false;
@@ -568,9 +568,8 @@ namespace LMFinanciamentos.Apresentacao
             // 
             // btn_cancelar_func
             // 
-            this.btn_cancelar_func.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.btn_cancelar_func.BackColor = System.Drawing.Color.SlateGray;
             this.btn_cancelar_func.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btn_cancelar_func.FlatAppearance.BorderSize = 0;
             this.btn_cancelar_func.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancelar_func.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_cancelar_func.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -578,7 +577,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btn_cancelar_func.Name = "btn_cancelar_func";
             this.btn_cancelar_func.Padding = new System.Windows.Forms.Padding(4);
             this.btn_cancelar_func.Size = new System.Drawing.Size(104, 32);
-            this.btn_cancelar_func.TabIndex = 25;
+            this.btn_cancelar_func.TabIndex = 15;
             this.btn_cancelar_func.Text = "Cancelar";
             this.btn_cancelar_func.UseCompatibleTextRendering = true;
             this.btn_cancelar_func.UseVisualStyleBackColor = false;
@@ -607,7 +606,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btn_salvar_func.Name = "btn_salvar_func";
             this.btn_salvar_func.Padding = new System.Windows.Forms.Padding(4);
             this.btn_salvar_func.Size = new System.Drawing.Size(104, 32);
-            this.btn_salvar_func.TabIndex = 23;
+            this.btn_salvar_func.TabIndex = 14;
             this.btn_salvar_func.Text = "Salvar";
             this.btn_salvar_func.UseCompatibleTextRendering = true;
             this.btn_salvar_func.UseVisualStyleBackColor = false;
@@ -636,7 +635,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btn_editar_func.Name = "btn_editar_func";
             this.btn_editar_func.Padding = new System.Windows.Forms.Padding(4);
             this.btn_editar_func.Size = new System.Drawing.Size(104, 32);
-            this.btn_editar_func.TabIndex = 19;
+            this.btn_editar_func.TabIndex = 13;
             this.btn_editar_func.Text = "Editar";
             this.btn_editar_func.UseCompatibleTextRendering = true;
             this.btn_editar_func.UseVisualStyleBackColor = false;
@@ -654,7 +653,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btnclosefunc.Name = "btnclosefunc";
             this.btnclosefunc.Padding = new System.Windows.Forms.Padding(4);
             this.btnclosefunc.Size = new System.Drawing.Size(104, 32);
-            this.btnclosefunc.TabIndex = 20;
+            this.btnclosefunc.TabIndex = 17;
             this.btnclosefunc.Text = "Fechar";
             this.btnclosefunc.UseCompatibleTextRendering = true;
             this.btnclosefunc.UseVisualStyleBackColor = false;
@@ -763,7 +762,7 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.MaskedTextBox txtnasc;
         private System.Windows.Forms.RadioButton checkBox_Masculino;
         private System.Windows.Forms.RadioButton checkBox_Feminino;
-        private System.Windows.Forms.TextBox txtnomecli;
+        private System.Windows.Forms.TextBox txtnomefuncionario;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtrg;
         private System.Windows.Forms.Label label4;

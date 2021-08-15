@@ -10,11 +10,37 @@ namespace LMFinanciamentos.Apresentacao
     public partial class Form_Controle_Processo : Form
     {
         public string consultar;
+        int processoselecionado;
+        int contgrid, contgridlast;
+        string idresponsavel, nomeresponsavel;
+
         public Form_Controle_Processo()
         {
             InitializeComponent();
+
+           // Form_Principal proc = new Form_Principal();
+           // idresponsavel = proc.idresponsavel;
+
         }
 
+        //public static string setUserLoged { get; set; }
+        public void setFunc(Funcionario func, Saudacao saudacao)
+        {
+            idresponsavel = func.Id_Funcionario;
+            nomeresponsavel = func.Nome_Funcionario;
+        }
+
+        public void setUserLoged(string idresp, string nomefunc)
+        {
+            if (idresp != null)
+            {
+                idresponsavel = idresp;
+            }
+            if (nomefunc != null)
+            {
+                nomeresponsavel = nomefunc;
+            }
+        }
         private void btncloseconf_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -31,24 +57,11 @@ namespace LMFinanciamentos.Apresentacao
             txtprocurar.Select();
             this.ActiveControl = txtprocurar;
             txtprocurar.Focus();
-            // TODO: esta linha de código carrega dados na tabela 'dS_Documentos.Processos'. Você pode movê-la ou removê-la conforme necessário.
-            //this.processosTableAdapter.Fill(this.dS_Documentos.Processos);
-            // TODO: esta linha de código carrega dados na tabela 'dS_Funcionario.Funcionarios'. Você pode movê-la ou removê-la conforme necessário.
-            //this.funcionariosTableAdapter.Fill(this.dS_Funcionario.Funcionarios);
-
             LoginDaoComandos getprocessos = new LoginDaoComandos();
 
             dgv_process.AutoGenerateColumns = false;
-            dgv_process.DataSource = getprocessos.GetProcessos("C","V","%");
+            dgv_process.DataSource = getprocessos.GetProcessos("C", "V", "%");
             dgv_process.Refresh();
-            
-
-
-        }
-
-        private void dgv_process_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void btnprocurar_Click(object sender, EventArgs e)
@@ -60,12 +73,12 @@ namespace LMFinanciamentos.Apresentacao
             }
             else
             {
-   
+
                 //DAL.DS_DocumentosTableAdapters.ProcessosTableAdapter consulta = new DAL.DS_DocumentosTableAdapters.ProcessosTableAdapter();
                 consultar = "%" + txtprocurar.Text + "%";
 
                 LoginDaoComandos getprocessos = new LoginDaoComandos();
-                Processo[] myArray = getprocessos.GetProcessos("C","V", consultar).ToArray();
+                Processo[] myArray = getprocessos.GetProcessos("C", "V", consultar).ToArray();
                 bool verifica = false;
 
                 foreach (Processo c in myArray)
@@ -78,7 +91,7 @@ namespace LMFinanciamentos.Apresentacao
 
                 if (verifica)
                 {
-                    dgv_process.DataSource = getprocessos.GetProcessos("C","V", consultar);
+                    dgv_process.DataSource = getprocessos.GetProcessos("C", "V", consultar);
                     dgv_process.Refresh();
                     verifica = false;
                 }
@@ -95,48 +108,90 @@ namespace LMFinanciamentos.Apresentacao
         {
             if (e.KeyChar == (char)Keys.Return)
             {
+                Cursor = Cursors.WaitCursor;
                 btnprocurar.Focus();
                 btnprocurar.PerformClick();
+                Cursor = Cursors.Default;
             }
         }
 
         private void btnnovodoc_Click(object sender, EventArgs e)
         {
             Form_Cadastro_Processos frm_cadastro_documentos = new Form_Cadastro_Processos();
-            frm_cadastro_documentos.ProcessoSalvo += new Action(frm_dados_documentos_ProcessoSalvo);
+            frm_cadastro_documentos.ProcessoSalvo += new Action(frm_cadastro_documentos_ProcessoSalvo);
             frm_cadastro_documentos.setLabel("Em Preenchimento");
+            frm_cadastro_documentos.setidUserLoged(idresponsavel);
             frm_cadastro_documentos.Show();
         }
 
         private void dgv_process_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            Cursor = Cursors.WaitCursor;
             Form_Dados_Processos frm_dados_documentos = new Form_Dados_Processos();
-            //frm_dados_documentos.setIdProcess(dgv_process.Rows[1].Cells[0].Value.ToString());
             frm_dados_documentos.setIdProcess(dgv_process.SelectedRows[0].Cells["id"].Value.ToString());
             frm_dados_documentos.ProcessoSalvo += new Action(frm_dados_documentos_ProcessoSalvo);
-            //frm_dados_documentos.setIdProcess("1");
+            processoselecionado = dgv_process.CurrentCell.RowIndex;
+            contgrid = dgv_process.Rows.Count;
             frm_dados_documentos.Show();
+            Cursor = Cursors.Default;
         }
 
         void frm_dados_documentos_ProcessoSalvo()
         {
+
             AtualizaGrid();
+            contgridlast = dgv_process.Rows.Count;
+            if (contgrid == contgridlast)
+            {
+                dgv_process.ClearSelection();
+                dgv_process.Rows[processoselecionado].Selected = true;
+                dgv_process.Rows[processoselecionado].Cells[0].Selected = true;
+            }
+        }
+        void frm_cadastro_documentos_ProcessoSalvo()
+        {
+            AtualizaGrid();
+
+            dgv_process.ClearSelection();
+
+            int nRowIndex = dgv_process.Rows.Count - 1;
+            dgv_process.Rows[nRowIndex].Selected = true;
+            dgv_process.Rows[nRowIndex].Cells[0].Selected = true;
+            dgv_process.FirstDisplayedScrollingRowIndex = nRowIndex;
         }
         private void AtualizaGrid()
         {
-            // TODO: esta linha de código carrega dados na tabela 'dS_Documentos.Processos'. Você pode movê-la ou removê-la conforme necessário.
-            //this.processosTableAdapter.Fill(this.dS_Documentos.Processos);
-            // TODO: esta linha de código carrega dados na tabela 'dS_Funcionario.Funcionarios'. Você pode movê-la ou removê-la conforme necessário.
-            //this.funcionariosTableAdapter.Fill(this.dS_Funcionario.Funcionarios);
-            //dS_Documentos.Reset();
-            //DAL.DS_DocumentosTableAdapters.ProcessosTableAdapter.Fill(DAL.DS_Documentos.ProcessosDataTable.);
-            
+
             LoginDaoComandos getprocessos = new LoginDaoComandos();
-            dgv_process.DataSource = getprocessos.GetProcessos("C","V", "%");
+            dgv_process.DataSource = getprocessos.GetProcessos("C", "V", "%");
             dgv_process.Refresh();
 
         }
 
+
+        private void btn_reload_Click(object sender, EventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+
+            dgv_process.AutoGenerateColumns = false;
+            LoginDaoComandos getprocessos = new LoginDaoComandos();
+            dgv_process.DataSource = getprocessos.GetProcessos("C", "V", "%");
+            dgv_process.Refresh();
+            txtprocurar.Clear();
+            txtprocurar.Select();
+            Cursor = Cursors.Default;
+        }
+
+        private void btn_editar_Click(object sender, EventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            Form_Dados_Processos frm_dados_processo = new Form_Dados_Processos();
+            frm_dados_processo.setIdProcess(dgv_process.SelectedRows[0].Cells["id"].Value.ToString());
+            processoselecionado = dgv_process.CurrentCell.RowIndex;
+            frm_dados_processo.ProcessoSalvo += new Action(frm_dados_documentos_ProcessoSalvo);
+            contgrid = dgv_process.Rows.Count;
+            frm_dados_processo.Show();
+            Cursor = Cursors.Default;
+        }
     }
 }

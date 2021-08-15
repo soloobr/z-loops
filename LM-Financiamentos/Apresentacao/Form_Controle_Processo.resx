@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>594, 56</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="img_topo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -145,6 +148,16 @@
   <metadata name="dS_Clientes.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>540, 17</value>
   </metadata>
+  <data name="btn_reload.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAOpJREFUOE/N
+        kk0OwUAcR7spriAWwk7CSVg5AVZCcA5HkHIBByHER6yIjTsIFt3U+ze/dlLWEi95qXnTyVQ73v8RRVEB
+        J7jFh1zjCHO6pxHf/AkTJTyhLZphB7sY4AuP2MdQSxzEPNriC5aVU2hVvGGMsoM2Rtu5ppSB3sYQY5Qd
+        tA3ONPyCOfsbSzlVdhDP2NLwd7BJE3caOuyxMHnEQPkL5ha40tBBTLAX1VbOQK+jfc6BkoOYYJ+qqpxC
+        q+AVd+grO4i2sx2SA9ouc+xhcpCeuMeilmRhoq6rj0Nc4R3tbNhva/FR/ic87w2QgjVHivKSjwAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
   <data name="btnprocurar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAU9JREFUOE+N

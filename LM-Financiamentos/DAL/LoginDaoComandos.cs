@@ -360,7 +360,7 @@ namespace LMFinanciamentos.DAL
             return mensagem;
             
         }
-        public String InsertContaVendedor(String id,String agencia, String conta)
+        public String InsertConta(String id,String agencia, String conta,String tipo)
         {
 
 
@@ -372,7 +372,7 @@ namespace LMFinanciamentos.DAL
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.Parameters.AddWithValue("@agencia", agencia);
                 cmd.Parameters.AddWithValue("@conta", conta);
-                cmd.Parameters.AddWithValue("@tipo", "V");
+                cmd.Parameters.AddWithValue("@tipo", tipo);
 
                 cmd.Connection = con.conectar();
 
@@ -401,7 +401,7 @@ namespace LMFinanciamentos.DAL
 
             return mensagem;
         }
-        public String UpdateContaVendedor(String id, String agencia, String conta)
+        public String UpdateConta(String id, String agencia, String conta,String tipo)
         {
 
 
@@ -415,7 +415,7 @@ namespace LMFinanciamentos.DAL
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.Parameters.AddWithValue("@agencia", agencia);
                 cmd.Parameters.AddWithValue("@conta", conta);
-                cmd.Parameters.AddWithValue("@tipo", "V");
+                cmd.Parameters.AddWithValue("@tipo", tipo);
 
 
                 cmd.Connection = con.conectar();
@@ -1008,7 +1008,7 @@ namespace LMFinanciamentos.DAL
         }
         public Funcionario GetFunc(String login, String senha)
         {
-            cmd.CommandText = "Select Funcionarios.Login as id, Funcionarios.Nome, Login.Login, Login.Senha, Permission, Foto From Login inner join Funcionarios on Login.id = Funcionarios.Login inner join Foto F on Login.id = F.IdFunc  where Login.Login = @login and Senha = @senha";
+            cmd.CommandText = "Select F.Login as id, F.Nome, L.Login, L.Senha, Permission, Foto from Login L left join Funcionarios F on F.id = L.id left join Foto on Foto.idFunc = F.id where L.Login = @login and Senha = @senha";
             cmd.Parameters.AddWithValue("@login", login);
             cmd.Parameters.AddWithValue("@senha", senha);
             Funcionario func = new Funcionario();
@@ -1160,8 +1160,12 @@ namespace LMFinanciamentos.DAL
         {
            //var list = new List<Cliente>();
 
-            cmd.CommandText = "SELECT id, Nome, Email, Telefone, Celular, CPF, StatusCPF, Ciweb, Cadmut, IR, FGTS, RG, Nascimento, Sexo, Renda, Status FROM Clientes WHERE id = @id";
+            cmd.CommandText = "SELECT Clientes.id, Nome, Email, Telefone, Celular, CPF, C.Agencia, C.Conta, RG, Nascimento, Sexo, Renda, Status FROM Clientes " +
+                "Left join Conta C on C.idcliente = @id and C.Tipo = @tipo "  +
+                "WHERE Clientes.id = @id  ";
+            cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@tipo", "C");
             Cliente client = new Cliente();
             try
             {
@@ -1176,11 +1180,11 @@ namespace LMFinanciamentos.DAL
                     client.Telefone_cliente = drclient["Telefone"].ToString();
                     client.Celular_cliente = drclient["Celular"].ToString();
                     client.CPF_cliente = FormatCnpjCpf.FormatCPF(drclient["CPF"].ToString());
-                    client.StatusCPF_cliente = drclient["StatusCPF"].ToString();
-                    client.StatusCiweb_cliente = drclient["Ciweb"].ToString();
-                    client.StatusCadmut_cliente = drclient["Cadmut"].ToString();
-                    client.StatusIR_cliente = drclient["IR"].ToString();
-                    client.StatusFGTS_cliente = drclient["FGTS"].ToString();
+                    client.Agencia_cliente = drclient["Agencia"].ToString();
+                    client.Conta_cliente = drclient["Conta"].ToString();
+                    //client.StatusCadmut_cliente = drclient["Cadmut"].ToString();
+                    //client.StatusIR_cliente = drclient["IR"].ToString();
+                    //client.StatusFGTS_cliente = drclient["FGTS"].ToString();
                     client.RG_cliente = FormatCnpjCpf.FormatRG(drclient["RG"].ToString());
                     //client.RG_cliente = drclient["RG"].ToString();
                     client.Nascimento_cliente = drclient["Nascimento"].ToString();
@@ -1339,9 +1343,9 @@ namespace LMFinanciamentos.DAL
                 "P.DataStatusCPF, P.DataStatusCiweb, P.DataStatusCadmut, P.DataStatusIR, P.DataStatusFGTS, P.DataStatusAnalise, P.DataStatusEng, P.DataStatusCartorio, P.DataStatus " +
 
                 "FROM Processos P " +
-                "inner join Clientes C on C.id = P.idCliente " +
-                "inner join Vendedor V on V.id = P.idVendedor " +
-                "inner join Funcionarios F on F.id = P.idresponsavel " +
+                "Left join Clientes C on C.id = P.idCliente " +
+                "Left join Vendedor V on V.id = P.idVendedor " +
+                "Left join Funcionarios F on F.id = P.idresponsavel " +
                 "Left join Conta on C.id = Conta.idcliente and Conta.Tipo =@tipo " +
                 "Left join Conta CV on V.id = Conta.idcliente and Conta.Tipo =@tipov " +
                 "Left join Corretora on P.idCorretora = Corretora.id " +
@@ -1449,7 +1453,7 @@ namespace LMFinanciamentos.DAL
         {
             var list = new List<Cliente>();
 
-            cmd2.CommandText = "SELECT Clientes.id, Nome, Email, Telefone, Celular, CPF, RG, StatusCPF, Ciweb, Cadmut, IR, FGTS, RG, Nascimento, Sexo, Renda, Status, Agencia, Conta FROM Clientes Left join Conta on Conta.idcliente = Clientes.id and Conta.Tipo = @tipo WHERE Nome LIKE @nomeclientes";
+            cmd2.CommandText = "SELECT Clientes.id, Nome, Email, Telefone, Celular, CPF, RG, StatusCPF, Ciweb, Cadmut, IR, FGTS, RG, Nascimento, Sexo, Renda, Status, Agencia, Conta FROM Clientes Left join Conta on Conta.idcliente = Clientes.id and Conta.Tipo = @tipo WHERE Nome LIKE @nomeclientes Order by Clientes.id";
             cmd2.Parameters.Clear();
             cmd2.Parameters.AddWithValue("@nomeclientes", "%" + nome + "%");
             cmd2.Parameters.AddWithValue("@tipo", "C");
@@ -1556,7 +1560,7 @@ namespace LMFinanciamentos.DAL
         {
             var list = new List<Funcionario>();
 
-            cmd.CommandText = "SELECT id, Nome, Email, Telefone, Celular, Endereco, Nascimento, Sexo, CPF, RG, Cracha, Login, Permission, Status FROM Funcionarios WHERE Nome Like @nome ";
+            cmd.CommandText = "SELECT id, Nome, Email, Telefone, Celular, Endereco, Nascimento, Sexo, CPF, RG, Cracha, Login, Permission, Status FROM Funcionarios WHERE Nome Like @nome Order by id ";
             //cmd.CommandText = "SELECT * FROM Funcionarios";
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@nome", "%" + nome + "%");

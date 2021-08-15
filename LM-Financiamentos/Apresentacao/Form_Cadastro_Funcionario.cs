@@ -519,7 +519,7 @@ namespace LMFinanciamentos.Apresentacao
                 #region Atualizar id Login cad Func
 
                     LoginDaoComandos updatelogin = new LoginDaoComandos();
-                MessageBox.Show(newidlogin);
+                //MessageBox.Show(newidlogin);
                     string novologin = newidlogin;
                     string novoidfunc = newidfunc.ToString();
 

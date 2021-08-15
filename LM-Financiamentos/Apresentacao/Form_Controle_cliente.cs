@@ -87,6 +87,7 @@ namespace LMFinanciamentos.Apresentacao
 
         private void btnprocurar_Click(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
             if (txtprocurar.Text == "")
             {
                 MessageBox.Show("Favor Digitar o número ou Nome do Cliente para pesquisar!", "Campo Necessario", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -125,6 +126,7 @@ namespace LMFinanciamentos.Apresentacao
                     Cursor.Current = Cursors.Default;
                 }
             }
+            Cursor = Cursors.Default;
         }
 
         private void dgv_clientes_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
@@ -170,8 +172,8 @@ namespace LMFinanciamentos.Apresentacao
 
             if (result == DialogResult.Yes)
             {
-                
 
+                Cursor = Cursors.WaitCursor;
                 LoginDaoComandos deletecliente = new LoginDaoComandos();
 
                 if(deletecliente.GetFotoCliente(idclienteexclude).Foto_cliente != null)
@@ -182,7 +184,9 @@ namespace LMFinanciamentos.Apresentacao
                     MessageBox.Show(deletecliente.mensagem, "Excluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (ClienteSalvo != null)
                         ClienteSalvo.Invoke();
+
                     AtualizaGrid();
+                    Cursor = Cursors.Default;
                 }
                 else
                 {
@@ -191,6 +195,7 @@ namespace LMFinanciamentos.Apresentacao
                     if (ClienteSalvo != null)
                         ClienteSalvo.Invoke();
                     AtualizaGrid();
+                    Cursor = Cursors.Default;
                 }
 
 
@@ -203,6 +208,18 @@ namespace LMFinanciamentos.Apresentacao
 
         }
 
+        private void btn_reload_Click(object sender, EventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            LoginDaoComandos getfunclientes = new LoginDaoComandos();
+            dgv_clientes.AutoGenerateColumns = false;
+            dgv_clientes.DataSource = getfunclientes.GetClientes("%");
+            dgv_clientes.Refresh();
+            txtprocurar.Clear();
+            txtprocurar.Select();
+
+            Cursor = Cursors.Default;
+        }
 
         void frm_cadastro_clientes_ClienteSalvo()
         {

@@ -164,6 +164,7 @@ namespace LMFinanciamentos.Apresentacao
 
         private void btn_excluir_func_Click(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
             String idclienteexclude = dgv_funcionarios.SelectedRows[0].Cells["id"].Value.ToString();
             var result = MessageBox.Show("Deseja Excluir o Funcionário: \n " + dgv_funcionarios.SelectedRows[0].Cells["Nome"].Value.ToString() + "  ?", "excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
@@ -182,6 +183,7 @@ namespace LMFinanciamentos.Apresentacao
                     if (FuncionarioSalvo != null)
                         FuncionarioSalvo.Invoke();
                     AtualizaGrid();
+                    Cursor = Cursors.Default;
                 }
                 else
                 {
@@ -190,11 +192,13 @@ namespace LMFinanciamentos.Apresentacao
                     if (FuncionarioSalvo != null)
                         FuncionarioSalvo.Invoke();
                     AtualizaGrid();
+                    Cursor = Cursors.Default;
                 }
 
 
 
             }
+            Cursor = Cursors.Default;
         }
 
         private void btn_editar_func_Click(object sender, EventArgs e)
@@ -216,6 +220,8 @@ namespace LMFinanciamentos.Apresentacao
             dgv_funcionarios.AutoGenerateColumns = false;
             dgv_funcionarios.DataSource = getfuncionarios.GetFuncionarios("%");
             dgv_funcionarios.Refresh();
+            txtprocurar.Clear();
+            txtprocurar.Select();
 
             Cursor = Cursors.Default;
         }

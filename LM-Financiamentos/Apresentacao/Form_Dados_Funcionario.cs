@@ -33,7 +33,7 @@ namespace LMFinanciamentos.Apresentacao
         }
         public void setTextNome(String sNome)
         {
-            txtnomecli.Text = sNome;
+            txtnomefuncionario.Text = sNome;
 
         }
         private void btnclosefunc_Click(object sender, EventArgs e)
@@ -97,10 +97,10 @@ namespace LMFinanciamentos.Apresentacao
         private void btn_salvar_func_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
-            if (txtnomecli.Text == "")
+            if (txtnomefuncionario.Text == "")
             {
                 MessageBox.Show("Campo Nome do Funcionario é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtnomecli.Select();
+                txtnomefuncionario.Select();
                 Cursor = Cursors.Default;
                 return;
             }
@@ -167,7 +167,7 @@ namespace LMFinanciamentos.Apresentacao
                     binRdr = new BinaryReader(fsObj);
                     imgContent = binRdr.ReadBytes((int)fsObj.Length);
 
-                    insertfotofuncionario.InsertFotoFuncionario(idFuncionario, imgContent, txtnomecli.Text);
+                    insertfotofuncionario.InsertFotoFuncionario(idFuncionario, imgContent, txtnomefuncionario.Text);
                 }
                 else
                 {
@@ -206,7 +206,7 @@ namespace LMFinanciamentos.Apresentacao
 
             LoginDaoComandos updatefuncionario = new LoginDaoComandos();
 
-            updatefuncionario.UpdateFuncionario(idFuncionario, txtnomecli.Text, txtemail.Text, txttelefone.Text, txtcelular.Text, txtendereco.Text, datanasc, sexo, CPF, RG,  txtcracha.Text, idLogin, txtpermission.Text, status);
+            updatefuncionario.UpdateFuncionario(idFuncionario, txtnomefuncionario.Text, txtemail.Text, txttelefone.Text, txtcelular.Text, txtendereco.Text, datanasc, sexo, CPF, RG,  txtcracha.Text, idLogin, txtpermission.Text, status);
 
             Cursor = Cursors.Default;
 
@@ -273,7 +273,7 @@ namespace LMFinanciamentos.Apresentacao
             LoginDaoComandos getfuncionario = new LoginDaoComandos();
             funcionario = getfuncionario.GetFuncionario(idFuncionario);
 
-            txtnomecli.Text = funcionario.Nome_Funcionario;
+            txtnomefuncionario.Text = funcionario.Nome_Funcionario;
             txtcpf.Text = funcionario.CPF_Funcionario;
             txtrg.Text = funcionario.RG_Funcionario;
             txtnasc.Text = funcionario.Nascimento_Funcionario;
@@ -340,9 +340,9 @@ namespace LMFinanciamentos.Apresentacao
             txtrendacli.Select(txtrendacli.Text.Length, 0);
             #endregion
 
-            txtnomecli.Select(txtnomecli.Text.Length, 0);
-            this.ActiveControl = txtnomecli;
-            txtnomecli.Focus();
+            txtnomefuncionario.Select(txtnomefuncionario.Text.Length, 0);
+            this.ActiveControl = txtnomefuncionario;
+            txtnomefuncionario.Focus();
             Cursor = Cursors.Default;
         }
         
@@ -487,7 +487,8 @@ namespace LMFinanciamentos.Apresentacao
 
         private void btn_excluir_func_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("Deseja Excluir o Funcionario: \n " + txtnomecli.Text + "  ?", "excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            Cursor = Cursors.WaitCursor;
+            var result = MessageBox.Show("Deseja Excluir o Funcionario: \n " + txtnomefuncionario.Text + "  ?", "excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes)
             {
@@ -502,7 +503,9 @@ namespace LMFinanciamentos.Apresentacao
                     MessageBox.Show(deletefuncionario.mensagem, "Excluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (FuncionarioSalvo != null)
                         FuncionarioSalvo.Invoke();
+                    Cursor = Cursors.Default;
                     Close();
+
                 }
                 else
                 {
@@ -510,13 +513,14 @@ namespace LMFinanciamentos.Apresentacao
                     MessageBox.Show(deletefuncionario.mensagem, "Excluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (FuncionarioSalvo != null)
                         FuncionarioSalvo.Invoke();
+                    Cursor = Cursors.Default;
                     Close();
                 }
 
 
 
             }
-
+            Cursor = Cursors.Default;
         }
 
         private void splitter3_SplitterMoved(object sender, SplitterEventArgs e)
@@ -561,21 +565,23 @@ namespace LMFinanciamentos.Apresentacao
         private void btn_editar_func_Click(object sender, EventArgs e)
         {
             btn_editar_func.Visible = false;
-            splitter1.Visible = true;
-            btn_salvar_func.Visible = true;
             splitter2.Visible = true;
             btn_cancelar_func.Visible = true;
+            splitter1.Visible = true;
+            btn_salvar_func.Visible = true;
+
             splitter3.Visible = false;
             btn_excluir_func.Visible = false;
             
 
             HabilitarEdicao();
+            txtnomefuncionario.Select();
         }
 
 
         private void HabilitarEdicao()
         {
-            txtnomecli.ReadOnly = false;
+            txtnomefuncionario.ReadOnly = false;
             txtcpf.ReadOnly = false;
             txtrg.ReadOnly = false;
             txtnasc.ReadOnly = false;
@@ -586,6 +592,8 @@ namespace LMFinanciamentos.Apresentacao
             checkBox_status.Enabled = true;
             checkBox_Masculino.Enabled = true;
             checkBox_Feminino.Enabled = true;
+            txtendereco.ReadOnly = false;
+            txtcracha.ReadOnly = false;
 
             img_foto.Enabled = true;
             if(img_foto.Image == null)
@@ -601,7 +609,7 @@ namespace LMFinanciamentos.Apresentacao
         }
         private void DesabilitarEdicao()
         {
-            txtnomecli.ReadOnly = true;
+            txtnomefuncionario.ReadOnly = true;
             txtcpf.ReadOnly = true;
             txtrg.ReadOnly = true;
             txtnasc.ReadOnly = true;
@@ -612,6 +620,8 @@ namespace LMFinanciamentos.Apresentacao
             checkBox_status.Enabled = false;
             checkBox_Masculino.Enabled = false;
             checkBox_Feminino.Enabled = false;
+            txtendereco.ReadOnly = true;
+            txtcracha.ReadOnly = true;
 
             img_foto.Enabled = false;
             btn_add_foto.Enabled = false;

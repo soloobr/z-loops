@@ -218,12 +218,12 @@ namespace LMFinanciamentos.Apresentacao
 
                 LoginDaoComandos updateconta = new LoginDaoComandos();
 
-                updateconta.UpdateContaVendedor(idVendedor, Agencia, Conta);
+                updateconta.UpdateConta(idVendedor, Agencia, Conta,"V");
 
                 //MessageBox.Show(updateconta.mensagem);
                 if(updateconta.mensagem == "Erro")
                 {
-                    updateconta.InsertContaVendedor(idVendedor, Agencia, Conta);
+                    updateconta.InsertConta(idVendedor, Agencia, Conta,"V");
                 }
 
             }else if(txtagenciavendedor.Text != null  &&  txtcontavendedor.Text == null)
@@ -597,15 +597,17 @@ namespace LMFinanciamentos.Apresentacao
         {
             
             btn_editar.Visible = false;
-            splitter1.Visible = true;
-            btn_salvar.Visible = true;
             splitter2.Visible = true;
             btn_cancelar.Visible = true;
+            splitter1.Visible = true;
+            btn_salvar.Visible = true;
+     
             splitter3.Visible = false;
             btn_excluir.Visible = false;
             
 
             HabilitarEdicao();
+            txtnomevendedor.Select();
         }
 
 
