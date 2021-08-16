@@ -29,3 +29,10 @@ namespace LMFinanciamentos.DAL.DS_FuncionarioTableAdapters
     {
     }
 }
+
+namespace LMFinanciamentos.DS_FuncionarioTableAdapters {
+    
+    
+    public partial class LoginTableAdapter {
+    }
+}

@@ -680,7 +680,7 @@ namespace LMFinanciamentos.Apresentacao
             this.lbl_topo.Location = new System.Drawing.Point(46, 4);
             this.lbl_topo.Margin = new System.Windows.Forms.Padding(3);
             this.lbl_topo.Name = "lbl_topo";
-            this.lbl_topo.Size = new System.Drawing.Size(390, 49);
+            this.lbl_topo.Size = new System.Drawing.Size(320, 49);
             this.lbl_topo.TabIndex = 50;
             this.lbl_topo.Text = "Dados do Funcionário";
             this.lbl_topo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

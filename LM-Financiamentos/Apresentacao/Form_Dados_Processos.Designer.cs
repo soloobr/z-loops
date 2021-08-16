@@ -31,22 +31,20 @@ namespace LMFinanciamentos.Apresentacao
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Dados_Processos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnsalvardoc = new System.Windows.Forms.Button();
             this.dS_Documentos = new LMFinanciamentos.DAL.DS_Documentos();
             this.dSDocumentosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.processosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dS_Clientes = new LMFinanciamentos.DAL.DS_Clientes();
             this.dSClientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.funcionariosTableAdapter = new LMFinanciamentos.DAL.DS_FuncionarioTableAdapters.FuncionariosTableAdapter();
-            this.dS_Funcionario = new LMFinanciamentos.DAL.DS_Funcionario();
             this.funcionariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lbl_topo = new System.Windows.Forms.Label();
             this.paneltop = new System.Windows.Forms.Panel();
@@ -166,38 +164,38 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutSituacao = new System.Windows.Forms.TableLayoutPanel();
             this.pnlpa = new System.Windows.Forms.Panel();
             this.panel34 = new System.Windows.Forms.Panel();
-            this.lbldatapa = new System.Windows.Forms.Label();
-            this.label43 = new System.Windows.Forms.Label();
+            this.dtppa = new System.Windows.Forms.DateTimePicker();
+            this.lblapa = new System.Windows.Forms.Label();
             this.comboBox_PA = new System.Windows.Forms.ComboBox();
             this.label44 = new System.Windows.Forms.Label();
             this.pnlsictd = new System.Windows.Forms.Panel();
             this.panel30 = new System.Windows.Forms.Panel();
-            this.lbldatasictd = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
+            this.dtpsictd = new System.Windows.Forms.DateTimePicker();
+            this.lblasictd = new System.Windows.Forms.Label();
             this.comboBox_SICTD = new System.Windows.Forms.ComboBox();
             this.label25 = new System.Windows.Forms.Label();
             this.pnlsiopi = new System.Windows.Forms.Panel();
             this.panel29 = new System.Windows.Forms.Panel();
-            this.lbldatasiopi = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
+            this.dtpsiopi = new System.Windows.Forms.DateTimePicker();
+            this.lblasiopi = new System.Windows.Forms.Label();
             this.comboBox_SIOPI = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.pnlfgts = new System.Windows.Forms.Panel();
             this.panel27 = new System.Windows.Forms.Panel();
-            this.lbldatasaquefgts = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
+            this.dtpfgts = new System.Windows.Forms.DateTimePicker();
+            this.lblafgts = new System.Windows.Forms.Label();
             this.comboBox_saque = new System.Windows.Forms.ComboBox();
             this.lblsaque = new System.Windows.Forms.Label();
             this.pnleng = new System.Windows.Forms.Panel();
             this.panel28 = new System.Windows.Forms.Panel();
-            this.lbldataeng = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
+            this.dtpeng = new System.Windows.Forms.DateTimePicker();
+            this.lblaeng = new System.Windows.Forms.Label();
             this.comboBox_statuseng = new System.Windows.Forms.ComboBox();
             this.label28 = new System.Windows.Forms.Label();
             this.pnlAnalise = new System.Windows.Forms.Panel();
             this.paneldataanalise = new System.Windows.Forms.Panel();
-            this.lbldataanalise = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
+            this.dtpanalise = new System.Windows.Forms.DateTimePicker();
+            this.lblaanalise = new System.Windows.Forms.Label();
             this.comboBox_analise = new System.Windows.Forms.ComboBox();
             this.label29 = new System.Windows.Forms.Label();
             this.tabcartorio = new System.Windows.Forms.TabPage();
@@ -266,7 +264,6 @@ namespace LMFinanciamentos.Apresentacao
             ((System.ComponentModel.ISupportInitialize)(this.processosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Clientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSClientesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS_Funcionario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).BeginInit();
             this.paneltop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).BeginInit();
@@ -384,19 +381,9 @@ namespace LMFinanciamentos.Apresentacao
             this.dSClientesBindingSource.DataSource = this.dS_Clientes;
             this.dSClientesBindingSource.Position = 0;
             // 
-            // funcionariosTableAdapter
-            // 
-            this.funcionariosTableAdapter.ClearBeforeFill = true;
-            // 
-            // dS_Funcionario
-            // 
-            this.dS_Funcionario.DataSetName = "DS_Funcionario";
-            this.dS_Funcionario.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // funcionariosBindingSource
             // 
             this.funcionariosBindingSource.DataMember = "Funcionarios";
-            this.funcionariosBindingSource.DataSource = this.dS_Funcionario;
             // 
             // lbl_topo
             // 
@@ -1878,39 +1865,37 @@ namespace LMFinanciamentos.Apresentacao
             // 
             // panel34
             // 
-            this.panel34.Controls.Add(this.lbldatapa);
-            this.panel34.Controls.Add(this.label43);
+            this.panel34.Controls.Add(this.dtppa);
+            this.panel34.Controls.Add(this.lblapa);
             this.panel34.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel34.Location = new System.Drawing.Point(8, 55);
             this.panel34.Name = "panel34";
             this.panel34.Size = new System.Drawing.Size(150, 48);
             this.panel34.TabIndex = 24;
             // 
-            // lbldatapa
+            // dtppa
             // 
-            this.lbldatapa.AutoSize = true;
-            this.lbldatapa.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbldatapa.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldatapa.Location = new System.Drawing.Point(0, 27);
-            this.lbldatapa.Name = "lbldatapa";
-            this.lbldatapa.Padding = new System.Windows.Forms.Padding(4);
-            this.lbldatapa.Size = new System.Drawing.Size(126, 31);
-            this.lbldatapa.TabIndex = 1;
-            this.lbldatapa.Text = "__/ ___/ ____";
-            this.lbldatapa.Visible = false;
+            this.dtppa.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dtppa.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F);
+            this.dtppa.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtppa.Location = new System.Drawing.Point(0, 21);
+            this.dtppa.Name = "dtppa";
+            this.dtppa.Size = new System.Drawing.Size(150, 27);
+            this.dtppa.TabIndex = 33;
+            this.dtppa.Visible = false;
             // 
-            // label43
+            // lblapa
             // 
-            this.label43.AutoSize = true;
-            this.label43.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label43.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(0, 0);
-            this.label43.Name = "label43";
-            this.label43.Padding = new System.Windows.Forms.Padding(2);
-            this.label43.Size = new System.Drawing.Size(73, 27);
-            this.label43.TabIndex = 0;
-            this.label43.Text = "Alterado:";
-            this.label43.Visible = false;
+            this.lblapa.AutoSize = true;
+            this.lblapa.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblapa.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblapa.Location = new System.Drawing.Point(0, 0);
+            this.lblapa.Name = "lblapa";
+            this.lblapa.Padding = new System.Windows.Forms.Padding(2);
+            this.lblapa.Size = new System.Drawing.Size(73, 27);
+            this.lblapa.TabIndex = 0;
+            this.lblapa.Text = "Alterado:";
+            this.lblapa.Visible = false;
             // 
             // comboBox_PA
             // 
@@ -1959,39 +1944,38 @@ namespace LMFinanciamentos.Apresentacao
             // 
             // panel30
             // 
-            this.panel30.Controls.Add(this.lbldatasictd);
-            this.panel30.Controls.Add(this.label42);
+            this.panel30.Controls.Add(this.dtpsictd);
+            this.panel30.Controls.Add(this.lblasictd);
             this.panel30.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel30.Location = new System.Drawing.Point(8, 55);
             this.panel30.Name = "panel30";
             this.panel30.Size = new System.Drawing.Size(150, 48);
             this.panel30.TabIndex = 26;
             // 
-            // lbldatasictd
+            // dtpsictd
             // 
-            this.lbldatasictd.AutoSize = true;
-            this.lbldatasictd.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbldatasictd.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldatasictd.Location = new System.Drawing.Point(0, 27);
-            this.lbldatasictd.Name = "lbldatasictd";
-            this.lbldatasictd.Padding = new System.Windows.Forms.Padding(2);
-            this.lbldatasictd.Size = new System.Drawing.Size(122, 27);
-            this.lbldatasictd.TabIndex = 1;
-            this.lbldatasictd.Text = "__/ ___/ ____";
-            this.lbldatasictd.Visible = false;
+            this.dtpsictd.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dtpsictd.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F);
+            this.dtpsictd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpsictd.Location = new System.Drawing.Point(0, 21);
+            this.dtpsictd.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.dtpsictd.Name = "dtpsictd";
+            this.dtpsictd.Size = new System.Drawing.Size(150, 27);
+            this.dtpsictd.TabIndex = 31;
+            this.dtpsictd.Visible = false;
             // 
-            // label42
+            // lblasictd
             // 
-            this.label42.AutoSize = true;
-            this.label42.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label42.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.Location = new System.Drawing.Point(0, 0);
-            this.label42.Name = "label42";
-            this.label42.Padding = new System.Windows.Forms.Padding(2);
-            this.label42.Size = new System.Drawing.Size(73, 27);
-            this.label42.TabIndex = 0;
-            this.label42.Text = "Alterado:";
-            this.label42.Visible = false;
+            this.lblasictd.AutoSize = true;
+            this.lblasictd.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblasictd.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblasictd.Location = new System.Drawing.Point(0, 0);
+            this.lblasictd.Name = "lblasictd";
+            this.lblasictd.Padding = new System.Windows.Forms.Padding(2);
+            this.lblasictd.Size = new System.Drawing.Size(73, 27);
+            this.lblasictd.TabIndex = 0;
+            this.lblasictd.Text = "Alterado:";
+            this.lblasictd.Visible = false;
             // 
             // comboBox_SICTD
             // 
@@ -2038,39 +2022,37 @@ namespace LMFinanciamentos.Apresentacao
             // 
             // panel29
             // 
-            this.panel29.Controls.Add(this.lbldatasiopi);
-            this.panel29.Controls.Add(this.label40);
+            this.panel29.Controls.Add(this.dtpsiopi);
+            this.panel29.Controls.Add(this.lblasiopi);
             this.panel29.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel29.Location = new System.Drawing.Point(8, 55);
             this.panel29.Name = "panel29";
             this.panel29.Size = new System.Drawing.Size(150, 48);
             this.panel29.TabIndex = 25;
             // 
-            // lbldatasiopi
+            // dtpsiopi
             // 
-            this.lbldatasiopi.AutoSize = true;
-            this.lbldatasiopi.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbldatasiopi.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldatasiopi.Location = new System.Drawing.Point(0, 27);
-            this.lbldatasiopi.Name = "lbldatasiopi";
-            this.lbldatasiopi.Padding = new System.Windows.Forms.Padding(2);
-            this.lbldatasiopi.Size = new System.Drawing.Size(122, 27);
-            this.lbldatasiopi.TabIndex = 1;
-            this.lbldatasiopi.Text = "__/ ___/ ____";
-            this.lbldatasiopi.Visible = false;
+            this.dtpsiopi.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dtpsiopi.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpsiopi.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpsiopi.Location = new System.Drawing.Point(0, 21);
+            this.dtpsiopi.Name = "dtpsiopi";
+            this.dtpsiopi.Size = new System.Drawing.Size(150, 27);
+            this.dtpsiopi.TabIndex = 30;
+            this.dtpsiopi.Visible = false;
             // 
-            // label40
+            // lblasiopi
             // 
-            this.label40.AutoSize = true;
-            this.label40.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label40.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label40.Location = new System.Drawing.Point(0, 0);
-            this.label40.Name = "label40";
-            this.label40.Padding = new System.Windows.Forms.Padding(2);
-            this.label40.Size = new System.Drawing.Size(73, 27);
-            this.label40.TabIndex = 0;
-            this.label40.Text = "Alterado:";
-            this.label40.Visible = false;
+            this.lblasiopi.AutoSize = true;
+            this.lblasiopi.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblasiopi.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblasiopi.Location = new System.Drawing.Point(0, 0);
+            this.lblasiopi.Name = "lblasiopi";
+            this.lblasiopi.Padding = new System.Windows.Forms.Padding(2);
+            this.lblasiopi.Size = new System.Drawing.Size(73, 27);
+            this.lblasiopi.TabIndex = 0;
+            this.lblasiopi.Text = "Alterado:";
+            this.lblasiopi.Visible = false;
             // 
             // comboBox_SIOPI
             // 
@@ -2117,39 +2099,37 @@ namespace LMFinanciamentos.Apresentacao
             // 
             // panel27
             // 
-            this.panel27.Controls.Add(this.lbldatasaquefgts);
-            this.panel27.Controls.Add(this.label38);
+            this.panel27.Controls.Add(this.dtpfgts);
+            this.panel27.Controls.Add(this.lblafgts);
             this.panel27.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel27.Location = new System.Drawing.Point(8, 55);
             this.panel27.Name = "panel27";
             this.panel27.Size = new System.Drawing.Size(150, 48);
             this.panel27.TabIndex = 24;
             // 
-            // lbldatasaquefgts
+            // dtpfgts
             // 
-            this.lbldatasaquefgts.AutoSize = true;
-            this.lbldatasaquefgts.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbldatasaquefgts.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldatasaquefgts.Location = new System.Drawing.Point(0, 27);
-            this.lbldatasaquefgts.Name = "lbldatasaquefgts";
-            this.lbldatasaquefgts.Padding = new System.Windows.Forms.Padding(2);
-            this.lbldatasaquefgts.Size = new System.Drawing.Size(122, 27);
-            this.lbldatasaquefgts.TabIndex = 1;
-            this.lbldatasaquefgts.Text = "__/ ___/ ____";
-            this.lbldatasaquefgts.Visible = false;
+            this.dtpfgts.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dtpfgts.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F);
+            this.dtpfgts.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpfgts.Location = new System.Drawing.Point(0, 21);
+            this.dtpfgts.Name = "dtpfgts";
+            this.dtpfgts.Size = new System.Drawing.Size(150, 27);
+            this.dtpfgts.TabIndex = 32;
+            this.dtpfgts.Visible = false;
             // 
-            // label38
+            // lblafgts
             // 
-            this.label38.AutoSize = true;
-            this.label38.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label38.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(0, 0);
-            this.label38.Name = "label38";
-            this.label38.Padding = new System.Windows.Forms.Padding(2);
-            this.label38.Size = new System.Drawing.Size(73, 27);
-            this.label38.TabIndex = 0;
-            this.label38.Text = "Alterado:";
-            this.label38.Visible = false;
+            this.lblafgts.AutoSize = true;
+            this.lblafgts.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblafgts.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblafgts.Location = new System.Drawing.Point(0, 0);
+            this.lblafgts.Name = "lblafgts";
+            this.lblafgts.Padding = new System.Windows.Forms.Padding(2);
+            this.lblafgts.Size = new System.Drawing.Size(73, 27);
+            this.lblafgts.TabIndex = 0;
+            this.lblafgts.Text = "Alterado:";
+            this.lblafgts.Visible = false;
             // 
             // comboBox_saque
             // 
@@ -2197,39 +2177,41 @@ namespace LMFinanciamentos.Apresentacao
             // 
             // panel28
             // 
-            this.panel28.Controls.Add(this.lbldataeng);
-            this.panel28.Controls.Add(this.label36);
+            this.panel28.Controls.Add(this.dtpeng);
+            this.panel28.Controls.Add(this.lblaeng);
             this.panel28.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel28.Location = new System.Drawing.Point(8, 55);
             this.panel28.Name = "panel28";
             this.panel28.Size = new System.Drawing.Size(150, 48);
             this.panel28.TabIndex = 23;
             // 
-            // lbldataeng
+            // dtpeng
             // 
-            this.lbldataeng.AutoSize = true;
-            this.lbldataeng.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbldataeng.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldataeng.Location = new System.Drawing.Point(0, 27);
-            this.lbldataeng.Name = "lbldataeng";
-            this.lbldataeng.Padding = new System.Windows.Forms.Padding(2);
-            this.lbldataeng.Size = new System.Drawing.Size(122, 27);
-            this.lbldataeng.TabIndex = 1;
-            this.lbldataeng.Text = "__/ ___/ ____";
-            this.lbldataeng.Visible = false;
+            this.dtpeng.CustomFormat = "";
+            this.dtpeng.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dtpeng.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.dtpeng.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F);
+            this.dtpeng.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpeng.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.dtpeng.Location = new System.Drawing.Point(0, 21);
+            this.dtpeng.Margin = new System.Windows.Forms.Padding(5);
+            this.dtpeng.Name = "dtpeng";
+            this.dtpeng.Size = new System.Drawing.Size(150, 27);
+            this.dtpeng.TabIndex = 29;
+            this.dtpeng.Visible = false;
             // 
-            // label36
+            // lblaeng
             // 
-            this.label36.AutoSize = true;
-            this.label36.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label36.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(0, 0);
-            this.label36.Name = "label36";
-            this.label36.Padding = new System.Windows.Forms.Padding(2);
-            this.label36.Size = new System.Drawing.Size(73, 27);
-            this.label36.TabIndex = 0;
-            this.label36.Text = "Alterado:";
-            this.label36.Visible = false;
+            this.lblaeng.AutoSize = true;
+            this.lblaeng.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblaeng.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblaeng.Location = new System.Drawing.Point(0, 0);
+            this.lblaeng.Name = "lblaeng";
+            this.lblaeng.Padding = new System.Windows.Forms.Padding(2);
+            this.lblaeng.Size = new System.Drawing.Size(73, 27);
+            this.lblaeng.TabIndex = 0;
+            this.lblaeng.Text = "Alterado:";
+            this.lblaeng.Visible = false;
             // 
             // comboBox_statuseng
             // 
@@ -2279,39 +2261,37 @@ namespace LMFinanciamentos.Apresentacao
             // 
             // paneldataanalise
             // 
-            this.paneldataanalise.Controls.Add(this.lbldataanalise);
-            this.paneldataanalise.Controls.Add(this.label33);
+            this.paneldataanalise.Controls.Add(this.dtpanalise);
+            this.paneldataanalise.Controls.Add(this.lblaanalise);
             this.paneldataanalise.Dock = System.Windows.Forms.DockStyle.Left;
             this.paneldataanalise.Location = new System.Drawing.Point(8, 55);
             this.paneldataanalise.Name = "paneldataanalise";
             this.paneldataanalise.Size = new System.Drawing.Size(150, 48);
             this.paneldataanalise.TabIndex = 22;
             // 
-            // lbldataanalise
+            // dtpanalise
             // 
-            this.lbldataanalise.AutoSize = true;
-            this.lbldataanalise.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbldataanalise.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldataanalise.Location = new System.Drawing.Point(0, 27);
-            this.lbldataanalise.Name = "lbldataanalise";
-            this.lbldataanalise.Padding = new System.Windows.Forms.Padding(2);
-            this.lbldataanalise.Size = new System.Drawing.Size(122, 27);
-            this.lbldataanalise.TabIndex = 1;
-            this.lbldataanalise.Text = "__/ ___/ ____";
-            this.lbldataanalise.Visible = false;
+            this.dtpanalise.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dtpanalise.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F);
+            this.dtpanalise.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpanalise.Location = new System.Drawing.Point(0, 21);
+            this.dtpanalise.Name = "dtpanalise";
+            this.dtpanalise.Size = new System.Drawing.Size(150, 27);
+            this.dtpanalise.TabIndex = 1;
+            this.dtpanalise.Visible = false;
             // 
-            // label33
+            // lblaanalise
             // 
-            this.label33.AutoSize = true;
-            this.label33.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label33.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(0, 0);
-            this.label33.Name = "label33";
-            this.label33.Padding = new System.Windows.Forms.Padding(2);
-            this.label33.Size = new System.Drawing.Size(73, 27);
-            this.label33.TabIndex = 0;
-            this.label33.Text = "Alterado:";
-            this.label33.Visible = false;
+            this.lblaanalise.AutoSize = true;
+            this.lblaanalise.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblaanalise.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblaanalise.Location = new System.Drawing.Point(0, 0);
+            this.lblaanalise.Name = "lblaanalise";
+            this.lblaanalise.Padding = new System.Windows.Forms.Padding(2);
+            this.lblaanalise.Size = new System.Drawing.Size(73, 27);
+            this.lblaanalise.TabIndex = 0;
+            this.lblaanalise.Text = "Alterado:";
+            this.lblaanalise.Visible = false;
             // 
             // comboBox_analise
             // 
@@ -2810,14 +2790,14 @@ namespace LMFinanciamentos.Apresentacao
             this.apagar,
             this.Baixar,
             this.Extensao});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Poppins SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_Arquivos.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Poppins SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_Arquivos.DefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridView_Arquivos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_Arquivos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView_Arquivos.GridColor = System.Drawing.SystemColors.Control;
@@ -2836,9 +2816,9 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.Numero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Numero.DataPropertyName = "id";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = "0";
-            this.Numero.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.NullValue = "0";
+            this.Numero.DefaultCellStyle = dataGridViewCellStyle9;
             this.Numero.HeaderText = "Nº";
             this.Numero.Name = "Numero";
             this.Numero.ReadOnly = true;
@@ -2848,8 +2828,8 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.Tipo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.Tipo.DataPropertyName = "Tipo";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Tipo.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Tipo.DefaultCellStyle = dataGridViewCellStyle10;
             this.Tipo.HeaderText = "Tipo";
             this.Tipo.Name = "Tipo";
             this.Tipo.ReadOnly = true;
@@ -2859,8 +2839,8 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.descricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.descricao.DataPropertyName = "Descricao";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.descricao.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.descricao.DefaultCellStyle = dataGridViewCellStyle11;
             this.descricao.HeaderText = "Descrição";
             this.descricao.Name = "descricao";
             this.descricao.Width = 250;
@@ -2869,8 +2849,8 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.data.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.data.DataPropertyName = "Data";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.data.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.data.DefaultCellStyle = dataGridViewCellStyle12;
             this.data.HeaderText = "Data";
             this.data.Name = "data";
             // 
@@ -2878,8 +2858,8 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.status.DataPropertyName = "Status";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.status.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.status.DefaultCellStyle = dataGridViewCellStyle13;
             this.status.HeaderText = "Status";
             this.status.Name = "status";
             this.status.Width = 150;
@@ -2887,9 +2867,9 @@ namespace LMFinanciamentos.Apresentacao
             // apagar
             // 
             this.apagar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(1);
-            this.apagar.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.Padding = new System.Windows.Forms.Padding(1);
+            this.apagar.DefaultCellStyle = dataGridViewCellStyle14;
             this.apagar.FillWeight = 30F;
             this.apagar.HeaderText = "Excluir";
             this.apagar.MinimumWidth = 60;
@@ -2901,9 +2881,9 @@ namespace LMFinanciamentos.Apresentacao
             // Baixar
             // 
             this.Baixar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(1);
-            this.Baixar.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.Padding = new System.Windows.Forms.Padding(1);
+            this.Baixar.DefaultCellStyle = dataGridViewCellStyle15;
             this.Baixar.FillWeight = 30F;
             this.Baixar.HeaderText = "Baixar";
             this.Baixar.MinimumWidth = 60;
@@ -3060,7 +3040,6 @@ namespace LMFinanciamentos.Apresentacao
             ((System.ComponentModel.ISupportInitialize)(this.processosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Clientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSClientesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS_Funcionario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).EndInit();
             this.paneltop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).EndInit();
@@ -3175,8 +3154,8 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.BindingSource processosBindingSource;
         private DAL.DS_Clientes dS_Clientes;
         private System.Windows.Forms.BindingSource dSClientesBindingSource;
-        private DAL.DS_FuncionarioTableAdapters.FuncionariosTableAdapter funcionariosTableAdapter;
-        private DAL.DS_Funcionario dS_Funcionario;
+        //private DAL.DS_FuncionarioTableAdapters.FuncionariosTableAdapter funcionariosTableAdapter;
+        //private DAL.DS_Funcionario dS_Funcionario;
         private System.Windows.Forms.BindingSource funcionariosBindingSource;
         private System.Windows.Forms.Label lbl_topo;
         private System.Windows.Forms.PictureBox img_topo;
@@ -3255,38 +3234,32 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.TableLayoutPanel tableLayoutSituacao;
         private System.Windows.Forms.Panel pnlpa;
         private System.Windows.Forms.Panel panel34;
-        private System.Windows.Forms.Label lbldatapa;
-        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label lblapa;
         private System.Windows.Forms.ComboBox comboBox_PA;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Panel pnlsictd;
         private System.Windows.Forms.Panel panel30;
-        private System.Windows.Forms.Label lbldatasictd;
-        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label lblasictd;
         private System.Windows.Forms.ComboBox comboBox_SICTD;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Panel pnlsiopi;
         private System.Windows.Forms.Panel panel29;
-        private System.Windows.Forms.Label lbldatasiopi;
-        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label lblasiopi;
         private System.Windows.Forms.ComboBox comboBox_SIOPI;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel pnlfgts;
         private System.Windows.Forms.Panel panel27;
-        private System.Windows.Forms.Label lbldatasaquefgts;
-        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label lblafgts;
         private System.Windows.Forms.ComboBox comboBox_saque;
         private System.Windows.Forms.Label lblsaque;
         private System.Windows.Forms.Panel pnleng;
         private System.Windows.Forms.Panel panel28;
-        private System.Windows.Forms.Label lbldataeng;
-        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label lblaeng;
         private System.Windows.Forms.ComboBox comboBox_statuseng;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Panel pnlAnalise;
         private System.Windows.Forms.Panel paneldataanalise;
-        private System.Windows.Forms.Label lbldataanalise;
-        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label lblaanalise;
         private System.Windows.Forms.ComboBox comboBox_analise;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.GroupBox grpbSituacao;
@@ -3394,6 +3367,12 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.DataGridViewTextBoxColumn Extensao;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtdescricao;
+        private System.Windows.Forms.DateTimePicker dtppa;
+        private System.Windows.Forms.DateTimePicker dtpsictd;
+        private System.Windows.Forms.DateTimePicker dtpsiopi;
+        private System.Windows.Forms.DateTimePicker dtpfgts;
+        private System.Windows.Forms.DateTimePicker dtpeng;
+        private System.Windows.Forms.DateTimePicker dtpanalise;
         //private System.Windows.Forms.BindingSource corretoraBindingSource;
         //private System.Windows.Forms.BindingSource corretoresBindingSource;
         //private System.Windows.Forms.BindingSource vendedorBindingSource;

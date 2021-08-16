@@ -263,6 +263,7 @@ namespace LMFinanciamentos
             this.lbltop.TabIndex = 12;
             this.lbltop.Text = "LM Financiamentos";
             this.lbltop.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbltop.Click += new System.EventHandler(this.lbltop_Click);
             // 
             // btnsair
             // 

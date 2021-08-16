@@ -2037,6 +2037,35 @@ namespace LMFinanciamentos.DAL
 
             return mensagem;
         }
+        public string UpdateLogin(String id, String novasenha)
+        {
+            try
+            {
+                cmd1.CommandText = "UPDATE Login SET Senha = @novasenha WHERE id = @idfunc";
+
+                cmd1.Parameters.Clear();
+                cmd1.Parameters.AddWithValue("@idfunc", id);
+                cmd1.Parameters.AddWithValue("@novasenha", novasenha);
+
+
+                cmd1.Connection = conn.conectar();
+                drsenha = cmd1.ExecuteReader();
+                //while (drsenha.Read())
+                //{
+                mensagem = "Senha Alterada com Sucesso!";
+                //}
+
+                drsenha.Close();
+                conn.desconectar();
+
+            }
+            catch (MySqlException err)
+            {
+                mensagem = ("Erro ao lincar Login ao Funcionário: " + err.Message);
+            }
+
+            return mensagem;
+        }
         public void autoCompletar(ComboBox novoText, String nome)
         {
             cmd2.CommandText = "SELECT Nome FROM Clientes WHERE Nome LIKE @nomeclientes";

@@ -45,8 +45,6 @@ namespace LMFinanciamentos.Apresentacao
             this.lbl_topo = new System.Windows.Forms.Label();
             this.img_topo = new System.Windows.Forms.PictureBox();
             this.funcionariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dS_Funcionario = new LMFinanciamentos.DAL.DS_Funcionario();
-            this.funcionariosTableAdapter = new LMFinanciamentos.DAL.DS_FuncionarioTableAdapters.FuncionariosTableAdapter();
             this.dSClientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dS_Clientes = new LMFinanciamentos.DAL.DS_Clientes();
             this.pnlcontrol = new System.Windows.Forms.Panel();
@@ -59,18 +57,17 @@ namespace LMFinanciamentos.Apresentacao
             this.dS_Documentos = new LMFinanciamentos.DAL.DS_Documentos();
             this.processosTableAdapter = new LMFinanciamentos.DAL.DS_DocumentosTableAdapters.ProcessosTableAdapter();
             this.dgv_process = new System.Windows.Forms.DataGridView();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Funcionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Corretora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Corretor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.paneltop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS_Funcionario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSClientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Clientes)).BeginInit();
             this.pnlcontrol.SuspendLayout();
@@ -197,16 +194,6 @@ namespace LMFinanciamentos.Apresentacao
             // funcionariosBindingSource
             // 
             this.funcionariosBindingSource.DataMember = "Funcionarios";
-            this.funcionariosBindingSource.DataSource = this.dS_Funcionario;
-            // 
-            // dS_Funcionario
-            // 
-            this.dS_Funcionario.DataSetName = "DS_Funcionario";
-            this.dS_Funcionario.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // funcionariosTableAdapter
-            // 
-            this.funcionariosTableAdapter.ClearBeforeFill = true;
             // 
             // dSClientesBindingSource
             // 
@@ -430,7 +417,6 @@ namespace LMFinanciamentos.Apresentacao
             this.paneltop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS_Funcionario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSClientesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Clientes)).EndInit();
             this.pnlcontrol.ResumeLayout(false);
@@ -449,9 +435,9 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.Panel paneltop;
         private System.Windows.Forms.Label lbl_topo;
         private System.Windows.Forms.PictureBox img_topo;
-        private DAL.DS_Funcionario dS_Funcionario;
+        //private DAL.DS_Funcionario dS_Funcionario;
         private System.Windows.Forms.BindingSource funcionariosBindingSource;
-        private DAL.DS_FuncionarioTableAdapters.FuncionariosTableAdapter funcionariosTableAdapter;
+        //private DAL.DS_FuncionarioTableAdapters.FuncionariosTableAdapter funcionariosTableAdapter;
         private System.Windows.Forms.BindingSource dSClientesBindingSource;
         private DAL.DS_Clientes dS_Clientes;
         private System.Windows.Forms.Panel pnlcontrol;

@@ -10,9 +10,8 @@
 
 namespace LMFinanciamentos.Properties {
     using System;
-    using System.Drawing;
-
-
+    
+    
     /// <summary>
     ///   Uma classe de recurso de tipo de alta segurança, para pesquisar cadeias de caracteres localizadas etc.
     /// </summary>
@@ -23,8 +22,8 @@ namespace LMFinanciamentos.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
-        internal static Image icons8_contacts_250;
+    public class Resources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
@@ -37,7 +36,7 @@ namespace LMFinanciamentos.Properties {
         ///   Retorna a instância de ResourceManager armazenada em cache usada por essa classe.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LMFinanciamentos.Properties.Resources", typeof(Resources).Assembly);
@@ -52,7 +51,7 @@ namespace LMFinanciamentos.Properties {
         ///   pesquisas de recursos que usam essa classe de recurso de tipo de alta segurança.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -64,7 +63,7 @@ namespace LMFinanciamentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap add16 {
+        public static System.Drawing.Bitmap add16 {
             get {
                 object obj = ResourceManager.GetObject("add16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -74,7 +73,7 @@ namespace LMFinanciamentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap addcli16 {
+        public static System.Drawing.Bitmap addcli16 {
             get {
                 object obj = ResourceManager.GetObject("addcli16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -84,7 +83,7 @@ namespace LMFinanciamentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap addcli161 {
+        public static System.Drawing.Bitmap addcli161 {
             get {
                 object obj = ResourceManager.GetObject("addcli161", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -94,7 +93,7 @@ namespace LMFinanciamentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap adduser16 {
+        public static System.Drawing.Bitmap adduser16 {
             get {
                 object obj = ResourceManager.GetObject("adduser16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -104,7 +103,7 @@ namespace LMFinanciamentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap adduser16a {
+        public static System.Drawing.Bitmap adduser16a {
             get {
                 object obj = ResourceManager.GetObject("adduser16a", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -114,7 +113,7 @@ namespace LMFinanciamentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Bitmap1 {
+        public static System.Drawing.Bitmap Bitmap1 {
             get {
                 object obj = ResourceManager.GetObject("Bitmap1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -124,7 +123,7 @@ namespace LMFinanciamentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Bitmap11 {
+        public static System.Drawing.Bitmap Bitmap11 {
             get {
                 object obj = ResourceManager.GetObject("Bitmap11", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -134,7 +133,7 @@ namespace LMFinanciamentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cadastro {
+        public static System.Drawing.Bitmap cadastro {
             get {
                 object obj = ResourceManager.GetObject("cadastro", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -144,7 +143,7 @@ namespace LMFinanciamentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cadastro1 {
+        public static System.Drawing.Bitmap cadastro1 {
             get {
                 object obj = ResourceManager.GetObject("cadastro1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -154,7 +153,7 @@ namespace LMFinanciamentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cadastro32 {
+        public static System.Drawing.Bitmap cadastro32 {
             get {
                 object obj = ResourceManager.GetObject("cadastro32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -164,7 +163,7 @@ namespace LMFinanciamentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cadastro321 {
+        public static System.Drawing.Bitmap cadastro321 {
             get {
                 object obj = ResourceManager.GetObject("cadastro321", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -174,7 +173,7 @@ namespace LMFinanciamentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Confi32 {
+        public static System.Drawing.Bitmap Confi32 {
             get {
                 object obj = ResourceManager.GetObject("Confi32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -184,7 +183,7 @@ namespace LMFinanciamentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Confi321 {
+        public static System.Drawing.Bitmap Confi321 {
             get {
                 object obj = ResourceManager.GetObject("Confi321", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -194,7 +193,17 @@ namespace LMFinanciamentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap delete16 {
+        public static System.Drawing.Bitmap contacts_250 {
+            get {
+                object obj = ResourceManager.GetObject("contacts-250", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap delete16 {
             get {
                 object obj = ResourceManager.GetObject("delete16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -204,7 +213,7 @@ namespace LMFinanciamentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap delete161 {
+        public static System.Drawing.Bitmap delete161 {
             get {
                 object obj = ResourceManager.GetObject("delete161", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -214,7 +223,7 @@ namespace LMFinanciamentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap folder32 {
+        public static System.Drawing.Bitmap folder32 {
             get {
                 object obj = ResourceManager.GetObject("folder32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -224,7 +233,7 @@ namespace LMFinanciamentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap iconecliente {
+        public static System.Drawing.Bitmap iconecliente {
             get {
                 object obj = ResourceManager.GetObject("iconecliente", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -234,7 +243,7 @@ namespace LMFinanciamentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap iconecliente1 {
+        public static System.Drawing.Bitmap iconecliente1 {
             get {
                 object obj = ResourceManager.GetObject("iconecliente1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -244,7 +253,7 @@ namespace LMFinanciamentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_delete_16 {
+        public static System.Drawing.Bitmap icons8_delete_16 {
             get {
                 object obj = ResourceManager.GetObject("icons8_delete_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -254,7 +263,7 @@ namespace LMFinanciamentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_delete_file_16 {
+        public static System.Drawing.Bitmap icons8_delete_file_16 {
             get {
                 object obj = ResourceManager.GetObject("icons8_delete_file_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -264,7 +273,7 @@ namespace LMFinanciamentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_download_16 {
+        public static System.Drawing.Bitmap icons8_download_16 {
             get {
                 object obj = ResourceManager.GetObject("icons8_download_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -274,7 +283,7 @@ namespace LMFinanciamentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_full_screen_201 {
+        public static System.Drawing.Bitmap icons8_full_screen_201 {
             get {
                 object obj = ResourceManager.GetObject("icons8_full_screen_201", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -284,7 +293,7 @@ namespace LMFinanciamentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap mais16 {
+        public static System.Drawing.Bitmap mais16 {
             get {
                 object obj = ResourceManager.GetObject("mais16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -294,7 +303,7 @@ namespace LMFinanciamentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap mais30 {
+        public static System.Drawing.Bitmap mais30 {
             get {
                 object obj = ResourceManager.GetObject("mais30", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -304,7 +313,7 @@ namespace LMFinanciamentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap minimizar {
+        public static System.Drawing.Bitmap minimizar {
             get {
                 object obj = ResourceManager.GetObject("minimizar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -314,7 +323,7 @@ namespace LMFinanciamentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap process {
+        public static System.Drawing.Bitmap process {
             get {
                 object obj = ResourceManager.GetObject("process", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -324,7 +333,7 @@ namespace LMFinanciamentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap process1 {
+        public static System.Drawing.Bitmap process1 {
             get {
                 object obj = ResourceManager.GetObject("process1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -334,7 +343,7 @@ namespace LMFinanciamentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap procurar16 {
+        public static System.Drawing.Bitmap procurar16 {
             get {
                 object obj = ResourceManager.GetObject("procurar16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -344,7 +353,7 @@ namespace LMFinanciamentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap sair {
+        public static System.Drawing.Bitmap sair {
             get {
                 object obj = ResourceManager.GetObject("sair", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -354,7 +363,7 @@ namespace LMFinanciamentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap showpass20 {
+        public static System.Drawing.Bitmap showpass20 {
             get {
                 object obj = ResourceManager.GetObject("showpass20", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -364,7 +373,7 @@ namespace LMFinanciamentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap soma10 {
+        public static System.Drawing.Bitmap soma10 {
             get {
                 object obj = ResourceManager.GetObject("soma10", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -374,7 +383,7 @@ namespace LMFinanciamentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap user128 {
+        public static System.Drawing.Bitmap user128 {
             get {
                 object obj = ResourceManager.GetObject("user128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -384,7 +393,7 @@ namespace LMFinanciamentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ver16 {
+        public static System.Drawing.Bitmap ver16 {
             get {
                 object obj = ResourceManager.GetObject("ver16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));

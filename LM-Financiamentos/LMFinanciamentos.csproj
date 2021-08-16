@@ -265,14 +265,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_Documentos.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DAL\DS_Funcionario.cs">
-      <DependentUpon>DS_Funcionario.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\DS_Funcionario1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DS_Funcionario.xsd</DependentUpon>
-    </Compile>
+    <Compile Include="DAL\IniFile.cs" />
     <Compile Include="DAL\LoginDaoComandos.cs" />
     <Compile Include="Entidades\Combobox_Agencia.cs" />
     <Compile Include="Entidades\Documento.cs" />
@@ -348,7 +341,7 @@
       <DependentUpon>Form_Principal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
@@ -384,17 +377,6 @@
     </None>
     <None Include="DAL\DS_Documentos.xss">
       <DependentUpon>DS_Documentos.xsd</DependentUpon>
-    </None>
-    <None Include="DAL\DS_Funcionario.xsc">
-      <DependentUpon>DS_Funcionario.xsd</DependentUpon>
-    </None>
-    <None Include="DAL\DS_Funcionario.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DS_Funcionario1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DAL\DS_Funcionario.xss">
-      <DependentUpon>DS_Funcionario.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

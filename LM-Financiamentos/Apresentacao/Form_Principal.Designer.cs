@@ -104,7 +104,7 @@ namespace LMFinanciamentos.Apresentacao
             this.img_foto.Location = new System.Drawing.Point(9, 9);
             this.img_foto.Name = "img_foto";
             this.img_foto.Size = new System.Drawing.Size(202, 233);
-            this.img_foto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.img_foto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.img_foto.TabIndex = 2;
             this.img_foto.TabStop = false;
             this.img_foto.Click += new System.EventHandler(this.pictureBox1_Click);

@@ -1,4 +1,4 @@
-﻿using LMFinanciamentos.DAL.DS_FuncionarioTableAdapters;
+﻿using LMFinanciamentos.DAL;
 
 
 namespace LMFinanciamentos.Entidades

@@ -4,7 +4,7 @@ using LMFinanciamentos.DAL;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-
+using System.IO;
 
 namespace LMFinanciamentos.Apresentacao
 {
@@ -63,6 +63,19 @@ namespace LMFinanciamentos.Apresentacao
             txtnameserver.Text = server.GetServer().Nome_Server;
             txtcaminhoarquivos.Text = server.GetServer().ServerFilesPath_Server;
             idserver = server.GetServer().id_Server;
+
+            #region Checbox Foto
+            string basePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            var MyIni = new IniFile(basePath + @"\LM-Settings.ini");
+            String usuario = Path.GetFileName(basePath);
+            var DefaultVolume = MyIni.Read("DefaultVolume", usuario);
+
+            if (DefaultVolume.ToString() == "1")
+            {
+                checkBox1.Checked = true;
+            }
+
+            #endregion
         }
 
         private void btncloseconf_Click(object sender, EventArgs e)
@@ -150,23 +163,43 @@ namespace LMFinanciamentos.Apresentacao
                 {
                     if (txt_novasenha.Text.Equals(txt_confirmasenha.Text))
                     {
-                        DAL.DS_FuncionarioTableAdapters.LoginTableAdapter adp = new DAL.DS_FuncionarioTableAdapters.LoginTableAdapter();
+                        LoginDaoComandos updatesenha = new LoginDaoComandos();
 
                         novasenha = txt_novasenha.Text;
-                        id = 1;
 
-                        try
+                        updatesenha.UpdateLogin(idFunc, novasenha);
+
+                        MessageBox.Show(updatesenha.mensagem, "Alterar Senha", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        if (pnl_submenualtersenha.Visible == true)
                         {
-                            adp.UpdateSenha(novasenha, id);
-                            MessageBox.Show("Senha Alterada com sucesso! ", "Alterado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            //lbl_error_confere.Visible = false;
                             pnl_submenualtersenha.Visible = false;
+                            txt_novasenha.Clear();
+                            txt_confirmasenha.Clear();
                         }
-                        catch (Exception err)
+                        else
                         {
-                            throw new Exception("Erro ao obter funcionário: " + err.Message);
-                            //throw MessageBox.Show(err.ToString, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information); ;
+                            pnl_submenualtersenha.Visible = true;
+                            txt_novasenha.Focus();
                         }
+
+                        //DAL.DS_FuncionarioTableAdapters.LoginTableAdapter adp = new DAL.DS_FuncionarioTableAdapters.LoginTableAdapter();
+
+                        //novasenha = txt_novasenha.Text;
+                        //id = 1;
+
+                        //try
+                        //{
+                        //    adp.UpdateSenha(novasenha, id);
+                        //    MessageBox.Show("Senha Alterada com sucesso! ", "Alterado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //    //lbl_error_confere.Visible = false;
+                        //    pnl_submenualtersenha.Visible = false;
+                        //}
+                        //catch (Exception err)
+                        //{
+                        //    throw new Exception("Erro ao obter funcionário: " + err.Message);
+                        //    //throw MessageBox.Show(err.ToString, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information); ;
+                        //}
                     }
                     else
                     {
@@ -190,6 +223,39 @@ namespace LMFinanciamentos.Apresentacao
             LoginDaoComandos upserver = new LoginDaoComandos();
             upserver.SaveServer(idserver, txtnameserver.Text, txtcaminhoarquivos.Text);
             MessageBox.Show(upserver.mensagem);
+        }
+
+        private void checkBox1_Click(object sender, EventArgs e)
+        {
+
+            if (checkBox1.Checked)
+            {
+                string basePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+                var MyIni = new IniFile(basePath + @"\LM-Settings.ini");
+                
+                String usuario = Path.GetFileName(basePath);
+                MyIni.Write("DefaultVolume", "1", usuario);
+                
+                //var DefaultVolume = MyIni.Read("DefaultVolume", usuario);
+                
+                //string foto = DefaultVolume.ToString();
+                
+                //if (foto == "1")
+                //{
+                //    MessageBox.Show(foto);
+                //}
+            }
+            else
+            {
+                string basePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+                var MyIni = new IniFile(basePath + @"\LM-Settings.ini");
+
+                String usuario = Path.GetFileName(basePath);
+                //MessageBox.Show(usuario);
+                MyIni.Write("DefaultVolume", "0", usuario);
+
+
+            }
         }
     }
 }

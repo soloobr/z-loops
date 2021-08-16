@@ -147,7 +147,10 @@ namespace LMFinanciamentos
                         frm_Principal.setLabel(func, ola);
                         frm_Principal.Show();
                         lblverifica.Visible = false;
-
+                        string basePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+                        //var MyIni = new IniFile();
+                        //var MyIni = new IniFile(basePath+@"\LM-Settings.ini");
+                        //MyIni.Write("DefaultVolume", "0");
                     }
                     else
                     {
@@ -183,5 +186,9 @@ namespace LMFinanciamentos
             }
         }
 
+        private void lbltop_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

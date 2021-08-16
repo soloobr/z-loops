@@ -29,18 +29,23 @@ namespace LMFinanciamentos.Apresentacao
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.paneltop = new System.Windows.Forms.Panel();
+            this.lbl_conf = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_logoff = new System.Windows.Forms.Button();
+            this.btncloseconf = new System.Windows.Forms.Button();
             this.pnl_centerconf = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox_servidor = new System.Windows.Forms.GroupBox();
-            this.btnsalvarserver = new System.Windows.Forms.Button();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.txtcaminhoarquivos = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtnameserver = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnsalvarserver = new System.Windows.Forms.Button();
+            this.txtnameserver = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.grp_seguranca = new System.Windows.Forms.GroupBox();
             this.panel12 = new System.Windows.Forms.Panel();
             this.pnl_submenualtersenha = new System.Windows.Forms.Panel();
@@ -61,15 +66,14 @@ namespace LMFinanciamentos.Apresentacao
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btn_altersenha = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_logoff = new System.Windows.Forms.Button();
-            this.btncloseconf = new System.Windows.Forms.Button();
-            this.paneltop = new System.Windows.Forms.Panel();
-            this.lbl_conf = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.img_topo = new System.Windows.Forms.PictureBox();
-            this.panel2.SuspendLayout();
+            this.paneltop.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.pnl_centerconf.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.groupBox_servidor.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.grp_seguranca.SuspendLayout();
@@ -82,144 +86,243 @@ namespace LMFinanciamentos.Apresentacao
             this.panel5.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.paneltop.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel2
+            // paneltop
             // 
-            this.panel2.Controls.Add(this.pnl_centerconf);
-            this.panel2.Controls.Add(this.panel1);
-            this.panel2.Controls.Add(this.paneltop);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(686, 474);
-            this.panel2.TabIndex = 5;
+            this.paneltop.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.paneltop.Controls.Add(this.lbl_conf);
+            this.paneltop.Controls.Add(this.img_topo);
+            this.paneltop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.paneltop.Location = new System.Drawing.Point(0, 0);
+            this.paneltop.Name = "paneltop";
+            this.paneltop.Padding = new System.Windows.Forms.Padding(10);
+            this.paneltop.Size = new System.Drawing.Size(914, 57);
+            this.paneltop.TabIndex = 5;
+            // 
+            // lbl_conf
+            // 
+            this.lbl_conf.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.lbl_conf.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbl_conf.Font = new System.Drawing.Font("Poppins", 20.25F, System.Drawing.FontStyle.Bold);
+            this.lbl_conf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.lbl_conf.Location = new System.Drawing.Point(37, 10);
+            this.lbl_conf.Margin = new System.Windows.Forms.Padding(3);
+            this.lbl_conf.Name = "lbl_conf";
+            this.lbl_conf.Size = new System.Drawing.Size(226, 37);
+            this.lbl_conf.TabIndex = 6;
+            this.lbl_conf.Text = "Configurações";
+            this.lbl_conf.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.panel1.Controls.Add(this.btn_logoff);
+            this.panel1.Controls.Add(this.btncloseconf);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 494);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(10);
+            this.panel1.Size = new System.Drawing.Size(914, 52);
+            this.panel1.TabIndex = 7;
+            // 
+            // btn_logoff
+            // 
+            this.btn_logoff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.btn_logoff.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_logoff.FlatAppearance.BorderSize = 0;
+            this.btn_logoff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_logoff.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_logoff.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_logoff.Location = new System.Drawing.Point(10, 10);
+            this.btn_logoff.Name = "btn_logoff";
+            this.btn_logoff.Padding = new System.Windows.Forms.Padding(4);
+            this.btn_logoff.Size = new System.Drawing.Size(104, 32);
+            this.btn_logoff.TabIndex = 5;
+            this.btn_logoff.Text = "Logoff";
+            this.btn_logoff.UseCompatibleTextRendering = true;
+            this.btn_logoff.UseVisualStyleBackColor = false;
+            this.btn_logoff.Click += new System.EventHandler(this.btn_logoff_Click);
+            // 
+            // btncloseconf
+            // 
+            this.btncloseconf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.btncloseconf.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btncloseconf.FlatAppearance.BorderSize = 0;
+            this.btncloseconf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncloseconf.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncloseconf.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btncloseconf.Location = new System.Drawing.Point(800, 10);
+            this.btncloseconf.Name = "btncloseconf";
+            this.btncloseconf.Padding = new System.Windows.Forms.Padding(4);
+            this.btncloseconf.Size = new System.Drawing.Size(104, 32);
+            this.btncloseconf.TabIndex = 2;
+            this.btncloseconf.Text = "Fechar";
+            this.btncloseconf.UseCompatibleTextRendering = true;
+            this.btncloseconf.UseVisualStyleBackColor = false;
+            this.btncloseconf.Click += new System.EventHandler(this.btncloseconf_Click);
             // 
             // pnl_centerconf
             // 
-            this.pnl_centerconf.Controls.Add(this.groupBox_servidor);
-            this.pnl_centerconf.Controls.Add(this.groupBox1);
-            this.pnl_centerconf.Controls.Add(this.grp_seguranca);
+            this.pnl_centerconf.Controls.Add(this.tableLayoutPanel1);
             this.pnl_centerconf.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_centerconf.Location = new System.Drawing.Point(0, 57);
             this.pnl_centerconf.Name = "pnl_centerconf";
-            this.pnl_centerconf.Padding = new System.Windows.Forms.Padding(43);
-            this.pnl_centerconf.Size = new System.Drawing.Size(686, 365);
+            this.pnl_centerconf.Padding = new System.Windows.Forms.Padding(15);
+            this.pnl_centerconf.Size = new System.Drawing.Size(914, 437);
             this.pnl_centerconf.TabIndex = 8;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.47761F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.52239F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 220F));
+            this.tableLayoutPanel1.Controls.Add(this.groupBox_servidor, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.grp_seguranca, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(15, 15);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.47666F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.52334F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(884, 407);
+            this.tableLayoutPanel1.TabIndex = 7;
             // 
             // groupBox_servidor
             // 
-            this.groupBox_servidor.Controls.Add(this.btnsalvarserver);
-            this.groupBox_servidor.Controls.Add(this.txtcaminhoarquivos);
-            this.groupBox_servidor.Controls.Add(this.label5);
-            this.groupBox_servidor.Controls.Add(this.txtnameserver);
-            this.groupBox_servidor.Controls.Add(this.label4);
-            this.groupBox_servidor.Location = new System.Drawing.Point(285, 174);
+            this.groupBox_servidor.Controls.Add(this.tableLayoutPanel2);
+            this.groupBox_servidor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox_servidor.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox_servidor.Location = new System.Drawing.Point(3, 241);
             this.groupBox_servidor.Name = "groupBox_servidor";
-            this.groupBox_servidor.Size = new System.Drawing.Size(333, 143);
-            this.groupBox_servidor.TabIndex = 6;
+            this.groupBox_servidor.Size = new System.Drawing.Size(355, 163);
+            this.groupBox_servidor.TabIndex = 7;
             this.groupBox_servidor.TabStop = false;
             this.groupBox_servidor.Text = "Servidor";
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 4;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel2.Controls.Add(this.txtcaminhoarquivos, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label5, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label4, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnsalvarserver, 2, 2);
+            this.tableLayoutPanel2.Controls.Add(this.txtnameserver, 1, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 26);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 4;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(349, 134);
+            this.tableLayoutPanel2.TabIndex = 8;
+            // 
+            // txtcaminhoarquivos
+            // 
+            this.tableLayoutPanel2.SetColumnSpan(this.txtcaminhoarquivos, 3);
+            this.txtcaminhoarquivos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtcaminhoarquivos.Location = new System.Drawing.Point(110, 39);
+            this.txtcaminhoarquivos.Name = "txtcaminhoarquivos";
+            this.txtcaminhoarquivos.Size = new System.Drawing.Size(236, 30);
+            this.txtcaminhoarquivos.TabIndex = 11;
+            // 
+            // label5
+            // 
+            this.label5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label5.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(3, 36);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(101, 33);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Caminho:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label4.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(3, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(101, 33);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Hostname:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // btnsalvarserver
             // 
-            this.btnsalvarserver.Location = new System.Drawing.Point(197, 90);
+            this.tableLayoutPanel2.SetColumnSpan(this.btnsalvarserver, 2);
+            this.btnsalvarserver.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnsalvarserver.Location = new System.Drawing.Point(217, 75);
             this.btnsalvarserver.Name = "btnsalvarserver";
-            this.btnsalvarserver.Size = new System.Drawing.Size(101, 34);
-            this.btnsalvarserver.TabIndex = 7;
+            this.btnsalvarserver.Size = new System.Drawing.Size(129, 32);
+            this.btnsalvarserver.TabIndex = 8;
             this.btnsalvarserver.Text = "Salvar";
             this.btnsalvarserver.UseVisualStyleBackColor = true;
             this.btnsalvarserver.Click += new System.EventHandler(this.btnsalvarserver_Click);
             // 
-            // txtcaminhoarquivos
-            // 
-            this.txtcaminhoarquivos.Location = new System.Drawing.Point(130, 64);
-            this.txtcaminhoarquivos.Name = "txtcaminhoarquivos";
-            this.txtcaminhoarquivos.Size = new System.Drawing.Size(168, 20);
-            this.txtcaminhoarquivos.TabIndex = 6;
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(6, 55);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(142, 39);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Caminho:";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // txtnameserver
             // 
-            this.txtnameserver.Location = new System.Drawing.Point(130, 25);
+            this.tableLayoutPanel2.SetColumnSpan(this.txtnameserver, 3);
+            this.txtnameserver.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtnameserver.Location = new System.Drawing.Point(110, 3);
             this.txtnameserver.Name = "txtnameserver";
-            this.txtnameserver.Size = new System.Drawing.Size(168, 20);
-            this.txtnameserver.TabIndex = 4;
-            // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(6, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(142, 39);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Hostname:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.txtnameserver.Size = new System.Drawing.Size(236, 30);
+            this.txtnameserver.TabIndex = 12;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.panel4);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Poppins", 10F);
-            this.groupBox1.Location = new System.Drawing.Point(282, 5);
+            this.groupBox1.Location = new System.Drawing.Point(364, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(293, 163);
-            this.groupBox1.TabIndex = 5;
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(10);
+            this.groupBox1.Size = new System.Drawing.Size(296, 232);
+            this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Geral";
-            this.groupBox1.Visible = false;
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.button2);
-            this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.checkBox1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(3, 23);
+            this.panel4.Location = new System.Drawing.Point(10, 30);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(287, 39);
+            this.panel4.Size = new System.Drawing.Size(276, 39);
             this.panel4.TabIndex = 2;
             // 
-            // button2
+            // checkBox1
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button2.Location = new System.Drawing.Point(142, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(145, 39);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Alterar";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 39);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Alterar a Senha";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkBox1.Location = new System.Drawing.Point(0, 0);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(276, 39);
+            this.checkBox1.TabIndex = 0;
+            this.checkBox1.Text = "Não mostrar Foto  ";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.Click += new System.EventHandler(this.checkBox1_Click);
             // 
             // grp_seguranca
             // 
             this.grp_seguranca.Controls.Add(this.panel12);
+            this.grp_seguranca.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grp_seguranca.Font = new System.Drawing.Font("Poppins", 10F);
-            this.grp_seguranca.Location = new System.Drawing.Point(4, 4);
+            this.grp_seguranca.Location = new System.Drawing.Point(3, 3);
             this.grp_seguranca.Name = "grp_seguranca";
             this.grp_seguranca.Padding = new System.Windows.Forms.Padding(7);
-            this.grp_seguranca.Size = new System.Drawing.Size(273, 355);
-            this.grp_seguranca.TabIndex = 4;
+            this.grp_seguranca.Size = new System.Drawing.Size(355, 232);
+            this.grp_seguranca.TabIndex = 5;
             this.grp_seguranca.TabStop = false;
             this.grp_seguranca.Text = "Segurança";
             // 
@@ -230,7 +333,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel12.Location = new System.Drawing.Point(7, 27);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(259, 322);
+            this.panel12.Size = new System.Drawing.Size(341, 255);
             this.panel12.TabIndex = 4;
             // 
             // pnl_submenualtersenha
@@ -242,7 +345,7 @@ namespace LMFinanciamentos.Apresentacao
             this.pnl_submenualtersenha.Location = new System.Drawing.Point(0, 31);
             this.pnl_submenualtersenha.Name = "pnl_submenualtersenha";
             this.pnl_submenualtersenha.Padding = new System.Windows.Forms.Padding(13, 0, 13, 0);
-            this.pnl_submenualtersenha.Size = new System.Drawing.Size(259, 189);
+            this.pnl_submenualtersenha.Size = new System.Drawing.Size(341, 189);
             this.pnl_submenualtersenha.TabIndex = 11;
             this.pnl_submenualtersenha.Visible = false;
             // 
@@ -258,7 +361,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panel13.Location = new System.Drawing.Point(13, 0);
             this.panel13.Name = "panel13";
             this.panel13.Padding = new System.Windows.Forms.Padding(9);
-            this.panel13.Size = new System.Drawing.Size(233, 163);
+            this.panel13.Size = new System.Drawing.Size(315, 163);
             this.panel13.TabIndex = 14;
             // 
             // panel11
@@ -268,7 +371,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel11.Location = new System.Drawing.Point(9, 83);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(215, 27);
+            this.panel11.Size = new System.Drawing.Size(297, 27);
             this.panel11.TabIndex = 16;
             // 
             // txt_confirmasenha
@@ -276,7 +379,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txt_confirmasenha.Dock = System.Windows.Forms.DockStyle.Top;
             this.txt_confirmasenha.Location = new System.Drawing.Point(0, 0);
             this.txt_confirmasenha.Name = "txt_confirmasenha";
-            this.txt_confirmasenha.Size = new System.Drawing.Size(215, 27);
+            this.txt_confirmasenha.Size = new System.Drawing.Size(297, 27);
             this.txt_confirmasenha.TabIndex = 2;
             this.txt_confirmasenha.UseSystemPasswordChar = true;
             // 
@@ -288,7 +391,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panel8.Location = new System.Drawing.Point(9, 57);
             this.panel8.Name = "panel8";
             this.panel8.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.panel8.Size = new System.Drawing.Size(215, 26);
+            this.panel8.Size = new System.Drawing.Size(297, 26);
             this.panel8.TabIndex = 15;
             // 
             // label3
@@ -310,7 +413,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel9.Location = new System.Drawing.Point(9, 30);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(215, 27);
+            this.panel9.Size = new System.Drawing.Size(297, 27);
             this.panel9.TabIndex = 14;
             // 
             // txt_novasenha
@@ -318,7 +421,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txt_novasenha.Dock = System.Windows.Forms.DockStyle.Top;
             this.txt_novasenha.Location = new System.Drawing.Point(0, 0);
             this.txt_novasenha.Name = "txt_novasenha";
-            this.txt_novasenha.Size = new System.Drawing.Size(215, 27);
+            this.txt_novasenha.Size = new System.Drawing.Size(297, 27);
             this.txt_novasenha.TabIndex = 2;
             this.txt_novasenha.UseSystemPasswordChar = true;
             // 
@@ -328,7 +431,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(9, 9);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(215, 21);
+            this.panel5.Size = new System.Drawing.Size(297, 21);
             this.panel5.TabIndex = 11;
             // 
             // label2
@@ -353,13 +456,13 @@ namespace LMFinanciamentos.Apresentacao
             this.panel10.Location = new System.Drawing.Point(9, 112);
             this.panel10.Name = "panel10";
             this.panel10.Padding = new System.Windows.Forms.Padding(4);
-            this.panel10.Size = new System.Drawing.Size(215, 42);
+            this.panel10.Size = new System.Drawing.Size(297, 42);
             this.panel10.TabIndex = 8;
             // 
             // btn_alterar
             // 
             this.btn_alterar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btn_alterar.Location = new System.Drawing.Point(110, 4);
+            this.btn_alterar.Location = new System.Drawing.Point(192, 4);
             this.btn_alterar.Name = "btn_alterar";
             this.btn_alterar.Size = new System.Drawing.Size(101, 34);
             this.btn_alterar.TabIndex = 3;
@@ -393,7 +496,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(13, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(233, 0);
+            this.panel7.Size = new System.Drawing.Size(315, 0);
             this.panel7.TabIndex = 4;
             // 
             // panel6
@@ -402,7 +505,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(13, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(233, 0);
+            this.panel6.Size = new System.Drawing.Size(315, 0);
             this.panel6.TabIndex = 3;
             // 
             // panel3
@@ -412,7 +515,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(259, 31);
+            this.panel3.Size = new System.Drawing.Size(341, 31);
             this.panel3.TabIndex = 10;
             // 
             // btn_altersenha
@@ -424,85 +527,22 @@ namespace LMFinanciamentos.Apresentacao
             this.btn_altersenha.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_altersenha.Location = new System.Drawing.Point(0, 0);
             this.btn_altersenha.Name = "btn_altersenha";
-            this.btn_altersenha.Size = new System.Drawing.Size(259, 31);
+            this.btn_altersenha.Size = new System.Drawing.Size(341, 31);
             this.btn_altersenha.TabIndex = 9;
             this.btn_altersenha.Text = "Alterar a Senha";
             this.btn_altersenha.UseVisualStyleBackColor = true;
             this.btn_altersenha.Click += new System.EventHandler(this.btn_altersenha_Click);
             // 
-            // panel1
+            // panel2
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.panel1.Controls.Add(this.btn_logoff);
-            this.panel1.Controls.Add(this.btncloseconf);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 422);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(10);
-            this.panel1.Size = new System.Drawing.Size(686, 52);
-            this.panel1.TabIndex = 7;
-            // 
-            // btn_logoff
-            // 
-            this.btn_logoff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.btn_logoff.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btn_logoff.FlatAppearance.BorderSize = 0;
-            this.btn_logoff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_logoff.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_logoff.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_logoff.Location = new System.Drawing.Point(10, 10);
-            this.btn_logoff.Name = "btn_logoff";
-            this.btn_logoff.Padding = new System.Windows.Forms.Padding(4);
-            this.btn_logoff.Size = new System.Drawing.Size(104, 32);
-            this.btn_logoff.TabIndex = 5;
-            this.btn_logoff.Text = "Logoff";
-            this.btn_logoff.UseCompatibleTextRendering = true;
-            this.btn_logoff.UseVisualStyleBackColor = false;
-            this.btn_logoff.Click += new System.EventHandler(this.btn_logoff_Click);
-            // 
-            // btncloseconf
-            // 
-            this.btncloseconf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.btncloseconf.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btncloseconf.FlatAppearance.BorderSize = 0;
-            this.btncloseconf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btncloseconf.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btncloseconf.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btncloseconf.Location = new System.Drawing.Point(572, 10);
-            this.btncloseconf.Name = "btncloseconf";
-            this.btncloseconf.Padding = new System.Windows.Forms.Padding(4);
-            this.btncloseconf.Size = new System.Drawing.Size(104, 32);
-            this.btncloseconf.TabIndex = 2;
-            this.btncloseconf.Text = "Fechar";
-            this.btncloseconf.UseCompatibleTextRendering = true;
-            this.btncloseconf.UseVisualStyleBackColor = false;
-            this.btncloseconf.Click += new System.EventHandler(this.btncloseconf_Click);
-            // 
-            // paneltop
-            // 
-            this.paneltop.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.paneltop.Controls.Add(this.lbl_conf);
-            this.paneltop.Controls.Add(this.img_topo);
-            this.paneltop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.paneltop.Location = new System.Drawing.Point(0, 0);
-            this.paneltop.Name = "paneltop";
-            this.paneltop.Padding = new System.Windows.Forms.Padding(10);
-            this.paneltop.Size = new System.Drawing.Size(686, 57);
-            this.paneltop.TabIndex = 5;
-            // 
-            // lbl_conf
-            // 
-            this.lbl_conf.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.lbl_conf.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbl_conf.Font = new System.Drawing.Font("Poppins", 20.25F, System.Drawing.FontStyle.Bold);
-            this.lbl_conf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.lbl_conf.Location = new System.Drawing.Point(37, 10);
-            this.lbl_conf.Margin = new System.Windows.Forms.Padding(3);
-            this.lbl_conf.Name = "lbl_conf";
-            this.lbl_conf.Size = new System.Drawing.Size(226, 37);
-            this.lbl_conf.TabIndex = 6;
-            this.lbl_conf.Text = "Configurações";
-            this.lbl_conf.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.panel2.Controls.Add(this.pnl_centerconf);
+            this.panel2.Controls.Add(this.panel1);
+            this.panel2.Controls.Add(this.paneltop);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(914, 546);
+            this.panel2.TabIndex = 5;
             // 
             // img_topo
             // 
@@ -519,17 +559,21 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(686, 474);
+            this.ClientSize = new System.Drawing.Size(914, 546);
             this.Controls.Add(this.panel2);
             this.Name = "Form_Configuracao";
             this.Text = "Configurações";
             this.Load += new System.EventHandler(this.Form_Configuracao_Load);
-            this.panel2.ResumeLayout(false);
+            this.paneltop.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.pnl_centerconf.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox_servidor.ResumeLayout(false);
-            this.groupBox_servidor.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.grp_seguranca.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
@@ -547,32 +591,34 @@ namespace LMFinanciamentos.Apresentacao
             this.panel5.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.paneltop.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel2;
+
         private System.Windows.Forms.Panel paneltop;
         private System.Windows.Forms.Label lbl_conf;
         private System.Windows.Forms.PictureBox img_topo;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btn_logoff;
         private System.Windows.Forms.Button btncloseconf;
         private System.Windows.Forms.Panel pnl_centerconf;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.GroupBox groupBox_servidor;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TextBox txtcaminhoarquivos;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnsalvarserver;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.GroupBox grp_seguranca;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Panel pnl_submenualtersenha;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button btn_altersenha;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.TextBox txt_confirmasenha;
@@ -583,15 +629,14 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Button btn_alterar;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btn_cancelsenha;
-        private System.Windows.Forms.Button btn_alterar;
-        private System.Windows.Forms.Button btn_logoff;
-        private System.Windows.Forms.GroupBox groupBox_servidor;
-        private System.Windows.Forms.Button btnsalvarserver;
-        private System.Windows.Forms.TextBox txtcaminhoarquivos;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button btn_altersenha;
+        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtnameserver;
-        private System.Windows.Forms.Label label4;
     }
 }

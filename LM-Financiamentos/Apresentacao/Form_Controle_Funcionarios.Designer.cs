@@ -60,9 +60,9 @@ namespace LMFinanciamentos.Apresentacao
             this.btn_new_func = new System.Windows.Forms.Button();
             this.btnclosefunc = new System.Windows.Forms.Button();
             this.funcionariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dS_Funcionario = new LMFinanciamentos.DAL.DS_Funcionario();
+            //this.dS_Funcionario = new LMFinanciamentos.DAL.DS_Funcionario();
             this.dSFuncionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.funcionariosTableAdapter = new LMFinanciamentos.DAL.DS_FuncionarioTableAdapters.FuncionariosTableAdapter();
+            //this.funcionariosTableAdapter = new LMFinanciamentos.DAL.DS_FuncionarioTableAdapters.FuncionariosTableAdapter();
             this.panelcentro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_funcionarios)).BeginInit();
             this.pnlcontrol.SuspendLayout();
@@ -70,7 +70,7 @@ namespace LMFinanciamentos.Apresentacao
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS_Funcionario)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.dS_Funcionario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSFuncionarioBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -391,21 +391,21 @@ namespace LMFinanciamentos.Apresentacao
             // funcionariosBindingSource
             // 
             this.funcionariosBindingSource.DataMember = "Funcionarios";
-            this.funcionariosBindingSource.DataSource = this.dS_Funcionario;
+            //this.funcionariosBindingSource.DataSource = this.dS_Funcionario;
             // 
             // dS_Funcionario
             // 
-            this.dS_Funcionario.DataSetName = "DS_Funcionario";
-            this.dS_Funcionario.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            //this.dS_Funcionario.DataSetName = "DS_Funcionario";
+            //this.dS_Funcionario.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // dSFuncionarioBindingSource
             // 
-            this.dSFuncionarioBindingSource.DataSource = this.dS_Funcionario;
-            this.dSFuncionarioBindingSource.Position = 0;
+            //this.dSFuncionarioBindingSource.DataSource = this.dS_Funcionario;
+            //this.dSFuncionarioBindingSource.Position = 0;
             // 
             // funcionariosTableAdapter
             // 
-            this.funcionariosTableAdapter.ClearBeforeFill = true;
+            //this.funcionariosTableAdapter.ClearBeforeFill = true;
             // 
             // Form_Controle_Funcionarios
             // 
@@ -425,7 +425,7 @@ namespace LMFinanciamentos.Apresentacao
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS_Funcionario)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.dS_Funcionario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSFuncionarioBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -444,9 +444,9 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.Button btnprocurar;
         private System.Windows.Forms.TextBox txtprocurar;
         private System.Windows.Forms.BindingSource dSFuncionarioBindingSource;
-        private DAL.DS_Funcionario dS_Funcionario;
+       // private DAL.DS_Funcionario dS_Funcionario;
         private System.Windows.Forms.BindingSource funcionariosBindingSource;
-        private DAL.DS_FuncionarioTableAdapters.FuncionariosTableAdapter funcionariosTableAdapter;
+        //private DAL.DS_FuncionarioTableAdapters.FuncionariosTableAdapter funcionariosTableAdapter;
         private System.Windows.Forms.Button btn_excluir_func;
         private System.Windows.Forms.Splitter splitter2;
         private System.Windows.Forms.Button btn_editar_func;

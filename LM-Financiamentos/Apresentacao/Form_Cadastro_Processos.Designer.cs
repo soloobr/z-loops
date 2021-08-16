@@ -37,8 +37,6 @@ namespace LMFinanciamentos.Apresentacao
             this.processosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dS_Clientes = new LMFinanciamentos.DAL.DS_Clientes();
             this.dSClientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.funcionariosTableAdapter = new LMFinanciamentos.DAL.DS_FuncionarioTableAdapters.FuncionariosTableAdapter();
-            this.dS_Funcionario = new LMFinanciamentos.DAL.DS_Funcionario();
             this.funcionariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lbl_topo = new System.Windows.Forms.Label();
             this.paneltop = new System.Windows.Forms.Panel();
@@ -52,7 +50,6 @@ namespace LMFinanciamentos.Apresentacao
             this.processosTableAdapter = new LMFinanciamentos.DAL.DS_DocumentosTableAdapters.ProcessosTableAdapter();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabcliente = new System.Windows.Forms.TabPage();
-            this.button4 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.txtfgts = new System.Windows.Forms.ComboBox();
@@ -153,7 +150,6 @@ namespace LMFinanciamentos.Apresentacao
             ((System.ComponentModel.ISupportInitialize)(this.processosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Clientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSClientesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS_Funcionario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).BeginInit();
             this.paneltop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).BeginInit();
@@ -229,20 +225,6 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.dSClientesBindingSource.DataSource = this.dS_Clientes;
             this.dSClientesBindingSource.Position = 0;
-            // 
-            // funcionariosTableAdapter
-            // 
-            this.funcionariosTableAdapter.ClearBeforeFill = true;
-            // 
-            // dS_Funcionario
-            // 
-            this.dS_Funcionario.DataSetName = "DS_Funcionario";
-            this.dS_Funcionario.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // funcionariosBindingSource
-            // 
-            this.funcionariosBindingSource.DataMember = "Funcionarios";
-            this.funcionariosBindingSource.DataSource = this.dS_Funcionario;
             // 
             // lbl_topo
             // 
@@ -386,7 +368,6 @@ namespace LMFinanciamentos.Apresentacao
             // 
             // tabcliente
             // 
-            this.tabcliente.Controls.Add(this.button4);
             this.tabcliente.Controls.Add(this.groupBox1);
             this.tabcliente.Controls.Add(this.panel2);
             this.tabcliente.Controls.Add(this.tableLayoutPanel1);
@@ -397,17 +378,6 @@ namespace LMFinanciamentos.Apresentacao
             this.tabcliente.TabIndex = 0;
             this.tabcliente.Text = "Dados do Cliente";
             this.tabcliente.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(526, 398);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Visible = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // groupBox1
             // 
@@ -1536,7 +1506,6 @@ namespace LMFinanciamentos.Apresentacao
             ((System.ComponentModel.ISupportInitialize)(this.processosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Clientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSClientesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS_Funcionario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).EndInit();
             this.paneltop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).EndInit();
@@ -1595,8 +1564,8 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.BindingSource processosBindingSource;
         private DAL.DS_Clientes dS_Clientes;
         private System.Windows.Forms.BindingSource dSClientesBindingSource;
-        private DAL.DS_FuncionarioTableAdapters.FuncionariosTableAdapter funcionariosTableAdapter;
-        private DAL.DS_Funcionario dS_Funcionario;
+        //private DAL.DS_FuncionarioTableAdapters.FuncionariosTableAdapter funcionariosTableAdapter;
+        //private DAL.DS_Funcionario dS_Funcionario;
         private System.Windows.Forms.BindingSource funcionariosBindingSource;
         private System.Windows.Forms.Label lbl_topo;
         private System.Windows.Forms.PictureBox img_topo;
@@ -1677,7 +1646,6 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.ComboBox ComboBoxClient;
         private Guna.UI2.WinForms.Guna2CircleProgressBar ProgressBar;
         private System.ComponentModel.BackgroundWorker backgroundWorker;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox txtrg;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TabPage tabvendedor;

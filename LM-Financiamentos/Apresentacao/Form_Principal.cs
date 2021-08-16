@@ -1,4 +1,5 @@
-﻿using LMFinanciamentos.Entidades;
+﻿using LMFinanciamentos.DAL;
+using LMFinanciamentos.Entidades;
 using System;
 using System.Drawing;
 using System.IO;
@@ -57,6 +58,18 @@ namespace LMFinanciamentos.Apresentacao
         }
         private void Form_Principal_Load(object sender, EventArgs e)
         {
+
+            #region Checbox Foto
+            string basePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            var MyIni = new IniFile(basePath + @"\LM-Settings.ini");
+            String usuario = Path.GetFileName(basePath);
+            var DefaultVolume = MyIni.Read("DefaultVolume", usuario);
+
+            if (DefaultVolume.ToString() == "1")
+            {
+                img_foto.Image = Properties.Resources.contacts_250;
+            }
+            #endregion
 
             //Cursor = Cursors.Default;
             if (this.WindowState == FormWindowState.Maximized)
@@ -196,7 +209,7 @@ namespace LMFinanciamentos.Apresentacao
         }
         private void CloseForms(object sender, FormClosedEventArgs e)
         {
-            if (Application.OpenForms["Form_Controle_Documento"] == null)
+            if (Application.OpenForms["Form_Controle_Processo"] == null)
             {
                 btncontroledoc.BackColor = Color.FromArgb(4, 41, 68);
             }
@@ -258,13 +271,44 @@ namespace LMFinanciamentos.Apresentacao
         {
 
         }
-
+        private Form_Configuracao Configuracoes = null;
         private void btnconf_Click_1(object sender, EventArgs e)
         {
-            Cursor = Cursors.WaitCursor;
-            AbrirFormulario<Form_Configuracao>();
+            Cursor.Current = Cursors.WaitCursor;
+            if (Application.OpenForms.OfType<Form_Configuracao>().Count() > 0)
+            {
+                this.Configuracoes.WindowState = FormWindowState.Normal;
+                Configuracoes.BringToFront();
+            }
+            else
+            {
+                this.Configuracoes = new Form_Configuracao();
+                this.Configuracoes.setID(idresponsavel);
+                this.Configuracoes.Text = "Configurações";//titulo do formulario
+                this.Configuracoes.TopLevel = false;
+
+                this.Configuracoes.TopLevel = false;
+                this.Configuracoes.FormBorderStyle = FormBorderStyle.None;
+                this.Configuracoes.Dock = DockStyle.Fill;
+                this.panelformularios.Controls.Add(Configuracoes);
+                this.panelformularios.Tag = Configuracoes;
+                this.Configuracoes.Show();
+                this.Configuracoes.BringToFront();
+                this.Configuracoes.FormClosed += new FormClosedEventHandler(CloseForms);
+
+            }
             btnconf.BackColor = Color.FromArgb(12, 61, 92);
             hideSubMenu();
+
+
+
+
+
+
+            //Cursor = Cursors.WaitCursor;
+            //AbrirFormulario<Form_Configuracao>();
+            //btnconf.BackColor = Color.FromArgb(12, 61, 92);
+            //hideSubMenu();
             Cursor = Cursors.Default;
         }
         private Form_Controle_Processo BuscarClientes = null;

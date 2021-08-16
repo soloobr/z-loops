@@ -220,9 +220,6 @@
   <data name="icons8_contacts_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-contacts-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8_contacts_250" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-contacts-250.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="icons8-automation-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-automation-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -313,7 +310,7 @@
   <data name="ver16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ver16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-contacts-250" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="contacts-250" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-contacts-250.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8_eye_26" type="System.Resources.ResXFileRef, System.Windows.Forms">

@@ -594,6 +594,7 @@ namespace LMFinanciamentos.Apresentacao
             checkBox_Feminino.Enabled = true;
             txtendereco.ReadOnly = false;
             txtcracha.ReadOnly = false;
+            txtpermission.Enabled = true;
 
             img_foto.Enabled = true;
             if(img_foto.Image == null)
@@ -622,6 +623,7 @@ namespace LMFinanciamentos.Apresentacao
             checkBox_Feminino.Enabled = false;
             txtendereco.ReadOnly = true;
             txtcracha.ReadOnly = true;
+            txtpermission.Enabled = false;
 
             img_foto.Enabled = false;
             btn_add_foto.Enabled = false;

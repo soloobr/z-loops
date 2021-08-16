@@ -322,7 +322,7 @@ namespace LMFinanciamentos.Apresentacao
             }
             else
             {
-                MessageBox.Show("Favor digitar Almenos 3 Caracteres para persquisa", "Informe", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Favor digitar ao menos 3 Caracteres para persquisa", "Informe", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ComboBoxClient.Select();
                 ComboBoxClient.Focus();
             }
