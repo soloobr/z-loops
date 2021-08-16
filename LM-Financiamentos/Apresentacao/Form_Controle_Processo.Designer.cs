@@ -173,7 +173,7 @@ namespace LMFinanciamentos.Apresentacao
             this.lbl_topo.Location = new System.Drawing.Point(56, 4);
             this.lbl_topo.Margin = new System.Windows.Forms.Padding(3);
             this.lbl_topo.Name = "lbl_topo";
-            this.lbl_topo.Size = new System.Drawing.Size(331, 49);
+            this.lbl_topo.Size = new System.Drawing.Size(342, 49);
             this.lbl_topo.TabIndex = 6;
             this.lbl_topo.Text = "Controle de Processos";
             this.lbl_topo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -241,7 +241,7 @@ namespace LMFinanciamentos.Apresentacao
             this.lblprocurar.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblprocurar.Location = new System.Drawing.Point(22, 20);
             this.lblprocurar.Name = "lblprocurar";
-            this.lblprocurar.Size = new System.Drawing.Size(86, 22);
+            this.lblprocurar.Size = new System.Drawing.Size(87, 19);
             this.lblprocurar.TabIndex = 2;
             this.lblprocurar.Text = "Procurar por:";
             // 
@@ -268,7 +268,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtprocurar.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtprocurar.Location = new System.Drawing.Point(26, 45);
             this.txtprocurar.Name = "txtprocurar";
-            this.txtprocurar.Size = new System.Drawing.Size(218, 27);
+            this.txtprocurar.Size = new System.Drawing.Size(218, 29);
             this.txtprocurar.TabIndex = 0;
             this.txtprocurar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtprocurar_KeyPress);
             // 
