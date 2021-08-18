@@ -203,7 +203,7 @@ namespace LMFinanciamentos.Apresentacao
             textemailvendedor.Text = process.Email_vendedor;
             texttelefonevendedor.Text = process.Telefone_vendedor;
             textcelularvendedor.Text = process.Celular_vendedor;
-            //txtrenda.Text = process.Renda_vendedor;
+            txtrenda.Text = process.Renda_vendedor;
             textagenciavendedor.Text = process.Agencia_vendedor;
             txtcontavendedor.Text = process.Conta_vendedor;
             #endregion

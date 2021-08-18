@@ -82,6 +82,7 @@ namespace LMFinanciamentos.DAL
                 "Left join Corretores on P.idCorretor = Corretores.id " +
                 "Left join Cartorio on P.idCartorio = Cartorio.id " +
                 "WHERE P.id = @idprocesso";
+            cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@idprocesso", idprocess);
             cmd.Parameters.AddWithValue("@tipo", "C");
             cmd.Parameters.AddWithValue("@tipov", "V");
