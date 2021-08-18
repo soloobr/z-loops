@@ -14,7 +14,7 @@ namespace LMFinanciamentos.Apresentacao
 {
     public partial class Form_Dados_Vendedor : Form
     {
-        string sexo, status, idVendedor, valor, renda, nascimento, arquivo, CNPJ, CPF, Agencia, Conta;
+        string sexo, status, idVendedor, valor, renda, nascimento, arquivo, CNPJ, CPF, Agencia, Conta, telefone, celular;
         String excluirimage;
         FileStream fsObj = null;
         BinaryReader binRdr = null;
@@ -113,6 +113,7 @@ namespace LMFinanciamentos.Apresentacao
                 Cursor = Cursors.Default;
                 return;
             }
+
             if (txtcpf.Text == "")
             {
                 CPF = "0";
@@ -132,6 +133,32 @@ namespace LMFinanciamentos.Apresentacao
                 CNPJ = FormatCnpjCpf.SemFormatacao(txtcnpj.Text);
             }
             //String RG = FormatCnpjCpf.SemFormatacao(txtrg.Text);
+            #region Telefone
+            if (string.IsNullOrEmpty(txttelefone.Text))
+            {
+                if (string.IsNullOrEmpty(txtcelular.Text))
+                {
+
+
+                    MessageBox.Show("É necessário preencher o campo Telefone ou Celular", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txttelefone.Select();
+                    Cursor = Cursors.Default;
+                    return;
+                }
+
+            }
+            txtcelular.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            if (txtcelular.Text != "")
+            {
+                celular = txtcelular.Text;
+
+            }
+            txttelefone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            if (txttelefone.Text != "")
+            {
+                telefone = txttelefone.Text;
+            }
+            #endregion
             if (checkBox_Masculino.Checked)
             {
                 sexo = "Masculino";
@@ -239,7 +266,7 @@ namespace LMFinanciamentos.Apresentacao
 
             LoginDaoComandos updatevendedor = new LoginDaoComandos();
             
-            updatevendedor.UpdateVendedor(idVendedor, txtnomevendedor.Text, CPF, CNPJ,  txtemail.Text, txttelefone.Text, txtcelular.Text, status);
+            updatevendedor.UpdateVendedor(idVendedor, txtnomevendedor.Text, CPF, CNPJ,  txtemail.Text, telefone, celular, status);
 
             Cursor = Cursors.Default;
 

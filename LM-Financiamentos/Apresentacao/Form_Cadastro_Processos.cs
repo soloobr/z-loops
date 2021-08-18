@@ -356,7 +356,7 @@ namespace LMFinanciamentos.Apresentacao
 
                         idVendedor = v.Id_vendedor;
                         textnomevendedor.Text = v.Nome_vendedor;
-                        if (v.CNPJ_vendedor == "")
+                        if (v.CNPJ_vendedor == "0")
                         {
                             textcnpjcpf.Text = v.CPF_vendedor;
                         }
@@ -727,6 +727,10 @@ namespace LMFinanciamentos.Apresentacao
             if (tabControl.SelectedTab == tabControl.TabPages["tabimovel"])//your specific tabname
             {
 
+            }
+            if (tabControl.SelectedTab == tabControl.TabPages["tabvendedor"])//your specific tabname
+            {
+                textnomevendedor.Select();
             }
         }
 

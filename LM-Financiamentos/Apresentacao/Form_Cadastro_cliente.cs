@@ -12,7 +12,7 @@ namespace LMFinanciamentos.Apresentacao
     public partial class Form_Cadastro_Cliente : Form
     {
 
-        String sexo, status, idCliente, valor, arquivo, CPF, RG, Agencia, Conta;
+        String sexo, status, idCliente, valor, arquivo, CPF, RG, Agencia, Conta, telefone, celular;
         String excluirimage;
         FileStream fsObj = null;
         BinaryReader binRdr = null;
@@ -441,11 +441,38 @@ namespace LMFinanciamentos.Apresentacao
             DateTime datanasc = dataa;
 
             String renda = txtrendacli.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
+            #region Telefone
+            if (string.IsNullOrEmpty(txttelefone.Text) )
+            {
+                if (string.IsNullOrEmpty(txtcelular.Text))
+                {
+
+
+                    MessageBox.Show("É necessário preencher o campo Telefone ou Celular", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txttelefone.Select();
+                    Cursor = Cursors.Default;
+                    return;
+                }
+
+            }
+            txtcelular.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            if (txtcelular.Text != "")
+            {
+                celular = txtcelular.Text;
+
+            }
+            txttelefone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            if (txttelefone.Text != "")
+            {
+                telefone = txttelefone.Text;
+            }
+            #endregion
+
 
 
             LoginDaoComandos inserircliente = new LoginDaoComandos();
 
-            int newidcli = inserircliente.CadastrarCliente(txtnomecli.Text, txtemail.Text, txttelefone.Text, txtcelular.Text, CPF, RG, datanasc, sexo, status, renda);
+            int newidcli = inserircliente.CadastrarCliente(txtnomecli.Text, txtemail.Text, telefone, celular, CPF, RG, datanasc, sexo, status, renda, txtobservacoes.Text);
        
             if (newidcli >= 0)
             {

@@ -190,13 +190,15 @@ namespace LMFinanciamentos.Apresentacao
 
             #region Vendedor
             textnomevendedor.Text = process.Nome_vendedor;
-            if(process.CNPJ_vendedor == "")
+            
+            if(process.CNPJ_vendedor != "0")
             {
-                textcnpjcpf.Text = process.CPF_vendedor;
+                textcnpjcpf.Text = process.CNPJ_vendedor;
             }
             else
             {
-                textcnpjcpf.Text = process.CNPJ_vendedor;
+                textcnpjcpf.Text = process.CPF_vendedor;
+                
             }
             textemailvendedor.Text = process.Email_vendedor;
             texttelefonevendedor.Text = process.Telefone_vendedor;
@@ -217,6 +219,7 @@ namespace LMFinanciamentos.Apresentacao
             comboBox_PA.Text = process.StatusPA_cliente;
 
             idagencia = process.Id_AgenciaImovel;
+            //comboBox_agencia.Items.Add(process.AgenciaImovel_imovel.PadLeft(4, '0'));
             comboBox_agencia.Items.Add(process.AgenciaImovel_imovel.PadLeft(4, '0'));
             comboBox_agencia.Text = process.AgenciaImovel_imovel.PadLeft(4, '0');
             
@@ -884,7 +887,10 @@ namespace LMFinanciamentos.Apresentacao
             String combocorretores = idcorretor;
             String combocoempreendimentos = idempreendimentos;
 
-            // idCartorio = idCartorio;Get process load or set combobox click
+            if (dtpcartorio.Text == "")
+            {
+                idCartorio = "0";
+            }//Get process load or set combobox click
             String cartorio = comboBox_statuscartorio.Text;
             if (dtpcartorio.Text != "")
             {

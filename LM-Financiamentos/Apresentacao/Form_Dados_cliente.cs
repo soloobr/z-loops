@@ -14,7 +14,7 @@ namespace LMFinanciamentos.Apresentacao
 {
     public partial class Form_Dados_cliente : Form
     {
-        String sexo, status, idCliente, valor, renda, nascimento, arquivo, RG, CPF;
+        String sexo, status, idCliente, valor, renda, nascimento, arquivo, RG, CPF, telefone, celular;
         String excluirimage;
         FileStream fsObj = null;
         BinaryReader binRdr = null;
@@ -102,6 +102,32 @@ namespace LMFinanciamentos.Apresentacao
                 Cursor = Cursors.Default;
                 return;
             }
+            #region Telefone
+            if (string.IsNullOrEmpty(txttelefone.Text))
+            {
+                if (string.IsNullOrEmpty(txtcelular.Text))
+                {
+
+
+                    MessageBox.Show("É necessário preencher o campo Telefone ou Celular", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txttelefone.Select();
+                    Cursor = Cursors.Default;
+                    return;
+                }
+
+            }
+            txtcelular.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            if (txtcelular.Text != "")
+            {
+                celular = txtcelular.Text;
+
+            }
+            txttelefone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            if (txttelefone.Text != "")
+            {
+                telefone = txttelefone.Text;
+            }
+            #endregion
 
             if (checkBox_Masculino.Checked)
             {
@@ -209,7 +235,7 @@ namespace LMFinanciamentos.Apresentacao
             }
 
 
-            updatecliente.UpdateCliente(idCliente, txtnomecli.Text, txtemail.Text, txttelefone.Text, txtcelular.Text, CPF, RG, datanasc, sexo, status, renda);
+            updatecliente.UpdateCliente(idCliente, txtnomecli.Text, txtemail.Text, telefone, celular, CPF, RG, datanasc, sexo, status, renda, txtobservacoes.Text);
 
             Cursor = Cursors.Default;
 
@@ -286,6 +312,7 @@ namespace LMFinanciamentos.Apresentacao
             txtrendacli.Text = cliente.Renda_cliente;
             txtagenciacliente.Text = cliente.Agencia_cliente;
             txtcontacliente.Text = cliente.Conta_cliente;
+            txtobservacoes.Text = cliente.OBS_cliente;
 
             if (cliente.Sexo_cliente == "Masculino")
             {
@@ -593,6 +620,7 @@ namespace LMFinanciamentos.Apresentacao
             checkBox_Feminino.Enabled = true;
             txtagenciacliente.ReadOnly = false;
             txtcontacliente.ReadOnly = false;
+            txtobservacoes.ReadOnly = false;
 
             img_foto.Enabled = true;
             if(img_foto.Image == null)
@@ -621,6 +649,7 @@ namespace LMFinanciamentos.Apresentacao
             checkBox_Feminino.Enabled = false;
             txtagenciacliente.ReadOnly = true;
             txtcontacliente.ReadOnly = true;
+            txtobservacoes.ReadOnly = true;
 
             img_foto.Enabled = false;
             btn_add_foto.Enabled = false;

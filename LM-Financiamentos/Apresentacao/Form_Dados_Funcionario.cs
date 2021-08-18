@@ -1,14 +1,12 @@
 ﻿using LMFinanciamentos.DAL;
 using LMFinanciamentos.Entidades;
-using System;
-using System.Windows.Forms;
-using System.Windows.Media;
-using System.Collections.Generic;
-using System.Drawing;
 using LMFinanciamentos.Modelo;
-using System.IO;
+using System;
+using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
+using System.IO;
+using System.Windows.Forms;
 
 namespace LMFinanciamentos.Apresentacao
 {
@@ -16,6 +14,7 @@ namespace LMFinanciamentos.Apresentacao
     {
         String sexo, status, idFuncionario, idLogin, valor, renda, nascimento, arquivo, RG, CPF;
         String excluirimage;
+        String permission;
         FileStream fsObj = null;
         BinaryReader binRdr = null;
         bool arquivobase;
@@ -120,7 +119,8 @@ namespace LMFinanciamentos.Apresentacao
             if (checkBox_status.Checked)
             {
                 status = "Ativo";
-            }else
+            }
+            else
             {
                 status = "Inativo";
             }
@@ -152,10 +152,10 @@ namespace LMFinanciamentos.Apresentacao
 
             //DateTime datanasc = DateTime.Parse(nascimento);
 
-            
+
 
             String renda = txtrendacli.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
-            
+
             LoginDaoComandos insertfotofuncionario = new LoginDaoComandos();
             if (excluirimage == "Update")
             {
@@ -172,7 +172,7 @@ namespace LMFinanciamentos.Apresentacao
                 else
                 {
                     fsObj = File.OpenRead(arquivo);
-                   // MessageBox.Show(fsObj.ToString());
+                    // MessageBox.Show(fsObj.ToString());
                     byte[] imgContent = new byte[fsObj.Length];
                     binRdr = new BinaryReader(fsObj);
                     imgContent = binRdr.ReadBytes((int)fsObj.Length);
@@ -188,7 +188,8 @@ namespace LMFinanciamentos.Apresentacao
                     MessageBox.Show(insertfotofuncionario.mensagem, "Atualizando", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
-            }else if(excluirimage == "Excluir")
+            }
+            else if (excluirimage == "Excluir")
             {
                 LoginDaoComandos excluirfuncionario = new LoginDaoComandos();
                 excluirfuncionario.DeleteFotoFuncionario(idFuncionario);
@@ -202,11 +203,34 @@ namespace LMFinanciamentos.Apresentacao
                 }
             }
 
-            
+            idLogin = idFuncionario;
+
+
+            if(txtpermission.Text != "")
+            {
+                if(txtpermission.Text == "Operador(a)")
+                {
+                    permission = "3";
+                }else if(txtpermission.Text == "Supervisor(a)")
+                {
+                    permission = "2";
+                }else if(txtpermission.Text == "Gerente")
+                {
+                    permission = "1";
+                }else if(txtpermission.Text == "Master")
+                {
+                    permission = "0";
+                }
+
+            }
+            else
+            {
+                permission = "3";
+            }
 
             LoginDaoComandos updatefuncionario = new LoginDaoComandos();
 
-            updatefuncionario.UpdateFuncionario(idFuncionario, txtnomefuncionario.Text, txtemail.Text, txttelefone.Text, txtcelular.Text, txtendereco.Text, datanasc, sexo, CPF, RG,  txtcracha.Text, idLogin, txtpermission.Text, status);
+            updatefuncionario.UpdateFuncionario(idFuncionario, txtnomefuncionario.Text, txtemail.Text, txttelefone.Text, txtcelular.Text, txtendereco.Text, datanasc, sexo, CPF, RG, txtcracha.Text, idLogin, permission, status);
 
             Cursor = Cursors.Default;
 
@@ -218,8 +242,8 @@ namespace LMFinanciamentos.Apresentacao
             btn_cancelar_func.Visible = false;
             splitter2.Visible = false;
             btn_salvar_func.Visible = false;
-            
-            
+
+
             splitter3.Visible = true;
             btn_excluir_func.Visible = true;
 
@@ -244,7 +268,7 @@ namespace LMFinanciamentos.Apresentacao
 
             DesabilitarEdicao();
             LoadDadosFuncionario();
-            tabControl.SelectedTab = tabControl.TabPages["tabfuncionario"]; 
+            tabControl.SelectedTab = tabControl.TabPages["tabfuncionario"];
 
             //Close();
         }
@@ -252,7 +276,7 @@ namespace LMFinanciamentos.Apresentacao
         internal void setFoto(byte[] foto_Cli)
         {
             // throw new NotImplementedException();
-            if(foto_Cli != null)
+            if (foto_Cli != null)
             {
                 MemoryStream stmBLOBData = new MemoryStream(foto_Cli);
                 img_foto.Image = Image.FromStream(stmBLOBData);
@@ -263,7 +287,7 @@ namespace LMFinanciamentos.Apresentacao
         private void Form_Dados_Funcionario_Load(object sender, EventArgs e)
         {
             LoadDadosFuncionario();
-         }
+        }
         public event Action FuncionarioSalvo;
         public void LoadDadosFuncionario()
         {
@@ -281,6 +305,9 @@ namespace LMFinanciamentos.Apresentacao
             txttelefone.Text = funcionario.Telefone_Funcionario;
             txtcelular.Text = funcionario.Celular_Funcionario;
             txtrendacli.Text = funcionario.Renda_Funcionario;
+            txtendereco.Text = funcionario.Endereco_Funcionario;
+            txtcracha.Text = funcionario.Cracha_Funcionario;
+            txtpermission.Text = funcionario.Permision;
 
             if (funcionario.Sexo_Funcionario == "Masculino")
             {
@@ -345,7 +372,7 @@ namespace LMFinanciamentos.Apresentacao
             txtnomefuncionario.Focus();
             Cursor = Cursors.Default;
         }
-        
+
         private void btn_add_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
@@ -362,9 +389,9 @@ namespace LMFinanciamentos.Apresentacao
             ofd1.ShowReadOnly = true;
 
             DialogResult dr = this.ofd1.ShowDialog();
-            
+
             Stream myStream = null;
-            
+
 
             if (dr == System.Windows.Forms.DialogResult.OK)
             {
@@ -386,7 +413,7 @@ namespace LMFinanciamentos.Apresentacao
                             var image = Image.FromStream(myStream);
 
                             var newImage = ResizeImage(image, 600, 400);
-                            newImage.Save("c:\\Windows\\Temp\\"+arquivo+".Jpeg", ImageFormat.Jpeg);
+                            newImage.Save("c:\\Windows\\Temp\\" + arquivo + ".Jpeg", ImageFormat.Jpeg);
 
                             arquivo = @"C:\Windows\Temp\" + arquivo + ".Jpeg";
                         }
@@ -401,9 +428,9 @@ namespace LMFinanciamentos.Apresentacao
 
                 //MessageBox.Show(arquivo);
                 img_foto.Image = new Bitmap(arquivo);
-                    img_foto.SizeMode = PictureBoxSizeMode.StretchImage;
-                    btn_add_foto.Text = "Alterar";
-                    excluirimage = "Update";
+                img_foto.SizeMode = PictureBoxSizeMode.StretchImage;
+                btn_add_foto.Text = "Alterar";
+                excluirimage = "Update";
 
 
             }
@@ -532,7 +559,8 @@ namespace LMFinanciamentos.Apresentacao
         {
             img_foto.Image = null;
             btn_add_foto.Text = "Adicionar";
-            if(img_foto.Image != null){
+            if (img_foto.Image != null)
+            {
                 excluirimage = "NoExluir";
             }
             else
@@ -572,7 +600,7 @@ namespace LMFinanciamentos.Apresentacao
 
             splitter3.Visible = false;
             btn_excluir_func.Visible = false;
-            
+
 
             HabilitarEdicao();
             txtnomefuncionario.Select();
@@ -597,7 +625,7 @@ namespace LMFinanciamentos.Apresentacao
             txtpermission.Enabled = true;
 
             img_foto.Enabled = true;
-            if(img_foto.Image == null)
+            if (img_foto.Image == null)
             {
                 btn_add_foto.Text = "Adicionar";
             }

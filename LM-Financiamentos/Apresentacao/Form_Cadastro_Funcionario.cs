@@ -13,7 +13,7 @@ namespace LMFinanciamentos.Apresentacao
     {
 
         String sexo, status, idFuncionario, valor, renda, nascimento, arquivo, CPF, RG, Loginuser, Senhahauser, newidlogin;
-        String excluirimage;
+        String excluirimage, permission;
         FileStream fsObj = null;
         BinaryReader binRdr = null;
         bool arquivobase;
@@ -427,7 +427,7 @@ namespace LMFinanciamentos.Apresentacao
                 else
                 {
                     newidlogin = newlogin.ToString();
-                    MessageBox.Show(newidlogin);
+                    //MessageBox.Show(newidlogin);
                 }
 
                
@@ -483,9 +483,34 @@ namespace LMFinanciamentos.Apresentacao
 
             status = "Ativo";
 
+            if (txtpermission.Text != "")
+            {
+                if (txtpermission.Text == "Operador(a)")
+                {
+                    permission = "3";
+                }
+                else if (txtpermission.Text == "Supervisor(a)")
+                {
+                    permission = "2";
+                }
+                else if (txtpermission.Text == "Gerente")
+                {
+                    permission = "1";
+                }
+                else if (txtpermission.Text == "Master")
+                {
+                    permission = "0";
+                }
+
+            }
+            else
+            {
+                permission = "3";
+            }
+
             LoginDaoComandos inserircliente = new LoginDaoComandos();
 
-          int newidfunc = inserircliente.CadastrarFuncionario(txtnomecli.Text, txtemail.Text, txttelefone.Text, txtcelular.Text, txtendereco.Text, datanasc, sexo,  CPF, RG,  txtcracha.Text,  txtpermission.Text, status);
+          int newidfunc = inserircliente.CadastrarFuncionario(txtnomecli.Text, txtemail.Text, txttelefone.Text, txtcelular.Text, txtendereco.Text, datanasc, sexo,  CPF, RG,  txtcracha.Text,  permission, status);
 
             if (newidfunc >= 0)
             {

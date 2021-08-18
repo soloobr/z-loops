@@ -12,7 +12,7 @@ namespace LMFinanciamentos.Apresentacao
     public partial class Form_Cadastro_Vendedor : Form
     {
 
-        String sexo, status, idVendedor, valor, renda, nascimento, arquivo, CPF, CNPJ, Agencia, Conta;
+        String sexo, status, idVendedor, valor, renda, nascimento, arquivo, CPF, CNPJ, Agencia, Conta, celular, telefone;
         String excluirimage;
         FileStream fsObj = null;
         BinaryReader binRdr = null;
@@ -456,9 +456,32 @@ namespace LMFinanciamentos.Apresentacao
 
             //String renda = txtrendacli.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
 
+            #region Telefone
+            if (string.IsNullOrEmpty(txttelefone.Text))
+            {
+                if (string.IsNullOrEmpty(txtcelular.Text))
+                {
+                   MessageBox.Show("É necessário preencher o campo Telefone ou Celular", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txttelefone.Select();
+                    Cursor = Cursors.Default;
+                    return;
+                }
+            }
+            txtcelular.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            if (txtcelular.Text != "")
+            {
+                celular = txtcelular.Text;
+            }
+            txttelefone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            if (txttelefone.Text != "")
+            {
+                telefone = txttelefone.Text;
+            }
+            #endregion
+
             LoginDaoComandos inserirvendedor = new LoginDaoComandos();
 
-            int newidcli = inserirvendedor.CadastrarVendedor(txtnomecli.Text, txtemail.Text, txttelefone.Text, txtcelular.Text, CPF, CNPJ, status);
+            int newidcli = inserirvendedor.CadastrarVendedor(txtnomecli.Text, txtemail.Text, telefone, celular, CPF, CNPJ, status);
        
             if (newidcli >= 0)
             {
