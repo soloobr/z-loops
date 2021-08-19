@@ -176,13 +176,45 @@ namespace LMFinanciamentos.Apresentacao
 
         private void btnsalvardoc_Click(object sender, EventArgs e)
         {
+            string Vlimovel = valorimovel.Text.Replace("R$", "").Replace(".", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+
             if (String.IsNullOrEmpty(ComboBoxClient.Text))
             {
 
-                MessageBox.Show("Nome do Cliente necessario!");
+                MessageBox.Show("Nome do Cliente necessario!", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 ComboBoxClient.Select();
                 ComboBoxClient.Focus();
+                return;
 
+            }
+            else if (String.IsNullOrEmpty(textnomevendedor.Text))
+            {
+                MessageBox.Show("Nome do Vendedor necessario!", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textnomevendedor.Select();
+                textnomevendedor.Focus();
+                return;
+            }
+            else if (String.IsNullOrEmpty(comboBox_agencia.Text))
+            {
+                MessageBox.Show("Seleciona a Agência", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                comboBox_agencia.Select();
+                comboBox_agencia.Focus();
+                return;
+            }
+            else if (String.IsNullOrEmpty(comboBox_programa.Text))
+            {
+                MessageBox.Show("Seleciona o Programa", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                comboBox_programa.Select();
+                comboBox_programa.Focus();
+                return;
+            }
+            else if (String.IsNullOrEmpty(valorimovel.Text) || Vlimovel == "000")
+            {
+                
+                MessageBox.Show("Valor do Imóvel Necessário!", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                valorimovel.Select();
+                valorimovel.Focus();
+                return;
             }
             else
             {
@@ -389,9 +421,9 @@ namespace LMFinanciamentos.Apresentacao
                         textnomevendedor.Select();
                         textnomevendedor.Focus();
                         //MessageBox.Show("Abriu");
-                        Form_Cadastro_Cliente frm_Cadastro_cliente = new Form_Cadastro_Cliente();
-                        frm_Cadastro_cliente.setTextNome(textnomevendedor.Text);
-                        frm_Cadastro_cliente.Show();
+                        Form_Cadastro_Vendedor frm_Cadastro_Vendedor = new Form_Cadastro_Vendedor();
+                        frm_Cadastro_Vendedor.setTextNome(textnomevendedor.Text);
+                        frm_Cadastro_Vendedor.Show();
                     }
                     else
                     {

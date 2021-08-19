@@ -220,8 +220,8 @@ namespace LMFinanciamentos.Apresentacao
 
             idagencia = process.Id_AgenciaImovel;
             //comboBox_agencia.Items.Add(process.AgenciaImovel_imovel.PadLeft(4, '0'));
-            comboBox_agencia.Items.Add(process.AgenciaImovel_imovel.PadLeft(4, '0'));
-            comboBox_agencia.Text = process.AgenciaImovel_imovel.PadLeft(4, '0');
+            comboBox_agencia.Items.Add(process.AgenciaImovel_imovel);
+            comboBox_agencia.Text = process.AgenciaImovel_imovel;
             
 
             idprograma = process.Id_Programa;
@@ -246,13 +246,6 @@ namespace LMFinanciamentos.Apresentacao
             comboBox_empreendimentos.Items.Add(process.EmpDescricao_imovel);
             comboBox_empreendimentos.Text = process.EmpDescricao_imovel;
             
-
-            //lbldataanalise.Text = process.H_DataStatusAnalise;
-            //lbldataeng.Text = process.H_DataStatusEng;
-            //lbldatasaquefgts.Text = process.H_DataSaqueFGTS;
-            //lbldatasiopi.Text = process.H_DataSIOP;
-            //lbldatasictd.Text = process.H_DataSICTD;
-            //lbldatapa.Text = process.H_DataPA;
 
             if (process.H_DataStatusAnalise != "")
             {

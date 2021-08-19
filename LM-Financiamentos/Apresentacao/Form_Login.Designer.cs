@@ -39,6 +39,8 @@ namespace LMFinanciamentos
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.pnlcenter = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBox_server = new System.Windows.Forms.ComboBox();
+            this.lblserver = new System.Windows.Forms.Label();
             this.lblverifica = new System.Windows.Forms.Label();
             this.txtpassword = new System.Windows.Forms.TextBox();
             this.lblsenha = new System.Windows.Forms.Label();
@@ -103,11 +105,13 @@ namespace LMFinanciamentos
             this.pnlcenter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlcenter.Location = new System.Drawing.Point(0, 0);
             this.pnlcenter.Name = "pnlcenter";
-            this.pnlcenter.Size = new System.Drawing.Size(284, 403);
+            this.pnlcenter.Size = new System.Drawing.Size(284, 440);
             this.pnlcenter.TabIndex = 0;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.comboBox_server);
+            this.panel1.Controls.Add(this.lblserver);
             this.panel1.Controls.Add(this.lblverifica);
             this.panel1.Controls.Add(this.txtpassword);
             this.panel1.Controls.Add(this.lblsenha);
@@ -117,8 +121,35 @@ namespace LMFinanciamentos
             this.panel1.Location = new System.Drawing.Point(0, 159);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(50, 10, 50, 10);
-            this.panel1.Size = new System.Drawing.Size(284, 148);
+            this.panel1.Size = new System.Drawing.Size(284, 178);
             this.panel1.TabIndex = 23;
+            // 
+            // comboBox_server
+            // 
+            this.comboBox_server.Dock = System.Windows.Forms.DockStyle.Top;
+            this.comboBox_server.FormattingEnabled = true;
+            this.comboBox_server.Items.AddRange(new object[] {
+            "Local",
+            "OnLINE"});
+            this.comboBox_server.Location = new System.Drawing.Point(50, 166);
+            this.comboBox_server.Name = "comboBox_server";
+            this.comboBox_server.Size = new System.Drawing.Size(184, 30);
+            this.comboBox_server.TabIndex = 45;
+            this.comboBox_server.Visible = false;
+            this.comboBox_server.SelectedIndexChanged += new System.EventHandler(this.comboBox_server_SelectedIndexChanged);
+            this.comboBox_server.SelectionChangeCommitted += new System.EventHandler(this.comboBox_server_SelectionChangeCommitted);
+            // 
+            // lblserver
+            // 
+            this.lblserver.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblserver.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lblserver.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblserver.Location = new System.Drawing.Point(50, 140);
+            this.lblserver.Name = "lblserver";
+            this.lblserver.Size = new System.Drawing.Size(184, 26);
+            this.lblserver.TabIndex = 44;
+            this.lblserver.Text = "Servidor:";
+            this.lblserver.Visible = false;
             // 
             // lblverifica
             // 
@@ -194,7 +225,7 @@ namespace LMFinanciamentos
             this.panelbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(128)))), ((int)(((byte)(180)))));
             this.panelbutton.Controls.Add(this.btnlogar);
             this.panelbutton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelbutton.Location = new System.Drawing.Point(0, 303);
+            this.panelbutton.Location = new System.Drawing.Point(0, 340);
             this.panelbutton.Name = "panelbutton";
             this.panelbutton.Padding = new System.Windows.Forms.Padding(70, 30, 70, 30);
             this.panelbutton.Size = new System.Drawing.Size(284, 100);
@@ -285,14 +316,16 @@ namespace LMFinanciamentos
             // 
             // Form_Login
             // 
-            this.ClientSize = new System.Drawing.Size(284, 403);
+            this.ClientSize = new System.Drawing.Size(284, 440);
             this.Controls.Add(this.pnlcenter);
             this.Font = new System.Drawing.Font("Poppins", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.Name = "Form_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Form_Login_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form_Login_Paint);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_Login_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlcenter.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -328,6 +361,7 @@ namespace LMFinanciamentos
         private Panel panel2;
         private Label lbllogin;
         private Label lblverifica;
-
+        private ComboBox comboBox_server;
+        private Label lblserver;
     }
 }

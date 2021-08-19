@@ -9,9 +9,11 @@ namespace LMFinanciamentos.Modelo
         public bool tem;
         public String mensagem = "";
 
-        public bool acessar(String login, String senha)
+        public bool acessar(String login, String senha,String server)
         {
             LoginDaoComandos loginDao = new LoginDaoComandos();
+            loginDao.server = server;
+
             tem = loginDao.verificarLogin(login, senha);
             if (!loginDao.mensagem.Equals(""))
             {

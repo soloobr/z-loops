@@ -35,6 +35,8 @@ namespace LMFinanciamentos.Apresentacao
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabcliente = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtobservacoes = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.txtcontacliente = new System.Windows.Forms.TextBox();
             this.txtagenciacliente = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -71,8 +73,6 @@ namespace LMFinanciamentos.Apresentacao
             this.lbl_topo = new System.Windows.Forms.Label();
             this.img_topo = new System.Windows.Forms.PictureBox();
             this.ofd1 = new System.Windows.Forms.OpenFileDialog();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtobservacoes = new System.Windows.Forms.TextBox();
             this.panelcentralcadcli.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -178,6 +178,23 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel1.Size = new System.Drawing.Size(931, 264);
             this.tableLayoutPanel1.TabIndex = 2;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            // 
+            // txtobservacoes
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.txtobservacoes, 3);
+            this.txtobservacoes.Location = new System.Drawing.Point(3, 222);
+            this.txtobservacoes.Name = "txtobservacoes";
+            this.txtobservacoes.Size = new System.Drawing.Size(589, 27);
+            this.txtobservacoes.TabIndex = 69;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 181);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(102, 23);
+            this.label6.TabIndex = 67;
+            this.label6.Text = "Observações:";
             // 
             // txtcontacliente
             // 
@@ -588,23 +605,6 @@ namespace LMFinanciamentos.Apresentacao
             // ofd1
             // 
             this.ofd1.FileName = "openFileDialog1";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 181);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(102, 23);
-            this.label6.TabIndex = 67;
-            this.label6.Text = "Observações:";
-            // 
-            // txtobservacoes
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.txtobservacoes, 3);
-            this.txtobservacoes.Location = new System.Drawing.Point(3, 222);
-            this.txtobservacoes.Name = "txtobservacoes";
-            this.txtobservacoes.Size = new System.Drawing.Size(589, 27);
-            this.txtobservacoes.TabIndex = 69;
             // 
             // Form_Cadastro_Cliente
             // 

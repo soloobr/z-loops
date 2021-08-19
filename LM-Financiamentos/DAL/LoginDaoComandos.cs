@@ -20,18 +20,26 @@ namespace LMFinanciamentos.DAL
         public bool tem = false;
         public string mensagem = "";
         private String slogin;
+
+        private static string _server;
+
+        public string server
+        {
+            get => _server;
+            set => _server = value;
+        }
         public string sloginn
         {
             get { return slogin; }
             set { slogin = value; }
 
         }
+
         MySqlCommand cmd = new MySqlCommand();
         MySqlCommand cmd1 = new MySqlCommand();
         MySqlCommand cmd2 = new MySqlCommand();
-        Conecxao con = new Conecxao();
-        Conecxao conn = new Conecxao();
-        Conecxao con2 = new Conecxao();
+        Conecxao con = new Conecxao(_server);
+
 
         MySqlDataReader dr, drfunc, drsenha, drclient, drclients, drprocess, drvendedor, drprocessos, drdocumentos, drvendedores;
 
@@ -1308,30 +1316,30 @@ namespace LMFinanciamentos.DAL
                 cmd1.Parameters.AddWithValue("@ServerNome", ServerNome);
                 cmd1.Parameters.AddWithValue("@ServerFilesPath", ServerFilesPath);
                 
-                cmd1.Connection = conn.conectar();
+                cmd1.Connection = con.conectar();
 
                 int recordsAffected = cmd1.ExecuteNonQuery();
 
                 if (recordsAffected > 0)
                 {
                     mensagem = "Servidor Alterado Com Sucesso";
-                    conn.desconectar();
+                    con.desconectar();
                 }
                 else
                 {
                     mensagem = "Erro ao Alterar Servidor";
-                    conn.desconectar();
+                    con.desconectar();
                 }
             }
             catch (MySqlException error)
             {
                 mensagem = ("Erro ao conectar: " + error.Message);
-                conn.desconectar();
+                con.desconectar();
             }
             catch (Exception err)
             {
                 mensagem = ("Erro ao Alterar Servidor: " + err.Message);
-                conn.desconectar();
+                con.desconectar();
             }
 
             return mensagem;
@@ -1466,7 +1474,7 @@ namespace LMFinanciamentos.DAL
             //Cliente clients = new Cliente();
             try
             {
-                cmd2.Connection = con2.conectar();
+                cmd2.Connection = con.conectar();
                 drclients = cmd2.ExecuteReader();
                 while (drclients.Read())
                 {
@@ -1497,7 +1505,7 @@ namespace LMFinanciamentos.DAL
                     list.Add(clients);
                 }
                 drclients.Close();
-                con2.desconectar();
+                con.desconectar();
 
             }
             catch (SqlException err)
@@ -1521,7 +1529,7 @@ namespace LMFinanciamentos.DAL
             //Cliente clients = new Cliente();
             try
             {
-                cmd2.Connection = con2.conectar();
+                cmd2.Connection = con.conectar();
                 drvendedores = cmd2.ExecuteReader();
                 while (drvendedores.Read())
                 {
@@ -1551,7 +1559,7 @@ namespace LMFinanciamentos.DAL
                     list.Add(vendedores);
                 }
                 drvendedores.Close();
-                con2.desconectar();
+                con.desconectar();
 
             }
             catch (SqlException err)
@@ -1621,7 +1629,7 @@ namespace LMFinanciamentos.DAL
             Vendedor vendedor = new Vendedor();
             try
             {
-                cmd2.Connection = con2.conectar();
+                cmd2.Connection = con.conectar();
                 drvendedor = cmd2.ExecuteReader();
                 while (drvendedor.Read())
                 {
@@ -1645,7 +1653,7 @@ namespace LMFinanciamentos.DAL
                     //list.Add(vendedor);
                 }
                 drvendedor.Close();
-                con2.desconectar();
+                con.desconectar();
 
             }
             catch (SqlException err)
@@ -1723,7 +1731,7 @@ namespace LMFinanciamentos.DAL
                 cmd1.Parameters.AddWithValue("@Status", status);
 
 
-                cmd1.Connection = conn.conectar();
+                cmd1.Connection = con.conectar();
                 //drupdatecli = cmd1.ExecuteReader();
                 int recordsAffected = cmd1.ExecuteNonQuery();
 
@@ -1804,29 +1812,29 @@ namespace LMFinanciamentos.DAL
 
 
 
-                cmd1.Connection = conn.conectar();
+                cmd1.Connection = con.conectar();
 
                 int recordsAffected = cmd1.ExecuteNonQuery();
 
                 if(recordsAffected > 0) {
                     mensagem = "Processo Alterado Com Sucesso";
-                    conn.desconectar();
+                    con.desconectar();
                 }
                 else
                 {
                     mensagem = "Erro ao Alterar Processo";
-                    conn.desconectar();
+                    con.desconectar();
                 }
             }
             catch (MySqlException error)
             {
                 mensagem = ("Erro ao conectar: " + error.Message);
-                conn.desconectar();
+                con.desconectar();
             }
             catch (Exception err)
             {
                 mensagem = ("Erro ao Alterar Processo: " + err.Message);
-                conn.desconectar();
+                con.desconectar();
             }
 
             return mensagem;
@@ -1841,30 +1849,30 @@ namespace LMFinanciamentos.DAL
                 cmd1.Parameters.Clear();
                 cmd1.Parameters.AddWithValue("@IdDoc", iddoc);
 
-                cmd1.Connection = conn.conectar();
+                cmd1.Connection = con.conectar();
 
                 int recordsAffected = cmd1.ExecuteNonQuery();
 
                 if (recordsAffected > 0)
                 {
                     mensagem = "Documento Excluído com sucesso!";
-                    conn.desconectar();
+                    con.desconectar();
                 }
                 else
                 {
                     mensagem = "Erro ao Excluir Docuumento";
-                    conn.desconectar();
+                    con.desconectar();
                 }
             }
             catch (MySqlException error)
             {
                 mensagem = ("Erro ao conectar: " + error.Message);
-                conn.desconectar();
+                con.desconectar();
             }
             catch (Exception err)
             {
                 mensagem = ("Erro ao Excluir Documento: " + err.Message);
-                conn.desconectar();
+                con.desconectar();
             }
 
             return mensagem;
@@ -1879,30 +1887,30 @@ namespace LMFinanciamentos.DAL
                 cmd1.Parameters.Clear();
                 cmd1.Parameters.AddWithValue("@idcli", idcli);
 
-                cmd1.Connection = conn.conectar();
+                cmd1.Connection = con.conectar();
 
                 int recordsAffected = cmd1.ExecuteNonQuery();
 
                 if (recordsAffected > 0)
                 {
                     mensagem = "Cliente Excluído com sucesso!";
-                    conn.desconectar();
+                    con.desconectar();
                 }
                 else
                 {
                     mensagem = "Erro ao Excluir Cliente";
-                    conn.desconectar();
+                    con.desconectar();
                 }
             }
             catch (MySqlException error)
             {
                 mensagem = ("Erro ao conectar: " + error.Message);
-                conn.desconectar();
+                con.desconectar();
             }
             catch (Exception err)
             {
                 mensagem = ("Erro ao Excluir Cliente: " + err.Message);
-                conn.desconectar();
+                con.desconectar();
             }
 
             return mensagem;
@@ -1917,30 +1925,30 @@ namespace LMFinanciamentos.DAL
                 cmd1.Parameters.Clear();
                 cmd1.Parameters.AddWithValue("@idvendedor", idvend);
 
-                cmd1.Connection = conn.conectar();
+                cmd1.Connection = con.conectar();
 
                 int recordsAffected = cmd1.ExecuteNonQuery();
 
                 if (recordsAffected > 0)
                 {
                     mensagem = "Vendedor Excluído com sucesso!";
-                    conn.desconectar();
+                    con.desconectar();
                 }
                 else
                 {
                     mensagem = "Erro ao Excluir Vendedor";
-                    conn.desconectar();
+                    con.desconectar();
                 }
             }
             catch (MySqlException error)
             {
                 mensagem = ("Erro ao conectar: " + error.Message);
-                conn.desconectar();
+                con.desconectar();
             }
             catch (Exception err)
             {
                 mensagem = ("Erro ao Excluir Vendedor: " + err.Message);
-                conn.desconectar();
+                con.desconectar();
             }
 
             return mensagem;
@@ -1955,30 +1963,30 @@ namespace LMFinanciamentos.DAL
                 cmd1.Parameters.Clear();
                 cmd1.Parameters.AddWithValue("@idfunc", idfunc);
 
-                cmd1.Connection = conn.conectar();
+                cmd1.Connection = con.conectar();
 
                 int recordsAffected = cmd1.ExecuteNonQuery();
 
                 if (recordsAffected > 0)
                 {
                     mensagem = "Funcionário Excluído com sucesso!";
-                    conn.desconectar();
+                    con.desconectar();
                 }
                 else
                 {
                     mensagem = "Erro ao Excluir Funcionário";
-                    conn.desconectar();
+                    con.desconectar();
                 }
             }
             catch (MySqlException error)
             {
                 mensagem = ("Erro ao conectar: " + error.Message);
-                conn.desconectar();
+                con.desconectar();
             }
             catch (Exception err)
             {
                 mensagem = ("Erro ao Excluir Funcionário: " + err.Message);
-                conn.desconectar();
+                con.desconectar();
             }
 
             return mensagem;
@@ -1995,7 +2003,7 @@ namespace LMFinanciamentos.DAL
                 //cmd1.Parameters.AddWithValue("@login", login);
                 // cmd1.Parameters.AddWithValue("@senha", senha);
                 cmd1.Parameters.AddWithValue("@novasenha", novasenha);
-                cmd1.Connection = conn.conectar();
+                cmd1.Connection = con.conectar();
                 drsenha = cmd1.ExecuteReader();
                 while (drsenha.Read())
                 {
@@ -2003,7 +2011,7 @@ namespace LMFinanciamentos.DAL
                 }
 
                 drsenha.Close();
-                conn.desconectar();
+                con.desconectar();
 
             }
             catch (MySqlException err)
@@ -2025,7 +2033,7 @@ namespace LMFinanciamentos.DAL
                 cmd1.Parameters.AddWithValue("@idfunc", idfunc);
 
 
-                cmd1.Connection = conn.conectar();
+                cmd1.Connection = con.conectar();
                 drsenha = cmd1.ExecuteReader();
                 //while (drsenha.Read())
                 //{
@@ -2033,7 +2041,7 @@ namespace LMFinanciamentos.DAL
                 //}
 
                 drsenha.Close();
-                conn.desconectar();
+                con.desconectar();
 
             }
             catch (MySqlException err)
@@ -2054,7 +2062,7 @@ namespace LMFinanciamentos.DAL
                 cmd1.Parameters.AddWithValue("@novasenha", novasenha);
 
 
-                cmd1.Connection = conn.conectar();
+                cmd1.Connection = con.conectar();
                 drsenha = cmd1.ExecuteReader();
                 //while (drsenha.Read())
                 //{
@@ -2062,7 +2070,7 @@ namespace LMFinanciamentos.DAL
                 //}
 
                 drsenha.Close();
-                conn.desconectar();
+                con.desconectar();
 
             }
             catch (MySqlException err)
@@ -2137,7 +2145,7 @@ namespace LMFinanciamentos.DAL
                 
 
 
-                cmd1.Connection = conn.conectar();
+                cmd1.Connection = con.conectar();
 
                 //int recordsAffected = cmd1.ExecuteNonQuery();
                 cmd1.ExecuteNonQuery();
@@ -2170,7 +2178,7 @@ namespace LMFinanciamentos.DAL
             }
             finally
             {
-                conn.desconectar();
+                con.desconectar();
             }
 
             //return mensagem;
@@ -2214,30 +2222,30 @@ namespace LMFinanciamentos.DAL
                 cmd1.Parameters.AddWithValue("@Status", status);
 
 
-                cmd1.Connection = conn.conectar();
+                cmd1.Connection = con.conectar();
 
                 int recordsAffected = cmd1.ExecuteNonQuery();
 
                 if (recordsAffected > 0)
                 {
                     mensagem = "Processo Alterado Com Sucesso";
-                    conn.desconectar();
+                    con.desconectar();
                 }
                 else
                 {
                     mensagem = "Erro ao Alterar Processo";
-                    conn.desconectar();
+                    con.desconectar();
                 }
             }
             catch (MySqlException error)
             {
                 mensagem = ("Erro ao conectar: " + error.Message);
-                conn.desconectar();
+                con.desconectar();
             }
             catch (Exception err)
             {
                 mensagem = ("Erro ao Alterar Processo: " + err.Message);
-                conn.desconectar();
+                con.desconectar();
             }
 
             return mensagem;

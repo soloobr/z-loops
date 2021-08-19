@@ -11,7 +11,7 @@ namespace LMFinanciamentos.Apresentacao
 {
     public partial class Form_Principal : Form
     {
-        public string idresponsavel, nomeresponsavel, idResp;
+        public string idresponsavel, nomeresponsavel, idResp,servidor;
         public Form_Principal()
         {
             InitializeComponent();
@@ -25,6 +25,12 @@ namespace LMFinanciamentos.Apresentacao
             idresponsavel = func.Id_Funcionario;
             nomeresponsavel = func.Nome_Funcionario;
             idResp = func.Id_Funcionario;
+        }
+        public void setServer(String server)
+        {
+
+            servidor = server;
+
         }
         internal void setFoto(byte[] foto_Func)
         {
@@ -312,6 +318,15 @@ namespace LMFinanciamentos.Apresentacao
             Cursor = Cursors.Default;
         }
         private Form_Controle_Processo BuscarClientes = null;
+
+        private void Form_Principal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            string basePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            var MyIni = new IniFile(basePath + @"\LM-Settings.ini");
+            String usuario = Path.GetFileName(basePath);
+             MyIni.DeleteKey("StringConnection", usuario);
+        }
+
         private void btncontroledoc_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;

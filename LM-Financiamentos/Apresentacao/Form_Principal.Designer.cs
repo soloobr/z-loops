@@ -560,6 +560,7 @@ namespace LMFinanciamentos.Apresentacao
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Primcipal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Principal_FormClosing);
             this.Load += new System.EventHandler(this.Form_Principal_Load);
             this.panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.img_foto)).EndInit();

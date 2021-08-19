@@ -4,17 +4,25 @@ using LMFinanciamentos.Entidades;
 using LMFinanciamentos.Modelo;
 using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace LMFinanciamentos
 {
     public partial class Form_Login : Form
     {
+        string servidor;
         public Form_Login()
         {
             InitializeComponent();
         }
+        private string _server;
 
+        public string server
+        {
+            get => _server;
+            set => _server = value;
+        }
         private void pictureBoxEyeL_MouseDown(object sender, MouseEventArgs e)
         {
             txtpassword.UseSystemPasswordChar = false;
@@ -116,9 +124,8 @@ namespace LMFinanciamentos
             }
             else
             {
-
                 Controle controle = new Controle();
-                controle.acessar(txt_login.Text, txtpassword.Text);
+                controle.acessar(txt_login.Text, txtpassword.Text,servidor);
 
 
                 Funcionario func = null;
@@ -131,7 +138,9 @@ namespace LMFinanciamentos
                     {
                         this.Hide();
                         LoginDaoComandos gett = new LoginDaoComandos();
+                        gett.server = servidor;
                         Functions saudar = new Functions();
+
                         // Funcionario dadosfunc = new Funcionario();
 
                         func = gett.GetFunc(txt_login.Text, txtpassword.Text);
@@ -145,6 +154,7 @@ namespace LMFinanciamentos
                             frm_Principal.setFoto(func.Foto_Funcionario);
                         }
                         frm_Principal.setLabel(func, ola);
+                        frm_Principal.setServer(servidor);
                         frm_Principal.Show();
                         lblverifica.Visible = false;
                         string basePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
@@ -189,6 +199,41 @@ namespace LMFinanciamentos
         private void lbltop_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form_Login_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.S)
+            {
+                comboBox_server.Visible = true;
+                lblserver.Visible = true;
+                
+            }
+        }
+
+        private void comboBox_server_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox_server_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string basePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            var MyIni = new IniFile(basePath + @"\LM-Settings.ini");
+
+            String usuario = Path.GetFileName(basePath);
+            
+
+            if (comboBox_server.Text == "OnLINE")
+            {
+                servidor = "ONLINE";
+                MyIni.Write("StringConnection", "ONLINE", usuario);
+            }
+            if (comboBox_server.Text == "Local")
+            {
+                MyIni.Write("StringConnection", "LOCAL", usuario);
+                servidor = "LOCAL";
+            }
         }
     }
 }
