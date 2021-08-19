@@ -1,4 +1,5 @@
-﻿using LMFinanciamentos.Apresentacao;
+﻿using AutoUpdaterEasy;
+using LMFinanciamentos.Apresentacao;
 using LMFinanciamentos.DAL;
 using LMFinanciamentos.Entidades;
 using LMFinanciamentos.Modelo;
@@ -16,6 +17,7 @@ namespace LMFinanciamentos
         {
             InitializeComponent();
         }
+
         private string _server;
 
         public string server

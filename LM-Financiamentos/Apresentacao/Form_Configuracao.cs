@@ -5,6 +5,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
+using System.Reflection;
 
 namespace LMFinanciamentos.Apresentacao
 {
@@ -27,7 +28,9 @@ namespace LMFinanciamentos.Apresentacao
         }
         private void Form_Configuracao_Load(object sender, EventArgs e)
         {
-
+            var appVersion = Assembly.GetExecutingAssembly().GetName().Version;
+            lblversion.Text = String.Format("v{0}", appVersion);
+            lblversion.Text =  Application.ProductVersion;
 
             Functions.Arredonda(btncloseconf, 12, true, true);
 

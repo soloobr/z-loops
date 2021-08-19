@@ -1,4 +1,5 @@
-﻿using LMFinanciamentos.Apresentacao;
+﻿using AutoUpdaterEasy;
+using LMFinanciamentos.Apresentacao;
 using System;
 using System.Windows.Forms;
 
@@ -12,9 +13,9 @@ namespace LMFinanciamentos
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form_Login());
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new Form_Login());
             //Application.Run(new Form_Principal());
             //Application.Run(new Form_Cadastro_Processos());
             //Application.Run(new Form_Controle_Documento());
@@ -22,6 +23,12 @@ namespace LMFinanciamentos
             // Application.Run(new Form_Cadastro_cliente());
             // Application.Run(new Form_Dados_Processos());
             //Application.Run(new Form_Controle_Processo());
+
+            AutoUpdater.Initialize("https://lmfinanciamentos.com.br/Config.json", Application.ProductVersion);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form_Login());
+            AutoUpdater.Instance.Stop();
         }
     }
 }

@@ -1,0 +1,11 @@
+{
+  "packageUrl": "http://yourdomain.com/yourappname/update.zip",
+  "packageFileName": "update.zip",
+  "packageConfigName": "config.json",
+  "forceUpdate": "true",
+  "checkEvery": "30",
+  "intervalType": "minute",
+  "output": ".\\",
+  "processStart": "YourAppName.exe",
+  "version": "1.0.0.0"
+}
