@@ -2124,14 +2124,14 @@ namespace LMFinanciamentos.DAL
             return dt;
         }
 
-        public int CriarDocumento(string idProcesso, string Tipo, string Descricao, byte Arquivo, String exxtension, string Status)
+        public int CriarDocumento(string idProcesso, string Tipo, string Descricao, byte Arquivo, String exxtension, string caminho, string Status)
         {
             //string idDoc, string idProcesso, string Tipo, string Descricao, byte Arquivo, string Status
             try
             {
 
-                cmd1.CommandText = "INSERT INTO Documentos (idProcesso, Tipo, Descricao, Data, Arquivo, Extensao, Status) VALUES" +
-                    " ( @idProcesso, @Tipo, @Descricao, @Data, @Arquivo, @exxtension, @Status )";
+                cmd1.CommandText = "INSERT INTO Documentos (idProcesso, Tipo, Descricao, Data, Arquivo, Extensao, Patch, Status) VALUES" +
+                    " ( @idProcesso, @Tipo, @Descricao, @Data, @Arquivo, @exxtension, @patch, @Status )";
 
                 //cmd1.Parameters.AddWithValue("@id", id);
                 //cmd1.Parameters.AddWithValue("@idDoc", idDoc);
@@ -2141,6 +2141,7 @@ namespace LMFinanciamentos.DAL
                 cmd1.Parameters.AddWithValue("@Data", DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
                 cmd1.Parameters.AddWithValue("@Arquivo", Arquivo);
                 cmd1.Parameters.AddWithValue("@exxtension", exxtension);
+                cmd1.Parameters.AddWithValue("@patch", caminho);
                 cmd1.Parameters.AddWithValue("@Status", Status);
                 
 

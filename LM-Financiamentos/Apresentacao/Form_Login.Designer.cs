@@ -110,6 +110,7 @@ namespace LMFinanciamentos
             // 
             // panel1
             // 
+            this.panel1.AutoSize = true;
             this.panel1.Controls.Add(this.comboBox_server);
             this.panel1.Controls.Add(this.lblserver);
             this.panel1.Controls.Add(this.lblverifica);
@@ -121,12 +122,14 @@ namespace LMFinanciamentos
             this.panel1.Location = new System.Drawing.Point(0, 159);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(50, 10, 50, 10);
-            this.panel1.Size = new System.Drawing.Size(284, 178);
+            this.panel1.Size = new System.Drawing.Size(284, 202);
             this.panel1.TabIndex = 23;
             // 
             // comboBox_server
             // 
             this.comboBox_server.Dock = System.Windows.Forms.DockStyle.Top;
+            this.comboBox_server.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_server.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox_server.FormattingEnabled = true;
             this.comboBox_server.Items.AddRange(new object[] {
             "Local",
@@ -328,6 +331,7 @@ namespace LMFinanciamentos
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_Login_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlcenter.ResumeLayout(false);
+            this.pnlcenter.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

@@ -25,7 +25,7 @@ namespace LMFinanciamentos.Apresentacao
         bool Next;
         string valor, svalorimovel, svalorfinanciado, idCartorio ;
         string curFile, NewFile, extension, Local, idArquivo, numArquivo, descArquivo, dataAruivo, statusArquivo, idcombotipodoc;
-        string idagencia, idprograma, idcorretora, idcorretor, idempreendimentos;
+        string idagencia, idprograma, idcorretora, idcorretor, idempreendimentos, caminho;
         int count;
         FileStream fs;
         BinaryReader br;
@@ -1535,7 +1535,7 @@ namespace LMFinanciamentos.Apresentacao
                 DataGridViewRow row = dataGridView_Arquivos.Rows[e.RowIndex];
 
                 String iddoc = row.Cells[0].Value.ToString();
-                String extension = row.Cells[7].Value.ToString();
+                String extension = row.Cells[8].Value.ToString();
                 String pasta = idProcess;
 
                 DialogResult dialogResult = MessageBox.Show("Confima a exclusão do arquivo "+ idProcess+ iddoc+ extension, "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -1580,7 +1580,7 @@ namespace LMFinanciamentos.Apresentacao
                 SaveFileDialog sfd = new SaveFileDialog();
 
                 #region Filter
-                switch (row.Cells[7].Value.ToString())
+                switch (row.Cells[8].Value.ToString())
                 {
                     case ".pdf":
                         sfd.Filter = "PDF document (*.pdf)|*.pdf";
@@ -1615,7 +1615,7 @@ namespace LMFinanciamentos.Apresentacao
                 //sfd.Filter = "PDF document (*.pdf)|*.pdf| All files (*.*)|*.*";
                 //string sfdname = saveFileDialog1.FileName;
                 sfd.Title = "Salvar Arquivo";
-                sfd.FileName = idProcess + row.Cells[0].Value.ToString().PadLeft(2, '0') + row.Cells[7].Value.ToString(); //"Mac_" + DateTime.Now.ToString("ddMMyyyy_HHmmss");
+                sfd.FileName = idProcess + row.Cells[0].Value.ToString().PadLeft(2, '0') + row.Cells[8].Value.ToString(); //"Mac_" + DateTime.Now.ToString("ddMMyyyy_HHmmss");
                 sfd.RestoreDirectory = true;
 
                 String Filedownload = Local + @"\" + idProcess+@"\"+ sfd.FileName;
@@ -1640,57 +1640,60 @@ namespace LMFinanciamentos.Apresentacao
             {
                 DataGridViewRow row = dataGridView_Arquivos.Rows[e.RowIndex];
 
-                SaveFileDialog sfd = new SaveFileDialog();
+
+                //SaveFileDialog sfd = new SaveFileDialog();
 
                 #region Filter
-                switch (row.Cells[8].Value.ToString())
-                {
-                    case ".pdf":
-                        sfd.Filter = "PDF document (*.pdf)|*.pdf";
-                        break;
-                    case ".jpeg":
-                        sfd.Filter = "JPEG Image(.jpeg)| *.jpeg";
-                        break;
-                    case ".jpg":
-                        sfd.Filter = "JPG Image(.jpg)| *.jpg";
-                        break;
-                    case ".png":
-                        sfd.Filter = "Png Image(.png)| *.png";
-                        break;
-                    case ".doc":
-                        sfd.Filter = "Word Documents|*.doc";
-                        break;
-                    case ".docx":
-                        sfd.Filter = "Word Documents|*.docx";
-                        break;
-                    case ".xlsx":
-                        sfd.Filter = "Excel Worksheets|*.xlsx";
-                        break;
-                    case ".xls":
-                        sfd.Filter = "Excel Worksheets|*.xls";
-                        break;
-                    default:
-                        sfd.Filter = "All files (*.*)|*.*";
-                        break;
-                }
+                //switch (row.Cells[8].Value.ToString())
+                //{
+                //    case ".pdf":
+                //        sfd.Filter = "PDF document (*.pdf)|*.pdf";
+                //        break;
+                //    case ".jpeg":
+                //        sfd.Filter = "JPEG Image(.jpeg)| *.jpeg";
+                //        break;
+                //    case ".jpg":
+                //        sfd.Filter = "JPG Image(.jpg)| *.jpg";
+                //        break;
+                //    case ".png":
+                //        sfd.Filter = "Png Image(.png)| *.png";
+                //        break;
+                //    case ".doc":
+                //        sfd.Filter = "Word Documents|*.doc";
+                //        break;
+                //    case ".docx":
+                //        sfd.Filter = "Word Documents|*.docx";
+                //        break;
+                //    case ".xlsx":
+                //        sfd.Filter = "Excel Worksheets|*.xlsx";
+                //        break;
+                //    case ".xls":
+                //        sfd.Filter = "Excel Worksheets|*.xls";
+                //        break;
+                //    default:
+                //        sfd.Filter = "All files (*.*)|*.*";
+                //        break;
+                //}
                 #endregion
-
+                string caminhoRaiz = AppDomain.CurrentDomain.BaseDirectory;
                 //sfd.Filter = "PDF document (*.pdf)|*.pdf| All files (*.*)|*.*";
                 //string sfdname = saveFileDialog1.FileName;
-                sfd.Title = "Salvar Arquivo";
-                sfd.FileName = idProcess + row.Cells[0].Value.ToString().PadLeft(2, '0') + row.Cells[8].Value.ToString(); //"Mac_" + DateTime.Now.ToString("ddMMyyyy_HHmmss");
-                sfd.RestoreDirectory = true;
+                //sfd.Title = "Salvar Arquivo";
+                String FileName = idProcess + row.Cells[0].Value.ToString().PadLeft(2, '0') + row.Cells[8].Value.ToString(); 
+                //sfd.RestoreDirectory = true;
 
-                String Filedownload = Local + @"\" + idProcess + @"\" + sfd.FileName;
+                String Filedownload = Local + @"\" + idProcess + @"\" + FileName;
                 //MessageBox.Show(Filedownload);
 
                 if (File.Exists(Filedownload))
                 {
-                    if (sfd.ShowDialog() == DialogResult.OK)
-                    {
-                        Download(Filedownload, Path.GetFullPath(sfd.FileName));
-                        MessageBox.Show("Arquivo Salvo!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                    //if (sfd.ShowDialog() == DialogResult.OK)
+                    //{
+
+                       // Download(Filedownload, caminhoRaiz);
+                        //MessageBox.Show(caminhoRaiz + Filedownload, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        System.Diagnostics.Process.Start(Filedownload);
+                    //}
 
 
                 }
@@ -2159,7 +2162,6 @@ namespace LMFinanciamentos.Apresentacao
             {
                 MessageBox.Show("Selecione o Tipo de Processo para Anexar");
                 comboBox_tipoProcesso.Select();
-                comboBox_tipoProcesso.DroppedDown = true;
                 Cursor = Cursors.Default;
                 return;
             }
@@ -2193,6 +2195,7 @@ namespace LMFinanciamentos.Apresentacao
                         //    descArquivo = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtdescricao.Text.ToLower());
                         //}
                         descArquivo = comboBox_tipoArquivo.Text;
+                        caminho = Local + @"\" + idProcess + @"\" ;
 
                         String stipo = comboBox_tipoProcesso.Text;
                         numArquivo = idProcess + count.ToString().PadLeft(2, '0');
@@ -2208,7 +2211,7 @@ namespace LMFinanciamentos.Apresentacao
                         //ImageData = br.ReadBytes((int)fs.Length);
                         //br.Close();
                         //fs.Close();
-                        int ultimoID = enviar.CriarDocumento( idProcess, stipo, descArquivo, ImageData, extension, statusArquivo);
+                        int ultimoID = enviar.CriarDocumento( idProcess, stipo, descArquivo, ImageData, extension, caminho, statusArquivo);
                         //}
                         //else
                         //{
@@ -2271,6 +2274,7 @@ namespace LMFinanciamentos.Apresentacao
                         //    descArquivo = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtdescricao.Text.ToLower());
                         //}
                         descArquivo = comboBox_tipoArquivo.Text;
+                        caminho = Local + @"\" + idProcess + @"\";
 
                         String stipo = comboBox_tipoProcesso.Text;
                         numArquivo = idProcess + count.ToString().PadLeft(2, '0');
@@ -2286,7 +2290,7 @@ namespace LMFinanciamentos.Apresentacao
                         //ImageData = br.ReadBytes((int)fs.Length);
                         //br.Close();
                         //fs.Close();
-                        int ultimoID = enviar.CriarDocumento(idProcess, stipo, descArquivo, ImageData, extension, statusArquivo);
+                        int ultimoID = enviar.CriarDocumento(idProcess, stipo, descArquivo, ImageData, extension, caminho, statusArquivo);
                         //}
                         //else
                         //{
@@ -2354,7 +2358,7 @@ namespace LMFinanciamentos.Apresentacao
                 //ImageData = br.ReadBytes((int)fs.Length);
                 //br.Close();
                 //fs.Close();
-                enviar.CriarDocumento( idProcess, stipo, descArquivo, ImageData, extension, statusArquivo);
+               // enviar.CriarDocumento( idProcess, stipo, descArquivo, ImageData, extension,caminho, statusArquivo);
             }
             else
             {
