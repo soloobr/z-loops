@@ -293,6 +293,16 @@ namespace LMFinanciamentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap icons8_open_in_popup_16 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_open_in_popup_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap mais16 {
             get {
                 object obj = ResourceManager.GetObject("mais16", resourceCulture);

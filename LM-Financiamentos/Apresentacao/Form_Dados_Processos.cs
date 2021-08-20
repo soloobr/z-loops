@@ -24,7 +24,7 @@ namespace LMFinanciamentos.Apresentacao
 
         bool Next;
         string valor, svalorimovel, svalorfinanciado, idCartorio ;
-        string curFile, NewFile, extension, Local, idArquivo, numArquivo, descArquivo, dataAruivo, statusArquivo;
+        string curFile, NewFile, extension, Local, idArquivo, numArquivo, descArquivo, dataAruivo, statusArquivo, idcombotipodoc;
         string idagencia, idprograma, idcorretora, idcorretor, idempreendimentos;
         int count;
         FileStream fs;
@@ -1502,7 +1502,19 @@ namespace LMFinanciamentos.Apresentacao
                 e.Graphics.DrawImage(Properties.Resources.icons8_download_16, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
-            
+            if (e.ColumnIndex == 7)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                var w = Properties.Resources.icons8_open_in_popup_16.Width;
+                var h = Properties.Resources.icons8_open_in_popup_16.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.icons8_open_in_popup_16, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+
         }
         private void txtrenda_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -1624,6 +1636,146 @@ namespace LMFinanciamentos.Apresentacao
                     MessageBox.Show("Arquivo não encontrado \n Contate o Suporte Técnico!","Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            if (e.ColumnIndex == dataGridView_Arquivos.Columns["Ver"].Index && e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView_Arquivos.Rows[e.RowIndex];
+
+                SaveFileDialog sfd = new SaveFileDialog();
+
+                #region Filter
+                switch (row.Cells[8].Value.ToString())
+                {
+                    case ".pdf":
+                        sfd.Filter = "PDF document (*.pdf)|*.pdf";
+                        break;
+                    case ".jpeg":
+                        sfd.Filter = "JPEG Image(.jpeg)| *.jpeg";
+                        break;
+                    case ".jpg":
+                        sfd.Filter = "JPG Image(.jpg)| *.jpg";
+                        break;
+                    case ".png":
+                        sfd.Filter = "Png Image(.png)| *.png";
+                        break;
+                    case ".doc":
+                        sfd.Filter = "Word Documents|*.doc";
+                        break;
+                    case ".docx":
+                        sfd.Filter = "Word Documents|*.docx";
+                        break;
+                    case ".xlsx":
+                        sfd.Filter = "Excel Worksheets|*.xlsx";
+                        break;
+                    case ".xls":
+                        sfd.Filter = "Excel Worksheets|*.xls";
+                        break;
+                    default:
+                        sfd.Filter = "All files (*.*)|*.*";
+                        break;
+                }
+                #endregion
+
+                //sfd.Filter = "PDF document (*.pdf)|*.pdf| All files (*.*)|*.*";
+                //string sfdname = saveFileDialog1.FileName;
+                sfd.Title = "Salvar Arquivo";
+                sfd.FileName = idProcess + row.Cells[0].Value.ToString().PadLeft(2, '0') + row.Cells[8].Value.ToString(); //"Mac_" + DateTime.Now.ToString("ddMMyyyy_HHmmss");
+                sfd.RestoreDirectory = true;
+
+                String Filedownload = Local + @"\" + idProcess + @"\" + sfd.FileName;
+                //MessageBox.Show(Filedownload);
+
+                if (File.Exists(Filedownload))
+                {
+                    if (sfd.ShowDialog() == DialogResult.OK)
+                    {
+                        Download(Filedownload, Path.GetFullPath(sfd.FileName));
+                        MessageBox.Show("Arquivo Salvo!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+
+                }
+                else
+                {
+                    MessageBox.Show("Arquivo não encontrado \n Contate o Suporte Técnico!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void comboBox_tipoProcesso_MouseClick(object sender, MouseEventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            if (comboBox_tipoProcesso.DataSource is null)
+            {
+                comboBox_tipoProcesso.IntegralHeight = false;
+                LoginDaoComandos getcombo = new LoginDaoComandos();
+                #region Popular combobox
+                comboBox_tipoProcesso.DataSource = getcombo.GetDataTipoProc();
+                comboBox_tipoProcesso.DisplayMember = "Descricao";
+                comboBox_tipoProcesso.ValueMember = "id";
+                //comboBox_agencia.Text = "";
+                
+                #endregion
+
+                comboBox_tipoProcesso.DroppedDown = true;
+                Cursor = Cursors.Default;
+            }
+            else
+            {
+                Cursor = Cursors.Default;
+            }
+        }
+
+        private void comboBox_tipoArquivo_MouseClick(object sender, MouseEventArgs e)
+        {
+            if(String.IsNullOrEmpty(comboBox_tipoProcesso.Text))
+            {
+                MessageBox.Show("Selecione o tipo de Processo!", "Informção Necessaria",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                comboBox_tipoProcesso.Select();
+                //comboBox_tipoProcesso.DroppedDown = true;
+                return;
+
+            }
+            //Cursor = Cursors.WaitCursor;
+            //if (comboBox_tipoArquivo.DataSource is null)
+            //{
+                //comboBox_tipoArquivo.IntegralHeight = false;
+                //LoginDaoComandos getcombo = new LoginDaoComandos();
+                //#region Popular combobox
+                //comboBox_tipoArquivo.DataSource = getcombo.GetDataTipoDoc(idcombotipodoc);
+                //comboBox_tipoArquivo.DisplayMember = "Descricao";
+                //comboBox_tipoArquivo.ValueMember = "id";
+                ////comboBox_agencia.Text = "";
+                //#endregion
+
+                //comboBox_tipoArquivo.DroppedDown = true;
+                //Cursor = Cursors.Default;
+            //}
+            //else
+            //{
+            //    Cursor = Cursors.Default;
+            //}
+        }
+
+
+
+        private void comboBox_tipoProcesso_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            #region Popular combobox
+            idcombotipodoc = comboBox_tipoProcesso.SelectedValue.ToString();
+
+            comboBox_tipoArquivo.DataSource = null;
+            //comboBox_tipoArquivo.Items.Clear();
+            comboBox_tipoArquivo.IntegralHeight = false;
+            LoginDaoComandos getcombo = new LoginDaoComandos();
+            
+            comboBox_tipoArquivo.DataSource = getcombo.GetDataTipoDoc(idcombotipodoc);
+            comboBox_tipoArquivo.DisplayMember = "Descricao";
+            comboBox_tipoArquivo.ValueMember = "id";
+            comboBox_tipoArquivo.SelectedIndex = -1;
+            //comboBox_agencia.Text = "";
+            #endregion
+            Cursor = Cursors.Default;
         }
 
         private void comboBox_empreendimentos_MouseClick(object sender, MouseEventArgs e)
@@ -1994,22 +2146,34 @@ namespace LMFinanciamentos.Apresentacao
         private void btnAnexar_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
-            if (txtArquivo.Text == "")
+
+            if (String.IsNullOrEmpty(txtArquivo.Text))
             {
                 MessageBox.Show("Selecione o Arquivo para Anexar");
                 txtArquivo.Select();
                 txtArquivo.Focus();
                 Cursor = Cursors.Default;
+                return;
             }
-            else if(comboBox_tipoArquivo.Text == "")
+            else if (String.IsNullOrEmpty(comboBox_tipoProcesso.Text))
             {
-                MessageBox.Show("Selecione o Tipo de Arquivo para Anexar");
+                MessageBox.Show("Selecione o Tipo de Processo para Anexar");
+                comboBox_tipoProcesso.Select();
+                comboBox_tipoProcesso.DroppedDown = true;
+                Cursor = Cursors.Default;
+                return;
+            }
+            else if (String.IsNullOrEmpty(comboBox_tipoArquivo.Text))
+            {
+                MessageBox.Show("Selecione o Tipo de Documento para Anexar");
                 comboBox_tipoArquivo.Select();
                 comboBox_tipoArquivo.DroppedDown = true;
                 Cursor = Cursors.Default;
+                return;
             }
             else
-            {
+            { 
+
                 curFile = txtArquivo.Text;
                 if (File.Exists(curFile))
                 {
@@ -2020,16 +2184,17 @@ namespace LMFinanciamentos.Apresentacao
 
                         LoginDaoComandos enviar = new LoginDaoComandos();
 
-                        if(txtdescricao.Text == "")
-                        {
-                            descArquivo = comboBox_tipoArquivo.Text + " do Cliente";
-                        }
-                        else
-                        {
-                            descArquivo = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtdescricao.Text.ToLower());
-                        }
-                        
-                        String stipo = comboBox_tipoArquivo.Text;
+                        //if(txtdescricao.Text == "")
+                        //{
+                        //    descArquivo = comboBox_tipoArquivo.Text + " do Cliente";
+                        //}
+                        //else
+                        //{
+                        //    descArquivo = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtdescricao.Text.ToLower());
+                        //}
+                        descArquivo = comboBox_tipoArquivo.Text;
+
+                        String stipo = comboBox_tipoProcesso.Text;
                         numArquivo = idProcess + count.ToString().PadLeft(2, '0');
                         statusArquivo = "Local";
                         ImageData = 0;
@@ -2081,6 +2246,8 @@ namespace LMFinanciamentos.Apresentacao
                         txtArquivo.Clear();
                         comboBox_tipoArquivo.Text = "";
                         txtdescricao.Clear();
+                        comboBox_tipoArquivo.DataSource = null;
+                        comboBox_tipoProcesso.SelectedItem = -1;
                         Cursor = Cursors.Default;
                         MessageBox.Show("Arquivo Anexado!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         #endregion
@@ -2090,12 +2257,22 @@ namespace LMFinanciamentos.Apresentacao
                     {
                         Directory.CreateDirectory(Local + @"\" + idProcess);
 
+                        //Salvo referencia
                         #region Salvar no Banco
 
                         LoginDaoComandos enviar = new LoginDaoComandos();
 
-                        descArquivo = comboBox_tipoArquivo.Text + " do Cliente";
-                        String stipo = comboBox_tipoArquivo.Text;
+                        //if(txtdescricao.Text == "")
+                        //{
+                        //    descArquivo = comboBox_tipoArquivo.Text + " do Cliente";
+                        //}
+                        //else
+                        //{
+                        //    descArquivo = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtdescricao.Text.ToLower());
+                        //}
+                        descArquivo = comboBox_tipoArquivo.Text;
+
+                        String stipo = comboBox_tipoProcesso.Text;
                         numArquivo = idProcess + count.ToString().PadLeft(2, '0');
                         statusArquivo = "Local";
                         ImageData = 0;
@@ -2128,6 +2305,7 @@ namespace LMFinanciamentos.Apresentacao
 
                         RenameFile(curFile, NewFile);
 
+
                         #endregion
 
                         #region  Load Grid
@@ -2138,8 +2316,16 @@ namespace LMFinanciamentos.Apresentacao
                         //dataGridView_Arquivos.Columns["Numero"].DefaultCellStyle.Format = "D6";
                         dataGridView_Arquivos.DataSource = documento.GetDataDocumentos(idProcess);
                         dataGridView_Arquivos.Refresh();
+                        dataGridView_Arquivos.ClearSelection();
+                        int nRowIndex = dataGridView_Arquivos.Rows.Count - 1;
+                        dataGridView_Arquivos.Rows[nRowIndex].Selected = true;
+                        dataGridView_Arquivos.Rows[nRowIndex].Cells[0].Selected = true;
+
                         txtArquivo.Clear();
                         comboBox_tipoArquivo.Text = "";
+                        txtdescricao.Clear();
+                        comboBox_tipoArquivo.DataSource = null;
+                        comboBox_tipoArquivo.SelectedItem = -1;
                         Cursor = Cursors.Default;
                         MessageBox.Show("Arquivo Anexado!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         #endregion
@@ -2148,6 +2334,7 @@ namespace LMFinanciamentos.Apresentacao
 
                 }
             }
+            Cursor = Cursors.Default;
         }
         public void EnviarDocumentos()
         {

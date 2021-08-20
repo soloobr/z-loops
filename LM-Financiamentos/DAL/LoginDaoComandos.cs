@@ -2263,6 +2263,33 @@ namespace LMFinanciamentos.DAL
 
             return dt;
         }
+        public DataTable GetDataTipoProc()
+        {
+            cmd.CommandText = "SELECT id, Descricao FROM Tipoproc ";
+
+            cmd.Connection = con.conectar();
+            //drprocessos = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            con.desconectar();
+
+            return dt;
+        }
+        public DataTable GetDataTipoDoc(String idtipoproc )
+        {
+            cmd.CommandText = "SELECT id, Descricao FROM TipoDoc WHERE Tipodoc = @idtipoproc";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@idtipoproc", idtipoproc);
+
+            cmd.Connection = con.conectar();
+
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            con.desconectar();
+
+            return dt;
+        }
 
         public DataTable GetDataPrograma()
         {

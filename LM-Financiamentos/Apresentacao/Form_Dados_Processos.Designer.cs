@@ -30,8 +30,8 @@ namespace LMFinanciamentos.Apresentacao
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Dados_Processos));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Dados_Processos));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -45,13 +45,10 @@ namespace LMFinanciamentos.Apresentacao
             this.processosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dS_Clientes = new LMFinanciamentos.DAL.DS_Clientes();
             this.dSClientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.funcionariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lbl_topo = new System.Windows.Forms.Label();
             this.paneltop = new System.Windows.Forms.Panel();
             this.lblnumeroprocesso = new System.Windows.Forms.Label();
-            this.ProgressBar = new Guna.UI2.WinForms.Guna2CircleProgressBar();
             this.lblstatus = new System.Windows.Forms.Label();
-            this.img_topo = new System.Windows.Forms.PictureBox();
             this.btncloseconf = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btncancelardoc = new System.Windows.Forms.Button();
@@ -220,27 +217,20 @@ namespace LMFinanciamentos.Apresentacao
             this.comboBox_nomecartorio = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.tabdoc = new System.Windows.Forms.TabPage();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.dataGridView_Arquivos = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
+            this.comboBox_tipoProcesso = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnAnexar = new System.Windows.Forms.Button();
             this.comboBox_tipoArquivo = new System.Windows.Forms.ComboBox();
-            this.btnSelecionarArquivos = new System.Windows.Forms.Button();
             this.txtArquivo = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtdescricao = new System.Windows.Forms.TextBox();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.dataGridView_Arquivos = new System.Windows.Forms.DataGridView();
-            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apagar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Baixar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Extensao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -259,14 +249,24 @@ namespace LMFinanciamentos.Apresentacao
             this.lblfuncresponsavel = new System.Windows.Forms.Label();
             this.ofd1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.btnSelecionarArquivos = new System.Windows.Forms.Button();
+            this.img_topo = new System.Windows.Forms.PictureBox();
+            this.funcionariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apagar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Baixar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ver = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Extensao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Documentos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSDocumentosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.processosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Clientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSClientesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).BeginInit();
             this.paneltop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.img_topo)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabcliente.SuspendLayout();
@@ -328,16 +328,18 @@ namespace LMFinanciamentos.Apresentacao
             this.pnlenviar.SuspendLayout();
             this.pnlnome.SuspendLayout();
             this.tabdoc.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Arquivos)).BeginInit();
             this.tableLayoutPanel7.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
-            this.groupBox7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Arquivos)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource2)).BeginInit();
             this.panelfuncresp.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.img_topo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnsalvardoc
@@ -381,10 +383,6 @@ namespace LMFinanciamentos.Apresentacao
             this.dSClientesBindingSource.DataSource = this.dS_Clientes;
             this.dSClientesBindingSource.Position = 0;
             // 
-            // funcionariosBindingSource
-            // 
-            this.funcionariosBindingSource.DataMember = "Funcionarios";
-            // 
             // lbl_topo
             // 
             this.lbl_topo.BackColor = System.Drawing.SystemColors.ScrollBar;
@@ -403,7 +401,6 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.paneltop.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.paneltop.Controls.Add(this.lblnumeroprocesso);
-            this.paneltop.Controls.Add(this.ProgressBar);
             this.paneltop.Controls.Add(this.lblstatus);
             this.paneltop.Controls.Add(this.lbl_topo);
             this.paneltop.Controls.Add(this.img_topo);
@@ -428,21 +425,6 @@ namespace LMFinanciamentos.Apresentacao
             this.lblnumeroprocesso.Text = "0000";
             this.lblnumeroprocesso.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // ProgressBar
-            // 
-            this.ProgressBar.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.ProgressBar.ForeColor = System.Drawing.Color.White;
-            this.ProgressBar.Location = new System.Drawing.Point(558, 4);
-            this.ProgressBar.Minimum = 0;
-            this.ProgressBar.Name = "ProgressBar";
-            this.ProgressBar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.ProgressBar.ShadowDecoration.Parent = this.ProgressBar;
-            this.ProgressBar.ShowPercentage = true;
-            this.ProgressBar.Size = new System.Drawing.Size(49, 49);
-            this.ProgressBar.TabIndex = 6;
-            this.ProgressBar.Text = "ProgressBar";
-            this.ProgressBar.Visible = false;
-            // 
             // lblstatus
             // 
             this.lblstatus.BackColor = System.Drawing.SystemColors.ScrollBar;
@@ -456,17 +438,6 @@ namespace LMFinanciamentos.Apresentacao
             this.lblstatus.TabIndex = 7;
             this.lblstatus.Text = "Status";
             this.lblstatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // img_topo
-            // 
-            this.img_topo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.img_topo.Image = ((System.Drawing.Image)(resources.GetObject("img_topo.Image")));
-            this.img_topo.Location = new System.Drawing.Point(4, 4);
-            this.img_topo.Name = "img_topo";
-            this.img_topo.Size = new System.Drawing.Size(52, 49);
-            this.img_topo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.img_topo.TabIndex = 5;
-            this.img_topo.TabStop = false;
             // 
             // btncloseconf
             // 
@@ -2577,6 +2548,7 @@ namespace LMFinanciamentos.Apresentacao
             // 
             // tabdoc
             // 
+            this.tabdoc.Controls.Add(this.groupBox7);
             this.tabdoc.Controls.Add(this.tableLayoutPanel7);
             this.tabdoc.Location = new System.Drawing.Point(4, 32);
             this.tabdoc.Name = "tabdoc";
@@ -2586,6 +2558,60 @@ namespace LMFinanciamentos.Apresentacao
             this.tabdoc.Text = "Documentação";
             this.tabdoc.UseVisualStyleBackColor = true;
             // 
+            // groupBox7
+            // 
+            this.groupBox7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox7.Controls.Add(this.dataGridView_Arquivos);
+            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox7.Font = new System.Drawing.Font("Poppins SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox7.Location = new System.Drawing.Point(20, 187);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Padding = new System.Windows.Forms.Padding(6);
+            this.groupBox7.Size = new System.Drawing.Size(1064, 224);
+            this.groupBox7.TabIndex = 28;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Anexos:";
+            // 
+            // dataGridView_Arquivos
+            // 
+            this.dataGridView_Arquivos.AllowUserToAddRows = false;
+            this.dataGridView_Arquivos.AllowUserToDeleteRows = false;
+            this.dataGridView_Arquivos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView_Arquivos.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridView_Arquivos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridView_Arquivos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_Arquivos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Numero,
+            this.Tipo,
+            this.descricao,
+            this.data,
+            this.status,
+            this.apagar,
+            this.Baixar,
+            this.ver,
+            this.Extensao});
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Poppins SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_Arquivos.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridView_Arquivos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView_Arquivos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dataGridView_Arquivos.GridColor = System.Drawing.SystemColors.Control;
+            this.dataGridView_Arquivos.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.dataGridView_Arquivos.Location = new System.Drawing.Point(6, 26);
+            this.dataGridView_Arquivos.MultiSelect = false;
+            this.dataGridView_Arquivos.Name = "dataGridView_Arquivos";
+            this.dataGridView_Arquivos.RowHeadersVisible = false;
+            this.dataGridView_Arquivos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dataGridView_Arquivos.Size = new System.Drawing.Size(1052, 192);
+            this.dataGridView_Arquivos.TabIndex = 0;
+            this.dataGridView_Arquivos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Arquivos_CellClick);
+            this.dataGridView_Arquivos.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_Arquivos_CellPainting);
+            // 
             // tableLayoutPanel7
             // 
             this.tableLayoutPanel7.ColumnCount = 1;
@@ -2594,7 +2620,6 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel7.Controls.Add(this.groupBox8, 0, 0);
-            this.tableLayoutPanel7.Controls.Add(this.groupBox7, 0, 4);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(20, 20);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
@@ -2605,7 +2630,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(1064, 375);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(1064, 167);
             this.tableLayoutPanel7.TabIndex = 24;
             // 
             // groupBox8
@@ -2615,56 +2640,85 @@ namespace LMFinanciamentos.Apresentacao
             this.groupBox8.Font = new System.Drawing.Font("Poppins SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox8.Location = new System.Drawing.Point(3, 3);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(1058, 165);
+            this.groupBox8.Size = new System.Drawing.Size(1058, 212);
             this.groupBox8.TabIndex = 26;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Anexar";
             // 
             // tableLayoutPanel10
             // 
-            this.tableLayoutPanel10.ColumnCount = 5;
+            this.tableLayoutPanel10.ColumnCount = 6;
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel10.Controls.Add(this.label4, 1, 2);
-            this.tableLayoutPanel10.Controls.Add(this.btnAnexar, 3, 3);
-            this.tableLayoutPanel10.Controls.Add(this.comboBox_tipoArquivo, 0, 3);
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 496F));
+            this.tableLayoutPanel10.Controls.Add(this.comboBox_tipoProcesso, 0, 3);
+            this.tableLayoutPanel10.Controls.Add(this.label6, 1, 2);
+            this.tableLayoutPanel10.Controls.Add(this.label4, 0, 4);
+            this.tableLayoutPanel10.Controls.Add(this.btnAnexar, 5, 3);
+            this.tableLayoutPanel10.Controls.Add(this.comboBox_tipoArquivo, 1, 3);
             this.tableLayoutPanel10.Controls.Add(this.btnSelecionarArquivos, 2, 1);
             this.tableLayoutPanel10.Controls.Add(this.txtArquivo, 0, 1);
             this.tableLayoutPanel10.Controls.Add(this.label8, 0, 0);
             this.tableLayoutPanel10.Controls.Add(this.label3, 0, 2);
-            this.tableLayoutPanel10.Controls.Add(this.txtdescricao, 1, 3);
+            this.tableLayoutPanel10.Controls.Add(this.txtdescricao, 0, 5);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 23);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
-            this.tableLayoutPanel10.RowCount = 4;
+            this.tableLayoutPanel10.RowCount = 6;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(1052, 139);
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(1052, 186);
             this.tableLayoutPanel10.TabIndex = 1;
+            // 
+            // comboBox_tipoProcesso
+            // 
+            this.comboBox_tipoProcesso.BackColor = System.Drawing.SystemColors.Control;
+            this.comboBox_tipoProcesso.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBox_tipoProcesso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_tipoProcesso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox_tipoProcesso.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox_tipoProcesso.FormattingEnabled = true;
+            this.comboBox_tipoProcesso.Location = new System.Drawing.Point(3, 87);
+            this.comboBox_tipoProcesso.Name = "comboBox_tipoProcesso";
+            this.comboBox_tipoProcesso.Size = new System.Drawing.Size(229, 31);
+            this.comboBox_tipoProcesso.TabIndex = 37;
+            this.comboBox_tipoProcesso.SelectionChangeCommitted += new System.EventHandler(this.comboBox_tipoProcesso_SelectionChangeCommitted);
+            this.comboBox_tipoProcesso.MouseClick += new System.Windows.Forms.MouseEventHandler(this.comboBox_tipoProcesso_MouseClick);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(238, 61);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(117, 23);
+            this.label6.TabIndex = 36;
+            this.label6.Text = "Tipo de Arquivo:";
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(238, 61);
+            this.label4.Location = new System.Drawing.Point(3, 122);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(117, 23);
+            this.label4.Size = new System.Drawing.Size(117, 20);
             this.label4.TabIndex = 34;
-            this.label4.Text = "Descrição:";
+            this.label4.Text = "Observação:";
+            this.label4.Visible = false;
             // 
             // btnAnexar
             // 
             this.btnAnexar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.tableLayoutPanel10.SetColumnSpan(this.btnAnexar, 2);
             this.btnAnexar.FlatAppearance.BorderSize = 0;
             this.btnAnexar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAnexar.Font = new System.Drawing.Font("Poppins SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnexar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnAnexar.Location = new System.Drawing.Point(607, 87);
+            this.btnAnexar.Location = new System.Drawing.Point(559, 87);
             this.btnAnexar.Name = "btnAnexar";
             this.btnAnexar.Size = new System.Drawing.Size(109, 32);
             this.btnAnexar.TabIndex = 33;
@@ -2675,38 +2729,16 @@ namespace LMFinanciamentos.Apresentacao
             // comboBox_tipoArquivo
             // 
             this.comboBox_tipoArquivo.BackColor = System.Drawing.SystemColors.Control;
-            this.comboBox_tipoArquivo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel10.SetColumnSpan(this.comboBox_tipoArquivo, 3);
             this.comboBox_tipoArquivo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_tipoArquivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox_tipoArquivo.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_tipoArquivo.FormattingEnabled = true;
-            this.comboBox_tipoArquivo.Items.AddRange(new object[] {
-            "CPF",
-            "RG",
-            "Contrato",
-            "Ficha Cadastro",
-            "Comprovante de renda",
-            "Diversos"});
-            this.comboBox_tipoArquivo.Location = new System.Drawing.Point(3, 87);
+            this.comboBox_tipoArquivo.Location = new System.Drawing.Point(238, 87);
             this.comboBox_tipoArquivo.Name = "comboBox_tipoArquivo";
-            this.comboBox_tipoArquivo.Size = new System.Drawing.Size(229, 31);
+            this.comboBox_tipoArquivo.Size = new System.Drawing.Size(315, 31);
             this.comboBox_tipoArquivo.TabIndex = 32;
-            // 
-            // btnSelecionarArquivos
-            // 
-            this.btnSelecionarArquivos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.btnSelecionarArquivos.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnSelecionarArquivos.FlatAppearance.BorderSize = 0;
-            this.btnSelecionarArquivos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSelecionarArquivos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSelecionarArquivos.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnSelecionarArquivos.Image = ((System.Drawing.Image)(resources.GetObject("btnSelecionarArquivos.Image")));
-            this.btnSelecionarArquivos.Location = new System.Drawing.Point(403, 26);
-            this.btnSelecionarArquivos.Name = "btnSelecionarArquivos";
-            this.btnSelecionarArquivos.Size = new System.Drawing.Size(44, 32);
-            this.btnSelecionarArquivos.TabIndex = 18;
-            this.btnSelecionarArquivos.UseVisualStyleBackColor = false;
-            this.btnSelecionarArquivos.Click += new System.EventHandler(this.btnSelecionarArquivos_Click);
+            this.comboBox_tipoArquivo.MouseClick += new System.Windows.Forms.MouseEventHandler(this.comboBox_tipoArquivo_MouseClick);
             // 
             // txtArquivo
             // 
@@ -2733,157 +2765,19 @@ namespace LMFinanciamentos.Apresentacao
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(3, 61);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(117, 23);
+            this.label3.Size = new System.Drawing.Size(124, 23);
             this.label3.TabIndex = 31;
-            this.label3.Text = "Tipo de Arquivo:";
+            this.label3.Text = "Tipo de Processo:";
             // 
             // txtdescricao
             // 
-            this.tableLayoutPanel10.SetColumnSpan(this.txtdescricao, 2);
+            this.tableLayoutPanel10.SetColumnSpan(this.txtdescricao, 3);
             this.txtdescricao.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdescricao.Location = new System.Drawing.Point(238, 87);
+            this.txtdescricao.Location = new System.Drawing.Point(3, 145);
             this.txtdescricao.Name = "txtdescricao";
-            this.txtdescricao.Size = new System.Drawing.Size(321, 30);
+            this.txtdescricao.Size = new System.Drawing.Size(352, 30);
             this.txtdescricao.TabIndex = 35;
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.dataGridView_Arquivos);
-            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox7.Font = new System.Drawing.Font("Poppins SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox7.Location = new System.Drawing.Point(3, 174);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Padding = new System.Windows.Forms.Padding(6);
-            this.tableLayoutPanel7.SetRowSpan(this.groupBox7, 2);
-            this.groupBox7.Size = new System.Drawing.Size(1058, 198);
-            this.groupBox7.TabIndex = 27;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Anexos:";
-            // 
-            // dataGridView_Arquivos
-            // 
-            this.dataGridView_Arquivos.AllowUserToAddRows = false;
-            this.dataGridView_Arquivos.AllowUserToDeleteRows = false;
-            this.dataGridView_Arquivos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView_Arquivos.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dataGridView_Arquivos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridView_Arquivos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_Arquivos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Numero,
-            this.Tipo,
-            this.descricao,
-            this.data,
-            this.status,
-            this.apagar,
-            this.Baixar,
-            this.Extensao});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Poppins SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_Arquivos.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridView_Arquivos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView_Arquivos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridView_Arquivos.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridView_Arquivos.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dataGridView_Arquivos.Location = new System.Drawing.Point(6, 26);
-            this.dataGridView_Arquivos.MultiSelect = false;
-            this.dataGridView_Arquivos.Name = "dataGridView_Arquivos";
-            this.dataGridView_Arquivos.RowHeadersVisible = false;
-            this.dataGridView_Arquivos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dataGridView_Arquivos.Size = new System.Drawing.Size(1046, 166);
-            this.dataGridView_Arquivos.TabIndex = 0;
-            this.dataGridView_Arquivos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Arquivos_CellClick);
-            this.dataGridView_Arquivos.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_Arquivos_CellPainting);
-            // 
-            // Numero
-            // 
-            this.Numero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Numero.DataPropertyName = "id";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = "0";
-            this.Numero.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Numero.HeaderText = "Nº";
-            this.Numero.Name = "Numero";
-            this.Numero.ReadOnly = true;
-            this.Numero.Width = 51;
-            // 
-            // Tipo
-            // 
-            this.Tipo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Tipo.DataPropertyName = "Tipo";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Tipo.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Tipo.HeaderText = "Tipo";
-            this.Tipo.Name = "Tipo";
-            this.Tipo.ReadOnly = true;
-            this.Tipo.Width = 220;
-            // 
-            // descricao
-            // 
-            this.descricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.descricao.DataPropertyName = "Descricao";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.descricao.DefaultCellStyle = dataGridViewCellStyle3;
-            this.descricao.HeaderText = "Descrição";
-            this.descricao.Name = "descricao";
-            this.descricao.Width = 250;
-            // 
-            // data
-            // 
-            this.data.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.data.DataPropertyName = "Data";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.data.DefaultCellStyle = dataGridViewCellStyle4;
-            this.data.HeaderText = "Data";
-            this.data.Name = "data";
-            // 
-            // status
-            // 
-            this.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.status.DataPropertyName = "Status";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.status.DefaultCellStyle = dataGridViewCellStyle5;
-            this.status.HeaderText = "Status";
-            this.status.Name = "status";
-            this.status.Width = 150;
-            // 
-            // apagar
-            // 
-            this.apagar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(1);
-            this.apagar.DefaultCellStyle = dataGridViewCellStyle6;
-            this.apagar.FillWeight = 30F;
-            this.apagar.HeaderText = "Excluir";
-            this.apagar.MinimumWidth = 60;
-            this.apagar.Name = "apagar";
-            this.apagar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.apagar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.apagar.Width = 62;
-            // 
-            // Baixar
-            // 
-            this.Baixar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(1);
-            this.Baixar.DefaultCellStyle = dataGridViewCellStyle7;
-            this.Baixar.FillWeight = 30F;
-            this.Baixar.HeaderText = "Baixar";
-            this.Baixar.MinimumWidth = 60;
-            this.Baixar.Name = "Baixar";
-            this.Baixar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Baixar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Baixar.Width = 62;
-            // 
-            // Extensao
-            // 
-            this.Extensao.DataPropertyName = "Extensao";
-            this.Extensao.HeaderText = "Arquivo";
-            this.Extensao.Name = "Extensao";
+            this.txtdescricao.Visible = false;
             // 
             // contextMenuStrip1
             // 
@@ -3004,6 +2898,136 @@ namespace LMFinanciamentos.Apresentacao
             this.ofd1.FileName = "openFileDialog";
             this.ofd1.Title = "Localizar Arquivos";
             // 
+            // btnSelecionarArquivos
+            // 
+            this.btnSelecionarArquivos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.btnSelecionarArquivos.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnSelecionarArquivos.FlatAppearance.BorderSize = 0;
+            this.btnSelecionarArquivos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSelecionarArquivos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelecionarArquivos.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnSelecionarArquivos.Image = ((System.Drawing.Image)(resources.GetObject("btnSelecionarArquivos.Image")));
+            this.btnSelecionarArquivos.Location = new System.Drawing.Point(403, 26);
+            this.btnSelecionarArquivos.Name = "btnSelecionarArquivos";
+            this.btnSelecionarArquivos.Size = new System.Drawing.Size(44, 32);
+            this.btnSelecionarArquivos.TabIndex = 18;
+            this.btnSelecionarArquivos.UseVisualStyleBackColor = false;
+            this.btnSelecionarArquivos.Click += new System.EventHandler(this.btnSelecionarArquivos_Click);
+            // 
+            // img_topo
+            // 
+            this.img_topo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.img_topo.Image = ((System.Drawing.Image)(resources.GetObject("img_topo.Image")));
+            this.img_topo.Location = new System.Drawing.Point(4, 4);
+            this.img_topo.Name = "img_topo";
+            this.img_topo.Size = new System.Drawing.Size(52, 49);
+            this.img_topo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.img_topo.TabIndex = 5;
+            this.img_topo.TabStop = false;
+            // 
+            // funcionariosBindingSource
+            // 
+            this.funcionariosBindingSource.DataMember = "Funcionarios";
+            // 
+            // Numero
+            // 
+            this.Numero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Numero.DataPropertyName = "id";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = "0";
+            this.Numero.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Numero.HeaderText = "Nº";
+            this.Numero.Name = "Numero";
+            this.Numero.ReadOnly = true;
+            this.Numero.Width = 51;
+            // 
+            // Tipo
+            // 
+            this.Tipo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.Tipo.DataPropertyName = "Tipo";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Tipo.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Tipo.HeaderText = "Tipo";
+            this.Tipo.MinimumWidth = 250;
+            this.Tipo.Name = "Tipo";
+            this.Tipo.ReadOnly = true;
+            this.Tipo.Width = 250;
+            // 
+            // descricao
+            // 
+            this.descricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.descricao.DataPropertyName = "Descricao";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.descricao.DefaultCellStyle = dataGridViewCellStyle3;
+            this.descricao.HeaderText = "Descrição";
+            this.descricao.Name = "descricao";
+            this.descricao.Width = 250;
+            // 
+            // data
+            // 
+            this.data.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.data.DataPropertyName = "Data";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.data.DefaultCellStyle = dataGridViewCellStyle4;
+            this.data.HeaderText = "Data";
+            this.data.Name = "data";
+            // 
+            // status
+            // 
+            this.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.status.DataPropertyName = "Status";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.status.DefaultCellStyle = dataGridViewCellStyle5;
+            this.status.HeaderText = "Status";
+            this.status.Name = "status";
+            this.status.Width = 150;
+            // 
+            // apagar
+            // 
+            this.apagar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(1);
+            this.apagar.DefaultCellStyle = dataGridViewCellStyle6;
+            this.apagar.FillWeight = 30F;
+            this.apagar.HeaderText = "Excluir";
+            this.apagar.MinimumWidth = 60;
+            this.apagar.Name = "apagar";
+            this.apagar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.apagar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.apagar.Width = 62;
+            // 
+            // Baixar
+            // 
+            this.Baixar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(1);
+            this.Baixar.DefaultCellStyle = dataGridViewCellStyle7;
+            this.Baixar.FillWeight = 30F;
+            this.Baixar.HeaderText = "Baixar";
+            this.Baixar.MinimumWidth = 60;
+            this.Baixar.Name = "Baixar";
+            this.Baixar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Baixar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Baixar.Width = 62;
+            // 
+            // ver
+            // 
+            this.ver.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ver.FillWeight = 30F;
+            this.ver.HeaderText = "Ver";
+            this.ver.MinimumWidth = 60;
+            this.ver.Name = "ver";
+            this.ver.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ver.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ver.Width = 62;
+            // 
+            // Extensao
+            // 
+            this.Extensao.DataPropertyName = "Extensao";
+            this.Extensao.HeaderText = "Arquivo";
+            this.Extensao.Name = "Extensao";
+            this.Extensao.Width = 87;
+            // 
             // Form_Dados_Processos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3027,9 +3051,7 @@ namespace LMFinanciamentos.Apresentacao
             ((System.ComponentModel.ISupportInitialize)(this.processosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Clientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSClientesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).EndInit();
             this.paneltop.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.img_topo)).EndInit();
             this.panel1.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
             this.tabcliente.ResumeLayout(false);
@@ -3117,18 +3139,20 @@ namespace LMFinanciamentos.Apresentacao
             this.pnlnome.ResumeLayout(false);
             this.pnlnome.PerformLayout();
             this.tabdoc.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Arquivos)).EndInit();
             this.tableLayoutPanel7.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
             this.tableLayoutPanel10.ResumeLayout(false);
             this.tableLayoutPanel10.PerformLayout();
-            this.groupBox7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Arquivos)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource2)).EndInit();
             this.panelfuncresp.ResumeLayout(false);
             this.panelfuncresp.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.img_topo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3183,8 +3207,6 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.ComboBox comboBox_nomecartorio;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
-        private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.DataGridView dataGridView_Arquivos;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.BindingSource clientesBindingSource1;
         private System.Windows.Forms.BindingSource clientesBindingSource2;
@@ -3193,7 +3215,6 @@ namespace LMFinanciamentos.Apresentacao
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems2;
         private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private Guna.UI2.WinForms.Guna2CircleProgressBar ProgressBar;
         private System.ComponentModel.BackgroundWorker backgroundWorker;
         private System.Windows.Forms.TabPage tabvendedor;
         private System.Windows.Forms.Panel panel20;
@@ -3338,14 +3359,6 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.OpenFileDialog ofd1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descricao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn data;
-        private System.Windows.Forms.DataGridViewTextBoxColumn status;
-        private System.Windows.Forms.DataGridViewButtonColumn apagar;
-        private System.Windows.Forms.DataGridViewButtonColumn Baixar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Extensao;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtdescricao;
         private System.Windows.Forms.DateTimePicker dtppa;
@@ -3360,6 +3373,19 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.DateTimePicker dtpir;
         private System.Windows.Forms.DateTimePicker dtpfgtscli;
         private System.Windows.Forms.DateTimePicker dtpcartorio;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.DataGridView dataGridView_Arquivos;
+        private System.Windows.Forms.ComboBox comboBox_tipoProcesso;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descricao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn data;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.DataGridViewButtonColumn apagar;
+        private System.Windows.Forms.DataGridViewButtonColumn Baixar;
+        private System.Windows.Forms.DataGridViewButtonColumn ver;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Extensao;
         //private System.Windows.Forms.BindingSource corretoraBindingSource;
         //private System.Windows.Forms.BindingSource corretoresBindingSource;
         //private System.Windows.Forms.BindingSource vendedorBindingSource;

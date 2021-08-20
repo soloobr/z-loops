@@ -416,6 +416,7 @@
     <None Include="Resources\icons8-delete-16.png" />
     <None Include="Resources\icons8-delete-file-16.png" />
     <None Include="Resources\icons8-download-16.png" />
+    <None Include="Resources\icons8-open-in-popup-16.png" />
     <Content Include="Scripts\knockout-3.0.0.debug.js" />
     <Content Include="Scripts\knockout-3.0.0.js" />
     <Content Include="Scripts\knockout.combobox-1.0.80.0.js" />
