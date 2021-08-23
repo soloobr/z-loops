@@ -17,6 +17,7 @@ namespace LMFinanciamentos.Apresentacao
         FileStream fsObj = null;
         BinaryReader binRdr = null;
         bool arquivobase;
+        bool cj, cj1, cj2, cj3;
 
 
 
@@ -38,7 +39,10 @@ namespace LMFinanciamentos.Apresentacao
 
         private void Form_Cadastro_cliente_Load(object sender, EventArgs e)
         {
-            
+            tabControl.TabPages.Remove(tabconjuge);
+            tabControl.TabPages.Remove(tabconjuge1);
+            tabControl.TabPages.Remove(tabconjuge2);
+            tabControl.TabPages.Remove(tabconjuge3);
             //txtnomecli.Select();
             //txtnomecli.ScrollToCaret();
             //txtnomecli.Focus();
@@ -181,9 +185,35 @@ namespace LMFinanciamentos.Apresentacao
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void txtcpf_Leave(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnaddconjuge_Click(object sender, EventArgs e)
+        {
+            tabconjuge.Enabled = true;
+        }
+
+        private void btnconjuge_Click(object sender, EventArgs e)
+        {
+            if (!tabControl.TabPages.Contains(tabconjuge))
+            {
+                tabControl.TabPages.Insert(1,tabconjuge);
+                tabControl.SelectedTab = tabconjuge;
+                txtnomeconjuge.Select();
+            }
+            
         }
 
         private void textBox1_KeyUp(object sender, KeyEventArgs e)
