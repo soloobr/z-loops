@@ -329,6 +329,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btnaddconjuge.Text = "Adicionar Cônjuge";
             this.btnaddconjuge.UseCompatibleTextRendering = true;
             this.btnaddconjuge.UseVisualStyleBackColor = false;
+            this.btnaddconjuge.Visible = false;
             this.btnaddconjuge.Click += new System.EventHandler(this.btnconjuge_Click);
             // 
             // txtobservacoes
