@@ -144,6 +144,26 @@ namespace LMFinanciamentos.Apresentacao
             }
         }
 
+        private void btnconjuge1_Click(object sender, EventArgs e)
+        {
+            if (!tabControl.TabPages.Contains(tabconjuge1))
+            {
+                tabControl.TabPages.Insert(1, tabconjuge1);
+                tabControl.SelectedTab = tabconjuge1;
+                txtnomeconjuge1.Select();
+            }
+        }
+
+        private void btnconjuge2_Click(object sender, EventArgs e)
+        {
+            if (!tabControl.TabPages.Contains(tabconjuge2))
+            {
+                tabControl.TabPages.Insert(1, tabconjuge2);
+                tabControl.SelectedTab = tabconjuge2;
+                txtnomeconjuge2.Select();
+            }
+        }
+
         private void txtcpf_KeyUp(object sender, KeyEventArgs e)
         {
             int cont = 0;
@@ -185,16 +205,6 @@ namespace LMFinanciamentos.Apresentacao
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtcpf_Leave(object sender, EventArgs e)
         {
 
@@ -214,11 +224,6 @@ namespace LMFinanciamentos.Apresentacao
                 txtnomeconjuge.Select();
             }
             
-        }
-
-        private void textBox1_KeyUp(object sender, KeyEventArgs e)
-        {
-
         }
 
         private void txtrg_KeyPress(object sender, KeyPressEventArgs e)
