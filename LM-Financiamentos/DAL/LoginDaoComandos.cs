@@ -41,7 +41,7 @@ namespace LMFinanciamentos.DAL
         Conecxao con = new Conecxao(_server);
 
 
-        MySqlDataReader dr, drfunc, drsenha, drclient, drclients, drprocess, drvendedor, drprocessos, drdocumentos, drvendedores;
+        MySqlDataReader dr, drfunc, drsenha, drclient, drclients, drprocess, drvendedor, drprocessos, drdocumentos, drvendedores, drconjuge;
 
         public bool verificarLogin(String login, String senha)
         {
@@ -1286,6 +1286,62 @@ namespace LMFinanciamentos.DAL
 
             return client;
             //return list;
+        }
+        public Conjuge GetConjuge(String id, String idconjuge)
+        {
+            //var list = new List<Cliente>();
+
+            cmd.CommandText = "SELECT Conjuge.id, Nome, Email, Telefone, Celular, CPF, C.Agencia, C.Conta, RG, Nascimento, Sexo, Renda, Status, Conjuge.Observacao, Conjuge.Conjuge FROM Conjuge " +
+                "Left join Conta C on C.idcliente = @id and C.Tipo = @tipo " +
+                "WHERE Conjuge.idCliente = @id AND Conjuge.Sequencia = @idconjuge  ";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@tipo", "CJ");
+            cmd.Parameters.AddWithValue("@idconjuge", idconjuge);
+
+            Conjuge conjuge = new Conjuge();
+            try
+            {
+                cmd.Connection = con.conectar();
+                drconjuge = cmd.ExecuteReader();
+                while (drconjuge.Read())
+                {
+                    //conjuge client = new conjuge();
+                    conjuge.Id_conjuge = drconjuge["id"].ToString();
+                    conjuge.Nome_conjuge = drconjuge["Nome"].ToString();
+                    conjuge.Email_conjuge = drconjuge["Email"].ToString();
+                    conjuge.Telefone_conjuge = drconjuge["Telefone"].ToString();
+                    conjuge.Celular_conjuge = drconjuge["Celular"].ToString();
+                    conjuge.CPF_conjuge = FormatCnpjCpf.FormatCPF(drconjuge["CPF"].ToString());
+                    conjuge.Agencia_conjuge = drconjuge["Agencia"].ToString();
+                    conjuge.Conta_conjuge = drconjuge["Conta"].ToString();
+                    //conjuge.StatusCadmut_conjuge = drconjuge["Cadmut"].ToString();
+                    //conjuge.StatusIR_conjuge = drconjuge["IR"].ToString();
+                    //conjuge.StatusFGTS_conjuge = drconjuge["FGTS"].ToString();
+                    conjuge.RG_conjuge = FormatCnpjCpf.FormatRG(drconjuge["RG"].ToString());
+                    //conjuge.RG_conjuge = drconjuge["RG"].ToString();
+                    conjuge.Nascimento_conjuge = drconjuge["Nascimento"].ToString();
+                    conjuge.Sexo_conjuge = drconjuge["Sexo"].ToString();
+                    conjuge.Status_conjuge = drconjuge["Status"].ToString();
+                    conjuge.Renda_conjuge = drconjuge["Renda"].ToString();
+                    conjuge.OBS_conjuge = drconjuge["Observacao"].ToString();
+                    conjuge.Conjuge_conjuge = bool.Parse(drconjuge["Conjuge"].ToString());
+
+
+                    //Byte[] byteBLOBData = new Byte[0];
+                    //conjuge.Foto_Func = (Byte[])(drconjuge["Foto"]);
+                    //list.Add(client);
+                }
+                drconjuge.Close();
+                con.desconectar();
+
+            }
+            catch (SqlException err)
+            {
+                throw new Exception("Erro ao obter Conjuge: " + err.Message);
+            }
+
+            return conjuge;
         }
         public Funcionario GetFuncionario(String sid)
         {

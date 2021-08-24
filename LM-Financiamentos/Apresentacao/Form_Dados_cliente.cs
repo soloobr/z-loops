@@ -18,7 +18,7 @@ namespace LMFinanciamentos.Apresentacao
         String excluirimage;
         FileStream fsObj = null;
         BinaryReader binRdr = null;
-        bool arquivobase, conjuge;
+        bool arquivobase, cj, cj1, cj2, cj3;
 
 
         public Form_Dados_cliente()
@@ -298,11 +298,25 @@ namespace LMFinanciamentos.Apresentacao
 
             LoadDadosCliente();
 
-            if (conjuge == true)
+            if (cj == true)
             {
                 tabControl.TabPages.Insert(1,tabconjuge);
+                LoadDadosConjuge(idCliente,"0");
             }
-         }
+            if (cj1 == true)
+            {
+                tabControl.TabPages.Insert(2, tabconjuge1);
+                LoadDadosCJ(idCliente, "1");
+            }
+            if (cj2 == true)
+            {
+                tabControl.TabPages.Insert(3, tabconjuge2);
+            }
+            if (cj3 == true)
+            {
+                tabControl.TabPages.Insert(4, tabconjuge3);
+            }
+        }
 
         public void LoadDadosCliente()
         {
@@ -382,7 +396,7 @@ namespace LMFinanciamentos.Apresentacao
             txtrendacli.Select(txtrendacli.Text.Length, 0);
             #endregion
 
-            conjuge = cliente.Conjuge_cliente; 
+            cj = cliente.Conjuge_cliente; 
 
 
             txtnomecli.Select(txtnomecli.Text.Length, 0);
@@ -390,85 +404,85 @@ namespace LMFinanciamentos.Apresentacao
             txtnomecli.Focus();
             Cursor = Cursors.Default;
         }
-        public void LoadDadosConjuge()
+        public void LoadDadosConjuge(String idcliente,String idconjuge)
         {
             Cursor = Cursors.WaitCursor;
-            Conjuge conjuge = null;
+            Conjuge conj = null;
 
             LoginDaoComandos getconjuge = new LoginDaoComandos();
-            conjuge = getconjuge.GetConjuge(idCliente);
+            conj = getconjuge.GetConjuge(idcliente, idconjuge);
 
-            txtnomecli.Text = conjuge.Nome_conjuge;
-            txtcpf.Text = conjuge.CPF_conjuge;
-            txtrg.Text = conjuge.RG_conjuge;
-            txtnasc.Text = conjuge.Nascimento_conjuge;
-            txtemail.Text = conjuge.Email_conjuge;
-            txttelefone.Text = conjuge.Telefone_conjuge;
-            txtcelular.Text = conjuge.Celular_conjuge;
-            txtrendacli.Text = conjuge.Renda_conjuge;
-            txtagenciacj.Text = conjuge.Agencia_conjuge;
-            txtcontacj.Text = conjuge.Conta_conjuge;
-            txtobservacoes.Text = conjuge.OBS_conjuge;
+            txtnomeconjuge.Text = conj.Nome_conjuge;
+            //txtcpf.Text = conj.CPF_conjuge;
+            //txtrg.Text = conj.RG_conjuge;
+            //txtnasc.Text = conj.Nascimento_conjuge;
+            //txtemail.Text = conj.Email_conjuge;
+            //txttelefone.Text = conj.Telefone_conjuge;
+            //txtcelular.Text = conj.Celular_conjuge;
+            //txtrendacli.Text = conj.Renda_conjuge;
+            //txtagenciacj.Text = conj.Agencia_conjuge;
+            //txtcontacj.Text = conj.Conta_conjuge;
+            //txtobservacoes.Text = conj.OBS_conjuge;
 
-            if (conjuge.Sexo_conjuge == "Masculino")
-            {
-                checkBox_Masculino.Checked = true;
+            //if (conj.Sexo_conjuge == "Masculino")
+            //{
+            //    checkBox_Masculino.Checked = true;
 
-            }
-            else if (conjuge.Sexo_conjuge == "Feminino")
-            {
-                checkBox_Feminino.Checked = true;
-            }
+            //}
+            //else if (conj.Sexo_conjuge == "Feminino")
+            //{
+            //    checkBox_Feminino.Checked = true;
+            //}
 
 
-            if (conjuge.Status_conjuge == "Ativo")
-            {
-                checkBox_status.Checked = true;
-                checkBox_status.ForeColor = System.Drawing.Color.Blue;
-                checkBox_status.Text = "Conjuge Ativo";
-            }
+            //if (conj.Status_conjuge == "Ativo")
+            //{
+            //    checkBox_status.Checked = true;
+            //    checkBox_status.ForeColor = System.Drawing.Color.Blue;
+            //    checkBox_status.Text = "Conjuge Ativo";
+            //}
 
-            if (conjuge.Status_conjuge == "Inativo")
-            {
-                checkBox_status.Text = "Conjuge Inativo";
-                checkBox_status.ForeColor = System.Drawing.Color.Red;
-                checkBox_status.Checked = false;
-            }
-            #region Valor Renda Conjuge
-            valor = txtrendacj.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
-            if (valor.Length == 0)
-            {
-                txtrendacj.Text = "0,00" + valor;
-            }
-            if (valor.Length == 1)
-            {
-                txtrendacj.Text = "0,0" + valor;
-            }
-            if (valor.Length == 2)
-            {
-                txtrendacj.Text = "0," + valor;
-            }
-            else if (valor.Length >= 3)
-            {
-                if (txtrendacj.Text.StartsWith("0,"))
-                {
-                    txtrendacj.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
-                }
-                else if (txtrendacj.Text.Contains("00,"))
-                {
-                    txtrendacj.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
-                }
-                else
-                {
-                    txtrendacj.Text = valor.Insert(valor.Length - 2, ",");
-                }
-            }
-            valor = txtrendacj.Text;
-            txtrendacj.Text = string.Format("{0:C}", Convert.ToDouble(valor));
-            txtrendacj.Select(txtrendacj.Text.Length, 0);
-            #endregion
+            //if (conj.Status_conjuge == "Inativo")
+            //{
+            //    checkBox_status.Text = "Conjuge Inativo";
+            //    checkBox_status.ForeColor = System.Drawing.Color.Red;
+            //    checkBox_status.Checked = false;
+            //}
+            //#region Valor Renda Conjuge
+            //valor = txtrendacj.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+            //if (valor.Length == 0)
+            //{
+            //    txtrendacj.Text = "0,00" + valor;
+            //}
+            //if (valor.Length == 1)
+            //{
+            //    txtrendacj.Text = "0,0" + valor;
+            //}
+            //if (valor.Length == 2)
+            //{
+            //    txtrendacj.Text = "0," + valor;
+            //}
+            //else if (valor.Length >= 3)
+            //{
+            //    if (txtrendacj.Text.StartsWith("0,"))
+            //    {
+            //        txtrendacj.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
+            //    }
+            //    else if (txtrendacj.Text.Contains("00,"))
+            //    {
+            //        txtrendacj.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
+            //    }
+            //    else
+            //    {
+            //        txtrendacj.Text = valor.Insert(valor.Length - 2, ",");
+            //    }
+            //}
+            //valor = txtrendacj.Text;
+            //txtrendacj.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            //txtrendacj.Select(txtrendacj.Text.Length, 0);
+            //#endregion
 
-           // conjuge = conjuge.Conjuge_conjuge;
+            cj1 = conj.Conjuge_conjuge;
 
 
             txtnomeconjuge.Select(txtnomeconjuge.Text.Length, 0);
@@ -476,6 +490,93 @@ namespace LMFinanciamentos.Apresentacao
             txtnomeconjuge.Focus();
             Cursor = Cursors.Default;
         }
+        public void LoadDadosCJ(String idcliente,String idconjuge)
+        {
+            Cursor = Cursors.WaitCursor;
+            Conjuge conjuge = null;
+
+            LoginDaoComandos getconjuge = new LoginDaoComandos();
+            conjuge = getconjuge.GetConjuge(idcliente, idconjuge);
+
+            txtnomecj1.Text = conjuge.Nome_conjuge;
+            //txtcpf.Text = conjuge.CPF_conjuge;
+            //txtrg.Text = conjuge.RG_conjuge;
+            //txtnasc.Text = conjuge.Nascimento_conjuge;
+            //txtemail.Text = conjuge.Email_conjuge;
+            //txttelefone.Text = conjuge.Telefone_conjuge;
+            //txtcelular.Text = conjuge.Celular_conjuge;
+            //txtrendacli.Text = conjuge.Renda_conjuge;
+            //txtagenciacj.Text = conjuge.Agencia_conjuge;
+            //txtcontacj.Text = conjuge.Conta_conjuge;
+            //txtobservacoes.Text = conjuge.OBS_conjuge;
+
+            //if (conjuge.Sexo_conjuge == "Masculino")
+            //{
+            //    checkBox_Masculino.Checked = true;
+
+            //}
+            //else if (conjuge.Sexo_conjuge == "Feminino")
+            //{
+            //    checkBox_Feminino.Checked = true;
+            //}
+
+
+            //if (conjuge.Status_conjuge == "Ativo")
+            //{
+            //    checkBox_status.Checked = true;
+            //    checkBox_status.ForeColor = System.Drawing.Color.Blue;
+            //    checkBox_status.Text = "Conjuge Ativo";
+            //}
+
+            //if (conjuge.Status_conjuge == "Inativo")
+            //{
+            //    checkBox_status.Text = "Conjuge Inativo";
+            //    checkBox_status.ForeColor = System.Drawing.Color.Red;
+            //    checkBox_status.Checked = false;
+            //}
+            //#region Valor Renda Conjuge
+            //valor = txtrendacj.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+            //if (valor.Length == 0)
+            //{
+            //    txtrendacj.Text = "0,00" + valor;
+            //}
+            //if (valor.Length == 1)
+            //{
+            //    txtrendacj.Text = "0,0" + valor;
+            //}
+            //if (valor.Length == 2)
+            //{
+            //    txtrendacj.Text = "0," + valor;
+            //}
+            //else if (valor.Length >= 3)
+            //{
+            //    if (txtrendacj.Text.StartsWith("0,"))
+            //    {
+            //        txtrendacj.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
+            //    }
+            //    else if (txtrendacj.Text.Contains("00,"))
+            //    {
+            //        txtrendacj.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
+            //    }
+            //    else
+            //    {
+            //        txtrendacj.Text = valor.Insert(valor.Length - 2, ",");
+            //    }
+            //}
+            //valor = txtrendacj.Text;
+            //txtrendacj.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            //txtrendacj.Select(txtrendacj.Text.Length, 0);
+            //#endregion
+
+             cj1 = conjuge.Conjuge_conjuge;
+
+
+            txtnomecj1.Select(txtnomecj1.Text.Length, 0);
+            this.ActiveControl = txtnomecj1;
+            txtnomecj1.Focus();
+            Cursor = Cursors.Default;
+        }
+
         public event Action ClienteSalvo;
         private void btn_add_Click(object sender, EventArgs e)
         {
