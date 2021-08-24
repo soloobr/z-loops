@@ -18,7 +18,7 @@ namespace LMFinanciamentos.Apresentacao
         String excluirimage;
         FileStream fsObj = null;
         BinaryReader binRdr = null;
-        bool arquivobase;
+        bool arquivobase, conjuge;
 
 
         public Form_Dados_cliente()
@@ -291,7 +291,17 @@ namespace LMFinanciamentos.Apresentacao
 
         private void Form_Dados_cliente_Load(object sender, EventArgs e)
         {
+            tabControl.TabPages.Remove(tabconjuge);
+            tabControl.TabPages.Remove(tabconjuge1);
+            tabControl.TabPages.Remove(tabconjuge2);
+            tabControl.TabPages.Remove(tabconjuge3);
+
             LoadDadosCliente();
+
+            if (conjuge == true)
+            {
+                tabControl.TabPages.Insert(1,tabconjuge);
+            }
          }
 
         public void LoadDadosCliente()
@@ -372,9 +382,98 @@ namespace LMFinanciamentos.Apresentacao
             txtrendacli.Select(txtrendacli.Text.Length, 0);
             #endregion
 
+            conjuge = cliente.Conjuge_cliente; 
+
+
             txtnomecli.Select(txtnomecli.Text.Length, 0);
             this.ActiveControl = txtnomecli;
             txtnomecli.Focus();
+            Cursor = Cursors.Default;
+        }
+        public void LoadDadosConjuge()
+        {
+            Cursor = Cursors.WaitCursor;
+            Conjuge conjuge = null;
+
+            LoginDaoComandos getconjuge = new LoginDaoComandos();
+            conjuge = getconjuge.GetConjuge(idCliente);
+
+            txtnomecli.Text = conjuge.Nome_conjuge;
+            txtcpf.Text = conjuge.CPF_conjuge;
+            txtrg.Text = conjuge.RG_conjuge;
+            txtnasc.Text = conjuge.Nascimento_conjuge;
+            txtemail.Text = conjuge.Email_conjuge;
+            txttelefone.Text = conjuge.Telefone_conjuge;
+            txtcelular.Text = conjuge.Celular_conjuge;
+            txtrendacli.Text = conjuge.Renda_conjuge;
+            txtagenciacj.Text = conjuge.Agencia_conjuge;
+            txtcontacj.Text = conjuge.Conta_conjuge;
+            txtobservacoes.Text = conjuge.OBS_conjuge;
+
+            if (conjuge.Sexo_conjuge == "Masculino")
+            {
+                checkBox_Masculino.Checked = true;
+
+            }
+            else if (conjuge.Sexo_conjuge == "Feminino")
+            {
+                checkBox_Feminino.Checked = true;
+            }
+
+
+            if (conjuge.Status_conjuge == "Ativo")
+            {
+                checkBox_status.Checked = true;
+                checkBox_status.ForeColor = System.Drawing.Color.Blue;
+                checkBox_status.Text = "Conjuge Ativo";
+            }
+
+            if (conjuge.Status_conjuge == "Inativo")
+            {
+                checkBox_status.Text = "Conjuge Inativo";
+                checkBox_status.ForeColor = System.Drawing.Color.Red;
+                checkBox_status.Checked = false;
+            }
+            #region Valor Renda Conjuge
+            valor = txtrendacj.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+            if (valor.Length == 0)
+            {
+                txtrendacj.Text = "0,00" + valor;
+            }
+            if (valor.Length == 1)
+            {
+                txtrendacj.Text = "0,0" + valor;
+            }
+            if (valor.Length == 2)
+            {
+                txtrendacj.Text = "0," + valor;
+            }
+            else if (valor.Length >= 3)
+            {
+                if (txtrendacj.Text.StartsWith("0,"))
+                {
+                    txtrendacj.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
+                }
+                else if (txtrendacj.Text.Contains("00,"))
+                {
+                    txtrendacj.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
+                }
+                else
+                {
+                    txtrendacj.Text = valor.Insert(valor.Length - 2, ",");
+                }
+            }
+            valor = txtrendacj.Text;
+            txtrendacj.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            txtrendacj.Select(txtrendacj.Text.Length, 0);
+            #endregion
+
+           // conjuge = conjuge.Conjuge_conjuge;
+
+
+            txtnomeconjuge.Select(txtnomeconjuge.Text.Length, 0);
+            this.ActiveControl = txtnomeconjuge;
+            txtnomeconjuge.Focus();
             Cursor = Cursors.Default;
         }
         public event Action ClienteSalvo;
@@ -505,6 +604,76 @@ namespace LMFinanciamentos.Apresentacao
                 }
             }
             Cursor = Cursors.Default;
+        }
+
+        private void btnconjuge_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtcpf_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void txtcpf_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void txtcpf_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtrg_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void txtrg_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void btn_excluirconjuge_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnconjuge1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_excluirconjuge1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnconjuge2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_excluirconjuge2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnconjuge3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_excluirconjuge3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_add_foto_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void splitter2_SplitterMoved(object sender, SplitterEventArgs e)

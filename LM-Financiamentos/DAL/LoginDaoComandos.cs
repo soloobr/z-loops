@@ -377,7 +377,7 @@ namespace LMFinanciamentos.DAL
 
             try
             {
-                cmd.CommandText = "INSERT INTO Conta (idcliente, Agencia, Conta, Tipo) VALUES (@id,@agencia,@conta,@tipo)";
+                cmd.CommandText = "INSERT INTO Conta (idcliente, Agencia, Conta, Tipo) VALUES (@id, @agencia, @conta, @tipo)";
 
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@id", id);
@@ -395,7 +395,7 @@ namespace LMFinanciamentos.DAL
                 }
                 else
                 {
-                    mensagem = "Erro ao Inserir Conta do Vendedor";
+                    mensagem = "Erro ao Inserir Conta!";
                 }
 
                 con.desconectar();
@@ -407,7 +407,7 @@ namespace LMFinanciamentos.DAL
             catch (Exception err)
             {
                 //throw new Exception("Erro ao Alterar senha: " + err.Message);
-                mensagem = ("Erro ao Inserir a Conta do Vendedor!: " + err.Message);
+                mensagem = ("Erro ao Inserir a Conta!: " + err.Message);
             }
 
             return mensagem;
@@ -816,13 +816,13 @@ namespace LMFinanciamentos.DAL
 
             return mensagem;
         }
-        public int CadastrarCliente(String nome, String email, String telefone, String celular, String cpf, String rg, DateTime nascimento, String sexo, String status, String renda, String observacao)
+        public int CadastrarCliente(String nome, String email, String telefone, String celular, String cpf, String rg, DateTime nascimento, String sexo, String status, String renda, String observacao, bool conjuge)
         {
 
 
             try
             {
-                cmd.CommandText = "INSERT INTO Clientes (Nome, Email, Telefone, Celular, CPF, RG, Nascimento, Sexo, Status, Renda, Observacao) Values  (@nome, @email, @telefone, @celular, @cpf, @rg, @nascimento, @sexo, @status, @renda, @observacao)";
+                cmd.CommandText = "INSERT INTO Clientes (Nome, Email, Telefone, Celular, CPF, RG, Nascimento, Sexo, Status, Renda, Observacao, Conjuge) Values  (@nome, @email, @telefone, @celular, @cpf, @rg, @nascimento, @sexo, @status, @renda, @observacao, @conjuge)";
 
                 cmd.Parameters.AddWithValue("@nome", nome);
                 cmd.Parameters.AddWithValue("@email", email);
@@ -840,7 +840,10 @@ namespace LMFinanciamentos.DAL
                 cmd.Parameters.AddWithValue("@status", status);
                 cmd.Parameters.AddWithValue("@renda", renda);
                 cmd.Parameters.AddWithValue("@observacao", observacao);
+                cmd.Parameters.AddWithValue("@conjuge", conjuge);
                 
+
+
 
                 cmd.Connection = con.conectar();
 
@@ -878,6 +881,66 @@ namespace LMFinanciamentos.DAL
             }
 
             //return mensagem;
+        }
+        public int CadastrarConjuge(String nome, String email, String telefone, String celular, String cpf, String rg, DateTime nascimento, String sexo, String status, String renda, String observacao,String idcliente)
+        {
+
+
+            try
+            {
+                cmd.CommandText = "INSERT INTO Conjuge (Nome, Email, Telefone, Celular, CPF, RG, Nascimento, Sexo, Status, Renda, Observacao, idCliente) Values  (@nome, @email, @telefone, @celular, @cpf, @rg, @nascimento, @sexo, @status, @renda, @observacao, @idcliente)";
+
+                cmd.Parameters.AddWithValue("@nome", nome);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@telefone", telefone);
+                cmd.Parameters.AddWithValue("@celular", celular);
+                cmd.Parameters.AddWithValue("@cpf", cpf);
+                cmd.Parameters.AddWithValue("@rg", rg);
+                cmd.Parameters.AddWithValue("@nascimento", nascimento);
+                cmd.Parameters.AddWithValue("@sexo", sexo);
+                cmd.Parameters.AddWithValue("@status", status);
+                cmd.Parameters.AddWithValue("@renda", renda);
+                cmd.Parameters.AddWithValue("@observacao", observacao);
+                cmd.Parameters.AddWithValue("@idcliente", idcliente);
+
+
+                cmd.Connection = con.conectar();
+
+                cmd.ExecuteNonQuery();
+
+                if (cmd.LastInsertedId != 0)
+                    cmd.Parameters.Add(new MySqlParameter("ultimoId", cmd.LastInsertedId));
+
+                return Convert.ToInt32(cmd.Parameters["@ultimoId"].Value);
+
+                //if (recordsAffected > 0)
+                //{
+                //    mensagem = "Documento Adicionado Com Sucesso";
+                //}
+                //else
+                //{
+                //    mensagem = "Erro ao Adicionar Documento";
+                //}
+
+
+            }
+            //catch (MySqlException error)
+            //{
+            //    mensagem = ("Erro ao conectar: " + error.Message);
+            //}
+            catch (Exception err)
+            {
+                //throw new Exception("Erro ao Alterar senha: " + err.Message);
+                //mensagem = ("Erro ao Adicionar o Documento: " + err.Message);
+                throw err;
+            }
+            finally
+            {
+                con.desconectar();
+            }
+
+            //return mensagem;
+
         }
         public int CadastrarFuncionario(String nome, String email, String telefone, String celular, String endereco, DateTime nascimento,  String sexo, String cpf, String rg, String cracha, String permission, String status)
         {
@@ -1173,7 +1236,7 @@ namespace LMFinanciamentos.DAL
         {
            //var list = new List<Cliente>();
 
-            cmd.CommandText = "SELECT Clientes.id, Nome, Email, Telefone, Celular, CPF, C.Agencia, C.Conta, RG, Nascimento, Sexo, Renda, Status, Clientes.Observacao FROM Clientes " +
+            cmd.CommandText = "SELECT Clientes.id, Nome, Email, Telefone, Celular, CPF, C.Agencia, C.Conta, RG, Nascimento, Sexo, Renda, Status, Clientes.Observacao, Clientes.Conjuge FROM Clientes " +
                 "Left join Conta C on C.idcliente = @id and C.Tipo = @tipo "  +
                 "WHERE Clientes.id = @id  ";
             cmd.Parameters.Clear();
@@ -1205,6 +1268,9 @@ namespace LMFinanciamentos.DAL
                     client.Status_cliente = drclient["Status"].ToString();
                     client.Renda_cliente = drclient["Renda"].ToString();
                     client.OBS_cliente = drclient["Observacao"].ToString();
+                    client.Conjuge_cliente = bool.Parse(drclient["Conjuge"].ToString());
+
+                    
                     //Byte[] byteBLOBData = new Byte[0];
                     //client.Foto_Func = (Byte[])(drclient["Foto"]);
                     //list.Add(client);

@@ -237,5 +237,14 @@ namespace LMFinanciamentos
                 servidor = "LOCAL";
             }
         }
+
+        private void comboBox_server_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Return)
+            {
+                btnlogar.Focus();
+                btnlogar.PerformClick();
+            }
+        }
     }
 }
