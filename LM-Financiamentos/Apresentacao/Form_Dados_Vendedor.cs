@@ -249,7 +249,7 @@ namespace LMFinanciamentos.Apresentacao
                 //MessageBox.Show(updateconta.mensagem);
                 if (updateconta.mensagem == "Erro")
                 {
-                    updateconta.InsertConta(idVendedor, Agencia, Conta, "V");
+                    updateconta.InsertConta(idVendedor, Agencia, Conta, "V","0","0");
                 }
 
             }

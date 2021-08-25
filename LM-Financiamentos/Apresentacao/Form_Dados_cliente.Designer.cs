@@ -69,7 +69,7 @@ namespace LMFinanciamentos.Apresentacao
             this.checkBox_status = new System.Windows.Forms.CheckBox();
             this.tabconjuge = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtobservacoescj = new System.Windows.Forms.TextBox();
+            this.txtobservacaocj = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtcontacj = new System.Windows.Forms.TextBox();
             this.txtagenciacj = new System.Windows.Forms.TextBox();
@@ -125,7 +125,7 @@ namespace LMFinanciamentos.Apresentacao
             this.checkBox_statuscj1 = new System.Windows.Forms.CheckBox();
             this.tabconjuge2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.txtobservacaocj2 = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
             this.txtcontacj2 = new System.Windows.Forms.TextBox();
             this.txtagenciacj2 = new System.Windows.Forms.TextBox();
@@ -196,6 +196,25 @@ namespace LMFinanciamentos.Apresentacao
             this.lbl_topo = new System.Windows.Forms.Label();
             this.img_topo = new System.Windows.Forms.PictureBox();
             this.ofd1 = new System.Windows.Forms.OpenFileDialog();
+            this.gbrenda = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.lbl0 = new System.Windows.Forms.Label();
+            this.lbl03 = new System.Windows.Forms.Label();
+            this.lbl02 = new System.Windows.Forms.Label();
+            this.lbl01 = new System.Windows.Forms.Label();
+            this.lblrendabruta = new System.Windows.Forms.Label();
+            this.lblnomeclirenda = new System.Windows.Forms.Label();
+            this.lblnomecj1 = new System.Windows.Forms.Label();
+            this.lblnomecj2 = new System.Windows.Forms.Label();
+            this.lblnomecj3 = new System.Windows.Forms.Label();
+            this.lblrendacli = new System.Windows.Forms.Label();
+            this.lblrendacj1 = new System.Windows.Forms.Label();
+            this.lblrendacj2 = new System.Windows.Forms.Label();
+            this.lblrendacj3 = new System.Windows.Forms.Label();
+            this.lblrendacj4 = new System.Windows.Forms.Label();
+            this.lbl04 = new System.Windows.Forms.Label();
+            this.lblnomecj4 = new System.Windows.Forms.Label();
+            this.txtrendatotal = new System.Windows.Forms.TextBox();
             this.panelcentralcadcli.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -219,6 +238,8 @@ namespace LMFinanciamentos.Apresentacao
             this.panel1.SuspendLayout();
             this.paneltop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).BeginInit();
+            this.gbrenda.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelcentralcadcli
@@ -260,6 +281,7 @@ namespace LMFinanciamentos.Apresentacao
             // 
             // tabcliente
             // 
+            this.tabcliente.Controls.Add(this.gbrenda);
             this.tabcliente.Controls.Add(this.tableLayoutPanel1);
             this.tabcliente.Location = new System.Drawing.Point(4, 32);
             this.tabcliente.Name = "tabcliente";
@@ -379,9 +401,9 @@ namespace LMFinanciamentos.Apresentacao
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(761, 59);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 23);
+            this.label4.Size = new System.Drawing.Size(57, 23);
             this.label4.TabIndex = 55;
-            this.label4.Text = "Renda Bruta:";
+            this.label4.Text = "Renda:";
             // 
             // txtrendacli
             // 
@@ -389,7 +411,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtrendacli.Location = new System.Drawing.Point(761, 85);
             this.txtrendacli.Name = "txtrendacli";
             this.txtrendacli.ReadOnly = true;
-            this.txtrendacli.Size = new System.Drawing.Size(193, 27);
+            this.txtrendacli.Size = new System.Drawing.Size(167, 27);
             this.txtrendacli.TabIndex = 7;
             this.txtrendacli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtrendacli_KeyPress);
             this.txtrendacli.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrendacli_KeyUp);
@@ -614,7 +636,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 199F));
-            this.tableLayoutPanel2.Controls.Add(this.txtobservacoescj, 0, 8);
+            this.tableLayoutPanel2.Controls.Add(this.txtobservacaocj, 0, 8);
             this.tableLayoutPanel2.Controls.Add(this.label7, 0, 7);
             this.tableLayoutPanel2.Controls.Add(this.txtcontacj, 1, 6);
             this.tableLayoutPanel2.Controls.Add(this.txtagenciacj, 0, 6);
@@ -654,15 +676,15 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel2.Size = new System.Drawing.Size(931, 257);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
-            // txtobservacoescj
+            // txtobservacaocj
             // 
-            this.tableLayoutPanel2.SetColumnSpan(this.txtobservacoescj, 3);
-            this.txtobservacoescj.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtobservacoescj.Location = new System.Drawing.Point(3, 215);
-            this.txtobservacoescj.Name = "txtobservacoescj";
-            this.txtobservacoescj.ReadOnly = true;
-            this.txtobservacoescj.Size = new System.Drawing.Size(589, 27);
-            this.txtobservacoescj.TabIndex = 72;
+            this.tableLayoutPanel2.SetColumnSpan(this.txtobservacaocj, 3);
+            this.txtobservacaocj.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtobservacaocj.Location = new System.Drawing.Point(3, 215);
+            this.txtobservacaocj.Name = "txtobservacaocj";
+            this.txtobservacaocj.ReadOnly = true;
+            this.txtobservacaocj.Size = new System.Drawing.Size(589, 27);
+            this.txtobservacaocj.TabIndex = 72;
             // 
             // label7
             // 
@@ -715,9 +737,9 @@ namespace LMFinanciamentos.Apresentacao
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(761, 59);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(98, 23);
+            this.label10.Size = new System.Drawing.Size(57, 23);
             this.label10.TabIndex = 55;
-            this.label10.Text = "Renda Bruta:";
+            this.label10.Text = "Renda:";
             // 
             // txtrendacj
             // 
@@ -1047,9 +1069,9 @@ namespace LMFinanciamentos.Apresentacao
             this.label23.AutoSize = true;
             this.label23.Location = new System.Drawing.Point(761, 59);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(98, 23);
+            this.label23.Size = new System.Drawing.Size(57, 23);
             this.label23.TabIndex = 55;
-            this.label23.Text = "Renda Bruta:";
+            this.label23.Text = "Renda:";
             // 
             // txtrendacj1
             // 
@@ -1057,7 +1079,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtrendacj1.Location = new System.Drawing.Point(761, 85);
             this.txtrendacj1.Name = "txtrendacj1";
             this.txtrendacj1.ReadOnly = true;
-            this.txtrendacj1.Size = new System.Drawing.Size(156, 27);
+            this.txtrendacj1.Size = new System.Drawing.Size(167, 27);
             this.txtrendacj1.TabIndex = 7;
             // 
             // label24
@@ -1278,7 +1300,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 199F));
-            this.tableLayoutPanel4.Controls.Add(this.textBox17, 0, 8);
+            this.tableLayoutPanel4.Controls.Add(this.txtobservacaocj2, 0, 8);
             this.tableLayoutPanel4.Controls.Add(this.label31, 0, 7);
             this.tableLayoutPanel4.Controls.Add(this.txtcontacj2, 1, 6);
             this.tableLayoutPanel4.Controls.Add(this.txtagenciacj2, 0, 6);
@@ -1318,15 +1340,15 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel4.Size = new System.Drawing.Size(931, 257);
             this.tableLayoutPanel4.TabIndex = 3;
             // 
-            // textBox17
+            // txtobservacaocj2
             // 
-            this.tableLayoutPanel4.SetColumnSpan(this.textBox17, 3);
-            this.textBox17.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox17.Location = new System.Drawing.Point(3, 215);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.ReadOnly = true;
-            this.textBox17.Size = new System.Drawing.Size(589, 27);
-            this.textBox17.TabIndex = 72;
+            this.tableLayoutPanel4.SetColumnSpan(this.txtobservacaocj2, 3);
+            this.txtobservacaocj2.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtobservacaocj2.Location = new System.Drawing.Point(3, 215);
+            this.txtobservacaocj2.Name = "txtobservacaocj2";
+            this.txtobservacaocj2.ReadOnly = true;
+            this.txtobservacaocj2.Size = new System.Drawing.Size(589, 27);
+            this.txtobservacaocj2.TabIndex = 72;
             // 
             // label31
             // 
@@ -1379,9 +1401,9 @@ namespace LMFinanciamentos.Apresentacao
             this.label34.AutoSize = true;
             this.label34.Location = new System.Drawing.Point(761, 59);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(98, 23);
+            this.label34.Size = new System.Drawing.Size(57, 23);
             this.label34.TabIndex = 55;
-            this.label34.Text = "Renda Bruta:";
+            this.label34.Text = "Renda:";
             // 
             // txtrendacj2
             // 
@@ -1389,7 +1411,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtrendacj2.Location = new System.Drawing.Point(761, 85);
             this.txtrendacj2.Name = "txtrendacj2";
             this.txtrendacj2.ReadOnly = true;
-            this.txtrendacj2.Size = new System.Drawing.Size(193, 27);
+            this.txtrendacj2.Size = new System.Drawing.Size(167, 27);
             this.txtrendacj2.TabIndex = 7;
             // 
             // label35
@@ -1711,9 +1733,9 @@ namespace LMFinanciamentos.Apresentacao
             this.label45.AutoSize = true;
             this.label45.Location = new System.Drawing.Point(761, 59);
             this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(98, 23);
+            this.label45.Size = new System.Drawing.Size(57, 23);
             this.label45.TabIndex = 55;
-            this.label45.Text = "Renda Bruta:";
+            this.label45.Text = "Renda:";
             // 
             // txtrendacj3
             // 
@@ -2163,6 +2185,237 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.ofd1.FileName = "openFileDialog1";
             // 
+            // gbrenda
+            // 
+            this.gbrenda.Controls.Add(this.tableLayoutPanel6);
+            this.gbrenda.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbrenda.Location = new System.Drawing.Point(20, 277);
+            this.gbrenda.Name = "gbrenda";
+            this.gbrenda.Size = new System.Drawing.Size(931, 175);
+            this.gbrenda.TabIndex = 3;
+            this.gbrenda.TabStop = false;
+            this.gbrenda.Text = "Resumo Renda";
+            this.gbrenda.Visible = false;
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.AutoSize = true;
+            this.tableLayoutPanel6.ColumnCount = 3;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel6.Controls.Add(this.lblnomecj4, 0, 4);
+            this.tableLayoutPanel6.Controls.Add(this.lbl04, 0, 4);
+            this.tableLayoutPanel6.Controls.Add(this.lblrendacj4, 2, 4);
+            this.tableLayoutPanel6.Controls.Add(this.lblrendacj3, 2, 3);
+            this.tableLayoutPanel6.Controls.Add(this.lblrendacj2, 2, 2);
+            this.tableLayoutPanel6.Controls.Add(this.lblrendacj1, 2, 1);
+            this.tableLayoutPanel6.Controls.Add(this.lblrendacli, 2, 0);
+            this.tableLayoutPanel6.Controls.Add(this.lblnomecj3, 0, 3);
+            this.tableLayoutPanel6.Controls.Add(this.lblnomecj2, 1, 2);
+            this.tableLayoutPanel6.Controls.Add(this.lblnomecj1, 1, 1);
+            this.tableLayoutPanel6.Controls.Add(this.lblnomeclirenda, 1, 0);
+            this.tableLayoutPanel6.Controls.Add(this.lblrendabruta, 1, 5);
+            this.tableLayoutPanel6.Controls.Add(this.lbl01, 0, 1);
+            this.tableLayoutPanel6.Controls.Add(this.lbl02, 0, 2);
+            this.tableLayoutPanel6.Controls.Add(this.lbl03, 0, 3);
+            this.tableLayoutPanel6.Controls.Add(this.lbl0, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.txtrendatotal, 2, 5);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 23);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 6;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(925, 149);
+            this.tableLayoutPanel6.TabIndex = 0;
+            // 
+            // lbl0
+            // 
+            this.lbl0.AutoSize = true;
+            this.lbl0.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl0.Location = new System.Drawing.Point(3, 0);
+            this.lbl0.Name = "lbl0";
+            this.lbl0.Size = new System.Drawing.Size(27, 23);
+            this.lbl0.TabIndex = 56;
+            this.lbl0.Text = "0";
+            this.lbl0.Visible = false;
+            // 
+            // lbl03
+            // 
+            this.lbl03.AutoSize = true;
+            this.lbl03.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl03.Location = new System.Drawing.Point(3, 69);
+            this.lbl03.Name = "lbl03";
+            this.lbl03.Size = new System.Drawing.Size(27, 23);
+            this.lbl03.TabIndex = 57;
+            this.lbl03.Text = "03";
+            this.lbl03.Visible = false;
+            this.lbl03.Click += new System.EventHandler(this.label54_Click);
+            // 
+            // lbl02
+            // 
+            this.lbl02.AutoSize = true;
+            this.lbl02.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl02.Location = new System.Drawing.Point(3, 46);
+            this.lbl02.Name = "lbl02";
+            this.lbl02.Size = new System.Drawing.Size(27, 23);
+            this.lbl02.TabIndex = 58;
+            this.lbl02.Text = "02";
+            this.lbl02.Visible = false;
+            // 
+            // lbl01
+            // 
+            this.lbl01.AutoSize = true;
+            this.lbl01.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl01.Location = new System.Drawing.Point(3, 23);
+            this.lbl01.Name = "lbl01";
+            this.lbl01.Size = new System.Drawing.Size(27, 23);
+            this.lbl01.TabIndex = 59;
+            this.lbl01.Text = "01";
+            this.lbl01.Visible = false;
+            // 
+            // lblrendabruta
+            // 
+            this.lblrendabruta.AutoSize = true;
+            this.lblrendabruta.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblrendabruta.Location = new System.Drawing.Point(36, 115);
+            this.lblrendabruta.Name = "lblrendabruta";
+            this.lblrendabruta.Size = new System.Drawing.Size(135, 34);
+            this.lblrendabruta.TabIndex = 60;
+            this.lblrendabruta.Text = "Renda Bruta Total:";
+            this.lblrendabruta.Visible = false;
+            // 
+            // lblnomeclirenda
+            // 
+            this.lblnomeclirenda.AutoSize = true;
+            this.lblnomeclirenda.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblnomeclirenda.Location = new System.Drawing.Point(36, 0);
+            this.lblnomeclirenda.Name = "lblnomeclirenda";
+            this.lblnomeclirenda.Size = new System.Drawing.Size(58, 23);
+            this.lblnomeclirenda.TabIndex = 61;
+            this.lblnomeclirenda.Text = "Cliente";
+            this.lblnomeclirenda.Visible = false;
+            // 
+            // lblnomecj1
+            // 
+            this.lblnomecj1.AutoSize = true;
+            this.lblnomecj1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblnomecj1.Location = new System.Drawing.Point(36, 23);
+            this.lblnomecj1.Name = "lblnomecj1";
+            this.lblnomecj1.Size = new System.Drawing.Size(75, 23);
+            this.lblnomecj1.TabIndex = 62;
+            this.lblnomecj1.Text = "Cônjuge 1";
+            this.lblnomecj1.Visible = false;
+            // 
+            // lblnomecj2
+            // 
+            this.lblnomecj2.AutoSize = true;
+            this.lblnomecj2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblnomecj2.Location = new System.Drawing.Point(36, 46);
+            this.lblnomecj2.Name = "lblnomecj2";
+            this.lblnomecj2.Size = new System.Drawing.Size(77, 23);
+            this.lblnomecj2.TabIndex = 63;
+            this.lblnomecj2.Text = "Cônjuge 2";
+            this.lblnomecj2.Visible = false;
+            // 
+            // lblnomecj3
+            // 
+            this.lblnomecj3.AutoSize = true;
+            this.lblnomecj3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblnomecj3.Location = new System.Drawing.Point(36, 69);
+            this.lblnomecj3.Name = "lblnomecj3";
+            this.lblnomecj3.Size = new System.Drawing.Size(78, 23);
+            this.lblnomecj3.TabIndex = 64;
+            this.lblnomecj3.Text = "Cônjuge 3";
+            this.lblnomecj3.Visible = false;
+            // 
+            // lblrendacli
+            // 
+            this.lblrendacli.AutoSize = true;
+            this.lblrendacli.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblrendacli.Location = new System.Drawing.Point(177, 0);
+            this.lblrendacli.Name = "lblrendacli";
+            this.lblrendacli.Size = new System.Drawing.Size(745, 23);
+            this.lblrendacli.TabIndex = 65;
+            this.lblrendacli.Text = "Valor";
+            this.lblrendacli.Visible = false;
+            this.lblrendacli.Click += new System.EventHandler(this.label62_Click);
+            // 
+            // lblrendacj1
+            // 
+            this.lblrendacj1.AutoSize = true;
+            this.lblrendacj1.Location = new System.Drawing.Point(177, 23);
+            this.lblrendacj1.Name = "lblrendacj1";
+            this.lblrendacj1.Size = new System.Drawing.Size(46, 23);
+            this.lblrendacj1.TabIndex = 66;
+            this.lblrendacj1.Text = "Valor";
+            this.lblrendacj1.Visible = false;
+            // 
+            // lblrendacj2
+            // 
+            this.lblrendacj2.AutoSize = true;
+            this.lblrendacj2.Location = new System.Drawing.Point(177, 46);
+            this.lblrendacj2.Name = "lblrendacj2";
+            this.lblrendacj2.Size = new System.Drawing.Size(46, 23);
+            this.lblrendacj2.TabIndex = 67;
+            this.lblrendacj2.Text = "Valor";
+            this.lblrendacj2.Visible = false;
+            // 
+            // lblrendacj3
+            // 
+            this.lblrendacj3.AutoSize = true;
+            this.lblrendacj3.Location = new System.Drawing.Point(177, 69);
+            this.lblrendacj3.Name = "lblrendacj3";
+            this.lblrendacj3.Size = new System.Drawing.Size(46, 23);
+            this.lblrendacj3.TabIndex = 68;
+            this.lblrendacj3.Text = "Valor";
+            this.lblrendacj3.Visible = false;
+            // 
+            // lblrendacj4
+            // 
+            this.lblrendacj4.AutoSize = true;
+            this.lblrendacj4.Location = new System.Drawing.Point(177, 92);
+            this.lblrendacj4.Name = "lblrendacj4";
+            this.lblrendacj4.Size = new System.Drawing.Size(46, 23);
+            this.lblrendacj4.TabIndex = 69;
+            this.lblrendacj4.Text = "Valor";
+            this.lblrendacj4.Visible = false;
+            // 
+            // lbl04
+            // 
+            this.lbl04.AutoSize = true;
+            this.lbl04.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl04.Location = new System.Drawing.Point(3, 92);
+            this.lbl04.Name = "lbl04";
+            this.lbl04.Size = new System.Drawing.Size(27, 23);
+            this.lbl04.TabIndex = 70;
+            this.lbl04.Text = "04";
+            this.lbl04.Visible = false;
+            // 
+            // lblnomecj4
+            // 
+            this.lblnomecj4.AutoSize = true;
+            this.lblnomecj4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblnomecj4.Location = new System.Drawing.Point(36, 92);
+            this.lblnomecj4.Name = "lblnomecj4";
+            this.lblnomecj4.Size = new System.Drawing.Size(79, 23);
+            this.lblnomecj4.TabIndex = 71;
+            this.lblnomecj4.Text = "Cônjuge 4";
+            this.lblnomecj4.Visible = false;
+            // 
+            // txtrendatotal
+            // 
+            this.txtrendatotal.Location = new System.Drawing.Point(177, 118);
+            this.txtrendatotal.Name = "txtrendatotal";
+            this.txtrendatotal.Size = new System.Drawing.Size(147, 27);
+            this.txtrendatotal.TabIndex = 72;
+            this.txtrendatotal.Visible = false;
+            // 
             // Form_Dados_Cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2208,6 +2461,10 @@ namespace LMFinanciamentos.Apresentacao
             this.paneltop.ResumeLayout(false);
             this.paneltop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).EndInit();
+            this.gbrenda.ResumeLayout(false);
+            this.gbrenda.PerformLayout();
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2269,7 +2526,7 @@ namespace LMFinanciamentos.Apresentacao
         private TabPage tabconjuge2;
         private TabPage tabconjuge3;
         private TableLayoutPanel tableLayoutPanel2;
-        private TextBox txtobservacoescj;
+        private TextBox txtobservacaocj;
         private Label label7;
         private TextBox txtcontacj;
         private TextBox txtagenciacj;
@@ -2323,7 +2580,7 @@ namespace LMFinanciamentos.Apresentacao
         private TextBox txtrgcj1;
         private CheckBox checkBox_statuscj1;
         private TableLayoutPanel tableLayoutPanel4;
-        private TextBox textBox17;
+        private TextBox txtobservacaocj2;
         private Label label31;
         private TextBox txtcontacj2;
         private TextBox txtagenciacj2;
@@ -2376,5 +2633,24 @@ namespace LMFinanciamentos.Apresentacao
         private TextBox txtnomecj3;
         private TextBox txtrgcj3;
         private CheckBox checkBox_statuscj3;
+        private GroupBox gbrenda;
+        private TableLayoutPanel tableLayoutPanel6;
+        private Label lblrendacj4;
+        private Label lblrendacj3;
+        private Label lblrendacj2;
+        private Label lblrendacj1;
+        private Label lblrendacli;
+        private Label lblnomecj3;
+        private Label lblnomecj2;
+        private Label lblnomecj1;
+        private Label lblnomeclirenda;
+        private Label lblrendabruta;
+        private Label lbl01;
+        private Label lbl02;
+        private Label lbl03;
+        private Label lbl0;
+        private Label lblnomecj4;
+        private Label lbl04;
+        private TextBox txtrendatotal;
     }
 }

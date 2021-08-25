@@ -12,7 +12,7 @@ namespace LMFinanciamentos.Apresentacao
     public partial class Form_Cadastro_Cliente : Form
     {
 
-        String sexo, status, idCliente, idConjuge, valor, arquivo, CPF, RG, Agencia, Conta, telefone, celular;
+        String sexo, status, idCliente, idConjuge, valor, arquivo, CPF, RG, Agencia, Conta, telefone, celular, sequencia;
         String excluirimage;
         FileStream fsObj = null;
         BinaryReader binRdr = null;
@@ -890,7 +890,7 @@ namespace LMFinanciamentos.Apresentacao
 
                     LoginDaoComandos updateconta = new LoginDaoComandos();
 
-                    updateconta.InsertConta(idCliente, Agencia, Conta, "C");
+                    updateconta.InsertConta(idCliente, Agencia, Conta, "C","0","0");
                     if (updateconta.mensagem != "OK")
                     {
                         MessageBox.Show("Cliente Cadastrado! \n Agência e Conta com erro! \n " + updateconta.mensagem, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1016,11 +1016,13 @@ namespace LMFinanciamentos.Apresentacao
                     telefone = txttelefonecj.Text;
                 }
                 //#endregion
+                sequencia = "0";
+                conjuge = cj1;
                 if (newidcli >= 0)
                 {
                     LoginDaoComandos inserirconjuge = new LoginDaoComandos();
 
-                    newidcj = inserirconjuge.CadastrarConjuge(txtnomeconjuge.Text, txtemailcj.Text, telefone, celular, CPF, RG, datanasc, sexo, status, renda, txtobservacoescj.Text, newidcli.ToString());
+                    newidcj = inserirconjuge.CadastrarConjuge(txtnomeconjuge.Text, txtemailcj.Text, telefone, celular, CPF, RG, datanasc, sexo, status, renda, txtobservacoescj.Text, newidcli.ToString(), sequencia,conjuge);
 
 
                     if (txtcontacj != null && txtagenciacj != null)
@@ -1032,7 +1034,7 @@ namespace LMFinanciamentos.Apresentacao
 
                         LoginDaoComandos updateconta = new LoginDaoComandos();
 
-                        updateconta.InsertConta(idConjuge, Agencia, Conta, "CJ");
+                        updateconta.InsertConta(newidcli.ToString(), Agencia, Conta, "CJ",idConjuge,"0");
                         if (updateconta.mensagem != "OK")
                         {
                             MessageBox.Show("Conta do Cônjuge não Cadastrada!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1125,11 +1127,13 @@ namespace LMFinanciamentos.Apresentacao
                     telefone = txttelefonecj1.Text;
                 }
                 //#endregion
+                sequencia = "1";
+                conjuge = cj2;
                 if (newidcli >= 0)
                 {
                     LoginDaoComandos inserirconjuge = new LoginDaoComandos();
 
-                    newidcj = inserirconjuge.CadastrarConjuge(txtnomeconjuge1.Text, txtemailcj1.Text, telefone, celular, CPF, RG, datanasc, sexo, status, renda, txtobservacoescj1.Text, newidcli.ToString());
+                    newidcj = inserirconjuge.CadastrarConjuge(txtnomeconjuge1.Text, txtemailcj1.Text, telefone, celular, CPF, RG, datanasc, sexo, status, renda, txtobservacoescj1.Text, newidcli.ToString(), sequencia, conjuge);
 
 
                     if (txtcontacj1 != null && txtagenciacj1 != null)
@@ -1141,7 +1145,7 @@ namespace LMFinanciamentos.Apresentacao
 
                         LoginDaoComandos updateconta = new LoginDaoComandos();
 
-                        updateconta.InsertConta(idConjuge, Agencia, Conta, "CJ");
+                        updateconta.InsertConta(newidcli.ToString(), Agencia, Conta, "CJ",idConjuge,"1");
                         if (updateconta.mensagem != "OK")
                         {
                             MessageBox.Show("Conta do Cônjuge 1 não Cadastrada!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1234,11 +1238,13 @@ namespace LMFinanciamentos.Apresentacao
                     telefone = txttelefonecj2.Text;
                 }
                 //#endregion
+                sequencia = "2";
+                conjuge = cj3;
                 if (newidcli >= 0)
                 {
                     LoginDaoComandos inserirconjuge = new LoginDaoComandos();
 
-                    newidcj = inserirconjuge.CadastrarConjuge(txtnomeconjuge1.Text, txtemailcj2.Text, telefone, celular, CPF, RG, datanasc, sexo, status, renda, txtobservacoescj2.Text, newidcli.ToString());
+                    newidcj = inserirconjuge.CadastrarConjuge(txtnomeconjuge2.Text, txtemailcj2.Text, telefone, celular, CPF, RG, datanasc, sexo, status, renda, txtobservacoescj2.Text, newidcli.ToString(), sequencia,conjuge);
 
 
                     if (txtcontacj2 != null && txtagenciacj2 != null)
@@ -1250,7 +1256,7 @@ namespace LMFinanciamentos.Apresentacao
 
                         LoginDaoComandos updateconta = new LoginDaoComandos();
 
-                        updateconta.InsertConta(idConjuge, Agencia, Conta, "CJ");
+                        updateconta.InsertConta(newidcli.ToString(), Agencia, Conta, "CJ",idConjuge,"2");
                         if (updateconta.mensagem != "OK")
                         {
                             MessageBox.Show("Conta do Cônjuge 2 não Cadastrada!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1343,11 +1349,13 @@ namespace LMFinanciamentos.Apresentacao
                     telefone = txttelefonecj3.Text;
                 }
                 //#endregion
+                sequencia = "3";
+                conjuge = false;
                 if (newidcli >= 0)
                 {
                     LoginDaoComandos inserirconjuge = new LoginDaoComandos();
 
-                    newidcj = inserirconjuge.CadastrarConjuge(txtnomeconjuge1.Text, txtemailcj3.Text, telefone, celular, CPF, RG, datanasc, sexo, status, renda, txtobservacoescj3.Text, newidcli.ToString());
+                    newidcj = inserirconjuge.CadastrarConjuge(txtnomeconjuge3.Text, txtemailcj3.Text, telefone, celular, CPF, RG, datanasc, sexo, status, renda, txtobservacoescj3.Text, newidcli.ToString(), sequencia,conjuge);
 
 
                     if (txtcontacj3 != null && txtagenciacj3 != null)
@@ -1359,7 +1367,7 @@ namespace LMFinanciamentos.Apresentacao
 
                         LoginDaoComandos updateconta = new LoginDaoComandos();
 
-                        updateconta.InsertConta(idConjuge, Agencia, Conta, "CJ");
+                        updateconta.InsertConta(newidcli.ToString(), Agencia, Conta, "CJ",idConjuge,"3");
                         if (updateconta.mensagem != "OK")
                         {
                             MessageBox.Show("Conta do Cônjuge 3 não Cadastrada!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Error);

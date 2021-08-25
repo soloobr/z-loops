@@ -369,19 +369,21 @@ namespace LMFinanciamentos.DAL
             return mensagem;
 
         }
-        public String InsertConta(String id, String agencia, String conta, String tipo)
+        public String InsertConta(String id, String agencia, String conta, String tipo,String idconjuge, String sequencia)
         {
 
 
             try
             {
-                cmd.CommandText = "INSERT INTO Conta (idcliente, Agencia, Conta, Tipo) VALUES (@id, @agencia, @conta, @tipo)";
+                cmd.CommandText = "INSERT INTO Conta (idcliente, Agencia, Conta, Tipo, idconjuge, Sequencia) VALUES (@id, @agencia, @conta, @tipo, @idconjuge, @sequencia)";
 
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.Parameters.AddWithValue("@agencia", agencia);
                 cmd.Parameters.AddWithValue("@conta", conta);
                 cmd.Parameters.AddWithValue("@tipo", tipo);
+                cmd.Parameters.AddWithValue("@idconjuge", idconjuge);
+                cmd.Parameters.AddWithValue("@sequencia", sequencia);
 
                 cmd.Connection = con.conectar();
 
@@ -880,13 +882,13 @@ namespace LMFinanciamentos.DAL
 
             //return mensagem;
         }
-        public int CadastrarConjuge(String nome, String email, String telefone, String celular, String cpf, String rg, DateTime nascimento, String sexo, String status, String renda, String observacao, String idcliente)
+        public int CadastrarConjuge(String nome, String email, String telefone, String celular, String cpf, String rg, DateTime nascimento, String sexo, String status, String renda, String observacao, String idcliente, String sequencia,bool conjuge)
         {
 
 
             try
             {
-                cmd.CommandText = "INSERT INTO Conjuge (Nome, Email, Telefone, Celular, CPF, RG, Nascimento, Sexo, Status, Renda, Observacao, idCliente) Values  (@nome, @email, @telefone, @celular, @cpf, @rg, @nascimento, @sexo, @status, @renda, @observacao, @idcliente)";
+                cmd.CommandText = "INSERT INTO Conjuge (Nome, Email, Telefone, Celular, CPF, RG, Nascimento, Sexo, Status, Renda, Observacao, idCliente, Sequencia, Conjuge) Values  (@nome, @email, @telefone, @celular, @cpf, @rg, @nascimento, @sexo, @status, @renda, @observacao, @idcliente, @sequencia, @conjuge)";
 
                 cmd.Parameters.AddWithValue("@nome", nome);
                 cmd.Parameters.AddWithValue("@email", email);
@@ -900,6 +902,8 @@ namespace LMFinanciamentos.DAL
                 cmd.Parameters.AddWithValue("@renda", renda);
                 cmd.Parameters.AddWithValue("@observacao", observacao);
                 cmd.Parameters.AddWithValue("@idcliente", idcliente);
+                cmd.Parameters.AddWithValue("@sequencia", sequencia);
+                cmd.Parameters.AddWithValue("@conjuge", conjuge);
 
 
                 cmd.Connection = con.conectar();
@@ -1290,7 +1294,7 @@ namespace LMFinanciamentos.DAL
             //var list = new List<Cliente>();
 
             cmd.CommandText = "SELECT Conjuge.id, Nome, Email, Telefone, Celular, CPF, C.Agencia, C.Conta, RG, Nascimento, Sexo, Renda, Status, Conjuge.Observacao, Conjuge.Conjuge FROM Conjuge " +
-                "Left join Conta C on C.idcliente = @id and C.Tipo = @tipo " +
+                "Left join Conta C on C.idcliente = @id and C.Tipo = @tipo and C.Sequencia = @idconjuge  " +
                 "WHERE Conjuge.idCliente = @id AND Conjuge.Sequencia = @idconjuge  ";
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@id", id);

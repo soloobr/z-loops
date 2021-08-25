@@ -231,7 +231,7 @@ namespace LMFinanciamentos.Apresentacao
             updatecliente.UpdateConta(idCliente, txtagenciacliente.Text, txtcontacliente.Text, "C");
             if (updatecliente.mensagem == "Erro")
             {
-                updatecliente.InsertConta(idCliente, txtagenciacliente.Text, txtcontacliente.Text, "C");
+                updatecliente.InsertConta(idCliente, txtagenciacliente.Text, txtcontacliente.Text, "C","0","0");
             }
 
 
@@ -302,6 +302,35 @@ namespace LMFinanciamentos.Apresentacao
             {
                 tabControl.TabPages.Insert(1, tabconjuge);
                 LoadDadosConjuge(idCliente, "0");
+                gbrenda.Visible = true;
+                lbl0.Visible = true;
+                lblnomeclirenda.Visible = true;
+                lblnomeclirenda.Text = txtnomecli.Text;
+                lblrendacli.Visible = true;
+                lblrendacli.Text = txtrendacli.Text;
+                Resumerenda(txtrendacli.Text);
+                int Rendacli = Int32.Parse(valor.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", ""));
+                //int Rendacli = int.Parse(valor);
+
+
+                lbl01.Visible = true;
+                lblnomecj1.Visible = true;
+                lblnomecj1.Text = txtnomeconjuge.Text;
+                lblrendacj1.Visible = true;
+                Resumerenda(txtrendacj.Text);
+                 int Rendacj = Int32.Parse(valor.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", ""));
+                //int Rendacj = int.Parse(valor);
+
+                lblrendacj1.Text = txtrendacj.Text;
+
+                lblrendabruta.Visible = true;
+                txtrendatotal.Visible = true;
+                
+
+
+                
+                int total = Rendacli + Rendacj;
+                txtrendatotal.Text = string.Format("{0:C}", Convert.ToDouble(total.ToString()));
             }
             if (cj1 == true)
             {
@@ -319,7 +348,38 @@ namespace LMFinanciamentos.Apresentacao
                 LoadDadosCJ2(idCliente, "3");
             }
         }
-
+        public void Resumerenda(String renda)
+        {
+            valor = renda.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+            if (valor.Length == 0)
+            {
+                renda = "0,00" + valor;
+            }
+            if (valor.Length == 1)
+            {
+                renda = "0,0" + valor;
+            }
+            if (valor.Length == 2)
+            {
+                renda = "0," + valor;
+            }
+            else if (valor.Length >= 3)
+            {
+                if (renda.StartsWith("0,"))
+                {
+                    renda = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
+                }
+                else if (renda.Contains("00,"))
+                {
+                    renda = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
+                }
+                else
+                {
+                    renda = valor.Insert(valor.Length - 2, ",");
+                }
+            }
+            valor = renda;
+        }
         public void LoadDadosCliente()
         {
             Cursor = Cursors.WaitCursor;
@@ -415,40 +475,40 @@ namespace LMFinanciamentos.Apresentacao
             conj = getconjuge.GetConjuge(idcliente, idconjuge);
 
             txtnomeconjuge.Text = conj.Nome_conjuge;
-            txtcpf.Text = conj.CPF_conjuge;
-            txtrg.Text = conj.RG_conjuge;
-            txtnasc.Text = conj.Nascimento_conjuge;
-            txtemail.Text = conj.Email_conjuge;
-            txttelefone.Text = conj.Telefone_conjuge;
-            txtcelular.Text = conj.Celular_conjuge;
-            txtrendacli.Text = conj.Renda_conjuge;
+            txtcpfcj.Text = conj.CPF_conjuge;
+            txtrgcj.Text = conj.RG_conjuge;
+            txtnasccj.Text = conj.Nascimento_conjuge;
+            txtemailcj.Text = conj.Email_conjuge;
+            txttelefonecj.Text = conj.Telefone_conjuge;
+            txtcelularcj.Text = conj.Celular_conjuge;
+            txtrendacj.Text = conj.Renda_conjuge;
             txtagenciacj.Text = conj.Agencia_conjuge;
             txtcontacj.Text = conj.Conta_conjuge;
-            txtobservacoes.Text = conj.OBS_conjuge;
+            txtobservacaocj.Text = conj.OBS_conjuge;
 
             if (conj.Sexo_conjuge == "Masculino")
             {
-                checkBox_Masculino.Checked = true;
+                checkBox_Masculinocj.Checked = true;
 
             }
             else if (conj.Sexo_conjuge == "Feminino")
             {
-                checkBox_Feminino.Checked = true;
+                checkBox_Femininocj.Checked = true;
             }
 
 
             if (conj.Status_conjuge == "Ativo")
             {
-                checkBox_status.Checked = true;
-                checkBox_status.ForeColor = System.Drawing.Color.Blue;
-                checkBox_status.Text = "Conjuge Ativo";
+                checkBox_statuscj.Checked = true;
+                checkBox_statuscj.ForeColor = System.Drawing.Color.Blue;
+                checkBox_statuscj.Text = "Conjuge Ativo";
             }
 
             if (conj.Status_conjuge == "Inativo")
             {
-                checkBox_status.Text = "Conjuge Inativo";
-                checkBox_status.ForeColor = System.Drawing.Color.Red;
-                checkBox_status.Checked = false;
+                checkBox_statuscj.Text = "Conjuge Inativo";
+                checkBox_statuscj.ForeColor = System.Drawing.Color.Red;
+                checkBox_statuscj.Checked = false;
             }
             #region Valor Renda Conjuge
             valor = txtrendacj.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
@@ -495,87 +555,259 @@ namespace LMFinanciamentos.Apresentacao
         public void LoadDadosCJ(String idcliente, String idconjuge)
         {
             Cursor = Cursors.WaitCursor;
-            Conjuge conjuge = null;
+            Conjuge conj = null;
 
             LoginDaoComandos getconjuge = new LoginDaoComandos();
-            conjuge = getconjuge.GetConjuge(idcliente, idconjuge);
+            conj = getconjuge.GetConjuge(idcliente, idconjuge);
 
-            txtnomecj1.Text = conjuge.Nome_conjuge;
-            //txtcpf.Text = conjuge.CPF_conjuge;
-            //txtrg.Text = conjuge.RG_conjuge;
-            //txtnasc.Text = conjuge.Nascimento_conjuge;
-            //txtemail.Text = conjuge.Email_conjuge;
-            //txttelefone.Text = conjuge.Telefone_conjuge;
-            //txtcelular.Text = conjuge.Celular_conjuge;
-            //txtrendacli.Text = conjuge.Renda_conjuge;
-            //txtagenciacj.Text = conjuge.Agencia_conjuge;
-            //txtcontacj.Text = conjuge.Conta_conjuge;
-            //txtobservacoes.Text = conjuge.OBS_conjuge;
+            txtnomecj1.Text = conj.Nome_conjuge;
+            txtcpfcj1.Text = conj.CPF_conjuge;
+            txtrgcj1.Text = conj.RG_conjuge;
+            txtnasccj1.Text = conj.Nascimento_conjuge;
+            txtemailcj1.Text = conj.Email_conjuge;
+            txttelefonecj1.Text = conj.Telefone_conjuge;
+            txtcelularcj1.Text = conj.Celular_conjuge;
+            txtrendacj1.Text = conj.Renda_conjuge;
+            txtagenciacj1.Text = conj.Agencia_conjuge;
+            txtcontacj1.Text = conj.Conta_conjuge;
+            txtobservacaocj1.Text = conj.OBS_conjuge;
 
-            //if (conjuge.Sexo_conjuge == "Masculino")
-            //{
-            //    checkBox_Masculino.Checked = true;
+            if (conj.Sexo_conjuge == "Masculino")
+            {
+                checkBox_Masculinocj1.Checked = true;
 
-            //}
-            //else if (conjuge.Sexo_conjuge == "Feminino")
-            //{
-            //    checkBox_Feminino.Checked = true;
-            //}
+            }
+            else if (conj.Sexo_conjuge == "Feminino")
+            {
+                checkBox_Femininocj1.Checked = true;
+            }
 
 
-            //if (conjuge.Status_conjuge == "Ativo")
-            //{
-            //    checkBox_status.Checked = true;
-            //    checkBox_status.ForeColor = System.Drawing.Color.Blue;
-            //    checkBox_status.Text = "Conjuge Ativo";
-            //}
+            if (conj.Status_conjuge == "Ativo")
+            {
+                checkBox_statuscj1.Checked = true;
+                checkBox_statuscj1.ForeColor = System.Drawing.Color.Blue;
+                checkBox_statuscj1.Text = "Conjuge Ativo";
+            }
 
-            //if (conjuge.Status_conjuge == "Inativo")
-            //{
-            //    checkBox_status.Text = "Conjuge Inativo";
-            //    checkBox_status.ForeColor = System.Drawing.Color.Red;
-            //    checkBox_status.Checked = false;
-            //}
-            //#region Valor Renda Conjuge
-            //valor = txtrendacj.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
-            //if (valor.Length == 0)
-            //{
-            //    txtrendacj.Text = "0,00" + valor;
-            //}
-            //if (valor.Length == 1)
-            //{
-            //    txtrendacj.Text = "0,0" + valor;
-            //}
-            //if (valor.Length == 2)
-            //{
-            //    txtrendacj.Text = "0," + valor;
-            //}
-            //else if (valor.Length >= 3)
-            //{
-            //    if (txtrendacj.Text.StartsWith("0,"))
-            //    {
-            //        txtrendacj.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
-            //    }
-            //    else if (txtrendacj.Text.Contains("00,"))
-            //    {
-            //        txtrendacj.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
-            //    }
-            //    else
-            //    {
-            //        txtrendacj.Text = valor.Insert(valor.Length - 2, ",");
-            //    }
-            //}
-            //valor = txtrendacj.Text;
-            //txtrendacj.Text = string.Format("{0:C}", Convert.ToDouble(valor));
-            //txtrendacj.Select(txtrendacj.Text.Length, 0);
-            //#endregion
+            if (conj.Status_conjuge == "Inativo")
+            {
+                checkBox_statuscj1.Text = "Conjuge Inativo";
+                checkBox_statuscj1.ForeColor = System.Drawing.Color.Red;
+                checkBox_statuscj1.Checked = false;
+            }
+            #region Valor Renda Conjuge
+            valor = txtrendacj1.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+            if (valor.Length == 0)
+            {
+                txtrendacj1.Text = "0,00" + valor;
+            }
+            if (valor.Length == 1)
+            {
+                txtrendacj1.Text = "0,0" + valor;
+            }
+            if (valor.Length == 2)
+            {
+                txtrendacj1.Text = "0," + valor;
+            }
+            else if (valor.Length >= 3)
+            {
+                if (txtrendacj1.Text.StartsWith("0,"))
+                {
+                    txtrendacj1.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
+                }
+                else if (txtrendacj1.Text.Contains("00,"))
+                {
+                    txtrendacj1.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
+                }
+                else
+                {
+                    txtrendacj1.Text = valor.Insert(valor.Length - 2, ",");
+                }
+            }
+            valor = txtrendacj1.Text;
+            txtrendacj1.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            txtrendacj1.Select(txtrendacj1.Text.Length, 0);
+            #endregion
 
-            cj1 = conjuge.Conjuge_conjuge;
+            cj2 = conj.Conjuge_conjuge;
 
 
             txtnomecj1.Select(txtnomecj1.Text.Length, 0);
             this.ActiveControl = txtnomecj1;
             txtnomecj1.Focus();
+            Cursor = Cursors.Default;
+        }
+        public void LoadDadosCJ1(String idcliente, String idconjuge)
+        {
+            Cursor = Cursors.WaitCursor;
+            Conjuge conj = null;
+
+            LoginDaoComandos getconjuge = new LoginDaoComandos();
+            conj = getconjuge.GetConjuge(idcliente, idconjuge);
+
+            txtnomecj2.Text = conj.Nome_conjuge;
+            txtcpfcj2.Text = conj.CPF_conjuge;
+            txtrgcj2.Text = conj.RG_conjuge;
+            txtnasccj2.Text = conj.Nascimento_conjuge;
+            txtemailcj2.Text = conj.Email_conjuge;
+            txttelefonecj2.Text = conj.Telefone_conjuge;
+            txtcelularcj2.Text = conj.Celular_conjuge;
+            txtrendacj2.Text = conj.Renda_conjuge;
+            txtagenciacj2.Text = conj.Agencia_conjuge;
+            txtcontacj2.Text = conj.Conta_conjuge;
+            txtobservacaocj2.Text = conj.OBS_conjuge;
+
+            if (conj.Sexo_conjuge == "Masculino")
+            {
+                checkBox_Masculinocj2.Checked = true;
+
+            }
+            else if (conj.Sexo_conjuge == "Feminino")
+            {
+                checkBox_Femininocj2.Checked = true;
+            }
+
+
+            if (conj.Status_conjuge == "Ativo")
+            {
+                checkBox_statuscj2.Checked = true;
+                checkBox_statuscj2.ForeColor = System.Drawing.Color.Blue;
+                checkBox_statuscj2.Text = "Conjuge Ativo";
+            }
+
+            if (conj.Status_conjuge == "Inativo")
+            {
+                checkBox_statuscj2.Text = "Conjuge Inativo";
+                checkBox_statuscj2.ForeColor = System.Drawing.Color.Red;
+                checkBox_statuscj2.Checked = false;
+            }
+            #region Valor Renda Conjuge
+            valor = txtrendacj2.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+            if (valor.Length == 0)
+            {
+                txtrendacj2.Text = "0,00" + valor;
+            }
+            if (valor.Length == 2)
+            {
+                txtrendacj2.Text = "0,0" + valor;
+            }
+            if (valor.Length == 2)
+            {
+                txtrendacj2.Text = "0," + valor;
+            }
+            else if (valor.Length >= 3)
+            {
+                if (txtrendacj2.Text.StartsWith("0,"))
+                {
+                    txtrendacj2.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
+                }
+                else if (txtrendacj2.Text.Contains("00,"))
+                {
+                    txtrendacj2.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
+                }
+                else
+                {
+                    txtrendacj2.Text = valor.Insert(valor.Length - 2, ",");
+                }
+            }
+            valor = txtrendacj2.Text;
+            txtrendacj2.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            txtrendacj2.Select(txtrendacj2.Text.Length, 0);
+            #endregion
+
+            cj3 = conj.Conjuge_conjuge;
+
+
+            txtnomecj2.Select(txtnomecj2.Text.Length, 0);
+            this.ActiveControl = txtnomecj2;
+            txtnomecj2.Focus();
+            Cursor = Cursors.Default;
+        }
+        public void LoadDadosCJ2(String idcliente, String idconjuge)
+        {
+            Cursor = Cursors.WaitCursor;
+            Conjuge conj = null;
+
+            LoginDaoComandos getconjuge = new LoginDaoComandos();
+            conj = getconjuge.GetConjuge(idcliente, idconjuge);
+
+            txtnomecj3.Text = conj.Nome_conjuge;
+            txtcpfcj3.Text = conj.CPF_conjuge;
+            txtrgcj3.Text = conj.RG_conjuge;
+            txtnasccj3.Text = conj.Nascimento_conjuge;
+            txtemailcj3.Text = conj.Email_conjuge;
+            txttelefonecj3.Text = conj.Telefone_conjuge;
+            txtcelularcj3.Text = conj.Celular_conjuge;
+            txtrendacj3.Text = conj.Renda_conjuge;
+            txtagenciacj3.Text = conj.Agencia_conjuge;
+            txtcontacj3.Text = conj.Conta_conjuge;
+            txtobservacaocj3.Text = conj.OBS_conjuge;
+
+            if (conj.Sexo_conjuge == "Masculino")
+            {
+                checkBox_Masculinocj3.Checked = true;
+
+            }
+            else if (conj.Sexo_conjuge == "Feminino")
+            {
+                checkBox_Femininocj3.Checked = true;
+            }
+
+
+            if (conj.Status_conjuge == "Ativo")
+            {
+                checkBox_statuscj3.Checked = true;
+                checkBox_statuscj3.ForeColor = System.Drawing.Color.Blue;
+                checkBox_statuscj3.Text = "Conjuge Ativo";
+            }
+
+            if (conj.Status_conjuge == "Inativo")
+            {
+                checkBox_statuscj3.Text = "Conjuge Inativo";
+                checkBox_statuscj3.ForeColor = System.Drawing.Color.Red;
+                checkBox_statuscj3.Checked = false;
+            }
+            #region Valor Renda Conjuge
+            valor = txtrendacj3.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+            if (valor.Length == 0)
+            {
+                txtrendacj3.Text = "0,00" + valor;
+            }
+            if (valor.Length == 3)
+            {
+                txtrendacj3.Text = "0,0" + valor;
+            }
+            if (valor.Length == 3)
+            {
+                txtrendacj3.Text = "0," + valor;
+            }
+            else if (valor.Length >= 3)
+            {
+                if (txtrendacj3.Text.StartsWith("0,"))
+                {
+                    txtrendacj3.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
+                }
+                else if (txtrendacj3.Text.Contains("00,"))
+                {
+                    txtrendacj3.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
+                }
+                else
+                {
+                    txtrendacj3.Text = valor.Insert(valor.Length - 2, ",");
+                }
+            }
+            valor = txtrendacj3.Text;
+            txtrendacj3.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            txtrendacj3.Select(txtrendacj3.Text.Length, 0);
+            #endregion
+
+            //cj3 = conj.Conjuge_conjuge;
+
+
+            txtnomecj3.Select(txtnomecj3.Text.Length, 0);
+            this.ActiveControl = txtnomecj3;
+            txtnomecj3.Focus();
             Cursor = Cursors.Default;
         }
 
@@ -755,6 +987,16 @@ namespace LMFinanciamentos.Apresentacao
         }
 
         private void btnconjuge2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label62_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label54_Click(object sender, EventArgs e)
         {
 
         }
