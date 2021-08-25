@@ -206,18 +206,21 @@ namespace LMFinanciamentos.Apresentacao
             idLogin = idFuncionario;
 
 
-            if(txtpermission.Text != "")
+            if (txtpermission.Text != "")
             {
-                if(txtpermission.Text == "Operador(a)")
+                if (txtpermission.Text == "Operador(a)")
                 {
                     permission = "3";
-                }else if(txtpermission.Text == "Supervisor(a)")
+                }
+                else if (txtpermission.Text == "Supervisor(a)")
                 {
                     permission = "2";
-                }else if(txtpermission.Text == "Gerente")
+                }
+                else if (txtpermission.Text == "Gerente")
                 {
                     permission = "1";
-                }else if(txtpermission.Text == "Master")
+                }
+                else if (txtpermission.Text == "Master")
                 {
                     permission = "0";
                 }

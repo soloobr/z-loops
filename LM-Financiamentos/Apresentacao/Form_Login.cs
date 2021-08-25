@@ -1,5 +1,4 @@
-﻿using AutoUpdaterEasy;
-using LMFinanciamentos.Apresentacao;
+﻿using LMFinanciamentos.Apresentacao;
 using LMFinanciamentos.DAL;
 using LMFinanciamentos.Entidades;
 using LMFinanciamentos.Modelo;
@@ -127,7 +126,7 @@ namespace LMFinanciamentos
             else
             {
                 Controle controle = new Controle();
-                controle.acessar(txt_login.Text, txtpassword.Text,servidor);
+                controle.acessar(txt_login.Text, txtpassword.Text, servidor);
 
 
                 Funcionario func = null;
@@ -151,7 +150,7 @@ namespace LMFinanciamentos
 
                         //MessageBox.Show("Logado com sucesso! ", "Entrando", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Form_Principal frm_Principal = new Form_Principal();
-                        if(func.Foto_Funcionario != null)
+                        if (func.Foto_Funcionario != null)
                         {
                             frm_Principal.setFoto(func.Foto_Funcionario);
                         }
@@ -209,7 +208,7 @@ namespace LMFinanciamentos
             {
                 comboBox_server.Visible = true;
                 lblserver.Visible = true;
-                
+
             }
         }
 
@@ -224,7 +223,7 @@ namespace LMFinanciamentos
             var MyIni = new IniFile(basePath + @"\LM-Settings.ini");
 
             String usuario = Path.GetFileName(basePath);
-            
+
 
             if (comboBox_server.Text == "OnLINE")
             {

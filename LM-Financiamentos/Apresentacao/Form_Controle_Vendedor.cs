@@ -1,7 +1,6 @@
 ﻿using LMFinanciamentos.DAL;
 using LMFinanciamentos.Entidades;
 using System;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace LMFinanciamentos.Apresentacao
@@ -153,7 +152,7 @@ namespace LMFinanciamentos.Apresentacao
             AtualizaGrid();
             contgridlast = dgv_vendedores.Rows.Count;
 
-            if(contgrid  ==  contgridlast) 
+            if (contgrid == contgridlast)
             {
                 //MessageBox.Show(vendedorselecionado.ToString());
                 dgv_vendedores.ClearSelection();
@@ -178,15 +177,15 @@ namespace LMFinanciamentos.Apresentacao
         {
             Cursor = Cursors.WaitCursor;
             String idvendedorexclude = dgv_vendedores.SelectedRows[0].Cells["id"].Value.ToString();
-            var result =  MessageBox.Show("Deseja Excluir o Vendedor: \n "+ dgv_vendedores.SelectedRows[0].Cells["Nome"].Value.ToString() + "  ?","excluir",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+            var result = MessageBox.Show("Deseja Excluir o Vendedor: \n " + dgv_vendedores.SelectedRows[0].Cells["Nome"].Value.ToString() + "  ?", "excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes)
             {
-                
+
 
                 LoginDaoComandos deletevendedor = new LoginDaoComandos();
 
-                if(deletevendedor.GetFotoVendedor(idvendedorexclude).Foto_vendedor != null)
+                if (deletevendedor.GetFotoVendedor(idvendedorexclude).Foto_vendedor != null)
                 {
                     //MessageBox.Show("Tem foto");
                     deletevendedor.DeleteFotoVendedor(idvendedorexclude);
@@ -208,7 +207,7 @@ namespace LMFinanciamentos.Apresentacao
                 }
 
 
-                
+
             }
         }
 
@@ -238,7 +237,7 @@ namespace LMFinanciamentos.Apresentacao
         void frm_cadastro_vendedor_VendedorSalvo()
         {
             AtualizaGrid();
-    
+
             dgv_vendedores.ClearSelection();
 
             int nRowIndex = dgv_vendedores.Rows.Count - 1;

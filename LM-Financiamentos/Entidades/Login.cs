@@ -1,7 +1,4 @@
-﻿using LMFinanciamentos.DAL;
-
-
-namespace LMFinanciamentos.Entidades
+﻿namespace LMFinanciamentos.Entidades
 {
     public class Login
     {

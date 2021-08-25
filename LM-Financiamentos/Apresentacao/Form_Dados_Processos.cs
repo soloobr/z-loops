@@ -1,21 +1,15 @@
-﻿using ComponentFactory.Krypton.Toolkit;
+﻿using br.corp.bonus630.FullText;
 using LMFinanciamentos.DAL;
 using LMFinanciamentos.Entidades;
 using LMFinanciamentos.Modelo;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Globalization;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using br.corp.bonus630.FullText;
+using System.ComponentModel;
 using System.Data;
-using System.Security;
-
+using System.Drawing;
 using System.IO;
 using System.Net;
-using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace LMFinanciamentos.Apresentacao
 {
@@ -23,7 +17,7 @@ namespace LMFinanciamentos.Apresentacao
     {
 
         bool Next;
-        string valor, svalorimovel, svalorfinanciado, idCartorio ;
+        string valor, svalorimovel, svalorfinanciado, idCartorio;
         string curFile, NewFile, extension, Local, idArquivo, numArquivo, descArquivo, dataAruivo, statusArquivo, idcombotipodoc;
         string idagencia, idprograma, idcorretora, idcorretor, idempreendimentos, caminho;
         int count;
@@ -32,10 +26,10 @@ namespace LMFinanciamentos.Apresentacao
         byte ImageData;
         ToFullText tft;
         int ultimoID;
-        DateTime datecpf, dateciweb, datecadmut, dateir, datefgts,  dateanalise, dateeng, datesiopi, datesictd, datesaquefgts, datepa, datecartorio;
+        DateTime datecpf, dateciweb, datecadmut, dateir, datefgts, dateanalise, dateeng, datesiopi, datesictd, datesaquefgts, datepa, datecartorio;
 
 
-        string  idProcess, datacpf, dataciweb, datacadmut, datair, datafgts, dataanalise, dataeng, datastatus, statusprocesso, datasiopi, datasictd, datasaquefgts, datapa, datacartorio;
+        string idProcess, datacpf, dataciweb, datacadmut, datair, datafgts, dataanalise, dataeng, datastatus, statusprocesso, datasiopi, datasictd, datasaquefgts, datapa, datacartorio;
 
         //private int cadastrar = 0;
         //private int newProgressValue;
@@ -190,15 +184,15 @@ namespace LMFinanciamentos.Apresentacao
 
             #region Vendedor
             textnomevendedor.Text = process.Nome_vendedor;
-            
-            if(process.CNPJ_vendedor != "0")
+
+            if (process.CNPJ_vendedor != "0")
             {
                 textcnpjcpf.Text = process.CNPJ_vendedor;
             }
             else
             {
                 textcnpjcpf.Text = process.CPF_vendedor;
-                
+
             }
             textemailvendedor.Text = process.Email_vendedor;
             texttelefonevendedor.Text = process.Telefone_vendedor;
@@ -222,12 +216,12 @@ namespace LMFinanciamentos.Apresentacao
             //comboBox_agencia.Items.Add(process.AgenciaImovel_imovel.PadLeft(4, '0'));
             comboBox_agencia.Items.Add(process.AgenciaImovel_imovel);
             comboBox_agencia.Text = process.AgenciaImovel_imovel;
-            
+
 
             idprograma = process.Id_Programa;
             comboBox_programa.Items.Add(process.Programa_imovel);
             comboBox_programa.Text = process.Programa_imovel;
-            
+
 
             valorimovel.Text = process.Valor_imovel;
             valorfinanciado.Text = process.ValorFinanciado_imovel;
@@ -235,17 +229,17 @@ namespace LMFinanciamentos.Apresentacao
             idcorretora = process.Id_corretora;
             comboBox_corretora.Items.Add(process.Descricao_corretora);
             comboBox_corretora.Text = process.Descricao_corretora;
-            
+
 
             idcorretor = process.Id_corretor;
             comboBox_corretor.Items.Add(process.Nome_corretor);
             comboBox_corretor.Text = process.Nome_corretor;
-            
+
 
             idempreendimentos = process.id_Empreendimentos_imovel;
             comboBox_empreendimentos.Items.Add(process.EmpDescricao_imovel);
             comboBox_empreendimentos.Text = process.EmpDescricao_imovel;
-            
+
 
             if (process.H_DataStatusAnalise != "")
             {
@@ -259,7 +253,7 @@ namespace LMFinanciamentos.Apresentacao
                     //MessageBox.Show(process.H_DataStatusAnalise);
                 }
             }
-            
+
             if (process.H_DataStatusEng != "")
             {
                 //MessageBox.Show(process.H_DataStatusEng);
@@ -335,7 +329,7 @@ namespace LMFinanciamentos.Apresentacao
                 lblnomecartorio.Text = process.Descricao_Carftorio;
 
             }
-            
+
             #endregion
 
             #region Checkstatus
@@ -475,7 +469,7 @@ namespace LMFinanciamentos.Apresentacao
                         Next = false;
                         break;
                     case "Não subsidiado":
-                        
+
                         lblstatus.Text = "FGTS Não subsidiado";
                         lblstatus.ForeColor = Color.Red;
                         Next = true;
@@ -492,7 +486,7 @@ namespace LMFinanciamentos.Apresentacao
         }
         public event Action ProcessoSalvo;
 
-        private void Get_Status ()
+        private void Get_Status()
         {
             #region Checkstatus
 
@@ -508,7 +502,7 @@ namespace LMFinanciamentos.Apresentacao
                         break;
                     case "Não Consultado":
                         statusprocesso = "Consultar CPF";
-                           Next = false;
+                        Next = false;
                         break;
                     case "Com Restrição":
                         statusprocesso = "CPF Com Restrição";
@@ -806,7 +800,7 @@ namespace LMFinanciamentos.Apresentacao
             {
                 datefgts = DateTime.Parse("01/01/0001 00:00:00");
             }
-            
+
 
             String analise = comboBox_analise.Text;
             //DateTime dateanalise = DateTime.Parse(dataanalise);
@@ -820,13 +814,13 @@ namespace LMFinanciamentos.Apresentacao
             }
             String eng = comboBox_statuseng.Text;
             //DateTime dateeng = DateTime.Parse(dataeng);
-            if(dtpeng.Text != "")
+            if (dtpeng.Text != "")
             {
                 dateeng = DateTime.Parse(dtpeng.Text);
             }
             else
             {
-                dateeng  = DateTime.Parse("01/01/0001 00:00:00");
+                dateeng = DateTime.Parse("01/01/0001 00:00:00");
             }
             String siopi = comboBox_SIOPI.Text;
             //DateTime datesiopi = DateTime.Parse(datasiopi);
@@ -899,8 +893,8 @@ namespace LMFinanciamentos.Apresentacao
             //DateTime datestatus = DateTime.Parse(datastatus);
             #endregion
 
-            updateprocesso.UpdateProcesso(idProcess, cpf, datecpf, ciweb, dateciweb, cadmut, datecadmut, ir,dateir,fgts,datefgts,analise,dateanalise,eng,dateeng,siopi,datesiopi,sictd,datesictd,saquefgts,datesaquefgts,pa,datepa,idagencia,idprograma,Valorimov,Valorfinan,combocorretora,combocorretores,combocoempreendimentos,idCartorio,cartorio,datecartorio,statusprocesso);
-            MessageBox.Show(updateprocesso.mensagem,"Salvar",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            updateprocesso.UpdateProcesso(idProcess, cpf, datecpf, ciweb, dateciweb, cadmut, datecadmut, ir, dateir, fgts, datefgts, analise, dateanalise, eng, dateeng, siopi, datesiopi, sictd, datesictd, saquefgts, datesaquefgts, pa, datepa, idagencia, idprograma, Valorimov, Valorfinan, combocorretora, combocorretores, combocoempreendimentos, idCartorio, cartorio, datecartorio, statusprocesso);
+            MessageBox.Show(updateprocesso.mensagem, "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
             if (ProcessoSalvo != null)
@@ -909,7 +903,7 @@ namespace LMFinanciamentos.Apresentacao
             Close();
 
         }
-       
+
         private void btncancelardoc_Click(object sender, EventArgs e)
         {
             Close();
@@ -1329,9 +1323,9 @@ namespace LMFinanciamentos.Apresentacao
                 Cursor = Cursors.WaitCursor;
                 #region Ducumentos
                 LoginDaoComandos documento = new LoginDaoComandos();
-                
+
                 Local = documento.GetServer().ServerFilesPath_Server;
-              
+
                 dataGridView_Arquivos.AutoGenerateColumns = false;
                 //dataGridView_Arquivos.Columns["Numero"].DefaultCellStyle.Format = "D6";
                 dataGridView_Arquivos.DataSource = documento.GetDataDocumentos(idProcess);
@@ -1474,8 +1468,8 @@ namespace LMFinanciamentos.Apresentacao
             //    //e.Handled = true;
 
             //}
-                //I supposed your button column is at index 0
-                if (e.ColumnIndex == 5)
+            //I supposed your button column is at index 0
+            if (e.ColumnIndex == 5)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
@@ -1538,7 +1532,7 @@ namespace LMFinanciamentos.Apresentacao
                 String extension = row.Cells[8].Value.ToString();
                 String pasta = idProcess;
 
-                DialogResult dialogResult = MessageBox.Show("Confima a exclusão do arquivo "+ idProcess+ iddoc+ extension, "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dialogResult = MessageBox.Show("Confima a exclusão do arquivo " + idProcess + iddoc + extension, "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Yes)
                 {
                     LoginDaoComandos delete = new LoginDaoComandos();
@@ -1554,7 +1548,7 @@ namespace LMFinanciamentos.Apresentacao
                     }
                     else
                     {
-                        MessageBox.Show("O arquivo " + Excluir + " não foi encontrado! \n Contate o Suporte Técnico!","Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("O arquivo " + Excluir + " não foi encontrado! \n Contate o Suporte Técnico!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     #endregion
                 }
@@ -1595,7 +1589,7 @@ namespace LMFinanciamentos.Apresentacao
                         sfd.Filter = "Png Image(.png)| *.png";
                         break;
                     case ".doc":
-                        sfd.Filter =  "Word Documents|*.doc";
+                        sfd.Filter = "Word Documents|*.doc";
                         break;
                     case ".docx":
                         sfd.Filter = "Word Documents|*.docx";
@@ -1618,7 +1612,7 @@ namespace LMFinanciamentos.Apresentacao
                 sfd.FileName = idProcess + row.Cells[0].Value.ToString().PadLeft(2, '0') + row.Cells[8].Value.ToString(); //"Mac_" + DateTime.Now.ToString("ddMMyyyy_HHmmss");
                 sfd.RestoreDirectory = true;
 
-                String Filedownload = Local + @"\" + idProcess+@"\"+ sfd.FileName;
+                String Filedownload = Local + @"\" + idProcess + @"\" + sfd.FileName;
                 //MessageBox.Show(Filedownload);
 
                 if (File.Exists(Filedownload))
@@ -1633,7 +1627,7 @@ namespace LMFinanciamentos.Apresentacao
                 }
                 else
                 {
-                    MessageBox.Show("Arquivo não encontrado \n Contate o Suporte Técnico!","Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Arquivo não encontrado \n Contate o Suporte Técnico!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             if (e.ColumnIndex == dataGridView_Arquivos.Columns["Ver"].Index && e.RowIndex >= 0)
@@ -1679,7 +1673,7 @@ namespace LMFinanciamentos.Apresentacao
                 //sfd.Filter = "PDF document (*.pdf)|*.pdf| All files (*.*)|*.*";
                 //string sfdname = saveFileDialog1.FileName;
                 //sfd.Title = "Salvar Arquivo";
-                String FileName = idProcess + row.Cells[0].Value.ToString().PadLeft(2, '0') + row.Cells[8].Value.ToString(); 
+                String FileName = idProcess + row.Cells[0].Value.ToString().PadLeft(2, '0') + row.Cells[8].Value.ToString();
                 //sfd.RestoreDirectory = true;
 
                 String Filedownload = Local + @"\" + idProcess + @"\" + FileName;
@@ -1690,9 +1684,9 @@ namespace LMFinanciamentos.Apresentacao
                     //if (sfd.ShowDialog() == DialogResult.OK)
                     //{
 
-                       // Download(Filedownload, caminhoRaiz);
-                        //MessageBox.Show(caminhoRaiz + Filedownload, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        System.Diagnostics.Process.Start(Filedownload);
+                    // Download(Filedownload, caminhoRaiz);
+                    //MessageBox.Show(caminhoRaiz + Filedownload, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    System.Diagnostics.Process.Start(Filedownload);
                     //}
 
 
@@ -1716,7 +1710,7 @@ namespace LMFinanciamentos.Apresentacao
                 comboBox_tipoProcesso.DisplayMember = "Descricao";
                 comboBox_tipoProcesso.ValueMember = "id";
                 //comboBox_agencia.Text = "";
-                
+
                 #endregion
 
                 comboBox_tipoProcesso.DroppedDown = true;
@@ -1730,9 +1724,9 @@ namespace LMFinanciamentos.Apresentacao
 
         private void comboBox_tipoArquivo_MouseClick(object sender, MouseEventArgs e)
         {
-            if(String.IsNullOrEmpty(comboBox_tipoProcesso.Text))
+            if (String.IsNullOrEmpty(comboBox_tipoProcesso.Text))
             {
-                MessageBox.Show("Selecione o tipo de Processo!", "Informção Necessaria",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Selecione o tipo de Processo!", "Informção Necessaria", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 comboBox_tipoProcesso.Select();
                 //comboBox_tipoProcesso.DroppedDown = true;
                 return;
@@ -1741,17 +1735,17 @@ namespace LMFinanciamentos.Apresentacao
             //Cursor = Cursors.WaitCursor;
             //if (comboBox_tipoArquivo.DataSource is null)
             //{
-                //comboBox_tipoArquivo.IntegralHeight = false;
-                //LoginDaoComandos getcombo = new LoginDaoComandos();
-                //#region Popular combobox
-                //comboBox_tipoArquivo.DataSource = getcombo.GetDataTipoDoc(idcombotipodoc);
-                //comboBox_tipoArquivo.DisplayMember = "Descricao";
-                //comboBox_tipoArquivo.ValueMember = "id";
-                ////comboBox_agencia.Text = "";
-                //#endregion
+            //comboBox_tipoArquivo.IntegralHeight = false;
+            //LoginDaoComandos getcombo = new LoginDaoComandos();
+            //#region Popular combobox
+            //comboBox_tipoArquivo.DataSource = getcombo.GetDataTipoDoc(idcombotipodoc);
+            //comboBox_tipoArquivo.DisplayMember = "Descricao";
+            //comboBox_tipoArquivo.ValueMember = "id";
+            ////comboBox_agencia.Text = "";
+            //#endregion
 
-                //comboBox_tipoArquivo.DroppedDown = true;
-                //Cursor = Cursors.Default;
+            //comboBox_tipoArquivo.DroppedDown = true;
+            //Cursor = Cursors.Default;
             //}
             //else
             //{
@@ -1771,7 +1765,7 @@ namespace LMFinanciamentos.Apresentacao
             //comboBox_tipoArquivo.Items.Clear();
             comboBox_tipoArquivo.IntegralHeight = false;
             LoginDaoComandos getcombo = new LoginDaoComandos();
-            
+
             comboBox_tipoArquivo.DataSource = getcombo.GetDataTipoDoc(idcombotipodoc);
             comboBox_tipoArquivo.DisplayMember = "Descricao";
             comboBox_tipoArquivo.ValueMember = "id";
@@ -1914,7 +1908,7 @@ namespace LMFinanciamentos.Apresentacao
         {
             //string FilePath = Directory.GetCurrentDirectory() + "/tepdownload/" + Path.GetFileName(remoteUri); // path where download file to be saved, with filename, here I have taken file name from supplied remote url
             string FilePath = folderdestino;//+  Path.GetFileName(remoteUri); // path where download file to be saved, with filename, here I have taken file name from supplied remote url
-            
+
             using (WebClient client = new WebClient())
             {
                 try
@@ -2035,18 +2029,18 @@ namespace LMFinanciamentos.Apresentacao
         }
         private void btnenviar_Click(object sender, EventArgs e)
         {
-            if(comboBox_nomecartorio.Text == "")
+            if (comboBox_nomecartorio.Text == "")
             {
                 MessageBox.Show("Favor Selecione o cartorio");
                 comboBox_nomecartorio.DroppedDown = true;
             }
             else
             {
-                if(lblnomecartorio.Text != comboBox_nomecartorio.Text && lblnomecartorio.Text != "Selecione o Cartório" && lblnomecartorio.Text != "")
+                if (lblnomecartorio.Text != comboBox_nomecartorio.Text && lblnomecartorio.Text != "Selecione o Cartório" && lblnomecartorio.Text != "")
                 {
-                    if (MessageBox.Show("Já entregue ao Cartório: "+ "\n" +  lblnomecartorio.Text + "\n" + " Deseja alterar o cartório?", "Systema Informa", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                    if (MessageBox.Show("Já entregue ao Cartório: " + "\n" + lblnomecartorio.Text + "\n" + " Deseja alterar o cartório?", "Systema Informa", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
                     {
-                        
+
                         idCartorio = comboBox_nomecartorio.SelectedValue.ToString();
 
                         //MessageBox.Show(comboBox_nomecartorio.SelectedValue.ToString());
@@ -2080,9 +2074,9 @@ namespace LMFinanciamentos.Apresentacao
                     comboBox_nomecartorio.SelectedIndex = -1;
                 }
             }
-            
 
-            
+
+
 
 
 
@@ -2174,7 +2168,7 @@ namespace LMFinanciamentos.Apresentacao
                 return;
             }
             else
-            { 
+            {
 
                 curFile = txtArquivo.Text;
                 if (File.Exists(curFile))
@@ -2195,7 +2189,7 @@ namespace LMFinanciamentos.Apresentacao
                         //    descArquivo = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtdescricao.Text.ToLower());
                         //}
                         descArquivo = comboBox_tipoArquivo.Text;
-                        caminho = Local + @"\" + idProcess + @"\" ;
+                        caminho = Local + @"\" + idProcess + @"\";
 
                         String stipo = comboBox_tipoProcesso.Text;
                         numArquivo = idProcess + count.ToString().PadLeft(2, '0');
@@ -2211,7 +2205,7 @@ namespace LMFinanciamentos.Apresentacao
                         //ImageData = br.ReadBytes((int)fs.Length);
                         //br.Close();
                         //fs.Close();
-                        int ultimoID = enviar.CriarDocumento( idProcess, stipo, descArquivo, ImageData, extension, caminho, statusArquivo);
+                        int ultimoID = enviar.CriarDocumento(idProcess, stipo, descArquivo, ImageData, extension, caminho, statusArquivo);
                         //}
                         //else
                         //{
@@ -2230,7 +2224,7 @@ namespace LMFinanciamentos.Apresentacao
 
                         RenameFile(curFile, NewFile);
 
-                        
+
                         #endregion
 
                         #region  Load Grid
@@ -2358,7 +2352,7 @@ namespace LMFinanciamentos.Apresentacao
                 //ImageData = br.ReadBytes((int)fs.Length);
                 //br.Close();
                 //fs.Close();
-               // enviar.CriarDocumento( idProcess, stipo, descArquivo, ImageData, extension,caminho, statusArquivo);
+                // enviar.CriarDocumento( idProcess, stipo, descArquivo, ImageData, extension,caminho, statusArquivo);
             }
             else
             {
@@ -2371,12 +2365,13 @@ namespace LMFinanciamentos.Apresentacao
         }
         private void comboBox_statuscartorio_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            if(lblnomecartorio.Text == "Selecione o Cartório")
+            if (lblnomecartorio.Text == "Selecione o Cartório")
             {
                 comboBox_statuscartorio.SelectedIndex = -1;
                 MessageBox.Show("Favor Selecione o cartorio");
                 comboBox_nomecartorio.DroppedDown = true;
-            }else if(lblnomecartorio.Text == "")
+            }
+            else if (lblnomecartorio.Text == "")
             {
                 comboBox_statuscartorio.SelectedIndex = -1;
                 MessageBox.Show("Favor Selecione o cartorio");
@@ -2413,8 +2408,8 @@ namespace LMFinanciamentos.Apresentacao
                         break;
                 }
             }
-            
-           
+
+
         }
         private void tabControl_Selected(object sender, TabControlEventArgs e)
         {
@@ -2476,8 +2471,8 @@ namespace LMFinanciamentos.Apresentacao
                     break;
                 case "Enviado":
                     String Data1 = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
-                   // lbldatasictd.Text = Data1;
-                   // lbldatasictd.Visible = true;
+                    // lbldatasictd.Text = Data1;
+                    // lbldatasictd.Visible = true;
                     dtpsictd.Value = DateTime.Now;
                     dtpsictd.Visible = true;
                     lblasictd.Visible = true;
@@ -2582,7 +2577,7 @@ namespace LMFinanciamentos.Apresentacao
         }
         private void txtStatusCPF_SelectedValueChanged(object sender, EventArgs e)
         {
-            
+
         }
         private void txtStatusCPF_SelectionChangeCommitted(object sender, EventArgs e)
         {
@@ -2711,18 +2706,18 @@ namespace LMFinanciamentos.Apresentacao
                     dtpir.Visible = true;
                     lblair.Visible = true;
                     break;
-                //case "Nada Consta":
-                //    String Data3 = DateTime.Now.ToString("M/d/yyyy");
-                //    lbldatair.Visible = true;
-                //    lbldatair.Text = Data3;
-                //    lbldatair.Visible = true;
-                //    break;
-                //case "Bloqueado em outro CCA":
-                //    String Data4 = DateTime.Now.ToString("M/d/yyyy");
-                //    lbldatair.Visible = true;
-                //    lbldatair.Text = Data4;
-                //    lbldatair.Visible = true;
-                //    break;
+                    //case "Nada Consta":
+                    //    String Data3 = DateTime.Now.ToString("M/d/yyyy");
+                    //    lbldatair.Visible = true;
+                    //    lbldatair.Text = Data3;
+                    //    lbldatair.Visible = true;
+                    //    break;
+                    //case "Bloqueado em outro CCA":
+                    //    String Data4 = DateTime.Now.ToString("M/d/yyyy");
+                    //    lbldatair.Visible = true;
+                    //    lbldatair.Text = Data4;
+                    //    lbldatair.Visible = true;
+                    //    break;
             }
         }
         private void txtfgts_SelectionChangeCommitted(object sender, EventArgs e)
@@ -2747,18 +2742,18 @@ namespace LMFinanciamentos.Apresentacao
                     dtpfgtscli.Visible = true;
                     lblafgtscli.Visible = true;
                     break;
-                //case "Nada Consta":
-                //    String Data3 = DateTime.Now.ToString("M/d/yyyy");
-                //    lbldatafgts.Visible = true;
-                //    lbldatafgts.Text = Data3;
-                //    lbldatafgts.Visible = true;
-                //    break;
-                //case "Bloqueado em outro CCA":
-                //    String Data4 = DateTime.Now.ToString("M/d/yyyy");
-                //    lbldatafgts.Visible = true;
-                //    lbldatafgts.Text = Data4;
-                //    lbldatafgts.Visible = true;
-                //    break;
+                    //case "Nada Consta":
+                    //    String Data3 = DateTime.Now.ToString("M/d/yyyy");
+                    //    lbldatafgts.Visible = true;
+                    //    lbldatafgts.Text = Data3;
+                    //    lbldatafgts.Visible = true;
+                    //    break;
+                    //case "Bloqueado em outro CCA":
+                    //    String Data4 = DateTime.Now.ToString("M/d/yyyy");
+                    //    lbldatafgts.Visible = true;
+                    //    lbldatafgts.Text = Data4;
+                    //    lbldatafgts.Visible = true;
+                    //    break;
             }
         }
         private void txtcadmut_SelectionChangeCommitted(object sender, EventArgs e)

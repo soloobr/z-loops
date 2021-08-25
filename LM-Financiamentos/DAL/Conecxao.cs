@@ -49,7 +49,7 @@ namespace LMFinanciamentos.DAL
             //{
             //    con.ConnectionString = @"server=sql452.main-hosting.eu;user id=u371409358_lm;Password=P@ssw0rd;database=u371409358_lm;persistsecurityinfo=True;convert zero datetime=True";
             //}
-            
+
             //con.ConnectionString = @"server=192.168.0.19;user id = u371409358_lm;Password=P@ssw0rd; database=u371409358_lm;persistsecurityinfo=True;convert zero datetime=True";
             // con.ConnectionString = @"server=SERVIDOR;user id = u371409358_lm;Password=P@ssw0rd; database=u371409358_lm;persistsecurityinfo=True;convert zero datetime=True";
         }

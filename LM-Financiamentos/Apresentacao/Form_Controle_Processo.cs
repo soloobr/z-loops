@@ -1,8 +1,6 @@
 ﻿using LMFinanciamentos.DAL;
 using LMFinanciamentos.Entidades;
 using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Windows.Forms;
 
 namespace LMFinanciamentos.Apresentacao
@@ -18,8 +16,8 @@ namespace LMFinanciamentos.Apresentacao
         {
             InitializeComponent();
 
-           // Form_Principal proc = new Form_Principal();
-           // idresponsavel = proc.idresponsavel;
+            // Form_Principal proc = new Form_Principal();
+            // idresponsavel = proc.idresponsavel;
 
         }
 

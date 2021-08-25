@@ -23,7 +23,7 @@ namespace LMFinanciamentos.Apresentacao
         public Form_Cadastro_Vendedor()
         {
             InitializeComponent();
-            
+
         }
 
         public void setTextNome(String sNome)
@@ -38,7 +38,7 @@ namespace LMFinanciamentos.Apresentacao
 
         private void Form_Cadastro_Vendedor_Load(object sender, EventArgs e)
         {
-            
+
             //txtnomecli.Select();
             //txtnomecli.ScrollToCaret();
             //txtnomecli.Focus();
@@ -407,7 +407,7 @@ namespace LMFinanciamentos.Apresentacao
                 return;
             }
 
-            if(txtcpf.Text == "" && txtcnpj.Text == "")
+            if (txtcpf.Text == "" && txtcnpj.Text == "")
             {
                 MessageBox.Show("Campo CPF ou CNPJ é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtcpf.Select();
@@ -421,7 +421,7 @@ namespace LMFinanciamentos.Apresentacao
             else
             {
                 CPF = FormatCnpjCpf.SemFormatacao(txtcpf.Text);
-            
+
             }
 
             if (txtcnpj.Text == "")
@@ -461,7 +461,7 @@ namespace LMFinanciamentos.Apresentacao
             {
                 if (string.IsNullOrEmpty(txtcelular.Text))
                 {
-                   MessageBox.Show("É necessário preencher o campo Telefone ou Celular", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("É necessário preencher o campo Telefone ou Celular", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txttelefone.Select();
                     Cursor = Cursors.Default;
                     return;
@@ -482,10 +482,10 @@ namespace LMFinanciamentos.Apresentacao
             LoginDaoComandos inserirvendedor = new LoginDaoComandos();
 
             int newidcli = inserirvendedor.CadastrarVendedor(txtnomecli.Text, txtemail.Text, telefone, celular, CPF, CNPJ, status);
-       
+
             if (newidcli >= 0)
             {
-                if(excluirimage == "Update")
+                if (excluirimage == "Update")
                 {
                     LoginDaoComandos insertfotovendedor = new LoginDaoComandos();
                     fsObj = File.OpenRead(arquivo);
@@ -519,10 +519,10 @@ namespace LMFinanciamentos.Apresentacao
 
                     LoginDaoComandos updateconta = new LoginDaoComandos();
 
-                    updateconta.InsertConta(idVendedor, Agencia, Conta,"V");
-                    if(updateconta.mensagem != "OK")
+                    updateconta.InsertConta(idVendedor, Agencia, Conta, "V");
+                    if (updateconta.mensagem != "OK")
                     {
-                        MessageBox.Show("Vendedor Cadastrado! \n Agencia e Conta com erro! \n "+updateconta.mensagem, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Vendedor Cadastrado! \n Agencia e Conta com erro! \n " + updateconta.mensagem, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         Close();
                     }
 
@@ -542,7 +542,7 @@ namespace LMFinanciamentos.Apresentacao
                 Cursor = Cursors.Default;
 
                 if (VendedorSalvo != null)
-                        VendedorSalvo.Invoke();
+                    VendedorSalvo.Invoke();
 
                 Cursor = Cursors.Default;
                 Close();
@@ -552,7 +552,7 @@ namespace LMFinanciamentos.Apresentacao
                 Cursor = Cursors.Default;
                 MessageBox.Show("Erro ao Cadastrar o Vendedor!", "Cadastrando", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        
+
         }
     }
 }

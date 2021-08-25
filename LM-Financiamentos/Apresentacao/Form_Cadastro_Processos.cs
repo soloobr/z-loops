@@ -1,12 +1,7 @@
-﻿using ComponentFactory.Krypton.Toolkit;
-using LMFinanciamentos.DAL;
+﻿using LMFinanciamentos.DAL;
 using LMFinanciamentos.Entidades;
-using LMFinanciamentos.Modelo;
 using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Drawing;
-using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -210,7 +205,7 @@ namespace LMFinanciamentos.Apresentacao
             }
             else if (String.IsNullOrEmpty(valorimovel.Text) || Vlimovel == "000")
             {
-                
+
                 MessageBox.Show("Valor do Imóvel Necessário!", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 valorimovel.Select();
                 valorimovel.Focus();
@@ -324,7 +319,7 @@ namespace LMFinanciamentos.Apresentacao
                         ComboBoxClient.Select();
                         ComboBoxClient.Focus();
 
-                        Form_Dados_cliente frm_Cadastro_cliente = new Form_Dados_cliente();
+                        Form_Dados_Cliente frm_Cadastro_cliente = new Form_Dados_Cliente();
                         frm_Cadastro_cliente.setTextNome(ComboBoxClient.Text);
                         frm_Cadastro_cliente.Show();
                     }

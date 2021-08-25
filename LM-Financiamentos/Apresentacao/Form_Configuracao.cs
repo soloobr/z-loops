@@ -1,11 +1,11 @@
-﻿using LMFinanciamentos.Entidades;
+﻿using LMFinanciamentos.DAL;
+using LMFinanciamentos.Entidades;
 using LMFinanciamentos.Modelo;
-using LMFinanciamentos.DAL;
 using System;
 using System.Drawing;
-using System.Windows.Forms;
 using System.IO;
 using System.Reflection;
+using System.Windows.Forms;
 
 namespace LMFinanciamentos.Apresentacao
 {
@@ -30,7 +30,7 @@ namespace LMFinanciamentos.Apresentacao
         {
             var appVersion = Assembly.GetExecutingAssembly().GetName().Version;
             lblversion.Text = String.Format("v{0}", appVersion);
-            lblversion.Text =  Application.ProductVersion;
+            lblversion.Text = Application.ProductVersion;
 
             Functions.Arredonda(btncloseconf, 12, true, true);
 
@@ -235,14 +235,14 @@ namespace LMFinanciamentos.Apresentacao
             {
                 string basePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
                 var MyIni = new IniFile(basePath + @"\LM-Settings.ini");
-                
+
                 String usuario = Path.GetFileName(basePath);
                 MyIni.Write("DefaultVolume", "1", usuario);
-                
+
                 //var DefaultVolume = MyIni.Read("DefaultVolume", usuario);
-                
+
                 //string foto = DefaultVolume.ToString();
-                
+
                 //if (foto == "1")
                 //{
                 //    MessageBox.Show(foto);

@@ -23,7 +23,7 @@ namespace LMFinanciamentos.Apresentacao
         public Form_Cadastro_Funcionario()
         {
             InitializeComponent();
-            
+
         }
 
         public void setTextNome(String sNome)
@@ -38,7 +38,7 @@ namespace LMFinanciamentos.Apresentacao
 
         private void Form_Cadastro_Funcionario_Load(object sender, EventArgs e)
         {
-            
+
             //txtnomecli.Select();
             //txtnomecli.ScrollToCaret();
             //txtnomecli.Focus();
@@ -430,7 +430,7 @@ namespace LMFinanciamentos.Apresentacao
                     //MessageBox.Show(newidlogin);
                 }
 
-               
+
             }
             if (string.IsNullOrEmpty(txtnomecli.Text))
             {
@@ -465,7 +465,7 @@ namespace LMFinanciamentos.Apresentacao
                 sexo = "";
             }
 
-            if(txtrg.Text == "")
+            if (txtrg.Text == "")
             {
                 RG = "0";
             }
@@ -510,7 +510,7 @@ namespace LMFinanciamentos.Apresentacao
 
             LoginDaoComandos inserircliente = new LoginDaoComandos();
 
-          int newidfunc = inserircliente.CadastrarFuncionario(txtnomecli.Text, txtemail.Text, txttelefone.Text, txtcelular.Text, txtendereco.Text, datanasc, sexo,  CPF, RG,  txtcracha.Text,  permission, status);
+            int newidfunc = inserircliente.CadastrarFuncionario(txtnomecli.Text, txtemail.Text, txttelefone.Text, txtcelular.Text, txtendereco.Text, datanasc, sexo, CPF, RG, txtcracha.Text, permission, status);
 
             if (newidfunc >= 0)
             {
@@ -538,37 +538,37 @@ namespace LMFinanciamentos.Apresentacao
                 }
                 #endregion
 
-                     //#region Inserir Login                
-                     idFuncionario = newidfunc.ToString();
+                //#region Inserir Login                
+                idFuncionario = newidfunc.ToString();
 
                 #region Atualizar id Login cad Func
 
-                    LoginDaoComandos updatelogin = new LoginDaoComandos();
+                LoginDaoComandos updatelogin = new LoginDaoComandos();
                 //MessageBox.Show(newidlogin);
-                    string novologin = newidlogin;
-                    string novoidfunc = newidfunc.ToString();
+                string novologin = newidlogin;
+                string novoidfunc = newidfunc.ToString();
 
-                    updatelogin.UpdateLoginNewUser(newidlogin, novoidfunc);
+                updatelogin.UpdateLoginNewUser(newidlogin, novoidfunc);
 
-                    if (updatelogin.mensagem == "OK")
-                    {
-                        MessageBox.Show("Funcionário Cadastrado com Sucesso!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        if (FuncionarioSalvo != null)
-                            FuncionarioSalvo.Invoke();
+                if (updatelogin.mensagem == "OK")
+                {
+                    MessageBox.Show("Funcionário Cadastrado com Sucesso!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (FuncionarioSalvo != null)
+                        FuncionarioSalvo.Invoke();
 
-                        Cursor = Cursors.Default;
-                        Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Funcionário Cadastrado!! \n Erro ai cadastrar o Login \n " + updatelogin.mensagem + "\n Contate o Suporte Técnico!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    Cursor = Cursors.Default;
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Funcionário Cadastrado!! \n Erro ai cadastrar o Login \n " + updatelogin.mensagem + "\n Contate o Suporte Técnico!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                        if (FuncionarioSalvo != null)
-                            FuncionarioSalvo.Invoke();
+                    if (FuncionarioSalvo != null)
+                        FuncionarioSalvo.Invoke();
 
-                        Cursor = Cursors.Default;
-                        Close();
-                    }
+                    Cursor = Cursors.Default;
+                    Close();
+                }
                 #endregion
 
             }

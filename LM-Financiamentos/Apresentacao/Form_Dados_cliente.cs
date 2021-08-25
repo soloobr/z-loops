@@ -1,18 +1,16 @@
 ﻿using LMFinanciamentos.DAL;
 using LMFinanciamentos.Entidades;
-using System;
-using System.Windows.Forms;
-using System.Windows.Media;
-using System.Collections.Generic;
-using System.Drawing;
 using LMFinanciamentos.Modelo;
-using System.IO;
+using System;
+using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
+using System.IO;
+using System.Windows.Forms;
 
 namespace LMFinanciamentos.Apresentacao
 {
-    public partial class Form_Dados_cliente : Form
+    public partial class Form_Dados_Cliente : Form
     {
         String sexo, status, idCliente, valor, renda, nascimento, arquivo, RG, CPF, telefone, celular;
         String excluirimage;
@@ -21,7 +19,7 @@ namespace LMFinanciamentos.Apresentacao
         bool arquivobase, cj, cj1, cj2, cj3;
 
 
-        public Form_Dados_cliente()
+        public Form_Dados_Cliente()
         {
             InitializeComponent();
         }
@@ -144,7 +142,8 @@ namespace LMFinanciamentos.Apresentacao
             if (checkBox_status.Checked)
             {
                 status = "Ativo";
-            }else
+            }
+            else
             {
                 status = "Inativo";
             }
@@ -176,10 +175,10 @@ namespace LMFinanciamentos.Apresentacao
 
             //DateTime datanasc = DateTime.Parse(nascimento);
 
-            
+
 
             String renda = txtrendacli.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
-            
+
             LoginDaoComandos insertfotocliente = new LoginDaoComandos();
             if (excluirimage == "Update")
             {
@@ -196,7 +195,7 @@ namespace LMFinanciamentos.Apresentacao
                 else
                 {
                     fsObj = File.OpenRead(arquivo);
-                   // MessageBox.Show(fsObj.ToString());
+                    // MessageBox.Show(fsObj.ToString());
                     byte[] imgContent = new byte[fsObj.Length];
                     binRdr = new BinaryReader(fsObj);
                     imgContent = binRdr.ReadBytes((int)fsObj.Length);
@@ -212,7 +211,8 @@ namespace LMFinanciamentos.Apresentacao
                     MessageBox.Show(insertfotocliente.mensagem, "Atualizando", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
-            }else if(excluirimage == "Excluir")
+            }
+            else if (excluirimage == "Excluir")
             {
                 LoginDaoComandos excluircliente = new LoginDaoComandos();
                 excluircliente.DeleteFotoCliente(idCliente);
@@ -228,7 +228,7 @@ namespace LMFinanciamentos.Apresentacao
 
             LoginDaoComandos updatecliente = new LoginDaoComandos();
 
-            updatecliente.UpdateConta(idCliente, txtagenciacliente.Text, txtcontacliente.Text,"C");
+            updatecliente.UpdateConta(idCliente, txtagenciacliente.Text, txtcontacliente.Text, "C");
             if (updatecliente.mensagem == "Erro")
             {
                 updatecliente.InsertConta(idCliente, txtagenciacliente.Text, txtcontacliente.Text, "C");
@@ -247,8 +247,8 @@ namespace LMFinanciamentos.Apresentacao
             btn_cancelar.Visible = false;
             splitter2.Visible = false;
             btn_salvar.Visible = false;
-            
-            
+
+
             splitter3.Visible = true;
             btn_excluir.Visible = true;
 
@@ -273,7 +273,7 @@ namespace LMFinanciamentos.Apresentacao
 
             DesabilitarEdicao();
             LoadDadosCliente();
-            tabControl.SelectedTab = tabControl.TabPages["tabcliente"]; 
+            tabControl.SelectedTab = tabControl.TabPages["tabcliente"];
 
             //Close();
         }
@@ -281,7 +281,7 @@ namespace LMFinanciamentos.Apresentacao
         internal void setFoto(byte[] foto_Cli)
         {
             // throw new NotImplementedException();
-            if(foto_Cli != null)
+            if (foto_Cli != null)
             {
                 MemoryStream stmBLOBData = new MemoryStream(foto_Cli);
                 img_foto.Image = Image.FromStream(stmBLOBData);
@@ -300,8 +300,8 @@ namespace LMFinanciamentos.Apresentacao
 
             if (cj == true)
             {
-                tabControl.TabPages.Insert(1,tabconjuge);
-                LoadDadosConjuge(idCliente,"0");
+                tabControl.TabPages.Insert(1, tabconjuge);
+                LoadDadosConjuge(idCliente, "0");
             }
             if (cj1 == true)
             {
@@ -311,10 +311,12 @@ namespace LMFinanciamentos.Apresentacao
             if (cj2 == true)
             {
                 tabControl.TabPages.Insert(3, tabconjuge2);
+                LoadDadosCJ1(idCliente, "2");
             }
             if (cj3 == true)
             {
                 tabControl.TabPages.Insert(4, tabconjuge3);
+                LoadDadosCJ2(idCliente, "3");
             }
         }
 
@@ -396,7 +398,7 @@ namespace LMFinanciamentos.Apresentacao
             txtrendacli.Select(txtrendacli.Text.Length, 0);
             #endregion
 
-            cj = cliente.Conjuge_cliente; 
+            cj = cliente.Conjuge_cliente;
 
 
             txtnomecli.Select(txtnomecli.Text.Length, 0);
@@ -404,7 +406,7 @@ namespace LMFinanciamentos.Apresentacao
             txtnomecli.Focus();
             Cursor = Cursors.Default;
         }
-        public void LoadDadosConjuge(String idcliente,String idconjuge)
+        public void LoadDadosConjuge(String idcliente, String idconjuge)
         {
             Cursor = Cursors.WaitCursor;
             Conjuge conj = null;
@@ -413,74 +415,74 @@ namespace LMFinanciamentos.Apresentacao
             conj = getconjuge.GetConjuge(idcliente, idconjuge);
 
             txtnomeconjuge.Text = conj.Nome_conjuge;
-            //txtcpf.Text = conj.CPF_conjuge;
-            //txtrg.Text = conj.RG_conjuge;
-            //txtnasc.Text = conj.Nascimento_conjuge;
-            //txtemail.Text = conj.Email_conjuge;
-            //txttelefone.Text = conj.Telefone_conjuge;
-            //txtcelular.Text = conj.Celular_conjuge;
-            //txtrendacli.Text = conj.Renda_conjuge;
-            //txtagenciacj.Text = conj.Agencia_conjuge;
-            //txtcontacj.Text = conj.Conta_conjuge;
-            //txtobservacoes.Text = conj.OBS_conjuge;
+            txtcpf.Text = conj.CPF_conjuge;
+            txtrg.Text = conj.RG_conjuge;
+            txtnasc.Text = conj.Nascimento_conjuge;
+            txtemail.Text = conj.Email_conjuge;
+            txttelefone.Text = conj.Telefone_conjuge;
+            txtcelular.Text = conj.Celular_conjuge;
+            txtrendacli.Text = conj.Renda_conjuge;
+            txtagenciacj.Text = conj.Agencia_conjuge;
+            txtcontacj.Text = conj.Conta_conjuge;
+            txtobservacoes.Text = conj.OBS_conjuge;
 
-            //if (conj.Sexo_conjuge == "Masculino")
-            //{
-            //    checkBox_Masculino.Checked = true;
+            if (conj.Sexo_conjuge == "Masculino")
+            {
+                checkBox_Masculino.Checked = true;
 
-            //}
-            //else if (conj.Sexo_conjuge == "Feminino")
-            //{
-            //    checkBox_Feminino.Checked = true;
-            //}
+            }
+            else if (conj.Sexo_conjuge == "Feminino")
+            {
+                checkBox_Feminino.Checked = true;
+            }
 
 
-            //if (conj.Status_conjuge == "Ativo")
-            //{
-            //    checkBox_status.Checked = true;
-            //    checkBox_status.ForeColor = System.Drawing.Color.Blue;
-            //    checkBox_status.Text = "Conjuge Ativo";
-            //}
+            if (conj.Status_conjuge == "Ativo")
+            {
+                checkBox_status.Checked = true;
+                checkBox_status.ForeColor = System.Drawing.Color.Blue;
+                checkBox_status.Text = "Conjuge Ativo";
+            }
 
-            //if (conj.Status_conjuge == "Inativo")
-            //{
-            //    checkBox_status.Text = "Conjuge Inativo";
-            //    checkBox_status.ForeColor = System.Drawing.Color.Red;
-            //    checkBox_status.Checked = false;
-            //}
-            //#region Valor Renda Conjuge
-            //valor = txtrendacj.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
-            //if (valor.Length == 0)
-            //{
-            //    txtrendacj.Text = "0,00" + valor;
-            //}
-            //if (valor.Length == 1)
-            //{
-            //    txtrendacj.Text = "0,0" + valor;
-            //}
-            //if (valor.Length == 2)
-            //{
-            //    txtrendacj.Text = "0," + valor;
-            //}
-            //else if (valor.Length >= 3)
-            //{
-            //    if (txtrendacj.Text.StartsWith("0,"))
-            //    {
-            //        txtrendacj.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
-            //    }
-            //    else if (txtrendacj.Text.Contains("00,"))
-            //    {
-            //        txtrendacj.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
-            //    }
-            //    else
-            //    {
-            //        txtrendacj.Text = valor.Insert(valor.Length - 2, ",");
-            //    }
-            //}
-            //valor = txtrendacj.Text;
-            //txtrendacj.Text = string.Format("{0:C}", Convert.ToDouble(valor));
-            //txtrendacj.Select(txtrendacj.Text.Length, 0);
-            //#endregion
+            if (conj.Status_conjuge == "Inativo")
+            {
+                checkBox_status.Text = "Conjuge Inativo";
+                checkBox_status.ForeColor = System.Drawing.Color.Red;
+                checkBox_status.Checked = false;
+            }
+            #region Valor Renda Conjuge
+            valor = txtrendacj.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+            if (valor.Length == 0)
+            {
+                txtrendacj.Text = "0,00" + valor;
+            }
+            if (valor.Length == 1)
+            {
+                txtrendacj.Text = "0,0" + valor;
+            }
+            if (valor.Length == 2)
+            {
+                txtrendacj.Text = "0," + valor;
+            }
+            else if (valor.Length >= 3)
+            {
+                if (txtrendacj.Text.StartsWith("0,"))
+                {
+                    txtrendacj.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
+                }
+                else if (txtrendacj.Text.Contains("00,"))
+                {
+                    txtrendacj.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
+                }
+                else
+                {
+                    txtrendacj.Text = valor.Insert(valor.Length - 2, ",");
+                }
+            }
+            valor = txtrendacj.Text;
+            txtrendacj.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            txtrendacj.Select(txtrendacj.Text.Length, 0);
+            #endregion
 
             cj1 = conj.Conjuge_conjuge;
 
@@ -490,7 +492,7 @@ namespace LMFinanciamentos.Apresentacao
             txtnomeconjuge.Focus();
             Cursor = Cursors.Default;
         }
-        public void LoadDadosCJ(String idcliente,String idconjuge)
+        public void LoadDadosCJ(String idcliente, String idconjuge)
         {
             Cursor = Cursors.WaitCursor;
             Conjuge conjuge = null;
@@ -568,7 +570,7 @@ namespace LMFinanciamentos.Apresentacao
             //txtrendacj.Select(txtrendacj.Text.Length, 0);
             //#endregion
 
-             cj1 = conjuge.Conjuge_conjuge;
+            cj1 = conjuge.Conjuge_conjuge;
 
 
             txtnomecj1.Select(txtnomecj1.Text.Length, 0);
@@ -594,9 +596,9 @@ namespace LMFinanciamentos.Apresentacao
             ofd1.ShowReadOnly = true;
 
             DialogResult dr = this.ofd1.ShowDialog();
-            
+
             Stream myStream = null;
-            
+
 
             if (dr == System.Windows.Forms.DialogResult.OK)
             {
@@ -618,7 +620,7 @@ namespace LMFinanciamentos.Apresentacao
                             var image = Image.FromStream(myStream);
 
                             var newImage = ResizeImage(image, 600, 400);
-                            newImage.Save("c:\\Windows\\Temp\\"+arquivo+".Jpeg", ImageFormat.Jpeg);
+                            newImage.Save("c:\\Windows\\Temp\\" + arquivo + ".Jpeg", ImageFormat.Jpeg);
 
                             arquivo = @"C:\Windows\Temp\" + arquivo + ".Jpeg";
                         }
@@ -633,9 +635,9 @@ namespace LMFinanciamentos.Apresentacao
 
                 //MessageBox.Show(arquivo);
                 img_foto.Image = new Bitmap(arquivo);
-                    img_foto.SizeMode = PictureBoxSizeMode.StretchImage;
-                    btn_add_foto.Text = "Alterar";
-                    excluirimage = "Update";
+                img_foto.SizeMode = PictureBoxSizeMode.StretchImage;
+                btn_add_foto.Text = "Alterar";
+                excluirimage = "Update";
 
 
             }
@@ -830,7 +832,8 @@ namespace LMFinanciamentos.Apresentacao
         {
             img_foto.Image = null;
             btn_add_foto.Text = "Adicionar";
-            if(img_foto.Image != null){
+            if (img_foto.Image != null)
+            {
                 excluirimage = "NoExluir";
             }
             else
@@ -869,7 +872,7 @@ namespace LMFinanciamentos.Apresentacao
             btn_salvar.Visible = true;
             splitter3.Visible = false;
             btn_excluir.Visible = false;
-            
+
 
             HabilitarEdicao();
         }
@@ -893,7 +896,7 @@ namespace LMFinanciamentos.Apresentacao
             txtobservacoes.ReadOnly = false;
 
             img_foto.Enabled = true;
-            if(img_foto.Image == null)
+            if (img_foto.Image == null)
             {
                 btn_add_foto.Text = "Adicionar";
             }

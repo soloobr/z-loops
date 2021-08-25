@@ -1,7 +1,6 @@
 ﻿using LMFinanciamentos.DAL;
 using LMFinanciamentos.Entidades;
 using System;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace LMFinanciamentos.Apresentacao
@@ -78,7 +77,7 @@ namespace LMFinanciamentos.Apresentacao
 
         private void dgv_clientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            Form_Dados_cliente frm_dados_clientes = new Form_Dados_cliente();
+            Form_Dados_Cliente frm_dados_clientes = new Form_Dados_Cliente();
             frm_dados_clientes.setIdCliente(dgv_clientes.SelectedRows[0].Cells["id"].Value.ToString());
             clienteselecionado = dgv_clientes.CurrentCell.RowIndex;
             frm_dados_clientes.ClienteSalvo += new Action(frm_dados_clientes_ClienteSalvo);
@@ -157,7 +156,7 @@ namespace LMFinanciamentos.Apresentacao
         private void btn_editar_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
-            Form_Dados_cliente frm_dados_clientes = new Form_Dados_cliente();
+            Form_Dados_Cliente frm_dados_clientes = new Form_Dados_Cliente();
             frm_dados_clientes.setIdCliente(dgv_clientes.SelectedRows[0].Cells["id"].Value.ToString());
             clienteselecionado = dgv_clientes.CurrentCell.RowIndex;
             frm_dados_clientes.ClienteSalvo += new Action(frm_dados_clientes_ClienteSalvo);
@@ -168,7 +167,7 @@ namespace LMFinanciamentos.Apresentacao
         private void btn_excluir_Click(object sender, EventArgs e)
         {
             String idclienteexclude = dgv_clientes.SelectedRows[0].Cells["id"].Value.ToString();
-            var result =  MessageBox.Show("Deseja Excluir o Cliente: \n "+ dgv_clientes.SelectedRows[0].Cells["Nome"].Value.ToString() + "  ?","excluir",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+            var result = MessageBox.Show("Deseja Excluir o Cliente: \n " + dgv_clientes.SelectedRows[0].Cells["Nome"].Value.ToString() + "  ?", "excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes)
             {
@@ -176,7 +175,7 @@ namespace LMFinanciamentos.Apresentacao
                 Cursor = Cursors.WaitCursor;
                 LoginDaoComandos deletecliente = new LoginDaoComandos();
 
-                if(deletecliente.GetFotoCliente(idclienteexclude).Foto_cliente != null)
+                if (deletecliente.GetFotoCliente(idclienteexclude).Foto_cliente != null)
                 {
                     //MessageBox.Show("Tem foto");
                     deletecliente.DeleteFotoCliente(idclienteexclude);
@@ -199,7 +198,7 @@ namespace LMFinanciamentos.Apresentacao
                 }
 
 
-                
+
             }
         }
 
@@ -224,7 +223,7 @@ namespace LMFinanciamentos.Apresentacao
         void frm_cadastro_clientes_ClienteSalvo()
         {
             AtualizaGrid();
-    
+
             dgv_clientes.ClearSelection();
 
             int nRowIndex = dgv_clientes.Rows.Count - 1;

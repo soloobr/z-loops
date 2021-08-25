@@ -7,9 +7,11 @@
     }
 }
 
-namespace LMFinanciamentos.DAL.DS_DocumentosTableAdapters {
-    
-    
-    public partial class ProcessosTableAdapter {
+namespace LMFinanciamentos.DAL.DS_DocumentosTableAdapters
+{
+
+
+    public partial class ProcessosTableAdapter
+    {
     }
 }

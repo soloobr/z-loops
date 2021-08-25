@@ -234,9 +234,9 @@ namespace LMFinanciamentos.Apresentacao
         void frm_dados_funcionario_FuncionarioSalvo()
         {
             AtualizaGrid();
-           
+
             contgridlast = dgv_funcionarios.Rows.Count;
-           
+
             if (contgrid == contgridlast)
             {
                 dgv_funcionarios.ClearSelection();

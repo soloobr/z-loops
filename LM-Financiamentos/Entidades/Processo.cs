@@ -47,9 +47,9 @@
         public string Id_cliente { get; set; }
         public string Nome_cliente { get; set; }
         public string Email_cliente { get; set; }
-        public string  Telefone_cliente { get; set; }
-        public string  Celular_cliente { get; set; }
-        public string  CPF_cliente { get; set; }
+        public string Telefone_cliente { get; set; }
+        public string Celular_cliente { get; set; }
+        public string CPF_cliente { get; set; }
         public string RG_cliente { get; set; }
         public string Renda_cliente { get; set; }
         public string Nascimento_cliente { get; set; }
@@ -60,16 +60,16 @@
         #region vendedor
         public string Id_vendedor { get; set; }
         public string Nome_vendedor { get; set; }
-        public string Email_vendedor  { get; set; }
-        public string Telefone_vendedor  { get; set; }
-        public string Celular_vendedor  { get; set; }
-        public string CPF_vendedor  { get; set; }
-        public string CNPJ_vendedor  { get; set; }
-        public string Renda_vendedor  { get; set; }
-        public string Nascimento_vendedor  { get; set; }
-        public string Agencia_vendedor  { get; internal set; }
-        public string Conta_vendedor  { get; internal set; }
-      
+        public string Email_vendedor { get; set; }
+        public string Telefone_vendedor { get; set; }
+        public string Celular_vendedor { get; set; }
+        public string CPF_vendedor { get; set; }
+        public string CNPJ_vendedor { get; set; }
+        public string Renda_vendedor { get; set; }
+        public string Nascimento_vendedor { get; set; }
+        public string Agencia_vendedor { get; internal set; }
+        public string Conta_vendedor { get; internal set; }
+
         #endregion
 
         #region Imovel
@@ -83,7 +83,7 @@
         public string Id_Programa { get; set; }
         public string EmpDescricao_imovel { get; set; }
         public string id_Empreendimentos_imovel { get; set; }
-        
+
         public string Valor_imovel { get; set; }
         public string ValorFinanciado_imovel { get; set; }
 
@@ -99,7 +99,7 @@
         public string end_Cartorio { get; set; }
         public string StatusCartorio { get; set; }
 
-        
+
 
         #endregion
 

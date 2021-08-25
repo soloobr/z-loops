@@ -11,7 +11,7 @@ namespace LMFinanciamentos.Apresentacao
 {
     public partial class Form_Principal : Form
     {
-        public string idresponsavel, nomeresponsavel, idResp,servidor;
+        public string idresponsavel, nomeresponsavel, idResp, servidor;
         public Form_Principal()
         {
             InitializeComponent();
@@ -324,7 +324,7 @@ namespace LMFinanciamentos.Apresentacao
             string basePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
             var MyIni = new IniFile(basePath + @"\LM-Settings.ini");
             String usuario = Path.GetFileName(basePath);
-             MyIni.DeleteKey("StringConnection", usuario);
+            MyIni.DeleteKey("StringConnection", usuario);
         }
 
         private void btncontroledoc_Click(object sender, EventArgs e)
@@ -403,7 +403,7 @@ namespace LMFinanciamentos.Apresentacao
             Cursor = Cursors.Default;
         }
 
-       //private Form activeForm = null;
+        //private Form activeForm = null;
 
     }
 }

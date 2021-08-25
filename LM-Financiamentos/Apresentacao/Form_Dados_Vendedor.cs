@@ -1,14 +1,12 @@
 ﻿using LMFinanciamentos.DAL;
 using LMFinanciamentos.Entidades;
-using System;
-using System.Windows.Forms;
-using System.Windows.Media;
-using System.Collections.Generic;
-using System.Drawing;
 using LMFinanciamentos.Modelo;
-using System.IO;
+using System;
+using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
+using System.IO;
+using System.Windows.Forms;
 
 namespace LMFinanciamentos.Apresentacao
 {
@@ -96,7 +94,7 @@ namespace LMFinanciamentos.Apresentacao
         {
             Cursor = Cursors.WaitCursor;
 
-         
+
 
             if (txtnomevendedor.Text == "")
             {
@@ -187,10 +185,10 @@ namespace LMFinanciamentos.Apresentacao
 
             //DateTime datanasc = DateTime.Parse(nascimento);
 
-            
+
 
             String renda = txtrendavendedor.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
-            
+
             LoginDaoComandos insertfotovendedor = new LoginDaoComandos();
             if (excluirimage == "Update")
             {
@@ -207,7 +205,7 @@ namespace LMFinanciamentos.Apresentacao
                 else
                 {
                     fsObj = File.OpenRead(arquivo);
-                   // MessageBox.Show(fsObj.ToString());
+                    // MessageBox.Show(fsObj.ToString());
                     byte[] imgContent = new byte[fsObj.Length];
                     binRdr = new BinaryReader(fsObj);
                     imgContent = binRdr.ReadBytes((int)fsObj.Length);
@@ -223,7 +221,8 @@ namespace LMFinanciamentos.Apresentacao
                     MessageBox.Show(insertfotovendedor.mensagem, "Atualizando", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
-            }else if(excluirimage == "Excluir")
+            }
+            else if (excluirimage == "Excluir")
             {
                 LoginDaoComandos excluirvendedor = new LoginDaoComandos();
                 excluirvendedor.DeleteFotoVendedor(idVendedor);
@@ -245,15 +244,16 @@ namespace LMFinanciamentos.Apresentacao
 
                 LoginDaoComandos updateconta = new LoginDaoComandos();
 
-                updateconta.UpdateConta(idVendedor, Agencia, Conta,"V");
+                updateconta.UpdateConta(idVendedor, Agencia, Conta, "V");
 
                 //MessageBox.Show(updateconta.mensagem);
-                if(updateconta.mensagem == "Erro")
+                if (updateconta.mensagem == "Erro")
                 {
-                    updateconta.InsertConta(idVendedor, Agencia, Conta,"V");
+                    updateconta.InsertConta(idVendedor, Agencia, Conta, "V");
                 }
 
-            }else if(txtagenciavendedor.Text != null  &&  txtcontavendedor.Text == null)
+            }
+            else if (txtagenciavendedor.Text != null && txtcontavendedor.Text == null)
             {
                 MessageBox.Show("é necessario preenchar a conta!", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -265,8 +265,8 @@ namespace LMFinanciamentos.Apresentacao
             }
 
             LoginDaoComandos updatevendedor = new LoginDaoComandos();
-            
-            updatevendedor.UpdateVendedor(idVendedor, txtnomevendedor.Text, CPF, CNPJ,  txtemail.Text, telefone, celular, status);
+
+            updatevendedor.UpdateVendedor(idVendedor, txtnomevendedor.Text, CPF, CNPJ, txtemail.Text, telefone, celular, status);
 
             Cursor = Cursors.Default;
 
@@ -278,8 +278,8 @@ namespace LMFinanciamentos.Apresentacao
             btn_cancelar.Visible = false;
             splitter2.Visible = false;
             btn_salvar.Visible = false;
-            
-            
+
+
             splitter3.Visible = true;
             btn_excluir.Visible = true;
 
@@ -304,7 +304,7 @@ namespace LMFinanciamentos.Apresentacao
 
             DesabilitarEdicao();
             LoadDadosVendedor();
-            tabControl.SelectedTab = tabControl.TabPages["tabvendedor"]; 
+            tabControl.SelectedTab = tabControl.TabPages["tabvendedor"];
 
             //Close();
         }
@@ -312,7 +312,7 @@ namespace LMFinanciamentos.Apresentacao
         internal void setFoto(byte[] foto_Cli)
         {
             // throw new NotImplementedException();
-            if(foto_Cli != null)
+            if (foto_Cli != null)
             {
                 MemoryStream stmBLOBData = new MemoryStream(foto_Cli);
                 img_foto.Image = Image.FromStream(stmBLOBData);
@@ -323,7 +323,7 @@ namespace LMFinanciamentos.Apresentacao
         private void Form_Dados_Vendedor_Load(object sender, EventArgs e)
         {
             LoadDadosVendedor();
-         }
+        }
 
         public void LoadDadosVendedor()
         {
@@ -424,9 +424,9 @@ namespace LMFinanciamentos.Apresentacao
             ofd1.ShowReadOnly = true;
 
             DialogResult dr = this.ofd1.ShowDialog();
-            
+
             Stream myStream = null;
-            
+
 
             if (dr == System.Windows.Forms.DialogResult.OK)
             {
@@ -448,7 +448,7 @@ namespace LMFinanciamentos.Apresentacao
                             var image = Image.FromStream(myStream);
 
                             var newImage = ResizeImage(image, 600, 400);
-                            newImage.Save("c:\\Windows\\Temp\\"+arquivo+".Jpeg", ImageFormat.Jpeg);
+                            newImage.Save("c:\\Windows\\Temp\\" + arquivo + ".Jpeg", ImageFormat.Jpeg);
 
                             arquivo = @"C:\Windows\Temp\" + arquivo + ".Jpeg";
                         }
@@ -463,9 +463,9 @@ namespace LMFinanciamentos.Apresentacao
 
                 //MessageBox.Show(arquivo);
                 img_foto.Image = new Bitmap(arquivo);
-                    img_foto.SizeMode = PictureBoxSizeMode.StretchImage;
-                    btn_add_foto.Text = "Alterar";
-                    excluirimage = "Update";
+                img_foto.SizeMode = PictureBoxSizeMode.StretchImage;
+                btn_add_foto.Text = "Alterar";
+                excluirimage = "Update";
 
 
             }
@@ -590,7 +590,8 @@ namespace LMFinanciamentos.Apresentacao
         {
             img_foto.Image = null;
             btn_add_foto.Text = "Adicionar";
-            if(img_foto.Image != null){
+            if (img_foto.Image != null)
+            {
                 excluirimage = "NoExluir";
             }
             else
@@ -622,16 +623,16 @@ namespace LMFinanciamentos.Apresentacao
 
         private void btn_editar_Click(object sender, EventArgs e)
         {
-            
+
             btn_editar.Visible = false;
             splitter2.Visible = true;
             btn_cancelar.Visible = true;
             splitter1.Visible = true;
             btn_salvar.Visible = true;
-     
+
             splitter3.Visible = false;
             btn_excluir.Visible = false;
-            
+
 
             HabilitarEdicao();
             txtnomevendedor.Select();
@@ -655,7 +656,7 @@ namespace LMFinanciamentos.Apresentacao
             txtcontavendedor.ReadOnly = false;
 
             img_foto.Enabled = true;
-            if(img_foto.Image == null)
+            if (img_foto.Image == null)
             {
                 btn_add_foto.Text = "Adicionar";
             }

@@ -27,7 +27,7 @@
         public bool Conjuge_cliente { get; internal set; }
 
         public byte[] Foto_cliente { get; set; }
-        
+
 
 
 

@@ -1,5 +1,4 @@
 ﻿using AutoUpdaterEasy;
-using LMFinanciamentos.Apresentacao;
 using System;
 using System.Windows.Forms;
 

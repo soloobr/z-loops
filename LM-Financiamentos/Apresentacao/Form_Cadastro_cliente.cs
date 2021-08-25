@@ -612,9 +612,9 @@ namespace LMFinanciamentos.Apresentacao
             }
             CPF = FormatCnpjCpf.SemFormatacao(txtcpf.Text);
 
-            if (cj == true || cj1 == true || (cj2 == true)|| cj3 == true)
+            if (cj == true || cj1 == true || (cj2 == true) || cj3 == true)
             {
-                
+
                 if (cj == true)
                 {
                     if (txtnomeconjuge.Text == "")
@@ -739,7 +739,7 @@ namespace LMFinanciamentos.Apresentacao
                             Cursor = Cursors.Default;
                             return;
                         }
-                        else if(string.IsNullOrEmpty(txttelefonecj2.Text) && txtcelularcj2.Text != "")
+                        else if (string.IsNullOrEmpty(txttelefonecj2.Text) && txtcelularcj2.Text != "")
                         {
                         }
                         else
@@ -751,7 +751,7 @@ namespace LMFinanciamentos.Apresentacao
                             return;
                         }
                     }
-      
+
                     #endregion
 
                 }
@@ -797,7 +797,7 @@ namespace LMFinanciamentos.Apresentacao
                             return;
                         }
                     }
-           
+
                     #endregion
 
                 }
@@ -809,7 +809,7 @@ namespace LMFinanciamentos.Apresentacao
                 conjuge = false;
             }
 
-            
+
 
             status = "Ativo";
 

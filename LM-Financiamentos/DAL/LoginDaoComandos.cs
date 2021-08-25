@@ -1,10 +1,8 @@
-﻿using ComponentFactory.Krypton.Toolkit;
-using LMFinanciamentos.Entidades;
+﻿using LMFinanciamentos.Entidades;
 using LMFinanciamentos.Modelo;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -183,7 +181,7 @@ namespace LMFinanciamentos.DAL
                     process.Valor_imovel = drprocess["ValorImovel"].ToString();
                     process.ValorFinanciado_imovel = drprocess["ValorFinanciado"].ToString();
 
-                    
+
                     process.id_Empreendimentos_imovel = drprocess["Empreid"].ToString();
                     process.EmpDescricao_imovel = drprocess["EmpDescricao"].ToString();
 
@@ -211,7 +209,7 @@ namespace LMFinanciamentos.DAL
             return process;
         }
 
-        public String UpdateCliente(String id,String nome, String email, String telefone, String celular, String cpf, String rg, DateTime nascimento, String sexo, String status, String renda, String observacao)
+        public String UpdateCliente(String id, String nome, String email, String telefone, String celular, String cpf, String rg, DateTime nascimento, String sexo, String status, String renda, String observacao)
         {
 
 
@@ -234,7 +232,7 @@ namespace LMFinanciamentos.DAL
                 cmd.Parameters.AddWithValue("@status", status);
                 cmd.Parameters.AddWithValue("@renda", renda);
                 cmd.Parameters.AddWithValue("@observacao", observacao);
-                
+
 
 
                 cmd.Connection = con.conectar();
@@ -264,7 +262,7 @@ namespace LMFinanciamentos.DAL
 
             return mensagem;
         }
-        public String UpdateFuncionario(String id, String nome, String email, String telefone, String celular, String endereco, DateTime nascimento, String sexo, String cpf, String rg, String cracha, String login,String permission, String status)
+        public String UpdateFuncionario(String id, String nome, String email, String telefone, String celular, String endereco, DateTime nascimento, String sexo, String cpf, String rg, String cracha, String login, String permission, String status)
         {
 
 
@@ -369,9 +367,9 @@ namespace LMFinanciamentos.DAL
             }
 
             return mensagem;
-            
+
         }
-        public String InsertConta(String id,String agencia, String conta,String tipo)
+        public String InsertConta(String id, String agencia, String conta, String tipo)
         {
 
 
@@ -412,7 +410,7 @@ namespace LMFinanciamentos.DAL
 
             return mensagem;
         }
-        public String UpdateConta(String id, String agencia, String conta,String tipo)
+        public String UpdateConta(String id, String agencia, String conta, String tipo)
         {
 
 
@@ -456,7 +454,7 @@ namespace LMFinanciamentos.DAL
 
             return mensagem;
         }
-        public String InsertFotoVendedor(String id,  Byte[] foto, String descricao)
+        public String InsertFotoVendedor(String id, Byte[] foto, String descricao)
         {
 
 
@@ -693,7 +691,7 @@ namespace LMFinanciamentos.DAL
 
             return mensagem;
         }
-        public String UpdateFotoCliente(String id,  Byte[] foto)
+        public String UpdateFotoCliente(String id, Byte[] foto)
         {
 
 
@@ -841,7 +839,7 @@ namespace LMFinanciamentos.DAL
                 cmd.Parameters.AddWithValue("@renda", renda);
                 cmd.Parameters.AddWithValue("@observacao", observacao);
                 cmd.Parameters.AddWithValue("@conjuge", conjuge);
-                
+
 
 
 
@@ -882,7 +880,7 @@ namespace LMFinanciamentos.DAL
 
             //return mensagem;
         }
-        public int CadastrarConjuge(String nome, String email, String telefone, String celular, String cpf, String rg, DateTime nascimento, String sexo, String status, String renda, String observacao,String idcliente)
+        public int CadastrarConjuge(String nome, String email, String telefone, String celular, String cpf, String rg, DateTime nascimento, String sexo, String status, String renda, String observacao, String idcliente)
         {
 
 
@@ -942,7 +940,7 @@ namespace LMFinanciamentos.DAL
             //return mensagem;
 
         }
-        public int CadastrarFuncionario(String nome, String email, String telefone, String celular, String endereco, DateTime nascimento,  String sexo, String cpf, String rg, String cracha, String permission, String status)
+        public int CadastrarFuncionario(String nome, String email, String telefone, String celular, String endereco, DateTime nascimento, String sexo, String cpf, String rg, String cracha, String permission, String status)
         {
             try
             {
@@ -1054,7 +1052,7 @@ namespace LMFinanciamentos.DAL
 
                 cmd.Parameters.AddWithValue("@login", login);
                 cmd.Parameters.AddWithValue("@senha", senha);
-               
+
                 cmd.Connection = con.conectar();
 
                 cmd.ExecuteNonQuery();
@@ -1064,9 +1062,9 @@ namespace LMFinanciamentos.DAL
 
                 return Convert.ToInt32(cmd.Parameters["@ultimoId"].Value);
 
-               
+
             }
-            
+
             catch (MySqlException err)
             {
                 if (err.Number == 1062) // Cannot insert duplicate key row in object error
@@ -1234,10 +1232,10 @@ namespace LMFinanciamentos.DAL
         }
         public Cliente GetCliente(String id)
         {
-           //var list = new List<Cliente>();
+            //var list = new List<Cliente>();
 
             cmd.CommandText = "SELECT Clientes.id, Nome, Email, Telefone, Celular, CPF, C.Agencia, C.Conta, RG, Nascimento, Sexo, Renda, Status, Clientes.Observacao, Clientes.Conjuge FROM Clientes " +
-                "Left join Conta C on C.idcliente = @id and C.Tipo = @tipo "  +
+                "Left join Conta C on C.idcliente = @id and C.Tipo = @tipo " +
                 "WHERE Clientes.id = @id  ";
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@id", id);
@@ -1270,7 +1268,7 @@ namespace LMFinanciamentos.DAL
                     client.OBS_cliente = drclient["Observacao"].ToString();
                     client.Conjuge_cliente = bool.Parse(drclient["Conjuge"].ToString());
 
-                    
+
                     //Byte[] byteBLOBData = new Byte[0];
                     //client.Foto_Func = (Byte[])(drclient["Foto"]);
                     //list.Add(client);
@@ -1372,7 +1370,7 @@ namespace LMFinanciamentos.DAL
                     func.Cracha_Funcionario = drfunc["Cracha"].ToString();
                     func.Login_Funcionario = drfunc["Login"].ToString();
                     func.Permision = drfunc["Permission"].ToString();
-                    func.Status_Funcionario = drfunc["Status"].ToString(); 
+                    func.Status_Funcionario = drfunc["Status"].ToString();
                     //func.RG_Func = drfunc["RG"].ToString();
                     //func.Renda_func = drfunc["Renda"].ToString();
                     //Byte[] byteBLOBData = new Byte[0];
@@ -1405,7 +1403,7 @@ namespace LMFinanciamentos.DAL
 
 
                     #region Servidor  
-                    
+
                     server.id_Server = drprocess["id"].ToString();
                     server.Nome_Server = drprocess["ServerNome"].ToString();
                     server.ServerFilesPath_Server = drprocess["ServerFilesPath"].ToString();
@@ -1437,7 +1435,7 @@ namespace LMFinanciamentos.DAL
                 cmd1.Parameters.AddWithValue("@Id", id);
                 cmd1.Parameters.AddWithValue("@ServerNome", ServerNome);
                 cmd1.Parameters.AddWithValue("@ServerFilesPath", ServerFilesPath);
-                
+
                 cmd1.Connection = con.conectar();
 
                 int recordsAffected = cmd1.ExecuteNonQuery();
@@ -1487,7 +1485,7 @@ namespace LMFinanciamentos.DAL
                 "Left join Corretora on P.idCorretora = Corretora.id " +
                 "Left join Corretores on P.idCorretor = Corretores.id " +
                 //"Left join P_Status H on P.id = H.idprocesso " +
-                "WHERE (C.Nome Like @consulta) or (P.id Like @consulta) "+
+                "WHERE (C.Nome Like @consulta) or (P.id Like @consulta) " +
                 " ORDER BY  P.id ASC "
                 ;
             cmd.Parameters.Clear();
@@ -1585,7 +1583,7 @@ namespace LMFinanciamentos.DAL
         }
 
         public List<Cliente> GetClientes(String nome)
-        
+
         {
             var list = new List<Cliente>();
 
@@ -1610,13 +1608,13 @@ namespace LMFinanciamentos.DAL
                     //clients.CPF_cliente = drclients["CPF"].ToString().ToString();
                     clients.RG_cliente = drclients["RG"].ToString();
                     clients.StatusCPF_cliente = drclients["StatusCPF"].ToString();
-                    
+
                     clients.StatusCiweb_cliente = drclients["Ciweb"].ToString();
                     clients.StatusCadmut_cliente = drclients["Cadmut"].ToString();
                     clients.StatusIR_cliente = drclients["IR"].ToString();
                     clients.StatusFGTS_cliente = drclients["FGTS"].ToString();
                     clients.RG_cliente = drclients["RG"].ToString();
-                    clients.Nascimento_cliente =  Convert.ToDateTime(drclients["Nascimento"]).ToString("dd/MM/yyyy");
+                    clients.Nascimento_cliente = Convert.ToDateTime(drclients["Nascimento"]).ToString("dd/MM/yyyy");
                     clients.Sexo_cliente = drclients["Sexo"].ToString();
                     clients.Status_cliente = drclients["Status"].ToString();
                     clients.Renda_cliente = drclients["Renda"].ToString();
@@ -1742,7 +1740,7 @@ namespace LMFinanciamentos.DAL
         public Vendedor GetVendedor(String id)
 
         {
-           // var list = new List<Vendedor>();
+            // var list = new List<Vendedor>();
 
             cmd2.CommandText = "SELECT Vendedor.id, Nome, Email, Telefone, Celular, CPF, CNPJ, Agencia, Conta, Renda, Status FROM Vendedor Left join Conta ON idcliente = @id AND Tipo = @tipo WHERE Vendedor.id = @id ";
             cmd2.Parameters.Clear();
@@ -1880,8 +1878,8 @@ namespace LMFinanciamentos.DAL
 
             return mensagem;
         }
-                                   
-        public String UpdateProcesso(String id,String StatusCPF,DateTime datastatuscpf,String Statusciweb,DateTime datastatusciweb,String Stauscadmut,            DateTime datastatuscadmut, String Statusir, DateTime datastatusir, String Statusfgts, DateTime datastatusfgts, String StatusAnalise, DateTime datastatusanalise, String StatusEng, DateTime datastatuseng, String StatusSiopi, DateTime datasiopi, String StatusSictd, DateTime datasictd, String StatusSaquefgts, DateTime datasaquefgts, String StatusPA, DateTime datapa, String sidAgenciaImovel,  String sidPrograma, String valorimovel, String valorfinanciado, String sidCorretora,  String sidCorretores,  String sidEmpreendimentos, String sidcartorio, String StatusCartorio, DateTime datastatuscartorio, String status  )
+
+        public String UpdateProcesso(String id, String StatusCPF, DateTime datastatuscpf, String Statusciweb, DateTime datastatusciweb, String Stauscadmut, DateTime datastatuscadmut, String Statusir, DateTime datastatusir, String Statusfgts, DateTime datastatusfgts, String StatusAnalise, DateTime datastatusanalise, String StatusEng, DateTime datastatuseng, String StatusSiopi, DateTime datasiopi, String StatusSictd, DateTime datasictd, String StatusSaquefgts, DateTime datasaquefgts, String StatusPA, DateTime datapa, String sidAgenciaImovel, String sidPrograma, String valorimovel, String valorfinanciado, String sidCorretora, String sidCorretores, String sidEmpreendimentos, String sidcartorio, String StatusCartorio, DateTime datastatuscartorio, String status)
         {
             try
             {
@@ -1892,7 +1890,7 @@ namespace LMFinanciamentos.DAL
                 "idCartorio = @sidcartorio, StatusCartorio = @StatusCartorio, DataStatusCartorio = @datastatuscartorio, " +
                 "Status = @status, DataStatus = @Data " +
                 "WHERE id = @id ";
-                
+
                 cmd1.Parameters.Clear();
                 cmd1.Parameters.AddWithValue("@id", id);
                 cmd1.Parameters.AddWithValue("@StatusCPF", StatusCPF);
@@ -1938,7 +1936,8 @@ namespace LMFinanciamentos.DAL
 
                 int recordsAffected = cmd1.ExecuteNonQuery();
 
-                if(recordsAffected > 0) {
+                if (recordsAffected > 0)
+                {
                     mensagem = "Processo Alterado Com Sucesso";
                     con.desconectar();
                 }
@@ -2144,7 +2143,7 @@ namespace LMFinanciamentos.DAL
 
             return mensagem;
         }
-        public string UpdateLoginNewUser(String id,  String idfunc)
+        public string UpdateLoginNewUser(String id, String idfunc)
         {
             try
             {
@@ -2159,7 +2158,7 @@ namespace LMFinanciamentos.DAL
                 drsenha = cmd1.ExecuteReader();
                 //while (drsenha.Read())
                 //{
-                    mensagem = "OK";
+                mensagem = "OK";
                 //}
 
                 drsenha.Close();
@@ -2208,7 +2207,7 @@ namespace LMFinanciamentos.DAL
             cmd2.Parameters.Clear();
             cmd2.Parameters.AddWithValue("@nomeclientes", "%" + nome + "%");
 
-            
+
 
             try
             {
@@ -2227,7 +2226,7 @@ namespace LMFinanciamentos.DAL
             }
             catch (MySqlException err)
             {
-                  MessageBox.Show("Não foi possivel completar" + err.ToString());
+                MessageBox.Show("Não foi possivel completar" + err.ToString());
             }
 
         }
@@ -2265,7 +2264,7 @@ namespace LMFinanciamentos.DAL
                 cmd1.Parameters.AddWithValue("@exxtension", exxtension);
                 cmd1.Parameters.AddWithValue("@patch", caminho);
                 cmd1.Parameters.AddWithValue("@Status", Status);
-                
+
 
 
                 cmd1.Connection = con.conectar();
@@ -2399,7 +2398,7 @@ namespace LMFinanciamentos.DAL
 
             return dt;
         }
-        public DataTable GetDataTipoDoc(String idtipoproc )
+        public DataTable GetDataTipoDoc(String idtipoproc)
         {
             cmd.CommandText = "SELECT id, Descricao FROM TipoDoc WHERE Tipodoc = @idtipoproc";
             cmd.Parameters.Clear();
@@ -2498,7 +2497,7 @@ namespace LMFinanciamentos.DAL
             //var lista = new List<string[]>();
 
             cmd.CommandText = "SELECT id, Descricao, Endereco, Agencia FROM Agencia ";
- 
+
             try
             {
                 cmd.Connection = con.conectar();
@@ -2514,9 +2513,9 @@ namespace LMFinanciamentos.DAL
                         //items.Endereco_agencia = drprocessos["Endereco"].ToString();
                         //items.Agencia_agencia = drprocessos["Agencia"].ToString();
 
-                       // listcombobox.Add(items);
+                        // listcombobox.Add(items);
 
-                       // lista.Add(new string[] { (drprocessos["id"].ToString()).PadLeft(4, '0'), drprocessos["Descricao"].ToString(), drprocessos["Endereco"].ToString(), drprocessos["Agencia"].ToString() });
+                        // lista.Add(new string[] { (drprocessos["id"].ToString()).PadLeft(4, '0'), drprocessos["Descricao"].ToString(), drprocessos["Endereco"].ToString(), drprocessos["Agencia"].ToString() });
                     }
                 }
                 drprocessos.Close();

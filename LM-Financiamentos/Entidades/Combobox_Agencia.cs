@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LMFinanciamentos.Entidades
+﻿namespace LMFinanciamentos.Entidades
 {
     public class Combobox_Agencia
     {
@@ -21,7 +15,7 @@ namespace LMFinanciamentos.Entidades
         public string Decricao_agencia { get; set; }
         public string Endereco_agencia { get; set; }
         public string Agencia_agencia { get; set; }
-        
+
 
     }
 }
