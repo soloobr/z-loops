@@ -308,8 +308,39 @@ namespace LMFinanciamentos.Apresentacao
                 lblnomeclirenda.Text = txtnomecli.Text;
                 lblrendacli.Visible = true;
                 lblrendacli.Text = txtrendacli.Text;
-                Resumerenda(txtrendacli.Text);
-                int Rendacli = Int32.Parse(valor.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", ""));
+                //Resumerenda(txtrendacli.Text);
+                //#region Valor Renda Conjuge
+                //valor = txtrendacli.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+                //if (valor.Length == 0)
+                //{
+                //    txtrendacli.Text = "0,00" + valor;
+                //}
+                //if (valor.Length == 1)
+                //{
+                //    txtrendacli.Text = "0,0" + valor;
+                //}
+                //if (valor.Length == 2)
+                //{
+                //    txtrendacli.Text = "0," + valor;
+                //}
+                //else if (valor.Length >= 3)
+                //{
+                //    if (txtrendacli.Text.StartsWith("0,"))
+                //    {
+                //        txtrendacli.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
+                //    }
+                //    else if (txtrendacli.Text.Contains("00,"))
+                //    {
+                //        txtrendacli.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
+                //    }
+                //    else
+                //    {
+                //        txtrendacli.Text = valor.Insert(valor.Length - 2, ",");
+                //    }
+                //}
+                //valor = txtrendacli.Text;
+                //#endregion
+                //int Rendacli = Int32.Parse(valor.Replace(".", "").Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", ""));
                 //int Rendacli = int.Parse(valor);
 
 
@@ -317,20 +348,42 @@ namespace LMFinanciamentos.Apresentacao
                 lblnomecj1.Visible = true;
                 lblnomecj1.Text = txtnomeconjuge.Text;
                 lblrendacj1.Visible = true;
-                Resumerenda(txtrendacj.Text);
-                 int Rendacj = Int32.Parse(valor.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", ""));
-                //int Rendacj = int.Parse(valor);
+                //Resumerenda(txtrendacj.Text);
+                //int Rendacj = Int32.Parse(valor.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", ""));
+                //decimal Rendacj = Type(valor, Decimal);
 
                 lblrendacj1.Text = txtrendacj.Text;
 
                 lblrendabruta.Visible = true;
                 txtrendatotal.Visible = true;
-                
+                //int soma = Rendacli + Rendacj;
+                //String total = soma.ToString();
 
+                //txtrendatotal.Text = total.ToString();
+                //if (txtrendatotal.Text.Length >= 3)
+                //{
+                //    if (txtrendatotal.Text.StartsWith("0,"))
+                //    {
+                //        txtrendatotal.Text = total.ToString().Insert(total.ToString().Length - 2, ",").Replace("0,", "");
+                //    }
+                //    else if (txtrendatotal.Text.Contains("00,"))
+                //    {
+                //        txtrendatotal.Text = total.ToString().Insert(total.ToString().Length - 2, ",").Replace("00,", "");
+                //    }
+                //    else
+                //    {
+                //        txtrendatotal.Text = total.ToString().Insert(total.ToString().Length - 2, ",");
+                //    }
+                //}
 
-                
-                int total = Rendacli + Rendacj;
-                txtrendatotal.Text = string.Format("{0:C}", Convert.ToDouble(total.ToString()));
+                decimal vl1, vl2, result;
+                vl1 = decimal.Parse(txtrendacj.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
+                vl2 = decimal.Parse(txtrendacli.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
+
+                result = vl1 + vl2;
+                //total = txtrendatotal.Text;
+                 txtrendatotal.Text = string.Format("{0:C}", Convert.ToDouble(result.ToString()));
+                //txtrendatotal.Text = (result.ToString()); //total.ToString();
             }
             if (cj1 == true)
             {
@@ -511,6 +564,7 @@ namespace LMFinanciamentos.Apresentacao
                 checkBox_statuscj.Checked = false;
             }
             #region Valor Renda Conjuge
+
             valor = txtrendacj.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
             if (valor.Length == 0)
             {
