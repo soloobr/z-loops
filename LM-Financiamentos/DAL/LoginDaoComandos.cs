@@ -456,6 +456,50 @@ namespace LMFinanciamentos.DAL
 
             return mensagem;
         }
+        public String UpdateContaConjuge(String id, String agencia, String conta, String tipo)
+        {
+
+
+            try
+            {
+                cmd.CommandText = "UPDATE Conta " +
+                "SET Agencia = @agencia, Conta = @conta " +
+                "WHERE Conta.idconjuge = @id AND Tipo = @tipo";
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@agencia", agencia);
+                cmd.Parameters.AddWithValue("@conta", conta);
+                cmd.Parameters.AddWithValue("@tipo", tipo);
+
+
+                cmd.Connection = con.conectar();
+
+                int recordsAffected = cmd.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "OK";
+                }
+                else
+                {
+                    mensagem = "Erro";
+                }
+
+                con.desconectar();
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+            }
+            catch (Exception err)
+            {
+                //throw new Exception("Erro ao Alterar senha: " + err.Message);
+                mensagem = ("Erro ao Atualizar a Conta Vendedor!: " + err.Message);
+            }
+
+            return mensagem;
+        }
         public String InsertFotoVendedor(String id, Byte[] foto, String descricao)
         {
 
@@ -942,6 +986,61 @@ namespace LMFinanciamentos.DAL
             }
 
             //return mensagem;
+
+        }
+        public string UpdateConjuge(String idconjuge, String nome, String email, String telefone, String celular, String cpf, String rg, DateTime nascimento, String sexo, String status, String renda, String observacao, String idcliente, String sequencia, bool conjuge)
+        {
+
+
+            try
+            {
+                cmd.CommandText = "UPDATE Conjuge " +
+               "SET Nome =@nome , Email = @email, Telefone = @telefone, Celular = @celular, CPF = @cpf, RG = @rg, Nascimento = @nascimento, Sexo = @sexo, Status = @status, Renda = @renda, Observacao = @observacao, idCliente = @idcliente, Sequencia = @sequencia, Conjuge = @conjuge " +
+               "WHERE Conjuge.id = @id ";
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", idconjuge);
+                cmd.Parameters.AddWithValue("@nome", nome);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@telefone", telefone);
+                cmd.Parameters.AddWithValue("@celular", celular);
+                cmd.Parameters.AddWithValue("@cpf", cpf);
+                cmd.Parameters.AddWithValue("@rg", rg);
+                cmd.Parameters.AddWithValue("@nascimento", nascimento);
+                cmd.Parameters.AddWithValue("@sexo", sexo);
+                cmd.Parameters.AddWithValue("@status", status);
+                cmd.Parameters.AddWithValue("@renda", renda);
+                cmd.Parameters.AddWithValue("@observacao", observacao);
+                cmd.Parameters.AddWithValue("@idcliente", idcliente);
+                cmd.Parameters.AddWithValue("@sequencia", sequencia);
+                cmd.Parameters.AddWithValue("@conjuge", conjuge);
+
+
+                cmd.Connection = con.conectar();
+
+                int recordsAffected = cmd.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "Conjuge Atualizado com Sucesso!";
+                }
+                else
+                {
+                    mensagem = "Erro ao Atualizar Conjuge";
+                }
+
+
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+            }
+            catch (Exception err)
+            {
+                mensagem = ("Erro ao Atualizar Conjuge: " + err.Message);
+            }
+
+            return mensagem;
 
         }
         public int CadastrarFuncionario(String nome, String email, String telefone, String celular, String endereco, DateTime nascimento, String sexo, String cpf, String rg, String cracha, String permission, String status)

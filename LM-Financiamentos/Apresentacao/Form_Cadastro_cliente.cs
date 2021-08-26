@@ -53,7 +53,7 @@ namespace LMFinanciamentos.Apresentacao
             this.ActiveControl = txtnomecli;
             txtnomecli.Focus();
 
-            Settxtrenda();
+            Settxtrenda(txtrendacli);
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -165,6 +165,7 @@ namespace LMFinanciamentos.Apresentacao
                 {
                     tabControl.TabPages.Insert(2, tabconjuge1);
                     tabControl.SelectedTab = tabconjuge1;
+                    Settxtrenda(txtrendacj1);
                     txtnomeconjuge1.Select();
                     cj1 = true;
                     conjuge = true;
@@ -193,6 +194,7 @@ namespace LMFinanciamentos.Apresentacao
                     {
                         tabControl.TabPages.Insert(3, tabconjuge2);
                         tabControl.SelectedTab = tabconjuge2;
+                        Settxtrenda(txtrendacj2);
                         txtnomeconjuge2.Select();
                         cj2 = true;
                         conjuge = true;
@@ -220,6 +222,7 @@ namespace LMFinanciamentos.Apresentacao
                 {
                     tabControl.TabPages.Insert(4, tabconjuge3);
                     tabControl.SelectedTab = tabconjuge3;
+                    Settxtrenda(txtrendacj3);
                     txtnomeconjuge3.Select();
                     cj3 = true;
                     conjuge = true;
@@ -266,6 +269,478 @@ namespace LMFinanciamentos.Apresentacao
             tabControl.TabPages.Remove(tabconjuge2);
             tabControl.SelectedTab = tabconjuge1;
             cj2 = false;
+        }
+
+        private void txtrgcj_KeyUp(object sender, KeyEventArgs e)
+        {
+            int cont = 0;
+            //int cursorPos = SelectionStart;
+
+            foreach (Char c in txtrgcj.Text)
+            {
+                if (((cont == 2) || (cont == 6)) && (c != '.') && (txtrgcj.Text.Length >= cont))
+                {
+                    txtrgcj.Text = txtrgcj.Text.Insert(cont, ".");
+                    //SelectionStart = cursorPos + 1;
+                    txtrgcj.Select(txtrgcj.Text.Length, 0);
+                }
+                if ((c == '.') && (txtrgcj.Text.Length >= cont) && (cont != 2) && (cont != 6))
+                {
+                    txtrgcj.Text = txtrgcj.Text.Remove(cont, 1);
+                    txtrgcj.Select(txtrgcj.Text.Length, 0);
+                }
+
+
+                if ((c == '-') && (cont != 10) && (txtrgcj.Text.Length >= cont))
+                {
+                    txtrgcj.Text = txtrgcj.Text.Remove(cont, 1);
+                    txtrgcj.Select(txtrgcj.Text.Length, 0);
+                }
+                if ((cont == 10) && (c != '-') && (txtrgcj.Text.Length >= cont))
+                {
+                    txtrgcj.Text = txtrgcj.Text.Insert(10, "-");
+                    txtrgcj.Select(txtrgcj.Text.Length, 0);
+                }
+                cont++;
+            }
+
+            valor = txtrgcj.Text;
+            if (valor.Length >= 13)
+            {
+                MessageBox.Show("Limete maximo para o RG", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                txtrgcj.Text = txtrgcj.Text.Remove(txtrgcj.Text.Length - 1);
+                txtrgcj.Select(txtrgcj.Text.Length, 0);
+            }
+        }
+
+        private void txtrgcj1_KeyUp(object sender, KeyEventArgs e)
+        {
+            int cont = 0;
+            //int cursorPos = SelectionStart;
+
+            foreach (Char c in txtrgcj1.Text)
+            {
+                if (((cont == 2) || (cont == 6)) && (c != '.') && (txtrgcj1.Text.Length >= cont))
+                {
+                    txtrgcj1.Text = txtrgcj1.Text.Insert(cont, ".");
+                    //SelectionStart = cursorPos + 1;
+                    txtrgcj1.Select(txtrgcj1.Text.Length, 0);
+                }
+                if ((c == '.') && (txtrgcj1.Text.Length >= cont) && (cont != 2) && (cont != 6))
+                {
+                    txtrgcj1.Text = txtrgcj1.Text.Remove(cont, 1);
+                    txtrgcj1.Select(txtrgcj1.Text.Length, 0);
+                }
+
+
+                if ((c == '-') && (cont != 10) && (txtrgcj1.Text.Length >= cont))
+                {
+                    txtrgcj1.Text = txtrgcj1.Text.Remove(cont, 1);
+                    txtrgcj1.Select(txtrgcj1.Text.Length, 0);
+                }
+                if ((cont == 10) && (c != '-') && (txtrgcj1.Text.Length >= cont))
+                {
+                    txtrgcj1.Text = txtrgcj1.Text.Insert(10, "-");
+                    txtrgcj1.Select(txtrgcj1.Text.Length, 0);
+                }
+                cont++;
+            }
+
+            valor = txtrgcj1.Text;
+            if (valor.Length >= 13)
+            {
+                MessageBox.Show("Limete maximo para o RG", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                txtrgcj1.Text = txtrgcj1.Text.Remove(txtrgcj1.Text.Length - 1);
+                txtrgcj1.Select(txtrgcj1.Text.Length, 0);
+            }
+        }
+
+        private void txtrgcj2_KeyUp(object sender, KeyEventArgs e)
+        {
+            int cont = 0;
+            //int cursorPos = SelectionStart;
+
+            foreach (Char c in txtrgcj2.Text)
+            {
+                if (((cont == 2) || (cont == 6)) && (c != '.') && (txtrgcj2.Text.Length >= cont))
+                {
+                    txtrgcj2.Text = txtrgcj2.Text.Insert(cont, ".");
+                    //SelectionStart = cursorPos + 1;
+                    txtrgcj2.Select(txtrgcj2.Text.Length, 0);
+                }
+                if ((c == '.') && (txtrgcj2.Text.Length >= cont) && (cont != 2) && (cont != 6))
+                {
+                    txtrgcj2.Text = txtrgcj2.Text.Remove(cont, 1);
+                    txtrgcj2.Select(txtrgcj2.Text.Length, 0);
+                }
+
+
+                if ((c == '-') && (cont != 10) && (txtrgcj2.Text.Length >= cont))
+                {
+                    txtrgcj2.Text = txtrgcj2.Text.Remove(cont, 1);
+                    txtrgcj2.Select(txtrgcj2.Text.Length, 0);
+                }
+                if ((cont == 10) && (c != '-') && (txtrgcj2.Text.Length >= cont))
+                {
+                    txtrgcj2.Text = txtrgcj2.Text.Insert(10, "-");
+                    txtrgcj2.Select(txtrgcj2.Text.Length, 0);
+                }
+                cont++;
+            }
+
+            valor = txtrgcj2.Text;
+            if (valor.Length >= 13)
+            {
+                MessageBox.Show("Limete maximo para o RG", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                txtrgcj2.Text = txtrgcj2.Text.Remove(txtrgcj2.Text.Length - 1);
+                txtrgcj2.Select(txtrgcj2.Text.Length, 0);
+            }
+        }
+
+        private void txtrgcj3_KeyUp(object sender, KeyEventArgs e)
+        {
+            int cont = 0;
+            //int cursorPos = SelectionStart;
+
+            foreach (Char c in txtrgcj3.Text)
+            {
+                if (((cont == 2) || (cont == 6)) && (c != '.') && (txtrgcj3.Text.Length >= cont))
+                {
+                    txtrgcj3.Text = txtrgcj3.Text.Insert(cont, ".");
+                    //SelectionStart = cursorPos + 1;
+                    txtrgcj3.Select(txtrgcj3.Text.Length, 0);
+                }
+                if ((c == '.') && (txtrgcj3.Text.Length >= cont) && (cont != 2) && (cont != 6))
+                {
+                    txtrgcj3.Text = txtrgcj3.Text.Remove(cont, 1);
+                    txtrgcj3.Select(txtrgcj3.Text.Length, 0);
+                }
+
+
+                if ((c == '-') && (cont != 10) && (txtrgcj3.Text.Length >= cont))
+                {
+                    txtrgcj3.Text = txtrgcj3.Text.Remove(cont, 1);
+                    txtrgcj3.Select(txtrgcj3.Text.Length, 0);
+                }
+                if ((cont == 10) && (c != '-') && (txtrgcj3.Text.Length >= cont))
+                {
+                    txtrgcj3.Text = txtrgcj3.Text.Insert(10, "-");
+                    txtrgcj3.Select(txtrgcj3.Text.Length, 0);
+                }
+                cont++;
+            }
+
+            valor = txtrgcj3.Text;
+            if (valor.Length >= 13)
+            {
+                MessageBox.Show("Limete maximo para o RG", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                txtrgcj3.Text = txtrgcj3.Text.Remove(txtrgcj3.Text.Length - 1);
+                txtrgcj3.Select(txtrgcj3.Text.Length, 0);
+            }
+        }
+
+        private void txtcpfcj_KeyUp(object sender, KeyEventArgs e)
+        {
+            int cont = 0;
+            //int cursorPos = SelectionStart;
+
+            foreach (Char c in txtcpfcj.Text)
+            {
+                if (((cont == 3) || (cont == 7)) && (c != '.') && (txtcpfcj.Text.Length >= cont))
+                {
+                    txtcpfcj.Text = txtcpfcj.Text.Insert(cont, ".");
+                    //SelectionStart = cursorPos + 1;
+                    txtcpfcj.Select(txtcpfcj.Text.Length, 0);
+                }
+                if ((c == '.') && (txtcpfcj.Text.Length >= cont) && (cont != 3) && (cont != 7))
+                {
+                    txtcpfcj.Text = txtcpfcj.Text.Remove(cont, 1);
+                    txtcpfcj.Select(txtcpfcj.Text.Length, 0);
+                }
+
+                if ((cont == 11) && (c != '-') && (txtcpfcj.Text.Length >= cont))
+                {
+                    txtcpfcj.Text = txtcpfcj.Text.Insert(11, "-");
+                    txtcpfcj.Select(txtcpfcj.Text.Length, 0);
+                }
+                if ((c == '-') && (cont != 11) && (txtcpfcj.Text.Length >= cont))
+                {
+                    txtcpfcj.Text = txtcpfcj.Text.Remove(cont, 1);
+                    txtcpfcj.Select(txtcpfcj.Text.Length, 0);
+                }
+
+                cont++;
+            }
+            valor = txtcpfcj.Text;
+            if (valor.Length >= 15)
+            {
+                MessageBox.Show("Limete maximo para o CPF!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                txtcpfcj.Text = txtcpfcj.Text.Remove(txtcpfcj.Text.Length - 1);
+                txtcpfcj.Select(txtcpfcj.Text.Length, 0);
+            }
+        }
+
+        private void txtcpfcj1_KeyUp(object sender, KeyEventArgs e)
+        {
+            int cont = 0;
+            //int cursorPos = SelectionStart;
+
+            foreach (Char c in txtcpfcj1.Text)
+            {
+                if (((cont == 3) || (cont == 7)) && (c != '.') && (txtcpfcj1.Text.Length >= cont))
+                {
+                    txtcpfcj1.Text = txtcpfcj1.Text.Insert(cont, ".");
+                    //SelectionStart = cursorPos + 1;
+                    txtcpfcj1.Select(txtcpfcj1.Text.Length, 0);
+                }
+                if ((c == '.') && (txtcpfcj1.Text.Length >= cont) && (cont != 3) && (cont != 7))
+                {
+                    txtcpfcj1.Text = txtcpfcj1.Text.Remove(cont, 1);
+                    txtcpfcj1.Select(txtcpfcj1.Text.Length, 0);
+                }
+
+                if ((cont == 11) && (c != '-') && (txtcpfcj1.Text.Length >= cont))
+                {
+                    txtcpfcj1.Text = txtcpfcj1.Text.Insert(11, "-");
+                    txtcpfcj1.Select(txtcpfcj1.Text.Length, 0);
+                }
+                if ((c == '-') && (cont != 11) && (txtcpfcj1.Text.Length >= cont))
+                {
+                    txtcpfcj1.Text = txtcpfcj1.Text.Remove(cont, 1);
+                    txtcpfcj1.Select(txtcpfcj1.Text.Length, 0);
+                }
+
+                cont++;
+            }
+            valor = txtcpfcj1.Text;
+            if (valor.Length >= 15)
+            {
+                MessageBox.Show("Limete maximo para o CPF!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                txtcpfcj1.Text = txtcpfcj1.Text.Remove(txtcpfcj1.Text.Length - 1);
+                txtcpfcj1.Select(txtcpfcj1.Text.Length, 0);
+            }
+        }
+
+        private void txtcpfcj2_KeyUp(object sender, KeyEventArgs e)
+        {
+            int cont = 0;
+            //int cursorPos = SelectionStart;
+
+            foreach (Char c in txtcpfcj2.Text)
+            {
+                if (((cont == 3) || (cont == 7)) && (c != '.') && (txtcpfcj2.Text.Length >= cont))
+                {
+                    txtcpfcj2.Text = txtcpfcj2.Text.Insert(cont, ".");
+                    //SelectionStart = cursorPos + 1;
+                    txtcpfcj2.Select(txtcpfcj2.Text.Length, 0);
+                }
+                if ((c == '.') && (txtcpfcj2.Text.Length >= cont) && (cont != 3) && (cont != 7))
+                {
+                    txtcpfcj2.Text = txtcpfcj2.Text.Remove(cont, 1);
+                    txtcpfcj2.Select(txtcpfcj2.Text.Length, 0);
+                }
+
+                if ((cont == 11) && (c != '-') && (txtcpfcj2.Text.Length >= cont))
+                {
+                    txtcpfcj2.Text = txtcpfcj2.Text.Insert(11, "-");
+                    txtcpfcj2.Select(txtcpfcj2.Text.Length, 0);
+                }
+                if ((c == '-') && (cont != 11) && (txtcpfcj2.Text.Length >= cont))
+                {
+                    txtcpfcj2.Text = txtcpfcj2.Text.Remove(cont, 1);
+                    txtcpfcj2.Select(txtcpfcj2.Text.Length, 0);
+                }
+
+                cont++;
+            }
+            valor = txtcpfcj2.Text;
+            if (valor.Length >= 15)
+            {
+                MessageBox.Show("Limete maximo para o CPF!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                txtcpfcj2.Text = txtcpfcj2.Text.Remove(txtcpfcj2.Text.Length - 1);
+                txtcpfcj2.Select(txtcpfcj2.Text.Length, 0);
+            }
+        }
+
+        private void txtcpfcj3_KeyUp(object sender, KeyEventArgs e)
+        {
+            int cont = 0;
+            //int cursorPos = SelectionStart;
+
+            foreach (Char c in txtcpfcj3.Text)
+            {
+                if (((cont == 3) || (cont == 7)) && (c != '.') && (txtcpfcj3.Text.Length >= cont))
+                {
+                    txtcpfcj3.Text = txtcpfcj3.Text.Insert(cont, ".");
+                    //SelectionStart = cursorPos + 1;
+                    txtcpfcj3.Select(txtcpfcj3.Text.Length, 0);
+                }
+                if ((c == '.') && (txtcpfcj3.Text.Length >= cont) && (cont != 3) && (cont != 7))
+                {
+                    txtcpfcj3.Text = txtcpfcj3.Text.Remove(cont, 1);
+                    txtcpfcj3.Select(txtcpfcj3.Text.Length, 0);
+                }
+
+                if ((cont == 11) && (c != '-') && (txtcpfcj3.Text.Length >= cont))
+                {
+                    txtcpfcj3.Text = txtcpfcj3.Text.Insert(11, "-");
+                    txtcpfcj3.Select(txtcpfcj3.Text.Length, 0);
+                }
+                if ((c == '-') && (cont != 11) && (txtcpfcj3.Text.Length >= cont))
+                {
+                    txtcpfcj3.Text = txtcpfcj3.Text.Remove(cont, 1);
+                    txtcpfcj3.Select(txtcpfcj3.Text.Length, 0);
+                }
+
+                cont++;
+            }
+            valor = txtcpfcj3.Text;
+            if (valor.Length >= 15)
+            {
+                MessageBox.Show("Limete maximo para o CPF!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                txtcpfcj3.Text = txtcpfcj3.Text.Remove(txtcpfcj3.Text.Length - 1);
+                txtcpfcj3.Select(txtcpfcj3.Text.Length, 0);
+            }
+        }
+
+        private void txtrendacj_KeyUp(object sender, KeyEventArgs e)
+        {
+            valor = txtrendacj.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+            if (valor.Length == 0)
+            {
+                txtrendacj.Text = "0,00" + valor;
+            }
+            if (valor.Length == 1)
+            {
+                txtrendacj.Text = "0,0" + valor;
+            }
+            if (valor.Length == 2)
+            {
+                txtrendacj.Text = "0," + valor;
+            }
+            else if (valor.Length >= 3)
+            {
+                if (txtrendacj.Text.StartsWith("0,"))
+                {
+                    txtrendacj.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
+                }
+                else if (txtrendacj.Text.Contains("00,"))
+                {
+                    txtrendacj.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
+                }
+                else
+                {
+                    txtrendacj.Text = valor.Insert(valor.Length - 2, ",");
+                }
+            }
+            valor = txtrendacj.Text;
+            txtrendacj.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            txtrendacj.Select(txtrendacj.Text.Length, 0);
+        }
+
+        private void txtrendacj1_KeyUp(object sender, KeyEventArgs e)
+        {
+            valor = txtrendacj1.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+            if (valor.Length == 0)
+            {
+                txtrendacj1.Text = "0,00" + valor;
+            }
+            if (valor.Length == 1)
+            {
+                txtrendacj1.Text = "0,0" + valor;
+            }
+            if (valor.Length == 2)
+            {
+                txtrendacj1.Text = "0," + valor;
+            }
+            else if (valor.Length >= 3)
+            {
+                if (txtrendacj1.Text.StartsWith("0,"))
+                {
+                    txtrendacj1.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
+                }
+                else if (txtrendacj1.Text.Contains("00,"))
+                {
+                    txtrendacj1.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
+                }
+                else
+                {
+                    txtrendacj1.Text = valor.Insert(valor.Length - 2, ",");
+                }
+            }
+            valor = txtrendacj1.Text;
+            txtrendacj1.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            txtrendacj1.Select(txtrendacj1.Text.Length, 0);
+        }
+
+        private void txtrendacj2_KeyUp(object sender, KeyEventArgs e)
+        {
+            valor = txtrendacj2.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+            if (valor.Length == 0)
+            {
+                txtrendacj2.Text = "0,00" + valor;
+            }
+            if (valor.Length == 1)
+            {
+                txtrendacj2.Text = "0,0" + valor;
+            }
+            if (valor.Length == 2)
+            {
+                txtrendacj2.Text = "0," + valor;
+            }
+            else if (valor.Length >= 3)
+            {
+                if (txtrendacj2.Text.StartsWith("0,"))
+                {
+                    txtrendacj2.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
+                }
+                else if (txtrendacj2.Text.Contains("00,"))
+                {
+                    txtrendacj2.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
+                }
+                else
+                {
+                    txtrendacj2.Text = valor.Insert(valor.Length - 2, ",");
+                }
+            }
+            valor = txtrendacj2.Text;
+            txtrendacj2.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            txtrendacj2.Select(txtrendacj2.Text.Length, 0);
+        }
+
+        private void txtrendacj3_KeyUp(object sender, KeyEventArgs e)
+        {
+            valor = txtrendacj3.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+            if (valor.Length == 0)
+            {
+                txtrendacj3.Text = "0,00" + valor;
+            }
+            if (valor.Length == 1)
+            {
+                txtrendacj3.Text = "0,0" + valor;
+            }
+            if (valor.Length == 2)
+            {
+                txtrendacj3.Text = "0," + valor;
+            }
+            else if (valor.Length >= 3)
+            {
+                if (txtrendacj3.Text.StartsWith("0,"))
+                {
+                    txtrendacj3.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
+                }
+                else if (txtrendacj3.Text.Contains("00,"))
+                {
+                    txtrendacj3.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
+                }
+                else
+                {
+                    txtrendacj3.Text = valor.Insert(valor.Length - 2, ",");
+                }
+            }
+            valor = txtrendacj3.Text;
+            txtrendacj3.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            txtrendacj3.Select(txtrendacj3.Text.Length, 0);
         }
 
         private void btn_excluirconjuge1_Click(object sender, EventArgs e)
@@ -380,7 +855,9 @@ namespace LMFinanciamentos.Apresentacao
                 {
                     tabControl.TabPages.Insert(1, tabconjuge);
                     tabControl.SelectedTab = tabconjuge;
+                    Settxtrenda(txtrendacj);
                     txtnomeconjuge.Select();
+
                     cj = true;
                     conjuge = true;
                 }
@@ -447,39 +924,39 @@ namespace LMFinanciamentos.Apresentacao
             }
         }
 
-        private void Settxtrenda()
+        private void Settxtrenda(TextBox nametxt)
         {
-            valor = txtrendacli.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+            valor = nametxt.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
             if (valor.Length == 0)
             {
-                txtrendacli.Text = "0,00" + valor;
+                nametxt.Text = "0,00" + valor;
             }
             if (valor.Length == 1)
             {
-                txtrendacli.Text = "0,0" + valor;
+                nametxt.Text = "0,0" + valor;
             }
             if (valor.Length == 2)
             {
-                txtrendacli.Text = "0," + valor;
+                nametxt.Text = "0," + valor;
             }
             else if (valor.Length >= 3)
             {
-                if (txtrendacli.Text.StartsWith("0,"))
+                if (nametxt.Text.StartsWith("0,"))
                 {
-                    txtrendacli.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
+                    nametxt.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
                 }
-                else if (txtrendacli.Text.Contains("00,"))
+                else if (nametxt.Text.Contains("00,"))
                 {
-                    txtrendacli.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
+                    nametxt.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
                 }
                 else
                 {
-                    txtrendacli.Text = valor.Insert(valor.Length - 2, ",");
+                    nametxt.Text = valor.Insert(valor.Length - 2, ",");
                 }
             }
-            valor = txtrendacli.Text;
-            txtrendacli.Text = string.Format("{0:C}", Convert.ToDouble(valor));
-            txtrendacli.Select(txtrendacli.Text.Length, 0);
+            valor = nametxt.Text;
+            nametxt.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            nametxt.Select(nametxt.Text.Length, 0);
         }
         private void Settxtcpf()
         {

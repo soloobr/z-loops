@@ -734,6 +734,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtrendacj.Name = "txtrendacj";
             this.txtrendacj.Size = new System.Drawing.Size(167, 27);
             this.txtrendacj.TabIndex = 7;
+            this.txtrendacj.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrendacj_KeyUp);
             // 
             // label9
             // 
@@ -860,6 +861,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcpfcj.Name = "txtcpfcj";
             this.txtcpfcj.Size = new System.Drawing.Size(219, 30);
             this.txtcpfcj.TabIndex = 1;
+            this.txtcpfcj.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtcpfcj_KeyUp);
             // 
             // label14
             // 
@@ -900,6 +902,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtrgcj.Name = "txtrgcj";
             this.txtrgcj.Size = new System.Drawing.Size(157, 27);
             this.txtrgcj.TabIndex = 2;
+            this.txtrgcj.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrgcj_KeyUp);
             // 
             // txtnasccj
             // 
@@ -1080,6 +1083,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtrendacj1.Name = "txtrendacj1";
             this.txtrendacj1.Size = new System.Drawing.Size(167, 27);
             this.txtrendacj1.TabIndex = 7;
+            this.txtrendacj1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrendacj1_KeyUp);
             // 
             // label22
             // 
@@ -1206,6 +1210,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcpfcj1.Name = "txtcpfcj1";
             this.txtcpfcj1.Size = new System.Drawing.Size(219, 30);
             this.txtcpfcj1.TabIndex = 1;
+            this.txtcpfcj1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtcpfcj1_KeyUp);
             // 
             // label27
             // 
@@ -1246,6 +1251,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtrgcj1.Name = "txtrgcj1";
             this.txtrgcj1.Size = new System.Drawing.Size(157, 27);
             this.txtrgcj1.TabIndex = 2;
+            this.txtrgcj1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrgcj1_KeyUp);
             // 
             // txtnasccj1
             // 
@@ -1426,6 +1432,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtrendacj2.Name = "txtrendacj2";
             this.txtrendacj2.Size = new System.Drawing.Size(167, 27);
             this.txtrendacj2.TabIndex = 7;
+            this.txtrendacj2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrendacj2_KeyUp);
             // 
             // label33
             // 
@@ -1552,6 +1559,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcpfcj2.Name = "txtcpfcj2";
             this.txtcpfcj2.Size = new System.Drawing.Size(219, 30);
             this.txtcpfcj2.TabIndex = 1;
+            this.txtcpfcj2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtcpfcj2_KeyUp);
             // 
             // label38
             // 
@@ -1592,6 +1600,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtrgcj2.Name = "txtrgcj2";
             this.txtrgcj2.Size = new System.Drawing.Size(157, 27);
             this.txtrgcj2.TabIndex = 2;
+            this.txtrgcj2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrgcj2_KeyUp);
             // 
             // txtnasccj2
             // 
@@ -1753,6 +1762,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtrendacj3.Name = "txtrendacj3";
             this.txtrendacj3.Size = new System.Drawing.Size(167, 27);
             this.txtrendacj3.TabIndex = 7;
+            this.txtrendacj3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrendacj3_KeyUp);
             // 
             // label44
             // 
@@ -1879,6 +1889,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcpfcj3.Name = "txtcpfcj3";
             this.txtcpfcj3.Size = new System.Drawing.Size(219, 30);
             this.txtcpfcj3.TabIndex = 1;
+            this.txtcpfcj3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtcpfcj3_KeyUp);
             // 
             // label49
             // 
@@ -1919,6 +1930,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtrgcj3.Name = "txtrgcj3";
             this.txtrgcj3.Size = new System.Drawing.Size(157, 27);
             this.txtrgcj3.TabIndex = 2;
+            this.txtrgcj3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrgcj3_KeyUp);
             // 
             // txtnasccj3
             // 
