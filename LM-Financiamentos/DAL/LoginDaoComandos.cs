@@ -1394,7 +1394,7 @@ namespace LMFinanciamentos.DAL
 
             cmd.CommandText = "SELECT Conjuge.id, Nome, Email, Telefone, Celular, CPF, C.Agencia, C.Conta, RG, Nascimento, Sexo, Renda, Status, Conjuge.Observacao, Conjuge.Conjuge FROM Conjuge " +
                 "Left join Conta C on C.idcliente = @id and C.Tipo = @tipo and C.Sequencia = @idconjuge  " +
-                "WHERE Conjuge.idCliente = @id AND Conjuge.Sequencia = @idconjuge  ";
+                "WHERE Conjuge.idCliente = @id AND Conjuge.id = @idconjuge  ";
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@id", id);
             cmd.Parameters.AddWithValue("@tipo", "CJ");
@@ -1443,6 +1443,48 @@ namespace LMFinanciamentos.DAL
             }
 
             return conjuge;
+        }
+        public string UpdateCJCliente(String idcli , bool conjuge)
+        {
+
+
+            try
+            {
+                cmd.CommandText = "UPDATE Clientes " +
+               "SET  Conjuge = @conjuge " +
+               "WHERE id = @id ";
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", idcli);
+                cmd.Parameters.AddWithValue("@conjuge", conjuge);
+
+
+                cmd.Connection = con.conectar();
+
+                int recordsAffected = cmd.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "Cliente Atualizado com Sucesso!";
+                }
+                else
+                {
+                    mensagem = "Erro ao Atualizar Cliente";
+                }
+
+
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+            }
+            catch (Exception err)
+            {
+                mensagem = ("Erro ao Atualizar Cliente: " + err.Message);
+            }
+
+            return mensagem;
+
         }
         public Funcionario GetFuncionario(String sid)
         {
@@ -1726,6 +1768,63 @@ namespace LMFinanciamentos.DAL
                     //Byte[] byteBLOBData = new Byte[0];
                     //client.Foto_Func = (Byte[])(drclient["Foto"]);
                     list.Add(clients);
+                }
+                drclients.Close();
+                con.desconectar();
+
+            }
+            catch (SqlException err)
+            {
+                throw new Exception("Erro ao obter Cliente: " + err.Message);
+            }
+
+            //return client;
+            return list;
+        }
+        public List<Conjuge> GetidConjuges(String idcliente)
+
+        {
+            var list = new List<Conjuge>();
+
+            cmd2.CommandText = "SELECT Conjuge.id, Conjuge.Conjuge FROM Conjuge Where idCliente = @idcliente ";
+
+            cmd2.Parameters.Clear();
+            cmd2.Parameters.AddWithValue("@idcliente", idcliente);
+            cmd2.Parameters.AddWithValue("@tipo", "C");
+            //Cliente clients = new Cliente();
+            try
+            {
+                cmd2.Connection = con.conectar();
+                drclients = cmd2.ExecuteReader();
+                while (drclients.Read())
+                {
+                    Conjuge conjuge = new Conjuge();
+                    conjuge.Id_conjuge = drclients["id"].ToString();
+                    conjuge.Conjuge_conjuge = bool.Parse(drclients["Conjuge"].ToString());
+
+                    //clients.Nome_cliente = drclients["Nome"].ToString();
+                    //clients.Email_cliente = drclients["Email"].ToString();
+                    //clients.Telefone_cliente = drclients["Telefone"].ToString();
+                    //clients.Celular_cliente = drclients["Celular"].ToString();
+                    //clients.CPF_cliente = Convert.ToUInt64(drclients["CPF"].ToString()).ToString(@"000\.000\.000\-00");
+                    ////clients.CPF_cliente = drclients["CPF"].ToString().ToString();
+                    //clients.RG_cliente = drclients["RG"].ToString();
+                    //clients.StatusCPF_cliente = drclients["StatusCPF"].ToString();
+
+                    //clients.StatusCiweb_cliente = drclients["Ciweb"].ToString();
+                    //clients.StatusCadmut_cliente = drclients["Cadmut"].ToString();
+                    //clients.StatusIR_cliente = drclients["IR"].ToString();
+                    //clients.StatusFGTS_cliente = drclients["FGTS"].ToString();
+                    //clients.RG_cliente = drclients["RG"].ToString();
+                    //clients.Nascimento_cliente = Convert.ToDateTime(drclients["Nascimento"]).ToString("dd/MM/yyyy");
+                    //clients.Sexo_cliente = drclients["Sexo"].ToString();
+                    //clients.Status_cliente = drclients["Status"].ToString();
+                    //clients.Renda_cliente = drclients["Renda"].ToString();
+                    //clients.Agencia_cliente = drclients["Agencia"].ToString();
+                    //clients.Conta_cliente = drclients["Conta"].ToString();
+                    //Byte[] byteBLOBData = new Byte[0];
+                    //client.Foto_Func = (Byte[])(drclient["Foto"]);
+                    list.Add(conjuge);
                 }
                 drclients.Close();
                 con.desconectar();
@@ -2134,6 +2233,44 @@ namespace LMFinanciamentos.DAL
             catch (Exception err)
             {
                 mensagem = ("Erro ao Excluir Cliente: " + err.Message);
+                con.desconectar();
+            }
+
+            return mensagem;
+        }
+        public String DeleteConjuge(String idconjuge)
+        {
+            try
+            {
+                cmd1.CommandText = "DELETE FROM Conjuge " +
+                "WHERE id = @idconjuge ";
+
+                cmd1.Parameters.Clear();
+                cmd1.Parameters.AddWithValue("@idconjuge", idconjuge);
+
+                cmd1.Connection = con.conectar();
+
+                int recordsAffected = cmd1.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "Cônjuge Excluído com sucesso!";
+                    con.desconectar();
+                }
+                else
+                {
+                    mensagem = "Erro ao Excluir Cônjuge";
+                    con.desconectar();
+                }
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+                con.desconectar();
+            }
+            catch (Exception err)
+            {
+                mensagem = ("Erro ao Excluir Cônjuge: " + err.Message);
                 con.desconectar();
             }
 

@@ -18,7 +18,8 @@ namespace LMFinanciamentos.Apresentacao
         BinaryReader binRdr = null;
         bool arquivobase, cj, cj1, cj2, cj3;
         bool conjuge;
-        String idCJ, idCJ1, idCJ2, idCJ3;
+        
+        string[] idconj = { "idCJ", "idCJ1", "idCJ2", "idCJ3" };
 
 
         public Form_Dados_Cliente()
@@ -516,7 +517,7 @@ namespace LMFinanciamentos.Apresentacao
 
                 LoginDaoComandos updateconjuge = new LoginDaoComandos();
 
-                updateconjuge.UpdateConjuge(idCJ,txtnomeconjuge.Text, txtemailcj.Text, telefone, celular, CPF, RG, datanasc, sexo, status, renda, txtobservacaocj.Text, idCliente, sequencia, conjuge);
+                updateconjuge.UpdateConjuge(idconj[0],txtnomeconjuge.Text, txtemailcj.Text, telefone, celular, CPF, RG, datanasc, sexo, status, renda, txtobservacaocj.Text, idCliente, sequencia, conjuge);
 
 
                     if (txtcontacj != null && txtagenciacj != null)
@@ -527,7 +528,7 @@ namespace LMFinanciamentos.Apresentacao
 
                         LoginDaoComandos updateconta = new LoginDaoComandos();
 
-                        updateconta.UpdateContaConjuge(idCJ , Agencia, Conta, "CJ");
+                        updateconta.UpdateContaConjuge(idconj[0], Agencia, Conta, "CJ");
                         if (updateconta.mensagem != "OK")
                         {
                             MessageBox.Show("Conta do Cônjuge não Atualizada!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -596,7 +597,7 @@ namespace LMFinanciamentos.Apresentacao
 
                     LoginDaoComandos updateconjuge = new LoginDaoComandos();
 
-                    updateconjuge.UpdateConjuge(idCJ1,txtnomecj1.Text, txtemailcj1.Text, telefone, celular, CPF, RG, datanasc, sexo, status, renda, txtobservacaocj1.Text, idCliente, sequencia, conjuge);
+                    updateconjuge.UpdateConjuge(idconj[1], txtnomecj1.Text, txtemailcj1.Text, telefone, celular, CPF, RG, datanasc, sexo, status, renda, txtobservacaocj1.Text, idCliente, sequencia, conjuge);
 
 
                     if (txtcontacj1 != null && txtagenciacj1 != null)
@@ -606,7 +607,7 @@ namespace LMFinanciamentos.Apresentacao
 
                         LoginDaoComandos updateconta = new LoginDaoComandos();
                         
-                        updateconta.UpdateContaConjuge(idCJ1, Agencia, Conta, "CJ");
+                        updateconta.UpdateContaConjuge(idconj[1], Agencia, Conta, "CJ");
                     
                         if (updateconta.mensagem != "OK")
                         {
@@ -674,7 +675,7 @@ namespace LMFinanciamentos.Apresentacao
 
                     LoginDaoComandos updateconjuge = new LoginDaoComandos();
 
-                    updateconjuge.UpdateConjuge(idCJ2,txtnomecj2.Text, txtemailcj2.Text, telefone, celular, CPF, RG, datanasc, sexo, status, renda, txtobservacaocj2.Text, idCliente, sequencia, conjuge);
+                    updateconjuge.UpdateConjuge(idconj[2], txtnomecj2.Text, txtemailcj2.Text, telefone, celular, CPF, RG, datanasc, sexo, status, renda, txtobservacaocj2.Text, idCliente, sequencia, conjuge);
 
 
                     if (txtcontacj2 != null && txtagenciacj2 != null)
@@ -684,7 +685,7 @@ namespace LMFinanciamentos.Apresentacao
 
                         LoginDaoComandos updateconta = new LoginDaoComandos();
 
-                        updateconta.UpdateContaConjuge(idCJ2, Agencia, Conta, "CJ");
+                        updateconta.UpdateContaConjuge(idconj[2], Agencia, Conta, "CJ");
                         if (updateconta.mensagem != "OK")
                         {
                             MessageBox.Show("Conta do Cônjuge 2 não Cadastrada!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -751,7 +752,7 @@ namespace LMFinanciamentos.Apresentacao
 
                     LoginDaoComandos updateconjuge = new LoginDaoComandos();
 
-                    updateconjuge.UpdateConjuge(idCJ3,txtnomecj3.Text, txtemailcj3.Text, telefone, celular, CPF, RG, datanasc, sexo, status, renda, txtobservacaocj3.Text, idCliente, sequencia, conjuge);
+                    updateconjuge.UpdateConjuge(idconj[3], txtnomecj3.Text, txtemailcj3.Text, telefone, celular, CPF, RG, datanasc, sexo, status, renda, txtobservacaocj3.Text, idCliente, sequencia, conjuge);
 
 
                     if (txtcontacj3 != null && txtagenciacj3 != null)
@@ -762,7 +763,7 @@ namespace LMFinanciamentos.Apresentacao
 
                         LoginDaoComandos updateconta = new LoginDaoComandos();
 
-                        updateconta.UpdateContaConjuge(idCJ3, Agencia, Conta, "CJ");
+                        updateconta.UpdateContaConjuge(idconj[3], Agencia, Conta, "CJ");
                         if (updateconta.mensagem != "OK")
                         {
                             MessageBox.Show("Conta do Cônjuge 3 não Cadastrada!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -817,10 +818,29 @@ namespace LMFinanciamentos.Apresentacao
 
             LoadDadosCliente();
 
+            LoginDaoComandos getconjuge = new LoginDaoComandos();
+            
+
+            var highScores = getconjuge.GetidConjuges(idCliente);
+
+            int cont = 0;
+            foreach (var item in highScores)
+            {
+                
+                //string("idCJ" + cont.ToString()) = 
+                idconj[cont] = ($"{item.Id_conjuge,-15}");
+                MessageBox.Show(idconj[cont]);
+                // idCJ + sequencia = ($"{item.Id_conjuge,-15});
+                //MessageBox.Show($"{item.Id_conjuge,-15}{item.Conjuge_conjuge}");
+                cont = cont+1;
+            }
+
+            
+
             if (cj == true)
             {
                 tabControl.TabPages.Insert(1, tabconjuge);
-                LoadDadosConjuge(idCliente, "0");
+                LoadDadosConjuge(idCliente, idconj[0]);
                 gbrenda.Visible = true;
                 lbl0.Visible = true;
                 lblnomeclirenda.Visible = true;
@@ -837,18 +857,12 @@ namespace LMFinanciamentos.Apresentacao
                 lblrendabruta.Visible = true;
                 txtrendatotal.Visible = true;
 
-                //decimal vl1, vl2, result;
-                //vl1 = decimal.Parse(txtrendacj.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
-                //vl2 = decimal.Parse(txtrendacli.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
-
-                //result = vl1 + vl2;
-                //txtrendatotal.Text = string.Format("{0:C}", Convert.ToDouble(result.ToString()));
                 txtrendatotal.Text = string.Format("{0:C}", Convert.ToDouble(SomaRenda().ToString()));
             }
             if (cj1 == true)
             {
                 tabControl.TabPages.Insert(2, tabconjuge1);
-                LoadDadosCJ(idCliente, "1");
+                LoadDadosCJ(idCliente, idconj[1]);
 
                 lbl02.Visible = true;
                 lblnomecj2.Visible = true;
@@ -859,19 +873,12 @@ namespace LMFinanciamentos.Apresentacao
                 lblrendabruta.Visible = true;
                 txtrendatotal.Visible = true;
 
-                //decimal vl1, vl2, vl3, result;
-                //vl1 = decimal.Parse(txtrendacj.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
-                //vl2 = decimal.Parse(txtrendacli.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
-                //vl3 = decimal.Parse(txtrendacj1.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
-
-                //result = vl1 + vl2 + vl3;
-                //txtrendatotal.Text = string.Format("{0:C}", Convert.ToDouble(result.ToString()));
                 txtrendatotal.Text = string.Format("{0:C}", Convert.ToDouble(SomaRenda().ToString()));
             }
             if (cj2 == true)
             {
                 tabControl.TabPages.Insert(3, tabconjuge2);
-                LoadDadosCJ1(idCliente, "2");
+                LoadDadosCJ1(idCliente, idconj[2]);
 
                 lbl03.Visible = true;
                 lblnomecj3.Visible = true;
@@ -882,19 +889,12 @@ namespace LMFinanciamentos.Apresentacao
                 lblrendabruta.Visible = true;
                 txtrendatotal.Visible = true;
 
-                //decimal vl1, vl2, vl3, vl4, result;
-                //vl1 = decimal.Parse(txtrendacj.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
-                //vl2 = decimal.Parse(txtrendacli.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
-                //vl3 = decimal.Parse(txtrendacj1.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
-                //vl4 = decimal.Parse(txtrendacj2.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
-                //result = vl1 + vl2 + vl3 + vl4;
-                //txtrendatotal.Text = string.Format("{0:C}", Convert.ToDouble(result.ToString()));
                 txtrendatotal.Text = string.Format("{0:C}", Convert.ToDouble(SomaRenda().ToString()));
             }
             if (cj3 == true)
             {
                 tabControl.TabPages.Insert(4, tabconjuge3);
-                LoadDadosCJ2(idCliente, "3");
+                LoadDadosCJ2(idCliente, idconj[3]);
 
                 lbl04.Visible = true;
                 lblnomecj4.Visible = true;
@@ -904,16 +904,6 @@ namespace LMFinanciamentos.Apresentacao
 
                 lblrendabruta.Visible = true;
                 txtrendatotal.Visible = true;
-
-                //decimal vl1, vl2, vl3, vl4, vl5, result;
-                //vl1 = decimal.Parse(txtrendacj.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
-                //vl2 = decimal.Parse(txtrendacli.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
-                //vl3 = decimal.Parse(txtrendacj1.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
-                //vl4 = decimal.Parse(txtrendacj2.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
-                //vl5 = decimal.Parse(txtrendacj3.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
-
-                //result = vl1 + vl2 + vl3 + vl4 + vl5;
-                //txtrendatotal.Text = string.Format("{0:C}", Convert.ToDouble(result.ToString()));
                 txtrendatotal.Text = string.Format("{0:C}", Convert.ToDouble(SomaRenda().ToString()));
             }
         }
@@ -923,6 +913,8 @@ namespace LMFinanciamentos.Apresentacao
             if(txtrendacj.Text != "")
             {
                 vl1 = decimal.Parse(txtrendacj.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
+                lblrendacj1.Text = txtrendacj.Text;
+                lblnomecj1.Text = txtnomeconjuge.Text;
             }
             else
             {
@@ -931,6 +923,8 @@ namespace LMFinanciamentos.Apresentacao
             if (txtrendacli.Text != "")
             {
                 vl2 = decimal.Parse(txtrendacli.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
+                lblrendacli.Text = txtrendacli.Text;
+                lblnomeclirenda.Text = txtnomecli.Text;
             }
             else
             {
@@ -939,6 +933,8 @@ namespace LMFinanciamentos.Apresentacao
             if (txtrendacj1.Text != "")
             {
                 vl3 = decimal.Parse(txtrendacj1.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
+                lblrendacj2.Text = txtrendacj1.Text;
+                lblnomecj2.Text = txtnomecj1.Text;
             }
             else
             {
@@ -947,6 +943,8 @@ namespace LMFinanciamentos.Apresentacao
             if (txtrendacj2.Text != "")
             {
                 vl4 = decimal.Parse(txtrendacj2.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
+                lblrendacj3.Text = txtrendacj2.Text;
+                lblnomecj3.Text = txtnomecj2.Text;
             }
             else
             {
@@ -955,6 +953,8 @@ namespace LMFinanciamentos.Apresentacao
             if (txtrendacj3.Text != "")
             {
                 vl5 = decimal.Parse(txtrendacj3.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
+                lblrendacj4.Text = txtrendacj3.Text;
+                lblnomecj4.Text = txtnomecj3.Text;
             }
             else
             {
@@ -962,18 +962,6 @@ namespace LMFinanciamentos.Apresentacao
             }
 
             result = vl1 + vl2 + vl3 + vl4 + vl5;
-
-            lblrendacli.Text = txtrendacli.Text;
-            lblrendacj1.Text = txtrendacj.Text;
-            lblrendacj2.Text = txtrendacj1.Text;
-            lblrendacj3.Text = txtrendacj2.Text;
-            lblrendacj4.Text = txtrendacj3.Text;
-
-            lblnomeclirenda.Text = txtnomecli.Text;
-            lblnomecj1.Text = txtnomeconjuge.Text;
-            lblnomecj2.Text = txtnomecj1.Text;
-            lblnomecj3.Text = txtnomecj2.Text;
-            lblnomecj4.Text = txtnomecj3.Text;
 
 
             txtrendatotal.Text = string.Format("{0:C}", Convert.ToDouble(result.ToString()));
@@ -1074,7 +1062,7 @@ namespace LMFinanciamentos.Apresentacao
             LoginDaoComandos getconjuge = new LoginDaoComandos();
             conj = getconjuge.GetConjuge(idcliente, idconjuge);
 
-            idCJ = conj.Id_conjuge;
+            idconj[0] = conj.Id_conjuge;
             txtnomeconjuge.Text = conj.Nome_conjuge;
             txtcpfcj.Text = conj.CPF_conjuge;
             txtrgcj.Text = conj.RG_conjuge;
@@ -1162,7 +1150,7 @@ namespace LMFinanciamentos.Apresentacao
             LoginDaoComandos getconjuge = new LoginDaoComandos();
             conj = getconjuge.GetConjuge(idcliente, idconjuge);
 
-            idCJ1 = conj.Id_conjuge;
+            idconj[1] = conj.Id_conjuge;
             txtnomecj1.Text = conj.Nome_conjuge;
             txtcpfcj1.Text = conj.CPF_conjuge;
             txtrgcj1.Text = conj.RG_conjuge;
@@ -1249,7 +1237,7 @@ namespace LMFinanciamentos.Apresentacao
             LoginDaoComandos getconjuge = new LoginDaoComandos();
             conj = getconjuge.GetConjuge(idcliente, idconjuge);
 
-            idCJ2 = conj.Id_conjuge;
+            idconj[2] = conj.Id_conjuge;
             txtnomecj2.Text = conj.Nome_conjuge;
             txtcpfcj2.Text = conj.CPF_conjuge;
             txtrgcj2.Text = conj.RG_conjuge;
@@ -1336,7 +1324,7 @@ namespace LMFinanciamentos.Apresentacao
             LoginDaoComandos getconjuge = new LoginDaoComandos();
             conj = getconjuge.GetConjuge(idcliente, idconjuge);
 
-            idCJ3 = conj.Id_conjuge;
+            idconj[3] = conj.Id_conjuge;
             txtnomecj3.Text = conj.Nome_conjuge;
             txtcpfcj3.Text = conj.CPF_conjuge;
             txtrgcj3.Text = conj.RG_conjuge;
@@ -1577,11 +1565,6 @@ namespace LMFinanciamentos.Apresentacao
         }
 
         private void btn_excluirconjuge_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnconjuge1_Click(object sender, EventArgs e)
         {
 
         }
@@ -1947,6 +1930,38 @@ namespace LMFinanciamentos.Apresentacao
             }
         }
 
+        private void btn_excluirconjuge_Click_1(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Confirma a Exclusão do Conjuge: " + txtnomeconjuge.Text + " ?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                LoginDaoComandos deleteconjuge = new LoginDaoComandos();
+
+
+                deleteconjuge.DeleteConjuge(idconj[0]);
+
+                MessageBox.Show(deleteconjuge.mensagem, "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                tabControl.TabPages.Remove(tabconjuge);
+                txtrendacj.Text = "";
+                lbl0.Visible = false;
+                lblnomeclirenda.Visible = false;
+                lblrendacli.Visible = false;
+                SomaRenda();
+
+                cj = false;
+
+                if (cj == true || cj1 == true || cj2 == true || cj3 == true)
+                {
+                }
+                else
+                {
+                    deleteconjuge.UpdateCJCliente(idCliente, false);
+                }
+            }
+        }
+
         private void txtrgcj2_KeyUp(object sender, KeyEventArgs e)
         {
             int cont = 0;
@@ -2256,11 +2271,6 @@ namespace LMFinanciamentos.Apresentacao
         }
 
         private void btnconjuge3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_excluirconjuge3_Click(object sender, EventArgs e)
         {
 
         }
