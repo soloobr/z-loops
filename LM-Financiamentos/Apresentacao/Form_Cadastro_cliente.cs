@@ -45,9 +45,6 @@ namespace LMFinanciamentos.Apresentacao
             tabControl.TabPages.Remove(tabconjuge1);
             tabControl.TabPages.Remove(tabconjuge2);
             tabControl.TabPages.Remove(tabconjuge3);
-            //txtnomecli.Select();
-            //txtnomecli.ScrollToCaret();
-            //txtnomecli.Focus();
 
             txtnomecli.Select(txtnomecli.Text.Length, 0);
             this.ActiveControl = txtnomecli;

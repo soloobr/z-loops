@@ -48,6 +48,7 @@ namespace LMFinanciamentos.Apresentacao
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Celular = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlcontrol = new System.Windows.Forms.Panel();
+            this.btn_reload = new System.Windows.Forms.Button();
             this.lblprocurar = new System.Windows.Forms.Label();
             this.btnprocurar = new System.Windows.Forms.Button();
             this.txtprocurar = new System.Windows.Forms.TextBox();
@@ -61,7 +62,6 @@ namespace LMFinanciamentos.Apresentacao
             this.paneltop = new System.Windows.Forms.Panel();
             this.lbl_topo = new System.Windows.Forms.Label();
             this.img_topo = new System.Windows.Forms.PictureBox();
-            this.btn_reload = new System.Windows.Forms.Button();
             this.panelcentralcadcli.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_clientes)).BeginInit();
@@ -129,7 +129,7 @@ namespace LMFinanciamentos.Apresentacao
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_clientes.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dgv_clientes.Dock = System.Windows.Forms.DockStyle.Right;
+            this.dgv_clientes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_clientes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgv_clientes.GridColor = System.Drawing.SystemColors.Control;
             this.dgv_clientes.Location = new System.Drawing.Point(0, 138);
@@ -236,13 +236,30 @@ namespace LMFinanciamentos.Apresentacao
             this.pnlcontrol.Size = new System.Drawing.Size(1142, 138);
             this.pnlcontrol.TabIndex = 11;
             // 
+            // btn_reload
+            // 
+            this.btn_reload.AutoSize = true;
+            this.btn_reload.BackColor = System.Drawing.Color.Silver;
+            this.btn_reload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_reload.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_reload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_reload.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_reload.Image = ((System.Drawing.Image)(resources.GetObject("btn_reload.Image")));
+            this.btn_reload.Location = new System.Drawing.Point(293, 44);
+            this.btn_reload.Name = "btn_reload";
+            this.btn_reload.Padding = new System.Windows.Forms.Padding(2);
+            this.btn_reload.Size = new System.Drawing.Size(38, 30);
+            this.btn_reload.TabIndex = 4;
+            this.btn_reload.UseVisualStyleBackColor = false;
+            this.btn_reload.Click += new System.EventHandler(this.btn_reload_Click);
+            // 
             // lblprocurar
             // 
             this.lblprocurar.AutoSize = true;
             this.lblprocurar.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblprocurar.Location = new System.Drawing.Point(22, 20);
             this.lblprocurar.Name = "lblprocurar";
-            this.lblprocurar.Size = new System.Drawing.Size(86, 22);
+            this.lblprocurar.Size = new System.Drawing.Size(87, 19);
             this.lblprocurar.TabIndex = 2;
             this.lblprocurar.Text = "Procurar por:";
             // 
@@ -268,7 +285,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtprocurar.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtprocurar.Location = new System.Drawing.Point(26, 45);
             this.txtprocurar.Name = "txtprocurar";
-            this.txtprocurar.Size = new System.Drawing.Size(218, 27);
+            this.txtprocurar.Size = new System.Drawing.Size(218, 29);
             this.txtprocurar.TabIndex = 0;
             this.txtprocurar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtprocurar_KeyPress);
             // 
@@ -415,23 +432,6 @@ namespace LMFinanciamentos.Apresentacao
             this.img_topo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.img_topo.TabIndex = 5;
             this.img_topo.TabStop = false;
-            // 
-            // btn_reload
-            // 
-            this.btn_reload.AutoSize = true;
-            this.btn_reload.BackColor = System.Drawing.Color.Silver;
-            this.btn_reload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btn_reload.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btn_reload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_reload.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_reload.Image = ((System.Drawing.Image)(resources.GetObject("btn_reload.Image")));
-            this.btn_reload.Location = new System.Drawing.Point(293, 44);
-            this.btn_reload.Name = "btn_reload";
-            this.btn_reload.Padding = new System.Windows.Forms.Padding(2);
-            this.btn_reload.Size = new System.Drawing.Size(38, 30);
-            this.btn_reload.TabIndex = 4;
-            this.btn_reload.UseVisualStyleBackColor = false;
-            this.btn_reload.Click += new System.EventHandler(this.btn_reload_Click);
             // 
             // Form_Controle_Cliente
             // 
