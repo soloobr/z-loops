@@ -2655,7 +2655,7 @@ namespace LMFinanciamentos.DAL
 
         public DataTable GetDataPrograma()
         {
-            cmd.CommandText = "SELECT id, Descricao FROM Programa ";
+            cmd.CommandText = "SELECT id, Descricao FROM Programa  Order by Descricao ASC ";
 
             cmd.Connection = con.conectar();
             //drprocessos = cmd.ExecuteReader(CommandBehavior.CloseConnection);
@@ -2668,7 +2668,7 @@ namespace LMFinanciamentos.DAL
         }
         public DataTable GetDataCorretora()
         {
-            cmd.CommandText = "SELECT id, Descricao FROM Corretora ";
+            cmd.CommandText = "SELECT id, Descricao FROM Corretora Order by Descricao ASC ";
 
             cmd.Connection = con.conectar();
             //drprocessos = cmd.ExecuteReader(CommandBehavior.CloseConnection);
@@ -2682,7 +2682,7 @@ namespace LMFinanciamentos.DAL
 
         public DataTable GetDataCorretores()
         {
-            cmd.CommandText = "SELECT id, Nome FROM Corretores ";
+            cmd.CommandText = "SELECT id, Nome FROM Corretores Order by Nome ASC ";
 
             cmd.Connection = con.conectar();
 
@@ -2694,7 +2694,7 @@ namespace LMFinanciamentos.DAL
         }
         public DataTable GetDataEmpreendimentos()
         {
-            cmd.CommandText = "SELECT id, Descricao FROM Empreendimentos ";
+            cmd.CommandText = "SELECT id, Descricao FROM Empreendimentos Order by Descricao ASC ";
 
             cmd.Connection = con.conectar();
             //drprocessos = cmd.ExecuteReader(CommandBehavior.CloseConnection);
