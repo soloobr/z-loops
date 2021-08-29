@@ -369,7 +369,7 @@ namespace LMFinanciamentos.DAL
             return mensagem;
 
         }
-        public String InsertConta(String id, String agencia, String conta, String tipo,String idconjuge, String sequencia)
+        public String InsertConta(String id, String agencia, String conta, String tipo, String idconjuge, String sequencia)
         {
 
 
@@ -926,7 +926,7 @@ namespace LMFinanciamentos.DAL
 
             //return mensagem;
         }
-        public int CadastrarConjuge(String nome, String email, String telefone, String celular, String cpf, String rg, DateTime nascimento, String sexo, String status, String renda, String observacao, String idcliente, String sequencia,bool conjuge)
+        public int CadastrarConjuge(String nome, String email, String telefone, String celular, String cpf, String rg, DateTime nascimento, String sexo, String status, String renda, String observacao, String idcliente, String sequencia, bool conjuge)
         {
 
 
@@ -1444,7 +1444,7 @@ namespace LMFinanciamentos.DAL
 
             return conjuge;
         }
-        public string UpdateCJCliente(String idcli , bool conjuge)
+        public string UpdateCJCliente(String idcli, bool conjuge)
         {
 
 
