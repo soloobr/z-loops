@@ -1,5 +1,6 @@
 ﻿using AutoUpdaterEasy;
 using System;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace LMFinanciamentos
@@ -24,6 +25,7 @@ namespace LMFinanciamentos
             //Application.Run(new Form_Controle_Processo());
 
             AutoUpdater.Initialize("https://lmfinanciamentos.com.br/Config.json", Application.ProductVersion);
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form_Login());

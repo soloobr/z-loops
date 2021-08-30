@@ -20,6 +20,7 @@
         public string Sexo_cliente { get; set; }
         public string Status_cliente { get; set; }
         public string Renda_cliente { get; set; }
+        public string RendaBruta_cliente { get; set; }
         public int Cont { get; internal set; }
         public string Agencia_cliente { get; internal set; }
         public string Conta_cliente { get; internal set; }

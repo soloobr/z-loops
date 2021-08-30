@@ -31,14 +31,14 @@ namespace LMFinanciamentos.Apresentacao
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Dados_Processos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnsalvardoc = new System.Windows.Forms.Button();
             this.processosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dSDocumentosBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -89,6 +89,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panelfunc = new System.Windows.Forms.Panel();
             this.groupBoxdadospessoais = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtrenda = new System.Windows.Forms.TextBox();
             this.ComboBoxClient = new System.Windows.Forms.TextBox();
             this.txtcontacliente = new System.Windows.Forms.TextBox();
             this.label46 = new System.Windows.Forms.Label();
@@ -100,7 +101,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label20 = new System.Windows.Forms.Label();
             this.txttelefone = new System.Windows.Forms.MaskedTextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblrentabruta = new System.Windows.Forms.Label();
             this.txtnasc = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtemail = new System.Windows.Forms.TextBox();
@@ -108,7 +109,6 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcpf = new System.Windows.Forms.TextBox();
             this.lblcliente = new System.Windows.Forms.Label();
             this.lblemail = new System.Windows.Forms.Label();
-            this.txtrenda = new System.Windows.Forms.TextBox();
             this.tabvendedor = new System.Windows.Forms.TabPage();
             this.panel20 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
@@ -528,7 +528,7 @@ namespace LMFinanciamentos.Apresentacao
             this.grpbSituacao.Controls.Add(this.tableLayoutsitua);
             this.grpbSituacao.Controls.Add(this.panelfunc);
             this.grpbSituacao.Dock = System.Windows.Forms.DockStyle.Top;
-            this.grpbSituacao.Location = new System.Drawing.Point(20, 222);
+            this.grpbSituacao.Location = new System.Drawing.Point(20, 216);
             this.grpbSituacao.Name = "grpbSituacao";
             this.grpbSituacao.Padding = new System.Windows.Forms.Padding(6);
             this.grpbSituacao.Size = new System.Drawing.Size(1064, 185);
@@ -957,18 +957,20 @@ namespace LMFinanciamentos.Apresentacao
             this.groupBoxdadospessoais.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBoxdadospessoais.Location = new System.Drawing.Point(20, 20);
             this.groupBoxdadospessoais.Name = "groupBoxdadospessoais";
-            this.groupBoxdadospessoais.Size = new System.Drawing.Size(1064, 202);
+            this.groupBoxdadospessoais.Size = new System.Drawing.Size(1064, 196);
             this.groupBoxdadospessoais.TabIndex = 6;
             this.groupBoxdadospessoais.TabStop = false;
             this.groupBoxdadospessoais.Text = "Dados Pessoais:";
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.AutoSize = true;
             this.tableLayoutPanel1.ColumnCount = 4;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.txtrenda, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.ComboBoxClient, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtcontacliente, 2, 5);
             this.tableLayoutPanel1.Controls.Add(this.label46, 2, 4);
@@ -980,7 +982,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel1.Controls.Add(this.label20, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.txttelefone, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.label19, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.lblrentabruta, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.txtnasc, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtemail, 0, 3);
@@ -988,7 +990,6 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel1.Controls.Add(this.txtcpf, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblcliente, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblemail, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.txtrenda, 0, 5);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 23);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -1000,8 +1001,17 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1058, 176);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1058, 170);
             this.tableLayoutPanel1.TabIndex = 3;
+            // 
+            // txtrenda
+            // 
+            this.txtrenda.Enabled = false;
+            this.txtrenda.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtrenda.Location = new System.Drawing.Point(3, 139);
+            this.txtrenda.Name = "txtrenda";
+            this.txtrenda.Size = new System.Drawing.Size(207, 27);
+            this.txtrenda.TabIndex = 34;
             // 
             // ComboBoxClient
             // 
@@ -1018,7 +1028,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcontacliente.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtcontacliente.Enabled = false;
             this.txtcontacliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcontacliente.Location = new System.Drawing.Point(538, 137);
+            this.txtcontacliente.Location = new System.Drawing.Point(538, 139);
             this.txtcontacliente.Name = "txtcontacliente";
             this.txtcontacliente.Size = new System.Drawing.Size(159, 24);
             this.txtcontacliente.TabIndex = 30;
@@ -1026,7 +1036,7 @@ namespace LMFinanciamentos.Apresentacao
             // label46
             // 
             this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(538, 111);
+            this.label46.Location = new System.Drawing.Point(538, 113);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(55, 23);
             this.label46.TabIndex = 29;
@@ -1037,7 +1047,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtagenciacliente.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtagenciacliente.Enabled = false;
             this.txtagenciacliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtagenciacliente.Location = new System.Drawing.Point(373, 137);
+            this.txtagenciacliente.Location = new System.Drawing.Point(373, 139);
             this.txtagenciacliente.Name = "txtagenciacliente";
             this.txtagenciacliente.Size = new System.Drawing.Size(159, 24);
             this.txtagenciacliente.TabIndex = 28;
@@ -1045,7 +1055,7 @@ namespace LMFinanciamentos.Apresentacao
             // label45
             // 
             this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(373, 111);
+            this.label45.Location = new System.Drawing.Point(373, 113);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(71, 23);
             this.label45.TabIndex = 27;
@@ -1073,11 +1083,11 @@ namespace LMFinanciamentos.Apresentacao
             // txtcelular
             // 
             this.txtcelular.Enabled = false;
-            this.txtcelular.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcelular.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcelular.Location = new System.Drawing.Point(538, 86);
             this.txtcelular.Mask = "(99) 00000-0000";
             this.txtcelular.Name = "txtcelular";
-            this.txtcelular.Size = new System.Drawing.Size(157, 22);
+            this.txtcelular.Size = new System.Drawing.Size(157, 24);
             this.txtcelular.TabIndex = 6;
             // 
             // label20
@@ -1092,11 +1102,11 @@ namespace LMFinanciamentos.Apresentacao
             // txttelefone
             // 
             this.txttelefone.Enabled = false;
-            this.txttelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txttelefone.Location = new System.Drawing.Point(373, 86);
             this.txttelefone.Mask = "(99) 0000-0000";
             this.txttelefone.Name = "txttelefone";
-            this.txttelefone.Size = new System.Drawing.Size(157, 22);
+            this.txttelefone.Size = new System.Drawing.Size(157, 24);
             this.txttelefone.TabIndex = 5;
             // 
             // label19
@@ -1108,23 +1118,23 @@ namespace LMFinanciamentos.Apresentacao
             this.label19.TabIndex = 21;
             this.label19.Text = "Telefone:";
             // 
-            // label2
+            // lblrentabruta
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 111);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 23);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "Renda:";
+            this.lblrentabruta.AutoSize = true;
+            this.lblrentabruta.Location = new System.Drawing.Point(3, 113);
+            this.lblrentabruta.Name = "lblrentabruta";
+            this.lblrentabruta.Size = new System.Drawing.Size(149, 23);
+            this.lblrentabruta.TabIndex = 20;
+            this.lblrentabruta.Text = "Renda Bruta: Cliente";
             // 
             // txtnasc
             // 
             this.txtnasc.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtnasc.Enabled = false;
-            this.txtnasc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtnasc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtnasc.Location = new System.Drawing.Point(703, 26);
             this.txtnasc.Name = "txtnasc";
-            this.txtnasc.Size = new System.Drawing.Size(135, 22);
+            this.txtnasc.Size = new System.Drawing.Size(135, 24);
             this.txtnasc.TabIndex = 4;
             // 
             // label1
@@ -1143,10 +1153,10 @@ namespace LMFinanciamentos.Apresentacao
             this.txtemail.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtemail.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtemail.Enabled = false;
-            this.txtemail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtemail.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtemail.Location = new System.Drawing.Point(3, 86);
             this.txtemail.Name = "txtemail";
-            this.txtemail.Size = new System.Drawing.Size(364, 22);
+            this.txtemail.Size = new System.Drawing.Size(364, 24);
             this.txtemail.TabIndex = 5;
             // 
             // lblcpf
@@ -1186,18 +1196,6 @@ namespace LMFinanciamentos.Apresentacao
             this.lblemail.Size = new System.Drawing.Size(52, 23);
             this.lblemail.TabIndex = 11;
             this.lblemail.Text = "Email:";
-            // 
-            // txtrenda
-            // 
-            this.txtrenda.Enabled = false;
-            this.txtrenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtrenda.Location = new System.Drawing.Point(3, 137);
-            this.txtrenda.Name = "txtrenda";
-            this.txtrenda.Size = new System.Drawing.Size(216, 24);
-            this.txtrenda.TabIndex = 32;
-            this.txtrenda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtrenda_KeyPress);
-            this.txtrenda.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrenda_KeyUp);
-            this.txtrenda.Leave += new System.EventHandler(this.txtrenda_Leave);
             // 
             // tabvendedor
             // 
@@ -1298,11 +1296,11 @@ namespace LMFinanciamentos.Apresentacao
             // textcelularvendedor
             // 
             this.textcelularvendedor.Enabled = false;
-            this.textcelularvendedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textcelularvendedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textcelularvendedor.Location = new System.Drawing.Point(538, 86);
             this.textcelularvendedor.Mask = "(99) 00000-0000";
             this.textcelularvendedor.Name = "textcelularvendedor";
-            this.textcelularvendedor.Size = new System.Drawing.Size(157, 22);
+            this.textcelularvendedor.Size = new System.Drawing.Size(157, 24);
             this.textcelularvendedor.TabIndex = 6;
             // 
             // label11
@@ -1317,11 +1315,11 @@ namespace LMFinanciamentos.Apresentacao
             // texttelefonevendedor
             // 
             this.texttelefonevendedor.Enabled = false;
-            this.texttelefonevendedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.texttelefonevendedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.texttelefonevendedor.Location = new System.Drawing.Point(373, 86);
             this.texttelefonevendedor.Mask = "(99) 0000-0000";
             this.texttelefonevendedor.Name = "texttelefonevendedor";
-            this.texttelefonevendedor.Size = new System.Drawing.Size(157, 22);
+            this.texttelefonevendedor.Size = new System.Drawing.Size(157, 24);
             this.texttelefonevendedor.TabIndex = 5;
             // 
             // label12
@@ -1339,10 +1337,10 @@ namespace LMFinanciamentos.Apresentacao
             this.textemailvendedor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.textemailvendedor.Dock = System.Windows.Forms.DockStyle.Left;
             this.textemailvendedor.Enabled = false;
-            this.textemailvendedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textemailvendedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textemailvendedor.Location = new System.Drawing.Point(3, 86);
             this.textemailvendedor.Name = "textemailvendedor";
-            this.textemailvendedor.Size = new System.Drawing.Size(364, 22);
+            this.textemailvendedor.Size = new System.Drawing.Size(364, 24);
             this.textemailvendedor.TabIndex = 5;
             // 
             // label26
@@ -2587,14 +2585,14 @@ namespace LMFinanciamentos.Apresentacao
             this.Baixar,
             this.ver,
             this.Extensao});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_Arquivos.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_Arquivos.DefaultCellStyle = dataGridViewCellStyle24;
             this.dataGridView_Arquivos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_Arquivos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView_Arquivos.GridColor = System.Drawing.SystemColors.Control;
@@ -2613,9 +2611,9 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.Numero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Numero.DataPropertyName = "id";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = "0";
-            this.Numero.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.NullValue = "0";
+            this.Numero.DefaultCellStyle = dataGridViewCellStyle17;
             this.Numero.HeaderText = "Nº";
             this.Numero.Name = "Numero";
             this.Numero.ReadOnly = true;
@@ -2625,8 +2623,8 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.Tipo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             this.Tipo.DataPropertyName = "Tipo";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Tipo.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Tipo.DefaultCellStyle = dataGridViewCellStyle18;
             this.Tipo.HeaderText = "Tipo";
             this.Tipo.MinimumWidth = 250;
             this.Tipo.Name = "Tipo";
@@ -2637,8 +2635,8 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.descricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.descricao.DataPropertyName = "Descricao";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.descricao.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.descricao.DefaultCellStyle = dataGridViewCellStyle19;
             this.descricao.HeaderText = "Descrição";
             this.descricao.Name = "descricao";
             this.descricao.Width = 250;
@@ -2647,8 +2645,8 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.data.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.data.DataPropertyName = "Data";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.data.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.data.DefaultCellStyle = dataGridViewCellStyle20;
             this.data.HeaderText = "Data";
             this.data.Name = "data";
             // 
@@ -2656,8 +2654,8 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.status.DataPropertyName = "Status";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.status.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.status.DefaultCellStyle = dataGridViewCellStyle21;
             this.status.HeaderText = "Status";
             this.status.Name = "status";
             this.status.Width = 150;
@@ -2665,9 +2663,9 @@ namespace LMFinanciamentos.Apresentacao
             // apagar
             // 
             this.apagar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(1);
-            this.apagar.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle22.Padding = new System.Windows.Forms.Padding(1);
+            this.apagar.DefaultCellStyle = dataGridViewCellStyle22;
             this.apagar.FillWeight = 30F;
             this.apagar.HeaderText = "Excluir";
             this.apagar.MinimumWidth = 60;
@@ -2679,9 +2677,9 @@ namespace LMFinanciamentos.Apresentacao
             // Baixar
             // 
             this.Baixar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(1);
-            this.Baixar.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle23.Padding = new System.Windows.Forms.Padding(1);
+            this.Baixar.DefaultCellStyle = dataGridViewCellStyle23;
             this.Baixar.FillWeight = 30F;
             this.Baixar.HeaderText = "Baixar";
             this.Baixar.MinimumWidth = 60;
@@ -3074,6 +3072,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panelstatusfgts.ResumeLayout(false);
             this.panelstatusfgts.PerformLayout();
             this.groupBoxdadospessoais.ResumeLayout(false);
+            this.groupBoxdadospessoais.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tabvendedor.ResumeLayout(false);
@@ -3313,7 +3312,7 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.MaskedTextBox txttelefone;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblrentabruta;
         private System.Windows.Forms.TextBox txtnasc;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtemail;
@@ -3343,7 +3342,6 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.ComboBox comboBox_empreendimentos;
         private System.Windows.Forms.Label lblempresendimentos;
-        private System.Windows.Forms.TextBox txtrenda;
         private System.Windows.Forms.Panel panel21;
         private System.Windows.Forms.Panel panel22;
         private System.Windows.Forms.Label lblacartorio;
@@ -3388,6 +3386,7 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.DataGridViewButtonColumn Baixar;
         private System.Windows.Forms.DataGridViewButtonColumn ver;
         private System.Windows.Forms.DataGridViewTextBoxColumn Extensao;
+        private System.Windows.Forms.TextBox txtrenda;
         //private System.Windows.Forms.BindingSource corretoraBindingSource;
         //private System.Windows.Forms.BindingSource corretoresBindingSource;
         //private System.Windows.Forms.BindingSource vendedorBindingSource;

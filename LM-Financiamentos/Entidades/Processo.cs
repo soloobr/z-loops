@@ -52,6 +52,7 @@
         public string CPF_cliente { get; set; }
         public string RG_cliente { get; set; }
         public string Renda_cliente { get; set; }
+        public string RendaBruta_cliente { get; set; }
         public string Nascimento_cliente { get; set; }
         public string Agencia_cliente { get; internal set; }
         public string Conta_cliente { get; internal set; }

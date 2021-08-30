@@ -358,7 +358,6 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Config.json" />
     <None Include="DAL\DS_Clientes.xsc">
       <DependentUpon>DS_Clientes.xsd</DependentUpon>
     </None>

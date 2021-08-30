@@ -379,7 +379,11 @@ namespace LMFinanciamentos.Apresentacao
 
 
 
+
             String renda = txtrendacli.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
+
+            SomaRenda();
+            String rendabruta = txtrendatotal.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
 
             LoginDaoComandos insertfotocliente = new LoginDaoComandos();
             if (excluirimage == "Update")
@@ -438,7 +442,7 @@ namespace LMFinanciamentos.Apresentacao
 
 
 
-            updatecliente.UpdateCliente(idCliente, txtnomecli.Text, txtemail.Text, telefone, celular, CPF, RG, datanasc, sexo, status, renda, txtobservacoes.Text);
+            updatecliente.UpdateCliente(idCliente, txtnomecli.Text, txtemail.Text, telefone, celular, CPF, RG, datanasc, sexo, status, renda, rendabruta, txtobservacoes.Text);
 
             Cursor = Cursors.Default;
 
@@ -945,6 +949,8 @@ namespace LMFinanciamentos.Apresentacao
             }
             else
             {
+                lblrendacj1.Text = txtrendacj.Text;
+                lblnomecj1.Text = txtnomeconjuge.Text;
                 vl1 = 0;
             }
             if (txtrendacli.Text != "")
@@ -956,6 +962,8 @@ namespace LMFinanciamentos.Apresentacao
             else
             {
                 vl2 = 0;
+                lblrendacli.Text = txtrendacli.Text;
+                lblnomeclirenda.Text = txtnomecli.Text;
             }
             if (txtrendacj1.Text != "")
             {
@@ -966,6 +974,8 @@ namespace LMFinanciamentos.Apresentacao
             else
             {
                 vl3 = 0;
+                lblrendacj2.Text = txtrendacj1.Text;
+                lblnomecj2.Text = txtnomecj1.Text;
             }
             if (txtrendacj2.Text != "")
             {
@@ -976,6 +986,8 @@ namespace LMFinanciamentos.Apresentacao
             else
             {
                 vl4 = 0;
+                lblrendacj3.Text = txtrendacj2.Text;
+                lblnomecj3.Text = txtnomecj2.Text;
             }
             if (txtrendacj3.Text != "")
             {
@@ -986,12 +998,15 @@ namespace LMFinanciamentos.Apresentacao
             else
             {
                 vl5 = 0;
+                lblrendacj4.Text = txtrendacj3.Text;
+                lblnomecj4.Text = txtnomecj3.Text;
             }
 
             result = vl1 + vl2 + vl3 + vl4 + vl5;
 
 
             txtrendatotal.Text = string.Format("{0:C}", Convert.ToDouble(result.ToString()));
+            btn_salvar.Select();
 
             return result;
         }
@@ -1944,7 +1959,7 @@ namespace LMFinanciamentos.Apresentacao
 
         private void btn_excluirconjuge_Click_1(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("Confirma a Exclusão do Conjuge: " + txtnomeconjuge.Text + " ?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var result = MessageBox.Show("Confirma a Exclusão do Conjuge: \n Nome: " + txtnomeconjuge.Text + " ?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
@@ -2034,440 +2049,700 @@ namespace LMFinanciamentos.Apresentacao
             }
             else
             {
-
-                if (!tabControl.TabPages.Contains(tabconjuge))
-                {
-                    tabControl.TabPages.Insert(1, tabconjuge);
-                    tabControl.SelectedTab = tabconjuge;
-                    //Settxtrenda(txtrendacj);
-                    txtnomeconjuge.Select();
-
-                    cjativo[0]= true;
-                    conjuge = true;
-                    btncj.Visible = false;
-                    btn_excluircj.Visible = false;
-
-                }
-                else
-                {
-                    tabControl.SelectedTab = tabconjuge;
-                    txtnomeconjuge.Select();
-                }
-
-
+                IniciarCadConjuge();
             }
         }
-        private void InsertConjuges(int position)
+        private void IniciarCadConjuge()
         {
-            switch (position)
+            if (!tabControl.TabPages.Contains(tabconjuge))
             {
-                case 0:
-                    Cursor = Cursors.WaitCursor;
+                tabControl.TabPages.Insert(1, tabconjuge);
+                tabControl.SelectedTab = tabconjuge;
+                #region Valor Renda Conjuge
 
-                    CPF = FormatCnpjCpf.SemFormatacao(txtcpfcj.Text);
-
-                    status = "Ativo";
-
-                    if (checkBox_Masculinocj.Checked)
+                valor = txtrendacj.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+                if (valor.Length == 0)
+                {
+                    txtrendacj.Text = "0,00" + valor;
+                }
+                if (valor.Length == 1)
+                {
+                    txtrendacj.Text = "0,0" + valor;
+                }
+                if (valor.Length == 2)
+                {
+                    txtrendacj.Text = "0," + valor;
+                }
+                else if (valor.Length >= 3)
+                {
+                    if (txtrendacj.Text.StartsWith("0,"))
                     {
-                        sexo = "Masculino";
+                        txtrendacj.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
                     }
-                    else if (checkBox_Femininocj.Checked)
+                    else if (txtrendacj.Text.Contains("00,"))
                     {
-                        sexo = "Feminino";
-                    }
-                    else
-                    {
-                        sexo = "";
-                    }
-
-                    if (txtrgcj.Text == "")
-                    {
-                        RG = "0";
-                    }
-                    else
-                    {
-                        RG = FormatCnpjCpf.SemFormatacao(txtrgcj.Text);
-                    }
-
-                    DateTime dataa;
-                    DateTime.TryParse(txtnasccj.Text + " " + "00:00:00", out dataa);
-
-                    DateTime datanasc = dataa;
-
-                    String renda = txtrendacj.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
-
-                    if (string.IsNullOrEmpty(txttelefonecj.Text))
-                    {
-                        if (string.IsNullOrEmpty(txtcelularcj.Text))
-                        {
-
-
-                            MessageBox.Show("É necessário preencher o campo Telefone ou Celular", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            txttelefonecj.Select();
-                            Cursor = Cursors.Default;
-                            return;
-                        }
-
-                    }
-                    txtcelularcj.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-                    if (txtcelularcj.Text != "")
-                    {
-                        celular = txtcelularcj.Text;
-
-                    }
-                    txttelefonecj.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-                    if (txttelefonecj.Text != "")
-                    {
-                        telefone = txttelefonecj.Text;
-                    }
-                    sequencia = "0";
-                    conjuge = cjativo[1];
-
-                    LoginDaoComandos inserirconjuge = new LoginDaoComandos();
-
-                    newidcj = inserirconjuge.CadastrarConjuge(txtnomeconjuge.Text, txtemailcj.Text, telefone, celular, CPF, RG, datanasc, sexo, status, renda, txtobservacaocj.Text, idCliente, sequencia, conjuge);
-
-                    idconj[0] = newidcj.ToString();
-
-                    if (txtcontacj != null && txtagenciacj != null)
-                    {
-                        idConjuge = newidcj.ToString();
-
-                        Conta = txtcontacj.Text;
-                        Agencia = txtagenciacj.Text;
-
-                        LoginDaoComandos updateconta = new LoginDaoComandos();
-
-                        updateconta.InsertConta(newidcli.ToString(), Agencia, Conta, "CJ", idConjuge, "0");
-                        if (updateconta.mensagem != "OK")
-                        {
-                            MessageBox.Show("Conta do Cônjuge não Cadastrada!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            Cursor = Cursors.Default;
-                            Close();
-
-                        }
-                        Cursor = Cursors.Default;
-                    }
-
-                    inserirconjuge.UpdateCJCliente(idCliente, true);
-
-
-
-                    break;
-
-                case 1:
-                    Cursor = Cursors.WaitCursor;
-                    if (txtnomecj1.Text == "")
-                    {
-                        MessageBox.Show("Campo Nome do Cônjuge 1 é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        txtnomecj1.Select();
-                        Cursor = Cursors.Default;
-                        return;
-                    }
-
-                    if (txtcpfcj1.Text == "")
-                    {
-                        MessageBox.Show("Campo CPF é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        txtcpfcj1.Select();
-                        Cursor = Cursors.Default;
-                        return;
-                    }
-                    CPF = FormatCnpjCpf.SemFormatacao(txtcpfcj1.Text);
-
-                    status = "Ativo";
-
-                    if (checkBox_Masculinocj1.Checked)
-                    {
-                        sexo = "Masculino";
-                    }
-                    else if (checkBox_Femininocj1.Checked)
-                    {
-                        sexo = "Feminino";
+                        txtrendacj.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
                     }
                     else
                     {
-                        sexo = "";
+                        txtrendacj.Text = valor.Insert(valor.Length - 2, ",");
                     }
-
-                    if (txtrgcj1.Text == "")
-                    {
-                        RG = "0";
-                    }
-                    else
-                    {
-                        RG = FormatCnpjCpf.SemFormatacao(txtrgcj1.Text);
-                    }
-
-                    DateTime dataa1;
-                    DateTime.TryParse(txtnasccj1.Text + " " + "00:00:00", out dataa1);
-
-                    DateTime datanasc1 = dataa1;
-
-                    String renda1 = txtrendacj1.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
-
-                    txtcelularcj1.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-                    if (txtcelularcj1.Text != "")
-                    {
-                        celular = txtcelularcj1.Text;
-
-                    }
-                    txttelefonecj1.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-                    if (txttelefonecj1.Text != "")
-                    {
-                        telefone = txttelefonecj1.Text;
-                    }
-                    sequencia = "1";
-                    conjuge = cjativo[2];
-
-                    LoginDaoComandos inserirconjuge1 = new LoginDaoComandos();
-
-                    newidcj = inserirconjuge1.CadastrarConjuge(txtnomecj1.Text, txtemailcj1.Text, telefone, celular, CPF, RG, datanasc1, sexo, status, renda1, txtobservacaocj1.Text, idCliente, sequencia, conjuge);
-
-                    idconj[1] = newidcj.ToString();
-
-                    if (txtcontacj1 != null && txtagenciacj1 != null)
-                    {
-                        idConjuge = newidcj.ToString();
-
-                        Conta = txtcontacj1.Text;
-                        Agencia = txtagenciacj1.Text;
-
-                        LoginDaoComandos updateconta = new LoginDaoComandos();
-
-                        updateconta.InsertConta(newidcli.ToString(), Agencia, Conta, "CJ", idConjuge, "1");
-                        if (updateconta.mensagem != "OK")
-                        {
-                            MessageBox.Show("Conta do Cônjuge 1 não Cadastrada!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            Cursor = Cursors.Default;
-                            Close();
-
-                        }
-                        Cursor = Cursors.Default;
-                    }
-
-                    inserirconjuge1.UpdateCJCliente(idCliente, true);
-
-                    break;
-
-                case 2:
-
-                    Cursor = Cursors.WaitCursor;
-                    if (txtnomecj2.Text == "")
-                    {
-                        MessageBox.Show("Campo Nome do Cônjuge 2 é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        txtnomecj2.Select();
-                        Cursor = Cursors.Default;
-                        return;
-                    }
-
-                    if (txtcpfcj2.Text == "")
-                    {
-                        MessageBox.Show("Campo CPF é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        txtcpfcj2.Select();
-                        Cursor = Cursors.Default;
-                        return;
-                    }
-                    CPF = FormatCnpjCpf.SemFormatacao(txtcpfcj2.Text);
-
-                    status = "Ativo";
-
-                    if (checkBox_Masculinocj2.Checked)
-                    {
-                        sexo = "Masculino";
-                    }
-                    else if (checkBox_Femininocj2.Checked)
-                    {
-                        sexo = "Feminino";
-                    }
-                    else
-                    {
-                        sexo = "";
-                    }
-
-                    if (txtrgcj2.Text == "")
-                    {
-                        RG = "0";
-                    }
-                    else
-                    {
-                        RG = FormatCnpjCpf.SemFormatacao(txtrgcj2.Text);
-                    }
-
-                    DateTime dataa2;
-                    DateTime.TryParse(txtnasccj2.Text + " " + "00:00:00", out dataa2);
-
-                    DateTime datanasc2 = dataa2;
-
-                    String renda2 = txtrendacj2.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
-
-                    if (string.IsNullOrEmpty(txttelefonecj2.Text))
-                    {
-                        if (string.IsNullOrEmpty(txtcelularcj3.Text))
-                        {
-
-
-                            MessageBox.Show("É necessário preencher o campo Telefone ou Celular", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            txttelefonecj2.Select();
-                            Cursor = Cursors.Default;
-                            return;
-                        }
-
-                    }
-                    txtcelularcj2.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-                    if (txtcelularcj2.Text != "")
-                    {
-                        celular = txtcelularcj2.Text;
-
-                    }
-                    txttelefonecj2.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-                    if (txttelefonecj2.Text != "")
-                    {
-                        telefone = txttelefonecj2.Text;
-                    }
-
-                    sequencia = "2";
-                    conjuge = cjativo[3];
-
-                    LoginDaoComandos inserirconjuge2 = new LoginDaoComandos();
-
-                    newidcj = inserirconjuge2.CadastrarConjuge(txtnomecj2.Text, txtemailcj2.Text, telefone, celular, CPF, RG, datanasc2, sexo, status, renda2, txtobservacaocj2.Text, idCliente, sequencia, conjuge);
-
-                    idconj[2] = newidcj.ToString();
-
-                    if (txtcontacj2 != null && txtagenciacj2 != null)
-                    {
-                        idConjuge = newidcj.ToString();
-
-                        Conta = txtcontacj2.Text;
-                        Agencia = txtagenciacj2.Text;
-
-                        LoginDaoComandos updateconta = new LoginDaoComandos();
-
-                        updateconta.InsertConta(newidcli.ToString(), Agencia, Conta, "CJ", idConjuge, "2");
-                        if (updateconta.mensagem != "OK")
-                        {
-                            MessageBox.Show("Conta do Cônjuge 2 não Cadastrada!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            Cursor = Cursors.Default;
-                            Close();
-
-                        }
-                        Cursor = Cursors.Default;
-                    }
-                    inserirconjuge2.UpdateCJCliente(idCliente, true);
-
-                    break;
-
-                case 3:
-
-                    Cursor = Cursors.WaitCursor;
-                    if (txtnomecj3.Text == "")
-                    {
-                        MessageBox.Show("Campo Nome do Cônjuge 3 é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        txtnomecj3.Select();
-                        Cursor = Cursors.Default;
-                        return;
-                    }
-
-                    if (txtcpfcj3.Text == "")
-                    {
-                        MessageBox.Show("Campo CPF é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        txtcpfcj3.Select();
-                        Cursor = Cursors.Default;
-                        return;
-                    }
-                    CPF = FormatCnpjCpf.SemFormatacao(txtcpfcj3.Text);
-
-                    status = "Ativo";
-
-                    if (checkBox_Masculinocj3.Checked)
-                    {
-                        sexo = "Masculino";
-                    }
-                    else if (checkBox_Femininocj3.Checked)
-                    {
-                        sexo = "Feminino";
-                    }
-                    else
-                    {
-                        sexo = "";
-                    }
-
-                    if (txtrgcj3.Text == "")
-                    {
-                        RG = "0";
-                    }
-                    else
-                    {
-                        RG = FormatCnpjCpf.SemFormatacao(txtrgcj3.Text);
-                    }
-
-                    DateTime dataa3;
-                    DateTime.TryParse(txtnasccj3.Text + " " + "00:00:00", out dataa3);
-
-                    DateTime datanasc3 = dataa3;
-
-                    String renda3 = txtrendacj3.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
-                    #region Telefone
-                    if (string.IsNullOrEmpty(txttelefonecj3.Text))
-                    {
-                        if (string.IsNullOrEmpty(txtcelularcj3.Text))
-                        {
-
-
-                            MessageBox.Show("É necessário preencher o campo Telefone ou Celular", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            txttelefonecj3.Select();
-                            Cursor = Cursors.Default;
-                            return;
-                        }
-
-                    }
-                    txtcelularcj3.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-                    if (txtcelularcj3.Text != "")
-                    {
-                        celular = txtcelularcj3.Text;
-
-                    }
-                    txttelefonecj3.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-                    if (txttelefonecj3.Text != "")
-                    {
-                        telefone = txttelefonecj3.Text;
-                    }
-
-                    #endregion
-                    sequencia = "3";
-                    conjuge = false;
-
-
-                    LoginDaoComandos inserirconjuge3 = new LoginDaoComandos();
-
-                    newidcj = inserirconjuge3.CadastrarConjuge(txtnomecj3.Text, txtemailcj3.Text, telefone, celular, CPF, RG, datanasc3, sexo, status, renda3, txtobservacaocj3.Text, idCliente, sequencia, conjuge);
-
-                    idconj[3] = newidcj.ToString();
-
-                    if (txtcontacj3 != null && txtagenciacj3 != null)
-                    {
-                        idConjuge = newidcj.ToString();
-
-                        Conta = txtcontacj3.Text;
-                        Agencia = txtagenciacj3.Text;
-
-                        LoginDaoComandos updateconta = new LoginDaoComandos();
-
-                        updateconta.InsertConta(newidcli.ToString(), Agencia, Conta, "CJ", idConjuge, "3");
-                        if (updateconta.mensagem != "OK")
-                        {
-                            MessageBox.Show("Conta do Cônjuge 3 não Cadastrada!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            Cursor = Cursors.Default;
-                            Close();
-
-                        }
-                        Cursor = Cursors.Default;
-                    }
-                    inserirconjuge3.UpdateCJCliente(idCliente, true);
-
-                    break;
+                }
+                valor = txtrendacj.Text;
+                txtrendacj.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+                txtrendacj.Select(txtrendacj.Text.Length, 0);
+                #endregion
+                txtnomeconjuge.Select();
+
+                cjativo[0] = true;
+                conjuge = true;
+                btncj.Visible = false;
+                btn_excluircj.Visible = false;
+                
             }
+            else if (!tabControl.TabPages.Contains(tabconjuge1))
+            {
+                tabControl.TabPages.Insert(2, tabconjuge1);
+                tabControl.SelectedTab = tabconjuge1;
+                #region Valor Renda Conjuge
+
+                valor = txtrendacj1.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+                if (valor.Length == 0)
+                {
+                    txtrendacj1.Text = "0,00" + valor;
+                }
+                if (valor.Length == 1)
+                {
+                    txtrendacj1.Text = "0,0" + valor;
+                }
+                if (valor.Length == 2)
+                {
+                    txtrendacj1.Text = "0," + valor;
+                }
+                else if (valor.Length >= 3)
+                {
+                    if (txtrendacj1.Text.StartsWith("0,"))
+                    {
+                        txtrendacj1.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
+                    }
+                    else if (txtrendacj1.Text.Contains("00,"))
+                    {
+                        txtrendacj1.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
+                    }
+                    else
+                    {
+                        txtrendacj1.Text = valor.Insert(valor.Length - 2, ",");
+                    }
+                }
+                valor = txtrendacj1.Text;
+                txtrendacj1.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+                txtrendacj1.Select(txtrendacj1.Text.Length, 0);
+                #endregion
+                txtnomecj1.Select();
+                cjativo[1] = true;
+                conjuge = true;
+                btncj1.Visible = false;
+                btn_excluircj1.Visible = false;
+            }
+            else if (!tabControl.TabPages.Contains(tabconjuge2))
+            {
+                tabControl.TabPages.Insert(3, tabconjuge2);
+                tabControl.SelectedTab = tabconjuge2;
+                #region Valor Renda Conjuge
+
+                valor = txtrendacj2.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+                if (valor.Length == 0)
+                {
+                    txtrendacj2.Text = "0,00" + valor;
+                }
+                if (valor.Length == 2)
+                {
+                    txtrendacj2.Text = "0,0" + valor;
+                }
+                if (valor.Length == 2)
+                {
+                    txtrendacj2.Text = "0," + valor;
+                }
+                else if (valor.Length >= 3)
+                {
+                    if (txtrendacj2.Text.StartsWith("0,"))
+                    {
+                        txtrendacj2.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
+                    }
+                    else if (txtrendacj2.Text.Contains("00,"))
+                    {
+                        txtrendacj2.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
+                    }
+                    else
+                    {
+                        txtrendacj2.Text = valor.Insert(valor.Length - 2, ",");
+                    }
+                }
+                valor = txtrendacj2.Text;
+                txtrendacj2.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+                txtrendacj2.Select(txtrendacj2.Text.Length, 0);
+                #endregion
+                txtnomecj2.Select();
+                cjativo[2] = true;
+                conjuge = true;
+                btncj2.Visible = false;
+                btn_excluircj2.Visible = false;
+
+            }
+            else if (!tabControl.TabPages.Contains(tabconjuge3))
+            {
+                tabControl.TabPages.Insert(4, tabconjuge3);
+                tabControl.SelectedTab = tabconjuge3;
+                #region Valor Renda Conjuge
+
+                valor = txtrendacj3.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+                if (valor.Length == 0)
+                {
+                    txtrendacj3.Text = "0,00" + valor;
+                }
+                if (valor.Length == 2)
+                {
+                    txtrendacj3.Text = "0,0" + valor;
+                }
+                if (valor.Length == 2)
+                {
+                    txtrendacj3.Text = "0," + valor;
+                }
+                else if (valor.Length >= 3)
+                {
+                    if (txtrendacj3.Text.StartsWith("0,"))
+                    {
+                        txtrendacj3.Text = valor.Insert(valor.Length - 2, ",").Replace("0,", "");
+                    }
+                    else if (txtrendacj3.Text.Contains("00,"))
+                    {
+                        txtrendacj3.Text = valor.Insert(valor.Length - 2, ",").Replace("00,", "");
+                    }
+                    else
+                    {
+                        txtrendacj3.Text = valor.Insert(valor.Length - 2, ",");
+                    }
+                }
+                valor = txtrendacj3.Text;
+                txtrendacj3.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+                txtrendacj3.Select(txtrendacj3.Text.Length, 0);
+                #endregion
+                txtnomecj3.Select();
+                cjativo[3] = true;
+                conjuge = true;
+                //btncj.Visible = false;
+                btn_excluircj3.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("Limite máximo para adicionar Cônjuge!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+        }
+        private string InsertConjuges(int position)
+        {
+            try
+            {
+                switch (position)
+                {
+                    case 0:
+                        Cursor = Cursors.WaitCursor;
+                        if (txtnomeconjuge.Text == "")
+                        {
+                            MessageBox.Show("Campo Nome do Cônjuge  é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            txtnomeconjuge.Select();
+                            Cursor = Cursors.Default;
+                            return "FALSE";
+                            break;
+                        }
+
+                        if (txtcpfcj.Text == "")
+                        {
+                            MessageBox.Show("Campo CPF é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            txtcpfcj.Select();
+                            Cursor = Cursors.Default;
+                            return "FALSE";
+                            break;
+                        }
+                        CPF = FormatCnpjCpf.SemFormatacao(txtcpfcj.Text);
+
+                        status = "Ativo";
+
+                        if (checkBox_Masculinocj.Checked)
+                        {
+                            sexo = "Masculino";
+                        }
+                        else if (checkBox_Femininocj.Checked)
+                        {
+                            sexo = "Feminino";
+                        }
+                        else
+                        {
+                            sexo = "";
+                        }
+
+                        if (txtrgcj.Text == "")
+                        {
+                            RG = "0";
+                        }
+                        else
+                        {
+                            RG = FormatCnpjCpf.SemFormatacao(txtrgcj.Text);
+                        }
+
+                        DateTime dataa;
+                        DateTime.TryParse(txtnasccj.Text + " " + "00:00:00", out dataa);
+
+                        DateTime datanasc = dataa;
+
+                        String renda = txtrendacj.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
+
+                        if (string.IsNullOrEmpty(txttelefonecj.Text))
+                        {
+                            if (string.IsNullOrEmpty(txtcelularcj.Text))
+                            {
+                                MessageBox.Show("É necessário preencher o campo Telefone ou Celular", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                txttelefonecj.Select();
+                                Cursor = Cursors.Default;
+                                return "FALSE";
+                                break;
+                            }
+
+                        }
+                        txtcelularcj.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+                        if (txtcelularcj.Text != "")
+                        {
+                            celular = txtcelularcj.Text;
+
+                        }
+                        txttelefonecj.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+                        if (txttelefonecj.Text != "")
+                        {
+                            telefone = txttelefonecj.Text;
+                        }
+                        sequencia = "0";
+                        conjuge = cjativo[1];
+
+                        LoginDaoComandos inserirconjuge = new LoginDaoComandos();
+
+                        newidcj = inserirconjuge.CadastrarConjuge(txtnomeconjuge.Text, txtemailcj.Text, telefone, celular, CPF, RG, datanasc, sexo, status, renda, txtobservacaocj.Text, idCliente, sequencia, conjuge);
+                        if(newidcj >0)
+                        {
+                            idconj[0] = newidcj.ToString();
+
+                            if (txtcontacj != null && txtagenciacj != null)
+                            {
+                                idConjuge = newidcj.ToString();
+
+                                Conta = txtcontacj.Text;
+                                Agencia = txtagenciacj.Text;
+
+                                LoginDaoComandos updateconta = new LoginDaoComandos();
+
+                                updateconta.InsertConta(newidcli.ToString(), Agencia, Conta, "CJ", idConjuge, "0");
+                                if (updateconta.mensagem != "OK")
+                                {
+                                    MessageBox.Show("Conta do Cônjuge não Cadastrada!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    Cursor = Cursors.Default;
+                                    Close();
+
+                                }
+                                Cursor = Cursors.Default;
+                            }
+
+
+
+                            inserirconjuge.UpdateCJCliente(idCliente, true);
+
+                            btbsalvarcj.Visible = false;
+                            btncancelcj.Visible = false;
+
+                            btncj.Visible = true;
+                            btn_excluircj.Visible = true;
+
+                            lbl01.Visible = true;
+                            lblnomecj1.Visible = true;
+                            lblrendacj1.Visible = true;
+
+                            return "OK";
+
+                        }
+
+
+                        break;
+
+                    case 1:
+                        Cursor = Cursors.WaitCursor;
+                        if (txtnomecj1.Text == "")
+                        {
+                            MessageBox.Show("Campo Nome do Cônjuge 1 é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            txtnomecj1.Select();
+                            Cursor = Cursors.Default;
+                            return "FALSE";
+                            break;
+                        }
+
+                        if (txtcpfcj1.Text == "")
+                        {
+                            MessageBox.Show("Campo CPF é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            txtcpfcj1.Select();
+                            Cursor = Cursors.Default;
+                            return "FALSE";
+                            break;
+                        }
+                        CPF = FormatCnpjCpf.SemFormatacao(txtcpfcj1.Text);
+
+                        status = "Ativo";
+
+                        if (checkBox_Masculinocj1.Checked)
+                        {
+                            sexo = "Masculino";
+                        }
+                        else if (checkBox_Femininocj1.Checked)
+                        {
+                            sexo = "Feminino";
+                        }
+                        else
+                        {
+                            sexo = "";
+                        }
+
+                        if (txtrgcj1.Text == "")
+                        {
+                            RG = "0";
+                        }
+                        else
+                        {
+                            RG = FormatCnpjCpf.SemFormatacao(txtrgcj1.Text);
+                        }
+
+                        DateTime dataa1;
+                        DateTime.TryParse(txtnasccj1.Text + " " + "00:00:00", out dataa1);
+
+                        DateTime datanasc1 = dataa1;
+
+                        String renda1 = txtrendacj1.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
+
+                        txtcelularcj1.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+                        if (txtcelularcj1.Text != "")
+                        {
+                            celular = txtcelularcj1.Text;
+
+                        }
+                        txttelefonecj1.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+                        if (txttelefonecj1.Text != "")
+                        {
+                            telefone = txttelefonecj1.Text;
+                        }
+                        sequencia = "1";
+                        conjuge = cjativo[2];
+
+                        LoginDaoComandos inserirconjuge1 = new LoginDaoComandos();
+
+                        newidcj = inserirconjuge1.CadastrarConjuge(txtnomecj1.Text, txtemailcj1.Text, telefone, celular, CPF, RG, datanasc1, sexo, status, renda1, txtobservacaocj1.Text, idCliente, sequencia, conjuge);
+                        if (newidcj > 0)
+                        {
+                            idconj[1] = newidcj.ToString();
+
+                            if (txtcontacj1 != null && txtagenciacj1 != null)
+                            {
+                                idConjuge = newidcj.ToString();
+
+                                Conta = txtcontacj1.Text;
+                                Agencia = txtagenciacj1.Text;
+
+                                LoginDaoComandos updateconta = new LoginDaoComandos();
+
+                                updateconta.InsertConta(newidcli.ToString(), Agencia, Conta, "CJ", idConjuge, "1");
+                                if (updateconta.mensagem != "OK")
+                                {
+                                    MessageBox.Show("Conta do Cônjuge 1 não Cadastrada!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    Cursor = Cursors.Default;
+                                    Close();
+
+                                }
+                                Cursor = Cursors.Default;
+                            }
+
+                            inserirconjuge1.UpdateCJCliente(idCliente, true);
+                            btnsalvarcj1.Visible = false;
+                            btncancelcj1.Visible = false;
+
+                            btncj1.Visible = true;
+                            btn_excluircj1.Visible = true;
+
+                            lbl02.Visible = true;
+                            lblnomecj2.Visible = true;
+                            lblrendacj2.Visible = true;
+
+                            return "OK";
+
+                        }
+
+
+                        break;
+
+                    case 2:
+
+                        Cursor = Cursors.WaitCursor;
+                        if (txtnomecj2.Text == "")
+                        {
+                            MessageBox.Show("Campo Nome do Cônjuge 2 é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            txtnomecj2.Select();
+                            Cursor = Cursors.Default;
+                            return "FALSE";
+                            break;
+                        }
+
+                        if (txtcpfcj2.Text == "")
+                        {
+                            MessageBox.Show("Campo CPF é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            txtcpfcj2.Select();
+                            Cursor = Cursors.Default;
+                            return "FALSE";
+                            break;
+                        }
+                        CPF = FormatCnpjCpf.SemFormatacao(txtcpfcj2.Text);
+
+                        status = "Ativo";
+
+                        if (checkBox_Masculinocj2.Checked)
+                        {
+                            sexo = "Masculino";
+                        }
+                        else if (checkBox_Femininocj2.Checked)
+                        {
+                            sexo = "Feminino";
+                        }
+                        else
+                        {
+                            sexo = "";
+                        }
+
+                        if (txtrgcj2.Text == "")
+                        {
+                            RG = "0";
+                        }
+                        else
+                        {
+                            RG = FormatCnpjCpf.SemFormatacao(txtrgcj2.Text);
+                        }
+
+                        DateTime dataa2;
+                        DateTime.TryParse(txtnasccj2.Text + " " + "00:00:00", out dataa2);
+
+                        DateTime datanasc2 = dataa2;
+
+                        String renda2 = txtrendacj2.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
+
+                        if (string.IsNullOrEmpty(txttelefonecj2.Text))
+                        {
+                            if (string.IsNullOrEmpty(txtcelularcj3.Text))
+                            {
+
+
+                                MessageBox.Show("É necessário preencher o campo Telefone ou Celular", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                txttelefonecj2.Select();
+                                Cursor = Cursors.Default;
+                                return "FALSE";
+                                break;
+                            }
+
+                        }
+                        txtcelularcj2.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+                        if (txtcelularcj2.Text != "")
+                        {
+                            celular = txtcelularcj2.Text;
+
+                        }
+                        txttelefonecj2.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+                        if (txttelefonecj2.Text != "")
+                        {
+                            telefone = txttelefonecj2.Text;
+                        }
+
+                        sequencia = "2";
+                        conjuge = cjativo[3];
+
+                        LoginDaoComandos inserirconjuge2 = new LoginDaoComandos();
+
+                        newidcj = inserirconjuge2.CadastrarConjuge(txtnomecj2.Text, txtemailcj2.Text, telefone, celular, CPF, RG, datanasc2, sexo, status, renda2, txtobservacaocj2.Text, idCliente, sequencia, conjuge);
+                        if (newidcj > 0)
+                        {
+                            idconj[2] = newidcj.ToString();
+
+                            if (txtcontacj2 != null && txtagenciacj2 != null)
+                            {
+                                idConjuge = newidcj.ToString();
+
+                                Conta = txtcontacj2.Text;
+                                Agencia = txtagenciacj2.Text;
+
+                                LoginDaoComandos updateconta = new LoginDaoComandos();
+
+                                updateconta.InsertConta(newidcli.ToString(), Agencia, Conta, "CJ", idConjuge, "2");
+                                if (updateconta.mensagem != "OK")
+                                {
+                                    MessageBox.Show("Conta do Cônjuge 2 não Cadastrada!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    Cursor = Cursors.Default;
+                                    Close();
+
+                                }
+                                Cursor = Cursors.Default;
+                            }
+                            inserirconjuge2.UpdateCJCliente(idCliente, true);
+                            btnsalvarcj2.Visible = false;
+                            btncancelcj2.Visible = false;
+
+                            btncj2.Visible = true;
+                            btn_excluircj2.Visible = true;
+
+                            lbl03.Visible = true;
+                            lblnomecj3.Visible = true;
+                            lblrendacj3.Visible = true;
+                            return "OK";
+
+                        }
+
+
+                        break;
+
+                    case 3:
+
+                        Cursor = Cursors.WaitCursor;
+                        if (txtnomecj3.Text == "")
+                        {
+                            MessageBox.Show("Campo Nome do Cônjuge 3 é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            txtnomecj3.Select();
+                            Cursor = Cursors.Default;
+                            return "FALSE";
+                            break;
+                        }
+
+                        if (txtcpfcj3.Text == "")
+                        {
+                            MessageBox.Show("Campo CPF é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            txtcpfcj3.Select();
+                            Cursor = Cursors.Default;
+                            return "FALSE";
+                            break;
+                        }
+                        CPF = FormatCnpjCpf.SemFormatacao(txtcpfcj3.Text);
+
+                        status = "Ativo";
+
+                        if (checkBox_Masculinocj3.Checked)
+                        {
+                            sexo = "Masculino";
+                        }
+                        else if (checkBox_Femininocj3.Checked)
+                        {
+                            sexo = "Feminino";
+                        }
+                        else
+                        {
+                            sexo = "";
+                        }
+
+                        if (txtrgcj3.Text == "")
+                        {
+                            RG = "0";
+                        }
+                        else
+                        {
+                            RG = FormatCnpjCpf.SemFormatacao(txtrgcj3.Text);
+                        }
+
+                        DateTime dataa3;
+                        DateTime.TryParse(txtnasccj3.Text + " " + "00:00:00", out dataa3);
+
+                        DateTime datanasc3 = dataa3;
+
+                        String renda3 = txtrendacj3.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
+                        #region Telefone
+                        if (string.IsNullOrEmpty(txttelefonecj3.Text))
+                        {
+                            if (string.IsNullOrEmpty(txtcelularcj3.Text))
+                            {
+
+
+                                MessageBox.Show("É necessário preencher o campo Telefone ou Celular", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                txttelefonecj3.Select();
+                                Cursor = Cursors.Default;
+                                return "FALSE";
+                                break;
+                            }
+
+                        }
+                        txtcelularcj3.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+                        if (txtcelularcj3.Text != "")
+                        {
+                            celular = txtcelularcj3.Text;
+
+                        }
+                        txttelefonecj3.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+                        if (txttelefonecj3.Text != "")
+                        {
+                            telefone = txttelefonecj3.Text;
+                        }
+
+                        #endregion
+                        sequencia = "3";
+                        conjuge = false;
+
+
+                        LoginDaoComandos inserirconjuge3 = new LoginDaoComandos();
+
+                        newidcj = inserirconjuge3.CadastrarConjuge(txtnomecj3.Text, txtemailcj3.Text, telefone, celular, CPF, RG, datanasc3, sexo, status, renda3, txtobservacaocj3.Text, idCliente, sequencia, conjuge);
+                        if (newidcj > 0)
+                        {
+                            idconj[3] = newidcj.ToString();
+
+                        if (txtcontacj3 != null && txtagenciacj3 != null)
+                        {
+                            idConjuge = newidcj.ToString();
+
+                            Conta = txtcontacj3.Text;
+                            Agencia = txtagenciacj3.Text;
+
+                            LoginDaoComandos updateconta = new LoginDaoComandos();
+
+                            updateconta.InsertConta(newidcli.ToString(), Agencia, Conta, "CJ", idConjuge, "3");
+                            if (updateconta.mensagem != "OK")
+                            {
+                                MessageBox.Show("Conta do Cônjuge 3 não Cadastrada!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                Cursor = Cursors.Default;
+                                Close();
+
+                            }
+                            Cursor = Cursors.Default;
+                        }
+                        inserirconjuge3.UpdateCJCliente(idCliente, true);
+
+                        //return "INSERIDO";
+                        btnsalvarcj3.Visible = false;
+                        btncancelcj3.Visible = false;
+
+                        // btnconjuge3.Visible = true;
+                        btn_excluircj3.Visible = true;
+
+                        lbl04.Visible = true;
+                        lblnomecj4.Visible = true;
+                        lblrendacj4.Visible = true;
+                            return "OK";
+
+                        }
+
+
+                        break;
+                }
+            }
+            catch (Exception)
+            {
+                return "ERROR";
+                //throw;
+            }
+            return "ERROR";
         }
 
         private void btnconjuge1_Click(object sender, EventArgs e)
@@ -2485,22 +2760,24 @@ namespace LMFinanciamentos.Apresentacao
             }
             else
             {
-                if (!tabControl.TabPages.Contains(tabconjuge1))
-                {
-                    tabControl.TabPages.Insert(2, tabconjuge1);
-                    tabControl.SelectedTab = tabconjuge1;
-                    //Settxtrenda(txtrendacj1);
-                    txtnomecj1.Select();
-                    cjativo[1]= true;
-                    conjuge = true;
-                    btncj1.Visible = false;
-                    btn_excluircj1.Visible = false;
-                }
-                else
-                {
-                    tabControl.SelectedTab = tabconjuge1;
-                    txtnomeconjuge.Select();
-                }
+                IniciarCadConjuge();
+                //if (!tabControl.TabPages.Contains(tabconjuge1))
+                //{
+                //    tabControl.TabPages.Insert(2, tabconjuge1);
+                //    tabControl.SelectedTab = tabconjuge1;
+                //    //Settxtrenda(txtrendacj1);
+                //    txtnomecj1.Select();
+                //    cjativo[1]= true;
+                //    conjuge = true;
+                //    btncj1.Visible = false;
+                //    btn_excluircj1.Visible = false;
+
+
+                //}else
+                //{
+                //    tabControl.SelectedTab = tabconjuge1;
+                //    txtnomeconjuge.Select();
+                //}
             }
         }
 
@@ -2519,25 +2796,26 @@ namespace LMFinanciamentos.Apresentacao
             }
             else
             {
-                if (txtnomecli != null && txtcpf != null)
-                {
-                    if (!tabControl.TabPages.Contains(tabconjuge2))
-                    {
-                        tabControl.TabPages.Insert(3, tabconjuge2);
-                        tabControl.SelectedTab = tabconjuge2;
-                        //Settxtrenda(txtrendacj2);
-                        txtnomecj2.Select();
-                        cjativo[2]= true;
-                        conjuge = true;
-                        btncj2.Visible = false;
-                        btn_excluircj2.Visible = false;
-                    }
-                    else
-                    {
-                        tabControl.SelectedTab = tabconjuge2;
-                        txtnomeconjuge.Select();
-                    }
-                }
+                IniciarCadConjuge();
+                //if (txtnomecli != null && txtcpf != null)
+                //{
+                //    if (!tabControl.TabPages.Contains(tabconjuge2))
+                //    {
+                //        tabControl.TabPages.Insert(3, tabconjuge2);
+                //        tabControl.SelectedTab = tabconjuge2;
+                //        //Settxtrenda(txtrendacj2);
+                //        txtnomecj2.Select();
+                //        cjativo[2]= true;
+                //        conjuge = true;
+                //        btncj2.Visible = false;
+                //        btn_excluircj2.Visible = false;
+                //    }
+                //    else
+                //    {
+                //        tabControl.SelectedTab = tabconjuge2;
+                //        txtnomeconjuge.Select();
+                //    }
+                //}
             }
         }
 
@@ -2556,28 +2834,29 @@ namespace LMFinanciamentos.Apresentacao
             }
             else
             {
-                if (!tabControl.TabPages.Contains(tabconjuge3))
-                {
-                    tabControl.TabPages.Insert(4, tabconjuge3);
-                    tabControl.SelectedTab = tabconjuge3;
-                    //Settxtrenda(txtrendacj3);
-                    txtnomecj3.Select();
-                    cjativo[3]= true;
-                    conjuge = true;
-                    //btncj.Visible = false;
-                    btn_excluircj3.Visible = false;
-                }
-                else
-                {
-                    tabControl.SelectedTab = tabconjuge3;
-                    txtnomeconjuge.Select();
-                }
+                IniciarCadConjuge();
+                //if (!tabControl.TabPages.Contains(tabconjuge3))
+                //{
+                //    tabControl.TabPages.Insert(4, tabconjuge3);
+                //    tabControl.SelectedTab = tabconjuge3;
+                //    //Settxtrenda(txtrendacj3);
+                //    txtnomecj3.Select();
+                //    cjativo[3]= true;
+                //    conjuge = true;
+                //    //btncj.Visible = false;
+                //    btn_excluircj3.Visible = false;
+                //}
+                //else
+                //{
+                //    tabControl.SelectedTab = tabconjuge3;
+                //    txtnomeconjuge.Select();
+                //}
             }
         }
 
         private void btn_excluirconjuge3_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("Confirma a Exclusão do Conjuge 3: " + txtnomecj3.Text + " ?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var result = MessageBox.Show("Confirma a Exclusão do Conjuge 3: \n Nome: " + txtnomecj3.Text + " ?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
@@ -2700,7 +2979,7 @@ namespace LMFinanciamentos.Apresentacao
         }
         private void btn_excluirconjuge2_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("Confirma a Exclusão do Conjuge 2: " + txtnomecj2.Text + " ?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var result = MessageBox.Show("Confirma a Exclusão do Conjuge 2: \n Nome:  " + txtnomecj2.Text + " ?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
@@ -2733,7 +3012,7 @@ namespace LMFinanciamentos.Apresentacao
 
         private void btn_excluirconjuge1_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("Confirma a Exclusão do Conjuge 1: " + txtnomecj1.Text + " ?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var result = MessageBox.Show("Confirma a Exclusão do Conjuge 1: \n Nome: " + txtnomecj1.Text + " ?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
@@ -2766,69 +3045,105 @@ namespace LMFinanciamentos.Apresentacao
 
         private void btnsalvarcj1_Click(object sender, EventArgs e)
         {
-            InsertConjuges(1);
+            if (InsertConjuges(1) == "OK")
+            {
+                SomaRenda();
+                MessageBox.Show("Cônjuge inserido com Sucesso!", "Inserido", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            btnsalvarcj1.Visible = false;
-            btncancelcj1.Visible = false;
+            }
+            else
+            {
 
-            btncj1.Visible = true;
-            btn_excluircj1.Visible = true;
+            }
 
-            lbl02.Visible = true;
-            lblnomecj2.Visible = true;
-            lblrendacj2.Visible = true;
+            //btnsalvarcj1.Visible = false;
+            //btncancelcj1.Visible = false;
 
-            SomaRenda();
+            //btncj1.Visible = true;
+            //btn_excluircj1.Visible = true;
+
+            //lbl02.Visible = true;
+            //lblnomecj2.Visible = true;
+            //lblrendacj2.Visible = true;
+
+            //SomaRenda();
         }
 
         private void btnsalvarcj2_Click(object sender, EventArgs e)
         {
-            InsertConjuges(2);
+            if (InsertConjuges(2) == "OK")
+            {
+                SomaRenda();
+                MessageBox.Show("Cônjuge inserido com Sucesso!", "Inserido", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            btnsalvarcj2.Visible = false;
-            btncancelcj2.Visible = false;
+            }
+            else
+            {
 
-            btncj2.Visible = true;
-            btn_excluircj2.Visible = true;
+            }
 
-            lbl03.Visible = true;
-            lblnomecj3.Visible = true;
-            lblrendacj3.Visible = true;
+            //btnsalvarcj2.Visible = false;
+            //btncancelcj2.Visible = false;
 
-            SomaRenda();
+            //btncj2.Visible = true;
+            //btn_excluircj2.Visible = true;
+
+            //lbl03.Visible = true;
+            //lblnomecj3.Visible = true;
+            //lblrendacj3.Visible = true;
+
+            //SomaRenda();
         }
 
         private void btnsalvarcj3_Click(object sender, EventArgs e)
         {
-            InsertConjuges(3);
+            if (InsertConjuges(3) == "OK")
+            {
+                SomaRenda();
+                MessageBox.Show("Cônjuge inserido com Sucesso!", "Inserido", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            btnsalvarcj3.Visible = false;
-            btncancelcj3.Visible = false;
+            }
+            else
+            {
 
-            // btnconjuge3.Visible = true;
-            btn_excluircj3.Visible = true;
+            }
 
-            lbl04.Visible = true;
-            lblnomecj4.Visible = true;
-            lblrendacj4.Visible = true;
-            SomaRenda();
+            //btnsalvarcj3.Visible = false;
+            //btncancelcj3.Visible = false;
+
+            //// btnconjuge3.Visible = true;
+            //btn_excluircj3.Visible = true;
+
+            //lbl04.Visible = true;
+            //lblnomecj4.Visible = true;
+            //lblrendacj4.Visible = true;
+
         }
 
         private void btbsalvarcj_Click(object sender, EventArgs e)
         {
-            InsertConjuges(0);
+            if (InsertConjuges(0) == "OK")
+            {
+                SomaRenda();
+                MessageBox.Show("Cônjuge inserido com Sucesso!", "Inserido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               
+            }
+            else
+            {
 
-            btbsalvarcj.Visible = false;
-            btncancelcj.Visible = false;
+            }
 
-            btncj.Visible = true;
-            btn_excluircj.Visible = true;
+            //btbsalvarcj.Visible = false;
+            //btncancelcj.Visible = false;
 
-            lbl01.Visible = true;
-            lblnomecj1.Visible = true;
-            lblrendacj1.Visible = true;
+            //btncj.Visible = true;
+            //btn_excluircj.Visible = true;
 
-            SomaRenda();
+            //lbl01.Visible = true;
+            //lblnomecj1.Visible = true;
+            //lblrendacj1.Visible = true;
+
+           // SomaRenda();
         }
 
         private void txtrgcj3_KeyUp(object sender, KeyEventArgs e)
@@ -2934,6 +3249,7 @@ namespace LMFinanciamentos.Apresentacao
             tabControl.TabPages.Remove(tabconjuge);
             tabControl.SelectedTab = tabcliente;
             txtnomecli.Select();
+            cjativo[0] = false;
         }
 
         private void btncancelcj1_Click(object sender, EventArgs e)
@@ -2942,6 +3258,7 @@ namespace LMFinanciamentos.Apresentacao
             tabControl.TabPages.Remove(tabconjuge1);
             tabControl.SelectedTab = tabconjuge;
             txtnomeconjuge.Select();
+            cjativo[1] = false;
         }
 
         private void btncancelcj2_Click(object sender, EventArgs e)
@@ -2950,6 +3267,7 @@ namespace LMFinanciamentos.Apresentacao
             tabControl.TabPages.Remove(tabconjuge2);
             tabControl.SelectedTab = tabconjuge1;
             txtnomecj1.Select();
+            cjativo[2] = false;
         }
 
         private void btncancelcj3_Click(object sender, EventArgs e)
@@ -2958,6 +3276,7 @@ namespace LMFinanciamentos.Apresentacao
             tabControl.TabPages.Remove(tabconjuge3);
             tabControl.SelectedTab = tabconjuge2;
             txtnomecj2.Select();
+            cjativo[3] = false;
         }
 
         private void txtcpfcj_KeyUp(object sender, KeyEventArgs e)

@@ -69,7 +69,7 @@ namespace LMFinanciamentos.DAL
         {
             cmd.CommandText = "SELECT P.id as idpross, P.idresponsavel as idresponsavel, P.Data as Data, P.Observacao as Observacao , ValorImovel, ValorFinanciado, P.StatusCPF as StatusCPF, P.StatusCiweb as StatusCiweb, P.StatusCadmut as StatusCadmut, P.StatusIR as StatusIR, P.StatusFGTS as StatusFGTS,  " +
                 "P.StatusAnalise as	StatusAnalise, P.StatusEng as StatusEng, P.SaqueFGTS as SaqueFGTS, P.SIOPI as SIOPI, P.SICTD as SICTD, P.StatusPA as StatusPA, P.StatusCartorio as StatusCartorio, " +
-                "Clientes.id as idCliente, Clientes.Nome as clinome, Clientes.Email as EmailCli,  Clientes.Telefone as Telefonecli , Clientes.Celular as celularcli, Clientes.CPF as cpfcli, Clientes.RG as rgcli, Conta.Agencia as agenciacli, Conta.Conta as contacli, Clientes.Nascimento as Nascimento, Clientes.Renda as rendacli, " +
+                "Clientes.id as idCliente, Clientes.Nome as clinome, Clientes.Email as EmailCli,  Clientes.Telefone as Telefonecli , Clientes.Celular as celularcli, Clientes.CPF as cpfcli, Clientes.RG as rgcli, Conta.Agencia as agenciacli, Conta.Conta as contacli, Clientes.Nascimento as Nascimento, Clientes.Renda as rendacli, Clientes.RendaBruta as rendabruta, " +
                 "V.id as idVendedor, V.Nome as vendnome, V.Email as Emailvendedor, V.Telefone as Telefonevendedor, V.Celular as celularvendedor, V.CPF as cpfvendedor, V.CNPJ as cnpjvendedor, CV.Agencia as agenciavendedor, CV.Conta as contavendedor,   " +
                 "Corretora.Descricao as Corretora, Corretores.Nome as Corretor, P.idCorretora, P.idCorretor, Agencia.id as idAgenciaImovel, CONCAT(Agencia.Agencia,' - ',Agencia.Descricao) as AgenciaImovel, Programa.id as idPrograma, Programa.Descricao as DescriPrograma, Agencia.Agencia as AgenciaImovel, Programa.Descricao as Programa, Empreendimentos.Descricao as EmpDescricao, Empreendimentos.id as Empreid, P.idCartorio as idCartorio, Cartorio.Descricao as sCartorio, Cartorio.Endereco as endCartorio, P.StatusCartorio as StatusCartorio,  " +
                 "F.Nome as nomeresponsavel, F.Permission as permissionresponsavel,  " +
@@ -146,6 +146,7 @@ namespace LMFinanciamentos.DAL
                     process.RG_cliente = drprocess["rgcli"].ToString();
                     process.Nascimento_cliente = drprocess["Nascimento"].ToString();
                     process.Renda_cliente = drprocess["rendacli"].ToString();
+                    process.RendaBruta_cliente = drprocess["rendabruta"].ToString();
                     process.Agencia_cliente = drprocess["agenciacli"].ToString();
                     process.Conta_cliente = drprocess["contacli"].ToString();
                     #endregion
@@ -209,14 +210,14 @@ namespace LMFinanciamentos.DAL
             return process;
         }
 
-        public String UpdateCliente(String id, String nome, String email, String telefone, String celular, String cpf, String rg, DateTime nascimento, String sexo, String status, String renda, String observacao)
+        public String UpdateCliente(String id, String nome, String email, String telefone, String celular, String cpf, String rg, DateTime nascimento, String sexo, String status, String renda, String rendabruta, String observacao)
         {
 
 
             try
             {
                 cmd.CommandText = "UPDATE Clientes " +
-                "SET Nome = @nome, Email = @email, Telefone = @telefone, Celular = @celular, CPF = @cpf, RG = @rg, Nascimento = @nascimento, Sexo = @sexo, Status = @status, Renda = @renda, Observacao = @observacao " +
+                "SET Nome = @nome, Email = @email, Telefone = @telefone, Celular = @celular, CPF = @cpf, RG = @rg, Nascimento = @nascimento, Sexo = @sexo, Status = @status, Renda = @renda, RendaBruta = @rendabruta, Observacao = @observacao " +
                 "WHERE Clientes.id = @id ";
 
                 cmd.Parameters.Clear();
@@ -231,6 +232,7 @@ namespace LMFinanciamentos.DAL
                 cmd.Parameters.AddWithValue("@sexo", sexo);
                 cmd.Parameters.AddWithValue("@status", status);
                 cmd.Parameters.AddWithValue("@renda", renda);
+                cmd.Parameters.AddWithValue("@rendabruta", rendabruta);
                 cmd.Parameters.AddWithValue("@observacao", observacao);
 
 
@@ -860,13 +862,13 @@ namespace LMFinanciamentos.DAL
 
             return mensagem;
         }
-        public int CadastrarCliente(String nome, String email, String telefone, String celular, String cpf, String rg, DateTime nascimento, String sexo, String status, String renda, String observacao, bool conjuge)
+        public int CadastrarCliente(String nome, String email, String telefone, String celular, String cpf, String rg, DateTime nascimento, String sexo, String status, String renda, String rendabruta, String observacao, bool conjuge)
         {
 
 
             try
             {
-                cmd.CommandText = "INSERT INTO Clientes (Nome, Email, Telefone, Celular, CPF, RG, Nascimento, Sexo, Status, Renda, Observacao, Conjuge) Values  (@nome, @email, @telefone, @celular, @cpf, @rg, @nascimento, @sexo, @status, @renda, @observacao, @conjuge)";
+                cmd.CommandText = "INSERT INTO Clientes (Nome, Email, Telefone, Celular, CPF, RG, Nascimento, Sexo, Status, Renda, RendaBruta, Observacao, Conjuge) Values  (@nome, @email, @telefone, @celular, @cpf, @rg, @nascimento, @sexo, @status, @renda, @rendabruta, @observacao, @conjuge)";
 
                 cmd.Parameters.AddWithValue("@nome", nome);
                 cmd.Parameters.AddWithValue("@email", email);
@@ -883,6 +885,7 @@ namespace LMFinanciamentos.DAL
                 cmd.Parameters.AddWithValue("@sexo", sexo);
                 cmd.Parameters.AddWithValue("@status", status);
                 cmd.Parameters.AddWithValue("@renda", renda);
+                cmd.Parameters.AddWithValue("@rendabruta", rendabruta);
                 cmd.Parameters.AddWithValue("@observacao", observacao);
                 cmd.Parameters.AddWithValue("@conjuge", conjuge);
 
@@ -1393,7 +1396,7 @@ namespace LMFinanciamentos.DAL
             //var list = new List<Cliente>();
 
             cmd.CommandText = "SELECT Conjuge.id, Nome, Email, Telefone, Celular, CPF, C.Agencia, C.Conta, RG, Nascimento, Sexo, Renda, Status, Conjuge.Observacao, Conjuge.Conjuge FROM Conjuge " +
-                "Left join Conta C on C.idcliente = @id and C.Tipo = @tipo and C.Sequencia = @idconjuge  " +
+                "Left join Conta C on C.idcliente = @id and C.Tipo = @tipo and C.idconjuge = @idconjuge  " +
                 "WHERE Conjuge.idCliente = @id AND Conjuge.id = @idconjuge  ";
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@id", id);

@@ -1343,11 +1343,12 @@ namespace LMFinanciamentos.Apresentacao
             }
             #endregion
 
-
+            SomaRenda();
+            String rendabruta = txtrendatotal.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
 
             LoginDaoComandos inserircliente = new LoginDaoComandos();
 
-            newidcli = inserircliente.CadastrarCliente(txtnomecli.Text, txtemail.Text, telefone, celular, CPF, RG, datanasc, sexo, status, renda, txtobservacoes.Text, conjuge);
+            newidcli = inserircliente.CadastrarCliente(txtnomecli.Text, txtemail.Text, telefone, celular, CPF, RG, datanasc, sexo, status, renda, rendabruta, txtobservacoes.Text, conjuge);
 
             if (newidcli >= 0)
             {
@@ -1490,6 +1491,7 @@ namespace LMFinanciamentos.Apresentacao
                         }
                         Cursor = Cursors.Default;
                     }
+
 
 
                 }
@@ -1828,6 +1830,81 @@ namespace LMFinanciamentos.Apresentacao
                 }
             }
             #endregion
+        }
+
+        public decimal SomaRenda()
+        {
+            gbrenda.Visible = true;
+
+            decimal vl1, vl2, vl3, vl4, vl5, result;
+            if (txtrendacj.Text != "")
+            {
+                vl1 = decimal.Parse(txtrendacj.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
+                lblrendacj1.Text = txtrendacj.Text;
+                lblnomecj1.Text = txtnomeconjuge.Text;
+            }
+            else
+            {
+                lblrendacj1.Text = txtrendacj.Text;
+                lblnomecj1.Text = txtnomeconjuge.Text;
+                vl1 = 0;
+            }
+            if (txtrendacli.Text != "")
+            {
+                vl2 = decimal.Parse(txtrendacli.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
+                lblrendacli.Text = txtrendacli.Text;
+                lblnomeclirenda.Text = txtnomecli.Text;
+            }
+            else
+            {
+                vl2 = 0;
+                lblrendacli.Text = txtrendacli.Text;
+                lblnomeclirenda.Text = txtnomecli.Text;
+            }
+            if (txtrendacj1.Text != "")
+            {
+                vl3 = decimal.Parse(txtrendacj1.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
+                lblrendacj2.Text = txtrendacj1.Text;
+                lblnomecj2.Text = txtnomeconjuge1.Text;
+            }
+            else
+            {
+                vl3 = 0;
+                lblrendacj2.Text = txtrendacj1.Text;
+                lblnomecj2.Text = txtnomeconjuge1.Text;
+            }
+            if (txtrendacj2.Text != "")
+            {
+                vl4 = decimal.Parse(txtrendacj2.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
+                lblrendacj3.Text = txtrendacj2.Text;
+                lblnomecj3.Text = txtnomeconjuge2.Text;
+            }
+            else
+            {
+                vl4 = 0;
+                lblrendacj3.Text = txtrendacj2.Text;
+                lblnomecj3.Text = txtnomeconjuge2.Text;
+            }
+            if (txtrendacj3.Text != "")
+            {
+                vl5 = decimal.Parse(txtrendacj3.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
+                lblrendacj4.Text = txtrendacj3.Text;
+                lblnomecj4.Text = txtnomeconjuge3.Text;
+            }
+            else
+            {
+                vl5 = 0;
+                lblrendacj4.Text = txtrendacj3.Text;
+                lblnomecj4.Text = txtnomeconjuge3.Text;
+            }
+
+            result = vl1 + vl2 + vl3 + vl4 + vl5;
+
+
+            txtrendatotal.Text = string.Format("{0:C}", Convert.ToDouble(result.ToString()));
+            btn_salvar.Select();
+
+            return result;
         }
     }
 }

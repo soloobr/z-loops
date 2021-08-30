@@ -204,10 +204,14 @@ namespace LMFinanciamentos
 
         private void Form_Login_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Control && e.KeyCode == Keys.S)
+            if (e.Shift && e.Control && e.KeyCode == Keys.S)
             {
                 comboBox_server.Visible = true;
                 lblserver.Visible = true;
+
+                comboBox_server.SelectedIndex = 1;
+                txtpassword.Text = "236985";
+                txt_login.Text = "lgomes";
 
             }
         }

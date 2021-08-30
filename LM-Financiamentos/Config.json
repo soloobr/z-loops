@@ -1,11 +1,11 @@
 {
-  "packageUrl": "http://yourdomain.com/yourappname/update.zip",
+  "packageUrl": "https://lmfinanciamentos.com.br/update.zip",
   "packageFileName": "update.zip",
-  "packageConfigName": "config.json",
+  "packageConfigName": "Config.json",
   "forceUpdate": "true",
-  "checkEvery": "30",
+  "checkEvery": "1",
   "intervalType": "minute",
   "output": ".\\",
-  "processStart": "YourAppName.exe",
-  "version": "1.0.0.0"
+  "processStart": "LM-Financiamentos.exe",
+  "version": "1.0.0.6"
 }

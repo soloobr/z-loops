@@ -32,6 +32,25 @@ namespace LMFinanciamentos.Apresentacao
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Cadastro_Cliente));
             this.panelcentralcadcli = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.gbrenda = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblnomecj4 = new System.Windows.Forms.Label();
+            this.lbl04 = new System.Windows.Forms.Label();
+            this.lblrendacj4 = new System.Windows.Forms.Label();
+            this.lblrendacj3 = new System.Windows.Forms.Label();
+            this.lblrendacj2 = new System.Windows.Forms.Label();
+            this.lblrendacj1 = new System.Windows.Forms.Label();
+            this.lblrendacli = new System.Windows.Forms.Label();
+            this.lblnomecj3 = new System.Windows.Forms.Label();
+            this.lblnomecj2 = new System.Windows.Forms.Label();
+            this.lblnomecj1 = new System.Windows.Forms.Label();
+            this.lblnomeclirenda = new System.Windows.Forms.Label();
+            this.lblrendabruta = new System.Windows.Forms.Label();
+            this.lbl01 = new System.Windows.Forms.Label();
+            this.lbl02 = new System.Windows.Forms.Label();
+            this.lbl03 = new System.Windows.Forms.Label();
+            this.lbl0 = new System.Windows.Forms.Label();
+            this.txtrendatotal = new System.Windows.Forms.TextBox();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabcliente = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -191,6 +210,8 @@ namespace LMFinanciamentos.Apresentacao
             this.ofd1 = new System.Windows.Forms.OpenFileDialog();
             this.panelcentralcadcli.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.gbrenda.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabcliente.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -222,17 +243,279 @@ namespace LMFinanciamentos.Apresentacao
             this.panelcentralcadcli.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelcentralcadcli.Location = new System.Drawing.Point(0, 0);
             this.panelcentralcadcli.Name = "panelcentralcadcli";
-            this.panelcentralcadcli.Size = new System.Drawing.Size(979, 617);
+            this.panelcentralcadcli.Size = new System.Drawing.Size(979, 674);
             this.panelcentralcadcli.TabIndex = 0;
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.gbrenda);
             this.panel2.Controls.Add(this.tabControl);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 57);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(979, 508);
+            this.panel2.Size = new System.Drawing.Size(979, 565);
             this.panel2.TabIndex = 9;
+            // 
+            // gbrenda
+            // 
+            this.gbrenda.AutoSize = true;
+            this.gbrenda.Controls.Add(this.tableLayoutPanel6);
+            this.gbrenda.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbrenda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gbrenda.Font = new System.Drawing.Font("Poppins SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbrenda.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.gbrenda.Location = new System.Drawing.Point(0, 378);
+            this.gbrenda.Name = "gbrenda";
+            this.gbrenda.Padding = new System.Windows.Forms.Padding(10);
+            this.gbrenda.Size = new System.Drawing.Size(979, 187);
+            this.gbrenda.TabIndex = 11;
+            this.gbrenda.TabStop = false;
+            this.gbrenda.Text = "Resumo Renda";
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.AutoSize = true;
+            this.tableLayoutPanel6.ColumnCount = 3;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel6.Controls.Add(this.lblnomecj4, 1, 4);
+            this.tableLayoutPanel6.Controls.Add(this.lbl04, 0, 4);
+            this.tableLayoutPanel6.Controls.Add(this.lblrendacj4, 2, 4);
+            this.tableLayoutPanel6.Controls.Add(this.lblrendacj3, 2, 3);
+            this.tableLayoutPanel6.Controls.Add(this.lblrendacj2, 2, 2);
+            this.tableLayoutPanel6.Controls.Add(this.lblrendacj1, 2, 1);
+            this.tableLayoutPanel6.Controls.Add(this.lblrendacli, 2, 0);
+            this.tableLayoutPanel6.Controls.Add(this.lblnomecj3, 1, 3);
+            this.tableLayoutPanel6.Controls.Add(this.lblnomecj2, 1, 2);
+            this.tableLayoutPanel6.Controls.Add(this.lblnomecj1, 1, 1);
+            this.tableLayoutPanel6.Controls.Add(this.lblnomeclirenda, 1, 0);
+            this.tableLayoutPanel6.Controls.Add(this.lblrendabruta, 1, 5);
+            this.tableLayoutPanel6.Controls.Add(this.lbl01, 0, 1);
+            this.tableLayoutPanel6.Controls.Add(this.lbl02, 0, 2);
+            this.tableLayoutPanel6.Controls.Add(this.lbl03, 0, 3);
+            this.tableLayoutPanel6.Controls.Add(this.lbl0, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.txtrendatotal, 2, 5);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(10, 30);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 7;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(959, 147);
+            this.tableLayoutPanel6.TabIndex = 0;
+            // 
+            // lblnomecj4
+            // 
+            this.lblnomecj4.AutoSize = true;
+            this.lblnomecj4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblnomecj4.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblnomecj4.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.lblnomecj4.Location = new System.Drawing.Point(55, 92);
+            this.lblnomecj4.Name = "lblnomecj4";
+            this.lblnomecj4.Size = new System.Drawing.Size(75, 23);
+            this.lblnomecj4.TabIndex = 71;
+            this.lblnomecj4.Text = "Cônjuge 4";
+            this.lblnomecj4.Visible = false;
+            // 
+            // lbl04
+            // 
+            this.lbl04.AutoSize = true;
+            this.lbl04.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl04.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl04.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.lbl04.Location = new System.Drawing.Point(3, 92);
+            this.lbl04.Name = "lbl04";
+            this.lbl04.Size = new System.Drawing.Size(46, 23);
+            this.lbl04.TabIndex = 70;
+            this.lbl04.Text = "CJ 03";
+            this.lbl04.Visible = false;
+            // 
+            // lblrendacj4
+            // 
+            this.lblrendacj4.AutoSize = true;
+            this.lblrendacj4.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblrendacj4.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.lblrendacj4.Location = new System.Drawing.Point(193, 92);
+            this.lblrendacj4.Name = "lblrendacj4";
+            this.lblrendacj4.Size = new System.Drawing.Size(44, 23);
+            this.lblrendacj4.TabIndex = 69;
+            this.lblrendacj4.Text = "Valor";
+            this.lblrendacj4.Visible = false;
+            // 
+            // lblrendacj3
+            // 
+            this.lblrendacj3.AutoSize = true;
+            this.lblrendacj3.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblrendacj3.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.lblrendacj3.Location = new System.Drawing.Point(193, 69);
+            this.lblrendacj3.Name = "lblrendacj3";
+            this.lblrendacj3.Size = new System.Drawing.Size(44, 23);
+            this.lblrendacj3.TabIndex = 68;
+            this.lblrendacj3.Text = "Valor";
+            this.lblrendacj3.Visible = false;
+            // 
+            // lblrendacj2
+            // 
+            this.lblrendacj2.AutoSize = true;
+            this.lblrendacj2.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblrendacj2.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.lblrendacj2.Location = new System.Drawing.Point(193, 46);
+            this.lblrendacj2.Name = "lblrendacj2";
+            this.lblrendacj2.Size = new System.Drawing.Size(44, 23);
+            this.lblrendacj2.TabIndex = 67;
+            this.lblrendacj2.Text = "Valor";
+            this.lblrendacj2.Visible = false;
+            // 
+            // lblrendacj1
+            // 
+            this.lblrendacj1.AutoSize = true;
+            this.lblrendacj1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblrendacj1.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.lblrendacj1.Location = new System.Drawing.Point(193, 23);
+            this.lblrendacj1.Name = "lblrendacj1";
+            this.lblrendacj1.Size = new System.Drawing.Size(44, 23);
+            this.lblrendacj1.TabIndex = 66;
+            this.lblrendacj1.Text = "Valor";
+            this.lblrendacj1.Visible = false;
+            // 
+            // lblrendacli
+            // 
+            this.lblrendacli.AutoSize = true;
+            this.lblrendacli.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblrendacli.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblrendacli.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.lblrendacli.Location = new System.Drawing.Point(193, 0);
+            this.lblrendacli.Name = "lblrendacli";
+            this.lblrendacli.Size = new System.Drawing.Size(763, 23);
+            this.lblrendacli.TabIndex = 65;
+            this.lblrendacli.Text = "Valor";
+            // 
+            // lblnomecj3
+            // 
+            this.lblnomecj3.AutoSize = true;
+            this.lblnomecj3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblnomecj3.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblnomecj3.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.lblnomecj3.Location = new System.Drawing.Point(55, 69);
+            this.lblnomecj3.Name = "lblnomecj3";
+            this.lblnomecj3.Size = new System.Drawing.Size(75, 23);
+            this.lblnomecj3.TabIndex = 64;
+            this.lblnomecj3.Text = "Cônjuge 3";
+            this.lblnomecj3.Visible = false;
+            // 
+            // lblnomecj2
+            // 
+            this.lblnomecj2.AutoSize = true;
+            this.lblnomecj2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblnomecj2.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblnomecj2.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.lblnomecj2.Location = new System.Drawing.Point(55, 46);
+            this.lblnomecj2.Name = "lblnomecj2";
+            this.lblnomecj2.Size = new System.Drawing.Size(74, 23);
+            this.lblnomecj2.TabIndex = 63;
+            this.lblnomecj2.Text = "Cônjuge 2";
+            this.lblnomecj2.Visible = false;
+            // 
+            // lblnomecj1
+            // 
+            this.lblnomecj1.AutoSize = true;
+            this.lblnomecj1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblnomecj1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblnomecj1.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.lblnomecj1.Location = new System.Drawing.Point(55, 23);
+            this.lblnomecj1.Name = "lblnomecj1";
+            this.lblnomecj1.Size = new System.Drawing.Size(71, 23);
+            this.lblnomecj1.TabIndex = 62;
+            this.lblnomecj1.Text = "Cônjuge 1";
+            this.lblnomecj1.Visible = false;
+            // 
+            // lblnomeclirenda
+            // 
+            this.lblnomeclirenda.AutoSize = true;
+            this.lblnomeclirenda.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblnomeclirenda.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblnomeclirenda.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.lblnomeclirenda.Location = new System.Drawing.Point(55, 0);
+            this.lblnomeclirenda.Name = "lblnomeclirenda";
+            this.lblnomeclirenda.Size = new System.Drawing.Size(55, 23);
+            this.lblnomeclirenda.TabIndex = 61;
+            this.lblnomeclirenda.Text = "Cliente";
+            // 
+            // lblrendabruta
+            // 
+            this.lblrendabruta.AutoSize = true;
+            this.lblrendabruta.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblrendabruta.Location = new System.Drawing.Point(55, 115);
+            this.lblrendabruta.Name = "lblrendabruta";
+            this.lblrendabruta.Size = new System.Drawing.Size(132, 20);
+            this.lblrendabruta.TabIndex = 60;
+            this.lblrendabruta.Text = "Renda Bruta Total:";
+            // 
+            // lbl01
+            // 
+            this.lbl01.AutoSize = true;
+            this.lbl01.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl01.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl01.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.lbl01.Location = new System.Drawing.Point(3, 23);
+            this.lbl01.Name = "lbl01";
+            this.lbl01.Size = new System.Drawing.Size(46, 23);
+            this.lbl01.TabIndex = 59;
+            this.lbl01.Text = "CJ";
+            this.lbl01.Visible = false;
+            // 
+            // lbl02
+            // 
+            this.lbl02.AutoSize = true;
+            this.lbl02.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl02.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl02.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.lbl02.Location = new System.Drawing.Point(3, 46);
+            this.lbl02.Name = "lbl02";
+            this.lbl02.Size = new System.Drawing.Size(46, 23);
+            this.lbl02.TabIndex = 58;
+            this.lbl02.Text = "CJ 01";
+            this.lbl02.Visible = false;
+            // 
+            // lbl03
+            // 
+            this.lbl03.AutoSize = true;
+            this.lbl03.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl03.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl03.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.lbl03.Location = new System.Drawing.Point(3, 69);
+            this.lbl03.Name = "lbl03";
+            this.lbl03.Size = new System.Drawing.Size(46, 23);
+            this.lbl03.TabIndex = 57;
+            this.lbl03.Text = "CJ 02";
+            this.lbl03.Visible = false;
+            // 
+            // lbl0
+            // 
+            this.lbl0.AutoSize = true;
+            this.lbl0.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl0.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl0.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.lbl0.Location = new System.Drawing.Point(3, 0);
+            this.lbl0.Name = "lbl0";
+            this.lbl0.Size = new System.Drawing.Size(46, 23);
+            this.lbl0.TabIndex = 56;
+            this.lbl0.Text = "Cli.";
+            // 
+            // txtrendatotal
+            // 
+            this.txtrendatotal.Location = new System.Drawing.Point(193, 118);
+            this.txtrendatotal.Name = "txtrendatotal";
+            this.txtrendatotal.ReadOnly = true;
+            this.txtrendatotal.Size = new System.Drawing.Size(147, 27);
+            this.txtrendatotal.TabIndex = 72;
+            this.txtrendatotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tabControl
             // 
@@ -242,12 +525,12 @@ namespace LMFinanciamentos.Apresentacao
             this.tabControl.Controls.Add(this.tabconjuge2);
             this.tabControl.Controls.Add(this.tabconjuge3);
             this.tabControl.Controls.Add(this.tabproduto);
-            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabControl.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl.Location = new System.Drawing.Point(0, 0);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(979, 508);
+            this.tabControl.Size = new System.Drawing.Size(979, 378);
             this.tabControl.TabIndex = 10;
             // 
             // tabcliente
@@ -256,7 +539,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tabcliente.Location = new System.Drawing.Point(4, 32);
             this.tabcliente.Name = "tabcliente";
             this.tabcliente.Padding = new System.Windows.Forms.Padding(20);
-            this.tabcliente.Size = new System.Drawing.Size(971, 472);
+            this.tabcliente.Size = new System.Drawing.Size(971, 342);
             this.tabcliente.TabIndex = 0;
             this.tabcliente.Text = "Cadastro do Cliente";
             this.tabcliente.UseVisualStyleBackColor = true;
@@ -591,7 +874,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tabconjuge.Location = new System.Drawing.Point(4, 32);
             this.tabconjuge.Name = "tabconjuge";
             this.tabconjuge.Padding = new System.Windows.Forms.Padding(20);
-            this.tabconjuge.Size = new System.Drawing.Size(971, 472);
+            this.tabconjuge.Size = new System.Drawing.Size(971, 342);
             this.tabconjuge.TabIndex = 4;
             this.tabconjuge.Text = "Cad. Cônjuge";
             this.tabconjuge.UseVisualStyleBackColor = true;
@@ -940,7 +1223,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tabconjuge1.Location = new System.Drawing.Point(4, 32);
             this.tabconjuge1.Name = "tabconjuge1";
             this.tabconjuge1.Padding = new System.Windows.Forms.Padding(20);
-            this.tabconjuge1.Size = new System.Drawing.Size(971, 472);
+            this.tabconjuge1.Size = new System.Drawing.Size(971, 342);
             this.tabconjuge1.TabIndex = 5;
             this.tabconjuge1.Text = "Cad. Cônjuge 1";
             this.tabconjuge1.UseVisualStyleBackColor = true;
@@ -1289,7 +1572,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tabconjuge2.Location = new System.Drawing.Point(4, 32);
             this.tabconjuge2.Name = "tabconjuge2";
             this.tabconjuge2.Padding = new System.Windows.Forms.Padding(20);
-            this.tabconjuge2.Size = new System.Drawing.Size(971, 472);
+            this.tabconjuge2.Size = new System.Drawing.Size(971, 342);
             this.tabconjuge2.TabIndex = 6;
             this.tabconjuge2.Text = "Cad. Cônjuge 2";
             this.tabconjuge2.UseVisualStyleBackColor = true;
@@ -1638,7 +1921,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tabconjuge3.Location = new System.Drawing.Point(4, 32);
             this.tabconjuge3.Name = "tabconjuge3";
             this.tabconjuge3.Padding = new System.Windows.Forms.Padding(20);
-            this.tabconjuge3.Size = new System.Drawing.Size(971, 472);
+            this.tabconjuge3.Size = new System.Drawing.Size(971, 342);
             this.tabconjuge3.TabIndex = 7;
             this.tabconjuge3.Text = "Cad. Cônjuge 3";
             this.tabconjuge3.UseVisualStyleBackColor = true;
@@ -1970,7 +2253,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tabproduto.Location = new System.Drawing.Point(4, 32);
             this.tabproduto.Name = "tabproduto";
             this.tabproduto.Padding = new System.Windows.Forms.Padding(20);
-            this.tabproduto.Size = new System.Drawing.Size(971, 472);
+            this.tabproduto.Size = new System.Drawing.Size(971, 342);
             this.tabproduto.TabIndex = 3;
             this.tabproduto.Text = "Foto do Cliente";
             this.tabproduto.UseVisualStyleBackColor = true;
@@ -2025,7 +2308,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panel1.Controls.Add(this.btn_salvar);
             this.panel1.Controls.Add(this.btnclosecli);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 565);
+            this.panel1.Location = new System.Drawing.Point(0, 622);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(10);
             this.panel1.Size = new System.Drawing.Size(979, 52);
@@ -2139,7 +2422,7 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(979, 617);
+            this.ClientSize = new System.Drawing.Size(979, 674);
             this.Controls.Add(this.panelcentralcadcli);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_Cadastro_Cliente";
@@ -2148,6 +2431,11 @@ namespace LMFinanciamentos.Apresentacao
             this.Load += new System.EventHandler(this.Form_Cadastro_cliente_Load);
             this.panelcentralcadcli.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.gbrenda.ResumeLayout(false);
+            this.gbrenda.PerformLayout();
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel6.PerformLayout();
             this.tabControl.ResumeLayout(false);
             this.tabcliente.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -2345,5 +2633,24 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.Button btn_excluirconjuge1;
         private System.Windows.Forms.Button btn_excluirconjuge2;
         private System.Windows.Forms.Button btn_excluirconjuge3;
+        private System.Windows.Forms.GroupBox gbrenda;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.Label lblnomecj4;
+        private System.Windows.Forms.Label lbl04;
+        private System.Windows.Forms.Label lblrendacj4;
+        private System.Windows.Forms.Label lblrendacj3;
+        private System.Windows.Forms.Label lblrendacj2;
+        private System.Windows.Forms.Label lblrendacj1;
+        private System.Windows.Forms.Label lblrendacli;
+        private System.Windows.Forms.Label lblnomecj3;
+        private System.Windows.Forms.Label lblnomecj2;
+        private System.Windows.Forms.Label lblnomecj1;
+        private System.Windows.Forms.Label lblnomeclirenda;
+        private System.Windows.Forms.Label lblrendabruta;
+        private System.Windows.Forms.Label lbl01;
+        private System.Windows.Forms.Label lbl02;
+        private System.Windows.Forms.Label lbl03;
+        private System.Windows.Forms.Label lbl0;
+        private System.Windows.Forms.TextBox txtrendatotal;
     }
 }
