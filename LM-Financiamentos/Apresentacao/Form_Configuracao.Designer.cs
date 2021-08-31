@@ -191,7 +191,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.47761F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.52239F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 223F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 224F));
             this.tableLayoutPanel1.Controls.Add(this.groupBox_servidor, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.grp_seguranca, 0, 0);
@@ -212,7 +212,7 @@ namespace LMFinanciamentos.Apresentacao
             this.groupBox_servidor.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox_servidor.Location = new System.Drawing.Point(3, 241);
             this.groupBox_servidor.Name = "groupBox_servidor";
-            this.groupBox_servidor.Size = new System.Drawing.Size(354, 163);
+            this.groupBox_servidor.Size = new System.Drawing.Size(353, 163);
             this.groupBox_servidor.TabIndex = 7;
             this.groupBox_servidor.TabStop = false;
             this.groupBox_servidor.Text = "Servidor";
@@ -237,14 +237,14 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(348, 134);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(347, 134);
             this.tableLayoutPanel2.TabIndex = 8;
             // 
             // txtcaminhoarquivos
             // 
             this.tableLayoutPanel2.SetColumnSpan(this.txtcaminhoarquivos, 3);
             this.txtcaminhoarquivos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtcaminhoarquivos.Location = new System.Drawing.Point(109, 39);
+            this.txtcaminhoarquivos.Location = new System.Drawing.Point(108, 39);
             this.txtcaminhoarquivos.Name = "txtcaminhoarquivos";
             this.txtcaminhoarquivos.Size = new System.Drawing.Size(236, 30);
             this.txtcaminhoarquivos.TabIndex = 11;
@@ -255,7 +255,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label5.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold);
             this.label5.Location = new System.Drawing.Point(3, 36);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(100, 33);
+            this.label5.Size = new System.Drawing.Size(99, 33);
             this.label5.TabIndex = 10;
             this.label5.Text = "Caminho:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -266,7 +266,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label4.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold);
             this.label4.Location = new System.Drawing.Point(3, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 33);
+            this.label4.Size = new System.Drawing.Size(99, 33);
             this.label4.TabIndex = 9;
             this.label4.Text = "Hostname:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -275,9 +275,9 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.tableLayoutPanel2.SetColumnSpan(this.btnsalvarserver, 2);
             this.btnsalvarserver.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnsalvarserver.Location = new System.Drawing.Point(215, 75);
+            this.btnsalvarserver.Location = new System.Drawing.Point(213, 75);
             this.btnsalvarserver.Name = "btnsalvarserver";
-            this.btnsalvarserver.Size = new System.Drawing.Size(130, 32);
+            this.btnsalvarserver.Size = new System.Drawing.Size(131, 32);
             this.btnsalvarserver.TabIndex = 8;
             this.btnsalvarserver.Text = "Salvar";
             this.btnsalvarserver.UseVisualStyleBackColor = true;
@@ -287,7 +287,7 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.tableLayoutPanel2.SetColumnSpan(this.txtnameserver, 3);
             this.txtnameserver.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtnameserver.Location = new System.Drawing.Point(109, 3);
+            this.txtnameserver.Location = new System.Drawing.Point(108, 3);
             this.txtnameserver.Name = "txtnameserver";
             this.txtnameserver.Size = new System.Drawing.Size(236, 30);
             this.txtnameserver.TabIndex = 12;
@@ -297,7 +297,7 @@ namespace LMFinanciamentos.Apresentacao
             this.groupBox1.Controls.Add(this.panel4);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Poppins", 10F);
-            this.groupBox1.Location = new System.Drawing.Point(363, 3);
+            this.groupBox1.Location = new System.Drawing.Point(362, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(10);
             this.groupBox1.Size = new System.Drawing.Size(294, 232);
@@ -334,7 +334,7 @@ namespace LMFinanciamentos.Apresentacao
             this.grp_seguranca.Location = new System.Drawing.Point(3, 3);
             this.grp_seguranca.Name = "grp_seguranca";
             this.grp_seguranca.Padding = new System.Windows.Forms.Padding(7);
-            this.grp_seguranca.Size = new System.Drawing.Size(354, 232);
+            this.grp_seguranca.Size = new System.Drawing.Size(353, 232);
             this.grp_seguranca.TabIndex = 5;
             this.grp_seguranca.TabStop = false;
             this.grp_seguranca.Text = "Segurança";
@@ -346,7 +346,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel12.Location = new System.Drawing.Point(7, 27);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(340, 255);
+            this.panel12.Size = new System.Drawing.Size(339, 255);
             this.panel12.TabIndex = 4;
             // 
             // pnl_submenualtersenha
@@ -358,7 +358,7 @@ namespace LMFinanciamentos.Apresentacao
             this.pnl_submenualtersenha.Location = new System.Drawing.Point(0, 31);
             this.pnl_submenualtersenha.Name = "pnl_submenualtersenha";
             this.pnl_submenualtersenha.Padding = new System.Windows.Forms.Padding(13, 0, 13, 0);
-            this.pnl_submenualtersenha.Size = new System.Drawing.Size(340, 189);
+            this.pnl_submenualtersenha.Size = new System.Drawing.Size(339, 189);
             this.pnl_submenualtersenha.TabIndex = 11;
             this.pnl_submenualtersenha.Visible = false;
             // 
@@ -374,7 +374,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panel13.Location = new System.Drawing.Point(13, 0);
             this.panel13.Name = "panel13";
             this.panel13.Padding = new System.Windows.Forms.Padding(9);
-            this.panel13.Size = new System.Drawing.Size(314, 163);
+            this.panel13.Size = new System.Drawing.Size(313, 163);
             this.panel13.TabIndex = 14;
             // 
             // panel11
@@ -384,7 +384,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel11.Location = new System.Drawing.Point(9, 83);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(296, 27);
+            this.panel11.Size = new System.Drawing.Size(295, 27);
             this.panel11.TabIndex = 16;
             // 
             // txt_confirmasenha
@@ -392,7 +392,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txt_confirmasenha.Dock = System.Windows.Forms.DockStyle.Top;
             this.txt_confirmasenha.Location = new System.Drawing.Point(0, 0);
             this.txt_confirmasenha.Name = "txt_confirmasenha";
-            this.txt_confirmasenha.Size = new System.Drawing.Size(296, 27);
+            this.txt_confirmasenha.Size = new System.Drawing.Size(295, 27);
             this.txt_confirmasenha.TabIndex = 2;
             this.txt_confirmasenha.UseSystemPasswordChar = true;
             // 
@@ -404,7 +404,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panel8.Location = new System.Drawing.Point(9, 57);
             this.panel8.Name = "panel8";
             this.panel8.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.panel8.Size = new System.Drawing.Size(296, 26);
+            this.panel8.Size = new System.Drawing.Size(295, 26);
             this.panel8.TabIndex = 15;
             // 
             // label3
@@ -426,7 +426,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel9.Location = new System.Drawing.Point(9, 30);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(296, 27);
+            this.panel9.Size = new System.Drawing.Size(295, 27);
             this.panel9.TabIndex = 14;
             // 
             // txt_novasenha
@@ -434,7 +434,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txt_novasenha.Dock = System.Windows.Forms.DockStyle.Top;
             this.txt_novasenha.Location = new System.Drawing.Point(0, 0);
             this.txt_novasenha.Name = "txt_novasenha";
-            this.txt_novasenha.Size = new System.Drawing.Size(296, 27);
+            this.txt_novasenha.Size = new System.Drawing.Size(295, 27);
             this.txt_novasenha.TabIndex = 2;
             this.txt_novasenha.UseSystemPasswordChar = true;
             // 
@@ -444,7 +444,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(9, 9);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(296, 21);
+            this.panel5.Size = new System.Drawing.Size(295, 21);
             this.panel5.TabIndex = 11;
             // 
             // label2
@@ -469,13 +469,13 @@ namespace LMFinanciamentos.Apresentacao
             this.panel10.Location = new System.Drawing.Point(9, 112);
             this.panel10.Name = "panel10";
             this.panel10.Padding = new System.Windows.Forms.Padding(4);
-            this.panel10.Size = new System.Drawing.Size(296, 42);
+            this.panel10.Size = new System.Drawing.Size(295, 42);
             this.panel10.TabIndex = 8;
             // 
             // btn_alterar
             // 
             this.btn_alterar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btn_alterar.Location = new System.Drawing.Point(191, 4);
+            this.btn_alterar.Location = new System.Drawing.Point(190, 4);
             this.btn_alterar.Name = "btn_alterar";
             this.btn_alterar.Size = new System.Drawing.Size(101, 34);
             this.btn_alterar.TabIndex = 3;
@@ -509,7 +509,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(13, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(314, 0);
+            this.panel7.Size = new System.Drawing.Size(313, 0);
             this.panel7.TabIndex = 4;
             // 
             // panel6
@@ -518,7 +518,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(13, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(314, 0);
+            this.panel6.Size = new System.Drawing.Size(313, 0);
             this.panel6.TabIndex = 3;
             // 
             // panel3
@@ -528,7 +528,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(340, 31);
+            this.panel3.Size = new System.Drawing.Size(339, 31);
             this.panel3.TabIndex = 10;
             // 
             // btn_altersenha
@@ -540,7 +540,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btn_altersenha.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_altersenha.Location = new System.Drawing.Point(0, 0);
             this.btn_altersenha.Name = "btn_altersenha";
-            this.btn_altersenha.Size = new System.Drawing.Size(340, 31);
+            this.btn_altersenha.Size = new System.Drawing.Size(339, 31);
             this.btn_altersenha.TabIndex = 9;
             this.btn_altersenha.Text = "Alterar a Senha";
             this.btn_altersenha.UseVisualStyleBackColor = true;
@@ -550,9 +550,9 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.lblversion.AutoSize = true;
             this.lblversion.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblversion.Location = new System.Drawing.Point(663, 394);
+            this.lblversion.Location = new System.Drawing.Point(662, 394);
             this.lblversion.Name = "lblversion";
-            this.lblversion.Size = new System.Drawing.Size(218, 13);
+            this.lblversion.Size = new System.Drawing.Size(219, 13);
             this.lblversion.TabIndex = 8;
             this.lblversion.Text = "Version";
             this.lblversion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

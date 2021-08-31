@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Net;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace LMFinanciamentos
@@ -21,9 +22,11 @@ namespace LMFinanciamentos
 
             try
             {
-                if (!webClient.DownloadString("https://lmfinanciamentos.com.br/update/LMversion").Contains("1.0.0.9")) 
+                var appVersion = Assembly.GetExecutingAssembly().GetName().Version;
+
+                if (!webClient.DownloadString("https://lmfinanciamentos.com.br/update/LMversion").Contains(appVersion.ToString())) 
                 { 
-                    if(MessageBox.Show("Existe uma nova versão do Program! /n Deseja Atualizar Agora?", "Atualização", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) using (var client = new WebClient())
+                    if(MessageBox.Show("Existe uma nova versão do Program! \n Deseja Atualizar Agora?", "Atualização", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) using (var client = new WebClient())
                         {
                             Process.Start("UpdateLM.exe");
                             this.Close();
