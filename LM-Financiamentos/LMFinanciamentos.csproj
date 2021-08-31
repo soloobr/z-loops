@@ -55,9 +55,6 @@
     <StartupObject>LMFinanciamentos.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoUpdaterEasy, Version=1.0.1.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoUpdaterEasy.1.0.11\lib\AutoUpdaterEasy.dll</HintPath>
-    </Reference>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
@@ -358,6 +355,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Config.json" />
     <None Include="DAL\DS_Clientes.xsc">
       <DependentUpon>DS_Clientes.xsd</DependentUpon>
     </None>
@@ -406,9 +404,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="AutoUpdaterView.exe">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
     <Content Include="Content\knockout.combobox-1.0.80.0.css" />
     <Content Include="Content\knockout.combobox-1.0.80.0.min.css" />
     <Content Include="Ico.ico" />

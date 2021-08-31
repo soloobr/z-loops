@@ -3,8 +3,10 @@ using LMFinanciamentos.DAL;
 using LMFinanciamentos.Entidades;
 using LMFinanciamentos.Modelo;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Net;
 using System.Windows.Forms;
 
 namespace LMFinanciamentos
@@ -15,6 +17,25 @@ namespace LMFinanciamentos
         public Form_Login()
         {
             InitializeComponent();
+            WebClient webClient = new WebClient();
+
+            try
+            {
+                if (!webClient.DownloadString("https://lmfinanciamentos.com.br/update/LMversion").Contains("1.0.0.9")) 
+                { 
+                    if(MessageBox.Show("Existe uma nova versão do Program! /n Deseja Atualizar Agora?", "Atualização", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) using (var client = new WebClient())
+                        {
+                            Process.Start("UpdateLM.exe");
+                            this.Close();
+                        }                
+                }
+
+            }
+            catch
+            {
+
+            }
+
         }
 
         private string _server;
@@ -204,7 +225,7 @@ namespace LMFinanciamentos
 
         private void Form_Login_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Shift && e.Control && e.KeyCode == Keys.S)
+            if (e.Shift && e.Control && e.KeyCode == Keys.F12)
             {
                 comboBox_server.Visible = true;
                 lblserver.Visible = true;
