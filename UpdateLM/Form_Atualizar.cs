@@ -19,36 +19,33 @@ namespace UpdateLM
         public Atualizando()
         {
             InitializeComponent();
-        }
 
-        private void Atualizando_Load(object sender, EventArgs e)
-        {
-            Atualizar();
-        }
-        private void Atualizar()
-        {
             //WebClient webClient = new WebClient();
             var client = new WebClient();
 
-            //try
-            //{
-            System.Threading.Thread.Sleep(5000);
-            File.Delete(@".\LM-Financiamentos.exe");
-            client.DownloadFile("https://lmfinanciamentos.com.br/update/update.zip", @"update.zip");
-            string zipPath = @".\update.zip";
-            string extractPath = @".\";
-            ZipFile.ExtractToDirectory(zipPath, extractPath);
-            File.Delete(@".\update.zip");
-            System.Threading.Thread.Sleep(5000);
-            Process.Start(@".\LM-Financiamentos.exe");
-            Close();
+            try
+            {
+                System.Threading.Thread.Sleep(5000);
+                File.Delete(@".\LM-Financiamentos.exe");
+                client.DownloadFile("https://lmfinanciamentos.com.br/update/update.zip", @"update.zip");
+                string zipPath = @".\update.zip";
+                string extractPath = @".\";
+                ZipFile.ExtractToDirectory(zipPath, extractPath);
+                File.Delete(@".\update.zip");
+                Process.Start(@".\LM-Financiamentos.exe");
+                Close();
 
-            //}
-            //catch
-            //{
-            //Process.Start(@".\LM-Financiamentos.exe");
-            //Close();
-            //}
+            }
+            catch
+            {
+                Process.Start(@".\LM-Financiamentos.exe");
+                Close();
+            }
+}
+
+        private void Atualizando_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
