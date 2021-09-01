@@ -89,13 +89,11 @@ namespace LMFinanciamentos.Apresentacao
             Cursor = Cursors.WaitCursor;
             if (txtprocurar.Text == "")
             {
-                MessageBox.Show("Favor Digitar o número ou Nome do Cliente para pesquisar!", "Campo Necessario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Favor Digitar o CPF ou Nome do Cliente/Cônjuge para pesquisar!", "Campo Necessario", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtprocurar.Focus();
             }
             else
             {
-
-                //DAL.DS_DocumentosTableAdapters.ProcessosTableAdapter consulta = new DAL.DS_DocumentosTableAdapters.ProcessosTableAdapter();
                 consultar = "%" + txtprocurar.Text + "%";
 
                 LoginDaoComandos getclientes = new LoginDaoComandos();
