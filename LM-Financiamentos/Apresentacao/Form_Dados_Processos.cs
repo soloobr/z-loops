@@ -79,14 +79,15 @@ namespace LMFinanciamentos.Apresentacao
             txtemail.Text = process.Email_cliente;
             txttelefone.Text = process.Telefone_cliente;
             txtcelular.Text = process.Celular_cliente;
-            if (process.RendaBruta_cliente != "")
+            if (String.IsNullOrEmpty(process.RendaBruta_cliente) || process.RendaBruta_cliente == "0")
             {
-                txtrenda.Text = process.RendaBruta_cliente;
-                lblrentabruta.Text = lblrentabruta.Text + " + renda Cônjuges";
+                txtrenda.Text = process.Renda_cliente;
+
             }
             else
             {
-                txtrenda.Text = process.Renda_cliente;
+                txtrenda.Text = process.RendaBruta_cliente;
+                lblrentabruta.Text = lblrentabruta.Text + " + renda Cônjuges";
             }
 
             txtagenciacliente.Text = process.Agencia_cliente;

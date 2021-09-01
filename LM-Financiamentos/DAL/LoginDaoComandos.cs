@@ -1489,6 +1489,49 @@ namespace LMFinanciamentos.DAL
             return mensagem;
 
         }
+
+        public string UpdateRendaBrutaCliente(String idcli, String renda)
+        {
+
+
+            try
+            {
+                cmd.CommandText = "UPDATE Clientes " +
+               "SET  RendaBruta = @renda " +
+               "WHERE id = @id ";
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", idcli);
+                cmd.Parameters.AddWithValue("@renda", renda);
+
+
+                cmd.Connection = con.conectar();
+
+                int recordsAffected = cmd.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "Cliente Atualizado com Sucesso!";
+                }
+                else
+                {
+                    mensagem = "Erro ao Atualizar Cliente";
+                }
+
+
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+            }
+            catch (Exception err)
+            {
+                mensagem = ("Erro ao Atualizar Cliente: " + err.Message);
+            }
+
+            return mensagem;
+
+        }
         public Funcionario GetFuncionario(String sid)
         {
             //var list = new List<Cliente>();

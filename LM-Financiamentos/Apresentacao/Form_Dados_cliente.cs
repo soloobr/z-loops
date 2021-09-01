@@ -12,7 +12,7 @@ namespace LMFinanciamentos.Apresentacao
 {
     public partial class Form_Dados_Cliente : Form
     {
-        String sexo, status, idCliente, idConjuge, valor, renda, nascimento, arquivo, RG, CPF, telefone, celular, Agencia, Conta, sequencia;
+        String sexo, status, idCliente, idConjuge, valor, renda, rendaconjuges, rendabruta, nascimento, arquivo, RG, CPF, telefone, celular, Agencia, Conta, sequencia;
         String excluirimage;
         FileStream fsObj = null;
         BinaryReader binRdr = null;
@@ -214,6 +214,16 @@ namespace LMFinanciamentos.Apresentacao
 
                     #endregion
 
+                    SomaRenda();
+                    //MessageBox.Show(txtrendacj.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", ""));
+                    if (string.IsNullOrEmpty(txtrendacj.Text) || txtrendacj.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "") == "000")
+                    {
+                        rendabruta = txtrendacj.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
+                    }
+                    else
+                    {
+                        rendabruta = txtrendatotal.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
+                    }
                 }
                 if (cjativo[1]== true)
                 {
@@ -260,6 +270,15 @@ namespace LMFinanciamentos.Apresentacao
 
                     #endregion
 
+                    SomaRenda();
+                    if (string.IsNullOrEmpty(txtrendacj1.Text) || txtrendacj1.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "") == "0")
+                    {
+                        rendabruta = txtrendacj1.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
+                    }
+                    else
+                    {
+                        rendabruta = txtrendatotal.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
+                    }
                 }
                 if (cjativo[2]== true)
                 {
@@ -305,6 +324,16 @@ namespace LMFinanciamentos.Apresentacao
                     }
 
                     #endregion
+
+                    SomaRenda();
+                    if (string.IsNullOrEmpty(txtrendacj2.Text) || txtrendacj2.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "") == "0")
+                    {
+                        rendabruta = txtrendacj2.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
+                    }
+                    else
+                    {
+                        rendabruta = txtrendatotal.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
+                    }
 
                 }
                 if (cjativo[3]== true)
@@ -352,6 +381,16 @@ namespace LMFinanciamentos.Apresentacao
 
                     #endregion
 
+                    SomaRenda();
+                    if (string.IsNullOrEmpty(txtrendacj.Text) || txtrendacj3.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "") == "0")
+                    {
+                        rendabruta = txtrendacj3.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
+                    }
+                    else
+                    {
+                        rendabruta = txtrendatotal.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
+                    }
+
                 }
                 conjuge = true;
 
@@ -382,8 +421,7 @@ namespace LMFinanciamentos.Apresentacao
 
             String renda = txtrendacli.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
 
-            SomaRenda();
-            String rendabruta = txtrendatotal.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
+
 
             LoginDaoComandos insertfotocliente = new LoginDaoComandos();
             if (excluirimage == "Update")
@@ -468,7 +506,46 @@ namespace LMFinanciamentos.Apresentacao
                 ClienteSalvo.Invoke();
 
         }
+        private void AtualizaRendaBruta()
+        {
+            SomaRenda();
+            if (string.IsNullOrEmpty(txtrendacj.Text) || txtrendacj.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "") == "000")
+            {
+                rendabruta = txtrendacj.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
+            }
+            else
+            {
+                rendabruta = txtrendatotal.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
+            }
+            //SomaRenda();
+            if (string.IsNullOrEmpty(txtrendacj1.Text) || txtrendacj1.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "") == "0")
+            {
+            rendabruta = txtrendacj1.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
+            }
+            else
+            {
+                rendabruta = txtrendatotal.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
+            }
+            //SomaRenda();
+            if (string.IsNullOrEmpty(txtrendacj2.Text) || txtrendacj2.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "") == "0")
+            {
+                rendabruta = txtrendacj2.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
+            }
+            else
+            {
+                rendabruta = txtrendatotal.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
+            }
 
+            //SomaRenda();
+            if (string.IsNullOrEmpty(txtrendacj.Text) || txtrendacj3.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "") == "0")
+            {
+                rendabruta = txtrendacj3.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
+            }
+            else
+            {
+                rendabruta = txtrendatotal.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
+            }
+        }
         private void SaveConjuges()
         {
             #region Conjuge
@@ -1007,6 +1084,80 @@ namespace LMFinanciamentos.Apresentacao
 
             txtrendatotal.Text = string.Format("{0:C}", Convert.ToDouble(result.ToString()));
             btn_salvar.Select();
+
+            return result;
+        }
+        public decimal SomaRendaConjuges()
+        {
+            //gbrenda.Visible = true;
+
+            decimal vl1, vl2, vl3, vl4, vl5, result;
+            if (txtrendacj.Text != "")
+            {
+                vl1 = decimal.Parse(txtrendacj.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
+               // lblrendacj1.Text = txtrendacj.Text;
+                //lblnomecj1.Text = txtnomeconjuge.Text;
+            }
+            else
+            {
+                //lblrendacj1.Text = txtrendacj.Text;
+               // lblnomecj1.Text = txtnomeconjuge.Text;
+                vl1 = 0;
+            }
+            if (txtrendacli.Text != "")
+            {
+                vl2 = decimal.Parse(txtrendacli.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
+                //lblrendacli.Text = txtrendacli.Text;
+                //lblnomeclirenda.Text = txtnomecli.Text;
+            }
+            else
+            {
+                vl2 = 0;
+                //lblrendacli.Text = txtrendacli.Text;
+                //lblnomeclirenda.Text = txtnomecli.Text;
+            }
+            if (txtrendacj1.Text != "")
+            {
+                vl3 = decimal.Parse(txtrendacj1.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
+                //lblrendacj2.Text = txtrendacj1.Text;
+                //lblnomecj2.Text = txtnomecj1.Text;
+            }
+            else
+            {
+                vl3 = 0;
+            //    lblrendacj2.Text = txtrendacj1.Text;
+              //  lblnomecj2.Text = txtnomecj1.Text;
+            }
+            if (txtrendacj2.Text != "")
+            {
+                vl4 = decimal.Parse(txtrendacj2.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
+                //lblrendacj3.Text = txtrendacj2.Text;
+                //lblnomecj3.Text = txtnomecj2.Text;
+            }
+            else
+            {
+                vl4 = 0;
+            //    lblrendacj3.Text = txtrendacj2.Text;
+              //  lblnomecj3.Text = txtnomecj2.Text;
+            }
+            if (txtrendacj3.Text != "")
+            {
+                vl5 = decimal.Parse(txtrendacj3.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
+                //lblrendacj4.Text = txtrendacj3.Text;
+                //lblnomecj4.Text = txtnomecj3.Text;
+            }
+            else
+            {
+                vl5 = 0;
+            //    lblrendacj4.Text = txtrendacj3.Text;
+             //   lblnomecj4.Text = txtnomecj3.Text;
+            }
+
+            result = vl1 + vl2 + vl3 + vl4 + vl5;
+
+
+            rendaconjuges = result.ToString();
+           // btn_salvar.Select();
 
             return result;
         }
@@ -1979,7 +2130,12 @@ namespace LMFinanciamentos.Apresentacao
                 lblrendacj1.Visible = false;
                 SomaRenda();
 
+
+                //deleteconjuge.UpdateCJCliente(idCliente, false);
+                deleteconjuge.UpdateRendaBrutaCliente(idCliente, rendaconjuges);
+
                 cjativo[0]= false;
+
 
                 if (cjativo[0]== true || cjativo[1]== true || cjativo[2]== true || cjativo[3]== true)
                 {
@@ -1987,7 +2143,10 @@ namespace LMFinanciamentos.Apresentacao
                 else
                 {
                     deleteconjuge.UpdateCJCliente(idCliente, false);
+                   
                 }
+
+
             }
         }
 
@@ -2880,12 +3039,15 @@ namespace LMFinanciamentos.Apresentacao
 
                 cjativo[3]= false;
 
+                deleteconjuge.UpdateRendaBrutaCliente(idCliente, rendaconjuges);
+
                 if (cjativo[0]== true || cjativo[1]== true || cjativo[2]== true || cjativo[3]== true)
                 {
                 }
                 else
                 {
                     deleteconjuge.UpdateCJCliente(idCliente, false);
+                    
                 }
             }
         }
@@ -3000,12 +3162,15 @@ namespace LMFinanciamentos.Apresentacao
 
                 cjativo[2]= false;
 
+                deleteconjuge.UpdateRendaBrutaCliente(idCliente, rendaconjuges);
+
                 if (cjativo[0]== true || cjativo[1]== true || cjativo[2]== true || cjativo[3]== true)
                 {
                 }
                 else
                 {
                     deleteconjuge.UpdateCJCliente(idCliente, false);
+                    
                 }
             }
         }
@@ -3033,12 +3198,15 @@ namespace LMFinanciamentos.Apresentacao
 
                 cjativo[1]= false;
 
+                deleteconjuge.UpdateRendaBrutaCliente(idCliente, rendaconjuges);
+
                 if (cjativo[0]== true || cjativo[1]== true || cjativo[2]== true || cjativo[3]== true)
                 {
                 }
                 else
                 {
                     deleteconjuge.UpdateCJCliente(idCliente, false);
+                   
                 }
             }
         }
