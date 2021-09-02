@@ -2103,6 +2103,8 @@ namespace LMFinanciamentos.Apresentacao
 
             if (result == DialogResult.Yes)
             {
+                LiparConjuge(0);
+
                 LoginDaoComandos deleteconjuge = new LoginDaoComandos();
 
 
@@ -2111,23 +2113,22 @@ namespace LMFinanciamentos.Apresentacao
                 MessageBox.Show(deleteconjuge.mensagem, "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                 tabControl.TabPages.Remove(tabconjuge);
+                cjativo[0] = false;
 
-                //txtrendacj.Text = "";
-                LiparConjuge(0);
                 lbl01.Visible = false;
                 lblnomecj1.Visible = false;
                 lblrendacj1.Visible = false;
-                SomaRenda();
 
-                cjativo[0] = false;
+
+                
 
                 SomaRendaConjuges();
 
                 //deleteconjuge.UpdateCJCliente(idCliente, false);
                 deleteconjuge.UpdateRendaBrutaCliente(idCliente, rendaconjuges);
 
-                
 
+                SomaRenda();
 
                 if (cjativo[0]== true || cjativo[1]== true || cjativo[2]== true || cjativo[3]== true)
                 {
@@ -3011,6 +3012,7 @@ namespace LMFinanciamentos.Apresentacao
 
             if (result == DialogResult.Yes)
             {
+                LiparConjuge(3);
                 LoginDaoComandos deleteconjuge = new LoginDaoComandos();
 
 
@@ -3019,21 +3021,17 @@ namespace LMFinanciamentos.Apresentacao
                 MessageBox.Show(deleteconjuge.mensagem, "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                 tabControl.TabPages.Remove(tabconjuge3);
-
-                LiparConjuge(3);
-
-                //txtrendacj3.Text = "";
+                cjativo[3] = false;
 
                 lbl04.Visible = false;
                 lblnomecj4.Visible = false;
                 lblrendacj4.Visible = false;
-                SomaRenda();
-
-                cjativo[3]= false;
 
                 SomaRendaConjuges();
 
                 deleteconjuge.UpdateRendaBrutaCliente(idCliente, rendaconjuges);
+
+                SomaRenda();
 
                 if (cjativo[0]== true || cjativo[1]== true || cjativo[2]== true || cjativo[3]== true)
                 {
@@ -3139,6 +3137,7 @@ namespace LMFinanciamentos.Apresentacao
 
             if (result == DialogResult.Yes)
             {
+                LiparConjuge(2);
                 LoginDaoComandos deleteconjuge = new LoginDaoComandos();
 
 
@@ -3147,17 +3146,17 @@ namespace LMFinanciamentos.Apresentacao
                 MessageBox.Show(deleteconjuge.mensagem, "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                 tabControl.TabPages.Remove(tabconjuge2);
-                //txtrendacj2.Text = "";
-                LiparConjuge(2);
+                cjativo[2] = false;
+
                 lbl03.Visible = false;
                 lblnomecj3.Visible = false;
                 lblrendacj3.Visible = false;
-                SomaRenda();
-
-                cjativo[2]= false;
+               
 
                 SomaRendaConjuges();
                 deleteconjuge.UpdateRendaBrutaCliente(idCliente, rendaconjuges);
+                SomaRenda();
+
 
                 if (cjativo[0]== true || cjativo[1]== true || cjativo[2]== true || cjativo[3]== true)
                 {
@@ -3176,6 +3175,8 @@ namespace LMFinanciamentos.Apresentacao
 
             if (result == DialogResult.Yes)
             {
+                LiparConjuge(1);
+
                 LoginDaoComandos deleteconjuge = new LoginDaoComandos();
 
 
@@ -3184,18 +3185,17 @@ namespace LMFinanciamentos.Apresentacao
                 MessageBox.Show(deleteconjuge.mensagem, "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                 tabControl.TabPages.Remove(tabconjuge1);
-                //txtrendacj1.Text = "";
-                LiparConjuge(1);
+                cjativo[1] = false;
+
                 lbl02.Visible = false;
                 lblnomecj2.Visible = false;
                 lblrendacj2.Visible = false;
-                SomaRenda();
-
-                cjativo[1]= false;
 
                 SomaRendaConjuges();
-
+                
                 deleteconjuge.UpdateRendaBrutaCliente(idCliente, rendaconjuges);
+                SomaRenda();
+
 
                 if (cjativo[0]== true || cjativo[1]== true || cjativo[2]== true || cjativo[3]== true)
                 {
