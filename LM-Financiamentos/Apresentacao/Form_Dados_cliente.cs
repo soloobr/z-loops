@@ -1104,18 +1104,7 @@ namespace LMFinanciamentos.Apresentacao
                // lblnomecj1.Text = txtnomeconjuge.Text;
                 vl1 = 0;
             }
-            if (txtrendacli.Text != "")
-            {
-                vl2 = decimal.Parse(txtrendacli.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
-                //lblrendacli.Text = txtrendacli.Text;
-                //lblnomeclirenda.Text = txtnomecli.Text;
-            }
-            else
-            {
-                vl2 = 0;
-                //lblrendacli.Text = txtrendacli.Text;
-                //lblnomeclirenda.Text = txtnomecli.Text;
-            }
+
             if (txtrendacj1.Text != "")
             {
                 vl3 = decimal.Parse(txtrendacj1.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
@@ -1153,7 +1142,7 @@ namespace LMFinanciamentos.Apresentacao
              //   lblnomecj4.Text = txtnomecj3.Text;
             }
 
-            result = vl1 + vl2 + vl3 + vl4 + vl5;
+            result = vl1 + vl3 + vl4 + vl5;
 
 
             rendaconjuges = result.ToString();
@@ -2130,11 +2119,14 @@ namespace LMFinanciamentos.Apresentacao
                 lblrendacj1.Visible = false;
                 SomaRenda();
 
+                cjativo[0] = false;
+
+                SomaRendaConjuges();
 
                 //deleteconjuge.UpdateCJCliente(idCliente, false);
                 deleteconjuge.UpdateRendaBrutaCliente(idCliente, rendaconjuges);
 
-                cjativo[0]= false;
+                
 
 
                 if (cjativo[0]== true || cjativo[1]== true || cjativo[2]== true || cjativo[3]== true)
@@ -3039,6 +3031,8 @@ namespace LMFinanciamentos.Apresentacao
 
                 cjativo[3]= false;
 
+                SomaRendaConjuges();
+
                 deleteconjuge.UpdateRendaBrutaCliente(idCliente, rendaconjuges);
 
                 if (cjativo[0]== true || cjativo[1]== true || cjativo[2]== true || cjativo[3]== true)
@@ -3162,6 +3156,7 @@ namespace LMFinanciamentos.Apresentacao
 
                 cjativo[2]= false;
 
+                SomaRendaConjuges();
                 deleteconjuge.UpdateRendaBrutaCliente(idCliente, rendaconjuges);
 
                 if (cjativo[0]== true || cjativo[1]== true || cjativo[2]== true || cjativo[3]== true)
@@ -3197,6 +3192,8 @@ namespace LMFinanciamentos.Apresentacao
                 SomaRenda();
 
                 cjativo[1]= false;
+
+                SomaRendaConjuges();
 
                 deleteconjuge.UpdateRendaBrutaCliente(idCliente, rendaconjuges);
 
