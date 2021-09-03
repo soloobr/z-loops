@@ -4,6 +4,7 @@
     {
 
         public string Id_conjuge { get; set; }
+        public string Idcliente_conjuge { get; set; }
         public string Nome_conjuge { get; set; }
         public string Email_conjuge { get; set; }
         public string Telefone_conjuge { get; set; }

@@ -18,6 +18,7 @@ namespace LMFinanciamentos.DAL
         public bool tem = false;
         public string mensagem = "";
         private String slogin;
+        private String idcliente;
 
         private static string _server;
 
@@ -1186,6 +1187,50 @@ namespace LMFinanciamentos.DAL
                 con.desconectar();
             }
         }
+        public int GetidCliente(String idconjuge)
+        {
+
+
+            try
+            {
+                cmd.CommandText = "SELECT idCliente FROM Conjuge WHERE id = @idconjuge  ";
+
+                cmd.Parameters.AddWithValue("@idconjuge", idconjuge);
+
+
+                cmd.Connection = con.conectar();
+
+                cmd.ExecuteNonQuery();
+                drclient = cmd.ExecuteReader();
+
+                
+                while (drclient.Read())
+                {
+                    idcliente = drclient["idCliente"].ToString();
+                }
+                
+
+
+                return Convert.ToInt32(idcliente);
+                drclient.Close();
+
+            }
+
+            catch (MySqlException err)
+            {
+                if (err.Number == 1062) // Cannot insert duplicate key row in object error
+                    return 99999;
+                else
+                {
+                    // Handle duplicate key error
+                    throw; //
+                }
+            }
+            finally
+            {
+                con.desconectar();
+            }
+        }
         public Funcionario GetFunc(String login, String senha)
         {
             cmd.CommandText = "Select F.Login as id, F.Nome, L.Login, L.Senha, Permission, Foto from Login L left join Funcionarios F on F.id = L.id left join Foto on Foto.idFunc = F.id where L.Login = @login and Senha = @senha";
@@ -1811,6 +1856,60 @@ namespace LMFinanciamentos.DAL
                     clients.Renda_cliente = drclients["Renda"].ToString();
                     clients.Agencia_cliente = drclients["Agencia"].ToString();
                     clients.Conta_cliente = drclients["Conta"].ToString();
+                    //Byte[] byteBLOBData = new Byte[0];
+                    //client.Foto_Func = (Byte[])(drclient["Foto"]);
+                    list.Add(clients);
+                }
+                drclients.Close();
+                con.desconectar();
+
+            }
+            catch (SqlException err)
+            {
+                throw new Exception("Erro ao obter Cliente: " + err.Message);
+            }
+
+            //return client;
+            return list;
+        }
+        public List<Conjuge> GetConjuges(String nome)
+
+        {
+            var list = new List<Conjuge>();
+
+            cmd2.CommandText = "SELECT Conjuge.id, Nome, Email, Telefone, Celular, CPF, RG, Nascimento, Sexo, Renda, Status, Agencia, Conta FROM Conjuge Left join Conta on Conta.idcliente = Conjuge.id and Conta.Tipo = @tipo WHERE Nome LIKE @nomeconjuge Order by Conjuge.id";
+            cmd2.Parameters.Clear();
+            cmd2.Parameters.AddWithValue("@nomeconjuge", "%" + nome + "%");
+            cmd2.Parameters.AddWithValue("@tipo", "C");
+            //Cliente clients = new Cliente();
+            try
+            {
+                cmd2.Connection = con.conectar();
+                drclients = cmd2.ExecuteReader();
+                while (drclients.Read())
+                {
+                    Conjuge clients = new Conjuge();
+                    clients.Id_conjuge = drclients["id"].ToString();
+                    clients.Nome_conjuge = drclients["Nome"].ToString();
+                    clients.Email_conjuge = drclients["Email"].ToString();
+                    clients.Telefone_conjuge = drclients["Telefone"].ToString();
+                    clients.Celular_conjuge = drclients["Celular"].ToString();
+                    clients.CPF_conjuge = Convert.ToUInt64(drclients["CPF"].ToString()).ToString(@"000\.000\.000\-00");
+                    //clients.CPF_conjuge = drclients["CPF"].ToString().ToString();
+                    clients.RG_conjuge = drclients["RG"].ToString();
+                    //clients.StatusCPF_conjuge = drclients["StatusCPF"].ToString();
+
+                    //clients.StatusCiweb_conjuge = drclients["Ciweb"].ToString();
+                    //clients.StatusCadmut_conjuge = drclients["Cadmut"].ToString();
+                    //clients.StatusIR_conjuge = drclients["IR"].ToString();
+                    //clients.StatusFGTS_conjuge = drclients["FGTS"].ToString();
+                    //clients.RG_conjuge = drclients["RG"].ToString();
+                    clients.Nascimento_conjuge = Convert.ToDateTime(drclients["Nascimento"]).ToString("dd/MM/yyyy");
+                    clients.Sexo_conjuge = drclients["Sexo"].ToString();
+                    clients.Status_conjuge = drclients["Status"].ToString();
+                    clients.Renda_conjuge = drclients["Renda"].ToString();
+                    clients.Agencia_conjuge = drclients["Agencia"].ToString();
+                    clients.Conta_conjuge = drclients["Conta"].ToString();
                     //Byte[] byteBLOBData = new Byte[0];
                     //client.Foto_Func = (Byte[])(drclient["Foto"]);
                     list.Add(clients);

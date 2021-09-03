@@ -894,7 +894,7 @@ namespace LMFinanciamentos.Apresentacao
 
         }
 
-        private void Form_Dados_cliente_Load(object sender, EventArgs e)
+        private void Form_Dados_Cliente_Load(object sender, EventArgs e)
         {
             tabControl.TabPages.Remove(tabconjuge);
             tabControl.TabPages.Remove(tabconjuge1);
@@ -1089,64 +1089,46 @@ namespace LMFinanciamentos.Apresentacao
         }
         public decimal SomaRendaConjuges()
         {
-            //gbrenda.Visible = true;
-
-            decimal vl1, vl2, vl3, vl4, vl5, result;
+            decimal vl1, vl3, vl4, vl5, result;
             if (txtrendacj.Text != "")
             {
                 vl1 = decimal.Parse(txtrendacj.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
-               // lblrendacj1.Text = txtrendacj.Text;
-                //lblnomecj1.Text = txtnomeconjuge.Text;
             }
             else
             {
-                //lblrendacj1.Text = txtrendacj.Text;
-               // lblnomecj1.Text = txtnomeconjuge.Text;
                 vl1 = 0;
             }
 
             if (txtrendacj1.Text != "")
             {
                 vl3 = decimal.Parse(txtrendacj1.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
-                //lblrendacj2.Text = txtrendacj1.Text;
-                //lblnomecj2.Text = txtnomecj1.Text;
+
             }
             else
             {
                 vl3 = 0;
-            //    lblrendacj2.Text = txtrendacj1.Text;
-              //  lblnomecj2.Text = txtnomecj1.Text;
             }
             if (txtrendacj2.Text != "")
             {
                 vl4 = decimal.Parse(txtrendacj2.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
-                //lblrendacj3.Text = txtrendacj2.Text;
-                //lblnomecj3.Text = txtnomecj2.Text;
             }
             else
             {
                 vl4 = 0;
-            //    lblrendacj3.Text = txtrendacj2.Text;
-              //  lblnomecj3.Text = txtnomecj2.Text;
             }
             if (txtrendacj3.Text != "")
             {
                 vl5 = decimal.Parse(txtrendacj3.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
-                //lblrendacj4.Text = txtrendacj3.Text;
-                //lblnomecj4.Text = txtnomecj3.Text;
             }
             else
             {
                 vl5 = 0;
-            //    lblrendacj4.Text = txtrendacj3.Text;
-             //   lblnomecj4.Text = txtnomecj3.Text;
             }
 
             result = vl1 + vl3 + vl4 + vl5;
 
 
             rendaconjuges = result.ToString();
-           // btn_salvar.Select();
 
             return result;
         }

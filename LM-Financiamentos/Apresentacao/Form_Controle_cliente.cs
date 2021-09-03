@@ -1,6 +1,10 @@
 ﻿using LMFinanciamentos.DAL;
 using LMFinanciamentos.Entidades;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LMFinanciamentos.Apresentacao
@@ -9,7 +13,17 @@ namespace LMFinanciamentos.Apresentacao
     {
         String sexo, status, idcliente;
         public string consultar;
-        int clienteselecionado;
+        int clienteselecionado, conjugeselecionado;
+
+        int newSortColumn;
+        ListSortDirection newColumnDirection = ListSortDirection.Ascending;
+
+        private int _previousIndex;
+        private bool _sortDirection;
+
+        private bool sortAscending = false;
+
+        private BindingList<BuscarClientes> myList;
 
         public Form_Controle_Cliente()
         {
@@ -35,6 +49,29 @@ namespace LMFinanciamentos.Apresentacao
             //this.dgv_clientes.Columns["Nascimento"].DefaultCellStyle.ForeColor = Color.Blue;
             //this.dgv_clientes.DefaultCellStyle.ForeColor = Color.Blue;
             dgv_clientes.Refresh();
+
+
+
+            myList = new BindingList<BuscarClientes>();
+            Cliente[] myArray = getclientes.GetClientes("%").ToArray();
+
+            foreach (Cliente c in myArray)
+            {
+                myList.Add(new BuscarClientes(c.Nome_cliente,c.Id_cliente));
+            }
+
+            //myList.Add(new MyObject(1, "Outdoor"));
+            //myList.Add(new MyObject(2, "Hardware"));
+            //myList.Add(new MyObject(3, "Tools"));
+            //myList.Add(new MyObject(4, "Books"));
+            //myList.Add(new MyObject(5, "Appliances"));
+            //myList.RaiseListChangedEvents = true;
+            //myList.ListChanged += new ListChangedEventHandler(myList_ListChanged);
+            dataGridView1.DataSource = myList;
+            
+            //bindingSource1.DataSource = getclientes.GetClientes("%");
+
+
 
             Cursor = Cursors.Default;
         }
@@ -77,11 +114,33 @@ namespace LMFinanciamentos.Apresentacao
 
         private void dgv_clientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            Form_Dados_Cliente frm_dados_clientes = new Form_Dados_Cliente();
-            frm_dados_clientes.setIdCliente(dgv_clientes.SelectedRows[0].Cells["id"].Value.ToString());
-            clienteselecionado = dgv_clientes.CurrentCell.RowIndex;
-            frm_dados_clientes.ClienteSalvo += new Action(frm_dados_clientes_ClienteSalvo);
-            frm_dados_clientes.Show();
+            Cursor = Cursors.WaitCursor;
+            if (dgv_clientes.Columns[0].DataPropertyName == "Id_cliente")
+            {
+                Form_Dados_Cliente frm_dados_clientes = new Form_Dados_Cliente();
+                frm_dados_clientes.setIdCliente(dgv_clientes.SelectedRows[0].Cells["id"].Value.ToString());
+                clienteselecionado = dgv_clientes.CurrentCell.RowIndex;
+                frm_dados_clientes.ClienteSalvo += new Action(frm_dados_clientes_ClienteSalvo);
+                frm_dados_clientes.Show();
+            }
+            if (dgv_clientes.Columns[0].DataPropertyName == "Id_conjuge")
+            {
+                //conjugeselecionado = dgv_clientes.SelectedRows[0].Cells["id"].Value.ToString();
+
+                LoginDaoComandos getidcliente = new LoginDaoComandos();
+
+                int idcliente = getidcliente.GetidCliente(dgv_clientes.SelectedRows[0].Cells["id"].Value.ToString());
+
+                clienteselecionado = idcliente;
+
+                Form_Dados_Cliente frm_dados_clientes = new Form_Dados_Cliente();
+                frm_dados_clientes.setIdCliente(idcliente.ToString());
+                clienteselecionado = dgv_clientes.CurrentCell.RowIndex;
+                frm_dados_clientes.ClienteSalvo += new Action(frm_dados_clientes_ClienteSalvo);
+                frm_dados_clientes.Show();
+
+            }
+            Cursor = Cursors.Default;
         }
 
         private void btnprocurar_Click(object sender, EventArgs e)
@@ -96,31 +155,83 @@ namespace LMFinanciamentos.Apresentacao
             {
                 consultar = "%" + txtprocurar.Text + "%";
 
-                LoginDaoComandos getclientes = new LoginDaoComandos();
-                Cliente[] myArray = getclientes.GetClientes(consultar).ToArray();
-                bool verifica = false;
-
-                foreach (Cliente c in myArray)
+                if (rdbcpfcli.Checked)
                 {
-                    if (c.Id_cliente != null)
+
+
+                    LoginDaoComandos getclientes = new LoginDaoComandos();
+                    Cliente[] myArray = getclientes.GetClientes(consultar).ToArray();
+                    bool verifica = false;
+
+                    foreach (Cliente c in myArray)
                     {
-                        verifica = true;
+                        if (c.Id_cliente != null)
+                        {
+                            verifica = true;
+                        }
+                    }
+
+                    if (verifica)
+                    {
+                        dgv_clientes.Columns[1].HeaderText = "Nome Cliente";
+                        dgv_clientes.Columns[0].DataPropertyName = "Id_cliente";
+                        dgv_clientes.Columns[1].DataPropertyName = "Nome_cliente";
+                        dgv_clientes.Columns[2].DataPropertyName = "CPF_cliente";
+                        dgv_clientes.Columns[3].DataPropertyName = "Nascimento_cliente";
+                        dgv_clientes.Columns[4].DataPropertyName = "Email_cliente";
+                        dgv_clientes.Columns[5].DataPropertyName = "Celular_cliente";
+
+                        dgv_clientes.Columns[4].DefaultCellStyle.Format = "MM/dd/yyyy";
+                        dgv_clientes.DataSource = getclientes.GetClientes(consultar);
+                        dgv_clientes.Refresh();
+                        verifica = false;
+                        Cursor.Current = Cursors.Default;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Não foi encontrado Clientes para a pesquisa: \n (" + txtprocurar.Text + ") ", "Não Encontrado!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtprocurar.Focus();
+                        Cursor.Current = Cursors.Default;
                     }
                 }
+                if (rdbcpfcj.Checked)
+                {
+                    LoginDaoComandos getconjuges = new LoginDaoComandos();
+                    Conjuge[] myArray = getconjuges.GetConjuges(consultar).ToArray();
+                    bool verifica = false;
 
-                if (verifica)
-                {
-                    dgv_clientes.Columns[4].DefaultCellStyle.Format = "MM/dd/yyyy";
-                    dgv_clientes.DataSource = getclientes.GetClientes(consultar);
-                    dgv_clientes.Refresh();
-                    verifica = false;
-                    Cursor.Current = Cursors.Default;
-                }
-                else
-                {
-                    MessageBox.Show("Não foi encontrado Clientes para a pesquisa: \n (" + txtprocurar.Text + ") ", "Não Encontrado!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txtprocurar.Focus();
-                    Cursor.Current = Cursors.Default;
+                    foreach (Conjuge c in myArray)
+                    {
+                        if (c.Id_conjuge != null)
+                        {
+                            verifica = true;
+                        }
+                    }
+
+                    if (verifica)
+                    {
+                        
+                        
+                        dgv_clientes.Columns[1].HeaderText = "Nome Cômjuge";
+                        dgv_clientes.Columns[0].DataPropertyName = "Id_conjuge";
+                        dgv_clientes.Columns[1].DataPropertyName = "Nome_conjuge";
+                        dgv_clientes.Columns[2].DataPropertyName = "CPF_conjuge";
+                        dgv_clientes.Columns[3].DataPropertyName = "Nascimento_conjuge";
+                        dgv_clientes.Columns[4].DataPropertyName = "Email_conjuge";
+                        dgv_clientes.Columns[5].DataPropertyName = "Celular_conjuge";
+
+                        dgv_clientes.Columns[4].DefaultCellStyle.Format = "MM/dd/yyyy";
+                        dgv_clientes.DataSource = getconjuges.GetConjuges(consultar);
+                        dgv_clientes.Refresh();
+                        verifica = false;
+                        Cursor.Current = Cursors.Default;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Não foi encontrado Conjuges para a pesquisa: \n (" + txtprocurar.Text + ") ", "Não Encontrado!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtprocurar.Focus();
+                        Cursor.Current = Cursors.Default;
+                    }
                 }
             }
             Cursor = Cursors.Default;
@@ -154,50 +265,92 @@ namespace LMFinanciamentos.Apresentacao
         private void btn_editar_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
-            Form_Dados_Cliente frm_dados_clientes = new Form_Dados_Cliente();
-            frm_dados_clientes.setIdCliente(dgv_clientes.SelectedRows[0].Cells["id"].Value.ToString());
-            clienteselecionado = dgv_clientes.CurrentCell.RowIndex;
-            frm_dados_clientes.ClienteSalvo += new Action(frm_dados_clientes_ClienteSalvo);
-            frm_dados_clientes.Show();
+            if (dgv_clientes.Columns[0].DataPropertyName == "Id_cliente")
+            {
+                Form_Dados_Cliente frm_dados_clientes = new Form_Dados_Cliente();
+                frm_dados_clientes.setIdCliente(dgv_clientes.SelectedRows[0].Cells["id"].Value.ToString());
+                clienteselecionado = dgv_clientes.CurrentCell.RowIndex;
+                frm_dados_clientes.ClienteSalvo += new Action(frm_dados_clientes_ClienteSalvo);
+                frm_dados_clientes.Show();
+            }
+            if (dgv_clientes.Columns[0].DataPropertyName == "Id_conjuge")
+            {
+                //conjugeselecionado = dgv_clientes.SelectedRows[0].Cells["id"].Value.ToString();
+
+                LoginDaoComandos getidcliente = new LoginDaoComandos();
+
+                int idcliente = getidcliente.GetidCliente(dgv_clientes.SelectedRows[0].Cells["id"].Value.ToString());
+                
+                clienteselecionado = idcliente;
+
+                Form_Dados_Cliente frm_dados_clientes = new Form_Dados_Cliente();
+                frm_dados_clientes.setIdCliente(idcliente.ToString());
+                clienteselecionado = dgv_clientes.CurrentCell.RowIndex;
+                frm_dados_clientes.ClienteSalvo += new Action(frm_dados_clientes_ClienteSalvo);
+                frm_dados_clientes.Show();
+
+            }
             Cursor = Cursors.Default;
         }
 
         private void btn_excluir_Click(object sender, EventArgs e)
         {
-            String idclienteexclude = dgv_clientes.SelectedRows[0].Cells["id"].Value.ToString();
-            var result = MessageBox.Show("Deseja Excluir o Cliente: \n " + dgv_clientes.SelectedRows[0].Cells["Nome"].Value.ToString() + "  ?", "excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (result == DialogResult.Yes)
+            if (dgv_clientes.Columns[0].DataPropertyName == "Id_cliente")
             {
+                String idclienteexclude = dgv_clientes.SelectedRows[0].Cells["id"].Value.ToString();
+                var result = MessageBox.Show("Deseja Excluir o Cliente: \n " + dgv_clientes.SelectedRows[0].Cells["Nome"].Value.ToString() + "  ?", "excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                Cursor = Cursors.WaitCursor;
-                LoginDaoComandos deletecliente = new LoginDaoComandos();
-
-                if (deletecliente.GetFotoCliente(idclienteexclude).Foto_cliente != null)
+                if (result == DialogResult.Yes)
                 {
-                    //MessageBox.Show("Tem foto");
-                    deletecliente.DeleteFotoCliente(idclienteexclude);
-                    deletecliente.DeleteCliente(idclienteexclude);
-                    MessageBox.Show(deletecliente.mensagem, "Excluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (ClienteSalvo != null)
-                        ClienteSalvo.Invoke();
 
-                    AtualizaGrid();
-                    Cursor = Cursors.Default;
+                    Cursor = Cursors.WaitCursor;
+                    LoginDaoComandos deletecliente = new LoginDaoComandos();
+
+                    if (deletecliente.GetFotoCliente(idclienteexclude).Foto_cliente != null)
+                    {
+                        //MessageBox.Show("Tem foto");
+                        deletecliente.DeleteFotoCliente(idclienteexclude);
+                        deletecliente.DeleteCliente(idclienteexclude);
+                        MessageBox.Show(deletecliente.mensagem, "Excluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (ClienteSalvo != null)
+                            ClienteSalvo.Invoke();
+
+                        AtualizaGrid();
+                        Cursor = Cursors.Default;
+                    }
+                    else
+                    {
+                        deletecliente.DeleteCliente(idclienteexclude);
+                        MessageBox.Show(deletecliente.mensagem, "Excluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (ClienteSalvo != null)
+                            ClienteSalvo.Invoke();
+                        AtualizaGrid();
+                        Cursor = Cursors.Default;
+                    }
+
+
+
                 }
-                else
-                {
-                    deletecliente.DeleteCliente(idclienteexclude);
-                    MessageBox.Show(deletecliente.mensagem, "Excluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (ClienteSalvo != null)
-                        ClienteSalvo.Invoke();
-                    AtualizaGrid();
-                    Cursor = Cursors.Default;
-                }
-
-
-
             }
+            if (dgv_clientes.Columns[0].DataPropertyName == "Id_conjuge")
+            {
+                String idconjugeexclude = dgv_clientes.SelectedRows[0].Cells["id"].Value.ToString();
+                var result = MessageBox.Show("Deseja Excluir o Conjuge: \n " + dgv_clientes.SelectedRows[0].Cells["Nome"].Value.ToString() + "  ?", "excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+
+                    Cursor = Cursors.WaitCursor;
+                    LoginDaoComandos deleteconjuge = new LoginDaoComandos();
+                    deleteconjuge.DeleteConjuge(idconjugeexclude);
+                    MessageBox.Show(deleteconjuge.mensagem, "Excluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (ClienteSalvo != null)
+                       ClienteSalvo.Invoke();
+                    AtualizaGrid();
+                    Cursor = Cursors.Default;
+                }
+            }
+
         }
 
         private void splitter2_SplitterMoved(object sender, SplitterEventArgs e)
@@ -205,16 +358,138 @@ namespace LMFinanciamentos.Apresentacao
 
         }
 
+        private void dgv_clientes_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            //DataGridViewColumn newColumn = dgv_clientes.Columns[e.ColumnIndex];
+            //DataGridViewColumn oldColumn = dgv_clientes.SortedColumn;
+            //ListSortDirection direction;
+
+            //// If oldColumn is null, then the DataGridView is not sorted.
+            //if (oldColumn != null)
+            //{
+            //    // Sort the same column again, reversing the SortOrder.
+            //    if (oldColumn == newColumn &&
+            //        dgv_clientes.SortOrder == SortOrder.Ascending)
+            //    {
+            //        direction = ListSortDirection.Descending;
+            //    }
+            //    else
+            //    {
+            //        // Sort a new column and remove the old SortGlyph.
+            //        direction = ListSortDirection.Ascending;
+            //        oldColumn.HeaderCell.SortGlyphDirection = SortOrder.None;
+            //    }
+            //}
+            //else
+            //{
+            //    direction = ListSortDirection.Ascending;
+            //}
+
+            //// Sort the selected column.
+            //dgv_clientes.Sort(newColumn, direction);
+            //newColumn.HeaderCell.SortGlyphDirection =
+            //    direction == ListSortDirection.Ascending ?
+            //    SortOrder.Ascending : SortOrder.Descending;
+
+            //if (dgv_clientes.Columns[e.ColumnIndex].SortMode != DataGridViewColumnSortMode.NotSortable)
+            //{
+            //    if (e.ColumnIndex == newSortColumn)
+            //    {
+            //        if (newColumnDirection == ListSortDirection.Ascending)
+            //            newColumnDirection = ListSortDirection.Descending;
+            //        else
+            //            newColumnDirection = ListSortDirection.Ascending;
+            //    }
+
+            //    newSortColumn = e.ColumnIndex;
+
+            //    switch (newColumnDirection)
+            //    {
+            //        case ListSortDirection.Ascending:
+            //            dgv_clientes.Sort(dgv_clientes.Columns[newSortColumn], ListSortDirection.Ascending);
+            //            break;
+            //        case ListSortDirection.Descending:
+            //            dgv_clientes.Sort(dgv_clientes.Columns[newSortColumn], ListSortDirection.Descending);
+            //            break;
+            //    }
+            //}
+            dgv_clientes.Sort(dgv_clientes.Columns[1], ListSortDirection.Ascending);
+        }
+
+        private void dgv_clientes_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            //foreach (DataGridViewColumn column in dgv_clientes.Columns)
+            //{
+            //    column.SortMode = DataGridViewColumnSortMode.Programmatic;
+            //}
+        }
+
+        private void dgv_clientes_SortCompare(object sender, DataGridViewSortCompareEventArgs e)
+        {
+            // Try to sort based on the cells in the current column.
+            e.SortResult = System.String.Compare(
+                e.CellValue1.ToString(), e.CellValue2.ToString());
+
+            // If the cells are equal, sort based on the ID column.
+            if (e.SortResult == 0 && e.Column.Name != "id")
+            {
+                e.SortResult = System.String.Compare(
+                    dataGridView1.Rows[e.RowIndex1].Cells["id"].Value.ToString(),
+                    dataGridView1.Rows[e.RowIndex2].Cells["id"].Value.ToString());
+            }
+            e.Handled = true;
+        }
+
+        private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            dataGridView1.Sort(dataGridView1.Columns[1], ListSortDirection.Ascending);
+        }
+
         private void btn_reload_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
-            LoginDaoComandos getfunclientes = new LoginDaoComandos();
-            dgv_clientes.AutoGenerateColumns = false;
-            dgv_clientes.DataSource = getfunclientes.GetClientes("%");
-            dgv_clientes.Refresh();
-            txtprocurar.Clear();
-            txtprocurar.Select();
+            if (rdbcpfcli.Checked)
+            {
+                
+                LoginDaoComandos getfunclientes = new LoginDaoComandos();
+                dgv_clientes.AutoGenerateColumns = false;
 
+                dgv_clientes.Columns[1].HeaderText = "Nome Cliente";
+                dgv_clientes.Columns[0].DataPropertyName = "Id_cliente";
+                dgv_clientes.Columns[1].DataPropertyName = "Nome_cliente";
+                dgv_clientes.Columns[2].DataPropertyName = "CPF_cliente";
+                dgv_clientes.Columns[3].DataPropertyName = "Nascimento_cliente";
+                dgv_clientes.Columns[4].DataPropertyName = "Email_cliente";
+                dgv_clientes.Columns[5].DataPropertyName = "Celular_cliente";
+
+                dgv_clientes.DataSource = getfunclientes.GetClientes("%");
+                dgv_clientes.Refresh();
+                txtprocurar.Clear();
+                txtprocurar.Select();
+
+                Cursor = Cursors.Default;
+            }
+            if (rdbcpfcj.Checked)
+            {
+
+                LoginDaoComandos getfunclientes = new LoginDaoComandos();
+                dgv_clientes.AutoGenerateColumns = false;
+
+                dgv_clientes.Columns[1].HeaderText = "Nome Conjuge";
+                dgv_clientes.Columns[0].DataPropertyName = "Id_conjuge";
+                dgv_clientes.Columns[1].DataPropertyName = "Nome_conjuge";
+                dgv_clientes.Columns[2].DataPropertyName = "CPF_conjuge";
+                dgv_clientes.Columns[3].DataPropertyName = "Nascimento_conjuge";
+                dgv_clientes.Columns[4].DataPropertyName = "Email_conjuge";
+                dgv_clientes.Columns[5].DataPropertyName = "Celular_conjuge";
+
+                dgv_clientes.DataSource = getfunclientes.GetConjuges("%");
+                dgv_clientes.Refresh();
+                txtprocurar.Clear();
+                txtprocurar.Select();
+
+                Cursor = Cursors.Default;
+            }
             Cursor = Cursors.Default;
         }
 
@@ -233,7 +508,31 @@ namespace LMFinanciamentos.Apresentacao
         private void AtualizaGrid()
         {
             LoginDaoComandos getclientes = new LoginDaoComandos();
-            dgv_clientes.DataSource = getclientes.GetClientes("%");
+            if (rdbcpfcli.Checked) {
+                dgv_clientes.Columns[1].HeaderText = "Nome Cliente";
+                dgv_clientes.Columns[0].DataPropertyName = "Id_cliente";
+                dgv_clientes.Columns[1].DataPropertyName = "Nome_cliente";
+                dgv_clientes.Columns[2].DataPropertyName = "CPF_cliente";
+                dgv_clientes.Columns[3].DataPropertyName = "Nascimento_cliente";
+                dgv_clientes.Columns[4].DataPropertyName = "Email_cliente";
+                dgv_clientes.Columns[5].DataPropertyName = "Celular_cliente";
+                dgv_clientes.Columns[4].DefaultCellStyle.Format = "MM/dd/yyyy";
+                dgv_clientes.DataSource = getclientes.GetClientes("%");
+            }
+            if (rdbcpfcj.Checked)
+            {
+                LoginDaoComandos getconjuges = new LoginDaoComandos();
+                dgv_clientes.Columns[1].HeaderText = "Nome Cômjuge";
+                dgv_clientes.Columns[0].DataPropertyName = "Id_conjuge";
+                dgv_clientes.Columns[1].DataPropertyName = "Nome_conjuge";
+                dgv_clientes.Columns[2].DataPropertyName = "CPF_conjuge";
+                dgv_clientes.Columns[3].DataPropertyName = "Nascimento_conjuge";
+                dgv_clientes.Columns[4].DataPropertyName = "Email_conjuge";
+                dgv_clientes.Columns[5].DataPropertyName = "Celular_conjuge";
+
+                dgv_clientes.Columns[4].DefaultCellStyle.Format = "MM/dd/yyyy";
+                dgv_clientes.DataSource = getconjuges.GetConjuges("%");
+            }
 
 
         }
