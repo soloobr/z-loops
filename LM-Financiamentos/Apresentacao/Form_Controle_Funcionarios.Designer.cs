@@ -31,19 +31,19 @@ namespace LMFinanciamentos.Apresentacao
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Controle_Funcionarios));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelcentro = new System.Windows.Forms.Panel();
             this.dgv_funcionarios = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cracha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlcontrol = new System.Windows.Forms.Panel();
             this.btn_reload = new System.Windows.Forms.Button();
             this.lblprocurar = new System.Windows.Forms.Label();
@@ -60,9 +60,16 @@ namespace LMFinanciamentos.Apresentacao
             this.btn_new_func = new System.Windows.Forms.Button();
             this.btnclosefunc = new System.Windows.Forms.Button();
             this.funcionariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            //this.dS_Funcionario = new LMFinanciamentos.DAL.DS_Funcionario();
             this.dSFuncionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            //this.funcionariosTableAdapter = new LMFinanciamentos.DAL.DS_FuncionarioTableAdapters.FuncionariosTableAdapter();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cracha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelcentro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_funcionarios)).BeginInit();
             this.pnlcontrol.SuspendLayout();
@@ -70,7 +77,6 @@ namespace LMFinanciamentos.Apresentacao
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).BeginInit();
-            //((System.ComponentModel.ISupportInitialize)(this.dS_Funcionario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSFuncionarioBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,7 +102,6 @@ namespace LMFinanciamentos.Apresentacao
             this.dgv_funcionarios.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgv_funcionarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_funcionarios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -122,66 +127,12 @@ namespace LMFinanciamentos.Apresentacao
             this.dgv_funcionarios.MultiSelect = false;
             this.dgv_funcionarios.Name = "dgv_funcionarios";
             this.dgv_funcionarios.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgv_funcionarios.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgv_funcionarios.RowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dgv_funcionarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_funcionarios.Size = new System.Drawing.Size(1066, 253);
             this.dgv_funcionarios.TabIndex = 12;
             this.dgv_funcionarios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_funccionarios_CellDoubleClick);
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id_Funcionario";
-            this.id.HeaderText = "Nº";
-            this.id.Name = "id";
-            // 
-            // Nome
-            // 
-            this.Nome.DataPropertyName = "Nome_Funcionario";
-            this.Nome.HeaderText = "Nome";
-            this.Nome.Name = "Nome";
-            // 
-            // Email
-            // 
-            this.Email.DataPropertyName = "Email_Funcionario";
-            this.Email.HeaderText = "Email";
-            this.Email.Name = "Email";
-            // 
-            // Telefone
-            // 
-            this.Telefone.DataPropertyName = "Telefone_Funcionario";
-            this.Telefone.HeaderText = "Telefone";
-            this.Telefone.Name = "Telefone";
-            // 
-            // Endereco
-            // 
-            this.Endereco.DataPropertyName = "Endereco_Funcionario";
-            this.Endereco.HeaderText = "Endereco";
-            this.Endereco.Name = "Endereco";
-            // 
-            // Nascimento
-            // 
-            this.Nascimento.DataPropertyName = "Nascimento_Funcionario";
-            this.Nascimento.HeaderText = "Nascimento";
-            this.Nascimento.Name = "Nascimento";
-            // 
-            // Sexo
-            // 
-            this.Sexo.DataPropertyName = "Sexo_Funcionario";
-            this.Sexo.HeaderText = "Sexo";
-            this.Sexo.Name = "Sexo";
-            // 
-            // CPF
-            // 
-            this.CPF.DataPropertyName = "CPF_Funcionario";
-            this.CPF.HeaderText = "CPF";
-            this.CPF.Name = "CPF";
-            // 
-            // Cracha
-            // 
-            this.Cracha.DataPropertyName = "Cracha_Funcionario";
-            this.Cracha.HeaderText = "Cracha";
-            this.Cracha.Name = "Cracha";
             // 
             // pnlcontrol
             // 
@@ -391,21 +342,78 @@ namespace LMFinanciamentos.Apresentacao
             // funcionariosBindingSource
             // 
             this.funcionariosBindingSource.DataMember = "Funcionarios";
-            //this.funcionariosBindingSource.DataSource = this.dS_Funcionario;
             // 
-            // dS_Funcionario
+            // id
             // 
-            //this.dS_Funcionario.DataSetName = "DS_Funcionario";
-            //this.dS_Funcionario.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.id.DataPropertyName = "id_Funcionario";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.id.DefaultCellStyle = dataGridViewCellStyle2;
+            this.id.HeaderText = "Nº";
+            this.id.Name = "id";
             // 
-            // dSFuncionarioBindingSource
+            // Nome
             // 
-            //this.dSFuncionarioBindingSource.DataSource = this.dS_Funcionario;
-            //this.dSFuncionarioBindingSource.Position = 0;
+            this.Nome.DataPropertyName = "Nome_Funcionario";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Nome.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
             // 
-            // funcionariosTableAdapter
+            // Email
             // 
-            //this.funcionariosTableAdapter.ClearBeforeFill = true;
+            this.Email.DataPropertyName = "Email_Funcionario";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Email.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
+            // 
+            // Telefone
+            // 
+            this.Telefone.DataPropertyName = "Contato_Funcionario";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Telefone.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Telefone.HeaderText = "Contato";
+            this.Telefone.Name = "Telefone";
+            // 
+            // Endereco
+            // 
+            this.Endereco.DataPropertyName = "Endereco_Funcionario";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Endereco.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Endereco.HeaderText = "Endereco";
+            this.Endereco.Name = "Endereco";
+            // 
+            // Nascimento
+            // 
+            this.Nascimento.DataPropertyName = "Nascimento_Funcionario";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Nascimento.DefaultCellStyle = dataGridViewCellStyle7;
+            this.Nascimento.HeaderText = "Nascimento";
+            this.Nascimento.Name = "Nascimento";
+            // 
+            // Sexo
+            // 
+            this.Sexo.DataPropertyName = "Sexo_Funcionario";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Sexo.DefaultCellStyle = dataGridViewCellStyle8;
+            this.Sexo.HeaderText = "Sexo";
+            this.Sexo.Name = "Sexo";
+            // 
+            // CPF
+            // 
+            this.CPF.DataPropertyName = "CPF_Funcionario";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.CPF.DefaultCellStyle = dataGridViewCellStyle9;
+            this.CPF.HeaderText = "CPF";
+            this.CPF.Name = "CPF";
+            // 
+            // Cracha
+            // 
+            this.Cracha.DataPropertyName = "Cracha_Funcionario";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Cracha.DefaultCellStyle = dataGridViewCellStyle10;
+            this.Cracha.HeaderText = "Cracha";
+            this.Cracha.Name = "Cracha";
             // 
             // Form_Controle_Funcionarios
             // 
@@ -425,7 +433,6 @@ namespace LMFinanciamentos.Apresentacao
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).EndInit();
-            //((System.ComponentModel.ISupportInitialize)(this.dS_Funcionario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSFuncionarioBindingSource)).EndInit();
             this.ResumeLayout(false);
 

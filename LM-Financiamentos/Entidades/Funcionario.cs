@@ -12,6 +12,7 @@
         public string Email_Funcionario { get; set; }
         public string Telefone_Funcionario { get; set; }
         public string Celular_Funcionario { get; set; }
+        public string Contato_Funcionario { get; set; }
         public string Endereco_Funcionario { get; set; }
         public string CPF_Funcionario { get; set; }
         public string CNPJ_Funcionario { get; set; }

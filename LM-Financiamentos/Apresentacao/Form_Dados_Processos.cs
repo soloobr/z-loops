@@ -469,6 +469,208 @@ namespace LMFinanciamentos.Apresentacao
                         break;
                 }
             }
+            if (Next)
+            {
+                switch (process.StatusAnalise_cliente)
+                {
+                    case "":
+                        lblstatus.Text = "Realizar Analise";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Não Consultado":
+                        lblstatus.Text = "Realizar Analise";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Aprovado":
+                        lblstatus.Text = "Analise Aprovada";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = true;
+                        break;
+                    case "Em analise":
+                        lblstatus.Text = "Em Analise";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Reprovado":
+                        lblstatus.Text = "Analise Reprovada";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Comando":
+                        lblstatus.Text = "Comando";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Desistiu":
+                        lblstatus.Text = "Desistensia";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Bloqueado em ourto CCA":
+                        lblstatus.Text = "Bloqueado em ourto CCA";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Condicionado":
+                        lblstatus.Text = "Condicionado";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                }
+            }
+            if (Next)
+            {
+                switch (process.StatusEng_cliente)
+                {
+                    case "":
+                        lblstatus.Text = "Iniciar Engenharia";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Não Consultado":
+                        lblstatus.Text = "Iniciar Engenharia";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Aguardando Pagamento":
+                        lblstatus.Text = "Aguardando Pagamento";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Aprovado abaixo":
+                        lblstatus.Text = "Aprovado abaixo";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = true;
+                        break;
+                    case "Aprovado Normal":
+                        lblstatus.Text = "Aprovado Normal";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = true;
+                        break;
+                    case "Contestação":
+                        lblstatus.Text = "Engenharia com Contestação";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Solicitado":
+                        lblstatus.Text = "Solicitado";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                }
+            }
+            if (Next)
+            {
+                switch (process.SIOPI_cliente)
+                {
+                    case "":
+                        lblstatus.Text = "Enviar SIOPI";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Não Consultado":
+                        lblstatus.Text = "Enviar SIOPI";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Enviado":
+                        lblstatus.Text = "Enviado SIOPI";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = true;
+                        break;
+                    case "Não Enviado":
+                        lblstatus.Text = "Enviar SIOPI";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                }
+            }
+            if (Next)
+            {
+                switch (process.SICTD_cliente)
+                {
+                    case "":
+                        lblstatus.Text = "Enviar SICTD";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Não Consultado":
+                        lblstatus.Text = "Enviar SICTD";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Enviado":
+                        lblstatus.Text = "Enviado SICTD";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = true;
+                        break;
+                    case "Não Enviado":
+                        lblstatus.Text = "Enviar SICTD";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                }
+            }
+            if (Next)
+            {
+                switch (process.SaqueFGTS_cliente)
+                {
+                    case "":
+                        lblstatus.Text = "Usar FGTS?";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Não Consultado":
+                        lblstatus.Text = "Usar FGTS?";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Total":
+                        lblstatus.Text = "FGTS Total";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = true;
+                        break;
+                    case "Parcial":
+                        lblstatus.Text = "FGTS Parcial";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = true;
+                        break;
+                    case "Não Usar":
+                        lblstatus.Text = "Não Usar FGTS";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = true;
+                        break;
+                }
+            }
+            if (Next)
+            {
+                switch (process.StatusPA_cliente)
+                {
+                    case "":
+                        lblstatus.Text = "Consultar PA";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Não Consultado":
+                        lblstatus.Text = "Consultar PA";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Conforme":
+                        lblstatus.Text = "PA Conforme";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = true;
+                        break;
+                    case "Inconforme":
+                        lblstatus.Text = "PA Inconforme";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                }
+            }
+            
 
 
 
@@ -491,22 +693,27 @@ namespace LMFinanciamentos.Apresentacao
                 {
                     case "":
                         statusprocesso = "Consultar CPF";
+                        lblstatus.ForeColor = Color.Red;
                         Next = false;
                         break;
                     case "Não Consultado":
                         statusprocesso = "Consultar CPF";
+                        lblstatus.ForeColor = Color.Red;
                         Next = false;
                         break;
                     case "Com Restrição":
                         statusprocesso = "CPF Com Restrição";
+                        lblstatus.ForeColor = Color.Red;
                         Next = false;
                         break;
                     case "Divergente RF":
                         statusprocesso = "CPF Divergente RF";
+                        lblstatus.ForeColor = Color.Red;
                         Next = false;
                         break;
                     case "Bloqueado em outro CCA":
                         statusprocesso = "CPF Bloqueado em outro CCA";
+                        lblstatus.ForeColor = Color.Red;
                         Next = false;
                         break;
                 }
@@ -518,10 +725,12 @@ namespace LMFinanciamentos.Apresentacao
                 {
                     case "":
                         statusprocesso = "Consultar Ciweb";
+                        lblstatus.ForeColor = Color.Red;
                         Next = false;
                         break;
                     case "Não Consultado":
                         statusprocesso = "Consultar Ciweb";
+                        lblstatus.ForeColor = Color.Red;
                         Next = false;
                         break;
                     case "Ativo":
@@ -530,6 +739,7 @@ namespace LMFinanciamentos.Apresentacao
                         break;
                     case "Inativo":
                         statusprocesso = "Ciweb Inativo";
+                        lblstatus.ForeColor = Color.Red;
                         Next = false;
                         break;
                 }
@@ -541,10 +751,12 @@ namespace LMFinanciamentos.Apresentacao
                 {
                     case "":
                         statusprocesso = "Consultar Cadmut";
+                        lblstatus.ForeColor = Color.Red;
                         Next = false;
                         break;
                     case "Não Consultado":
                         statusprocesso = "Consultar Cadmut";
+                        lblstatus.ForeColor = Color.Red;
                         Next = false;
                         break;
                     case "Ativo":
@@ -553,6 +765,7 @@ namespace LMFinanciamentos.Apresentacao
                         break;
                     case "Inativo":
                         statusprocesso = "Cadmut Inativo";
+                        lblstatus.ForeColor = Color.Red;
                         Next = false;
                         break;
                 }
@@ -564,10 +777,12 @@ namespace LMFinanciamentos.Apresentacao
                 {
                     case "":
                         statusprocesso = "Consultar IR";
+                        lblstatus.ForeColor = Color.Red;
                         Next = false;
                         break;
                     case "Não Consultado":
                         statusprocesso = "Consultar IR";
+                        lblstatus.ForeColor = Color.Red;
                         Next = false;
                         break;
                     case "Isento":
@@ -587,14 +802,17 @@ namespace LMFinanciamentos.Apresentacao
                 {
                     case "":
                         statusprocesso = "Consultar FGTS";
+                        lblstatus.ForeColor = Color.Red;
                         Next = false;
                         break;
                     case "Não Consultado":
                         statusprocesso = "Consultar FGTS";
+                        lblstatus.ForeColor = Color.Red;
                         Next = false;
                         break;
                     case "Já subsidiado":
                         statusprocesso = "FGTS Já subsidiado";
+                        lblstatus.ForeColor = Color.Red;
                         Next = false;
                         break;
                     case "Não subsidiado":
@@ -603,14 +821,210 @@ namespace LMFinanciamentos.Apresentacao
                         break;
                 }
             }
-
-
+            if (Next)
+            {
+                switch (comboBox_analise.Text)
+                {
+                    case "":
+                        statusprocesso = "Realizar Analise";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Não Consultado":
+                        statusprocesso = "Realizar Analise";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Aprovado":
+                        statusprocesso = "Analise Aprovada";
+                        Next = true;
+                        break;
+                    case "Em analise":
+                        statusprocesso = "Em Analise";
+                        lblstatus.ForeColor = Color.Yellow;
+                        Next = false;
+                        break;
+                    case "Reprovado":
+                        statusprocesso = "Analise Reprovada";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Comando":
+                        statusprocesso = "Comando";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Desistiu":
+                        statusprocesso = "Desistensia";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Bloqueado em ourto CCA":
+                        statusprocesso = "Bloqueado em ourto CCA";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Condicionado":
+                        statusprocesso = "Condicionado";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                }
+            }
+            if (Next)
+            {
+                switch (comboBox_statuseng.Text)
+                {
+                    case "":
+                        statusprocesso = "Iniciar Engenharia";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Não Consultado":
+                        statusprocesso = "Iniciar Engenharia";
+                        Next = false;
+                        break;
+                    case "Aguardando Pagamento":
+                        statusprocesso = "Aguardando Pagamento";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Aprovado abaixo":
+                        statusprocesso = "Engenharia Aprovado abaixo";
+                        Next = true;
+                        break;
+                    case "Aprovado Normal":
+                        lblstatus.Text = "Engenharia Aprovado Normal";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = true;
+                        break;
+                    case "Contestação":
+                        statusprocesso = "Engenharia com Contestação";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Solicitado":
+                        statusprocesso = "Solicitado Engenharia";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                }
+            }
+            if (Next)
+            {
+                switch (comboBox_SIOPI.Text)
+                {
+                    case "":
+                        statusprocesso = "Enviar SIOPI";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Não Consultado":
+                        statusprocesso = "Enviar SIOPI";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Enviado":
+                        statusprocesso = "Enviado SIOPI";
+                        Next = true;
+                        break;
+                    case "Não Enviado":
+                        statusprocesso = "Enviar SIOPI";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                }
+            }
+            if (Next)
+            {
+                switch (comboBox_SICTD.Text)
+                {
+                    case "":
+                        statusprocesso = "Enviar SICTD";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Não Consultado":
+                        statusprocesso = "Enviar SICTD";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Enviado":
+                        statusprocesso = "Enviado SICTD";
+                        Next = true;
+                        break;
+                    case "Não Enviado":
+                        statusprocesso = "Enviar SICTD";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                }
+            }
+            if (Next)
+            {
+                switch (comboBox_saque.Text)
+                {
+                    case "":
+                        statusprocesso = "Usar FGTS?";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Não Consultado":
+                        statusprocesso = "Usar FGTS?";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Total":
+                        statusprocesso = "FGTS Total";
+                        Next = true;
+                        break;
+                    case "Parcial":
+                        statusprocesso = "FGTS Parcial";
+                        Next = true;
+                        break;
+                    case "Não Usar":
+                        statusprocesso = "Não Usar FGTS";
+                        Next = true;
+                        break;
+                }
+            }
+            if (Next)
+            {
+                switch (comboBox_PA.Text)
+                {
+                    case "":
+                        statusprocesso = "Consultar PA";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Não Consultado":
+                        statusprocesso = "Consultar PA";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                    case "Conforme":
+                        statusprocesso = "PA Conforme";
+                        lblstatus.ForeColor = Color.Blue;
+                        Next = true;
+                        break;
+                    case "Inconforme":
+                        statusprocesso = "PA Inconforme";
+                        lblstatus.ForeColor = Color.Red;
+                        Next = false;
+                        break;
+                }
+            }
+            if(Next)
+            {
+                statusprocesso = "Comcluído";
+                lblstatus.ForeColor = Color.Blue;
+            }
 
             #endregion
 
-        }
+            }
 
-        private void btncloseconf_Click(object sender, EventArgs e)
+            private void btncloseconf_Click(object sender, EventArgs e)
         {
             Close();
         }
@@ -893,7 +1307,7 @@ namespace LMFinanciamentos.Apresentacao
             if (ProcessoSalvo != null)
                 ProcessoSalvo.Invoke();
 
-            Close();
+            //Close();
 
         }
 

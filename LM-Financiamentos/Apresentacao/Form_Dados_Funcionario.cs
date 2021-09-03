@@ -222,7 +222,7 @@ namespace LMFinanciamentos.Apresentacao
                 }
                 else if (txtpermission.Text == "Master")
                 {
-                    permission = "0";
+                    permission = "10";
                 }
 
             }
@@ -310,7 +310,27 @@ namespace LMFinanciamentos.Apresentacao
             txtrendacli.Text = funcionario.Renda_Funcionario;
             txtendereco.Text = funcionario.Endereco_Funcionario;
             txtcracha.Text = funcionario.Cracha_Funcionario;
-            txtpermission.Text = funcionario.Permision;
+            if (funcionario.Permision != "")
+            {
+                if (funcionario.Permision == "3")
+                {
+                    txtpermission.Text =  "Operador(a)";
+                }
+                else if (funcionario.Permision == "2")
+                {
+                    txtpermission.Text = "Supervisor(a)";
+                }
+                else if (funcionario.Permision == "1" )
+                {
+                    txtpermission.Text = "Gerente";
+                }
+                else if (funcionario.Permision == "10")
+                {
+                    txtpermission.Text = "Master";
+                }
+
+            }
+             
 
             if (funcionario.Sexo_Funcionario == "Masculino")
             {

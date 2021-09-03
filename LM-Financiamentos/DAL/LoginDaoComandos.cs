@@ -1959,8 +1959,16 @@ namespace LMFinanciamentos.DAL
                     func.Email_Funcionario = drfunc["Email"].ToString();
                     func.Telefone_Funcionario = drfunc["Telefone"].ToString();
                     func.Celular_Funcionario = drfunc["Celular"].ToString();
+                    if (string.IsNullOrEmpty(drfunc["Celular"].ToString()) || drfunc["Celular"].ToString() == "0")
+                    {
+                        func.Contato_Funcionario = drfunc["Telefone"].ToString();
+                    }
+                    else
+                    {
+                        func.Contato_Funcionario = drfunc["Celular"].ToString();
+                    }
                     func.Endereco_Funcionario = drfunc["Endereco"].ToString();
-                    func.Nascimento_Funcionario = drfunc["Nascimento"].ToString();
+                    func.Nascimento_Funcionario = Convert.ToDateTime(drfunc["Nascimento"]).ToString("dd/MM/yyyy");
                     func.Sexo_Funcionario = drfunc["Sexo"].ToString();
                     func.CPF_Funcionario = FormatCnpjCpf.FormatCPF(drfunc["CPF"].ToString());
                     func.RG_Funcionario = FormatCnpjCpf.FormatRG(drfunc["RG"].ToString());
