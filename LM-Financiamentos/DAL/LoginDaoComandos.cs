@@ -1823,7 +1823,7 @@ namespace LMFinanciamentos.DAL
         {
             var list = new List<Cliente>();
 
-            cmd2.CommandText = "SELECT Clientes.id, Nome, Email, Telefone, Celular, CPF, RG, StatusCPF, Ciweb, Cadmut, IR, FGTS, RG, Nascimento, Sexo, Renda, Status, Agencia, Conta FROM Clientes Left join Conta on Conta.idcliente = Clientes.id and Conta.Tipo = @tipo WHERE Nome LIKE @nomeclientes Order by Clientes.id";
+            cmd2.CommandText = "SELECT Clientes.id, Nome, Email, Telefone, Celular, CPF, RG, StatusCPF, Ciweb, Cadmut, IR, FGTS, RG, Nascimento, Sexo, Renda, Status, Agencia, Conta FROM Clientes Left join Conta on Conta.idcliente = Clientes.id and Conta.Tipo = @tipo WHERE Nome LIKE @nomeclientes or CPF LIKE @nomeclientes Order by Clientes.id";
             cmd2.Parameters.Clear();
             cmd2.Parameters.AddWithValue("@nomeclientes", "%" + nome + "%");
             cmd2.Parameters.AddWithValue("@tipo", "C");
@@ -1877,7 +1877,7 @@ namespace LMFinanciamentos.DAL
         {
             var list = new List<Conjuge>();
 
-            cmd2.CommandText = "SELECT Conjuge.id, Nome, Email, Telefone, Celular, CPF, RG, Nascimento, Sexo, Renda, Status, Agencia, Conta FROM Conjuge Left join Conta on Conta.idcliente = Conjuge.id and Conta.Tipo = @tipo WHERE Nome LIKE @nomeconjuge Order by Conjuge.id";
+            cmd2.CommandText = "SELECT Conjuge.id, Nome, Email, Telefone, Celular, CPF, RG, Nascimento, Sexo, Renda, Status, Agencia, Conta FROM Conjuge Left join Conta on Conta.idcliente = Conjuge.id and Conta.Tipo = @tipo WHERE Nome LIKE @nomeconjuge or CPF LIKE @nomeconjuge Order by Conjuge.id";
             cmd2.Parameters.Clear();
             cmd2.Parameters.AddWithValue("@nomeconjuge", "%" + nome + "%");
             cmd2.Parameters.AddWithValue("@tipo", "C");

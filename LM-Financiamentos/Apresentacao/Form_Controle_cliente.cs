@@ -23,7 +23,7 @@ namespace LMFinanciamentos.Apresentacao
 
         private bool sortAscending = false;
 
-        private BindingList<BuscarClientes> myList;
+        SortableBindingList<BuscarClientes> myList;
 
         public Form_Controle_Cliente()
         {
@@ -41,37 +41,25 @@ namespace LMFinanciamentos.Apresentacao
         {
             Cursor = Cursors.WaitCursor;
 
+            myList = new SortableBindingList<BuscarClientes>();
+
             LoginDaoComandos getclientes = new LoginDaoComandos();
+
+           Cliente[] myArray = getclientes.GetClientes("%").ToArray();
+
+            foreach (Cliente c in myArray)
+            {
+                myList.Add(new BuscarClientes(c.Id_cliente,c.Nome_cliente,c.Email_cliente,c.CPF_cliente,c.Celular_cliente, c.Nascimento_cliente));
+            }
+
             //dgv_clientes.Columns[3].DefaultCellStyle.Format = "d";
             dgv_clientes.AutoGenerateColumns = false;
-            dgv_clientes.DataSource = getclientes.GetClientes("%");
+            dgv_clientes.DataSource = myList;
+            //dgv_clientes.DataSource = getclientes.GetClientes("%");
             //this.dgv_clientes.Columns["Nascimento"].DefaultCellStyle.Format = "MM/dd/yyyy";
             //this.dgv_clientes.Columns["Nascimento"].DefaultCellStyle.ForeColor = Color.Blue;
             //this.dgv_clientes.DefaultCellStyle.ForeColor = Color.Blue;
             dgv_clientes.Refresh();
-
-
-
-            myList = new BindingList<BuscarClientes>();
-            Cliente[] myArray = getclientes.GetClientes("%").ToArray();
-
-            foreach (Cliente c in myArray)
-            {
-                myList.Add(new BuscarClientes(c.Nome_cliente,c.Id_cliente));
-            }
-
-            //myList.Add(new MyObject(1, "Outdoor"));
-            //myList.Add(new MyObject(2, "Hardware"));
-            //myList.Add(new MyObject(3, "Tools"));
-            //myList.Add(new MyObject(4, "Books"));
-            //myList.Add(new MyObject(5, "Appliances"));
-            //myList.RaiseListChangedEvents = true;
-            //myList.ListChanged += new ListChangedEventHandler(myList_ListChanged);
-            dataGridView1.DataSource = myList;
-            
-            //bindingSource1.DataSource = getclientes.GetClientes("%");
-
-
 
             Cursor = Cursors.Default;
         }
@@ -153,7 +141,7 @@ namespace LMFinanciamentos.Apresentacao
             }
             else
             {
-                consultar = "%" + txtprocurar.Text + "%";
+                consultar = ("%" + txtprocurar.Text + "%").Replace(",", "").Replace(".", "").Replace("-", "");
 
                 if (rdbcpfcli.Checked)
                 {
@@ -360,60 +348,37 @@ namespace LMFinanciamentos.Apresentacao
 
         private void dgv_clientes_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            //DataGridViewColumn newColumn = dgv_clientes.Columns[e.ColumnIndex];
-            //DataGridViewColumn oldColumn = dgv_clientes.SortedColumn;
-            //ListSortDirection direction;
+            //dataGridView1.Sort(dataGridView1.Columns[1], ListSortDirection.Ascending);
+            DataGridViewColumn newColumn = dgv_clientes.Columns[e.ColumnIndex];
+            DataGridViewColumn oldColumn = dgv_clientes.SortedColumn;
+            ListSortDirection direction;
 
-            //// If oldColumn is null, then the DataGridView is not sorted.
-            //if (oldColumn != null)
-            //{
-            //    // Sort the same column again, reversing the SortOrder.
-            //    if (oldColumn == newColumn &&
-            //        dgv_clientes.SortOrder == SortOrder.Ascending)
-            //    {
-            //        direction = ListSortDirection.Descending;
-            //    }
-            //    else
-            //    {
-            //        // Sort a new column and remove the old SortGlyph.
-            //        direction = ListSortDirection.Ascending;
-            //        oldColumn.HeaderCell.SortGlyphDirection = SortOrder.None;
-            //    }
-            //}
-            //else
-            //{
-            //    direction = ListSortDirection.Ascending;
-            //}
+            // If oldColumn is null, then the DataGridView is not sorted.
+            if (oldColumn != null)
+            {
+                // Sort the same column again, reversing the SortOrder.
+                if (oldColumn == newColumn &&
+                    dgv_clientes.SortOrder == SortOrder.Ascending)
+                {
+                    direction = ListSortDirection.Descending;
+                }
+                else
+                {
+                    // Sort a new column and remove the old SortGlyph.
+                    direction = ListSortDirection.Ascending;
+                    oldColumn.HeaderCell.SortGlyphDirection = SortOrder.None;
+                }
+            }
+            else
+            {
+                direction = ListSortDirection.Ascending;
+            }
 
-            //// Sort the selected column.
-            //dgv_clientes.Sort(newColumn, direction);
-            //newColumn.HeaderCell.SortGlyphDirection =
-            //    direction == ListSortDirection.Ascending ?
-            //    SortOrder.Ascending : SortOrder.Descending;
-
-            //if (dgv_clientes.Columns[e.ColumnIndex].SortMode != DataGridViewColumnSortMode.NotSortable)
-            //{
-            //    if (e.ColumnIndex == newSortColumn)
-            //    {
-            //        if (newColumnDirection == ListSortDirection.Ascending)
-            //            newColumnDirection = ListSortDirection.Descending;
-            //        else
-            //            newColumnDirection = ListSortDirection.Ascending;
-            //    }
-
-            //    newSortColumn = e.ColumnIndex;
-
-            //    switch (newColumnDirection)
-            //    {
-            //        case ListSortDirection.Ascending:
-            //            dgv_clientes.Sort(dgv_clientes.Columns[newSortColumn], ListSortDirection.Ascending);
-            //            break;
-            //        case ListSortDirection.Descending:
-            //            dgv_clientes.Sort(dgv_clientes.Columns[newSortColumn], ListSortDirection.Descending);
-            //            break;
-            //    }
-            //}
-            dgv_clientes.Sort(dgv_clientes.Columns[1], ListSortDirection.Ascending);
+            // Sort the selected column.
+            dgv_clientes.Sort(newColumn, direction);
+            newColumn.HeaderCell.SortGlyphDirection =
+                direction == ListSortDirection.Ascending ?
+                SortOrder.Ascending : SortOrder.Descending;
         }
 
         private void dgv_clientes_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -427,23 +392,19 @@ namespace LMFinanciamentos.Apresentacao
         private void dgv_clientes_SortCompare(object sender, DataGridViewSortCompareEventArgs e)
         {
             // Try to sort based on the cells in the current column.
-            e.SortResult = System.String.Compare(
-                e.CellValue1.ToString(), e.CellValue2.ToString());
+            //e.SortResult = System.String.Compare(
+            //    e.CellValue1.ToString(), e.CellValue2.ToString());
 
-            // If the cells are equal, sort based on the ID column.
-            if (e.SortResult == 0 && e.Column.Name != "id")
-            {
-                e.SortResult = System.String.Compare(
-                    dataGridView1.Rows[e.RowIndex1].Cells["id"].Value.ToString(),
-                    dataGridView1.Rows[e.RowIndex2].Cells["id"].Value.ToString());
-            }
-            e.Handled = true;
+            //// If the cells are equal, sort based on the ID column.
+            //if (e.SortResult == 0 && e.Column.Name != "id")
+            //{
+            //    e.SortResult = System.String.Compare(
+            //        dgv_clientes.Rows[e.RowIndex1].Cells["id"].Value.ToString(),
+            //        dgv_clientes.Rows[e.RowIndex2].Cells["id"].Value.ToString());
+            //}
+            //e.Handled = true;
         }
 
-        private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            dataGridView1.Sort(dataGridView1.Columns[1], ListSortDirection.Ascending);
-        }
 
         private void btn_reload_Click(object sender, EventArgs e)
         {

@@ -286,6 +286,7 @@
     <Compile Include="Entidades\Login.cs" />
     <Compile Include="Entidades\Saudacao.cs" />
     <Compile Include="Entidades\Servidor.cs" />
+    <Compile Include="Entidades\SortableBindingList.cs" />
     <Compile Include="Entidades\Vendedor.cs" />
     <Compile Include="Modelo\CircularProgressBar.cs">
       <SubType>Component</SubType>
