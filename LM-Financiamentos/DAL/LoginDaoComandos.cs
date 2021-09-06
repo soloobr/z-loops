@@ -2255,12 +2255,12 @@ namespace LMFinanciamentos.DAL
             return mensagem;
         }
 
-        public String UpdateProcesso(String id, String StatusCPF, DateTime datastatuscpf, String Statusciweb, DateTime datastatusciweb, String Stauscadmut, DateTime datastatuscadmut, String Statusir, DateTime datastatusir, String Statusfgts, DateTime datastatusfgts, String StatusAnalise, DateTime datastatusanalise, String StatusEng, DateTime datastatuseng, String StatusSiopi, DateTime datasiopi, String StatusSictd, DateTime datasictd, String StatusSaquefgts, DateTime datasaquefgts, String StatusPA, DateTime datapa, String sidAgenciaImovel, String sidPrograma, String valorimovel, String valorfinanciado, String sidCorretora, String sidCorretores, String sidEmpreendimentos, String sidcartorio, String StatusCartorio, DateTime datastatuscartorio, String status)
+        public String UpdateProcesso(String id, String StatusCPF, DateTime datastatuscpf, String Statusciweb, DateTime datastatusciweb, String Stauscadmut, DateTime datastatuscadmut, String Statusir, DateTime datastatusir, String Statusfgts, DateTime datastatusfgts, String StatusAnalise, DateTime datastatusanalise, String StatusEng, DateTime datastatuseng, String StatusSiopi, DateTime datasiopi, String StatusSictd, DateTime datasictd, String StatusSaquefgts, DateTime datasaquefgts, String StatusPA, DateTime datapa, String sidAgenciaImovel, String sidPrograma, String valorimovel, String valorfinanciado, String sidCorretora, String sidCorretores, String sidEmpreendimentos, String sidcartorio, String StatusCartorio, DateTime datastatuscartorio, String status, String obs)
         {
             try
             {
                 cmd1.CommandText = "UPDATE Processos " +
-                "SET StatusCPF = @StatusCPF, DataStatusCPF = @datastatuscpf, StatusCiweb = @Statusciweb, DataStatusCiweb = @datastatusciweb, StatusCadmut = @Stauscadmut, DataStatusCadmut = @datastatuscadmut, StatusIR = @Statusir, DataStatusIR = @datastatusir, StatusFGTS = @Statusfgts, DataStatusFGTS = @datastatusfgts, " +
+                "SET StatusCPF = @StatusCPF, DataStatusCPF = @datastatuscpf, StatusCiweb = @Statusciweb, DataStatusCiweb = @datastatusciweb, StatusCadmut = @Stauscadmut, DataStatusCadmut = @datastatuscadmut, StatusIR = @Statusir, DataStatusIR = @datastatusir, StatusFGTS = @Statusfgts, DataStatusFGTS = @datastatusfgts, Observacao = @obs, " +
                 "StatusAnalise = @StatusAnalise, DataStatusAnalise = @datastatusanalise, StatusEng = @StatusEng, DataStatusEng = @datastatuseng, SIOPI = @StatusSiopi, DataSIOP = @datasiopi, SICTD = @StatusSictd, DataSICTD = @datasictd, SaqueFGTS = @StatusSaquefgts, DataSaqueFGTS = @datasaquefgts, StatusPA = @StatusPA, DataPA = @datapa, " +
                 "idAgenciaImovel = @sidAgenciaImovel, idPrograma = @sidPrograma, ValorImovel = @valorimovel, ValorFinanciado = @valorfinanciado, idCorretora = @sidCorretora, idCorretor = @sidCorretores, idEmpreendimento = @sidEmpreendimentos, " +
                 "idCartorio = @sidcartorio, StatusCartorio = @StatusCartorio, DataStatusCartorio = @datastatuscartorio, " +
@@ -2303,6 +2303,7 @@ namespace LMFinanciamentos.DAL
                 cmd1.Parameters.AddWithValue("@datastatuscartorio", datastatuscartorio);
                 cmd1.Parameters.AddWithValue("@status", status);
                 cmd1.Parameters.AddWithValue("@Data", DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
+                cmd1.Parameters.AddWithValue("@obs", obs);
 
 
 

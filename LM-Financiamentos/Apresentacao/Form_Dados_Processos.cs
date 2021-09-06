@@ -69,6 +69,8 @@ namespace LMFinanciamentos.Apresentacao
 
             valorfinanciado.Text = process.ValorFinanciado_imovel;
             valorfinanciado.Select(valorfinanciado.Text.Length, 0);
+
+            txtobservacao.Text = process.Obs_processo;
             #endregion
 
             #region Cliente
@@ -1305,7 +1307,7 @@ namespace LMFinanciamentos.Apresentacao
             //DateTime datestatus = DateTime.Parse(datastatus);
             #endregion
 
-            updateprocesso.UpdateProcesso(idProcess, cpf, datecpf, ciweb, dateciweb, cadmut, datecadmut, ir, dateir, fgts, datefgts, analise, dateanalise, eng, dateeng, siopi, datesiopi, sictd, datesictd, saquefgts, datesaquefgts, pa, datepa, idagencia, idprograma, Valorimov, Valorfinan, combocorretora, combocorretores, combocoempreendimentos, idCartorio, cartorio, datecartorio, statusprocesso);
+            updateprocesso.UpdateProcesso(idProcess, cpf, datecpf, ciweb, dateciweb, cadmut, datecadmut, ir, dateir, fgts, datefgts, analise, dateanalise, eng, dateeng, siopi, datesiopi, sictd, datesictd, saquefgts, datesaquefgts, pa, datepa, idagencia, idprograma, Valorimov, Valorfinan, combocorretora, combocorretores, combocoempreendimentos, idCartorio, cartorio, datecartorio, statusprocesso, txtobservacao.Text);
             MessageBox.Show(updateprocesso.mensagem, "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
