@@ -143,9 +143,12 @@ namespace LMFinanciamentos.DAL
                     process.Email_cliente = drprocess["EmailCli"].ToString();
                     process.Telefone_cliente = drprocess["Telefonecli"].ToString();
                     process.Celular_cliente = drprocess["celularcli"].ToString();
-                    process.CPF_cliente = drprocess["cpfcli"].ToString();
-                    process.RG_cliente = drprocess["rgcli"].ToString();
-                    process.Nascimento_cliente = drprocess["Nascimento"].ToString();
+                    //process.CPF_cliente = drprocess["cpfcli"].ToString();
+                    process.CPF_cliente = FormatCnpjCpf.FormatCPF(drprocess["cpfcli"].ToString());
+                    //process.RG_cliente = drprocess["rgcli"].ToString();
+                    process.RG_cliente = FormatCnpjCpf.FormatRG(drprocess["rgcli"].ToString());
+                    process.Nascimento_cliente =  Convert.ToDateTime(drprocess["Nascimento"]).ToString("dd/MM/yyyy");
+                    //process.Nascimento_cliente = drprocess["Nascimento"].ToString();
                     process.Renda_cliente = drprocess["rendacli"].ToString();
                     process.RendaBruta_cliente = drprocess["rendabruta"].ToString();
                     process.Agencia_cliente = drprocess["agenciacli"].ToString();
@@ -159,8 +162,10 @@ namespace LMFinanciamentos.DAL
                     process.Email_vendedor = drprocess["Emailvendedor"].ToString();
                     process.Telefone_vendedor = drprocess["Telefonevendedor"].ToString();
                     process.Celular_vendedor = drprocess["celularvendedor"].ToString();
-                    process.CPF_vendedor = drprocess["cpfvendedor"].ToString();
-                    process.CNPJ_vendedor = drprocess["cnpjvendedor"].ToString();
+                    //process.CPF_vendedor = drprocess["cpfvendedor"].ToString();
+                    process.CPF_vendedor = FormatCnpjCpf.FormatCPF(drprocess["cpfvendedor"].ToString());
+                    //process.CNPJ_vendedor = drprocess["cnpjvendedor"].ToString();
+                    process.CNPJ_vendedor = FormatCnpjCpf.FormatCNPJ(drprocess["cnpjvendedor"].ToString());
                     //process.Nascimento_vendedor = drprocess["Nascimento"].ToString();
                     //process.Renda_vendedor = drprocess["rendavendedor"].ToString();
                     process.Agencia_vendedor = drprocess["agenciavendedor"].ToString();
@@ -2006,7 +2011,21 @@ namespace LMFinanciamentos.DAL
                     vendedores.Email_vendedor = drvendedores["Email"].ToString();
                     vendedores.Telefone_vendedor = drvendedores["Telefone"].ToString();
                     vendedores.Celular_vendedor = drvendedores["Celular"].ToString();
-                    vendedores.CPF_vendedor = Convert.ToUInt64(drvendedores["CPF"].ToString()).ToString(@"000\.000\.000\-00");
+                    //vendedores.CPF_vendedor = Convert.ToUInt64(drvendedores["CPF"].ToString()).ToString(@"000\.000\.000\-00");
+                    if (string.IsNullOrEmpty(drvendedores["CNPJ"].ToString()) || drvendedores["CNPJ"].ToString() == "0" || drvendedores["CNPJ"].ToString() == "00000000000000")
+                    {
+                        vendedores.CPF_vendedor = FormatCnpjCpf.FormatCPF(drvendedores["CPF"].ToString());
+                    }
+                    else
+                    {
+                        vendedores.CPF_vendedor = FormatCnpjCpf.FormatCNPJ(drvendedores["CNPJ"].ToString());
+                        
+                    }
+
+                    
+                    //process.CNPJ_vendedor = drprocess["cnpjvendedor"].ToString();
+                    
+
                     //vendedores.CPF_cliente = drvendedores["CPF"].ToString().ToString();
                     //vendedores.StatusCPF_vendedor = drvendedores["StatusCPF"].ToString();
 
@@ -2114,8 +2133,10 @@ namespace LMFinanciamentos.DAL
                     vendedor.Email_vendedor = drvendedor["Email"].ToString();
                     vendedor.Telefone_vendedor = drvendedor["Telefone"].ToString();
                     vendedor.Celular_vendedor = drvendedor["Celular"].ToString();
-                    vendedor.CPF_vendedor = drvendedor["CPF"].ToString();
-                    vendedor.CNPJ_vendedor = drvendedor["CNPJ"].ToString();
+                    //vendedor.CPF_vendedor = drvendedor["CPF"].ToString();
+                    vendedor.CPF_vendedor = FormatCnpjCpf.FormatCPF(drvendedor["CPF"].ToString());
+                    //vendedor.CNPJ_vendedor = drvendedor["CNPJ"].ToString();
+                    vendedor.CNPJ_vendedor = FormatCnpjCpf.FormatCNPJ(drvendedor["CNPJ"].ToString());
                     //vendedor.RG_vendedor = drvendedor["RG"].ToString();
                     //vendedor.Nascimento_vendedor = drvendedor["Nascimento"].ToString();
                     //vendedor.Sexo_vendedor = drvendedor["Sexo"].ToString();

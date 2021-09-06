@@ -471,6 +471,109 @@ namespace LMFinanciamentos.Apresentacao
             }
             Cursor = Cursors.Default;
         }
+
+        private void txtcpf_KeyUp(object sender, KeyEventArgs e)
+        {
+            int cont = 0;
+            //int cursorPos = SelectionStart;
+
+            foreach (Char c in txtcpf.Text)
+            {
+                if (((cont == 3) || (cont == 7)) && (c != '.') && (txtcpf.Text.Length >= cont))
+                {
+                    txtcpf.Text = txtcpf.Text.Insert(cont, ".");
+                    //SelectionStart = cursorPos + 1;
+                    txtcpf.Select(txtcpf.Text.Length, 0);
+                }
+                if ((c == '.') && (txtcpf.Text.Length >= cont) && (cont != 3) && (cont != 7))
+                {
+                    txtcpf.Text = txtcpf.Text.Remove(cont, 1);
+                    txtcpf.Select(txtcpf.Text.Length, 0);
+                }
+
+                if ((cont == 11) && (c != '-') && (txtcpf.Text.Length >= cont))
+                {
+                    txtcpf.Text = txtcpf.Text.Insert(11, "-");
+                    txtcpf.Select(txtcpf.Text.Length, 0);
+                }
+                if ((c == '-') && (cont != 11) && (txtcpf.Text.Length >= cont))
+                {
+                    txtcpf.Text = txtcpf.Text.Remove(cont, 1);
+                    txtcpf.Select(txtcpf.Text.Length, 0);
+                }
+
+                cont++;
+            }
+            valor = txtcpf.Text;
+            if (valor.Length >= 15)
+            {
+                MessageBox.Show("Limete maximo para o CPF!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                txtcpf.Text = txtcpf.Text.Remove(txtcpf.Text.Length - 1);
+                txtcpf.Select(txtcpf.Text.Length, 0);
+            }
+        }
+
+        private void txtcnpj_KeyUp(object sender, KeyEventArgs e)
+        {
+            int cont = 0;
+            //int cursorPos = SelectionStart;
+
+            foreach (Char c in txtcnpj.Text)
+            {
+                if (((cont == 2) || (cont == 6)) && (c != '.') && (txtcnpj.Text.Length >= cont))
+                {
+                    txtcnpj.Text = txtcnpj.Text.Insert(cont, ".");
+                    //SelectionStart = cursorPos + 1;
+                    txtcnpj.Select(txtcnpj.Text.Length, 0);
+                }
+                if ((c == '.') && (txtcnpj.Text.Length >= cont) && (cont != 2) && (cont != 6))
+                {
+                    txtcnpj.Text = txtcnpj.Text.Remove(cont, 1);
+                    txtcnpj.Select(txtcnpj.Text.Length, 0);
+                }
+                if ((cont == 10) && (c != '/') && (txtcnpj.Text.Length >= cont))
+                {
+                    txtcnpj.Text = txtcnpj.Text.Insert(10, @"/");
+                    txtcnpj.Select(txtcnpj.Text.Length, 0);
+                }
+
+
+                if ((cont == 14) && (c != '-') && (txtcnpj.Text.Length >= cont))
+                {
+                    txtcnpj.Text = txtcnpj.Text.Insert(15, "-");
+                    txtcnpj.Select(txtcnpj.Text.Length, 0);
+                }
+                if ((c == '-') && (cont != 16) && (txtcnpj.Text.Length >= cont))
+                {
+                    txtcnpj.Text = txtcnpj.Text.Remove(cont, 1);
+                    txtcnpj.Select(txtcnpj.Text.Length, 0);
+                }
+                cont++;
+            }
+
+            valor = txtcnpj.Text;
+            if (valor.Length >= 19)
+            {
+                MessageBox.Show("Limete maximo para o CNPJ", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                txtcnpj.Text = txtcnpj.Text.Remove(txtcnpj.Text.Length - 1);
+                txtcnpj.Select(txtcnpj.Text.Length, 0);
+            }
+        }
+
+        private void txtcnpj_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(Keys.Back))
+            {
+                if (e.KeyChar == ',')
+                {
+                    e.Handled = (txtcnpj.Text.Contains(","));
+                }
+                else
+                    e.Handled = true;
+            }
+
+        }
+
         Bitmap ResizeImage(Image image, int width, int height)
         {
             var destRect = new Rectangle(0, 0, width, height);

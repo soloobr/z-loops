@@ -40,7 +40,6 @@ namespace LMFinanciamentos.Apresentacao
             this.funcionariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lbl_topo = new System.Windows.Forms.Label();
             this.paneltop = new System.Windows.Forms.Panel();
-            this.ProgressBar = new Guna.UI2.WinForms.Guna2CircleProgressBar();
             this.lblstatus = new System.Windows.Forms.Label();
             this.img_topo = new System.Windows.Forms.PictureBox();
             this.btncloseconf = new System.Windows.Forms.Button();
@@ -243,7 +242,6 @@ namespace LMFinanciamentos.Apresentacao
             // paneltop
             // 
             this.paneltop.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.paneltop.Controls.Add(this.ProgressBar);
             this.paneltop.Controls.Add(this.lblstatus);
             this.paneltop.Controls.Add(this.lbl_topo);
             this.paneltop.Controls.Add(this.img_topo);
@@ -253,21 +251,6 @@ namespace LMFinanciamentos.Apresentacao
             this.paneltop.Padding = new System.Windows.Forms.Padding(4);
             this.paneltop.Size = new System.Drawing.Size(992, 57);
             this.paneltop.TabIndex = 13;
-            // 
-            // ProgressBar
-            // 
-            this.ProgressBar.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.ProgressBar.ForeColor = System.Drawing.Color.White;
-            this.ProgressBar.Location = new System.Drawing.Point(558, 4);
-            this.ProgressBar.Minimum = 0;
-            this.ProgressBar.Name = "ProgressBar";
-            this.ProgressBar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.ProgressBar.ShadowDecoration.Parent = this.ProgressBar;
-            this.ProgressBar.ShowPercentage = true;
-            this.ProgressBar.Size = new System.Drawing.Size(49, 49);
-            this.ProgressBar.TabIndex = 6;
-            this.ProgressBar.Text = "ProgressBar";
-            this.ProgressBar.Visible = false;
             // 
             // lblstatus
             // 
@@ -1644,7 +1627,6 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.ComboBox ComboBoxClient;
-        private Guna.UI2.WinForms.Guna2CircleProgressBar ProgressBar;
         private System.ComponentModel.BackgroundWorker backgroundWorker;
         private System.Windows.Forms.TextBox txtrg;
         private System.Windows.Forms.Label label9;

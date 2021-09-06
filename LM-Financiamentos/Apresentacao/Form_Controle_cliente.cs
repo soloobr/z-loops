@@ -24,6 +24,7 @@ namespace LMFinanciamentos.Apresentacao
         private bool sortAscending = false;
 
         SortableBindingList<BuscarClientes> myList;
+        SortableBindingList<BuscarConjuges> myListConjuges;
 
         public Form_Controle_Cliente()
         {
@@ -53,6 +54,7 @@ namespace LMFinanciamentos.Apresentacao
             }
 
             //dgv_clientes.Columns[3].DefaultCellStyle.Format = "d";
+            dgv_clientes.Columns[1].HeaderText = "Nome Cliente";
             dgv_clientes.AutoGenerateColumns = false;
             dgv_clientes.DataSource = myList;
             //dgv_clientes.DataSource = getclientes.GetClientes("%");
@@ -145,19 +147,33 @@ namespace LMFinanciamentos.Apresentacao
 
                 if (rdbcpfcli.Checked)
                 {
-
+                    myList = new SortableBindingList<BuscarClientes>();
 
                     LoginDaoComandos getclientes = new LoginDaoComandos();
-                    Cliente[] myArray = getclientes.GetClientes(consultar).ToArray();
-                    bool verifica = false;
 
+                    Cliente[] myArray = getclientes.GetClientes(consultar).ToArray();
+
+                    bool verifica = false;
                     foreach (Cliente c in myArray)
                     {
+                        myList.Add(new BuscarClientes(c.Id_cliente, c.Nome_cliente, c.Email_cliente, c.CPF_cliente, c.Celular_cliente, c.Nascimento_cliente));
                         if (c.Id_cliente != null)
                         {
                             verifica = true;
                         }
                     }
+
+                    //LoginDaoComandos getclientes = new LoginDaoComandos();
+                    //Cliente[] myArray = getclientes.GetClientes(consultar).ToArray();
+                    //bool verifica = false;
+
+                    //foreach (Cliente c in myArray)
+                    //{
+                    //    if (c.Id_cliente != null)
+                    //    {
+                    //        verifica = true;
+                    //    }
+                    //}
 
                     if (verifica)
                     {
@@ -170,7 +186,8 @@ namespace LMFinanciamentos.Apresentacao
                         dgv_clientes.Columns[5].DataPropertyName = "Celular_cliente";
 
                         dgv_clientes.Columns[4].DefaultCellStyle.Format = "MM/dd/yyyy";
-                        dgv_clientes.DataSource = getclientes.GetClientes(consultar);
+                        //dgv_clientes.DataSource = getclientes.GetClientes(consultar);
+                        dgv_clientes.DataSource = myList;
                         dgv_clientes.Refresh();
                         verifica = false;
                         Cursor.Current = Cursors.Default;
@@ -184,17 +201,34 @@ namespace LMFinanciamentos.Apresentacao
                 }
                 if (rdbcpfcj.Checked)
                 {
-                    LoginDaoComandos getconjuges = new LoginDaoComandos();
-                    Conjuge[] myArray = getconjuges.GetConjuges(consultar).ToArray();
-                    bool verifica = false;
 
+                    myListConjuges = new SortableBindingList<BuscarConjuges>();
+
+                    LoginDaoComandos getconjuges = new LoginDaoComandos();
+
+                    Conjuge[] myArray = getconjuges.GetConjuges(consultar).ToArray();
+
+                    bool verifica = false;
                     foreach (Conjuge c in myArray)
                     {
+                        myListConjuges.Add(new BuscarConjuges(c.Id_conjuge, c.Nome_conjuge, c.Email_conjuge, c.CPF_conjuge, c.Celular_conjuge, c.Nascimento_conjuge));
                         if (c.Id_conjuge != null)
                         {
                             verifica = true;
                         }
                     }
+
+                    //LoginDaoComandos getconjuges = new LoginDaoComandos();
+                    //Conjuge[] myArray = getconjuges.GetConjuges(consultar).ToArray();
+                    //bool verifica = false;
+
+                    //foreach (Conjuge c in myArray)
+                    //{
+                    //    if (c.Id_conjuge != null)
+                    //    {
+                    //        verifica = true;
+                    //    }
+                    //}
 
                     if (verifica)
                     {
@@ -209,7 +243,8 @@ namespace LMFinanciamentos.Apresentacao
                         dgv_clientes.Columns[5].DataPropertyName = "Celular_conjuge";
 
                         dgv_clientes.Columns[4].DefaultCellStyle.Format = "MM/dd/yyyy";
-                        dgv_clientes.DataSource = getconjuges.GetConjuges(consultar);
+                        //dgv_clientes.DataSource = getconjuges.GetConjuges(consultar);
+                        dgv_clientes.DataSource = myListConjuges;
                         dgv_clientes.Refresh();
                         verifica = false;
                         Cursor.Current = Cursors.Default;
@@ -411,7 +446,22 @@ namespace LMFinanciamentos.Apresentacao
             Cursor = Cursors.WaitCursor;
             if (rdbcpfcli.Checked)
             {
-                
+                myList = new SortableBindingList<BuscarClientes>();
+
+                LoginDaoComandos getclientes = new LoginDaoComandos();
+
+                Cliente[] myArray = getclientes.GetClientes("%").ToArray();
+
+                //bool verifica = false;
+                foreach (Cliente c in myArray)
+                {
+                    myList.Add(new BuscarClientes(c.Id_cliente, c.Nome_cliente, c.Email_cliente, c.CPF_cliente, c.Celular_cliente, c.Nascimento_cliente));
+                    //if (c.Id_cliente != null)
+                    //{
+                    //    verifica = true;
+                    //}
+                }
+
                 LoginDaoComandos getfunclientes = new LoginDaoComandos();
                 dgv_clientes.AutoGenerateColumns = false;
 
@@ -423,7 +473,8 @@ namespace LMFinanciamentos.Apresentacao
                 dgv_clientes.Columns[4].DataPropertyName = "Email_cliente";
                 dgv_clientes.Columns[5].DataPropertyName = "Celular_cliente";
 
-                dgv_clientes.DataSource = getfunclientes.GetClientes("%");
+                //dgv_clientes.DataSource = getfunclientes.GetClientes("%");
+                dgv_clientes.DataSource = myList;
                 dgv_clientes.Refresh();
                 txtprocurar.Clear();
                 txtprocurar.Select();
@@ -433,7 +484,22 @@ namespace LMFinanciamentos.Apresentacao
             if (rdbcpfcj.Checked)
             {
 
-                LoginDaoComandos getfunclientes = new LoginDaoComandos();
+                myListConjuges = new SortableBindingList<BuscarConjuges>();
+
+                LoginDaoComandos getconjuges = new LoginDaoComandos();
+
+                Conjuge[] myArray = getconjuges.GetConjuges("%").ToArray();
+
+                //bool verifica = false;
+                foreach (Conjuge c in myArray)
+                {
+                    myListConjuges.Add(new BuscarConjuges(c.Id_conjuge, c.Nome_conjuge, c.Email_conjuge, c.CPF_conjuge, c.Celular_conjuge, c.Nascimento_conjuge));
+                    //if (c.Id_conjuge != null)
+                    //{
+                    //    verifica = true;
+                    //}
+                }
+                //LoginDaoComandos getfunclientes = new LoginDaoComandos();
                 dgv_clientes.AutoGenerateColumns = false;
 
                 dgv_clientes.Columns[1].HeaderText = "Nome Conjuge";
@@ -444,7 +510,8 @@ namespace LMFinanciamentos.Apresentacao
                 dgv_clientes.Columns[4].DataPropertyName = "Email_conjuge";
                 dgv_clientes.Columns[5].DataPropertyName = "Celular_conjuge";
 
-                dgv_clientes.DataSource = getfunclientes.GetConjuges("%");
+                //dgv_clientes.DataSource = getfunclientes.GetConjuges("%");
+                dgv_clientes.DataSource = myListConjuges;
                 dgv_clientes.Refresh();
                 txtprocurar.Clear();
                 txtprocurar.Select();
@@ -468,8 +535,22 @@ namespace LMFinanciamentos.Apresentacao
         }
         private void AtualizaGrid()
         {
-            LoginDaoComandos getclientes = new LoginDaoComandos();
-            if (rdbcpfcli.Checked) {
+
+
+            //LoginDaoComandos getclientes = new LoginDaoComandos();
+            if (rdbcpfcli.Checked) 
+            {
+                myList = new SortableBindingList<BuscarClientes>();
+
+                LoginDaoComandos getclientes = new LoginDaoComandos();
+
+                Cliente[] myArray = getclientes.GetClientes("%").ToArray();
+
+                //bool verifica = false;
+                foreach (Cliente c in myArray)
+                {
+                    myList.Add(new BuscarClientes(c.Id_cliente, c.Nome_cliente, c.Email_cliente, c.CPF_cliente, c.Celular_cliente, c.Nascimento_cliente));
+                }
                 dgv_clientes.Columns[1].HeaderText = "Nome Cliente";
                 dgv_clientes.Columns[0].DataPropertyName = "Id_cliente";
                 dgv_clientes.Columns[1].DataPropertyName = "Nome_cliente";
@@ -478,11 +559,25 @@ namespace LMFinanciamentos.Apresentacao
                 dgv_clientes.Columns[4].DataPropertyName = "Email_cliente";
                 dgv_clientes.Columns[5].DataPropertyName = "Celular_cliente";
                 dgv_clientes.Columns[4].DefaultCellStyle.Format = "MM/dd/yyyy";
-                dgv_clientes.DataSource = getclientes.GetClientes("%");
+                //dgv_clientes.DataSource = getclientes.GetClientes("%");
+                dgv_clientes.DataSource = myList;
+                
             }
             if (rdbcpfcj.Checked)
             {
+                myListConjuges = new SortableBindingList<BuscarConjuges>();
+
                 LoginDaoComandos getconjuges = new LoginDaoComandos();
+
+                Conjuge[] myArray = getconjuges.GetConjuges("%").ToArray();
+
+                //bool verifica = false;
+                foreach (Conjuge c in myArray)
+                {
+                    myListConjuges.Add(new BuscarConjuges(c.Id_conjuge, c.Nome_conjuge, c.Email_conjuge, c.CPF_conjuge, c.Celular_conjuge, c.Nascimento_conjuge));
+
+                }
+                
                 dgv_clientes.Columns[1].HeaderText = "Nome Cômjuge";
                 dgv_clientes.Columns[0].DataPropertyName = "Id_conjuge";
                 dgv_clientes.Columns[1].DataPropertyName = "Nome_conjuge";
@@ -492,7 +587,7 @@ namespace LMFinanciamentos.Apresentacao
                 dgv_clientes.Columns[5].DataPropertyName = "Celular_conjuge";
 
                 dgv_clientes.Columns[4].DefaultCellStyle.Format = "MM/dd/yyyy";
-                dgv_clientes.DataSource = getconjuges.GetConjuges("%");
+                dgv_clientes.DataSource = myListConjuges;
             }
 
 

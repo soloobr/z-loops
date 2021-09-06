@@ -353,6 +353,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcpf.ReadOnly = true;
             this.txtcpf.Size = new System.Drawing.Size(180, 30);
             this.txtcpf.TabIndex = 1;
+            this.txtcpf.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtcpf_KeyUp);
             // 
             // lblcliente
             // 
@@ -406,6 +407,8 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcnpj.ReadOnly = true;
             this.txtcnpj.Size = new System.Drawing.Size(185, 27);
             this.txtcnpj.TabIndex = 2;
+            this.txtcnpj.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcnpj_KeyPress);
+            this.txtcnpj.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtcnpj_KeyUp);
             // 
             // checkBox_status
             // 

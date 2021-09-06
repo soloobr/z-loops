@@ -486,12 +486,12 @@ namespace LMFinanciamentos.Apresentacao
                 //display("You have Cancelled");
                 // progressBar1.Value = 0;
 
-                ProgressBar.Visible = false;
+                //ProgressBar.Visible = false;
             }
             else
             {
                 //MessageBox.Show("Work completed successfully");
-                ProgressBar.Value = 0;
+                //ProgressBar.Value = 0;
                 //ProgressBar.Visible = false;
 
 
@@ -548,7 +548,7 @@ namespace LMFinanciamentos.Apresentacao
 
         private void button4_Click(object sender, EventArgs e)
         {
-            ProgressBar.Visible = true;
+           // ProgressBar.Visible = true;
             backgroundWorker.RunWorkerAsync();
             //        
 
@@ -981,7 +981,7 @@ namespace LMFinanciamentos.Apresentacao
         }
         private void backgroundWorker_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
         {
-            ProgressBar.Value = e.ProgressPercentage;
+           // ProgressBar.Value = e.ProgressPercentage;
         }
 
         private void btncancelardoc_Click(object sender, EventArgs e)

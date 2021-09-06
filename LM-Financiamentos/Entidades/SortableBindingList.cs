@@ -65,5 +65,7 @@ namespace LMFinanciamentos.Entidades
             this.propertyDescriptor = base.SortPropertyCore;
             this.listSortDirection = base.SortDirectionCore;
         }
+
+
     }
 }

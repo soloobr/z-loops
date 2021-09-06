@@ -276,6 +276,7 @@
     </Compile>
     <Compile Include="DAL\IniFile.cs" />
     <Compile Include="DAL\LoginDaoComandos.cs" />
+    <Compile Include="Entidades\BuscarConjuges.cs" />
     <Compile Include="Entidades\Conjuge.cs" />
     <Compile Include="Entidades\Combobox_Agencia.cs" />
     <Compile Include="Entidades\Documento.cs" />

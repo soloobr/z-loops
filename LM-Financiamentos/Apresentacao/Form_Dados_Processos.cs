@@ -670,9 +670,10 @@ namespace LMFinanciamentos.Apresentacao
                         break;
                 }
             }
+
             if (Next)
             {
-                statusprocesso = "Comcluído";
+                lblstatus.Text = "Comcluído";
                 lblstatus.ForeColor = Color.Blue;
             }
 
