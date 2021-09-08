@@ -165,8 +165,11 @@ namespace LMFinanciamentos.Apresentacao
             }
             CPF = FormatCnpjCpf.SemFormatacao(txtcpf.Text);
 
+            rendabruta = "0";
+
             if (cjativo[0]== true || cjativo[1]== true || (cjativo[2]== true) || cjativo[3]== true)
             {
+               
 
                 if (cjativo[0]== true)
                 {
@@ -3216,6 +3219,10 @@ namespace LMFinanciamentos.Apresentacao
                 SomaRenda();
                 MessageBox.Show("Cônjuge inserido com Sucesso!", "Inserido", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+
+                SomaRendaConjuges();
+                LoginDaoComandos updaterendabruta = new LoginDaoComandos();
+                updaterendabruta.UpdateRendaBrutaCliente(idCliente, rendaconjuges);
             }
             else
             {
@@ -3242,6 +3249,10 @@ namespace LMFinanciamentos.Apresentacao
                 SomaRenda();
                 MessageBox.Show("Cônjuge inserido com Sucesso!", "Inserido", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+
+                SomaRendaConjuges();
+                LoginDaoComandos updaterendabruta = new LoginDaoComandos();
+                updaterendabruta.UpdateRendaBrutaCliente(idCliente, rendaconjuges);
             }
             else
             {
@@ -3268,6 +3279,10 @@ namespace LMFinanciamentos.Apresentacao
                 SomaRenda();
                 MessageBox.Show("Cônjuge inserido com Sucesso!", "Inserido", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+
+                SomaRendaConjuges();
+                LoginDaoComandos updaterendabruta = new LoginDaoComandos();
+                updaterendabruta.UpdateRendaBrutaCliente(idCliente, rendaconjuges);
             }
             else
             {
@@ -3292,7 +3307,11 @@ namespace LMFinanciamentos.Apresentacao
             {
                 SomaRenda();
                 MessageBox.Show("Cônjuge inserido com Sucesso!", "Inserido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-               
+
+                SomaRendaConjuges();
+                LoginDaoComandos updaterendabruta = new LoginDaoComandos();
+                updaterendabruta.UpdateRendaBrutaCliente(idCliente, rendaconjuges);
+
             }
             else
             {
