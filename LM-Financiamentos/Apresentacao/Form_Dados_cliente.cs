@@ -18,6 +18,7 @@ namespace LMFinanciamentos.Apresentacao
         BinaryReader binRdr = null;
         bool arquivobase ;
         bool conjuge;
+        bool processo;
         bool[] cjativo = { false, false, false, false};
 
         string[] idconj = { "idCJ", "idCJ1", "idCJ2", "idCJ3" };
@@ -903,8 +904,26 @@ namespace LMFinanciamentos.Apresentacao
 
             LoadDadosCliente();
             SomaRenda();
+            LoginDaoComandos getprocessos = new LoginDaoComandos();
+            dgproc.AutoGenerateColumns = false;
+            dgproc.DataSource = getprocessos.GetProcessoCliente(idCliente);
+
+            if (dgproc.Rows.Count == 0)
+            {
+                lblsemproc.Visible = true;
+                dgproc.Visible = false;
+            }
+            else
+            {
+                lblsemproc.Visible = false;
+                dgproc.Visible = true;
+                processo = true;
+            }
+
+
             LoginDaoComandos getconjuge = new LoginDaoComandos();
 
+                
 
             var highScores = getconjuge.GetidConjuges(idCliente);
 
@@ -3408,6 +3427,15 @@ namespace LMFinanciamentos.Apresentacao
             cjativo[1] = false;
         }
 
+        private void dgproc_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            Form_Dados_Processos frm_dados_documentos = new Form_Dados_Processos();
+            frm_dados_documentos.setIdProcess(dgproc.SelectedRows[0].Cells["idProc"].Value.ToString());
+            frm_dados_documentos.Show();
+            Cursor = Cursors.Default;
+        }
+
         private void btncancelcj2_Click(object sender, EventArgs e)
         {
             LiparConjuge(2);
@@ -3612,6 +3640,11 @@ namespace LMFinanciamentos.Apresentacao
             if (result == DialogResult.Yes)
             {
 
+                if (processo == true)
+                {
+                    MessageBox.Show("Não é possivel Excluir este Cliente! \a  Existe processos Ativos em seu Nome.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
                 LoginDaoComandos deletecliente = new LoginDaoComandos();
 
@@ -3633,6 +3666,20 @@ namespace LMFinanciamentos.Apresentacao
                     Close();
                 }
 
+                #region Atualizar rendabruta
+                if (cjativo[0] == true)
+                {
+                    SomaRenda();
+                    if (string.IsNullOrEmpty(txtrendacj1.Text) || txtrendacj1.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "") == "0")
+                    {
+                        rendabruta = txtrendacj1.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
+                    }
+                    else
+                    {
+                        rendabruta = txtrendatotal.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
+                    }
+                }
+                #endregion
 
 
             }

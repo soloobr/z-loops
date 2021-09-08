@@ -2892,6 +2892,19 @@ namespace LMFinanciamentos.DAL
 
             return dt;
         }
+        public DataTable GetProcessoCliente(string idcli)
+        {
+            cmd.CommandText = "SELECT id FROM Processos Where idCliente = @idcliente ";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@idcliente", idcli);
+
+            cmd.Connection = con.conectar();
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            con.desconectar();
+
+            return dt;
+        }
         public DataTable GetDataVendedor(String nome)
         {
             cmd.CommandText = "SELECT id, Nome, CPF, CNPJ, Agencia, Conta, Email, Telefone, Celular  FROM Vendedor Where (Nome Like @nomevendedor)";
