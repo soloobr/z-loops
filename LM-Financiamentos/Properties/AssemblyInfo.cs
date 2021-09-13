@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("LM Financiamentos")]
 [assembly: AssemblyProduct("LM-Financiamentos")]
-[assembly: AssemblyCopyright("Copyright ©  2021 - Lus Eduardo Programer")]
+[assembly: AssemblyCopyright("Copyright ©  2021 - Lus Eduardo Ferreira Gomes")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,6 +32,6 @@ using System.Runtime.InteropServices;
 // É possível especificar todos os valores ou usar como padrão os Números de Build e da Revisão
 // usando o "*" como mostrado abaixo:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.13")]
-[assembly: AssemblyFileVersion("1.0.0.13")]
+[assembly: AssemblyVersion("1.0.0.14")]
+[assembly: AssemblyFileVersion("1.0.0.14")]
 [assembly: NeutralResourcesLanguage("pt-BR")]
