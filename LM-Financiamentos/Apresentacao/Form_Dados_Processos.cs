@@ -20,6 +20,7 @@ namespace LMFinanciamentos.Apresentacao
         string valor, svalorimovel, svalorfinanciado, idCartorio;
         string curFile, NewFile, extension, Local, idArquivo, numArquivo, descArquivo, dataAruivo, statusArquivo, idcombotipodoc;
         string idagencia, idprograma, idcorretora, idcorretor, idempreendimentos, caminho;
+        string StatusCPF, datacpf, ciweb, dataciweb, cadmut, datacadmut, ir, datair, fgts, datafgts, obs;
         int count;
         FileStream fs;
         BinaryReader br;
@@ -27,9 +28,10 @@ namespace LMFinanciamentos.Apresentacao
         ToFullText tft;
         int ultimoID;
         DateTime datecpf, dateciweb, datecadmut, dateir, datefgts, dateanalise, dateeng, datesiopi, datesictd, datesaquefgts, datepa, datecartorio;
+        string idresponsavel, nomeresponsavel, nomeuserloged;
 
-
-        string idProcess, datacpf, dataciweb, datacadmut, datair, datafgts, dataanalise, dataeng, datastatus, statusprocesso, datasiopi, datasictd, datasaquefgts, datapa, datacartorio;
+        //string idProcess, datacpf, dataciweb, datacadmut, datair, datafgts, dataanalise, dataeng, datastatus, statusprocesso, datasiopi, datasictd, datasaquefgts, datapa, datacartorio;
+        string idProcess, dataanalise, dataeng, datastatus, statusprocesso, datasiopi, datasictd, datasaquefgts, datapa, datacartorio;
 
 
         public Form_Dados_Processos()
@@ -46,10 +48,22 @@ namespace LMFinanciamentos.Apresentacao
         {
             idProcess = idprocesso.PadLeft(4, '0');
         }
-
+        public void setUserLoged(string idresp, string nomefunc)
+        {
+            if (idresp != null)
+            {
+                idresponsavel = idresp;
+            }
+            if (nomefunc != null)
+            {
+                nomeuserloged = nomefunc;
+            }
+        }
         private void Form_Dados_Documentos_Load(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
+            
+
             Processo process = null;
 
             LoginDaoComandos gettpross = new LoginDaoComandos();
@@ -61,6 +75,7 @@ namespace LMFinanciamentos.Apresentacao
             #region Processos
             lblnumeroprocesso.Text = idProcess;
             lblfuncresponsavel.Text = process.Nome_responsavel;
+            nomeresponsavel = process.Nome_responsavel;
             lbldata.Text = asString;
 
             svalorimovel = process.Valor_imovel;
@@ -685,6 +700,13 @@ namespace LMFinanciamentos.Apresentacao
 
             Cursor = Cursors.Default;
 
+            if (process.Nome_responsavel == nomeuserloged)
+            {
+                HabilitarEdicao();
+            }
+
+            
+
         }
         public event Action ProcessoSalvo;
 
@@ -1038,289 +1060,34 @@ namespace LMFinanciamentos.Apresentacao
 
         private void btnsalvardoc_Click(object sender, EventArgs e)
         {
-            Get_Status();
-            LoginDaoComandos updateprocesso = new LoginDaoComandos();
-
-            #region Check Datas
-            //if (lbldatacpf.Text != "__/ ___/ ____")
-            //{
-            //    datacpf = lbldatacpf.Text;
-            //}
-            //else
-            //{
-            //    datacpf = "01/01/0001 00:00:00";
-            //}
-
-            //if (lbldataciweb.Text != "__/ ___/ ____")
-            //{
-            //    dataciweb = lbldataciweb.Text;
-            //}
-            //else
-            //{
-            //    dataciweb = "01/01/0001 00:00:00";
-            //}
-
-            //if (lbldatacadmut.Text != "__/ ___/ ____")
-            //{
-            //    datacadmut = lbldatacadmut.Text;
-            //}
-            //else
-            //{
-            //    datacadmut = "01/01/0001 00:00:00";
-            //}
-
-            //if (lbldatair.Text != "__/ ___/ ____")
-            //{
-            //    datair = lbldatair.Text;
-            //}
-            //else
-            //{
-            //    datair = "01/01/0001 00:00:00";
-            //}
-
-            //if (lbldatair.Text != "__/ ___/ ____")
-            //{
-            //    datafgts = lbldatafgts.Text;
-            //}
-            //else
-            //{
-            //    datafgts = "01/01/0001 00:00:00";
-            //}
-
-
-
-            //if (//lbldataanalise.Text != "__/ ___/ ____")
-            //{
-            //    dataanalise = //lbldataanalise.Text;
-            //}
-            //else
-            //{
-            //    dataanalise = "01/01/0001 00:00:00";
-            //}
-
-            //if (lbldataeng.Text != "__/ ___/ ____")
-            //{
-            //    dataeng = lbldataeng.Text;
-            //   }
-            //else
-            //{
-            //    dataeng = "01/01/0001 00:00:00";
-            //}
-
-            //if (lbldatasiopi.Text != "__/ ___/ ____")
-            //{
-            //    datasiopi = lbldatasiopi.Text;
-            //}
-            //else
-            //{
-            //    datasiopi = "01/01/0001 00:00:00";
-            //}
-
-
-            //if (lbldatasictd.Text != "__/ ___/ ____")
-            //{
-            //    datasictd = lbldatasictd.Text;
-            //}
-            //else
-            //{
-            //    datasictd = "01/01/0001 00:00:00";
-            //}
-
-            //if (lbldatasaquefgts.Text != "__/ ___/ ____")
-            //{
-            //    datasaquefgts = lbldatasaquefgts.Text;
-            //}
-            //else
-            //{
-            //    datasaquefgts = "01/01/0001 00:00:00";
-            //}
-
-            //if (lbldatapa.Text != "__/ ___/ ____")
-            //{
-            //    datapa = lbldatapa.Text;
-            //}
-            //else
-            //{
-            //    datapa = "01/01/0001 00:00:00";
-            //}
-
-            //if (lbldatacartorio.Text != "__/ ___/ ____")
-            //{
-            //    datacartorio = lbldatacartorio.Text;
-            //}
-            //else
-            //{
-            //    datacartorio = "01/01/0001 00:00:00";
-            //}
-
-            if (lblstatus.Text != "__/ ___/ ____")
-            {
-                datastatus = lblstatus.Text;
-            }
-            else
-            {
-                datastatus = "01/01/0001 00:00:00";
-            }
-            #endregion
-
-            #region Combox Status
-
-            String cpf = txtStatusCPF.Text;
-            if (dtpcpf.Text != "")
-            {
-                datecpf = DateTime.Parse(dtpcpf.Text);
-            }
-            else
-            {
-                datecpf = DateTime.Parse("01/01/0001 00:00:00");
-            }
-
-            String ciweb = txtciweb.Text;
-            if (dtpciweb.Text != "")
-            {
-                dateciweb = DateTime.Parse(dtpciweb.Text);
-            }
-            else
-            {
-                dateciweb = DateTime.Parse("01/01/0001 00:00:00");
-            }
-
-            String cadmut = txtcadmut.Text;
-            if (dtpcadmut.Text != "")
-            {
-                datecadmut = DateTime.Parse(dtpcadmut.Text);
-            }
-            else
-            {
-                datecadmut = DateTime.Parse("01/01/0001 00:00:00");
-            }
-
-            String ir = txtir.Text;
-            if (dtpir.Text != "")
-            {
-                dateir = DateTime.Parse(dtpir.Text);
-            }
-            else
-            {
-                dateir = DateTime.Parse("01/01/0001 00:00:00");
-            }
-
-            String fgts = txtfgts.Text;
-            if (dtpfgtscli.Text != "")
-            {
-                datefgts = DateTime.Parse(dtpfgtscli.Text);
-            }
-            else
-            {
-                datefgts = DateTime.Parse("01/01/0001 00:00:00");
-            }
-
-
-            String analise = comboBox_analise.Text;
-            //DateTime dateanalise = DateTime.Parse(dataanalise);
-            if (dtpanalise.Text != "")
-            {
-                dateanalise = DateTime.Parse(dtpanalise.Text);
-            }
-            else
-            {
-                dateanalise = DateTime.Parse("01/01/0001 00:00:00");
-            }
-            String eng = comboBox_statuseng.Text;
-            //DateTime dateeng = DateTime.Parse(dataeng);
-            if (dtpeng.Text != "")
-            {
-                dateeng = DateTime.Parse(dtpeng.Text);
-            }
-            else
-            {
-                dateeng = DateTime.Parse("01/01/0001 00:00:00");
-            }
-            String siopi = comboBox_SIOPI.Text;
-            //DateTime datesiopi = DateTime.Parse(datasiopi);
-            if (dtpsiopi.Text != "")
-            {
-                datesiopi = DateTime.Parse(dtpsiopi.Text);
-            }
-            else
-            {
-                datesiopi = DateTime.Parse("01/01/0001 00:00:00");
-            }
-            String sictd = comboBox_SICTD.Text;
-            //DateTime datesictd = DateTime.Parse(datasictd);
-            if (dtpsictd.Text != "")
-            {
-                datesictd = DateTime.Parse(dtpsictd.Text);
-            }
-            else
-            {
-                datesictd = DateTime.Parse("01/01/0001 00:00:00");
-            }
-            String saquefgts = comboBox_saque.Text;
-            //DateTime datesaquefgts = DateTime.Parse(datasaquefgts);
-            if (dtpfgts.Text != "")
-            {
-                datesaquefgts = DateTime.Parse(dtpfgts.Text);
-            }
-            else
-            {
-                datesaquefgts = DateTime.Parse("01/01/0001 00:00:00");
-            }
-            String pa = comboBox_PA.Text;
-            //DateTime datepa = DateTime.Parse(datapa);
-            if (dtppa.Text != "")
-            {
-                datepa = DateTime.Parse(dtppa.Text);
-
-            }
-            else
-            {
-                datepa = DateTime.Parse("01/01/0001 00:00:00");
-            }
-            //idagencia = comboBox_agencia.SelectedValue.ToString();
-
-            //idprograma = comboBox_programa.SelectedValue.ToString();
-
-            String Valorimov = valorimovel.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
-            String Valorfinan = valorfinanciado.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
-
-            String combocorretora = idcorretora;
-            String combocorretores = idcorretor;
-            String combocoempreendimentos = idempreendimentos;
-
-            if (dtpcartorio.Text == "")
-            {
-                idCartorio = "0";
-            }//Get process load or set combobox click
-            String cartorio = comboBox_statuscartorio.Text;
-            if (dtpcartorio.Text != "")
-            {
-                datecartorio = DateTime.Parse(dtpcartorio.Text);
-            }
-            else
-            {
-                datecartorio = DateTime.Parse("01/01/0001 00:00:00");
-            }
-
-
-            lblstatus.Text = statusprocesso;
-            //DateTime datestatus = DateTime.Parse(datastatus);
-            #endregion
-
-            updateprocesso.UpdateProcesso(idProcess, cpf, datecpf, ciweb, dateciweb, cadmut, datecadmut, ir, dateir, fgts, datefgts, analise, dateanalise, eng, dateeng, siopi, datesiopi, sictd, datesictd, saquefgts, datesaquefgts, pa, datepa, idagencia, idprograma, Valorimov, Valorfinan, combocorretora, combocorretores, combocoempreendimentos, idCartorio, cartorio, datecartorio, statusprocesso, txtobservacao.Text);
-            MessageBox.Show(updateprocesso.mensagem, "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
-            if (ProcessoSalvo != null)
-                ProcessoSalvo.Invoke();
-
-            //Close();
+           
 
         }
 
         private void btncancelardoc_Click(object sender, EventArgs e)
         {
-            Close();
+            txtStatusCPF.Text = StatusCPF;
+            dtpcpf.Text = datacpf;
+            txtciweb.Text = ciweb;
+            dtpciweb.Text = dataciweb;
+            txtcadmut.Text = cadmut;
+            dtpcadmut.Text = datacadmut;
+            txtir.Text = ir;
+            dtpir.Text = datair;
+            txtfgts.Text = fgts;
+            dtpfgts.Text = datafgts;
+            txtobservacao.Text = obs;
+
+            //btn_editar.Visible = true;
+            //splitter1.Visible = false;
+            //splitter2.Visible = false;
+            //btncancelardoc.Visible = false;
+            //btnsalvardoc.Visible = false;
+            //splitter3.Visible = true;
+            //btn_excluir.Visible = true;
+
+            DesabilitarEdicao();
+            //Close();
         }
 
         private void Form_Dados_Documentos_Paint(object sender, PaintEventArgs e)
@@ -2088,6 +1855,290 @@ namespace LMFinanciamentos.Apresentacao
             }
         }
 
+        private void btnsalvardoc_Click_1(object sender, EventArgs e)
+        {
+            Get_Status();
+            LoginDaoComandos updateprocesso = new LoginDaoComandos();
+
+            #region Check Datas
+            //if (lbldatacpf.Text != "__/ ___/ ____")
+            //{
+            //    datacpf = lbldatacpf.Text;
+            //}
+            //else
+            //{
+            //    datacpf = "01/01/0001 00:00:00";
+            //}
+
+            //if (lbldataciweb.Text != "__/ ___/ ____")
+            //{
+            //    dataciweb = lbldataciweb.Text;
+            //}
+            //else
+            //{
+            //    dataciweb = "01/01/0001 00:00:00";
+            //}
+
+            //if (lbldatacadmut.Text != "__/ ___/ ____")
+            //{
+            //    datacadmut = lbldatacadmut.Text;
+            //}
+            //else
+            //{
+            //    datacadmut = "01/01/0001 00:00:00";
+            //}
+
+            //if (lbldatair.Text != "__/ ___/ ____")
+            //{
+            //    datair = lbldatair.Text;
+            //}
+            //else
+            //{
+            //    datair = "01/01/0001 00:00:00";
+            //}
+
+            //if (lbldatair.Text != "__/ ___/ ____")
+            //{
+            //    datafgts = lbldatafgts.Text;
+            //}
+            //else
+            //{
+            //    datafgts = "01/01/0001 00:00:00";
+            //}
+
+
+
+            //if (//lbldataanalise.Text != "__/ ___/ ____")
+            //{
+            //    dataanalise = //lbldataanalise.Text;
+            //}
+            //else
+            //{
+            //    dataanalise = "01/01/0001 00:00:00";
+            //}
+
+            //if (lbldataeng.Text != "__/ ___/ ____")
+            //{
+            //    dataeng = lbldataeng.Text;
+            //   }
+            //else
+            //{
+            //    dataeng = "01/01/0001 00:00:00";
+            //}
+
+            //if (lbldatasiopi.Text != "__/ ___/ ____")
+            //{
+            //    datasiopi = lbldatasiopi.Text;
+            //}
+            //else
+            //{
+            //    datasiopi = "01/01/0001 00:00:00";
+            //}
+
+
+            //if (lbldatasictd.Text != "__/ ___/ ____")
+            //{
+            //    datasictd = lbldatasictd.Text;
+            //}
+            //else
+            //{
+            //    datasictd = "01/01/0001 00:00:00";
+            //}
+
+            //if (lbldatasaquefgts.Text != "__/ ___/ ____")
+            //{
+            //    datasaquefgts = lbldatasaquefgts.Text;
+            //}
+            //else
+            //{
+            //    datasaquefgts = "01/01/0001 00:00:00";
+            //}
+
+            //if (lbldatapa.Text != "__/ ___/ ____")
+            //{
+            //    datapa = lbldatapa.Text;
+            //}
+            //else
+            //{
+            //    datapa = "01/01/0001 00:00:00";
+            //}
+
+            //if (lbldatacartorio.Text != "__/ ___/ ____")
+            //{
+            //    datacartorio = lbldatacartorio.Text;
+            //}
+            //else
+            //{
+            //    datacartorio = "01/01/0001 00:00:00";
+            //}
+
+            if (lblstatus.Text != "__/ ___/ ____")
+            {
+                datastatus = lblstatus.Text;
+            }
+            else
+            {
+                datastatus = "01/01/0001 00:00:00";
+            }
+            #endregion
+
+            #region Combox Status
+
+            String cpf = txtStatusCPF.Text;
+            if (dtpcpf.Text != "")
+            {
+                datecpf = DateTime.Parse(dtpcpf.Text);
+            }
+            else
+            {
+                datecpf = DateTime.Parse("01/01/0001 00:00:00");
+            }
+
+            String ciweb = txtciweb.Text;
+            if (dtpciweb.Text != "")
+            {
+                dateciweb = DateTime.Parse(dtpciweb.Text);
+            }
+            else
+            {
+                dateciweb = DateTime.Parse("01/01/0001 00:00:00");
+            }
+
+            String cadmut = txtcadmut.Text;
+            if (dtpcadmut.Text != "")
+            {
+                datecadmut = DateTime.Parse(dtpcadmut.Text);
+            }
+            else
+            {
+                datecadmut = DateTime.Parse("01/01/0001 00:00:00");
+            }
+
+            String ir = txtir.Text;
+            if (dtpir.Text != "")
+            {
+                dateir = DateTime.Parse(dtpir.Text);
+            }
+            else
+            {
+                dateir = DateTime.Parse("01/01/0001 00:00:00");
+            }
+
+            String fgts = txtfgts.Text;
+            if (dtpfgtscli.Text != "")
+            {
+                datefgts = DateTime.Parse(dtpfgtscli.Text);
+            }
+            else
+            {
+                datefgts = DateTime.Parse("01/01/0001 00:00:00");
+            }
+
+
+            String analise = comboBox_analise.Text;
+            //DateTime dateanalise = DateTime.Parse(dataanalise);
+            if (dtpanalise.Text != "")
+            {
+                dateanalise = DateTime.Parse(dtpanalise.Text);
+            }
+            else
+            {
+                dateanalise = DateTime.Parse("01/01/0001 00:00:00");
+            }
+            String eng = comboBox_statuseng.Text;
+            //DateTime dateeng = DateTime.Parse(dataeng);
+            if (dtpeng.Text != "")
+            {
+                dateeng = DateTime.Parse(dtpeng.Text);
+            }
+            else
+            {
+                dateeng = DateTime.Parse("01/01/0001 00:00:00");
+            }
+            String siopi = comboBox_SIOPI.Text;
+            //DateTime datesiopi = DateTime.Parse(datasiopi);
+            if (dtpsiopi.Text != "")
+            {
+                datesiopi = DateTime.Parse(dtpsiopi.Text);
+            }
+            else
+            {
+                datesiopi = DateTime.Parse("01/01/0001 00:00:00");
+            }
+            String sictd = comboBox_SICTD.Text;
+            //DateTime datesictd = DateTime.Parse(datasictd);
+            if (dtpsictd.Text != "")
+            {
+                datesictd = DateTime.Parse(dtpsictd.Text);
+            }
+            else
+            {
+                datesictd = DateTime.Parse("01/01/0001 00:00:00");
+            }
+            String saquefgts = comboBox_saque.Text;
+            //DateTime datesaquefgts = DateTime.Parse(datasaquefgts);
+            if (dtpfgts.Text != "")
+            {
+                datesaquefgts = DateTime.Parse(dtpfgts.Text);
+            }
+            else
+            {
+                datesaquefgts = DateTime.Parse("01/01/0001 00:00:00");
+            }
+            String pa = comboBox_PA.Text;
+            //DateTime datepa = DateTime.Parse(datapa);
+            if (dtppa.Text != "")
+            {
+                datepa = DateTime.Parse(dtppa.Text);
+
+            }
+            else
+            {
+                datepa = DateTime.Parse("01/01/0001 00:00:00");
+            }
+            //idagencia = comboBox_agencia.SelectedValue.ToString();
+
+            //idprograma = comboBox_programa.SelectedValue.ToString();
+
+            String Valorimov = valorimovel.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
+            String Valorfinan = valorfinanciado.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
+
+            String combocorretora = idcorretora;
+            String combocorretores = idcorretor;
+            String combocoempreendimentos = idempreendimentos;
+
+            if (dtpcartorio.Text == "")
+            {
+                idCartorio = "0";
+            }//Get process load or set combobox click
+            String cartorio = comboBox_statuscartorio.Text;
+            if (dtpcartorio.Text != "")
+            {
+                datecartorio = DateTime.Parse(dtpcartorio.Text);
+            }
+            else
+            {
+                datecartorio = DateTime.Parse("01/01/0001 00:00:00");
+            }
+
+
+            lblstatus.Text = statusprocesso;
+            //DateTime datestatus = DateTime.Parse(datastatus);
+            #endregion
+
+            updateprocesso.UpdateProcesso(idProcess, cpf, datecpf, ciweb, dateciweb, cadmut, datecadmut, ir, dateir, fgts, datefgts, analise, dateanalise, eng, dateeng, siopi, datesiopi, sictd, datesictd, saquefgts, datesaquefgts, pa, datepa, idagencia, idprograma, Valorimov, Valorfinan, combocorretora, combocorretores, combocoempreendimentos, idCartorio, cartorio, datecartorio, statusprocesso, txtobservacao.Text);
+            MessageBox.Show(updateprocesso.mensagem, "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            if (ProcessoSalvo != null)
+                ProcessoSalvo.Invoke();
+
+            //Close();
+
+
+            DesabilitarEdicao();
+        }
+
         private void comboBox_tipoArquivo_MouseClick(object sender, MouseEventArgs e)
         {
             if (String.IsNullOrEmpty(comboBox_tipoProcesso.Text))
@@ -2118,7 +2169,142 @@ namespace LMFinanciamentos.Apresentacao
             //    Cursor = Cursors.Default;
             //}
         }
+        private void HabilitarEdicao()
+        {
+            GetValueEdit();
+            #region Cliente
+            //ComboBoxClient.ReadOnly = false;
+            //txtcpf.ReadOnly = false;
+            //txtrg.ReadOnly = false;
+            //txtnasc.ReadOnly = false;
+            //txtemail.ReadOnly = false;
+            //txttelefone.ReadOnly = false;
+            //txtcelular.ReadOnly = false;
+            //txtrenda.ReadOnly = false;
+            txtStatusCPF.Enabled = true;
+            txtciweb.Enabled = true;
+            txtcadmut.Enabled = true;
+            txtir.Enabled = true;
+            txtfgts.Enabled = true;
+            dtpcpf.Enabled = true;
+            dtpciweb.Enabled = true;
+            dtpcadmut.Enabled = true;
+            dtpir.Enabled = true;
+            dtpfgtscli.Enabled = true;
 
+
+            txtagenciacliente.ReadOnly = false;
+            txtcontacliente.ReadOnly = false;
+            txtobservacao.ReadOnly = false;
+            #endregion
+
+            #region Vendedor
+            textnomevendedor.ReadOnly = false;
+            textcnpjcpf.ReadOnly = false;
+            textagenciavendedor.ReadOnly = false;
+            txtcontavendedor.ReadOnly = false;
+            textemailvendedor.ReadOnly = false;
+            texttelefonevendedor.ReadOnly = false;
+            textcelularvendedor.ReadOnly = false;
+            #endregion
+
+            #region Botões
+            btn_editar.Visible = false;
+            splitter2.Visible = true;
+            btncancelardoc.Visible = true;
+            splitter1.Visible = false;
+            btnsalvardoc.Visible = true;
+            //splitter3.Visible = false;
+            // btn_excluir.Visible = false;
+            #endregion
+
+        }
+
+        private void txttelefone_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void btncancelardoc_Click_1(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btn_editar_Click(object sender, EventArgs e)
+        {
+            if (nomeresponsavel == nomeuserloged)
+            {
+                HabilitarEdicao();
+            }
+            else
+            {
+                MessageBox.Show("Tomar resposabilidade deste Prcesso?","Alterar Responsável", MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
+            }
+
+
+
+            //HabilitarEdicao();
+        }
+        private void GetValueEdit()
+        {
+            StatusCPF = txtStatusCPF.Text;
+            datacpf = dtpcpf.Text;
+            ciweb = txtciweb.Text;
+            dataciweb = dtpciweb.Text;
+            cadmut = txtcadmut.Text;
+            datacadmut = dtpcadmut.Text;
+            ir = txtir.Text;
+            datair = dtpir.Text;
+            fgts = txtfgts.Text;
+            datafgts = dtpfgts.Text;
+            obs = txtobservacao.Text;
+        }
+        private void DesabilitarEdicao()
+        {
+            #region Cliente
+            ComboBoxClient.ReadOnly = true;
+            txtcpf.ReadOnly = true;
+            txtrg.ReadOnly = true;
+            txtnasc.ReadOnly = true;
+            txtemail.ReadOnly = true;
+            txttelefone.ReadOnly = true;
+            txtcelular.ReadOnly = true;
+            txtrenda.ReadOnly = true;
+            txtStatusCPF.Enabled = false;
+            txtciweb.Enabled = false;
+            txtcadmut.Enabled = false;
+            txtir.Enabled = false;
+            txtfgts.Enabled = false;
+            dtpcpf.Enabled = false;
+            dtpciweb.Enabled = false;
+            dtpcadmut.Enabled = false;
+            dtpir.Enabled = false;
+            dtpfgtscli.Enabled = false;
+
+
+            txtagenciacliente.ReadOnly = true;
+            txtcontacliente.ReadOnly = true;
+            txtobservacao.ReadOnly = true;
+            #endregion
+
+            #region Vendedor
+            textnomevendedor.ReadOnly = true;
+            textcnpjcpf.ReadOnly = true;
+            textagenciavendedor.ReadOnly = true;
+            txtcontavendedor.ReadOnly = true;
+            textemailvendedor.ReadOnly = true;
+            texttelefonevendedor.ReadOnly = true;
+            textcelularvendedor.ReadOnly = true;
+            #endregion
+
+            #region Botões
+            btn_editar.Visible = true;
+            splitter1.Visible = false;
+            btncancelardoc.Visible = false;
+            splitter2.Visible = false;
+            btnsalvardoc.Visible = false;
+            #endregion
+        }
 
 
         private void comboBox_tipoProcesso_SelectionChangeCommitted(object sender, EventArgs e)

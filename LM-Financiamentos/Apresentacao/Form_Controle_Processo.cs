@@ -51,7 +51,7 @@ namespace LMFinanciamentos.Apresentacao
 
         private void Form_Controle_Documento_Load(object sender, EventArgs e)
         {
-
+            
             txtprocurar.Select();
             this.ActiveControl = txtprocurar;
             txtprocurar.Focus();
@@ -127,6 +127,7 @@ namespace LMFinanciamentos.Apresentacao
             Cursor = Cursors.WaitCursor;
             Form_Dados_Processos frm_dados_documentos = new Form_Dados_Processos();
             frm_dados_documentos.setIdProcess(dgv_process.SelectedRows[0].Cells["id"].Value.ToString());
+            frm_dados_documentos.setUserLoged(idresponsavel, nomeresponsavel);
             frm_dados_documentos.ProcessoSalvo += new Action(frm_dados_documentos_ProcessoSalvo);
             processoselecionado = dgv_process.CurrentCell.RowIndex;
             contgrid = dgv_process.Rows.Count;
@@ -185,6 +186,7 @@ namespace LMFinanciamentos.Apresentacao
             Cursor = Cursors.WaitCursor;
             Form_Dados_Processos frm_dados_processo = new Form_Dados_Processos();
             frm_dados_processo.setIdProcess(dgv_process.SelectedRows[0].Cells["id"].Value.ToString());
+            frm_dados_processo.setUserLoged(idresponsavel, nomeresponsavel);
             processoselecionado = dgv_process.CurrentCell.RowIndex;
             frm_dados_processo.ProcessoSalvo += new Action(frm_dados_documentos_ProcessoSalvo);
             contgrid = dgv_process.Rows.Count;

@@ -58,7 +58,6 @@ namespace LMFinanciamentos.Apresentacao
             this.dS_Documentos = new LMFinanciamentos.DAL.DS_Documentos();
             this.processosTableAdapter = new LMFinanciamentos.DAL.DS_DocumentosTableAdapters.ProcessosTableAdapter();
             this.dgv_process = new System.Windows.Forms.DataGridView();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,6 +65,7 @@ namespace LMFinanciamentos.Apresentacao
             this.Corretora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Corretor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.paneltop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).BeginInit();
@@ -106,7 +106,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btn_editar.Padding = new System.Windows.Forms.Padding(4);
             this.btn_editar.Size = new System.Drawing.Size(104, 32);
             this.btn_editar.TabIndex = 29;
-            this.btn_editar.Text = "Editar";
+            this.btn_editar.Text = "Abrir";
             this.toolTip1.SetToolTip(this.btn_editar, "Editar Processo");
             this.btn_editar.UseCompatibleTextRendering = true;
             this.btn_editar.UseVisualStyleBackColor = false;

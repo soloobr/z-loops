@@ -31,15 +31,14 @@ namespace LMFinanciamentos.Apresentacao
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Dados_Processos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btnsalvardoc = new System.Windows.Forms.Button();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle112 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle105 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle106 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle107 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle108 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle109 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle110 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle111 = new System.Windows.Forms.DataGridViewCellStyle();
             this.processosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dSDocumentosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dS_Documentos = new LMFinanciamentos.DAL.DS_Documentos();
@@ -50,8 +49,6 @@ namespace LMFinanciamentos.Apresentacao
             this.img_topo = new System.Windows.Forms.PictureBox();
             this.btncloseconf = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btncancelardoc = new System.Windows.Forms.Button();
-            this.splitter1 = new System.Windows.Forms.Splitter();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabcliente = new System.Windows.Forms.TabPage();
             this.grpbObservacao = new System.Windows.Forms.GroupBox();
@@ -263,6 +260,11 @@ namespace LMFinanciamentos.Apresentacao
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientesTableAdapter = new LMFinanciamentos.DAL.DS_ClientesTableAdapters.ClientesTableAdapter();
             this.clientesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.splitter1 = new System.Windows.Forms.Splitter();
+            this.btn_editar = new System.Windows.Forms.Button();
+            this.btncancelardoc = new System.Windows.Forms.Button();
+            this.splitter2 = new System.Windows.Forms.Splitter();
+            this.btnsalvardoc = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.processosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSDocumentosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Documentos)).BeginInit();
@@ -344,22 +346,6 @@ namespace LMFinanciamentos.Apresentacao
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnsalvardoc
-            // 
-            this.btnsalvardoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.btnsalvardoc.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnsalvardoc.FlatAppearance.BorderSize = 0;
-            this.btnsalvardoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnsalvardoc.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnsalvardoc.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnsalvardoc.Location = new System.Drawing.Point(10, 10);
-            this.btnsalvardoc.Name = "btnsalvardoc";
-            this.btnsalvardoc.Size = new System.Drawing.Size(104, 32);
-            this.btnsalvardoc.TabIndex = 3;
-            this.btnsalvardoc.Text = "Salvar";
-            this.btnsalvardoc.UseVisualStyleBackColor = false;
-            this.btnsalvardoc.Click += new System.EventHandler(this.btnsalvardoc_Click);
             // 
             // processosBindingSource
             // 
@@ -463,8 +449,10 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.panel1.Controls.Add(this.btncancelardoc);
-            this.panel1.Controls.Add(this.splitter1);
+            this.panel1.Controls.Add(this.splitter2);
             this.panel1.Controls.Add(this.btnsalvardoc);
+            this.panel1.Controls.Add(this.splitter1);
+            this.panel1.Controls.Add(this.btn_editar);
             this.panel1.Controls.Add(this.btncloseconf);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 655);
@@ -472,30 +460,6 @@ namespace LMFinanciamentos.Apresentacao
             this.panel1.Padding = new System.Windows.Forms.Padding(10);
             this.panel1.Size = new System.Drawing.Size(1112, 52);
             this.panel1.TabIndex = 12;
-            // 
-            // btncancelardoc
-            // 
-            this.btncancelardoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.btncancelardoc.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btncancelardoc.FlatAppearance.BorderSize = 0;
-            this.btncancelardoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btncancelardoc.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btncancelardoc.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btncancelardoc.Location = new System.Drawing.Point(124, 10);
-            this.btncancelardoc.Name = "btncancelardoc";
-            this.btncancelardoc.Size = new System.Drawing.Size(104, 32);
-            this.btncancelardoc.TabIndex = 5;
-            this.btncancelardoc.Text = "Cancelar";
-            this.btncancelardoc.UseVisualStyleBackColor = false;
-            this.btncancelardoc.Click += new System.EventHandler(this.btncancelardoc_Click);
-            // 
-            // splitter1
-            // 
-            this.splitter1.Location = new System.Drawing.Point(114, 10);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(10, 32);
-            this.splitter1.TabIndex = 4;
-            this.splitter1.TabStop = false;
             // 
             // tabControl
             // 
@@ -545,6 +509,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtobservacao.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtobservacao.Location = new System.Drawing.Point(10, 26);
             this.txtobservacao.Name = "txtobservacao";
+            this.txtobservacao.ReadOnly = true;
             this.txtobservacao.Size = new System.Drawing.Size(1044, 68);
             this.txtobservacao.TabIndex = 0;
             this.txtobservacao.Text = "";
@@ -610,6 +575,7 @@ namespace LMFinanciamentos.Apresentacao
             // dtpcpf
             // 
             this.dtpcpf.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dtpcpf.Enabled = false;
             this.dtpcpf.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F);
             this.dtpcpf.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpcpf.Location = new System.Drawing.Point(0, 27);
@@ -642,6 +608,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtStatusCPF.BackColor = System.Drawing.SystemColors.Control;
             this.txtStatusCPF.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtStatusCPF.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtStatusCPF.Enabled = false;
             this.txtStatusCPF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.txtStatusCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStatusCPF.FormattingEnabled = true;
@@ -693,6 +660,7 @@ namespace LMFinanciamentos.Apresentacao
             // dtpciweb
             // 
             this.dtpciweb.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dtpciweb.Enabled = false;
             this.dtpciweb.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F);
             this.dtpciweb.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpciweb.Location = new System.Drawing.Point(0, 27);
@@ -724,6 +692,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtciweb.BackColor = System.Drawing.SystemColors.Control;
             this.txtciweb.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtciweb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtciweb.Enabled = false;
             this.txtciweb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.txtciweb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtciweb.FormattingEnabled = true;
@@ -773,6 +742,7 @@ namespace LMFinanciamentos.Apresentacao
             // dtpcadmut
             // 
             this.dtpcadmut.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dtpcadmut.Enabled = false;
             this.dtpcadmut.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F);
             this.dtpcadmut.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpcadmut.Location = new System.Drawing.Point(0, 27);
@@ -799,6 +769,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcadmut.BackColor = System.Drawing.SystemColors.Control;
             this.txtcadmut.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtcadmut.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtcadmut.Enabled = false;
             this.txtcadmut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.txtcadmut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcadmut.FormattingEnabled = true;
@@ -848,6 +819,7 @@ namespace LMFinanciamentos.Apresentacao
             // dtpir
             // 
             this.dtpir.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dtpir.Enabled = false;
             this.dtpir.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F);
             this.dtpir.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpir.Location = new System.Drawing.Point(0, 27);
@@ -874,6 +846,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtir.BackColor = System.Drawing.SystemColors.Control;
             this.txtir.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtir.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtir.Enabled = false;
             this.txtir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.txtir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtir.FormattingEnabled = true;
@@ -922,6 +895,7 @@ namespace LMFinanciamentos.Apresentacao
             // dtpfgtscli
             // 
             this.dtpfgtscli.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dtpfgtscli.Enabled = false;
             this.dtpfgtscli.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F);
             this.dtpfgtscli.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpfgtscli.Location = new System.Drawing.Point(0, 27);
@@ -948,6 +922,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtfgts.BackColor = System.Drawing.SystemColors.Control;
             this.txtfgts.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtfgts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtfgts.Enabled = false;
             this.txtfgts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.txtfgts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtfgts.FormattingEnabled = true;
@@ -1036,6 +1011,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtrenda.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtrenda.Location = new System.Drawing.Point(3, 139);
             this.txtrenda.Name = "txtrenda";
+            this.txtrenda.ReadOnly = true;
             this.txtrenda.Size = new System.Drawing.Size(207, 27);
             this.txtrenda.TabIndex = 34;
             // 
@@ -1056,6 +1032,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcontacliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcontacliente.Location = new System.Drawing.Point(538, 139);
             this.txtcontacliente.Name = "txtcontacliente";
+            this.txtcontacliente.ReadOnly = true;
             this.txtcontacliente.Size = new System.Drawing.Size(159, 24);
             this.txtcontacliente.TabIndex = 30;
             // 
@@ -1075,6 +1052,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtagenciacliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtagenciacliente.Location = new System.Drawing.Point(373, 139);
             this.txtagenciacliente.Name = "txtagenciacliente";
+            this.txtagenciacliente.ReadOnly = true;
             this.txtagenciacliente.Size = new System.Drawing.Size(159, 24);
             this.txtagenciacliente.TabIndex = 28;
             // 
@@ -1094,6 +1072,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtrg.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtrg.Location = new System.Drawing.Point(538, 26);
             this.txtrg.Name = "txtrg";
+            this.txtrg.ReadOnly = true;
             this.txtrg.Size = new System.Drawing.Size(159, 24);
             this.txtrg.TabIndex = 26;
             // 
@@ -1113,6 +1092,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcelular.Location = new System.Drawing.Point(538, 86);
             this.txtcelular.Mask = "(99) 00000-0000";
             this.txtcelular.Name = "txtcelular";
+            this.txtcelular.ReadOnly = true;
             this.txtcelular.Size = new System.Drawing.Size(157, 24);
             this.txtcelular.TabIndex = 6;
             // 
@@ -1132,8 +1112,10 @@ namespace LMFinanciamentos.Apresentacao
             this.txttelefone.Location = new System.Drawing.Point(373, 86);
             this.txttelefone.Mask = "(99) 0000-0000";
             this.txttelefone.Name = "txttelefone";
+            this.txttelefone.ReadOnly = true;
             this.txttelefone.Size = new System.Drawing.Size(157, 24);
             this.txttelefone.TabIndex = 5;
+            this.txttelefone.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txttelefone_MaskInputRejected);
             // 
             // label19
             // 
@@ -1160,6 +1142,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtnasc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtnasc.Location = new System.Drawing.Point(703, 26);
             this.txtnasc.Name = "txtnasc";
+            this.txtnasc.ReadOnly = true;
             this.txtnasc.Size = new System.Drawing.Size(135, 24);
             this.txtnasc.TabIndex = 4;
             // 
@@ -1182,6 +1165,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtemail.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtemail.Location = new System.Drawing.Point(3, 86);
             this.txtemail.Name = "txtemail";
+            this.txtemail.ReadOnly = true;
             this.txtemail.Size = new System.Drawing.Size(364, 24);
             this.txtemail.TabIndex = 5;
             // 
@@ -1201,6 +1185,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcpf.Location = new System.Drawing.Point(373, 26);
             this.txtcpf.Name = "txtcpf";
+            this.txtcpf.ReadOnly = true;
             this.txtcpf.Size = new System.Drawing.Size(159, 24);
             this.txtcpf.TabIndex = 3;
             // 
@@ -1288,6 +1273,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcontavendedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcontavendedor.Location = new System.Drawing.Point(703, 26);
             this.txtcontavendedor.Name = "txtcontavendedor";
+            this.txtcontavendedor.ReadOnly = true;
             this.txtcontavendedor.Size = new System.Drawing.Size(159, 24);
             this.txtcontavendedor.TabIndex = 28;
             // 
@@ -1307,6 +1293,7 @@ namespace LMFinanciamentos.Apresentacao
             this.textagenciavendedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textagenciavendedor.Location = new System.Drawing.Point(538, 26);
             this.textagenciavendedor.Name = "textagenciavendedor";
+            this.textagenciavendedor.ReadOnly = true;
             this.textagenciavendedor.Size = new System.Drawing.Size(159, 24);
             this.textagenciavendedor.TabIndex = 26;
             // 
@@ -1326,6 +1313,7 @@ namespace LMFinanciamentos.Apresentacao
             this.textcelularvendedor.Location = new System.Drawing.Point(538, 86);
             this.textcelularvendedor.Mask = "(99) 00000-0000";
             this.textcelularvendedor.Name = "textcelularvendedor";
+            this.textcelularvendedor.ReadOnly = true;
             this.textcelularvendedor.Size = new System.Drawing.Size(157, 24);
             this.textcelularvendedor.TabIndex = 6;
             // 
@@ -1345,6 +1333,7 @@ namespace LMFinanciamentos.Apresentacao
             this.texttelefonevendedor.Location = new System.Drawing.Point(373, 86);
             this.texttelefonevendedor.Mask = "(99) 0000-0000";
             this.texttelefonevendedor.Name = "texttelefonevendedor";
+            this.texttelefonevendedor.ReadOnly = true;
             this.texttelefonevendedor.Size = new System.Drawing.Size(157, 24);
             this.texttelefonevendedor.TabIndex = 5;
             // 
@@ -1366,6 +1355,7 @@ namespace LMFinanciamentos.Apresentacao
             this.textemailvendedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textemailvendedor.Location = new System.Drawing.Point(3, 86);
             this.textemailvendedor.Name = "textemailvendedor";
+            this.textemailvendedor.ReadOnly = true;
             this.textemailvendedor.Size = new System.Drawing.Size(364, 24);
             this.textemailvendedor.TabIndex = 5;
             // 
@@ -1385,6 +1375,7 @@ namespace LMFinanciamentos.Apresentacao
             this.textcnpjcpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textcnpjcpf.Location = new System.Drawing.Point(373, 26);
             this.textcnpjcpf.Name = "textcnpjcpf";
+            this.textcnpjcpf.ReadOnly = true;
             this.textcnpjcpf.Size = new System.Drawing.Size(159, 24);
             this.textcnpjcpf.TabIndex = 3;
             // 
@@ -2611,14 +2602,14 @@ namespace LMFinanciamentos.Apresentacao
             this.Baixar,
             this.ver,
             this.Extensao});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_Arquivos.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle112.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle112.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle112.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle112.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle112.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle112.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle112.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_Arquivos.DefaultCellStyle = dataGridViewCellStyle112;
             this.dataGridView_Arquivos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_Arquivos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView_Arquivos.GridColor = System.Drawing.SystemColors.Control;
@@ -2637,9 +2628,9 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.Numero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Numero.DataPropertyName = "id";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = "0";
-            this.Numero.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle105.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle105.NullValue = "0";
+            this.Numero.DefaultCellStyle = dataGridViewCellStyle105;
             this.Numero.HeaderText = "Nº";
             this.Numero.Name = "Numero";
             this.Numero.ReadOnly = true;
@@ -2649,8 +2640,8 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.Tipo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             this.Tipo.DataPropertyName = "Tipo";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Tipo.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle106.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Tipo.DefaultCellStyle = dataGridViewCellStyle106;
             this.Tipo.HeaderText = "Tipo";
             this.Tipo.MinimumWidth = 250;
             this.Tipo.Name = "Tipo";
@@ -2661,8 +2652,8 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.descricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.descricao.DataPropertyName = "Descricao";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.descricao.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle107.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.descricao.DefaultCellStyle = dataGridViewCellStyle107;
             this.descricao.HeaderText = "Descrição";
             this.descricao.Name = "descricao";
             this.descricao.Width = 250;
@@ -2671,8 +2662,8 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.data.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.data.DataPropertyName = "Data";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.data.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle108.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.data.DefaultCellStyle = dataGridViewCellStyle108;
             this.data.HeaderText = "Data";
             this.data.Name = "data";
             // 
@@ -2680,8 +2671,8 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.status.DataPropertyName = "Status";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.status.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle109.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.status.DefaultCellStyle = dataGridViewCellStyle109;
             this.status.HeaderText = "Status";
             this.status.Name = "status";
             this.status.Width = 150;
@@ -2689,9 +2680,9 @@ namespace LMFinanciamentos.Apresentacao
             // apagar
             // 
             this.apagar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(1);
-            this.apagar.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle110.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle110.Padding = new System.Windows.Forms.Padding(1);
+            this.apagar.DefaultCellStyle = dataGridViewCellStyle110;
             this.apagar.FillWeight = 30F;
             this.apagar.HeaderText = "Excluir";
             this.apagar.MinimumWidth = 60;
@@ -2703,9 +2694,9 @@ namespace LMFinanciamentos.Apresentacao
             // Baixar
             // 
             this.Baixar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(1);
-            this.Baixar.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle111.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle111.Padding = new System.Windows.Forms.Padding(1);
+            this.Baixar.DefaultCellStyle = dataGridViewCellStyle111;
             this.Baixar.FillWeight = 30F;
             this.Baixar.HeaderText = "Baixar";
             this.Baixar.MinimumWidth = 60;
@@ -3053,6 +3044,75 @@ namespace LMFinanciamentos.Apresentacao
             this.clientesBindingSource1.DataMember = "Clientes";
             this.clientesBindingSource1.DataSource = this.dS_Clientes;
             // 
+            // splitter1
+            // 
+            this.splitter1.Location = new System.Drawing.Point(114, 10);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(10, 32);
+            this.splitter1.TabIndex = 28;
+            this.splitter1.TabStop = false;
+            this.splitter1.Visible = false;
+            // 
+            // btn_editar
+            // 
+            this.btn_editar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.btn_editar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_editar.FlatAppearance.BorderSize = 0;
+            this.btn_editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_editar.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_editar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_editar.Location = new System.Drawing.Point(10, 10);
+            this.btn_editar.Name = "btn_editar";
+            this.btn_editar.Padding = new System.Windows.Forms.Padding(4);
+            this.btn_editar.Size = new System.Drawing.Size(104, 32);
+            this.btn_editar.TabIndex = 27;
+            this.btn_editar.Text = "Editar";
+            this.btn_editar.UseCompatibleTextRendering = true;
+            this.btn_editar.UseVisualStyleBackColor = false;
+            this.btn_editar.Click += new System.EventHandler(this.btn_editar_Click);
+            // 
+            // btncancelardoc
+            // 
+            this.btncancelardoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.btncancelardoc.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btncancelardoc.FlatAppearance.BorderSize = 0;
+            this.btncancelardoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncancelardoc.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncancelardoc.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btncancelardoc.Location = new System.Drawing.Point(238, 10);
+            this.btncancelardoc.Name = "btncancelardoc";
+            this.btncancelardoc.Size = new System.Drawing.Size(104, 32);
+            this.btncancelardoc.TabIndex = 31;
+            this.btncancelardoc.Text = "Cancelar";
+            this.btncancelardoc.UseVisualStyleBackColor = false;
+            this.btncancelardoc.Visible = false;
+            this.btncancelardoc.Click += new System.EventHandler(this.btncancelardoc_Click);
+            // 
+            // splitter2
+            // 
+            this.splitter2.Location = new System.Drawing.Point(228, 10);
+            this.splitter2.Name = "splitter2";
+            this.splitter2.Size = new System.Drawing.Size(10, 32);
+            this.splitter2.TabIndex = 30;
+            this.splitter2.TabStop = false;
+            // 
+            // btnsalvardoc
+            // 
+            this.btnsalvardoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.btnsalvardoc.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnsalvardoc.FlatAppearance.BorderSize = 0;
+            this.btnsalvardoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnsalvardoc.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnsalvardoc.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnsalvardoc.Location = new System.Drawing.Point(124, 10);
+            this.btnsalvardoc.Name = "btnsalvardoc";
+            this.btnsalvardoc.Size = new System.Drawing.Size(104, 32);
+            this.btnsalvardoc.TabIndex = 29;
+            this.btnsalvardoc.Text = "Salvar";
+            this.btnsalvardoc.UseVisualStyleBackColor = false;
+            this.btnsalvardoc.Visible = false;
+            this.btnsalvardoc.Click += new System.EventHandler(this.btnsalvardoc_Click_1);
+            // 
             // Form_Dados_Processos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3186,8 +3246,6 @@ namespace LMFinanciamentos.Apresentacao
         }
 
         #endregion
-
-        public System.Windows.Forms.Button btnsalvardoc;
         private DAL.DS_Documentos dS_Documentos;
         private System.Windows.Forms.BindingSource dSDocumentosBindingSource;
         private System.Windows.Forms.BindingSource processosBindingSource;
@@ -3202,8 +3260,6 @@ namespace LMFinanciamentos.Apresentacao
         public System.Windows.Forms.Button btncloseconf;
         private System.Windows.Forms.Panel panel1;
         private DAL.DS_DocumentosTableAdapters.ProcessosTableAdapter processosTableAdapter;
-        public System.Windows.Forms.Button btncancelardoc;
-        private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabcliente;
         private System.Windows.Forms.TabPage tabcartorio;
@@ -3416,6 +3472,11 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.TextBox txtrenda;
         private System.Windows.Forms.GroupBox grpbObservacao;
         private System.Windows.Forms.RichTextBox txtobservacao;
+        public System.Windows.Forms.Button btncancelardoc;
+        private System.Windows.Forms.Splitter splitter2;
+        public System.Windows.Forms.Button btnsalvardoc;
+        private System.Windows.Forms.Splitter splitter1;
+        private System.Windows.Forms.Button btn_editar;
         //private System.Windows.Forms.BindingSource corretoraBindingSource;
         //private System.Windows.Forms.BindingSource corretoresBindingSource;
         //private System.Windows.Forms.BindingSource vendedorBindingSource;

@@ -191,7 +191,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.47761F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.52239F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 224F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 225F));
             this.tableLayoutPanel1.Controls.Add(this.groupBox_servidor, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.grp_seguranca, 0, 0);
@@ -223,7 +223,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel2.Controls.Add(this.txtcaminhoarquivos, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.label5, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.label4, 0, 0);
@@ -300,7 +300,7 @@ namespace LMFinanciamentos.Apresentacao
             this.groupBox1.Location = new System.Drawing.Point(362, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(10);
-            this.groupBox1.Size = new System.Drawing.Size(294, 232);
+            this.groupBox1.Size = new System.Drawing.Size(293, 232);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Geral";
@@ -311,7 +311,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(10, 30);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(274, 39);
+            this.panel4.Size = new System.Drawing.Size(273, 39);
             this.panel4.TabIndex = 2;
             // 
             // checkBox1
@@ -320,7 +320,7 @@ namespace LMFinanciamentos.Apresentacao
             this.checkBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.checkBox1.Location = new System.Drawing.Point(0, 0);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(274, 39);
+            this.checkBox1.Size = new System.Drawing.Size(273, 39);
             this.checkBox1.TabIndex = 0;
             this.checkBox1.Text = "Não mostrar Foto  ";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -550,9 +550,9 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.lblversion.AutoSize = true;
             this.lblversion.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblversion.Location = new System.Drawing.Point(662, 394);
+            this.lblversion.Location = new System.Drawing.Point(661, 394);
             this.lblversion.Name = "lblversion";
-            this.lblversion.Size = new System.Drawing.Size(219, 13);
+            this.lblversion.Size = new System.Drawing.Size(220, 13);
             this.lblversion.TabIndex = 8;
             this.lblversion.Text = "Version";
             this.lblversion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
