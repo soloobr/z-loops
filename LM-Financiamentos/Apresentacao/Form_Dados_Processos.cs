@@ -1858,6 +1858,73 @@ namespace LMFinanciamentos.Apresentacao
             }
         }
 
+        private void btnalterresp_Click(object sender, EventArgs e)
+        {
+            if (comboBox_resp.Visible == true)
+            {
+                comboBox_resp.Visible = false;
+            }else if (comboBox_resp.Visible == false)
+            {
+                comboBox_resp.Visible = true;
+            }
+        }
+
+        private void comboBox_resp_Click(object sender, EventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            if (comboBox_resp.DataSource is null)
+            {
+                comboBox_resp.IntegralHeight = false;
+                LoginDaoComandos getcombo = new LoginDaoComandos();
+                #region Popular combobox
+                comboBox_resp.DataSource = getcombo.GetDataRespProc();
+                comboBox_resp.DisplayMember = "Nome";
+                comboBox_resp.ValueMember = "id";
+                //comboBox_agencia.Text = "";
+
+                #endregion
+
+                comboBox_resp.DroppedDown = true;
+                Cursor = Cursors.Default;
+            }
+            else
+            {
+                Cursor = Cursors.Default;
+            }
+        }
+
+        private void comboBox_resp_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(" Transferir a resposabilidade deste Prcesso para o Colaborador(a): \n "+ comboBox_resp.Text + " ? ", "Alterar Responsável", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                idresponsavel = comboBox_resp.SelectedValue.ToString();
+                LoginDaoComandos updateprocesso = new LoginDaoComandos();
+
+                updateprocesso.UpdateRespProcesso(idProcess, idresponsavel);
+
+                if (updateprocesso.mensagem == "Responsável Alterado com Sucesso")
+                {
+                    
+                    //HabilitarEdicao();
+                    lblfuncresponsavel.Text = comboBox_resp.Text;
+                    comboBox_resp.Visible = false;
+                    comboBox_resp.Text = "";
+                    MessageBox.Show(updateprocesso.mensagem);
+
+                }
+                else
+                {
+                    MessageBox.Show(updateprocesso.mensagem);
+                    comboBox_resp.Visible = false;
+                }
+
+            }
+            else
+            {
+                comboBox_resp.Visible = false;
+            }
+        }
+
         private void btnsalvardoc_Click_1(object sender, EventArgs e)
         {
             Get_Status();
@@ -2211,6 +2278,40 @@ namespace LMFinanciamentos.Apresentacao
             textcelularvendedor.ReadOnly = false;
             #endregion
 
+            #region Processo
+            comboBox_analise.Enabled = true;
+            dtpanalise.Enabled = true;
+            comboBox_statuseng.Enabled = true;
+            dtpeng.Enabled = true;
+            comboBox_SIOPI.Enabled = true;
+            dtpsiopi.Enabled = true;
+            comboBox_SICTD.Enabled = true;
+            dtpsictd.Enabled = true;
+            comboBox_saque.Enabled = true;
+            dtpfgts.Enabled = true;
+            comboBox_PA.Enabled = true;
+            dtppa.Enabled = true;
+            comboBox_agencia.Enabled = true;
+            comboBox_programa.Enabled = true;
+            valorimovel.Enabled = true;
+            valorfinanciado.Enabled = true;
+            comboBox_corretora.Enabled = true;
+            comboBox_corretor.Enabled = true;
+            comboBox_empreendimentos.Enabled = true;
+            comboBox_nomecartorio.Enabled = true;
+            btnenviar.Enabled = true;
+            comboBox_statuscartorio.Enabled = true;
+            dtpcartorio.Enabled = true;
+            txtArquivo.Enabled = true;
+            btnSelecionarArquivos.Enabled = true;
+            comboBox_tipoProcesso.Enabled = true;
+            comboBox_tipoArquivo.Enabled = true;
+            btnAnexar.Enabled = true;
+            txtdescricao.Enabled = true;
+            dataGridView_Arquivos.Enabled = true;
+
+            #endregion
+
             #region Botões
             btn_editar.Visible = false;
             splitter2.Visible = true;
@@ -2322,6 +2423,40 @@ namespace LMFinanciamentos.Apresentacao
             textemailvendedor.ReadOnly = true;
             texttelefonevendedor.ReadOnly = true;
             textcelularvendedor.ReadOnly = true;
+            #endregion
+
+            #region Processo
+            comboBox_analise.Enabled = false;
+            dtpanalise.Enabled = false;
+            comboBox_statuseng.Enabled = false;
+            dtpeng.Enabled = false;
+            comboBox_SIOPI.Enabled = false;
+            dtpsiopi.Enabled = false;
+            comboBox_SICTD.Enabled = false;
+            dtpsictd.Enabled = false;
+            comboBox_saque.Enabled = false;
+            dtpfgts.Enabled = false;
+            comboBox_PA.Enabled = false;
+            dtppa.Enabled = false;
+            comboBox_agencia.Enabled = false;
+            comboBox_programa.Enabled = false;
+            valorimovel.Enabled = false;
+            valorfinanciado.Enabled = false;
+            comboBox_corretora.Enabled = false;
+            comboBox_corretor.Enabled = false;
+            comboBox_empreendimentos.Enabled = false;
+            comboBox_nomecartorio.Enabled = false;
+            btnenviar.Enabled = false;
+            comboBox_statuscartorio.Enabled = false;
+            dtpcartorio.Enabled = false;
+            txtArquivo.Enabled = false;
+            btnSelecionarArquivos.Enabled = false;
+            comboBox_tipoProcesso.Enabled = false;
+            comboBox_tipoArquivo.Enabled = false;
+            btnAnexar.Enabled = false;
+            txtdescricao.Enabled = false;
+            dataGridView_Arquivos.Enabled = false;
+
             #endregion
 
             #region Botões

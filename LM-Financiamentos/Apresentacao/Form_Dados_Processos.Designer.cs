@@ -40,8 +40,6 @@ namespace LMFinanciamentos.Apresentacao
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.processosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dSDocumentosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dS_Documentos = new LMFinanciamentos.DAL.DS_Documentos();
             this.lbl_topo = new System.Windows.Forms.Label();
             this.paneltop = new System.Windows.Forms.Panel();
             this.lblnumeroprocesso = new System.Windows.Forms.Label();
@@ -248,26 +246,29 @@ namespace LMFinanciamentos.Apresentacao
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
             this.clientesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.dSClientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dS_Clientes = new LMFinanciamentos.DAL.DS_Clientes();
             this.kryptonContextMenuItems1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.kryptonContextMenuItems2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.panelfuncresp = new System.Windows.Forms.Panel();
             this.lbldata = new System.Windows.Forms.Label();
             this.lbldatalbl = new System.Windows.Forms.Label();
-            this.lblfunc = new System.Windows.Forms.Label();
-            this.lblfuncresponsavel = new System.Windows.Forms.Label();
             this.ofd1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.funcionariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dSDocumentosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dS_Documentos = new LMFinanciamentos.DAL.DS_Documentos();
+            this.dSClientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dS_Clientes = new LMFinanciamentos.DAL.DS_Clientes();
             this.processosTableAdapter = new LMFinanciamentos.DAL.DS_DocumentosTableAdapters.ProcessosTableAdapter();
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientesTableAdapter = new LMFinanciamentos.DAL.DS_ClientesTableAdapters.ClientesTableAdapter();
             this.clientesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.btnalterresp = new System.Windows.Forms.Button();
+            this.comboBox_resp = new System.Windows.Forms.ComboBox();
+            this.lblfunc = new System.Windows.Forms.Label();
+            this.lblfuncresponsavel = new System.Windows.Forms.Label();
+            this.toolTip_btn = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.processosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSDocumentosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS_Documentos)).BeginInit();
             this.paneltop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).BeginInit();
             this.panel1.SuspendLayout();
@@ -339,10 +340,12 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel10.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSClientesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS_Clientes)).BeginInit();
             this.panelfuncresp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSDocumentosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS_Documentos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSClientesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS_Clientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -351,16 +354,6 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.processosBindingSource.DataMember = "Processos";
             this.processosBindingSource.DataSource = this.dSDocumentosBindingSource;
-            // 
-            // dSDocumentosBindingSource
-            // 
-            this.dSDocumentosBindingSource.DataSource = this.dS_Documentos;
-            this.dSDocumentosBindingSource.Position = 0;
-            // 
-            // dS_Documentos
-            // 
-            this.dS_Documentos.DataSetName = "DS_Documentos";
-            this.dS_Documentos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // lbl_topo
             // 
@@ -1555,6 +1548,7 @@ namespace LMFinanciamentos.Apresentacao
             this.comboBox_corretora.BackColor = System.Drawing.SystemColors.Control;
             this.comboBox_corretora.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBox_corretora.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_corretora.Enabled = false;
             this.comboBox_corretora.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox_corretora.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_corretora.FormattingEnabled = true;
@@ -1594,6 +1588,7 @@ namespace LMFinanciamentos.Apresentacao
             this.comboBox_corretor.BackColor = System.Drawing.SystemColors.Control;
             this.comboBox_corretor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBox_corretor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_corretor.Enabled = false;
             this.comboBox_corretor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox_corretor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_corretor.FormattingEnabled = true;
@@ -1634,6 +1629,7 @@ namespace LMFinanciamentos.Apresentacao
             this.comboBox_empreendimentos.BackColor = System.Drawing.SystemColors.Control;
             this.comboBox_empreendimentos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBox_empreendimentos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_empreendimentos.Enabled = false;
             this.comboBox_empreendimentos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox_empreendimentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_empreendimentos.FormattingEnabled = true;
@@ -1714,6 +1710,7 @@ namespace LMFinanciamentos.Apresentacao
             // valorfinanciado
             // 
             this.valorfinanciado.Dock = System.Windows.Forms.DockStyle.Top;
+            this.valorfinanciado.Enabled = false;
             this.valorfinanciado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.valorfinanciado.Location = new System.Drawing.Point(3, 24);
             this.valorfinanciado.Name = "valorfinanciado";
@@ -1747,6 +1744,7 @@ namespace LMFinanciamentos.Apresentacao
             // valorimovel
             // 
             this.valorimovel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.valorimovel.Enabled = false;
             this.valorimovel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.valorimovel.Location = new System.Drawing.Point(3, 24);
             this.valorimovel.Name = "valorimovel";
@@ -1785,6 +1783,7 @@ namespace LMFinanciamentos.Apresentacao
             this.comboBox_programa.BackColor = System.Drawing.SystemColors.Control;
             this.comboBox_programa.Dock = System.Windows.Forms.DockStyle.Top;
             this.comboBox_programa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_programa.Enabled = false;
             this.comboBox_programa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBox_programa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_programa.FormattingEnabled = true;
@@ -1823,6 +1822,7 @@ namespace LMFinanciamentos.Apresentacao
             this.comboBox_agencia.BackColor = System.Drawing.SystemColors.Control;
             this.comboBox_agencia.Dock = System.Windows.Forms.DockStyle.Top;
             this.comboBox_agencia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_agencia.Enabled = false;
             this.comboBox_agencia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox_agencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_agencia.FormattingEnabled = true;
@@ -1918,6 +1918,7 @@ namespace LMFinanciamentos.Apresentacao
             // dtppa
             // 
             this.dtppa.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dtppa.Enabled = false;
             this.dtppa.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F);
             this.dtppa.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtppa.Location = new System.Drawing.Point(0, 21);
@@ -1947,6 +1948,7 @@ namespace LMFinanciamentos.Apresentacao
             this.comboBox_PA.Dock = System.Windows.Forms.DockStyle.Top;
             this.comboBox_PA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_PA.DropDownWidth = 160;
+            this.comboBox_PA.Enabled = false;
             this.comboBox_PA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox_PA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_PA.FormattingEnabled = true;
@@ -2026,6 +2028,7 @@ namespace LMFinanciamentos.Apresentacao
             this.comboBox_SICTD.BackColor = System.Drawing.SystemColors.Control;
             this.comboBox_SICTD.Dock = System.Windows.Forms.DockStyle.Top;
             this.comboBox_SICTD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_SICTD.Enabled = false;
             this.comboBox_SICTD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox_SICTD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_SICTD.FormattingEnabled = true;
@@ -2075,6 +2078,7 @@ namespace LMFinanciamentos.Apresentacao
             // dtpsiopi
             // 
             this.dtpsiopi.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dtpsiopi.Enabled = false;
             this.dtpsiopi.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpsiopi.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpsiopi.Location = new System.Drawing.Point(0, 21);
@@ -2103,6 +2107,7 @@ namespace LMFinanciamentos.Apresentacao
             this.comboBox_SIOPI.BackColor = System.Drawing.SystemColors.Control;
             this.comboBox_SIOPI.Dock = System.Windows.Forms.DockStyle.Top;
             this.comboBox_SIOPI.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_SIOPI.Enabled = false;
             this.comboBox_SIOPI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox_SIOPI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_SIOPI.FormattingEnabled = true;
@@ -2180,6 +2185,7 @@ namespace LMFinanciamentos.Apresentacao
             this.comboBox_saque.BackColor = System.Drawing.SystemColors.Control;
             this.comboBox_saque.Dock = System.Windows.Forms.DockStyle.Top;
             this.comboBox_saque.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_saque.Enabled = false;
             this.comboBox_saque.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox_saque.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_saque.FormattingEnabled = true;
@@ -2232,6 +2238,7 @@ namespace LMFinanciamentos.Apresentacao
             this.dtpeng.CustomFormat = "";
             this.dtpeng.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dtpeng.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.dtpeng.Enabled = false;
             this.dtpeng.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F);
             this.dtpeng.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpeng.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -2262,6 +2269,7 @@ namespace LMFinanciamentos.Apresentacao
             this.comboBox_statuseng.BackColor = System.Drawing.SystemColors.Control;
             this.comboBox_statuseng.Dock = System.Windows.Forms.DockStyle.Top;
             this.comboBox_statuseng.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_statuseng.Enabled = false;
             this.comboBox_statuseng.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox_statuseng.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_statuseng.FormattingEnabled = true;
@@ -2314,6 +2322,7 @@ namespace LMFinanciamentos.Apresentacao
             // dtpanalise
             // 
             this.dtpanalise.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dtpanalise.Enabled = false;
             this.dtpanalise.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F);
             this.dtpanalise.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpanalise.Location = new System.Drawing.Point(0, 21);
@@ -2342,6 +2351,7 @@ namespace LMFinanciamentos.Apresentacao
             this.comboBox_analise.BackColor = System.Drawing.SystemColors.Control;
             this.comboBox_analise.Dock = System.Windows.Forms.DockStyle.Top;
             this.comboBox_analise.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_analise.Enabled = false;
             this.comboBox_analise.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox_analise.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_analise.FormattingEnabled = true;
@@ -2443,6 +2453,7 @@ namespace LMFinanciamentos.Apresentacao
             // dtpcartorio
             // 
             this.dtpcartorio.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dtpcartorio.Enabled = false;
             this.dtpcartorio.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F);
             this.dtpcartorio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpcartorio.Location = new System.Drawing.Point(0, 27);
@@ -2471,6 +2482,7 @@ namespace LMFinanciamentos.Apresentacao
             this.comboBox_statuscartorio.BackColor = System.Drawing.SystemColors.Control;
             this.comboBox_statuscartorio.Dock = System.Windows.Forms.DockStyle.Top;
             this.comboBox_statuscartorio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_statuscartorio.Enabled = false;
             this.comboBox_statuscartorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox_statuscartorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_statuscartorio.FormattingEnabled = true;
@@ -2575,6 +2587,7 @@ namespace LMFinanciamentos.Apresentacao
             // btnenviar
             // 
             this.btnenviar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.btnenviar.Enabled = false;
             this.btnenviar.FlatAppearance.BorderSize = 0;
             this.btnenviar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnenviar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2605,6 +2618,7 @@ namespace LMFinanciamentos.Apresentacao
             this.comboBox_nomecartorio.BackColor = System.Drawing.SystemColors.Control;
             this.comboBox_nomecartorio.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBox_nomecartorio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_nomecartorio.Enabled = false;
             this.comboBox_nomecartorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox_nomecartorio.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_nomecartorio.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -2681,6 +2695,7 @@ namespace LMFinanciamentos.Apresentacao
             this.dataGridView_Arquivos.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView_Arquivos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_Arquivos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dataGridView_Arquivos.Enabled = false;
             this.dataGridView_Arquivos.GridColor = System.Drawing.SystemColors.Control;
             this.dataGridView_Arquivos.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.dataGridView_Arquivos.Location = new System.Drawing.Point(6, 26);
@@ -2864,6 +2879,7 @@ namespace LMFinanciamentos.Apresentacao
             this.comboBox_tipoProcesso.BackColor = System.Drawing.SystemColors.Control;
             this.comboBox_tipoProcesso.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBox_tipoProcesso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_tipoProcesso.Enabled = false;
             this.comboBox_tipoProcesso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox_tipoProcesso.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_tipoProcesso.FormattingEnabled = true;
@@ -2895,6 +2911,7 @@ namespace LMFinanciamentos.Apresentacao
             // btnAnexar
             // 
             this.btnAnexar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.btnAnexar.Enabled = false;
             this.btnAnexar.FlatAppearance.BorderSize = 0;
             this.btnAnexar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAnexar.Font = new System.Drawing.Font("Poppins SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2912,6 +2929,7 @@ namespace LMFinanciamentos.Apresentacao
             this.comboBox_tipoArquivo.BackColor = System.Drawing.SystemColors.Control;
             this.tableLayoutPanel10.SetColumnSpan(this.comboBox_tipoArquivo, 3);
             this.comboBox_tipoArquivo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_tipoArquivo.Enabled = false;
             this.comboBox_tipoArquivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox_tipoArquivo.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_tipoArquivo.FormattingEnabled = true;
@@ -2925,6 +2943,7 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.btnSelecionarArquivos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
             this.btnSelecionarArquivos.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnSelecionarArquivos.Enabled = false;
             this.btnSelecionarArquivos.FlatAppearance.BorderSize = 0;
             this.btnSelecionarArquivos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSelecionarArquivos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2941,6 +2960,7 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.tableLayoutPanel10.SetColumnSpan(this.txtArquivo, 2);
             this.txtArquivo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtArquivo.Enabled = false;
             this.txtArquivo.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtArquivo.Location = new System.Drawing.Point(3, 26);
             this.txtArquivo.Name = "txtArquivo";
@@ -2969,6 +2989,7 @@ namespace LMFinanciamentos.Apresentacao
             // txtdescricao
             // 
             this.tableLayoutPanel10.SetColumnSpan(this.txtdescricao, 3);
+            this.txtdescricao.Enabled = false;
             this.txtdescricao.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdescricao.Location = new System.Drawing.Point(3, 145);
             this.txtdescricao.Name = "txtdescricao";
@@ -3018,22 +3039,14 @@ namespace LMFinanciamentos.Apresentacao
             this.clientesBindingSource2.DataMember = "Clientes";
             this.clientesBindingSource2.DataSource = this.dSClientesBindingSource;
             // 
-            // dSClientesBindingSource
-            // 
-            this.dSClientesBindingSource.DataSource = this.dS_Clientes;
-            this.dSClientesBindingSource.Position = 0;
-            // 
-            // dS_Clientes
-            // 
-            this.dS_Clientes.DataSetName = "DS_Clientes";
-            this.dS_Clientes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // panelfuncresp
             // 
-            this.panelfuncresp.Controls.Add(this.lbldata);
-            this.panelfuncresp.Controls.Add(this.lbldatalbl);
             this.panelfuncresp.Controls.Add(this.lblfunc);
             this.panelfuncresp.Controls.Add(this.lblfuncresponsavel);
+            this.panelfuncresp.Controls.Add(this.comboBox_resp);
+            this.panelfuncresp.Controls.Add(this.btnalterresp);
+            this.panelfuncresp.Controls.Add(this.lbldata);
+            this.panelfuncresp.Controls.Add(this.lbldatalbl);
             this.panelfuncresp.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelfuncresp.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelfuncresp.Location = new System.Drawing.Point(0, 612);
@@ -3063,28 +3076,6 @@ namespace LMFinanciamentos.Apresentacao
             this.lbldatalbl.TabIndex = 12;
             this.lbldatalbl.Text = "Data do Processo:";
             // 
-            // lblfunc
-            // 
-            this.lblfunc.AutoSize = true;
-            this.lblfunc.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblfunc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.lblfunc.Location = new System.Drawing.Point(761, 10);
-            this.lblfunc.Name = "lblfunc";
-            this.lblfunc.Size = new System.Drawing.Size(194, 23);
-            this.lblfunc.TabIndex = 10;
-            this.lblfunc.Text = "Funcionário(a) Responsável:";
-            // 
-            // lblfuncresponsavel
-            // 
-            this.lblfuncresponsavel.AutoSize = true;
-            this.lblfuncresponsavel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblfuncresponsavel.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblfuncresponsavel.Location = new System.Drawing.Point(955, 10);
-            this.lblfuncresponsavel.Name = "lblfuncresponsavel";
-            this.lblfuncresponsavel.Size = new System.Drawing.Size(147, 23);
-            this.lblfuncresponsavel.TabIndex = 9;
-            this.lblfuncresponsavel.Text = "Nome Funcionário(a)";
-            // 
             // ofd1
             // 
             this.ofd1.DefaultExt = "pdf";
@@ -3094,6 +3085,26 @@ namespace LMFinanciamentos.Apresentacao
             // funcionariosBindingSource
             // 
             this.funcionariosBindingSource.DataMember = "Funcionarios";
+            // 
+            // dSDocumentosBindingSource
+            // 
+            this.dSDocumentosBindingSource.DataSource = this.dS_Documentos;
+            this.dSDocumentosBindingSource.Position = 0;
+            // 
+            // dS_Documentos
+            // 
+            this.dS_Documentos.DataSetName = "DS_Documentos";
+            this.dS_Documentos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dSClientesBindingSource
+            // 
+            this.dSClientesBindingSource.DataSource = this.dS_Clientes;
+            this.dSClientesBindingSource.Position = 0;
+            // 
+            // dS_Clientes
+            // 
+            this.dS_Clientes.DataSetName = "DS_Clientes";
+            this.dS_Clientes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // processosTableAdapter
             // 
@@ -3112,6 +3123,61 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.clientesBindingSource1.DataMember = "Clientes";
             this.clientesBindingSource1.DataSource = this.dS_Clientes;
+            // 
+            // btnalterresp
+            // 
+            this.btnalterresp.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnalterresp.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnalterresp.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnalterresp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnalterresp.Image = ((System.Drawing.Image)(resources.GetObject("btnalterresp.Image")));
+            this.btnalterresp.Location = new System.Drawing.Point(1064, 10);
+            this.btnalterresp.Name = "btnalterresp";
+            this.btnalterresp.Size = new System.Drawing.Size(38, 23);
+            this.btnalterresp.TabIndex = 14;
+            this.toolTip_btn.SetToolTip(this.btnalterresp, "Alterar Responsável");
+            this.btnalterresp.UseVisualStyleBackColor = true;
+            this.btnalterresp.Click += new System.EventHandler(this.btnalterresp_Click);
+            // 
+            // comboBox_resp
+            // 
+            this.comboBox_resp.Dock = System.Windows.Forms.DockStyle.Right;
+            this.comboBox_resp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_resp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox_resp.FormattingEnabled = true;
+            this.comboBox_resp.Location = new System.Drawing.Point(830, 10);
+            this.comboBox_resp.Name = "comboBox_resp";
+            this.comboBox_resp.Size = new System.Drawing.Size(234, 31);
+            this.comboBox_resp.TabIndex = 15;
+            this.comboBox_resp.Visible = false;
+            this.comboBox_resp.SelectionChangeCommitted += new System.EventHandler(this.comboBox_resp_SelectionChangeCommitted);
+            this.comboBox_resp.Click += new System.EventHandler(this.comboBox_resp_Click);
+            // 
+            // lblfunc
+            // 
+            this.lblfunc.AutoSize = true;
+            this.lblfunc.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblfunc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.lblfunc.Location = new System.Drawing.Point(489, 10);
+            this.lblfunc.Name = "lblfunc";
+            this.lblfunc.Size = new System.Drawing.Size(194, 23);
+            this.lblfunc.TabIndex = 17;
+            this.lblfunc.Text = "Funcionário(a) Responsável:";
+            // 
+            // lblfuncresponsavel
+            // 
+            this.lblfuncresponsavel.AutoSize = true;
+            this.lblfuncresponsavel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblfuncresponsavel.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblfuncresponsavel.Location = new System.Drawing.Point(683, 10);
+            this.lblfuncresponsavel.Name = "lblfuncresponsavel";
+            this.lblfuncresponsavel.Size = new System.Drawing.Size(147, 23);
+            this.lblfuncresponsavel.TabIndex = 16;
+            this.lblfuncresponsavel.Text = "Nome Funcionário(a)";
+            // 
+            // toolTip_btn
+            // 
+            this.toolTip_btn.ToolTipTitle = "Alterar Responsável";
             // 
             // Form_Dados_Processos
             // 
@@ -3132,8 +3198,6 @@ namespace LMFinanciamentos.Apresentacao
             this.Shown += new System.EventHandler(this.Form_Dados_Processos_Shown);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form_Dados_Documentos_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.processosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSDocumentosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS_Documentos)).EndInit();
             this.paneltop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -3234,11 +3298,13 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel10.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSClientesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS_Clientes)).EndInit();
             this.panelfuncresp.ResumeLayout(false);
             this.panelfuncresp.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSDocumentosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS_Documentos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSClientesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS_Clientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).EndInit();
             this.ResumeLayout(false);
@@ -3319,8 +3385,6 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.TextBox textnomevendedor;
         private System.Windows.Forms.Label lblnumeroprocesso;
         private System.Windows.Forms.Panel panelfuncresp;
-        private System.Windows.Forms.Label lblfunc;
-        private System.Windows.Forms.Label lblfuncresponsavel;
         private System.Windows.Forms.Label lbldata;
         private System.Windows.Forms.Label lbldatalbl;
         private System.Windows.Forms.TableLayoutPanel tableLayoutSituacao;
@@ -3477,6 +3541,11 @@ namespace LMFinanciamentos.Apresentacao
         public System.Windows.Forms.Button btnsalvardoc;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Button btn_editar;
+        private System.Windows.Forms.Label lblfunc;
+        private System.Windows.Forms.Label lblfuncresponsavel;
+        private System.Windows.Forms.ComboBox comboBox_resp;
+        private System.Windows.Forms.Button btnalterresp;
+        private System.Windows.Forms.ToolTip toolTip_btn;
         //private System.Windows.Forms.BindingSource corretoraBindingSource;
         //private System.Windows.Forms.BindingSource corretoresBindingSource;
         //private System.Windows.Forms.BindingSource vendedorBindingSource;

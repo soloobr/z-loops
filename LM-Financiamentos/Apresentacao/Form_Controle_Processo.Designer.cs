@@ -58,6 +58,7 @@ namespace LMFinanciamentos.Apresentacao
             this.dS_Documentos = new LMFinanciamentos.DAL.DS_Documentos();
             this.processosTableAdapter = new LMFinanciamentos.DAL.DS_DocumentosTableAdapters.ProcessosTableAdapter();
             this.dgv_process = new System.Windows.Forms.DataGridView();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,7 +66,6 @@ namespace LMFinanciamentos.Apresentacao
             this.Corretora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Corretor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.paneltop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).BeginInit();
@@ -392,7 +392,7 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.Corretora.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Corretora.DataPropertyName = "Descricao_corretora";
-            this.Corretora.HeaderText = "Corretora";
+            this.Corretora.HeaderText = "Construtora";
             this.Corretora.Name = "Corretora";
             this.Corretora.ReadOnly = true;
             // 
@@ -400,7 +400,7 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.Corretor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Corretor.DataPropertyName = "Nome_corretor";
-            this.Corretor.HeaderText = "Corretor";
+            this.Corretor.HeaderText = "Corretor(a)";
             this.Corretor.Name = "Corretor";
             this.Corretor.ReadOnly = true;
             // 

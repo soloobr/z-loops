@@ -2853,6 +2853,19 @@ namespace LMFinanciamentos.DAL
 
             return dt;
         }
+        public DataTable GetDataRespProc()
+        {
+            cmd.CommandText = "SELECT 	id, Nome FROM Funcionarios ";
+
+            cmd.Connection = con.conectar();
+            //drprocessos = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            con.desconectar();
+
+            return dt;
+        }
         public DataTable GetDataTipoDoc(String idtipoproc)
         {
             cmd.CommandText = "SELECT id, Descricao FROM TipoDoc WHERE Tipodoc = @idtipoproc";

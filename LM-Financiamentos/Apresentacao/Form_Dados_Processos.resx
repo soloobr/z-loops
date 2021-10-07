@@ -195,6 +195,19 @@
   <metadata name="backgroundWorker.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>433, 36</value>
   </metadata>
+  <data name="btnalterresp.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAEBSURBVDhPY6Au+P+f0XPCo2KvCY9OAOmnXv2PVnpMeKoOlSUMvPofpwA1/0fDP336HptBleAH
+        XhMfb8FiwH+viY96oUrwA68Jj/dSZID3xEdzsRoA9Jp3/0MXz/7HM9ExVCsEAANtJzYDPCc+qoUqwQ9w
+        BOIPoNfMvSc8DMWGoVohwKHhPwtQwyM0A1Z4TrrNjk0zCEO1IoBX/8MGZAO8Jzxyh0oRBg7z73NghMPE
+        R22gBIY3EN37HgtBbX6BohmOH18HuiQrtOEqG1gDMvCZ9EQfqOgVpiYseOKjS4FTnghDtUIAMM2fxaoY
+        N54O1QoBQAN2AE3eTQKeAtVKDcDAAAB3UltVzqKjAQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <metadata name="toolTip_btn.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>332, 4</value>
+  </metadata>
   <metadata name="ofd1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>851, 36</value>
   </metadata>
