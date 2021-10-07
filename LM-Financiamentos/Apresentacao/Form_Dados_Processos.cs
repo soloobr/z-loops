@@ -1055,6 +1055,9 @@ namespace LMFinanciamentos.Apresentacao
 
             private void btncloseconf_Click(object sender, EventArgs e)
         {
+            if (ProcessoSalvo != null)
+                ProcessoSalvo.Invoke();
+
             Close();
         }
 
@@ -1661,7 +1664,7 @@ namespace LMFinanciamentos.Apresentacao
             {
                 DataGridViewRow row = dataGridView_Arquivos.Rows[e.RowIndex];
 
-                String iddoc = row.Cells[0].Value.ToString();
+                String iddoc = row.Cells[0].Value.ToString().PadLeft(2, '0');
                 String extension = row.Cells[8].Value.ToString();
                 String pasta = idProcess;
 
@@ -2238,7 +2241,31 @@ namespace LMFinanciamentos.Apresentacao
             }
             else
             {
-                MessageBox.Show("Tomar resposabilidade deste Prcesso?","Alterar Responsável", MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
+                
+                if (MessageBox.Show("Você não e o Responsável deste Processo! \n  Tomar a resposabilidade deste Prcesso?", "Alterar Responsável", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    LoginDaoComandos updateprocesso = new LoginDaoComandos();
+
+                    updateprocesso.UpdateRespProcesso(idProcess, idresponsavel);
+
+                    if (updateprocesso.mensagem == "Responsável Alterado com Sucesso")
+                    {
+                        
+                        HabilitarEdicao();
+                        lblfuncresponsavel.Text = nomeuserloged;
+                        MessageBox.Show(updateprocesso.mensagem);
+                        
+                    }
+                    else
+                    {
+                        MessageBox.Show(updateprocesso.mensagem);
+                    }
+                    
+                }
+                else
+                {
+
+                }
             }
 
 

@@ -31,14 +31,14 @@ namespace LMFinanciamentos.Apresentacao
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Dados_Processos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle112 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle105 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle106 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle107 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle108 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle109 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle110 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle111 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.processosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dSDocumentosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dS_Documentos = new LMFinanciamentos.DAL.DS_Documentos();
@@ -49,6 +49,11 @@ namespace LMFinanciamentos.Apresentacao
             this.img_topo = new System.Windows.Forms.PictureBox();
             this.btncloseconf = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btncancelardoc = new System.Windows.Forms.Button();
+            this.splitter2 = new System.Windows.Forms.Splitter();
+            this.btnsalvardoc = new System.Windows.Forms.Button();
+            this.splitter1 = new System.Windows.Forms.Splitter();
+            this.btn_editar = new System.Windows.Forms.Button();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabcliente = new System.Windows.Forms.TabPage();
             this.grpbObservacao = new System.Windows.Forms.GroupBox();
@@ -260,11 +265,6 @@ namespace LMFinanciamentos.Apresentacao
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientesTableAdapter = new LMFinanciamentos.DAL.DS_ClientesTableAdapters.ClientesTableAdapter();
             this.clientesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.splitter1 = new System.Windows.Forms.Splitter();
-            this.btn_editar = new System.Windows.Forms.Button();
-            this.btncancelardoc = new System.Windows.Forms.Button();
-            this.splitter2 = new System.Windows.Forms.Splitter();
-            this.btnsalvardoc = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.processosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSDocumentosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Documentos)).BeginInit();
@@ -460,6 +460,75 @@ namespace LMFinanciamentos.Apresentacao
             this.panel1.Padding = new System.Windows.Forms.Padding(10);
             this.panel1.Size = new System.Drawing.Size(1112, 52);
             this.panel1.TabIndex = 12;
+            // 
+            // btncancelardoc
+            // 
+            this.btncancelardoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.btncancelardoc.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btncancelardoc.FlatAppearance.BorderSize = 0;
+            this.btncancelardoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncancelardoc.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncancelardoc.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btncancelardoc.Location = new System.Drawing.Point(238, 10);
+            this.btncancelardoc.Name = "btncancelardoc";
+            this.btncancelardoc.Size = new System.Drawing.Size(104, 32);
+            this.btncancelardoc.TabIndex = 31;
+            this.btncancelardoc.Text = "Cancelar";
+            this.btncancelardoc.UseVisualStyleBackColor = false;
+            this.btncancelardoc.Visible = false;
+            this.btncancelardoc.Click += new System.EventHandler(this.btncancelardoc_Click);
+            // 
+            // splitter2
+            // 
+            this.splitter2.Location = new System.Drawing.Point(228, 10);
+            this.splitter2.Name = "splitter2";
+            this.splitter2.Size = new System.Drawing.Size(10, 32);
+            this.splitter2.TabIndex = 30;
+            this.splitter2.TabStop = false;
+            // 
+            // btnsalvardoc
+            // 
+            this.btnsalvardoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.btnsalvardoc.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnsalvardoc.FlatAppearance.BorderSize = 0;
+            this.btnsalvardoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnsalvardoc.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnsalvardoc.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnsalvardoc.Location = new System.Drawing.Point(124, 10);
+            this.btnsalvardoc.Name = "btnsalvardoc";
+            this.btnsalvardoc.Size = new System.Drawing.Size(104, 32);
+            this.btnsalvardoc.TabIndex = 29;
+            this.btnsalvardoc.Text = "Salvar";
+            this.btnsalvardoc.UseVisualStyleBackColor = false;
+            this.btnsalvardoc.Visible = false;
+            this.btnsalvardoc.Click += new System.EventHandler(this.btnsalvardoc_Click_1);
+            // 
+            // splitter1
+            // 
+            this.splitter1.Location = new System.Drawing.Point(114, 10);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(10, 32);
+            this.splitter1.TabIndex = 28;
+            this.splitter1.TabStop = false;
+            this.splitter1.Visible = false;
+            // 
+            // btn_editar
+            // 
+            this.btn_editar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.btn_editar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_editar.FlatAppearance.BorderSize = 0;
+            this.btn_editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_editar.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_editar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_editar.Location = new System.Drawing.Point(10, 10);
+            this.btn_editar.Name = "btn_editar";
+            this.btn_editar.Padding = new System.Windows.Forms.Padding(4);
+            this.btn_editar.Size = new System.Drawing.Size(104, 32);
+            this.btn_editar.TabIndex = 27;
+            this.btn_editar.Text = "Editar";
+            this.btn_editar.UseCompatibleTextRendering = true;
+            this.btn_editar.UseVisualStyleBackColor = false;
+            this.btn_editar.Click += new System.EventHandler(this.btn_editar_Click);
             // 
             // tabControl
             // 
@@ -2602,14 +2671,14 @@ namespace LMFinanciamentos.Apresentacao
             this.Baixar,
             this.ver,
             this.Extensao});
-            dataGridViewCellStyle112.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle112.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle112.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle112.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle112.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle112.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle112.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_Arquivos.DefaultCellStyle = dataGridViewCellStyle112;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_Arquivos.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView_Arquivos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_Arquivos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView_Arquivos.GridColor = System.Drawing.SystemColors.Control;
@@ -2628,9 +2697,9 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.Numero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Numero.DataPropertyName = "id";
-            dataGridViewCellStyle105.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle105.NullValue = "0";
-            this.Numero.DefaultCellStyle = dataGridViewCellStyle105;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = "0";
+            this.Numero.DefaultCellStyle = dataGridViewCellStyle1;
             this.Numero.HeaderText = "Nº";
             this.Numero.Name = "Numero";
             this.Numero.ReadOnly = true;
@@ -2640,8 +2709,8 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.Tipo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             this.Tipo.DataPropertyName = "Tipo";
-            dataGridViewCellStyle106.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Tipo.DefaultCellStyle = dataGridViewCellStyle106;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Tipo.DefaultCellStyle = dataGridViewCellStyle2;
             this.Tipo.HeaderText = "Tipo";
             this.Tipo.MinimumWidth = 250;
             this.Tipo.Name = "Tipo";
@@ -2652,8 +2721,8 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.descricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.descricao.DataPropertyName = "Descricao";
-            dataGridViewCellStyle107.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.descricao.DefaultCellStyle = dataGridViewCellStyle107;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.descricao.DefaultCellStyle = dataGridViewCellStyle3;
             this.descricao.HeaderText = "Descrição";
             this.descricao.Name = "descricao";
             this.descricao.Width = 250;
@@ -2662,8 +2731,8 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.data.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.data.DataPropertyName = "Data";
-            dataGridViewCellStyle108.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.data.DefaultCellStyle = dataGridViewCellStyle108;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.data.DefaultCellStyle = dataGridViewCellStyle4;
             this.data.HeaderText = "Data";
             this.data.Name = "data";
             // 
@@ -2671,8 +2740,8 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.status.DataPropertyName = "Status";
-            dataGridViewCellStyle109.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.status.DefaultCellStyle = dataGridViewCellStyle109;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.status.DefaultCellStyle = dataGridViewCellStyle5;
             this.status.HeaderText = "Status";
             this.status.Name = "status";
             this.status.Width = 150;
@@ -2680,9 +2749,9 @@ namespace LMFinanciamentos.Apresentacao
             // apagar
             // 
             this.apagar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle110.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle110.Padding = new System.Windows.Forms.Padding(1);
-            this.apagar.DefaultCellStyle = dataGridViewCellStyle110;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(1);
+            this.apagar.DefaultCellStyle = dataGridViewCellStyle6;
             this.apagar.FillWeight = 30F;
             this.apagar.HeaderText = "Excluir";
             this.apagar.MinimumWidth = 60;
@@ -2694,9 +2763,9 @@ namespace LMFinanciamentos.Apresentacao
             // Baixar
             // 
             this.Baixar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle111.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle111.Padding = new System.Windows.Forms.Padding(1);
-            this.Baixar.DefaultCellStyle = dataGridViewCellStyle111;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(1);
+            this.Baixar.DefaultCellStyle = dataGridViewCellStyle7;
             this.Baixar.FillWeight = 30F;
             this.Baixar.HeaderText = "Baixar";
             this.Baixar.MinimumWidth = 60;
@@ -3043,75 +3112,6 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.clientesBindingSource1.DataMember = "Clientes";
             this.clientesBindingSource1.DataSource = this.dS_Clientes;
-            // 
-            // splitter1
-            // 
-            this.splitter1.Location = new System.Drawing.Point(114, 10);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(10, 32);
-            this.splitter1.TabIndex = 28;
-            this.splitter1.TabStop = false;
-            this.splitter1.Visible = false;
-            // 
-            // btn_editar
-            // 
-            this.btn_editar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.btn_editar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btn_editar.FlatAppearance.BorderSize = 0;
-            this.btn_editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_editar.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_editar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_editar.Location = new System.Drawing.Point(10, 10);
-            this.btn_editar.Name = "btn_editar";
-            this.btn_editar.Padding = new System.Windows.Forms.Padding(4);
-            this.btn_editar.Size = new System.Drawing.Size(104, 32);
-            this.btn_editar.TabIndex = 27;
-            this.btn_editar.Text = "Editar";
-            this.btn_editar.UseCompatibleTextRendering = true;
-            this.btn_editar.UseVisualStyleBackColor = false;
-            this.btn_editar.Click += new System.EventHandler(this.btn_editar_Click);
-            // 
-            // btncancelardoc
-            // 
-            this.btncancelardoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.btncancelardoc.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btncancelardoc.FlatAppearance.BorderSize = 0;
-            this.btncancelardoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btncancelardoc.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btncancelardoc.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btncancelardoc.Location = new System.Drawing.Point(238, 10);
-            this.btncancelardoc.Name = "btncancelardoc";
-            this.btncancelardoc.Size = new System.Drawing.Size(104, 32);
-            this.btncancelardoc.TabIndex = 31;
-            this.btncancelardoc.Text = "Cancelar";
-            this.btncancelardoc.UseVisualStyleBackColor = false;
-            this.btncancelardoc.Visible = false;
-            this.btncancelardoc.Click += new System.EventHandler(this.btncancelardoc_Click);
-            // 
-            // splitter2
-            // 
-            this.splitter2.Location = new System.Drawing.Point(228, 10);
-            this.splitter2.Name = "splitter2";
-            this.splitter2.Size = new System.Drawing.Size(10, 32);
-            this.splitter2.TabIndex = 30;
-            this.splitter2.TabStop = false;
-            // 
-            // btnsalvardoc
-            // 
-            this.btnsalvardoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.btnsalvardoc.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnsalvardoc.FlatAppearance.BorderSize = 0;
-            this.btnsalvardoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnsalvardoc.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnsalvardoc.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnsalvardoc.Location = new System.Drawing.Point(124, 10);
-            this.btnsalvardoc.Name = "btnsalvardoc";
-            this.btnsalvardoc.Size = new System.Drawing.Size(104, 32);
-            this.btnsalvardoc.TabIndex = 29;
-            this.btnsalvardoc.Text = "Salvar";
-            this.btnsalvardoc.UseVisualStyleBackColor = false;
-            this.btnsalvardoc.Visible = false;
-            this.btnsalvardoc.Click += new System.EventHandler(this.btnsalvardoc_Click_1);
             // 
             // Form_Dados_Processos
             // 

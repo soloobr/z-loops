@@ -2337,6 +2337,46 @@ namespace LMFinanciamentos.DAL
 
             return mensagem;
         }
+        public String UpdateRespProcesso(String id,  String idresp)
+        {
+            try
+            {
+                cmd1.CommandText = "UPDATE Processos " +
+                "SET idresponsavel = @idresp " +
+                "WHERE id = @id ";
+
+                cmd1.Parameters.Clear();
+                cmd1.Parameters.AddWithValue("@id", id);
+                cmd1.Parameters.AddWithValue("@idresp", idresp);
+                
+                cmd1.Connection = con.conectar();
+
+                int recordsAffected = cmd1.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "Responsável Alterado com Sucesso";
+                    con.desconectar();
+                }
+                else
+                {
+                    mensagem = "Erro ao Alterar Responsável";
+                    con.desconectar();
+                }
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+                con.desconectar();
+            }
+            catch (Exception err)
+            {
+                mensagem = ("Erro ao Alterar Processo: " + err.Message);
+                con.desconectar();
+            }
+
+            return mensagem;
+        }
         public String DeleteDocumento(String iddoc)
         {
             try
