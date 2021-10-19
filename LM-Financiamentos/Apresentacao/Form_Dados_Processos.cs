@@ -690,7 +690,7 @@ namespace LMFinanciamentos.Apresentacao
 
             if (Next)
             {
-                lblstatus.Text = "Comcluído";
+                lblstatus.Text = "Concluído";
                 lblstatus.ForeColor = Color.Blue;
             }
 
@@ -1045,7 +1045,7 @@ namespace LMFinanciamentos.Apresentacao
             }
             if(Next)
             {
-                statusprocesso = "Comcluído";
+                statusprocesso = "Concluído";
                 lblstatus.ForeColor = Color.Blue;
             }
 
