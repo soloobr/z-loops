@@ -40,6 +40,8 @@ namespace LMFinanciamentos.Apresentacao
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.processosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dSDocumentosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dS_Documentos = new LMFinanciamentos.DAL.DS_Documentos();
             this.lbl_topo = new System.Windows.Forms.Label();
             this.paneltop = new System.Windows.Forms.Panel();
             this.lblnumeroprocesso = new System.Windows.Forms.Label();
@@ -246,29 +248,29 @@ namespace LMFinanciamentos.Apresentacao
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
             this.clientesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.dSClientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dS_Clientes = new LMFinanciamentos.DAL.DS_Clientes();
             this.kryptonContextMenuItems1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.kryptonContextMenuItems2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.panelfuncresp = new System.Windows.Forms.Panel();
+            this.lblfunc = new System.Windows.Forms.Label();
+            this.lblfuncresponsavel = new System.Windows.Forms.Label();
+            this.comboBox_resp = new System.Windows.Forms.ComboBox();
+            this.btnalterresp = new System.Windows.Forms.Button();
             this.lbldata = new System.Windows.Forms.Label();
             this.lbldatalbl = new System.Windows.Forms.Label();
             this.ofd1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.funcionariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dSDocumentosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dS_Documentos = new LMFinanciamentos.DAL.DS_Documentos();
-            this.dSClientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dS_Clientes = new LMFinanciamentos.DAL.DS_Clientes();
             this.processosTableAdapter = new LMFinanciamentos.DAL.DS_DocumentosTableAdapters.ProcessosTableAdapter();
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientesTableAdapter = new LMFinanciamentos.DAL.DS_ClientesTableAdapters.ClientesTableAdapter();
             this.clientesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.btnalterresp = new System.Windows.Forms.Button();
-            this.comboBox_resp = new System.Windows.Forms.ComboBox();
-            this.lblfunc = new System.Windows.Forms.Label();
-            this.lblfuncresponsavel = new System.Windows.Forms.Label();
             this.toolTip_btn = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.processosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSDocumentosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS_Documentos)).BeginInit();
             this.paneltop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).BeginInit();
             this.panel1.SuspendLayout();
@@ -340,12 +342,10 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel10.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource2)).BeginInit();
-            this.panelfuncresp.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSDocumentosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS_Documentos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSClientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Clientes)).BeginInit();
+            this.panelfuncresp.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -354,6 +354,16 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.processosBindingSource.DataMember = "Processos";
             this.processosBindingSource.DataSource = this.dSDocumentosBindingSource;
+            // 
+            // dSDocumentosBindingSource
+            // 
+            this.dSDocumentosBindingSource.DataSource = this.dS_Documentos;
+            this.dSDocumentosBindingSource.Position = 0;
+            // 
+            // dS_Documentos
+            // 
+            this.dS_Documentos.DataSetName = "DS_Documentos";
+            this.dS_Documentos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // lbl_topo
             // 
@@ -3039,6 +3049,16 @@ namespace LMFinanciamentos.Apresentacao
             this.clientesBindingSource2.DataMember = "Clientes";
             this.clientesBindingSource2.DataSource = this.dSClientesBindingSource;
             // 
+            // dSClientesBindingSource
+            // 
+            this.dSClientesBindingSource.DataSource = this.dS_Clientes;
+            this.dSClientesBindingSource.Position = 0;
+            // 
+            // dS_Clientes
+            // 
+            this.dS_Clientes.DataSetName = "DS_Clientes";
+            this.dS_Clientes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // panelfuncresp
             // 
             this.panelfuncresp.Controls.Add(this.lblfunc);
@@ -3054,6 +3074,57 @@ namespace LMFinanciamentos.Apresentacao
             this.panelfuncresp.Padding = new System.Windows.Forms.Padding(10);
             this.panelfuncresp.Size = new System.Drawing.Size(1112, 43);
             this.panelfuncresp.TabIndex = 15;
+            // 
+            // lblfunc
+            // 
+            this.lblfunc.AutoSize = true;
+            this.lblfunc.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblfunc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.lblfunc.Location = new System.Drawing.Point(489, 10);
+            this.lblfunc.Name = "lblfunc";
+            this.lblfunc.Size = new System.Drawing.Size(194, 23);
+            this.lblfunc.TabIndex = 17;
+            this.lblfunc.Text = "Funcionário(a) Responsável:";
+            // 
+            // lblfuncresponsavel
+            // 
+            this.lblfuncresponsavel.AutoSize = true;
+            this.lblfuncresponsavel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblfuncresponsavel.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblfuncresponsavel.Location = new System.Drawing.Point(683, 10);
+            this.lblfuncresponsavel.Name = "lblfuncresponsavel";
+            this.lblfuncresponsavel.Size = new System.Drawing.Size(147, 23);
+            this.lblfuncresponsavel.TabIndex = 16;
+            this.lblfuncresponsavel.Text = "Nome Funcionário(a)";
+            // 
+            // comboBox_resp
+            // 
+            this.comboBox_resp.Dock = System.Windows.Forms.DockStyle.Right;
+            this.comboBox_resp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_resp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox_resp.FormattingEnabled = true;
+            this.comboBox_resp.Location = new System.Drawing.Point(830, 10);
+            this.comboBox_resp.Name = "comboBox_resp";
+            this.comboBox_resp.Size = new System.Drawing.Size(234, 31);
+            this.comboBox_resp.TabIndex = 15;
+            this.comboBox_resp.Visible = false;
+            this.comboBox_resp.SelectionChangeCommitted += new System.EventHandler(this.comboBox_resp_SelectionChangeCommitted);
+            this.comboBox_resp.Click += new System.EventHandler(this.comboBox_resp_Click);
+            // 
+            // btnalterresp
+            // 
+            this.btnalterresp.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnalterresp.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnalterresp.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnalterresp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnalterresp.Image = ((System.Drawing.Image)(resources.GetObject("btnalterresp.Image")));
+            this.btnalterresp.Location = new System.Drawing.Point(1064, 10);
+            this.btnalterresp.Name = "btnalterresp";
+            this.btnalterresp.Size = new System.Drawing.Size(38, 23);
+            this.btnalterresp.TabIndex = 14;
+            this.toolTip_btn.SetToolTip(this.btnalterresp, "Alterar Responsável");
+            this.btnalterresp.UseVisualStyleBackColor = true;
+            this.btnalterresp.Click += new System.EventHandler(this.btnalterresp_Click);
             // 
             // lbldata
             // 
@@ -3086,26 +3157,6 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.funcionariosBindingSource.DataMember = "Funcionarios";
             // 
-            // dSDocumentosBindingSource
-            // 
-            this.dSDocumentosBindingSource.DataSource = this.dS_Documentos;
-            this.dSDocumentosBindingSource.Position = 0;
-            // 
-            // dS_Documentos
-            // 
-            this.dS_Documentos.DataSetName = "DS_Documentos";
-            this.dS_Documentos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dSClientesBindingSource
-            // 
-            this.dSClientesBindingSource.DataSource = this.dS_Clientes;
-            this.dSClientesBindingSource.Position = 0;
-            // 
-            // dS_Clientes
-            // 
-            this.dS_Clientes.DataSetName = "DS_Clientes";
-            this.dS_Clientes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // processosTableAdapter
             // 
             this.processosTableAdapter.ClearBeforeFill = true;
@@ -3123,57 +3174,6 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.clientesBindingSource1.DataMember = "Clientes";
             this.clientesBindingSource1.DataSource = this.dS_Clientes;
-            // 
-            // btnalterresp
-            // 
-            this.btnalterresp.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnalterresp.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnalterresp.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnalterresp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnalterresp.Image = ((System.Drawing.Image)(resources.GetObject("btnalterresp.Image")));
-            this.btnalterresp.Location = new System.Drawing.Point(1064, 10);
-            this.btnalterresp.Name = "btnalterresp";
-            this.btnalterresp.Size = new System.Drawing.Size(38, 23);
-            this.btnalterresp.TabIndex = 14;
-            this.toolTip_btn.SetToolTip(this.btnalterresp, "Alterar Responsável");
-            this.btnalterresp.UseVisualStyleBackColor = true;
-            this.btnalterresp.Click += new System.EventHandler(this.btnalterresp_Click);
-            // 
-            // comboBox_resp
-            // 
-            this.comboBox_resp.Dock = System.Windows.Forms.DockStyle.Right;
-            this.comboBox_resp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_resp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox_resp.FormattingEnabled = true;
-            this.comboBox_resp.Location = new System.Drawing.Point(830, 10);
-            this.comboBox_resp.Name = "comboBox_resp";
-            this.comboBox_resp.Size = new System.Drawing.Size(234, 31);
-            this.comboBox_resp.TabIndex = 15;
-            this.comboBox_resp.Visible = false;
-            this.comboBox_resp.SelectionChangeCommitted += new System.EventHandler(this.comboBox_resp_SelectionChangeCommitted);
-            this.comboBox_resp.Click += new System.EventHandler(this.comboBox_resp_Click);
-            // 
-            // lblfunc
-            // 
-            this.lblfunc.AutoSize = true;
-            this.lblfunc.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblfunc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.lblfunc.Location = new System.Drawing.Point(489, 10);
-            this.lblfunc.Name = "lblfunc";
-            this.lblfunc.Size = new System.Drawing.Size(194, 23);
-            this.lblfunc.TabIndex = 17;
-            this.lblfunc.Text = "Funcionário(a) Responsável:";
-            // 
-            // lblfuncresponsavel
-            // 
-            this.lblfuncresponsavel.AutoSize = true;
-            this.lblfuncresponsavel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblfuncresponsavel.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblfuncresponsavel.Location = new System.Drawing.Point(683, 10);
-            this.lblfuncresponsavel.Name = "lblfuncresponsavel";
-            this.lblfuncresponsavel.Size = new System.Drawing.Size(147, 23);
-            this.lblfuncresponsavel.TabIndex = 16;
-            this.lblfuncresponsavel.Text = "Nome Funcionário(a)";
             // 
             // toolTip_btn
             // 
@@ -3198,6 +3198,8 @@ namespace LMFinanciamentos.Apresentacao
             this.Shown += new System.EventHandler(this.Form_Dados_Processos_Shown);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form_Dados_Documentos_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.processosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSDocumentosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS_Documentos)).EndInit();
             this.paneltop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -3298,13 +3300,11 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel10.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSClientesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS_Clientes)).EndInit();
             this.panelfuncresp.ResumeLayout(false);
             this.panelfuncresp.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSDocumentosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS_Documentos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSClientesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS_Clientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).EndInit();
             this.ResumeLayout(false);
