@@ -16,10 +16,10 @@ namespace LMFinanciamentos.Apresentacao
     public partial class Form_Dados_Processos : Form
     {
 
-        bool Next;
+        bool Next, bPopCombo, cadastrar;
         string valor, svalorimovel, svalorfinanciado, idCartorio;
         string curFile, NewFile, extension, Local, idArquivo, numArquivo, descArquivo, dataAruivo, statusArquivo, idcombotipodoc;
-        string idagencia, idprograma, idcorretora, idcorretor, idempreendimentos, caminho;
+        string idVendedor, idVendedorold, idagencia, idprograma, idcorretora, idcorretor, idempreendimentos, caminho;
         string StatusCPF, datacpf, ciweb, dataciweb, cadmut, datacadmut, ir, datair, fgts, datafgts, obs;
         int count;
         FileStream fs;
@@ -28,7 +28,7 @@ namespace LMFinanciamentos.Apresentacao
         ToFullText tft;
         int ultimoID;
         DateTime datecpf, dateciweb, datecadmut, dateir, datefgts, dateanalise, dateeng, datesiopi, datesictd, datesaquefgts, datepa, datecartorio;
-        string idresponsavel, nomeresponsavel, nomeuserloged;
+        string idresponsavel, nomeresponsavel, nomeuserloged, nomevendedor;
 
         //string idProcess, datacpf, dataciweb, datacadmut, datair, datafgts, dataanalise, dataeng, datastatus, statusprocesso, datasiopi, datasictd, datasaquefgts, datapa, datacartorio;
         string idProcess, dataanalise, dataeng, datastatus, statusprocesso, datasiopi, datasictd, datasaquefgts, datapa, datacartorio;
@@ -44,6 +44,7 @@ namespace LMFinanciamentos.Apresentacao
         {
             lblstatus.Text = statuslbl;
         }
+
         public void setIdProcess(string idprocesso)
         {
             idProcess = idprocesso.PadLeft(4, '0');
@@ -58,6 +59,10 @@ namespace LMFinanciamentos.Apresentacao
             {
                 nomeuserloged = nomefunc;
             }
+        }
+        public void setTABcontrol(int tab)
+        {
+            tabControl.SelectedIndex = tab;
         }
         private void Form_Dados_Documentos_Load(object sender, EventArgs e)
         {
@@ -208,8 +213,9 @@ namespace LMFinanciamentos.Apresentacao
 
             #region Vendedor
             textnomevendedor.Text = process.Nome_vendedor;
-
-            if (process.CNPJ_vendedor != "0")
+            
+            //if (process.CNPJ_vendedor != "0")
+            if (string.IsNullOrEmpty(process.CNPJ_vendedor) | process.CNPJ_vendedor != "00.000.000/0000-00")
             {
                 textcnpjcpf.Text = process.CNPJ_vendedor;
             }
@@ -224,6 +230,8 @@ namespace LMFinanciamentos.Apresentacao
             //txtrenda.Text = process.Renda_vendedor;
             textagenciavendedor.Text = process.Agencia_vendedor;
             txtcontavendedor.Text = process.Conta_vendedor;
+            idVendedor = process.Id_vendedor;
+            idVendedorold = process.Id_vendedor;
             #endregion
 
 
@@ -704,8 +712,36 @@ namespace LMFinanciamentos.Apresentacao
             {
                 HabilitarEdicao();
             }
+            else
+            {
 
-            
+                if (MessageBox.Show("Você não e o Responsável deste Processo! \n  Tomar a resposabilidade deste Prcesso?", "Alterar Responsável", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    LoginDaoComandos updateprocesso = new LoginDaoComandos();
+
+                    updateprocesso.UpdateRespProcesso(idProcess, idresponsavel);
+
+                    if (updateprocesso.mensagem == "Responsável Alterado com Sucesso")
+                    {
+
+                        HabilitarEdicao();
+                        lblfuncresponsavel.Text = nomeuserloged;
+                        MessageBox.Show(updateprocesso.mensagem);
+
+                    }
+                    else
+                    {
+                        MessageBox.Show(updateprocesso.mensagem);
+                    }
+
+                }
+                else
+                {
+
+                }
+            }
+
+
 
         }
         public event Action ProcessoSalvo;
@@ -1069,6 +1105,8 @@ namespace LMFinanciamentos.Apresentacao
 
         private void btncancelardoc_Click(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
+
             txtStatusCPF.Text = StatusCPF;
             dtpcpf.Text = datacpf;
             txtciweb.Text = ciweb;
@@ -1088,6 +1126,42 @@ namespace LMFinanciamentos.Apresentacao
             //btnsalvardoc.Visible = false;
             //splitter3.Visible = true;
             //btn_excluir.Visible = true;
+
+
+
+
+            string selecionado = idVendedorold;
+
+            
+
+            LoginDaoComandos gett = new LoginDaoComandos();
+            Vendedor[] myArray = gett.GetVendedoresForid(selecionado).ToArray();
+            foreach (Vendedor v in myArray)
+            {
+                idVendedor = v.Id_vendedor;
+                textnomevendedor.Text = v.Nome_vendedor;
+
+                if (string.IsNullOrEmpty(v.CNPJ_vendedor) || v.CNPJ_vendedor == "0")
+                {
+                    textcnpjcpf.Text = v.CPF_vendedor;
+
+                }
+                else
+                {
+                    textcnpjcpf.Text = v.CNPJ_vendedor;
+                }
+                textagenciavendedor.Text = v.Agencia_vendedor;
+                txtcontavendedor.Text = v.Conta_vendedor;
+                textemailvendedor.Text = v.Email_vendedor;
+                texttelefonevendedor.Text = v.Telefone_vendedor;
+                textcelularvendedor.Text = v.Celular_vendedor;
+                idVendedor = v.Id_vendedor;
+                nomevendedor = v.Nome_vendedor;
+                tabControl.Select();
+                tabControl.Focus();
+            }
+
+            Cursor = Cursors.Default;
 
             DesabilitarEdicao();
             //Close();
@@ -1858,6 +1932,15 @@ namespace LMFinanciamentos.Apresentacao
             }
         }
 
+        private void textnomevendedor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar))
+            {
+                e.KeyChar = Char.ToUpper(e.KeyChar);
+
+            }
+        }
+
         private void btnalterresp_Click(object sender, EventArgs e)
         {
             if (comboBox_resp.Visible == true)
@@ -1867,6 +1950,43 @@ namespace LMFinanciamentos.Apresentacao
             {
                 comboBox_resp.Visible = true;
             }
+        }
+
+        private void textnomevendedor_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            var selected = this.textnomevendedor.GetItemText(this.textnomevendedor.SelectedItem);
+            //MessageBox.Show(selected);
+
+            String selecionado = this.textnomevendedor.GetItemText(this.textnomevendedor.SelectedItem);
+
+            LoginDaoComandos gett = new LoginDaoComandos();
+            Vendedor[] myArray = gett.GetVendedores(selecionado).ToArray();
+            foreach (Vendedor v in myArray)
+            {
+                idVendedor = v.Id_vendedor;
+                textnomevendedor.Text = v.Nome_vendedor;
+
+               
+
+                if (string.IsNullOrEmpty(v.CNPJ_vendedor) || v.CNPJ_vendedor == "0")
+                {
+                    textcnpjcpf.Text = v.CPF_vendedor;
+                }
+                else
+                {
+                    textcnpjcpf.Text = v.CNPJ_vendedor;
+                }
+                textagenciavendedor.Text = v.Agencia_vendedor;
+                txtcontavendedor.Text = v.Conta_vendedor;
+                textemailvendedor.Text = v.Email_vendedor;
+                texttelefonevendedor.Text = v.Telefone_vendedor;
+                textcelularvendedor.Text = v.Celular_vendedor;
+                idVendedor = v.Id_vendedor;
+                tabControl.Select();
+                tabControl.Focus();
+            }
+            Cursor = Cursors.Default;
         }
 
         private void comboBox_resp_Click(object sender, EventArgs e)
@@ -1931,116 +2051,7 @@ namespace LMFinanciamentos.Apresentacao
             LoginDaoComandos updateprocesso = new LoginDaoComandos();
 
             #region Check Datas
-            //if (lbldatacpf.Text != "__/ ___/ ____")
-            //{
-            //    datacpf = lbldatacpf.Text;
-            //}
-            //else
-            //{
-            //    datacpf = "01/01/0001 00:00:00";
-            //}
 
-            //if (lbldataciweb.Text != "__/ ___/ ____")
-            //{
-            //    dataciweb = lbldataciweb.Text;
-            //}
-            //else
-            //{
-            //    dataciweb = "01/01/0001 00:00:00";
-            //}
-
-            //if (lbldatacadmut.Text != "__/ ___/ ____")
-            //{
-            //    datacadmut = lbldatacadmut.Text;
-            //}
-            //else
-            //{
-            //    datacadmut = "01/01/0001 00:00:00";
-            //}
-
-            //if (lbldatair.Text != "__/ ___/ ____")
-            //{
-            //    datair = lbldatair.Text;
-            //}
-            //else
-            //{
-            //    datair = "01/01/0001 00:00:00";
-            //}
-
-            //if (lbldatair.Text != "__/ ___/ ____")
-            //{
-            //    datafgts = lbldatafgts.Text;
-            //}
-            //else
-            //{
-            //    datafgts = "01/01/0001 00:00:00";
-            //}
-
-
-
-            //if (//lbldataanalise.Text != "__/ ___/ ____")
-            //{
-            //    dataanalise = //lbldataanalise.Text;
-            //}
-            //else
-            //{
-            //    dataanalise = "01/01/0001 00:00:00";
-            //}
-
-            //if (lbldataeng.Text != "__/ ___/ ____")
-            //{
-            //    dataeng = lbldataeng.Text;
-            //   }
-            //else
-            //{
-            //    dataeng = "01/01/0001 00:00:00";
-            //}
-
-            //if (lbldatasiopi.Text != "__/ ___/ ____")
-            //{
-            //    datasiopi = lbldatasiopi.Text;
-            //}
-            //else
-            //{
-            //    datasiopi = "01/01/0001 00:00:00";
-            //}
-
-
-            //if (lbldatasictd.Text != "__/ ___/ ____")
-            //{
-            //    datasictd = lbldatasictd.Text;
-            //}
-            //else
-            //{
-            //    datasictd = "01/01/0001 00:00:00";
-            //}
-
-            //if (lbldatasaquefgts.Text != "__/ ___/ ____")
-            //{
-            //    datasaquefgts = lbldatasaquefgts.Text;
-            //}
-            //else
-            //{
-            //    datasaquefgts = "01/01/0001 00:00:00";
-            //}
-
-            //if (lbldatapa.Text != "__/ ___/ ____")
-            //{
-            //    datapa = lbldatapa.Text;
-            //}
-            //else
-            //{
-            //    datapa = "01/01/0001 00:00:00";
-            //}
-
-            //if (lbldatacartorio.Text != "__/ ___/ ____")
-            //{
-            //    datacartorio = lbldatacartorio.Text;
-            //}
-            //else
-            //{
-            //    datacartorio = "01/01/0001 00:00:00";
-            //}
 
             if (lblstatus.Text != "__/ ___/ ____")
             {
@@ -2196,7 +2207,7 @@ namespace LMFinanciamentos.Apresentacao
             //DateTime datestatus = DateTime.Parse(datastatus);
             #endregion
 
-            updateprocesso.UpdateProcesso(idProcess, cpf, datecpf, ciweb, dateciweb, cadmut, datecadmut, ir, dateir, fgts, datefgts, analise, dateanalise, eng, dateeng, siopi, datesiopi, sictd, datesictd, saquefgts, datesaquefgts, pa, datepa, idagencia, idprograma, Valorimov, Valorfinan, combocorretora, combocorretores, combocoempreendimentos, idCartorio, cartorio, datecartorio, statusprocesso, txtobservacao.Text);
+            updateprocesso.UpdateProcesso(idProcess, cpf, datecpf, ciweb, dateciweb, cadmut, datecadmut, ir, dateir, fgts, datefgts, analise, dateanalise, eng, dateeng, siopi, datesiopi, sictd, datesictd, saquefgts, datesaquefgts, pa, datepa, idagencia, idprograma, Valorimov, Valorfinan, combocorretora, combocorretores, combocoempreendimentos, idCartorio, cartorio, datecartorio, statusprocesso, txtobservacao.Text, idVendedor);
             MessageBox.Show(updateprocesso.mensagem, "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
@@ -2269,13 +2280,30 @@ namespace LMFinanciamentos.Apresentacao
             #endregion
 
             #region Vendedor
-            textnomevendedor.ReadOnly = false;
+            //textnomevendedor.ReadOnly = false;
             textcnpjcpf.ReadOnly = false;
             textagenciavendedor.ReadOnly = false;
             txtcontavendedor.ReadOnly = false;
             textemailvendedor.ReadOnly = false;
             texttelefonevendedor.ReadOnly = false;
             textcelularvendedor.ReadOnly = false;
+
+            //var btnvendedor = new Button();
+            Button btnvendedor = new Button();
+            btnvendedor.Size = new Size(22, textnomevendedor.ClientSize.Height + 2);
+            btnvendedor.Dock = DockStyle.Right;
+            btnvendedor.Cursor = Cursors.Default;
+            btnvendedor.Image = Properties.Resources.procurar16;
+            btnvendedor.FlatStyle = FlatStyle.Flat;
+            btnvendedor.FlatAppearance.BorderSize = 3;
+            btnvendedor.AutoSize = false;
+            btnvendedor.ForeColor = Color.White;
+            //pctr.FlatAppearance.BorderSize = 0;
+            btnvendedor.Click += btnvendedor_Click;
+            //pctr.Click += new EventHandler(pctr_Click);
+            textnomevendedor.Enabled = true;
+            textnomevendedor.Controls.Add(btnvendedor);
+
             #endregion
 
             #region Processo
@@ -2323,7 +2351,110 @@ namespace LMFinanciamentos.Apresentacao
             #endregion
 
         }
+        private async void btnvendedor_Click(object sender, EventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            //backgroundWorker.RunWorkerAsync();
 
+            int chars = textnomevendedor.Text.Length;
+
+            if (chars >= 3)
+            {
+                LoginDaoComandos gett = new LoginDaoComandos();
+
+                //await Task.Run(() => gett.autoCompletar(ComboBoxClient, ComboBoxClient.Text));
+
+                gett.autoCompletarVendedor(textnomevendedor, textnomevendedor.Text);
+
+                int cont = textnomevendedor.Items.Count;
+
+                if (cont == 1)
+                {
+                    bPopCombo = false;
+                    Vendedor[] myArray = gett.GetVendedores(textnomevendedor.Text).ToArray();
+                    foreach (Vendedor v in myArray)
+                    {
+
+                        idVendedor = v.Id_vendedor;
+                        textnomevendedor.Text = v.Nome_vendedor;
+                        if (string.IsNullOrEmpty(v.CNPJ_vendedor) || v.CNPJ_vendedor == "0")
+                        {
+                            textcnpjcpf.Text = v.CPF_vendedor;
+                        }
+                        else
+                        {
+                            textcnpjcpf.Text = v.CNPJ_vendedor;
+                        }
+
+                        textagenciavendedor.Text = v.Agencia_vendedor;
+                        txtcontavendedor.Text = v.Conta_vendedor;
+                        textemailvendedor.Text = v.Email_vendedor;
+                        texttelefonevendedor.Text = v.Telefone_vendedor;
+                        textcelularvendedor.Text = v.Celular_vendedor;
+                        tabControl.Select();
+                        tabControl.Focus();
+                    }
+                }
+                else if (cont == 0)
+                {
+                    string message = "Não foram encontrados registro para:  " + textnomevendedor.Text + " Deseja Cadastrar o Vendedor?";
+                    const string caption = "Cadastrar Vendedor";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.YesNo,
+                                                 MessageBoxIcon.Question);
+
+                    // If the no button was pressed ...
+                    if (result == DialogResult.Yes)
+                    {
+                        //cadastrar = 1;
+                        textnomevendedor.Select();
+                        textnomevendedor.Focus();
+                        //MessageBox.Show("Abriu");
+                        Form_Cadastro_Vendedor frm_Cadastro_Vendedor = new Form_Cadastro_Vendedor();
+                        frm_Cadastro_Vendedor.setTextNome(textnomevendedor.Text);
+                        frm_Cadastro_Vendedor.VendedorSalvo += new Action(frm_dados_vendedor_VendedorSalvo);
+                        frm_Cadastro_Vendedor.Show();
+                    }
+                    else
+                    {
+                        //cadastrar = 0;
+                        //LimparCamposVendedor();
+                        textnomevendedor.Select();
+                        textnomevendedor.Focus();
+                    }
+
+
+                    //MessageBox.Show("Não foram encontrados registro para:  " + ComboBoxClient.Text + "Deseja Cadastrar o Cliente?");
+
+
+                }
+                else
+                {
+                    if (bPopCombo)
+                    {
+
+                    }
+                    else
+                    {
+                        textnomevendedor.DroppedDown = true;
+                    }
+
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Favor digitar Almenos 3 Caracteres para persquisa");
+                textnomevendedor.Select();
+                textnomevendedor.Focus();
+            }
+            
+            Cursor = Cursors.Default;
+        }
+        void frm_dados_vendedor_VendedorSalvo()
+        {
+            btnvendedor_Click(this, EventArgs.Empty);
+        }
         private void txttelefone_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
@@ -2369,9 +2500,6 @@ namespace LMFinanciamentos.Apresentacao
                 }
             }
 
-
-
-            //HabilitarEdicao();
         }
         private void GetValueEdit()
         {
@@ -2416,13 +2544,16 @@ namespace LMFinanciamentos.Apresentacao
             #endregion
 
             #region Vendedor
-            textnomevendedor.ReadOnly = true;
+            //textnomevendedor.ReadOnly = true;
             textcnpjcpf.ReadOnly = true;
             textagenciavendedor.ReadOnly = true;
             txtcontavendedor.ReadOnly = true;
             textemailvendedor.ReadOnly = true;
             texttelefonevendedor.ReadOnly = true;
             textcelularvendedor.ReadOnly = true;
+            textnomevendedor.Controls.Clear();
+            textnomevendedor.Enabled = false;
+
             #endregion
 
             #region Processo

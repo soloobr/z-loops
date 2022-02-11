@@ -3,6 +3,7 @@ using LMFinanciamentos.Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,7 +15,9 @@ namespace LMFinanciamentos.Apresentacao
         String sexo, status, idcliente;
         public string consultar;
         int clienteselecionado, conjugeselecionado;
-
+        string[] idconj = { "idCJ", "idCJ1", "idCJ2", "idCJ3" };
+        bool[] cjativo = { false, false, false, false };
+        bool Delete = false;
         int newSortColumn;
         ListSortDirection newColumnDirection = ListSortDirection.Ascending;
 
@@ -25,6 +28,10 @@ namespace LMFinanciamentos.Apresentacao
 
         SortableBindingList<BuscarClientes> myList;
         SortableBindingList<BuscarConjuges> myListConjuges;
+        private string idresponsavel;
+        private string idresponsavelSelected;
+        private string nomeresponsavel;
+        private string idProcesso;
 
         public Form_Controle_Cliente()
         {
@@ -37,7 +44,18 @@ namespace LMFinanciamentos.Apresentacao
         {
             this.Close();
         }
-
+        public void setUserLoged(string idresp, string nomefunc)
+        {
+            if (idresp != null)
+            {
+                idresponsavel = idresp;
+                idresponsavelSelected = idresp;
+            }
+            if (nomefunc != null)
+            {
+                nomeresponsavel = nomefunc;
+            }
+        }
         private void Form_Cadastro_cliente_Load(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
@@ -107,11 +125,25 @@ namespace LMFinanciamentos.Apresentacao
             Cursor = Cursors.WaitCursor;
             if (dgv_clientes.Columns[0].DataPropertyName == "Id_cliente")
             {
-                Form_Dados_Cliente frm_dados_clientes = new Form_Dados_Cliente();
-                frm_dados_clientes.setIdCliente(dgv_clientes.SelectedRows[0].Cells["id"].Value.ToString());
-                clienteselecionado = dgv_clientes.CurrentCell.RowIndex;
-                frm_dados_clientes.ClienteSalvo += new Action(frm_dados_clientes_ClienteSalvo);
-                frm_dados_clientes.Show();
+                using (Form_Dados_Cliente frm_dados_clientes = new Form_Dados_Cliente()) // ;
+                {
+                    frm_dados_clientes.setIdCliente(dgv_clientes.SelectedRows[0].Cells["id"].Value.ToString());
+                    clienteselecionado = dgv_clientes.CurrentCell.RowIndex;
+                    frm_dados_clientes.setUserLoged(idresponsavel, nomeresponsavel);
+                    frm_dados_clientes.ClienteSalvo += new Action(frm_dados_clientes_ClienteSalvo);
+                    //frm_dados_clientes.Show();
+                    frm_dados_clientes.ShowDialog();
+                    Delete = frm_dados_clientes.excluir;
+                    frm_dados_clientes_ClienteSalvo();
+                    //MessageBox.Show("Response from form2: " + Delete.ToString());
+                }
+
+
+                //Form_Dados_Cliente frm_dados_clientes = new Form_Dados_Cliente();
+                //frm_dados_clientes.setIdCliente(dgv_clientes.SelectedRows[0].Cells["id"].Value.ToString());
+                //clienteselecionado = dgv_clientes.CurrentCell.RowIndex;
+                //frm_dados_clientes.ClienteSalvo += new Action(frm_dados_clientes_ClienteSalvo);
+                //frm_dados_clientes.Show();
             }
             if (dgv_clientes.Columns[0].DataPropertyName == "Id_conjuge")
             {
@@ -123,11 +155,23 @@ namespace LMFinanciamentos.Apresentacao
 
                 clienteselecionado = idcliente;
 
-                Form_Dados_Cliente frm_dados_clientes = new Form_Dados_Cliente();
-                frm_dados_clientes.setIdCliente(idcliente.ToString());
-                clienteselecionado = dgv_clientes.CurrentCell.RowIndex;
-                frm_dados_clientes.ClienteSalvo += new Action(frm_dados_clientes_ClienteSalvo);
-                frm_dados_clientes.Show();
+                using (Form_Dados_Cliente frm_dados_clientes = new Form_Dados_Cliente())// ;
+                {
+                    frm_dados_clientes.setIdCliente(idcliente.ToString());
+                    clienteselecionado = dgv_clientes.CurrentCell.RowIndex;
+                    frm_dados_clientes.ClienteSalvo += new Action(frm_dados_clientes_ClienteSalvo);
+                    //frm_dados_clientes.Show();
+                    frm_dados_clientes.ShowDialog();
+                    Delete = frm_dados_clientes.excluir;
+                    frm_dados_clientes_ClienteSalvo();
+                    //MessageBox.Show("Response from form2: " + Delete.ToString());
+                }
+
+                //Form_Dados_Cliente frm_dados_clientes = new Form_Dados_Cliente();
+                //frm_dados_clientes.setIdCliente(idcliente.ToString());
+                //clienteselecionado = dgv_clientes.CurrentCell.RowIndex;
+                //frm_dados_clientes.ClienteSalvo += new Action(frm_dados_clientes_ClienteSalvo);
+                //frm_dados_clientes.Show();
 
             }
             Cursor = Cursors.Default;
@@ -280,9 +324,25 @@ namespace LMFinanciamentos.Apresentacao
         {
             AtualizaGrid();
 
-            dgv_clientes.ClearSelection();
-            dgv_clientes.Rows[clienteselecionado].Selected = true;
-            dgv_clientes.Rows[clienteselecionado].Cells[0].Selected = true;
+            //MessageBox.Show(Delete.ToString());
+            if(Delete == true)
+            {
+                dgv_clientes.ClearSelection();
+
+                int nRowIndex = dgv_clientes.Rows.Count - 1;
+                //clienteselecionado = dgv_clientes.Rows.Count - 1;
+                dgv_clientes.Rows[nRowIndex].Selected = true;
+                dgv_clientes.Rows[nRowIndex].Cells[0].Selected = true;
+                dgv_clientes.FirstDisplayedScrollingRowIndex = nRowIndex;
+            }
+            else
+            {
+                dgv_clientes.ClearSelection();
+                dgv_clientes.Rows[clienteselecionado].Selected = true;
+                dgv_clientes.Rows[clienteselecionado].Cells[0].Selected = true;
+            }
+
+
         }
 
         private void btn_editar_Click(object sender, EventArgs e)
@@ -290,28 +350,36 @@ namespace LMFinanciamentos.Apresentacao
             Cursor = Cursors.WaitCursor;
             if (dgv_clientes.Columns[0].DataPropertyName == "Id_cliente")
             {
-                Form_Dados_Cliente frm_dados_clientes = new Form_Dados_Cliente();
-                frm_dados_clientes.setIdCliente(dgv_clientes.SelectedRows[0].Cells["id"].Value.ToString());
-                clienteselecionado = dgv_clientes.CurrentCell.RowIndex;
-                frm_dados_clientes.ClienteSalvo += new Action(frm_dados_clientes_ClienteSalvo);
-                frm_dados_clientes.Show();
+                using (Form_Dados_Cliente frm_dados_clientes = new Form_Dados_Cliente()) // ;
+                {
+                    frm_dados_clientes.setIdCliente(dgv_clientes.SelectedRows[0].Cells["id"].Value.ToString());
+                    clienteselecionado = dgv_clientes.CurrentCell.RowIndex;
+                    frm_dados_clientes.setUserLoged(idresponsavel, nomeresponsavel);
+                    frm_dados_clientes.ClienteSalvo += new Action(frm_dados_clientes_ClienteSalvo);
+                    frm_dados_clientes.ShowDialog();
+                    Delete = frm_dados_clientes.excluir;
+                    frm_dados_clientes_ClienteSalvo();
+                }
             }
             if (dgv_clientes.Columns[0].DataPropertyName == "Id_conjuge")
             {
-                //conjugeselecionado = dgv_clientes.SelectedRows[0].Cells["id"].Value.ToString();
-
                 LoginDaoComandos getidcliente = new LoginDaoComandos();
 
                 int idcliente = getidcliente.GetidCliente(dgv_clientes.SelectedRows[0].Cells["id"].Value.ToString());
                 
                 clienteselecionado = idcliente;
 
-                Form_Dados_Cliente frm_dados_clientes = new Form_Dados_Cliente();
-                frm_dados_clientes.setIdCliente(idcliente.ToString());
-                clienteselecionado = dgv_clientes.CurrentCell.RowIndex;
-                frm_dados_clientes.ClienteSalvo += new Action(frm_dados_clientes_ClienteSalvo);
-                frm_dados_clientes.Show();
-
+                using (Form_Dados_Cliente frm_dados_clientes = new Form_Dados_Cliente())// ;
+                {
+                    frm_dados_clientes.setIdCliente(idcliente.ToString());
+                    clienteselecionado = dgv_clientes.CurrentCell.RowIndex;
+                    frm_dados_clientes.ClienteSalvo += new Action(frm_dados_clientes_ClienteSalvo);
+                    //frm_dados_clientes.Show();
+                    frm_dados_clientes.ShowDialog();
+                    Delete = frm_dados_clientes.excluir;
+                    frm_dados_clientes_ClienteSalvo();
+                    //MessageBox.Show("Response from form2: " + Delete.ToString());
+                }
             }
             Cursor = Cursors.Default;
         }
@@ -321,7 +389,8 @@ namespace LMFinanciamentos.Apresentacao
             if (dgv_clientes.Columns[0].DataPropertyName == "Id_cliente")
             {
                 String idclienteexclude = dgv_clientes.SelectedRows[0].Cells["id"].Value.ToString();
-                var result = MessageBox.Show("Deseja Excluir o Cliente: \n " + dgv_clientes.SelectedRows[0].Cells["Nome"].Value.ToString() + "  ?", "excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                var result = MessageBox.Show("Deseja Excluir o Cliente: \n \n " + dgv_clientes.SelectedRows[0].Cells["Nome"].Value.ToString() + "  ?", "excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
                 {
@@ -329,14 +398,89 @@ namespace LMFinanciamentos.Apresentacao
                     Cursor = Cursors.WaitCursor;
                     LoginDaoComandos deletecliente = new LoginDaoComandos();
 
+                    DataTable dt =deletecliente.GetProcessoCliente(idclienteexclude);
+
+                    if (dt.Rows.Count > 0)
+                    {
+                        DataRow[] rows = dt.Select();
+                        for (int i = 0; i < rows.Length; i++)
+                        {
+                            idProcesso = rows[i]["id"].ToString();
+                        }
+                        /*
+                         * MessageBox.Show("Não Foi possível Excluir o Cliente: \n \n " + dgv_clientes.SelectedRows[0].Cells["Nome"].Value.ToString() + " !  \n \n Existe Processo Ativo para esse Cliente, Verifique!", "excluir", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                         Cursor = Cursors.Default;
+                         return;*/
+
+                        var result1 = MessageBox.Show("Não Foi possível Excluir o Cliente: \n \n " + dgv_clientes.SelectedRows[0].Cells["Nome"].Value.ToString() + " !  \n \n Existe Processo Ativo para esse Cliente. \n \n Deseja Visualizar o Processo: " + idProcesso + " ?", "excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
+                        if (result1 == DialogResult.Yes)
+                        {
+                            Form_Dados_Processos frm_dados_documentos = new Form_Dados_Processos();
+                            frm_dados_documentos.setIdProcess(idProcesso);
+                            frm_dados_documentos.setUserLoged(idresponsavel, nomeresponsavel);
+                            frm_dados_documentos.setTABcontrol(0);
+                            frm_dados_documentos.Show();
+                            Cursor = Cursors.Default;
+                            return;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Vendedor não Excluído!");
+                            Cursor = Cursors.Default;
+                            return;
+                        }
+                    }
+
+                    LoginDaoComandos getconjuge = new LoginDaoComandos();
+                    var highScores = getconjuge.GetidConjuges(idclienteexclude);
+
+                    int cont = 0;
+                    foreach (var item in highScores)
+                    {
+                        idconj[cont] = ($"{item.Id_conjuge,-15}");
+                        cjativo[cont] = true;
+                        cont = cont + 1;
+                    }
+                    if (cjativo[0] == true)
+                    {
+                        var resultt = MessageBox.Show("Existe Conjuge para este Cliente! \n  Todos os Conjuges serão excluido. ", "excluir", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+                        if (resultt == DialogResult.OK)
+                        {
+                            LoginDaoComandos deleteconjuge = new LoginDaoComandos();
+                            if (cjativo[0] == true)
+                            {
+                                deleteconjuge.DeleteConjuge(idconj[0]);
+                            }
+                            if (cjativo[1] == true)
+                            {
+                                deleteconjuge.DeleteConjuge(idconj[1]);
+                            }
+                            if (cjativo[2] == true)
+                            {
+                                deleteconjuge.DeleteConjuge(idconj[2]);
+                            }
+                            if (cjativo[3] == true)
+                            {
+                                deleteconjuge.DeleteConjuge(idconj[3]);
+                            }
+                        }
+                        else
+                        {
+                            return;
+                        }
+
+                    }
+
                     if (deletecliente.GetFotoCliente(idclienteexclude).Foto_cliente != null)
                     {
                         //MessageBox.Show("Tem foto");
                         deletecliente.DeleteFotoCliente(idclienteexclude);
                         deletecliente.DeleteCliente(idclienteexclude);
                         MessageBox.Show(deletecliente.mensagem, "Excluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        if (ClienteSalvo != null)
-                            ClienteSalvo.Invoke();
+                        //ClienteSalvo = null;
+                        //if (ClienteSalvo != null)
+                        //    ClienteSalvo.Invoke();
 
                         AtualizaGrid();
                         Cursor = Cursors.Default;
@@ -345,8 +489,9 @@ namespace LMFinanciamentos.Apresentacao
                     {
                         deletecliente.DeleteCliente(idclienteexclude);
                         MessageBox.Show(deletecliente.mensagem, "Excluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        if (ClienteSalvo != null)
-                            ClienteSalvo.Invoke();
+                        //ClienteSalvo = null;
+                        //if (ClienteSalvo != null)
+                        //    ClienteSalvo.Invoke();
                         AtualizaGrid();
                         Cursor = Cursors.Default;
                     }
@@ -426,18 +571,18 @@ namespace LMFinanciamentos.Apresentacao
 
         private void dgv_clientes_SortCompare(object sender, DataGridViewSortCompareEventArgs e)
         {
-            // Try to sort based on the cells in the current column.
+            // //Try to sort based on the cells in the current column.
             //e.SortResult = System.String.Compare(
             //    e.CellValue1.ToString(), e.CellValue2.ToString());
 
-            //// If the cells are equal, sort based on the ID column.
-            //if (e.SortResult == 0 && e.Column.Name != "id")
-            //{
-            //    e.SortResult = System.String.Compare(
-            //        dgv_clientes.Rows[e.RowIndex1].Cells["id"].Value.ToString(),
-            //        dgv_clientes.Rows[e.RowIndex2].Cells["id"].Value.ToString());
-            //}
-            //e.Handled = true;
+            // // If the cells are equal, sort based on the ID column.
+            // if (e.SortResult == 0 && e.Column.Name != "id")
+            // {
+            //     e.SortResult = System.String.Compare(
+            //         dgv_clientes.Rows[e.RowIndex1].Cells["id"].Value.ToString(),
+            //         dgv_clientes.Rows[e.RowIndex2].Cells["id"].Value.ToString());
+            // }
+            // e.Handled = true;
         }
 
 

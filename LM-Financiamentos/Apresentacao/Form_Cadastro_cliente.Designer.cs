@@ -767,6 +767,7 @@ namespace LMFinanciamentos.Apresentacao
             // 
             // txtemail
             // 
+            this.txtemail.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.tableLayoutPanel1.SetColumnSpan(this.txtemail, 2);
             this.txtemail.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtemail.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -819,6 +820,7 @@ namespace LMFinanciamentos.Apresentacao
             // 
             // txtnomecli
             // 
+            this.txtnomecli.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tableLayoutPanel1.SetColumnSpan(this.txtnomecli, 2);
             this.txtnomecli.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtnomecli.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));

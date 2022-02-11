@@ -2,6 +2,7 @@
 using LMFinanciamentos.Entidades;
 using LMFinanciamentos.Modelo;
 using System;
+using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
@@ -17,7 +18,10 @@ namespace LMFinanciamentos.Apresentacao
         FileStream fsObj = null;
         BinaryReader binRdr = null;
         bool arquivobase;
-
+        private string idProcesso;
+        private string idresponsavel;
+        private string idresponsavelSelected;
+        private string nomeresponsavel;
 
         public Form_Dados_Vendedor()
         {
@@ -26,6 +30,18 @@ namespace LMFinanciamentos.Apresentacao
         public void setIdVendedor(string idvend)
         {
             idVendedor = idvend;
+        }
+        public void setUserLoged(string idresp, string nomefunc)
+        {
+            if (idresp != null)
+            {
+                idresponsavel = idresp;
+                idresponsavelSelected = idresp;
+            }
+            if (nomefunc != null)
+            {
+                nomeresponsavel = nomefunc;
+            }
         }
         public void setTextNome(String sNome)
         {
@@ -652,36 +668,60 @@ namespace LMFinanciamentos.Apresentacao
 
         private void btn_excluir_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("Deseja Excluir o Vendedor: \n " + txtnomevendedor.Text + "  ?", "excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                String idvendedorexclude = idVendedor;
+                var result = MessageBox.Show("Deseja Excluir o Vendedor: \n \n " + txtnomevendedor.Text + "  ?", "excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-            if (result == DialogResult.Yes)
-            {
-
-
-                LoginDaoComandos deletevendedor = new LoginDaoComandos();
-
-                if (img_foto.Image != null)
+                if (result == DialogResult.Yes)
                 {
-                    deletevendedor.DeleteFotoVendedor(idVendedor);
-                    //deletevendedor.DeleteFotoVendedor(idVendedor);
-                    MessageBox.Show(deletevendedor.mensagem, "Excluidor", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (VendedorSalvo != null)
-                        VendedorSalvo.Invoke();
-                    Close();
+
+                    Cursor = Cursors.WaitCursor;
+                    LoginDaoComandos deletevendedor = new LoginDaoComandos();
+
+                    DataTable dt = deletevendedor.GetProcessoVendedor(idvendedorexclude);
+
+                    if (dt.Rows.Count > 0)
+                    {
+                        DataRow[] rows = dt.Select();
+                        for (int i = 0; i < rows.Length; i++)
+                        {
+                            idProcesso = rows[i]["id"].ToString();
+                        }
+                        var result1 = MessageBox.Show("Não Foi possível Excluir o Vendedor: \n \n " + txtnomevendedor.Text + " !  \n  \n Existe Processo Ativo para esse Vendedor. \n \n Deseja Alterar o Vendedor do Processo: " + idProcesso + " ?", "excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
+                        if (result1 == DialogResult.Yes)
+                        {
+                            Form_Dados_Processos frm_dados_documentos = new Form_Dados_Processos();
+                            frm_dados_documentos.setIdProcess(idProcesso);
+                            frm_dados_documentos.setUserLoged(idresponsavel, nomeresponsavel);
+                            frm_dados_documentos.setTABcontrol(1);
+                            frm_dados_documentos.Show();
+                            Cursor = Cursors.Default;
+                            return;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Vendedor não Excluído!");
+                            Cursor = Cursors.Default;
+                            return;
+                        }
+                    }
+
+                    if (img_foto.Image != null)
+                    {
+                        deletevendedor.DeleteFotoVendedor(idVendedor);
+                        MessageBox.Show(deletevendedor.mensagem, "Excluidor", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (VendedorSalvo != null)
+                            VendedorSalvo.Invoke();
+                        Close();
+                    }
+                    else
+                    {
+                        deletevendedor.DeleteVendedor(idVendedor);
+                        MessageBox.Show(deletevendedor.mensagem, "Excluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (VendedorSalvo != null)
+                            VendedorSalvo.Invoke();
+                        Close();
+                    }
                 }
-                else
-                {
-                    deletevendedor.DeleteVendedor(idVendedor);
-                    MessageBox.Show(deletevendedor.mensagem, "Excluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (VendedorSalvo != null)
-                        VendedorSalvo.Invoke();
-                    Close();
-                }
-
-
-
-            }
-
         }
 
         private void splitter3_SplitterMoved(object sender, SplitterEventArgs e)

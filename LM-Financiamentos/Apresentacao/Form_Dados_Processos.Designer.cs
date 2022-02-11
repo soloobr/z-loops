@@ -116,6 +116,9 @@ namespace LMFinanciamentos.Apresentacao
             this.tabvendedor = new System.Windows.Forms.TabPage();
             this.panel20 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.textnomevendedor = new System.Windows.Forms.ComboBox();
+            this.textnomevendedor1 = new System.Windows.Forms.TextBox();
             this.txtcontavendedor = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textagenciavendedor = new System.Windows.Forms.TextBox();
@@ -129,7 +132,6 @@ namespace LMFinanciamentos.Apresentacao
             this.textcnpjcpf = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
-            this.textnomevendedor = new System.Windows.Forms.TextBox();
             this.tabimovel = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -263,11 +265,11 @@ namespace LMFinanciamentos.Apresentacao
             this.ofd1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.funcionariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.toolTip_btn = new System.Windows.Forms.ToolTip(this.components);
             this.processosTableAdapter = new LMFinanciamentos.DAL.DS_DocumentosTableAdapters.ProcessosTableAdapter();
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientesTableAdapter = new LMFinanciamentos.DAL.DS_ClientesTableAdapters.ClientesTableAdapter();
             this.clientesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.toolTip_btn = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.processosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSDocumentosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Documentos)).BeginInit();
@@ -294,6 +296,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tabvendedor.SuspendLayout();
             this.panel20.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
+            this.panel13.SuspendLayout();
             this.tabimovel.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -1308,6 +1311,8 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 374F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel8.Controls.Add(this.panel13, 0, 1);
+            this.tableLayoutPanel8.Controls.Add(this.textnomevendedor1, 0, 7);
             this.tableLayoutPanel8.Controls.Add(this.txtcontavendedor, 3, 1);
             this.tableLayoutPanel8.Controls.Add(this.label5, 3, 0);
             this.tableLayoutPanel8.Controls.Add(this.textagenciavendedor, 2, 1);
@@ -1321,7 +1326,6 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel8.Controls.Add(this.textcnpjcpf, 1, 1);
             this.tableLayoutPanel8.Controls.Add(this.label27, 0, 0);
             this.tableLayoutPanel8.Controls.Add(this.label30, 0, 2);
-            this.tableLayoutPanel8.Controls.Add(this.textnomevendedor, 0, 1);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
@@ -1338,12 +1342,50 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel8.Size = new System.Drawing.Size(1074, 191);
             this.tableLayoutPanel8.TabIndex = 3;
             // 
+            // panel13
+            // 
+            this.panel13.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel13.Controls.Add(this.textnomevendedor);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel13.Location = new System.Drawing.Point(3, 26);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(415, 34);
+            this.panel13.TabIndex = 31;
+            // 
+            // textnomevendedor
+            // 
+            this.textnomevendedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textnomevendedor.DropDownHeight = 104;
+            this.textnomevendedor.Enabled = false;
+            this.textnomevendedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.textnomevendedor.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textnomevendedor.FormattingEnabled = true;
+            this.textnomevendedor.IntegralHeight = false;
+            this.textnomevendedor.Location = new System.Drawing.Point(0, 0);
+            this.textnomevendedor.Name = "textnomevendedor";
+            this.textnomevendedor.Size = new System.Drawing.Size(413, 36);
+            this.textnomevendedor.TabIndex = 9;
+            this.textnomevendedor.SelectionChangeCommitted += new System.EventHandler(this.textnomevendedor_SelectionChangeCommitted);
+            this.textnomevendedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textnomevendedor_KeyPress);
+            // 
+            // textnomevendedor1
+            // 
+            this.textnomevendedor1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textnomevendedor1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textnomevendedor1.Location = new System.Drawing.Point(3, 139);
+            this.textnomevendedor1.Name = "textnomevendedor1";
+            this.textnomevendedor1.ReadOnly = true;
+            this.textnomevendedor1.Size = new System.Drawing.Size(415, 31);
+            this.textnomevendedor1.TabIndex = 30;
+            this.textnomevendedor1.Visible = false;
+            // 
             // txtcontavendedor
             // 
             this.txtcontavendedor.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtcontavendedor.Enabled = false;
             this.txtcontavendedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcontavendedor.Location = new System.Drawing.Point(703, 26);
+            this.txtcontavendedor.Location = new System.Drawing.Point(754, 26);
             this.txtcontavendedor.Name = "txtcontavendedor";
             this.txtcontavendedor.ReadOnly = true;
             this.txtcontavendedor.Size = new System.Drawing.Size(159, 24);
@@ -1352,7 +1394,7 @@ namespace LMFinanciamentos.Apresentacao
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(703, 0);
+            this.label5.Location = new System.Drawing.Point(754, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(55, 23);
             this.label5.TabIndex = 27;
@@ -1363,7 +1405,7 @@ namespace LMFinanciamentos.Apresentacao
             this.textagenciavendedor.Dock = System.Windows.Forms.DockStyle.Left;
             this.textagenciavendedor.Enabled = false;
             this.textagenciavendedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textagenciavendedor.Location = new System.Drawing.Point(538, 26);
+            this.textagenciavendedor.Location = new System.Drawing.Point(589, 26);
             this.textagenciavendedor.Name = "textagenciavendedor";
             this.textagenciavendedor.ReadOnly = true;
             this.textagenciavendedor.Size = new System.Drawing.Size(159, 24);
@@ -1372,7 +1414,7 @@ namespace LMFinanciamentos.Apresentacao
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(538, 0);
+            this.label10.Location = new System.Drawing.Point(589, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(71, 23);
             this.label10.TabIndex = 25;
@@ -1382,7 +1424,7 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.textcelularvendedor.Enabled = false;
             this.textcelularvendedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textcelularvendedor.Location = new System.Drawing.Point(538, 86);
+            this.textcelularvendedor.Location = new System.Drawing.Point(589, 89);
             this.textcelularvendedor.Mask = "(99) 00000-0000";
             this.textcelularvendedor.Name = "textcelularvendedor";
             this.textcelularvendedor.ReadOnly = true;
@@ -1392,7 +1434,7 @@ namespace LMFinanciamentos.Apresentacao
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(538, 60);
+            this.label11.Location = new System.Drawing.Point(589, 63);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(64, 23);
             this.label11.TabIndex = 23;
@@ -1402,7 +1444,7 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.texttelefonevendedor.Enabled = false;
             this.texttelefonevendedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.texttelefonevendedor.Location = new System.Drawing.Point(373, 86);
+            this.texttelefonevendedor.Location = new System.Drawing.Point(424, 89);
             this.texttelefonevendedor.Mask = "(99) 0000-0000";
             this.texttelefonevendedor.Name = "texttelefonevendedor";
             this.texttelefonevendedor.ReadOnly = true;
@@ -1412,7 +1454,7 @@ namespace LMFinanciamentos.Apresentacao
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(373, 60);
+            this.label12.Location = new System.Drawing.Point(424, 63);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(72, 23);
             this.label12.TabIndex = 21;
@@ -1425,7 +1467,7 @@ namespace LMFinanciamentos.Apresentacao
             this.textemailvendedor.Dock = System.Windows.Forms.DockStyle.Left;
             this.textemailvendedor.Enabled = false;
             this.textemailvendedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textemailvendedor.Location = new System.Drawing.Point(3, 86);
+            this.textemailvendedor.Location = new System.Drawing.Point(3, 89);
             this.textemailvendedor.Name = "textemailvendedor";
             this.textemailvendedor.ReadOnly = true;
             this.textemailvendedor.Size = new System.Drawing.Size(364, 24);
@@ -1434,7 +1476,7 @@ namespace LMFinanciamentos.Apresentacao
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(373, 0);
+            this.label26.Location = new System.Drawing.Point(424, 0);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(81, 23);
             this.label26.TabIndex = 10;
@@ -1445,7 +1487,7 @@ namespace LMFinanciamentos.Apresentacao
             this.textcnpjcpf.Dock = System.Windows.Forms.DockStyle.Left;
             this.textcnpjcpf.Enabled = false;
             this.textcnpjcpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textcnpjcpf.Location = new System.Drawing.Point(373, 26);
+            this.textcnpjcpf.Location = new System.Drawing.Point(424, 26);
             this.textcnpjcpf.Name = "textcnpjcpf";
             this.textcnpjcpf.ReadOnly = true;
             this.textcnpjcpf.Size = new System.Drawing.Size(159, 24);
@@ -1457,28 +1499,18 @@ namespace LMFinanciamentos.Apresentacao
             this.label27.Dock = System.Windows.Forms.DockStyle.Top;
             this.label27.Location = new System.Drawing.Point(3, 0);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(364, 23);
+            this.label27.Size = new System.Drawing.Size(415, 23);
             this.label27.TabIndex = 1;
             this.label27.Text = "Nome do Vendedor:";
             // 
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(3, 60);
+            this.label30.Location = new System.Drawing.Point(3, 63);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(52, 23);
             this.label30.TabIndex = 11;
             this.label30.Text = "Email:";
-            // 
-            // textnomevendedor
-            // 
-            this.textnomevendedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textnomevendedor.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textnomevendedor.Location = new System.Drawing.Point(3, 26);
-            this.textnomevendedor.Name = "textnomevendedor";
-            this.textnomevendedor.ReadOnly = true;
-            this.textnomevendedor.Size = new System.Drawing.Size(364, 31);
-            this.textnomevendedor.TabIndex = 29;
             // 
             // tabimovel
             // 
@@ -2289,7 +2321,8 @@ namespace LMFinanciamentos.Apresentacao
             "Aprovado Abaixo",
             "Aprovado Normal",
             "Contestação",
-            "Solicitado"});
+            "Solicitado",
+            "Negado Demanda G"});
             this.comboBox_statuseng.Location = new System.Drawing.Point(8, 31);
             this.comboBox_statuseng.Name = "comboBox_statuseng";
             this.comboBox_statuseng.Size = new System.Drawing.Size(151, 24);
@@ -3157,6 +3190,10 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.funcionariosBindingSource.DataMember = "Funcionarios";
             // 
+            // toolTip_btn
+            // 
+            this.toolTip_btn.ToolTipTitle = "Alterar Responsável";
+            // 
             // processosTableAdapter
             // 
             this.processosTableAdapter.ClearBeforeFill = true;
@@ -3174,10 +3211,6 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.clientesBindingSource1.DataMember = "Clientes";
             this.clientesBindingSource1.DataSource = this.dS_Clientes;
-            // 
-            // toolTip_btn
-            // 
-            this.toolTip_btn.ToolTipTitle = "Alterar Responsável";
             // 
             // Form_Dados_Processos
             // 
@@ -3232,6 +3265,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panel20.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel8.PerformLayout();
+            this.panel13.ResumeLayout(false);
             this.tabimovel.ResumeLayout(false);
             this.tabimovel.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
@@ -3382,7 +3416,6 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.TextBox txtcontavendedor;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textnomevendedor;
         private System.Windows.Forms.Label lblnumeroprocesso;
         private System.Windows.Forms.Panel panelfuncresp;
         private System.Windows.Forms.Label lbldata;
@@ -3546,6 +3579,9 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.ComboBox comboBox_resp;
         private System.Windows.Forms.Button btnalterresp;
         private System.Windows.Forms.ToolTip toolTip_btn;
+        private System.Windows.Forms.TextBox textnomevendedor1;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.ComboBox textnomevendedor;
         //private System.Windows.Forms.BindingSource corretoraBindingSource;
         //private System.Windows.Forms.BindingSource corretoresBindingSource;
         //private System.Windows.Forms.BindingSource vendedorBindingSource;

@@ -133,11 +133,14 @@ namespace LMFinanciamentos
 
         private void btnlogar_Click(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
+
             if (txt_login.Text == "")
             {
                 lblverifica.Text = "*Preencher o campo Login";
                 lblverifica.Visible = true;
                 txt_login.Focus();
+                Cursor = Cursors.Default;
             }
             else if (txtpassword.Text == "")
             {
@@ -145,7 +148,7 @@ namespace LMFinanciamentos
                 lblverifica.Text = "*Preencher o campo Passwor";
                 lblverifica.Visible = true;
                 txtpassword.Focus();
-
+                Cursor = Cursors.Default;
             }
             else
             {
@@ -200,7 +203,7 @@ namespace LMFinanciamentos
 
             }
 
-
+            Cursor = Cursors.Default;
 
         }
 
@@ -261,6 +264,11 @@ namespace LMFinanciamentos
             if (comboBox_server.Text == "Local")
             {
                 MyIni.Write("StringConnection", "LOCAL", usuario);
+                servidor = "LOCAL";
+            }
+            if (comboBox_server.Text == "HOMOLOGACAO")
+            {
+                MyIni.Write("StringConnection", "HOMOLOGACAO", usuario);
                 servidor = "LOCAL";
             }
         }

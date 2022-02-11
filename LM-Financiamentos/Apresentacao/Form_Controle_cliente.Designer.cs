@@ -33,22 +33,16 @@ namespace LMFinanciamentos.Apresentacao
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Controle_Cliente));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Controle_Cliente));
             this.panelcentralcadcli = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgv_clientes = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Celular = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlcontrol = new System.Windows.Forms.Panel();
             this.grpfiltro = new System.Windows.Forms.GroupBox();
             this.rdbcpfcj = new System.Windows.Forms.RadioButton();
@@ -67,6 +61,12 @@ namespace LMFinanciamentos.Apresentacao
             this.paneltop = new System.Windows.Forms.Panel();
             this.lbl_topo = new System.Windows.Forms.Label();
             this.img_topo = new System.Windows.Forms.PictureBox();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Celular = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelcentralcadcli.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_clientes)).BeginInit();
@@ -164,84 +164,6 @@ namespace LMFinanciamentos.Apresentacao
             this.dgv_clientes.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgv_clientes_RowsAdded);
             this.dgv_clientes.SelectionChanged += new System.EventHandler(this.dgv_clientes_SelectionChanged);
             this.dgv_clientes.SortCompare += new System.Windows.Forms.DataGridViewSortCompareEventHandler(this.dgv_clientes_SortCompare);
-            // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.id.DataPropertyName = "Id_cliente";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.NullValue = "0000";
-            this.id.DefaultCellStyle = dataGridViewCellStyle2;
-            this.id.HeaderText = "Nº";
-            this.id.Name = "id";
-            this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.id.Width = 80;
-            // 
-            // Nome
-            // 
-            this.Nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Nome.DataPropertyName = "Nome_cliente";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Nome.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Nome.HeaderText = "Nome";
-            this.Nome.Name = "Nome";
-            this.Nome.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Nome.Width = 250;
-            // 
-            // CPF
-            // 
-            this.CPF.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CPF.DataPropertyName = "CPF_cliente";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Format = "@\"000\\.000\\.000\\-00\"";
-            dataGridViewCellStyle4.NullValue = "0";
-            this.CPF.DefaultCellStyle = dataGridViewCellStyle4;
-            this.CPF.FillWeight = 100.8F;
-            this.CPF.HeaderText = "CPF";
-            this.CPF.MinimumWidth = 145;
-            this.CPF.Name = "CPF";
-            this.CPF.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.CPF.Width = 200;
-            // 
-            // Nascimento
-            // 
-            this.Nascimento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Nascimento.DataPropertyName = "Nascimento_cliente";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Format = "d";
-            dataGridViewCellStyle5.NullValue = null;
-            this.Nascimento.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Nascimento.FillWeight = 100.8F;
-            this.Nascimento.HeaderText = "Nascimento";
-            this.Nascimento.Name = "Nascimento";
-            this.Nascimento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Nascimento.Width = 150;
-            // 
-            // Email
-            // 
-            this.Email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Email.DataPropertyName = "Email_cliente";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Email.DefaultCellStyle = dataGridViewCellStyle6;
-            this.Email.FillWeight = 96F;
-            this.Email.HeaderText = "Email";
-            this.Email.MinimumWidth = 35;
-            this.Email.Name = "Email";
-            this.Email.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Email.Width = 88;
-            // 
-            // Celular
-            // 
-            this.Celular.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Celular.DataPropertyName = "Celular_cliente";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.NullValue = "0";
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Celular.DefaultCellStyle = dataGridViewCellStyle7;
-            this.Celular.FillWeight = 100.8F;
-            this.Celular.HeaderText = "Celular";
-            this.Celular.Name = "Celular";
-            this.Celular.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // pnlcontrol
             // 
@@ -490,6 +412,85 @@ namespace LMFinanciamentos.Apresentacao
             this.img_topo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.img_topo.TabIndex = 5;
             this.img_topo.TabStop = false;
+            // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.id.DataPropertyName = "Id_cliente";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Format = "0000";
+            dataGridViewCellStyle2.NullValue = "0000";
+            this.id.DefaultCellStyle = dataGridViewCellStyle2;
+            this.id.HeaderText = "Nº";
+            this.id.Name = "id";
+            this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.id.Width = 80;
+            // 
+            // Nome
+            // 
+            this.Nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Nome.DataPropertyName = "Nome_cliente";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Nome.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
+            this.Nome.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Nome.Width = 250;
+            // 
+            // CPF
+            // 
+            this.CPF.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CPF.DataPropertyName = "CPF_cliente";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Format = "@\"000\\.000\\.000\\-00\"";
+            dataGridViewCellStyle4.NullValue = "0";
+            this.CPF.DefaultCellStyle = dataGridViewCellStyle4;
+            this.CPF.FillWeight = 100.8F;
+            this.CPF.HeaderText = "CPF";
+            this.CPF.MinimumWidth = 145;
+            this.CPF.Name = "CPF";
+            this.CPF.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.CPF.Width = 200;
+            // 
+            // Nascimento
+            // 
+            this.Nascimento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Nascimento.DataPropertyName = "Nascimento_cliente";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Format = "d";
+            dataGridViewCellStyle5.NullValue = null;
+            this.Nascimento.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Nascimento.FillWeight = 100.8F;
+            this.Nascimento.HeaderText = "Nascimento";
+            this.Nascimento.Name = "Nascimento";
+            this.Nascimento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Nascimento.Width = 150;
+            // 
+            // Email
+            // 
+            this.Email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Email.DataPropertyName = "Email_cliente";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Email.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Email.FillWeight = 96F;
+            this.Email.HeaderText = "Email";
+            this.Email.MinimumWidth = 35;
+            this.Email.Name = "Email";
+            this.Email.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Email.Width = 88;
+            // 
+            // Celular
+            // 
+            this.Celular.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Celular.DataPropertyName = "Celular_cliente";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.NullValue = "0";
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Celular.DefaultCellStyle = dataGridViewCellStyle7;
+            this.Celular.FillWeight = 100.8F;
+            this.Celular.HeaderText = "Celular";
+            this.Celular.Name = "Celular";
+            this.Celular.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // Form_Controle_Cliente
             // 

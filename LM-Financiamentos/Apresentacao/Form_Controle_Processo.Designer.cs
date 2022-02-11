@@ -49,6 +49,9 @@ namespace LMFinanciamentos.Apresentacao
             this.dSClientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dS_Clientes = new LMFinanciamentos.DAL.DS_Clientes();
             this.pnlcontrol = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblvisao = new System.Windows.Forms.Label();
+            this.comboBoxFunc = new System.Windows.Forms.ComboBox();
             this.btn_reload = new System.Windows.Forms.Button();
             this.lblprocurar = new System.Windows.Forms.Label();
             this.btnprocurar = new System.Windows.Forms.Button();
@@ -58,7 +61,6 @@ namespace LMFinanciamentos.Apresentacao
             this.dS_Documentos = new LMFinanciamentos.DAL.DS_Documentos();
             this.processosTableAdapter = new LMFinanciamentos.DAL.DS_DocumentosTableAdapters.ProcessosTableAdapter();
             this.dgv_process = new System.Windows.Forms.DataGridView();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,6 +68,7 @@ namespace LMFinanciamentos.Apresentacao
             this.Corretora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Corretor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.paneltop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).BeginInit();
@@ -73,6 +76,7 @@ namespace LMFinanciamentos.Apresentacao
             ((System.ComponentModel.ISupportInitialize)(this.dSClientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Clientes)).BeginInit();
             this.pnlcontrol.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.processosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSDocumentosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Documentos)).BeginInit();
@@ -209,6 +213,7 @@ namespace LMFinanciamentos.Apresentacao
             // 
             // pnlcontrol
             // 
+            this.pnlcontrol.Controls.Add(this.panel2);
             this.pnlcontrol.Controls.Add(this.btn_reload);
             this.pnlcontrol.Controls.Add(this.lblprocurar);
             this.pnlcontrol.Controls.Add(this.btnprocurar);
@@ -218,6 +223,41 @@ namespace LMFinanciamentos.Apresentacao
             this.pnlcontrol.Name = "pnlcontrol";
             this.pnlcontrol.Size = new System.Drawing.Size(1010, 138);
             this.pnlcontrol.TabIndex = 10;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.lblvisao);
+            this.panel2.Controls.Add(this.comboBoxFunc);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 94);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(7);
+            this.panel2.Size = new System.Drawing.Size(1010, 44);
+            this.panel2.TabIndex = 7;
+            // 
+            // lblvisao
+            // 
+            this.lblvisao.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblvisao.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblvisao.Location = new System.Drawing.Point(824, 7);
+            this.lblvisao.Name = "lblvisao";
+            this.lblvisao.Size = new System.Drawing.Size(46, 30);
+            this.lblvisao.TabIndex = 9;
+            this.lblvisao.Text = "Visão:";
+            this.lblvisao.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // comboBoxFunc
+            // 
+            this.comboBoxFunc.Dock = System.Windows.Forms.DockStyle.Right;
+            this.comboBoxFunc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxFunc.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxFunc.FormattingEnabled = true;
+            this.comboBoxFunc.Location = new System.Drawing.Point(870, 7);
+            this.comboBoxFunc.Name = "comboBoxFunc";
+            this.comboBoxFunc.Size = new System.Drawing.Size(133, 27);
+            this.comboBoxFunc.TabIndex = 8;
+            this.comboBoxFunc.SelectionChangeCommitted += new System.EventHandler(this.comboBoxFunc_SelectionChangeCommitted);
+            this.comboBoxFunc.Click += new System.EventHandler(this.comboBoxFunc_Click);
             // 
             // btn_reload
             // 
@@ -233,7 +273,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btn_reload.Padding = new System.Windows.Forms.Padding(2);
             this.btn_reload.Size = new System.Drawing.Size(38, 27);
             this.btn_reload.TabIndex = 4;
-            this.toolTip1.SetToolTip(this.btn_reload, "Limpar");
+            this.toolTip1.SetToolTip(this.btn_reload, "Restaurar");
             this.btn_reload.UseVisualStyleBackColor = false;
             this.btn_reload.Click += new System.EventHandler(this.btn_reload_Click);
             // 
@@ -345,6 +385,10 @@ namespace LMFinanciamentos.Apresentacao
             this.dgv_process.Size = new System.Drawing.Size(1010, 143);
             this.dgv_process.TabIndex = 13;
             this.dgv_process.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_process_CellDoubleClick);
+            this.dgv_process.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_process_CellFormatting);
+            this.dgv_process.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgv_process_CellPainting);
+            this.dgv_process.CellStyleChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_process_CellStyleChanged);
+            this.dgv_process.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_process_CellValueChanged);
             // 
             // Id
             // 
@@ -433,6 +477,7 @@ namespace LMFinanciamentos.Apresentacao
             ((System.ComponentModel.ISupportInitialize)(this.dS_Clientes)).EndInit();
             this.pnlcontrol.ResumeLayout(false);
             this.pnlcontrol.PerformLayout();
+            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.processosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSDocumentosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Documentos)).EndInit();
@@ -474,5 +519,8 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.DataGridViewTextBoxColumn Corretora;
         private System.Windows.Forms.DataGridViewTextBoxColumn Corretor;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label lblvisao;
+        private System.Windows.Forms.ComboBox comboBoxFunc;
     }
 }

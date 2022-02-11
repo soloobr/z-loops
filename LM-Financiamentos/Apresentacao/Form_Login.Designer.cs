@@ -133,7 +133,8 @@ namespace LMFinanciamentos
             this.comboBox_server.FormattingEnabled = true;
             this.comboBox_server.Items.AddRange(new object[] {
             "Local",
-            "OnLINE"});
+            "OnLINE",
+            "HOMOLOGACAO"});
             this.comboBox_server.Location = new System.Drawing.Point(50, 166);
             this.comboBox_server.Name = "comboBox_server";
             this.comboBox_server.Size = new System.Drawing.Size(184, 30);
