@@ -65,7 +65,7 @@ namespace LMFinanciamentos.Apresentacao
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Funcionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Corretora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Construtora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Corretor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -359,7 +359,7 @@ namespace LMFinanciamentos.Apresentacao
             this.Cliente,
             this.Data,
             this.Funcionario,
-            this.Corretora,
+            this.Construtora,
             this.Corretor,
             this.status});
             this.dgv_process.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -432,13 +432,13 @@ namespace LMFinanciamentos.Apresentacao
             this.Funcionario.ReadOnly = true;
             this.Funcionario.Width = 220;
             // 
-            // Corretora
+            // Construtora
             // 
-            this.Corretora.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Corretora.DataPropertyName = "Descricao_corretora";
-            this.Corretora.HeaderText = "Construtora";
-            this.Corretora.Name = "Corretora";
-            this.Corretora.ReadOnly = true;
+            this.Construtora.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Construtora.DataPropertyName = "Descricao_construtora";
+            this.Construtora.HeaderText = "Construtora";
+            this.Construtora.Name = "Construtora";
+            this.Construtora.ReadOnly = true;
             // 
             // Corretor
             // 
@@ -516,7 +516,7 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Data;
         private System.Windows.Forms.DataGridViewTextBoxColumn Funcionario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Corretora;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Construtora;
         private System.Windows.Forms.DataGridViewTextBoxColumn Corretor;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
         private System.Windows.Forms.Panel panel2;

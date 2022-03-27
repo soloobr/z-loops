@@ -15,6 +15,7 @@
         public string StatusIR_cliente { get; set; }
         public string StatusFGTS_cliente { get; set; }
         public string StatusAnalise_cliente { get; set; }
+        public string RespAprovacao_cliente { get; set; }
         public string StatusEng_cliente { get; set; }
         public string SaqueFGTS_cliente { get; set; }
         public string SIOPI_cliente { get; set; }
@@ -30,6 +31,7 @@
         public string H_DataStatusIR { get; set; }
         public string H_DataStatusFGTS { get; set; }
         public string H_DataStatusAnalise { get; set; }
+        public string H_DataValidadeStatusAnalise { get; set; }
         public string H_DataStatusEng { get; set; }
         public string H_DataSaqueFGTS { get; set; }
         public string H_DataSIOP { get; set; }
@@ -74,9 +76,9 @@
         #endregion
 
         #region Imovel
-        public string Id_corretora { get; set; }
+        public string Id_construtora { get; set; }
         public string Id_corretor { get; set; }
-        public string Descricao_corretora { get; set; }
+        public string Descricao_construtora { get; set; }
         public string Nome_corretor { get; set; }
         public string AgenciaImovel_imovel { get; set; }
         public string Id_AgenciaImovel { get; set; }

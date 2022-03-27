@@ -17,10 +17,9 @@ namespace LMFinanciamentos.Apresentacao
         String excluirimage;
         FileStream fsObj = null;
         BinaryReader binRdr = null;
-        bool arquivobase;
         bool cj, cj1, cj2, cj3;
         bool conjuge;
-        int newidcli, newidcj, checkcpf;
+        int newidcli, newidcj;
 
 
 
@@ -739,6 +738,126 @@ namespace LMFinanciamentos.Apresentacao
             valor = txtrendacj3.Text;
             txtrendacj3.Text = string.Format("{0:C}", Convert.ToDouble(valor));
             txtrendacj3.Select(txtrendacj3.Text.Length, 0);
+        }
+
+        private void txtnomecli_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void txtcpf_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void txtrg_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void txtnasc_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void txtemail_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void txttelefone_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void txtcelular_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void txtrendacli_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void txtagenciacliente_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void txtcontacliente_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void txtobservacoes_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void txtnomeconjuge_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void txtnomeconjuge1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void txtnomeconjuge2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void txtnomeconjuge3_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
         }
 
         private void btn_excluirconjuge1_Click(object sender, EventArgs e)

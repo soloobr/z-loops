@@ -138,7 +138,7 @@ namespace LMFinanciamentos
             this.comboBox_server.Location = new System.Drawing.Point(50, 166);
             this.comboBox_server.Name = "comboBox_server";
             this.comboBox_server.Size = new System.Drawing.Size(184, 30);
-            this.comboBox_server.TabIndex = 45;
+            this.comboBox_server.TabIndex = 3;
             this.comboBox_server.Visible = false;
             this.comboBox_server.SelectedIndexChanged += new System.EventHandler(this.comboBox_server_SelectedIndexChanged);
             this.comboBox_server.SelectionChangeCommitted += new System.EventHandler(this.comboBox_server_SelectionChangeCommitted);
@@ -179,6 +179,7 @@ namespace LMFinanciamentos
             this.txtpassword.Size = new System.Drawing.Size(184, 27);
             this.txtpassword.TabIndex = 1;
             this.txtpassword.UseSystemPasswordChar = true;
+            this.txtpassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtpassword_KeyDown);
             this.txtpassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtpassword_KeyPress);
             // 
             // lblsenha
@@ -202,6 +203,7 @@ namespace LMFinanciamentos
             this.txt_login.Name = "txt_login";
             this.txt_login.Size = new System.Drawing.Size(184, 27);
             this.txt_login.TabIndex = 0;
+            this.txt_login.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_login_KeyDown);
             this.txt_login.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_login_KeyPress_2);
             // 
             // panel2
@@ -325,6 +327,7 @@ namespace LMFinanciamentos
             this.Controls.Add(this.pnlcenter);
             this.Font = new System.Drawing.Font("Poppins", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

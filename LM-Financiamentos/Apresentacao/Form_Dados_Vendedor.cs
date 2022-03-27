@@ -590,6 +590,14 @@ namespace LMFinanciamentos.Apresentacao
 
         }
 
+        private void txtnomevendedor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
         Bitmap ResizeImage(Image image, int width, int height)
         {
             var destRect = new Rectangle(0, 0, width, height);

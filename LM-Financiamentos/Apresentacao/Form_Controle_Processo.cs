@@ -1,8 +1,10 @@
 ﻿using LMFinanciamentos.DAL;
 using LMFinanciamentos.Entidades;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace LMFinanciamentos.Apresentacao
@@ -12,7 +14,7 @@ namespace LMFinanciamentos.Apresentacao
         public string consultar;
         int processoselecionado;
         int contgrid, contgridlast;
-        string idresponsavel, nomeresponsavel, idresponsavelSelected;
+        string idresponsavel, nomeresponsavel, idresponsavelSelected, listmessage, dias;
 
         public Form_Controle_Processo()
         {
@@ -66,6 +68,50 @@ namespace LMFinanciamentos.Apresentacao
 
             DestacarLinhaDataGridView();
             
+            #region Verifica Validade
+
+            LoginDaoComandos checkvalidade = new LoginDaoComandos();
+
+            var highScores = checkvalidade.GetValidadeAnalise();
+
+            listmessage = "";
+            foreach (var item in highScores)
+            {
+                
+                string vencimento = Convert.ToDateTime($"{item.H_DataValidadeStatusAnalise}").ToString("dd/MM/yyyy");
+                TimeSpan date = Convert.ToDateTime($"{item.H_DataValidadeStatusAnalise}") - DateTime.Now;
+                
+                int totalDias = date.Days;
+                if(totalDias > 1)
+                {
+                     dias = "Faltam "+ totalDias.ToString() + "  Dias";
+                }
+                else if (totalDias == 0)
+                {
+                    dias = "Vence Hoje";
+                }
+                else if (totalDias == 1)
+                {
+                     dias = "Falta " + totalDias.ToString() + " Dia";
+                }
+                else if (totalDias < 0)
+                {
+                    dias = "Analise Vencida";
+                }
+                listmessage = listmessage + "\n" + " Nº Processo: " + ($"{item.Id_processo}") + " - " + "Validade:  " + vencimento + " "+( " | " + dias);
+            }
+
+            if (string.IsNullOrEmpty(listmessage))
+            {
+                //Console.WriteLine("List is Empty");
+            }
+            else
+            {
+                MessageBox.Show("ATENÇÃO Existe Processos com Analise proxima a sua Validade ou Vencida! \n \n Processos: \n" + listmessage + " \n \n Favor tomar devidas providências.", "ATENÇÃO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            
+            #endregion
             #region Carregar combobox visão
             Cursor = Cursors.WaitCursor;
             if (comboBoxFunc.DataSource is null)
@@ -95,8 +141,6 @@ namespace LMFinanciamentos.Apresentacao
             }
             #endregion 
         }
-
-
         public void DestacarLinhaDataGridView()
         {
             foreach (DataGridViewRow row in dgv_process.Rows)

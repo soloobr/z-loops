@@ -154,6 +154,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Apresentacao\Form_Cadastro_Construtora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\Form_Cadastro_Construtora.Designer.cs">
+      <DependentUpon>Form_Cadastro_Construtora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apresentacao\Form_Cadastro_Empreendimentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\Form_Cadastro_Empreendimentos.Designer.cs">
+      <DependentUpon>Form_Cadastro_Empreendimentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apresentacao\Form_Cadastro_Agencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\Form_Cadastro_Agencias.Designer.cs">
+      <DependentUpon>Form_Cadastro_Agencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apresentacao\Form_Cadastro_Corretor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\Form_Cadastro_Corretor.Designer.cs">
+      <DependentUpon>Form_Cadastro_Corretor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apresentacao\Form_Cadastro_Funcionario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,17 +196,65 @@
     <Compile Include="Apresentacao\Form_Cadastro_Cliente.Designer.cs">
       <DependentUpon>Form_Cadastro_Cliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Apresentacao\Form_Controle_Construtora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\Form_Controle_Construtora.Designer.cs">
+      <DependentUpon>Form_Controle_Construtora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apresentacao\Form_Controle_Empreendimentos .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\Form_Controle_Empreendimentos .Designer.cs">
+      <DependentUpon>Form_Controle_Empreendimentos .cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apresentacao\Form_Controle_Agencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\Form_Controle_Agencias.Designer.cs">
+      <DependentUpon>Form_Controle_Agencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apresentacao\Form_Controle_Corretor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\Form_Controle_Corretor.Designer.cs">
+      <DependentUpon>Form_Controle_Corretor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apresentacao\Form_Controle_Vendedor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Apresentacao\Form_Controle_Vendedor.Designer.cs">
       <DependentUpon>Form_Controle_Vendedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Apresentacao\Form_Dados_Construtora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\Form_Dados_Construtora.Designer.cs">
+      <DependentUpon>Form_Dados_Construtora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apresentacao\Form_Dados_Empreendimentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\Form_Dados_Empreendimentos.Designer.cs">
+      <DependentUpon>Form_Dados_Empreendimentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apresentacao\Form_Dados_Corretor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\Form_Dados_Corretor.Designer.cs">
+      <DependentUpon>Form_Dados_Corretor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apresentacao\Form_Dados_Funcionario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Apresentacao\Form_Dados_Funcionario.Designer.cs">
       <DependentUpon>Form_Dados_Funcionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apresentacao\Form_Dados_Agencias .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\Form_Dados_Agencias .Designer.cs">
+      <DependentUpon>Form_Dados_Agencias .cs</DependentUpon>
     </Compile>
     <Compile Include="Apresentacao\Form_Dados_Vendedor.cs">
       <SubType>Form</SubType>
@@ -276,11 +348,15 @@
     </Compile>
     <Compile Include="DAL\IniFile.cs" />
     <Compile Include="DAL\LoginDaoComandos.cs" />
+    <Compile Include="Entidades\Construtora.cs" />
+    <Compile Include="Entidades\Empreendimento.cs" />
     <Compile Include="Entidades\BuscarConjuges.cs" />
+    <Compile Include="Entidades\Agencia.cs" />
     <Compile Include="Entidades\Conjuge.cs" />
     <Compile Include="Entidades\Combobox_Agencia.cs" />
     <Compile Include="Entidades\Documento.cs" />
     <Compile Include="Entidades\BuscarClientes.cs" />
+    <Compile Include="Entidades\Corretor.cs" />
     <Compile Include="Entidades\Processo.cs" />
     <Compile Include="Entidades\Cliente.cs" />
     <Compile Include="Entidades\Funcionario.cs" />
@@ -304,6 +380,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Apresentacao\Form_Cadastro_Construtora.resx">
+      <DependentUpon>Form_Cadastro_Construtora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\Form_Cadastro_Empreendimentos.resx">
+      <DependentUpon>Form_Cadastro_Empreendimentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\Form_Cadastro_Agencias.resx">
+      <DependentUpon>Form_Cadastro_Agencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\Form_Cadastro_Corretor.resx">
+      <DependentUpon>Form_Cadastro_Corretor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\Form_Cadastro_Funcionario.resx">
       <DependentUpon>Form_Cadastro_Funcionario.cs</DependentUpon>
     </EmbeddedResource>
@@ -313,11 +401,35 @@
     <EmbeddedResource Include="Apresentacao\Form_Cadastro_Cliente.resx">
       <DependentUpon>Form_Cadastro_Cliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\Form_Controle_Construtora.resx">
+      <DependentUpon>Form_Controle_Construtora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\Form_Controle_Empreendimentos .resx">
+      <DependentUpon>Form_Controle_Empreendimentos .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\Form_Controle_Agencias.resx">
+      <DependentUpon>Form_Controle_Agencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\Form_Controle_Corretor.resx">
+      <DependentUpon>Form_Controle_Corretor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\Form_Controle_Vendedor.resx">
       <DependentUpon>Form_Controle_Vendedor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\Form_Dados_Construtora.resx">
+      <DependentUpon>Form_Dados_Construtora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\Form_Dados_Empreendimentos.resx">
+      <DependentUpon>Form_Dados_Empreendimentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\Form_Dados_Corretor.resx">
+      <DependentUpon>Form_Dados_Corretor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\Form_Dados_Funcionario.resx">
       <DependentUpon>Form_Dados_Funcionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\Form_Dados_Agencias .resx">
+      <DependentUpon>Form_Dados_Agencias .cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\Form_Dados_Vendedor.resx">
       <DependentUpon>Form_Dados_Vendedor.cs</DependentUpon>

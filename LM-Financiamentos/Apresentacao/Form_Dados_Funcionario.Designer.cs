@@ -208,6 +208,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcracha.ReadOnly = true;
             this.txtcracha.Size = new System.Drawing.Size(170, 27);
             this.txtcracha.TabIndex = 9;
+            this.txtcracha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomefuncionario_KeyDown);
             // 
             // label5
             // 
@@ -236,6 +237,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtendereco.ReadOnly = true;
             this.txtendereco.Size = new System.Drawing.Size(355, 27);
             this.txtendereco.TabIndex = 8;
+            this.txtendereco.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomefuncionario_KeyDown);
             // 
             // label4
             // 
@@ -256,6 +258,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtrendacli.Size = new System.Drawing.Size(216, 27);
             this.txtrendacli.TabIndex = 7;
             this.txtrendacli.Visible = false;
+            this.txtrendacli.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomefuncionario_KeyDown);
             this.txtrendacli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtrendacli_KeyPress);
             this.txtrendacli.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrendacli_KeyUp);
             this.txtrendacli.Leave += new System.EventHandler(this.txtrendacli_Leave);
@@ -294,6 +297,7 @@ namespace LMFinanciamentos.Apresentacao
             this.checkBox_Feminino.TabStop = true;
             this.checkBox_Feminino.Text = "Feminino";
             this.checkBox_Feminino.UseVisualStyleBackColor = true;
+            this.checkBox_Feminino.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomefuncionario_KeyDown);
             // 
             // checkBox_Masculino
             // 
@@ -308,6 +312,7 @@ namespace LMFinanciamentos.Apresentacao
             this.checkBox_Masculino.TabStop = true;
             this.checkBox_Masculino.Text = "Masculino";
             this.checkBox_Masculino.UseVisualStyleBackColor = true;
+            this.checkBox_Masculino.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomefuncionario_KeyDown);
             // 
             // txtcelular
             // 
@@ -319,6 +324,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcelular.Size = new System.Drawing.Size(157, 27);
             this.txtcelular.TabIndex = 6;
             this.txtcelular.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txtcelular.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomefuncionario_KeyDown);
             // 
             // label20
             // 
@@ -339,6 +345,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txttelefone.Size = new System.Drawing.Size(157, 27);
             this.txttelefone.TabIndex = 5;
             this.txttelefone.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txttelefone.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomefuncionario_KeyDown);
             // 
             // label19
             // 
@@ -368,6 +375,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtemail.ReadOnly = true;
             this.txtemail.Size = new System.Drawing.Size(364, 27);
             this.txtemail.TabIndex = 4;
+            this.txtemail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomefuncionario_KeyDown);
             // 
             // lblcpf
             // 
@@ -387,6 +395,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcpf.ReadOnly = true;
             this.txtcpf.Size = new System.Drawing.Size(159, 30);
             this.txtcpf.TabIndex = 1;
+            this.txtcpf.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomefuncionario_KeyDown);
             // 
             // lblfuncionario
             // 
@@ -418,6 +427,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtnasc.TabIndex = 3;
             this.txtnasc.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
             this.txtnasc.ValidatingType = typeof(System.DateTime);
+            this.txtnasc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomefuncionario_KeyDown);
             // 
             // txtnomefuncionario
             // 
@@ -428,6 +438,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtnomefuncionario.ReadOnly = true;
             this.txtnomefuncionario.Size = new System.Drawing.Size(364, 30);
             this.txtnomefuncionario.TabIndex = 0;
+            this.txtnomefuncionario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomefuncionario_KeyDown);
             // 
             // txtrg
             // 
@@ -437,6 +448,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtrg.ReadOnly = true;
             this.txtrg.Size = new System.Drawing.Size(157, 27);
             this.txtrg.TabIndex = 2;
+            this.txtrg.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomefuncionario_KeyDown);
             // 
             // checkBox_status
             // 
@@ -465,6 +477,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtpermission.Name = "txtpermission";
             this.txtpermission.Size = new System.Drawing.Size(157, 31);
             this.txtpermission.TabIndex = 10;
+            this.txtpermission.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomefuncionario_KeyDown);
             // 
             // Foto
             // 

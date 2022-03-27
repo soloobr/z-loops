@@ -281,5 +281,29 @@ namespace LMFinanciamentos
                 btnlogar.PerformClick();
             }
         }
+
+        private void txt_login_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void txtpassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void txt_login_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                //SendKeys.Send("{TAB}");
+                txtpassword.Select(txtpassword.Text.Length, 0);
+                this.ActiveControl = txtpassword;
+                txtpassword.Focus();
+            }
+        }
     }
 }

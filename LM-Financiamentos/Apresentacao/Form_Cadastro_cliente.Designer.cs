@@ -621,6 +621,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtobservacoes.Name = "txtobservacoes";
             this.txtobservacoes.Size = new System.Drawing.Size(589, 27);
             this.txtobservacoes.TabIndex = 69;
+            this.txtobservacoes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtobservacoes_KeyDown);
             // 
             // label6
             // 
@@ -638,6 +639,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcontacliente.Name = "txtcontacliente";
             this.txtcontacliente.Size = new System.Drawing.Size(170, 27);
             this.txtcontacliente.TabIndex = 9;
+            this.txtcontacliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtcontacliente_KeyDown);
             // 
             // txtagenciacliente
             // 
@@ -646,6 +648,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtagenciacliente.Name = "txtagenciacliente";
             this.txtagenciacliente.Size = new System.Drawing.Size(166, 27);
             this.txtagenciacliente.TabIndex = 8;
+            this.txtagenciacliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtagenciacliente_KeyDown);
             // 
             // label4
             // 
@@ -663,6 +666,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtrendacli.Name = "txtrendacli";
             this.txtrendacli.Size = new System.Drawing.Size(167, 27);
             this.txtrendacli.TabIndex = 7;
+            this.txtrendacli.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtrendacli_KeyDown);
             this.txtrendacli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtrendacli_KeyPress);
             this.txtrendacli.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrendacli_KeyUp);
             this.txtrendacli.Leave += new System.EventHandler(this.txtrendacli_Leave);
@@ -726,6 +730,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcelular.Size = new System.Drawing.Size(157, 27);
             this.txtcelular.TabIndex = 6;
             this.txtcelular.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txtcelular.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtcelular_KeyDown);
             // 
             // label20
             // 
@@ -745,6 +750,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txttelefone.Size = new System.Drawing.Size(157, 27);
             this.txttelefone.TabIndex = 5;
             this.txttelefone.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txttelefone.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txttelefone_KeyDown);
             // 
             // label19
             // 
@@ -775,6 +781,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtemail.Name = "txtemail";
             this.txtemail.Size = new System.Drawing.Size(364, 27);
             this.txtemail.TabIndex = 4;
+            this.txtemail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtemail_KeyDown);
             // 
             // lblcpf
             // 
@@ -793,6 +800,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcpf.Name = "txtcpf";
             this.txtcpf.Size = new System.Drawing.Size(219, 30);
             this.txtcpf.TabIndex = 1;
+            this.txtcpf.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtcpf_KeyDown);
             this.txtcpf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcpf_KeyPress);
             this.txtcpf.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtcpf_KeyUp);
             this.txtcpf.Leave += new System.EventHandler(this.txtcpf_Leave);
@@ -828,6 +836,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtnomecli.Name = "txtnomecli";
             this.txtnomecli.Size = new System.Drawing.Size(364, 30);
             this.txtnomecli.TabIndex = 0;
+            this.txtnomecli.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomecli_KeyDown);
             // 
             // txtrg
             // 
@@ -837,6 +846,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtrg.Name = "txtrg";
             this.txtrg.Size = new System.Drawing.Size(157, 27);
             this.txtrg.TabIndex = 2;
+            this.txtrg.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtrg_KeyDown);
             this.txtrg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtrg_KeyPress);
             this.txtrg.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrg_KeyUp);
             // 
@@ -851,6 +861,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtnasc.TabIndex = 3;
             this.txtnasc.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
             this.txtnasc.ValidatingType = typeof(System.DateTime);
+            this.txtnasc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnasc_KeyDown);
             // 
             // label2
             // 
@@ -977,6 +988,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtobservacoescj.Name = "txtobservacoescj";
             this.txtobservacoescj.Size = new System.Drawing.Size(589, 27);
             this.txtobservacoescj.TabIndex = 69;
+            this.txtobservacoescj.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge_KeyDown);
             // 
             // label7
             // 
@@ -994,6 +1006,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcontacj.Name = "txtcontacj";
             this.txtcontacj.Size = new System.Drawing.Size(170, 27);
             this.txtcontacj.TabIndex = 9;
+            this.txtcontacj.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge_KeyDown);
             // 
             // txtagenciacj
             // 
@@ -1002,6 +1015,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtagenciacj.Name = "txtagenciacj";
             this.txtagenciacj.Size = new System.Drawing.Size(166, 27);
             this.txtagenciacj.TabIndex = 8;
+            this.txtagenciacj.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge_KeyDown);
             // 
             // label8
             // 
@@ -1019,6 +1033,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtrendacj.Name = "txtrendacj";
             this.txtrendacj.Size = new System.Drawing.Size(167, 27);
             this.txtrendacj.TabIndex = 7;
+            this.txtrendacj.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge_KeyDown);
             this.txtrendacj.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrendacj_KeyUp);
             // 
             // label9
@@ -1080,6 +1095,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcelularcj.Size = new System.Drawing.Size(157, 27);
             this.txtcelularcj.TabIndex = 6;
             this.txtcelularcj.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txtcelularcj.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge_KeyDown);
             // 
             // label10
             // 
@@ -1099,6 +1115,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txttelefonecj.Size = new System.Drawing.Size(157, 27);
             this.txttelefonecj.TabIndex = 5;
             this.txttelefonecj.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txttelefonecj.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge_KeyDown);
             // 
             // label11
             // 
@@ -1128,6 +1145,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtemailcj.Name = "txtemailcj";
             this.txtemailcj.Size = new System.Drawing.Size(364, 27);
             this.txtemailcj.TabIndex = 4;
+            this.txtemailcj.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge_KeyDown);
             // 
             // label13
             // 
@@ -1146,6 +1164,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcpfcj.Name = "txtcpfcj";
             this.txtcpfcj.Size = new System.Drawing.Size(219, 30);
             this.txtcpfcj.TabIndex = 1;
+            this.txtcpfcj.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge_KeyDown);
             this.txtcpfcj.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtcpfcj_KeyUp);
             // 
             // label14
@@ -1178,6 +1197,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtnomeconjuge.Name = "txtnomeconjuge";
             this.txtnomeconjuge.Size = new System.Drawing.Size(364, 30);
             this.txtnomeconjuge.TabIndex = 0;
+            this.txtnomeconjuge.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge_KeyDown);
             // 
             // txtrgcj
             // 
@@ -1187,6 +1207,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtrgcj.Name = "txtrgcj";
             this.txtrgcj.Size = new System.Drawing.Size(157, 27);
             this.txtrgcj.TabIndex = 2;
+            this.txtrgcj.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge_KeyDown);
             this.txtrgcj.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrgcj_KeyUp);
             // 
             // txtnasccj
@@ -1200,6 +1221,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtnasccj.TabIndex = 3;
             this.txtnasccj.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
             this.txtnasccj.ValidatingType = typeof(System.DateTime);
+            this.txtnasccj.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge_KeyDown);
             // 
             // label16
             // 
@@ -1326,6 +1348,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtobservacoescj1.Name = "txtobservacoescj1";
             this.txtobservacoescj1.Size = new System.Drawing.Size(589, 27);
             this.txtobservacoescj1.TabIndex = 69;
+            this.txtobservacoescj1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge1_KeyDown);
             // 
             // label18
             // 
@@ -1343,6 +1366,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcontacj1.Name = "txtcontacj1";
             this.txtcontacj1.Size = new System.Drawing.Size(170, 27);
             this.txtcontacj1.TabIndex = 9;
+            this.txtcontacj1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge1_KeyDown);
             // 
             // txtagenciacj1
             // 
@@ -1351,6 +1375,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtagenciacj1.Name = "txtagenciacj1";
             this.txtagenciacj1.Size = new System.Drawing.Size(166, 27);
             this.txtagenciacj1.TabIndex = 8;
+            this.txtagenciacj1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge1_KeyDown);
             // 
             // label21
             // 
@@ -1368,6 +1393,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtrendacj1.Name = "txtrendacj1";
             this.txtrendacj1.Size = new System.Drawing.Size(167, 27);
             this.txtrendacj1.TabIndex = 7;
+            this.txtrendacj1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge1_KeyDown);
             this.txtrendacj1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrendacj1_KeyUp);
             // 
             // label22
@@ -1405,6 +1431,7 @@ namespace LMFinanciamentos.Apresentacao
             this.checkBox_Femininocj1.TabStop = true;
             this.checkBox_Femininocj1.Text = "Feminino";
             this.checkBox_Femininocj1.UseVisualStyleBackColor = true;
+            this.checkBox_Femininocj1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge1_KeyDown);
             // 
             // checkBox_Masculinocj1
             // 
@@ -1419,6 +1446,7 @@ namespace LMFinanciamentos.Apresentacao
             this.checkBox_Masculinocj1.TabStop = true;
             this.checkBox_Masculinocj1.Text = "Masculino";
             this.checkBox_Masculinocj1.UseVisualStyleBackColor = true;
+            this.checkBox_Masculinocj1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge1_KeyDown);
             // 
             // txtcelularcj1
             // 
@@ -1429,6 +1457,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcelularcj1.Size = new System.Drawing.Size(157, 27);
             this.txtcelularcj1.TabIndex = 6;
             this.txtcelularcj1.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txtcelularcj1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge1_KeyDown);
             // 
             // label23
             // 
@@ -1448,6 +1477,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txttelefonecj1.Size = new System.Drawing.Size(157, 27);
             this.txttelefonecj1.TabIndex = 5;
             this.txttelefonecj1.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txttelefonecj1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge1_KeyDown);
             // 
             // label24
             // 
@@ -1477,6 +1507,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtemailcj1.Name = "txtemailcj1";
             this.txtemailcj1.Size = new System.Drawing.Size(364, 27);
             this.txtemailcj1.TabIndex = 4;
+            this.txtemailcj1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge1_KeyDown);
             // 
             // label26
             // 
@@ -1495,6 +1526,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcpfcj1.Name = "txtcpfcj1";
             this.txtcpfcj1.Size = new System.Drawing.Size(219, 30);
             this.txtcpfcj1.TabIndex = 1;
+            this.txtcpfcj1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge1_KeyDown);
             this.txtcpfcj1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtcpfcj1_KeyUp);
             // 
             // label27
@@ -1527,6 +1559,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtnomeconjuge1.Name = "txtnomeconjuge1";
             this.txtnomeconjuge1.Size = new System.Drawing.Size(364, 30);
             this.txtnomeconjuge1.TabIndex = 0;
+            this.txtnomeconjuge1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge1_KeyDown);
             // 
             // txtrgcj1
             // 
@@ -1536,6 +1569,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtrgcj1.Name = "txtrgcj1";
             this.txtrgcj1.Size = new System.Drawing.Size(157, 27);
             this.txtrgcj1.TabIndex = 2;
+            this.txtrgcj1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge1_KeyDown);
             this.txtrgcj1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrgcj1_KeyUp);
             // 
             // txtnasccj1
@@ -1549,6 +1583,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtnasccj1.TabIndex = 3;
             this.txtnasccj1.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
             this.txtnasccj1.ValidatingType = typeof(System.DateTime);
+            this.txtnasccj1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge1_KeyDown);
             // 
             // label29
             // 
@@ -1675,6 +1710,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtobservacoescj2.Name = "txtobservacoescj2";
             this.txtobservacoescj2.Size = new System.Drawing.Size(589, 27);
             this.txtobservacoescj2.TabIndex = 69;
+            this.txtobservacoescj2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge2_KeyDown);
             // 
             // label31
             // 
@@ -1692,6 +1728,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcontacj2.Name = "txtcontacj2";
             this.txtcontacj2.Size = new System.Drawing.Size(170, 27);
             this.txtcontacj2.TabIndex = 9;
+            this.txtcontacj2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge2_KeyDown);
             // 
             // txtagenciacj2
             // 
@@ -1700,6 +1737,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtagenciacj2.Name = "txtagenciacj2";
             this.txtagenciacj2.Size = new System.Drawing.Size(166, 27);
             this.txtagenciacj2.TabIndex = 8;
+            this.txtagenciacj2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge2_KeyDown);
             // 
             // label32
             // 
@@ -1717,6 +1755,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtrendacj2.Name = "txtrendacj2";
             this.txtrendacj2.Size = new System.Drawing.Size(167, 27);
             this.txtrendacj2.TabIndex = 7;
+            this.txtrendacj2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge2_KeyDown);
             this.txtrendacj2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrendacj2_KeyUp);
             // 
             // label33
@@ -1754,6 +1793,7 @@ namespace LMFinanciamentos.Apresentacao
             this.checkBox_Femininocj2.TabStop = true;
             this.checkBox_Femininocj2.Text = "Feminino";
             this.checkBox_Femininocj2.UseVisualStyleBackColor = true;
+            this.checkBox_Femininocj2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge2_KeyDown);
             // 
             // checkBox_Masculinocj2
             // 
@@ -1768,6 +1808,7 @@ namespace LMFinanciamentos.Apresentacao
             this.checkBox_Masculinocj2.TabStop = true;
             this.checkBox_Masculinocj2.Text = "Masculino";
             this.checkBox_Masculinocj2.UseVisualStyleBackColor = true;
+            this.checkBox_Masculinocj2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge2_KeyDown);
             // 
             // txtcelularcj2
             // 
@@ -1778,6 +1819,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcelularcj2.Size = new System.Drawing.Size(157, 27);
             this.txtcelularcj2.TabIndex = 6;
             this.txtcelularcj2.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txtcelularcj2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge2_KeyDown);
             // 
             // label34
             // 
@@ -1797,6 +1839,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txttelefonecj2.Size = new System.Drawing.Size(157, 27);
             this.txttelefonecj2.TabIndex = 5;
             this.txttelefonecj2.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txttelefonecj2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge2_KeyDown);
             // 
             // label35
             // 
@@ -1826,6 +1869,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtemailcj2.Name = "txtemailcj2";
             this.txtemailcj2.Size = new System.Drawing.Size(364, 27);
             this.txtemailcj2.TabIndex = 4;
+            this.txtemailcj2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge2_KeyDown);
             // 
             // label37
             // 
@@ -1844,6 +1888,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcpfcj2.Name = "txtcpfcj2";
             this.txtcpfcj2.Size = new System.Drawing.Size(219, 30);
             this.txtcpfcj2.TabIndex = 1;
+            this.txtcpfcj2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge2_KeyDown);
             this.txtcpfcj2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtcpfcj2_KeyUp);
             // 
             // label38
@@ -1876,6 +1921,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtnomeconjuge2.Name = "txtnomeconjuge2";
             this.txtnomeconjuge2.Size = new System.Drawing.Size(364, 30);
             this.txtnomeconjuge2.TabIndex = 0;
+            this.txtnomeconjuge2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge2_KeyDown);
             // 
             // txtrgcj2
             // 
@@ -1885,6 +1931,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtrgcj2.Name = "txtrgcj2";
             this.txtrgcj2.Size = new System.Drawing.Size(157, 27);
             this.txtrgcj2.TabIndex = 2;
+            this.txtrgcj2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge2_KeyDown);
             this.txtrgcj2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrgcj2_KeyUp);
             // 
             // txtnasccj2
@@ -1898,6 +1945,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtnasccj2.TabIndex = 3;
             this.txtnasccj2.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
             this.txtnasccj2.ValidatingType = typeof(System.DateTime);
+            this.txtnasccj2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge2_KeyDown);
             // 
             // label40
             // 
@@ -2005,6 +2053,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtobservacoescj3.Name = "txtobservacoescj3";
             this.txtobservacoescj3.Size = new System.Drawing.Size(589, 27);
             this.txtobservacoescj3.TabIndex = 69;
+            this.txtobservacoescj3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge3_KeyDown);
             // 
             // label42
             // 
@@ -2022,6 +2071,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcontacj3.Name = "txtcontacj3";
             this.txtcontacj3.Size = new System.Drawing.Size(170, 27);
             this.txtcontacj3.TabIndex = 9;
+            this.txtcontacj3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge3_KeyDown);
             // 
             // txtagenciacj3
             // 
@@ -2030,6 +2080,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtagenciacj3.Name = "txtagenciacj3";
             this.txtagenciacj3.Size = new System.Drawing.Size(166, 27);
             this.txtagenciacj3.TabIndex = 8;
+            this.txtagenciacj3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge3_KeyDown);
             // 
             // label43
             // 
@@ -2047,6 +2098,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtrendacj3.Name = "txtrendacj3";
             this.txtrendacj3.Size = new System.Drawing.Size(167, 27);
             this.txtrendacj3.TabIndex = 7;
+            this.txtrendacj3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge3_KeyDown);
             this.txtrendacj3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrendacj3_KeyUp);
             // 
             // label44
@@ -2084,6 +2136,7 @@ namespace LMFinanciamentos.Apresentacao
             this.checkBox_Femininocj3.TabStop = true;
             this.checkBox_Femininocj3.Text = "Feminino";
             this.checkBox_Femininocj3.UseVisualStyleBackColor = true;
+            this.checkBox_Femininocj3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge3_KeyDown);
             // 
             // checkBox_Masculinocj3
             // 
@@ -2098,6 +2151,7 @@ namespace LMFinanciamentos.Apresentacao
             this.checkBox_Masculinocj3.TabStop = true;
             this.checkBox_Masculinocj3.Text = "Masculino";
             this.checkBox_Masculinocj3.UseVisualStyleBackColor = true;
+            this.checkBox_Masculinocj3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge3_KeyDown);
             // 
             // txtcelularcj3
             // 
@@ -2108,6 +2162,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcelularcj3.Size = new System.Drawing.Size(157, 27);
             this.txtcelularcj3.TabIndex = 6;
             this.txtcelularcj3.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txtcelularcj3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge3_KeyDown);
             // 
             // label45
             // 
@@ -2127,6 +2182,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txttelefonecj3.Size = new System.Drawing.Size(157, 27);
             this.txttelefonecj3.TabIndex = 5;
             this.txttelefonecj3.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txttelefonecj3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge3_KeyDown);
             // 
             // label46
             // 
@@ -2156,6 +2212,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtemailcj3.Name = "txtemailcj3";
             this.txtemailcj3.Size = new System.Drawing.Size(364, 27);
             this.txtemailcj3.TabIndex = 4;
+            this.txtemailcj3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge3_KeyDown);
             // 
             // label48
             // 
@@ -2174,6 +2231,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcpfcj3.Name = "txtcpfcj3";
             this.txtcpfcj3.Size = new System.Drawing.Size(219, 30);
             this.txtcpfcj3.TabIndex = 1;
+            this.txtcpfcj3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge3_KeyDown);
             this.txtcpfcj3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtcpfcj3_KeyUp);
             // 
             // label49
@@ -2206,6 +2264,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtnomeconjuge3.Name = "txtnomeconjuge3";
             this.txtnomeconjuge3.Size = new System.Drawing.Size(364, 30);
             this.txtnomeconjuge3.TabIndex = 0;
+            this.txtnomeconjuge3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge3_KeyDown);
             // 
             // txtrgcj3
             // 
@@ -2215,6 +2274,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtrgcj3.Name = "txtrgcj3";
             this.txtrgcj3.Size = new System.Drawing.Size(157, 27);
             this.txtrgcj3.TabIndex = 2;
+            this.txtrgcj3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge3_KeyDown);
             this.txtrgcj3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrgcj3_KeyUp);
             // 
             // txtnasccj3
@@ -2228,6 +2288,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtnasccj3.TabIndex = 3;
             this.txtnasccj3.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
             this.txtnasccj3.ValidatingType = typeof(System.DateTime);
+            this.txtnasccj3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge3_KeyDown);
             // 
             // label51
             // 

@@ -34,8 +34,6 @@ namespace LMFinanciamentos.Apresentacao
             this.img_foto = new System.Windows.Forms.PictureBox();
             this.lblsaudacao = new System.Windows.Forms.Label();
             this.lblfunc = new System.Windows.Forms.Label();
-            this.btnmenurigth = new System.Windows.Forms.Button();
-            this.btnmenuleft = new System.Windows.Forms.Button();
             this.btncdoc = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btncadfor = new System.Windows.Forms.Button();
@@ -45,12 +43,23 @@ namespace LMFinanciamentos.Apresentacao
             this.btnicocad = new System.Windows.Forms.Button();
             this.btnicocdoc = new System.Windows.Forms.Button();
             this.panelcontrolmenu = new System.Windows.Forms.Panel();
+            this.btnmenurigth = new System.Windows.Forms.Button();
+            this.btnmenuleft = new System.Windows.Forms.Button();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelformularios = new System.Windows.Forms.Panel();
             this.imgcenter = new System.Windows.Forms.PictureBox();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnconf = new System.Windows.Forms.Button();
             this.panelmenuitens = new System.Windows.Forms.Panel();
+            this.panelsubmenuimovel = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.btnempreendimentos = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.btncadastrocorretor = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.btncadastroconstrutora = new System.Windows.Forms.Button();
+            this.btnimovel = new System.Windows.Forms.Button();
+            this.btncaixa = new System.Windows.Forms.Button();
             this.panelsubmenucadastro = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btncadastrocfuncionarios = new System.Windows.Forms.Button();
@@ -74,6 +83,10 @@ namespace LMFinanciamentos.Apresentacao
             ((System.ComponentModel.ISupportInitialize)(this.imgcenter)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.panelmenuitens.SuspendLayout();
+            this.panelsubmenuimovel.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.panelsubmenucadastro.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelsubmenucadastrofunc.SuspendLayout();
@@ -132,35 +145,6 @@ namespace LMFinanciamentos.Apresentacao
             this.lblfunc.TabIndex = 0;
             this.lblfunc.Text = "Funcionário";
             this.lblfunc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnmenurigth
-            // 
-            this.btnmenurigth.AutoSize = true;
-            this.btnmenurigth.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnmenurigth.FlatAppearance.BorderSize = 0;
-            this.btnmenurigth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnmenurigth.Image = ((System.Drawing.Image)(resources.GetObject("btnmenurigth.Image")));
-            this.btnmenurigth.Location = new System.Drawing.Point(176, 0);
-            this.btnmenurigth.Name = "btnmenurigth";
-            this.btnmenurigth.Size = new System.Drawing.Size(22, 25);
-            this.btnmenurigth.TabIndex = 1;
-            this.btnmenurigth.UseVisualStyleBackColor = true;
-            this.btnmenurigth.Visible = false;
-            this.btnmenurigth.Click += new System.EventHandler(this.btnmenurigth_Click);
-            // 
-            // btnmenuleft
-            // 
-            this.btnmenuleft.AutoSize = true;
-            this.btnmenuleft.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnmenuleft.FlatAppearance.BorderSize = 0;
-            this.btnmenuleft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnmenuleft.Image = ((System.Drawing.Image)(resources.GetObject("btnmenuleft.Image")));
-            this.btnmenuleft.Location = new System.Drawing.Point(198, 0);
-            this.btnmenuleft.Name = "btnmenuleft";
-            this.btnmenuleft.Size = new System.Drawing.Size(22, 25);
-            this.btnmenuleft.TabIndex = 0;
-            this.btnmenuleft.UseVisualStyleBackColor = true;
-            this.btnmenuleft.Click += new System.EventHandler(this.btnmenuleft_Click);
             // 
             // btncdoc
             // 
@@ -228,6 +212,35 @@ namespace LMFinanciamentos.Apresentacao
             this.panelcontrolmenu.Size = new System.Drawing.Size(220, 25);
             this.panelcontrolmenu.TabIndex = 17;
             // 
+            // btnmenurigth
+            // 
+            this.btnmenurigth.AutoSize = true;
+            this.btnmenurigth.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnmenurigth.FlatAppearance.BorderSize = 0;
+            this.btnmenurigth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnmenurigth.Image = ((System.Drawing.Image)(resources.GetObject("btnmenurigth.Image")));
+            this.btnmenurigth.Location = new System.Drawing.Point(176, 0);
+            this.btnmenurigth.Name = "btnmenurigth";
+            this.btnmenurigth.Size = new System.Drawing.Size(22, 25);
+            this.btnmenurigth.TabIndex = 1;
+            this.btnmenurigth.UseVisualStyleBackColor = true;
+            this.btnmenurigth.Visible = false;
+            this.btnmenurigth.Click += new System.EventHandler(this.btnmenurigth_Click);
+            // 
+            // btnmenuleft
+            // 
+            this.btnmenuleft.AutoSize = true;
+            this.btnmenuleft.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnmenuleft.FlatAppearance.BorderSize = 0;
+            this.btnmenuleft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnmenuleft.Image = ((System.Drawing.Image)(resources.GetObject("btnmenuleft.Image")));
+            this.btnmenuleft.Location = new System.Drawing.Point(198, 0);
+            this.btnmenuleft.Name = "btnmenuleft";
+            this.btnmenuleft.Size = new System.Drawing.Size(22, 25);
+            this.btnmenuleft.TabIndex = 0;
+            this.btnmenuleft.UseVisualStyleBackColor = true;
+            this.btnmenuleft.Click += new System.EventHandler(this.btnmenuleft_Click);
+            // 
             // panelContenedor
             // 
             this.panelContenedor.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -238,7 +251,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panelContenedor.Location = new System.Drawing.Point(0, 0);
             this.panelContenedor.Margin = new System.Windows.Forms.Padding(2);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1022, 667);
+            this.panelContenedor.Size = new System.Drawing.Size(1022, 788);
             this.panelContenedor.TabIndex = 0;
             // 
             // panelformularios
@@ -249,7 +262,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panelformularios.Location = new System.Drawing.Point(230, 32);
             this.panelformularios.Margin = new System.Windows.Forms.Padding(2);
             this.panelformularios.Name = "panelformularios";
-            this.panelformularios.Size = new System.Drawing.Size(792, 635);
+            this.panelformularios.Size = new System.Drawing.Size(792, 756);
             this.panelformularios.TabIndex = 2;
             // 
             // imgcenter
@@ -259,7 +272,7 @@ namespace LMFinanciamentos.Apresentacao
             this.imgcenter.Location = new System.Drawing.Point(0, 0);
             this.imgcenter.Margin = new System.Windows.Forms.Padding(2);
             this.imgcenter.Name = "imgcenter";
-            this.imgcenter.Size = new System.Drawing.Size(792, 635);
+            this.imgcenter.Size = new System.Drawing.Size(792, 756);
             this.imgcenter.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.imgcenter.TabIndex = 0;
             this.imgcenter.TabStop = false;
@@ -276,7 +289,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panelMenu.Margin = new System.Windows.Forms.Padding(2);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Padding = new System.Windows.Forms.Padding(5);
-            this.panelMenu.Size = new System.Drawing.Size(230, 635);
+            this.panelMenu.Size = new System.Drawing.Size(230, 756);
             this.panelMenu.TabIndex = 1;
             // 
             // btnconf
@@ -288,7 +301,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btnconf.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnconf.Image = ((System.Drawing.Image)(resources.GetObject("btnconf.Image")));
             this.btnconf.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnconf.Location = new System.Drawing.Point(5, 594);
+            this.btnconf.Location = new System.Drawing.Point(5, 715);
             this.btnconf.Name = "btnconf";
             this.btnconf.Size = new System.Drawing.Size(220, 36);
             this.btnconf.TabIndex = 22;
@@ -299,14 +312,161 @@ namespace LMFinanciamentos.Apresentacao
             // 
             // panelmenuitens
             // 
+            this.panelmenuitens.Controls.Add(this.panelsubmenuimovel);
+            this.panelmenuitens.Controls.Add(this.btnimovel);
+            this.panelmenuitens.Controls.Add(this.btncaixa);
             this.panelmenuitens.Controls.Add(this.panelsubmenucadastro);
             this.panelmenuitens.Controls.Add(this.btncadastro);
             this.panelmenuitens.Controls.Add(this.btncontroledoc);
             this.panelmenuitens.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelmenuitens.Location = new System.Drawing.Point(5, 339);
             this.panelmenuitens.Name = "panelmenuitens";
-            this.panelmenuitens.Size = new System.Drawing.Size(220, 223);
+            this.panelmenuitens.Size = new System.Drawing.Size(220, 370);
             this.panelmenuitens.TabIndex = 19;
+            // 
+            // panelsubmenuimovel
+            // 
+            this.panelsubmenuimovel.Controls.Add(this.panel4);
+            this.panelsubmenuimovel.Controls.Add(this.panel5);
+            this.panelsubmenuimovel.Controls.Add(this.panel6);
+            this.panelsubmenuimovel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelsubmenuimovel.Location = new System.Drawing.Point(0, 233);
+            this.panelsubmenuimovel.Name = "panelsubmenuimovel";
+            this.panelsubmenuimovel.Size = new System.Drawing.Size(220, 89);
+            this.panelsubmenuimovel.TabIndex = 27;
+            this.panelsubmenuimovel.Visible = false;
+            // 
+            // panel4
+            // 
+            this.panel4.AutoSize = true;
+            this.panel4.Controls.Add(this.btnempreendimentos);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 64);
+            this.panel4.Name = "panel4";
+            this.panel4.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
+            this.panel4.Size = new System.Drawing.Size(220, 32);
+            this.panel4.TabIndex = 2;
+            // 
+            // btnempreendimentos
+            // 
+            this.btnempreendimentos.AutoSize = true;
+            this.btnempreendimentos.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnempreendimentos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnempreendimentos.FlatAppearance.BorderSize = 0;
+            this.btnempreendimentos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnempreendimentos.Font = new System.Drawing.Font("Poppins", 9F);
+            this.btnempreendimentos.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnempreendimentos.Image = ((System.Drawing.Image)(resources.GetObject("btnempreendimentos.Image")));
+            this.btnempreendimentos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnempreendimentos.Location = new System.Drawing.Point(38, 0);
+            this.btnempreendimentos.Name = "btnempreendimentos";
+            this.btnempreendimentos.Size = new System.Drawing.Size(182, 32);
+            this.btnempreendimentos.TabIndex = 23;
+            this.btnempreendimentos.Text = "Cad. de Empreend.";
+            this.btnempreendimentos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnempreendimentos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnempreendimentos.UseVisualStyleBackColor = false;
+            this.btnempreendimentos.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panel5
+            // 
+            this.panel5.AutoSize = true;
+            this.panel5.Controls.Add(this.btncadastrocorretor);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 32);
+            this.panel5.Name = "panel5";
+            this.panel5.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
+            this.panel5.Size = new System.Drawing.Size(220, 32);
+            this.panel5.TabIndex = 1;
+            // 
+            // btncadastrocorretor
+            // 
+            this.btncadastrocorretor.AutoSize = true;
+            this.btncadastrocorretor.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btncadastrocorretor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btncadastrocorretor.FlatAppearance.BorderSize = 0;
+            this.btncadastrocorretor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncadastrocorretor.Font = new System.Drawing.Font("Poppins", 9F);
+            this.btncadastrocorretor.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btncadastrocorretor.Image = ((System.Drawing.Image)(resources.GetObject("btncadastrocorretor.Image")));
+            this.btncadastrocorretor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btncadastrocorretor.Location = new System.Drawing.Point(38, 0);
+            this.btncadastrocorretor.Name = "btncadastrocorretor";
+            this.btncadastrocorretor.Size = new System.Drawing.Size(182, 32);
+            this.btncadastrocorretor.TabIndex = 23;
+            this.btncadastrocorretor.Text = "Cadastro de Corretor";
+            this.btncadastrocorretor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btncadastrocorretor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btncadastrocorretor.UseVisualStyleBackColor = false;
+            this.btncadastrocorretor.Click += new System.EventHandler(this.btncadastrocorretor_Click);
+            // 
+            // panel6
+            // 
+            this.panel6.AutoSize = true;
+            this.panel6.Controls.Add(this.btncadastroconstrutora);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
+            this.panel6.Size = new System.Drawing.Size(220, 32);
+            this.panel6.TabIndex = 0;
+            // 
+            // btncadastroconstrutora
+            // 
+            this.btncadastroconstrutora.AutoSize = true;
+            this.btncadastroconstrutora.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btncadastroconstrutora.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btncadastroconstrutora.FlatAppearance.BorderSize = 0;
+            this.btncadastroconstrutora.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncadastroconstrutora.Font = new System.Drawing.Font("Poppins", 9F);
+            this.btncadastroconstrutora.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btncadastroconstrutora.Image = ((System.Drawing.Image)(resources.GetObject("btncadastroconstrutora.Image")));
+            this.btncadastroconstrutora.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btncadastroconstrutora.Location = new System.Drawing.Point(38, 0);
+            this.btncadastroconstrutora.Name = "btncadastroconstrutora";
+            this.btncadastroconstrutora.Size = new System.Drawing.Size(182, 32);
+            this.btncadastroconstrutora.TabIndex = 23;
+            this.btncadastroconstrutora.Text = "Cad. de Construtora";
+            this.btncadastroconstrutora.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btncadastroconstrutora.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btncadastroconstrutora.UseVisualStyleBackColor = false;
+            this.btncadastroconstrutora.Click += new System.EventHandler(this.btncadastroconstrutora_Click);
+            // 
+            // btnimovel
+            // 
+            this.btnimovel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnimovel.FlatAppearance.BorderSize = 0;
+            this.btnimovel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnimovel.Font = new System.Drawing.Font("Poppins", 11.25F);
+            this.btnimovel.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnimovel.Image = ((System.Drawing.Image)(resources.GetObject("btnimovel.Image")));
+            this.btnimovel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnimovel.Location = new System.Drawing.Point(0, 197);
+            this.btnimovel.Name = "btnimovel";
+            this.btnimovel.Size = new System.Drawing.Size(220, 36);
+            this.btnimovel.TabIndex = 26;
+            this.btnimovel.Text = "Imovél";
+            this.btnimovel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnimovel.UseVisualStyleBackColor = false;
+            this.btnimovel.Click += new System.EventHandler(this.btnimovel_Click);
+            // 
+            // btncaixa
+            // 
+            this.btncaixa.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btncaixa.FlatAppearance.BorderSize = 0;
+            this.btncaixa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncaixa.Font = new System.Drawing.Font("Poppins", 11.25F);
+            this.btncaixa.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btncaixa.Image = ((System.Drawing.Image)(resources.GetObject("btncaixa.Image")));
+            this.btncaixa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btncaixa.Location = new System.Drawing.Point(0, 161);
+            this.btncaixa.Name = "btncaixa";
+            this.btncaixa.Size = new System.Drawing.Size(220, 36);
+            this.btncaixa.TabIndex = 25;
+            this.btncaixa.Text = "Caixa";
+            this.btncaixa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btncaixa.UseVisualStyleBackColor = false;
+            this.btncaixa.Click += new System.EventHandler(this.btncaixa_Click);
             // 
             // panelsubmenucadastro
             // 
@@ -439,7 +599,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btncontroledoc.Dock = System.Windows.Forms.DockStyle.Top;
             this.btncontroledoc.FlatAppearance.BorderSize = 0;
             this.btncontroledoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btncontroledoc.Font = new System.Drawing.Font("Poppins", 9F);
+            this.btncontroledoc.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncontroledoc.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btncontroledoc.Image = ((System.Drawing.Image)(resources.GetObject("btncontroledoc.Image")));
             this.btncontroledoc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -447,9 +607,8 @@ namespace LMFinanciamentos.Apresentacao
             this.btncontroledoc.Name = "btncontroledoc";
             this.btncontroledoc.Size = new System.Drawing.Size(220, 36);
             this.btncontroledoc.TabIndex = 22;
-            this.btncontroledoc.Text = "Controle de Processos";
-            this.btncontroledoc.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btncontroledoc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btncontroledoc.Text = "Processos";
+            this.btncontroledoc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btncontroledoc.UseVisualStyleBackColor = false;
             this.btncontroledoc.Click += new System.EventHandler(this.btncontroledoc_Click);
             // 
@@ -550,7 +709,7 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1022, 667);
+            this.ClientSize = new System.Drawing.Size(1022, 788);
             this.Controls.Add(this.panelContenedor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -571,6 +730,14 @@ namespace LMFinanciamentos.Apresentacao
             ((System.ComponentModel.ISupportInitialize)(this.imgcenter)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.panelmenuitens.ResumeLayout(false);
+            this.panelsubmenuimovel.ResumeLayout(false);
+            this.panelsubmenuimovel.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.panelsubmenucadastro.ResumeLayout(false);
             this.panelsubmenucadastro.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -627,6 +794,15 @@ namespace LMFinanciamentos.Apresentacao
         private System.Windows.Forms.Button btncontroledoc;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btncadastrocfuncionarios;
+        private System.Windows.Forms.Button btncaixa;
+        private System.Windows.Forms.Button btnimovel;
+        private System.Windows.Forms.Panel panelsubmenuimovel;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button btnempreendimentos;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button btncadastrocorretor;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Button btncadastroconstrutora;
     }
 }
 

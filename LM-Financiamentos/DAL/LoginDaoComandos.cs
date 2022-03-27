@@ -18,7 +18,7 @@ namespace LMFinanciamentos.DAL
         public bool tem = false;
         public string mensagem = "";
         private String slogin;
-        private String idcliente;
+        private String idcliente, newempre;
 
         private static string _server;
 
@@ -40,7 +40,7 @@ namespace LMFinanciamentos.DAL
         Conecxao con = new Conecxao(_server);
 
 
-        MySqlDataReader dr, drfunc, drsenha, drclient, drclients, drprocess, drvendedor, drprocessos, drdocumentos, drvendedores, drconjuge;
+        MySqlDataReader dr, drfunc, drsenha, drclient, drclients, drprocess, drvendedor, drprocessos, drdocumentos, drvendedores, drconjuge, drempreendimentos, drconstrutora, drcorretor;
 
         public bool verificarLogin(String login, String senha)
         {
@@ -69,12 +69,12 @@ namespace LMFinanciamentos.DAL
         public Processo GetProcesso(String idprocess)
         {
             cmd.CommandText = "SELECT P.id as idpross, P.idresponsavel as idresponsavel, P.Data as Data, P.Observacao as Observacao , ValorImovel, ValorFinanciado, P.StatusCPF as StatusCPF, P.StatusCiweb as StatusCiweb, P.StatusCadmut as StatusCadmut, P.StatusIR as StatusIR, P.StatusFGTS as StatusFGTS,  " +
-                "P.StatusAnalise as	StatusAnalise, P.StatusEng as StatusEng, P.SaqueFGTS as SaqueFGTS, P.SIOPI as SIOPI, P.SICTD as SICTD, P.StatusPA as StatusPA, P.StatusCartorio as StatusCartorio, " +
+                "P.StatusAnalise as	StatusAnalise, P.RespAprovacao as RespAprovacao, P.StatusEng as StatusEng, P.SaqueFGTS as SaqueFGTS, P.SIOPI as SIOPI, P.SICTD as SICTD, P.StatusPA as StatusPA, P.StatusCartorio as StatusCartorio, " +
                 "clientes.id as idCliente, clientes.Nome as clinome, clientes.Email as EmailCli,  clientes.Telefone as Telefonecli , clientes.Celular as celularcli, clientes.CPF as cpfcli, clientes.RG as rgcli, conta.Agencia as agenciacli, conta.Conta as contacli, clientes.Nascimento as Nascimento, clientes.Renda as rendacli, clientes.RendaBruta as rendabruta, " +
                 "V.id as idVendedor, V.Nome as vendnome, V.Email as Emailvendedor, V.Telefone as Telefonevendedor, V.Celular as celularvendedor, V.CPF as cpfvendedor, V.CNPJ as cnpjvendedor, CV.Agencia as agenciavendedor, CV.Conta as contavendedor,   " +
-                "corretora.Descricao as Corretora, corretores.Nome as Corretor, P.idCorretora, P.idCorretor, agencia.id as idAgenciaImovel, CONCAT(agencia.Agencia,' - ',agencia.Descricao) as AgenciaImovel, programa.id as idPrograma, programa.Descricao as DescriPrograma, agencia.Agencia as AgenciaImovel, programa.Descricao as Programa, empreendimentos.Descricao as EmpDescricao, empreendimentos.id as Empreid, P.idCartorio as idCartorio, cartorio.Descricao as sCartorio, cartorio.Endereco as endCartorio, P.StatusCartorio as StatusCartorio,  " +
+                "construtora.Descricao as Construtora, corretores.Nome as Corretor, P.idConstrutora, P.idCorretor, agencia.id as idAgenciaImovel, CONCAT(agencia.Agencia,' - ',agencia.Descricao) as AgenciaImovel, programa.id as idPrograma, programa.Descricao as DescriPrograma, agencia.Agencia as AgenciaImovel, programa.Descricao as Programa, empreendimentos.Descricao as EmpDescricao, empreendimentos.id as Empreid, P.idCartorio as idCartorio, cartorio.Descricao as sCartorio, cartorio.Endereco as endCartorio, P.StatusCartorio as StatusCartorio,  " +
                 "F.Nome as nomeresponsavel, F.Permission as permissionresponsavel,  " +
-                "P.DataStatusCPF, P.DataStatusCiweb, P.DataStatusCadmut, P.DataStatusIR, P.DataStatusFGTS, P.DataStatusAnalise, P.DataStatusEng, P.DataSaqueFGTS, P.DataSIOP, P.DataSICTD, P.DataPA, P.DataStatusCartorio, P.DataStatus   " +
+                "P.DataStatusCPF, P.DataStatusCiweb, P.DataStatusCadmut, P.DataStatusIR, P.DataStatusFGTS, P.DataStatusAnalise, P.DataValidadeStatusAnalise, P.DataStatusEng, P.DataSaqueFGTS, P.DataSIOP, P.DataSICTD, P.DataPA, P.DataStatusCartorio, P.DataStatus   " +
 
                 "FROM processos P " +
                 "inner join clientes on clientes.id = P.idCliente " +
@@ -85,7 +85,7 @@ namespace LMFinanciamentos.DAL
                 "Left join agencia on P.idAgenciaImovel = agencia.id " +
                 "Left join programa on P.idPrograma = programa.id " +
                 "Left join empreendimentos on P.idEmpreendimento = empreendimentos.id " +
-                "Left join corretora on P.idCorretora = corretora.id " +
+                "Left join construtora on P.idConstrutora = construtora.id " +
                 "Left join corretores on P.idCorretor = corretores.id " +
                 "Left join cartorio on P.idCartorio = cartorio.id " +
                 "WHERE P.id = @idprocesso";
@@ -114,6 +114,7 @@ namespace LMFinanciamentos.DAL
                     process.StatusIR_cliente = drprocess["StatusIR"].ToString();
                     process.StatusFGTS_cliente = drprocess["StatusFGTS"].ToString();
                     process.StatusAnalise_cliente = drprocess["StatusAnalise"].ToString();
+                    process.RespAprovacao_cliente = drprocess["RespAprovacao"].ToString();
                     process.StatusEng_cliente = drprocess["StatusEng"].ToString();
                     process.SaqueFGTS_cliente = drprocess["SaqueFGTS"].ToString();
                     process.SIOPI_cliente = drprocess["SIOPI"].ToString();
@@ -127,6 +128,7 @@ namespace LMFinanciamentos.DAL
                     process.H_DataStatusIR = drprocess["DataStatusIR"].ToString();
                     process.H_DataStatusFGTS = drprocess["DataStatusFGTS"].ToString();
                     process.H_DataStatusAnalise = drprocess["DataStatusAnalise"].ToString();
+                    process.H_DataValidadeStatusAnalise = drprocess["DataValidadeStatusAnalise"].ToString();
                     process.H_DataStatusEng = drprocess["DataStatusEng"].ToString();
                     process.H_DataSaqueFGTS = drprocess["DataSaqueFGTS"].ToString();
                     process.H_DataSIOP = drprocess["DataSIOP"].ToString();
@@ -173,10 +175,10 @@ namespace LMFinanciamentos.DAL
                     #endregion
 
                     #region imovel
-                    process.Id_corretora = drprocess["idCorretora"].ToString();
+                    process.Id_construtora = drprocess["idConstrutora"].ToString();
                     process.Id_corretor = drprocess["idCorretor"].ToString();
                     process.Nome_corretor = drprocess["Corretor"].ToString();
-                    process.Descricao_corretora = drprocess["Corretora"].ToString();
+                    process.Descricao_construtora = drprocess["Construtora"].ToString();
 
 
                     process.Id_AgenciaImovel = drprocess["idAgenciaImovel"].ToString();
@@ -935,6 +937,154 @@ namespace LMFinanciamentos.DAL
 
             //return mensagem;
         }
+        public int CadastrarAgencia(String descricao, String agencia, String end)
+        {
+
+
+            try
+            {
+                cmd.CommandText = "INSERT INTO agencia (Descricao, Agencia, Endereco) Values  (@descri, @agencia, @endereco)";
+
+                cmd.Parameters.AddWithValue("@descri", descricao);
+                cmd.Parameters.AddWithValue("@agencia", agencia);
+                cmd.Parameters.AddWithValue("@endereco", end);
+ 
+
+                cmd.Connection = con.conectar();
+
+                cmd.ExecuteNonQuery();
+
+                if (cmd.LastInsertedId != 0)
+                    cmd.Parameters.Add(new MySqlParameter("ultimoId", cmd.LastInsertedId));
+
+                return Convert.ToInt32(cmd.Parameters["@ultimoId"].Value);
+
+            }
+
+            catch (Exception err)
+            {
+                throw err;
+            }
+            finally
+            {
+                con.desconectar();
+            }
+
+        }
+        public int CadastrarEmpreendimento(String descricao, String end)
+        {
+
+
+            try
+            {
+                cmd.CommandText = "INSERT INTO empreendimentos (Descricao,  Endereco) Values  (@descri, @endereco)";
+
+                cmd.Parameters.AddWithValue("@descri", descricao);
+                cmd.Parameters.AddWithValue("@endereco", end);
+
+
+                cmd.Connection = con.conectar();
+
+                cmd.ExecuteNonQuery();
+
+                if (cmd.LastInsertedId != 0)
+                    cmd.Parameters.Add(new MySqlParameter("ultimoId", cmd.LastInsertedId));
+
+                return Convert.ToInt32(cmd.Parameters["@ultimoId"].Value);
+
+            }
+
+            catch (Exception err)
+            {
+                throw err;
+            }
+            finally
+            {
+                con.desconectar();
+            }
+
+        }
+        public string UpdateEmpreendimento(String id, String descricao, String end)
+        {
+
+
+            try
+            {
+                cmd.CommandText = "UPDATE empreendimentos SET  Descricao = @descri, Endereco = @endereco WHERE id = @id ";
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@descri", descricao);
+                //cmd.Parameters.AddWithValue("@agencia", agencia);
+                cmd.Parameters.AddWithValue("@endereco", end);
+
+
+                cmd.Connection = con.conectar();
+
+                int recordsAffected = cmd.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "Empreendimento Atualizado com Sucesso!";
+                }
+                else
+                {
+                    mensagem = "Erro";
+                }
+
+
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+            }
+            catch (Exception err)
+            {
+                mensagem = ("Erro ao Atualizar o Empreendimento: " + err.Message);
+            }
+
+            return mensagem;
+
+        }
+        public string UpdateAgencia(String id, String descricao, String agencia, String end)
+        {
+
+
+            try
+            {
+                cmd.CommandText = "UPDATE agencia SET  Descricao = @descri, Endereco = @endereco, Agencia = @agencia WHERE id = @id ";
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@descri", descricao);
+                cmd.Parameters.AddWithValue("@agencia", agencia);
+                cmd.Parameters.AddWithValue("@endereco", end);
+
+
+                cmd.Connection = con.conectar();
+
+                int recordsAffected = cmd.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "Agência Atualizada com Sucesso!";
+                }
+                else
+                {
+                    mensagem = "Erro";
+                }
+
+
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+            }
+            catch (Exception err)
+            {
+                mensagem = ("Erro ao Atualizar a Agência: " + err.Message);
+            }
+
+            return mensagem;
+
+        }
+
         public int CadastrarConjuge(String nome, String email, String telefone, String celular, String cpf, String rg, DateTime nascimento, String sexo, String status, String renda, String observacao, String idcliente, String sequencia, bool conjuge)
         {
 
@@ -1004,7 +1154,7 @@ namespace LMFinanciamentos.DAL
             try
             {
                 cmd.CommandText = "UPDATE conjuge " +
-               "SET Nome =@nome , Email = @email, Telefone = @telefone, Celular = @celular, CPF = @cpf, RG = @rg, Nascimento = @nascimento, Sexo = @sexo, Status = @status, Renda = @renda, Observacao = @observacao, idCliente = @idcliente, Sequencia = @sequencia, Conjuge = @conjuge " +
+               "SET Nome = @nome , Email = @email, Telefone = @telefone, Celular = @celular, CPF = @cpf, RG = @rg, Nascimento = @nascimento, Sexo = @sexo, Status = @status, Renda = @renda, Observacao = @observacao, idCliente = @idcliente, Sequencia = @sequencia, Conjuge = @conjuge " +
                "WHERE conjuge.id = @id ";
 
                 cmd.Parameters.Clear();
@@ -1289,6 +1439,167 @@ namespace LMFinanciamentos.DAL
 
             return client;
         }
+        public Agencia GetNumAgencia(String ag)
+        {
+
+            cmd.CommandText = "SELECT * FROM agencia " +
+
+                "WHERE agencia.Agencia = @ag  ";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@ag", ag);
+            Agencia agencia = new Agencia();
+            try
+            {
+                cmd.Connection = con.conectar();
+                drclient = cmd.ExecuteReader();
+                while (drclient.Read())
+                {
+                    //Cliente client = new Cliente();
+                    agencia.Id_agencia = drclient["id"].ToString();
+                    agencia.Descri_agencia = drclient["Descricao"].ToString();
+                    agencia.Num_Agencia = drclient["Agencia"].ToString();
+                    agencia.End_Agencia = drclient["Endereco"].ToString();
+                }
+                drclient.Close();
+                con.desconectar();
+
+            }
+            catch (SqlException err)
+            {
+                throw new Exception("Erro ao obter Agência: " + err.Message);
+            }
+
+            return agencia;
+        }
+        public List<Empreendimento> GetEmpreendimentosM(String empre)
+
+        {
+            var list = new List<Empreendimento>();
+
+            cmd.CommandText = "SELECT * FROM empreendimentos WHERE Descricao Like @empre  ";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@empre", "%" + empre + "%");
+            //Cliente clients = new Cliente();
+            try
+            {
+                cmd.Connection = con.conectar();
+                drclients = cmd.ExecuteReader();
+                while (drclients.Read())
+                {
+                    Empreendimento emprrendimento = new Empreendimento();
+                    emprrendimento.Id_empreendimentos = drclients["id"].ToString();
+                    emprrendimento.Descri_empreendimentos = drclients["Descricao"].ToString();
+                    emprrendimento.End_empreendimentos = drclients["Endereco"].ToString();
+                    list.Add(emprrendimento);
+                }
+                drclients.Close();
+                con.desconectar();
+
+            }
+            catch (SqlException err)
+            {
+                throw new Exception("Erro ao obter Empreendimentos: " + err.Message);
+            }
+            return list;
+        }
+        public Empreendimento GetNumEmpreendimento(String empre)
+        {
+
+            cmd.CommandText = "SELECT * FROM empreendimentos " +
+
+                "WHERE Descricao Like @empre  ";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@empre", "%" + empre + "%");
+            Empreendimento empreendimento = new Empreendimento();
+            try
+            {
+                cmd.Connection = con.conectar();
+                drclient = cmd.ExecuteReader();
+                while (drclient.Read())
+                {
+                    //Cliente client = new Cliente();
+                    empreendimento.Id_empreendimentos = drclient["id"].ToString();
+                    empreendimento.Descri_empreendimentos = drclient["Descricao"].ToString();
+                    //empreendimento.Num_Agencia = drclient["Agencia"].ToString();
+                    empreendimento.End_empreendimentos = drclient["Endereco"].ToString();
+                }
+                drclient.Close();
+                con.desconectar();
+
+            }
+            catch (SqlException err)
+            {
+                throw new Exception("Erro ao obter Agência: " + err.Message);
+            }
+
+            return empreendimento;
+        }
+        public Empreendimento GetEmpreendimento(String id)
+        {
+
+            cmd.CommandText = "SELECT * FROM empreendimentos " +
+
+                "WHERE id = @ag  ";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@ag", id);
+            Empreendimento empreendimento = new Empreendimento();
+            try
+            {
+                cmd.Connection = con.conectar();
+                drclient = cmd.ExecuteReader();
+                while (drclient.Read())
+                {
+                    //Cliente client = new Cliente();
+                    empreendimento.Id_empreendimentos = drclient["id"].ToString();
+                    empreendimento.Descri_empreendimentos = drclient["Descricao"].ToString();
+                    //ampreendimento.Num_Empreendimentos = drclient["Empreendimento"].ToString();
+                    empreendimento.End_empreendimentos = drclient["Endereco"].ToString();
+                }
+                drclient.Close();
+                con.desconectar();
+
+            }
+            catch (SqlException err)
+            {
+                throw new Exception("Erro ao obter Empreendimento: " + err.Message);
+            }
+
+            return empreendimento;
+        }
+        public Agencia GetAgencia(String ag)
+        {
+
+            cmd.CommandText = "SELECT * FROM agencia " +
+
+                "WHERE agencia.id = @ag  ";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@ag", ag);
+            Agencia agencia = new Agencia();
+            try
+            {
+                cmd.Connection = con.conectar();
+                drclient = cmd.ExecuteReader();
+                while (drclient.Read())
+                {
+                    //Cliente client = new Cliente();
+                    agencia.Id_agencia = drclient["id"].ToString();
+                    agencia.Descri_agencia = drclient["Descricao"].ToString();
+                    agencia.Num_Agencia = drclient["Agencia"].ToString();
+                    agencia.End_Agencia = drclient["Endereco"].ToString();
+                }
+                drclient.Close();
+                con.desconectar();
+
+            }
+            catch (SqlException err)
+            {
+                throw new Exception("Erro ao obter Agência: " + err.Message);
+            }
+
+            return agencia;
+        }
+
+
         public Cliente GetCPFClienteEdit(String cpf, String id)
         {
 
@@ -1812,15 +2123,81 @@ namespace LMFinanciamentos.DAL
 
             return mensagem;
         }
+        public List<Agencia> GetAgencias(String consulta)
 
+        {
+            var list = new List<Agencia>();
+
+            cmd2.CommandText = "SELECT * FROM agencia WHERE id not LIKE 7 AND (Agencia like @consulta or Descricao like @consulta)";
+            cmd2.Parameters.Clear();
+            cmd2.Parameters.AddWithValue("@consulta", "%" + consulta + "%");
+            try
+            {
+                cmd2.Connection = con.conectar();
+                drclients = cmd2.ExecuteReader();
+                while (drclients.Read())
+                {
+                    Agencia agencias = new Agencia();
+                    agencias.Id_agencia = drclients["id"].ToString();
+                    agencias.Descri_agencia = drclients["Descricao"].ToString();
+                    agencias.Num_Agencia = drclients["Agencia"].ToString();
+                    agencias.End_Agencia = drclients["Endereco"].ToString();
+
+                    list.Add(agencias);
+                }
+                drclients.Close();
+                con.desconectar();
+
+            }
+            catch (SqlException err)
+            {
+                throw new Exception("Erro ao obter Agências: " + err.Message);
+            }
+
+            //return client;
+            return list;
+        }
+        public List<Empreendimento> GetEmpreendimentos(String empr)
+
+        {
+            var list = new List<Empreendimento>();
+
+            cmd2.CommandText = "SELECT * FROM empreendimentos WHERE Descricao like @var";
+            cmd2.Parameters.Clear();
+            cmd2.Parameters.AddWithValue("@var", "%" + empr + "%");
+            try
+            {
+                cmd2.Connection = con.conectar();
+                drclients = cmd2.ExecuteReader();
+                while (drclients.Read())
+                {
+                    Empreendimento empre = new Empreendimento();
+                    empre.Id_empreendimentos = drclients["id"].ToString();
+                    empre.Descri_empreendimentos = drclients["Descricao"].ToString();
+                    empre.End_empreendimentos = drclients["Endereco"].ToString();
+
+                    list.Add(empre);
+                }
+                drclients.Close();
+                con.desconectar();
+
+            }
+            catch (SqlException err)
+            {
+                throw new Exception("Erro ao obter Empreendimento: " + err.Message);
+            }
+
+            //return client;
+            return list;
+        }
         public List<Processo> GetProcessos(String tipo, String tipov, String nome)
         {
             var listprocessos = new List<Processo>();
 
-            cmd.CommandText = "SELECT P.id as idpross, P.idresponsavel as idresponsavel, P.Data as Data, P.Observacao as Observacao , P.StatusCPF as StatusCPF, P.StatusCiweb as StatusCiweb, P.StatusCadmut as StatusCadmut, P.StatusIR as StatusIR, P.StatusFGTS as StatusFGTS, P.Status as Status, corretora.Descricao as Corretora, corretores.Nome as Corretor, " +
+            cmd.CommandText = "SELECT P.id as idpross, P.idresponsavel as idresponsavel, P.Data as Data, P.Observacao as Observacao , P.StatusCPF as StatusCPF, P.StatusCiweb as StatusCiweb, P.StatusCadmut as StatusCadmut, P.StatusIR as StatusIR, P.StatusFGTS as StatusFGTS, P.Status as Status, construtora.Descricao as Construtora, corretores.Nome as Corretor, " +
                 "C.id as idCliente, C.Nome as clinome, C.Email as EmailCli,  C.Telefone as Telefonecli , C.Celular as celularcli, C.CPF as cpfcli, C.RG as rgcli, conta.Agencia as agenciacli, conta.Conta as contacli, C.Nascimento as Nascimento, C.Renda as rendacli, " +
                 "V.id as idVendedor, V.Nome as vendnome, V.Email as Emailvendedor, V.Telefone as Telefonevendedor, V.Celular as celularvendedor, V.CPF as cpfvendedor, V.CNPJ as cnpjvendedor, CV.Agencia as agenciavendedor, CV.Conta as contavendedor,   " +
-                "corretora.id as idcorretora, corretores.id as idCorretor,  " +
+                "construtora.id as idconstrutora, corretores.id as idCorretor,  " +
                 "F.Nome as nomeresponsavel, F.Permission as permissionresponsavel,  " +
                 "P.DataStatusCPF, P.DataStatusCiweb, P.DataStatusCadmut, P.DataStatusIR, P.DataStatusFGTS, P.DataStatusAnalise, P.DataStatusEng, P.DataStatusCartorio, P.DataStatus " +
 
@@ -1830,7 +2207,7 @@ namespace LMFinanciamentos.DAL
                 "Left join funcionarios F on F.id = P.idresponsavel " +
                 "Left join conta on C.id = conta.idcliente and conta.Tipo =@tipo " +
                 "Left join conta CV on V.id = conta.idcliente and conta.Tipo =@tipov " +
-                "Left join corretora on P.idCorretora = corretora.id " +
+                "Left join construtora on P.idConstrutora = construtora.id " +
                 "Left join corretores on P.idCorretor = corretores.id " +
                 //"Left join P_Status H on P.id = H.idprocesso " +
                 "WHERE (C.Nome Like @consulta) or (P.id Like @consulta) " +
@@ -1908,9 +2285,9 @@ namespace LMFinanciamentos.DAL
                         #endregion
 
                         #region imovel
-                        processos.Id_corretora = drprocessos["idCorretora"].ToString();
+                        processos.Id_construtora = drprocessos["idConstrutora"].ToString();
                         processos.Id_corretor = drprocessos["idCorretor"].ToString();
-                        processos.Descricao_corretora = drprocessos["Corretora"].ToString();
+                        processos.Descricao_construtora = drprocessos["Construtora"].ToString();
                         processos.Nome_corretor = drprocessos["Corretor"].ToString();
 
 
@@ -1933,10 +2310,10 @@ namespace LMFinanciamentos.DAL
         {
             var listprocessos = new List<Processo>();
 
-            cmd.CommandText = "SELECT P.id as idpross, P.idresponsavel as idresponsavel, P.Data as Data, P.Observacao as Observacao , P.StatusCPF as StatusCPF, P.StatusCiweb as StatusCiweb, P.StatusCadmut as StatusCadmut, P.StatusIR as StatusIR, P.StatusFGTS as StatusFGTS, P.Status as Status, corretora.Descricao as Corretora, corretores.Nome as Corretor, " +
+            cmd.CommandText = "SELECT P.id as idpross, P.idresponsavel as idresponsavel, P.Data as Data, P.Observacao as Observacao , P.StatusCPF as StatusCPF, P.StatusCiweb as StatusCiweb, P.StatusCadmut as StatusCadmut, P.StatusIR as StatusIR, P.StatusFGTS as StatusFGTS, P.Status as Status, construtora.Descricao as Construtora, corretores.Nome as Corretor, " +
                 "C.id as idCliente, C.Nome as clinome, C.Email as EmailCli,  C.Telefone as Telefonecli , C.Celular as celularcli, C.CPF as cpfcli, C.RG as rgcli, conta.Agencia as agenciacli, conta.Conta as contacli, C.Nascimento as Nascimento, C.Renda as rendacli, " +
                 "V.id as idVendedor, V.Nome as vendnome, V.Email as Emailvendedor, V.Telefone as Telefonevendedor, V.Celular as celularvendedor, V.CPF as cpfvendedor, V.CNPJ as cnpjvendedor, CV.Agencia as agenciavendedor, CV.Conta as contavendedor,   " +
-                "corretora.id as idcorretora, corretores.id as idCorretor,  " +
+                "construtora.id as idconstrutora, construtora.Descricao as Descricao, corretores.id as idCorretor,  " +
                 "F.Nome as nomeresponsavel, F.Permission as permissionresponsavel,  " +
                 "P.DataStatusCPF, P.DataStatusCiweb, P.DataStatusCadmut, P.DataStatusIR, P.DataStatusFGTS, P.DataStatusAnalise, P.DataStatusEng, P.DataStatusCartorio, P.DataStatus " +
 
@@ -1946,7 +2323,7 @@ namespace LMFinanciamentos.DAL
                 "Left join funcionarios F on F.id = P.idresponsavel " +
                 "Left join conta on C.id = conta.idcliente and conta.Tipo =@tipo " +
                 "Left join conta CV on V.id = conta.idcliente and conta.Tipo =@tipov " +
-                "Left join corretora on P.idCorretora = corretora.id " +
+                "Left join construtora on P.idConstrutora = construtora.id " +
                 "Left join corretores on P.idCorretor = corretores.id " +
                 //"Left join P_Status H on P.id = H.idprocesso " +
                 "WHERE P.idresponsavel = @resp " +
@@ -2028,9 +2405,9 @@ namespace LMFinanciamentos.DAL
                         #endregion
 
                         #region imovel
-                        processos.Id_corretora = drprocessos["idCorretora"].ToString();
+                        processos.Id_construtora = drprocessos["idConstrutora"].ToString();
                         processos.Id_corretor = drprocessos["idCorretor"].ToString();
-                        processos.Descricao_corretora = drprocessos["Corretora"].ToString();
+                        processos.Descricao_construtora = drprocessos["Descricao"].ToString();
                         processos.Nome_corretor = drprocessos["Corretor"].ToString();
 
 
@@ -2495,19 +2872,19 @@ namespace LMFinanciamentos.DAL
             }
             return listdoc;
         }
-        public String CriarProcesso(String idCliente, String idVendedor, String idresponsavel, String idCorretora, String idCorretor, String idempreendimentos, String idagenciaimovel, String idprograma, String ValorImovel, String ValorFinanciado, String status)
+        public String CriarProcesso(String idCliente, String idVendedor, String idresponsavel, String idConstrutora, String idCorretor, String idempreendimentos, String idagenciaimovel, String idprograma, String ValorImovel, String ValorFinanciado, String status)
         {
 
             try
             {
 
-                cmd1.CommandText = "INSERT INTO processos (idCliente, idVendedor, idresponsavel, idCorretora, idCorretor, idEmpreendimento, idAgenciaImovel, idPrograma, ValorImovel, ValorFinanciado, Data, Status) VALUES " +
-                "(@idCliente, @idVendedor, @idresponsavel, @idCorretora, @idCorretor, @idempreendimentos, @idagenciaimovel,@idprograma, @ValorImovel, @ValorFinanciado, @Data, @Status) ";
+                cmd1.CommandText = "INSERT INTO processos (idCliente, idVendedor, idresponsavel, idConstrutora, idCorretor, idEmpreendimento, idAgenciaImovel, idPrograma, ValorImovel, ValorFinanciado, Data, Status) VALUES " +
+                "(@idCliente, @idVendedor, @idresponsavel, @idConstrutora, @idCorretor, @idempreendimentos, @idagenciaimovel,@idprograma, @ValorImovel, @ValorFinanciado, @Data, @Status) ";
 
                 cmd1.Parameters.AddWithValue("@idCliente", idCliente);
                 cmd1.Parameters.AddWithValue("@idVendedor", idVendedor);
                 cmd1.Parameters.AddWithValue("@idresponsavel", idresponsavel);
-                cmd1.Parameters.AddWithValue("@idCorretora", idCorretora);
+                cmd1.Parameters.AddWithValue("@idConstrutora", idConstrutora);
                 cmd1.Parameters.AddWithValue("@idCorretor", idCorretor);
                 cmd1.Parameters.AddWithValue("@idempreendimentos", idempreendimentos);
                 cmd1.Parameters.AddWithValue("@idagenciaimovel", idagenciaimovel);
@@ -2546,14 +2923,14 @@ namespace LMFinanciamentos.DAL
             return mensagem;
         }
 
-        public String UpdateProcesso(String id, String StatusCPF, DateTime datastatuscpf, String Statusciweb, DateTime datastatusciweb, String Stauscadmut, DateTime datastatuscadmut, String Statusir, DateTime datastatusir, String Statusfgts, DateTime datastatusfgts, String StatusAnalise, DateTime datastatusanalise, String StatusEng, DateTime datastatuseng, String StatusSiopi, DateTime datasiopi, String StatusSictd, DateTime datasictd, String StatusSaquefgts, DateTime datasaquefgts, String StatusPA, DateTime datapa, String sidAgenciaImovel, String sidPrograma, String valorimovel, String valorfinanciado, String sidCorretora, String sidCorretores, String sidEmpreendimentos, String sidcartorio, String StatusCartorio, DateTime datastatuscartorio, String status, String obs,String idvendedor)
+        public String UpdateProcesso(String id, String StatusCPF, DateTime? datastatuscpf, String Statusciweb, DateTime? datastatusciweb, String Stauscadmut, DateTime? datastatuscadmut, String Statusir, DateTime? datastatusir, String Statusfgts, DateTime? datastatusfgts, String StatusAnalise, DateTime? datastatusanalise,String respaprov, DateTime? datavalidadestatusanalise, String StatusEng, DateTime? datastatuseng, String StatusSiopi, DateTime? datasiopi, String StatusSictd, DateTime? datasictd, String StatusSaquefgts, DateTime? datasaquefgts, String StatusPA, DateTime? datapa, String sidAgenciaImovel, String sidPrograma, String valorimovel, String valorfinanciado, String sidConstrutora, String sidCorretores, String sidEmpreendimentos, String sidcartorio, String StatusCartorio, DateTime? datastatuscartorio, String status, String obs,String idvendedor)
         {
             try
             {
                 cmd1.CommandText = "UPDATE processos " +
                 "SET StatusCPF = @StatusCPF, DataStatusCPF = @datastatuscpf, StatusCiweb = @Statusciweb, DataStatusCiweb = @datastatusciweb, StatusCadmut = @Stauscadmut, DataStatusCadmut = @datastatuscadmut, StatusIR = @Statusir, DataStatusIR = @datastatusir, StatusFGTS = @Statusfgts, DataStatusFGTS = @datastatusfgts, Observacao = @obs, idVendedor = @idvendedor, " +
-                "StatusAnalise = @StatusAnalise, DataStatusAnalise = @datastatusanalise, StatusEng = @StatusEng, DataStatusEng = @datastatuseng, SIOPI = @StatusSiopi, DataSIOP = @datasiopi, SICTD = @StatusSictd, DataSICTD = @datasictd, SaqueFGTS = @StatusSaquefgts, DataSaqueFGTS = @datasaquefgts, StatusPA = @StatusPA, DataPA = @datapa, " +
-                "idAgenciaImovel = @sidAgenciaImovel, idPrograma = @sidPrograma, ValorImovel = @valorimovel, ValorFinanciado = @valorfinanciado, idCorretora = @sidCorretora, idCorretor = @sidCorretores, idEmpreendimento = @sidEmpreendimentos, " +
+                "StatusAnalise = @StatusAnalise, DataStatusAnalise = @datastatusanalise, RespAprovacao = @respaprovacao, DataValidadeStatusAnalise = @datavalidadestatusanalise, StatusEng = @StatusEng, DataStatusEng = @datastatuseng, SIOPI = @StatusSiopi, DataSIOP = @datasiopi, SICTD = @StatusSictd, DataSICTD = @datasictd, SaqueFGTS = @StatusSaquefgts, DataSaqueFGTS = @datasaquefgts, StatusPA = @StatusPA, DataPA = @datapa, " +
+                "idAgenciaImovel = @sidAgenciaImovel, idPrograma = @sidPrograma, ValorImovel = @valorimovel, ValorFinanciado = @valorfinanciado, idConstrutora = @sidConstrutora, idCorretor = @sidCorretores, idEmpreendimento = @sidEmpreendimentos, " +
                 "idCartorio = @sidcartorio, StatusCartorio = @StatusCartorio, DataStatusCartorio = @datastatuscartorio, " +
                 "Status = @status, DataStatus = @Data " +
                 "WHERE id = @id ";
@@ -2572,6 +2949,8 @@ namespace LMFinanciamentos.DAL
                 cmd1.Parameters.AddWithValue("@datastatusfgts", datastatusfgts);
                 cmd1.Parameters.AddWithValue("@StatusAnalise", StatusAnalise);
                 cmd1.Parameters.AddWithValue("@datastatusanalise", datastatusanalise);
+                cmd1.Parameters.AddWithValue("@respaprovacao", respaprov);
+                cmd1.Parameters.AddWithValue("@datavalidadestatusanalise", datavalidadestatusanalise);
                 cmd1.Parameters.AddWithValue("@StatusEng", StatusEng);
                 cmd1.Parameters.AddWithValue("@datastatuseng", datastatuseng);
                 cmd1.Parameters.AddWithValue("@StatusSiopi", StatusSiopi);
@@ -2586,7 +2965,7 @@ namespace LMFinanciamentos.DAL
                 cmd1.Parameters.AddWithValue("@sidPrograma", sidPrograma);
                 cmd1.Parameters.AddWithValue("@valorimovel", valorimovel);
                 cmd1.Parameters.AddWithValue("@valorfinanciado", valorfinanciado);
-                cmd1.Parameters.AddWithValue("@sidCorretora", sidCorretora);
+                cmd1.Parameters.AddWithValue("@sidConstrutora", sidConstrutora);
                 cmd1.Parameters.AddWithValue("@sidCorretores", sidCorretores);
                 cmd1.Parameters.AddWithValue("@sidEmpreendimentos", sidEmpreendimentos);
                 cmd1.Parameters.AddWithValue("@sidcartorio", sidcartorio);
@@ -2628,6 +3007,44 @@ namespace LMFinanciamentos.DAL
             }
 
             return mensagem;
+        }
+        public int UpdateHProcesso(String id, String de, String para, String user)
+        {
+            try
+            {
+
+                cmd1.CommandText = "INSERT INTO h_cartorio (idprocesso, de, para, responsavel, data) VALUES" +
+                    " ( @idProcesso, @de, @para, @user, @data)";
+
+                cmd1.Parameters.Clear();
+                cmd1.Parameters.AddWithValue("@idProcesso", id);
+                cmd1.Parameters.AddWithValue("@de", de);
+                cmd1.Parameters.AddWithValue("@para", para);
+                cmd1.Parameters.AddWithValue("@user", user);
+                cmd1.Parameters.AddWithValue("@data", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+
+
+
+                cmd1.Connection = con.conectar();
+
+                cmd1.ExecuteNonQuery();
+
+                if (cmd1.LastInsertedId != 0)
+                    cmd1.Parameters.Add(new MySqlParameter("ultimoId", cmd1.LastInsertedId));
+
+                return Convert.ToInt32(cmd1.Parameters["@ultimoId"].Value);
+
+            }
+
+            catch (Exception err)
+            {
+                throw err;
+            }
+            finally
+            {
+                con.desconectar();
+            }
+
         }
         public String UpdateRespProcesso(String id,  String idresp)
         {
@@ -2816,6 +3233,120 @@ namespace LMFinanciamentos.DAL
             catch (Exception err)
             {
                 mensagem = ("Erro ao Excluir Vendedor: " + err.Message);
+                con.desconectar();
+            }
+
+            return mensagem;
+        }
+        public String DeleteAgencia(String ag)
+        {
+            try
+            {
+                cmd1.CommandText = "DELETE FROM agencia " +
+                "WHERE Agencia = @ag ";
+
+                cmd1.Parameters.Clear();
+                cmd1.Parameters.AddWithValue("@ag", ag);
+
+                cmd1.Connection = con.conectar();
+
+                int recordsAffected = cmd1.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "Agência Excluída com sucesso!";
+                    con.desconectar();
+                }
+                else
+                {
+                    mensagem = "Erro ao Excluir Agência!";
+                    con.desconectar();
+                }
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+                con.desconectar();
+            }
+            catch (Exception err)
+            {
+                mensagem = ("Erro ao Excluir Agência: " + err.Message);
+                con.desconectar();
+            }
+
+            return mensagem;
+        }
+        public String DeleteAgenciaID(String id)
+        {
+            try
+            {
+                cmd1.CommandText = "DELETE FROM agencia " +
+                "WHERE id = @id ";
+
+                cmd1.Parameters.Clear();
+                cmd1.Parameters.AddWithValue("@id", id);
+
+                cmd1.Connection = con.conectar();
+
+                int recordsAffected = cmd1.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "Agencia Excluída com sucesso!";
+                    con.desconectar();
+                }
+                else
+                {
+                    mensagem = "Erro ao Excluir Agencia";
+                    con.desconectar();
+                }
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+                con.desconectar();
+            }
+            catch (Exception err)
+            {
+                mensagem = ("Erro ao Excluir Agencia: " + err.Message);
+                con.desconectar();
+            }
+
+            return mensagem;
+        }
+        public String DeleteEmpreendimentoID(String id)
+        {
+            try
+            {
+                cmd1.CommandText = "DELETE FROM empreendimentos " +
+                "WHERE id = @id ";
+
+                cmd1.Parameters.Clear();
+                cmd1.Parameters.AddWithValue("@id", id);
+
+                cmd1.Connection = con.conectar();
+
+                int recordsAffected = cmd1.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "Empreendimento Excluído com sucesso!";
+                    con.desconectar();
+                }
+                else
+                {
+                    mensagem = "Erro ao Excluir Empreendimento";
+                    con.desconectar();
+                }
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+                con.desconectar();
+            }
+            catch (Exception err)
+            {
+                mensagem = ("Erro ao Excluir Empreendimento: " + err.Message);
                 con.desconectar();
             }
 
@@ -3052,7 +3583,7 @@ namespace LMFinanciamentos.DAL
 
             //return mensagem;
         }
-        public String UpdateDocumento(String id, String sidAgenciaImovel, String sidPrograma, String sidCorretora, String sidCorretores, String sidEmpreendimentos, String scpf, String sciweb, String scadmut, String sir, String sfgts, DateTime datastatuscpf, DateTime datastatusciweb, DateTime datastatuscadmut, DateTime datastatusir, DateTime datastatusfgts, DateTime datastatusanalise, DateTime datastatuseng, DateTime datasiopi, DateTime datasictd, DateTime datasaquefgts, DateTime datapa, String valorimovel, String valorfinanciado, String sidcartorio, String scartorio, DateTime datastatuscartorio, String status)
+        public String UpdateDocumento(String id, String sidAgenciaImovel, String sidPrograma, String sidConstrutora, String sidCorretores, String sidEmpreendimentos, String scpf, String sciweb, String scadmut, String sir, String sfgts, DateTime datastatuscpf, DateTime datastatusciweb, DateTime datastatuscadmut, DateTime datastatusir, DateTime datastatusfgts, DateTime datastatusanalise, DateTime datastatuseng, DateTime datasiopi, DateTime datasictd, DateTime datasaquefgts, DateTime datapa, String valorimovel, String valorfinanciado, String sidcartorio, String scartorio, DateTime datastatuscartorio, String status)
         {
             try
             {
@@ -3068,7 +3599,7 @@ namespace LMFinanciamentos.DAL
                 cmd1.Parameters.AddWithValue("@FGTS", sfgts);
                 cmd1.Parameters.AddWithValue("@idAgenciaImovel", sidAgenciaImovel);
                 cmd1.Parameters.AddWithValue("@idPrograma", sidPrograma);
-                cmd1.Parameters.AddWithValue("@idCorretora", sidCorretora);
+                cmd1.Parameters.AddWithValue("@idConstrutora", sidConstrutora);
                 cmd1.Parameters.AddWithValue("@idCorretor", sidCorretores);
                 cmd1.Parameters.AddWithValue("@idEmpreendimentos", sidEmpreendimentos);
                 cmd1.Parameters.AddWithValue("@DataStatusCPF", datastatuscpf);
@@ -3121,7 +3652,7 @@ namespace LMFinanciamentos.DAL
         }
         public DataTable GetDataAgencia()
         {
-            cmd.CommandText = "SELECT id, Descricao, Endereco, CONCAT(Agencia,' - ', Descricao) As Agencia FROM agencia ";
+            cmd.CommandText = "SELECT id, Descricao, Endereco, CONCAT(Agencia,' - ', Descricao) As Agencia FROM agencia ORDER BY Agencia ASC ";
 
             cmd.Connection = con.conectar();
             //drprocessos = cmd.ExecuteReader(CommandBehavior.CloseConnection);
@@ -3160,7 +3691,7 @@ namespace LMFinanciamentos.DAL
         }
         public DataTable GetDataTipoDoc(String idtipoproc)
         {
-            cmd.CommandText = "SELECT id, Descricao FROM tipodoc WHERE Tipodoc = @idtipoproc";
+            cmd.CommandText = "SELECT id, Descricao FROM tipodoc WHERE Tipodoc = @idtipoproc ";
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@idtipoproc", idtipoproc);
 
@@ -3208,9 +3739,9 @@ namespace LMFinanciamentos.DAL
 
             return dt;
         }
-        public DataTable GetDataCorretora()
+        public DataTable GetDataConstrutora()
         {
-            cmd.CommandText = "SELECT id, Descricao FROM corretora Order by Descricao ASC ";
+            cmd.CommandText = "SELECT id, Descricao FROM construtora Order by Descricao ASC ";
 
             cmd.Connection = con.conectar();
             //drprocessos = cmd.ExecuteReader(CommandBehavior.CloseConnection);
@@ -3259,6 +3790,17 @@ namespace LMFinanciamentos.DAL
 
             return dt;
         }
+        public DataTable GetHistoricoCartorio(string id)
+        {
+            cmd.CommandText = "SELECT *  FROM h_cartorio where idprocesso = @Id  ";
+            cmd.Parameters.AddWithValue("@Id", id);
+            cmd.Connection = con.conectar();
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            con.desconectar();
+
+            return dt;
+        }
         public DataTable GetProcessoCliente(string idcli)
         {
             cmd.CommandText = "SELECT id FROM processos Where idCliente = @idcliente ";
@@ -3285,6 +3827,32 @@ namespace LMFinanciamentos.DAL
 
             return dt;
         }
+        public DataTable GetProcessoAgencia(string idagencia)
+        {
+            cmd.CommandText = "SELECT id FROM processos Where idAgenciaImovel = @idagencia ";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@idagencia", idagencia);
+
+            cmd.Connection = con.conectar();
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            con.desconectar();
+
+            return dt;
+        }
+        public DataTable GetProcessoEmpreendimento(string idempreendimento)
+        {
+            cmd.CommandText = "SELECT id FROM processos Where idEmpreendimento = @idEmpreendimento ";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@idEmpreendimento", idempreendimento);
+
+            cmd.Connection = con.conectar();
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            con.desconectar();
+
+            return dt;
+        }
         public DataTable GetDataVendedor(String nome)
         {
             cmd.CommandText = "SELECT id, Nome, CPF, CNPJ, Agencia, Conta, Email, Telefone, Celular  FROM vendedor Where (Nome Like @nomevendedor)";
@@ -3298,6 +3866,57 @@ namespace LMFinanciamentos.DAL
 
             return dt;
         }
+        public DataTable GetAgenciatb(string ag)
+        {
+            cmd.CommandText = "SELECT Agencia FROM agencia Where Agencia = @ag ";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@ag", ag);
+
+            cmd.Connection = con.conectar();
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            con.desconectar();
+
+            return dt;
+        }
+        public int CountEmpreendimentos()
+        {
+            try
+            {
+
+                //cmd.CommandText = "SELECT MAX(id)+1 AS id FROM empreendimentos ";
+                cmd.CommandText = "SHOW TABLE STATUS LIKE '%empreendimentos%' ";
+
+
+                cmd.Parameters.Clear();
+
+                cmd.Connection = con.conectar();
+
+                drempreendimentos = cmd.ExecuteReader();
+
+                if (drempreendimentos.HasRows)
+                {
+                    while (drempreendimentos.Read())
+                    {
+                        newempre = drempreendimentos["Auto_increment"].ToString();
+                    }
+                }
+
+                return Convert.ToInt32(newempre);
+
+        }
+
+            catch (Exception err)
+            {
+
+                throw err;
+            }
+            finally
+            {
+                con.desconectar();
+            }
+        }
+
         public List<Combobox_Agencia> ComboboxAgencia()
         //public List<string[]> GetListaString()
         {
@@ -3369,5 +3988,694 @@ namespace LMFinanciamentos.DAL
             }
 
         }
+        #region Construtora
+        public int CountConstrutora()
+        {
+            try
+            {
+
+                //cmd.CommandText = "SELECT MAX(id)+1 AS id FROM construtora ";
+                cmd.CommandText = "SHOW TABLE STATUS LIKE '%construtora%' ";
+
+
+                cmd.Parameters.Clear();
+
+                cmd.Connection = con.conectar();
+
+                drconstrutora = cmd.ExecuteReader();
+
+                if (drconstrutora.HasRows)
+                {
+                    while (drconstrutora.Read())
+                    {
+                        newempre = drconstrutora["Auto_increment"].ToString();
+                    }
+                }
+
+                return Convert.ToInt32(newempre);
+
+            }
+
+            catch (Exception err)
+            {
+
+                throw err;
+            }
+            finally
+            {
+                con.desconectar();
+            }
+        }
+        public DataTable GetProcessoConstrutora(string idconstrutora)
+        {
+            cmd.CommandText = "SELECT id FROM processos Where idConstrutora = @idConstrutora ";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@idConstrutora", idconstrutora);
+
+            cmd.Connection = con.conectar();
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            con.desconectar();
+
+            return dt;
+        }
+
+        public String DeleteConstrutoraID(String id)
+        {
+            try
+            {
+                cmd1.CommandText = "DELETE FROM construtora " +
+                "WHERE id = @id ";
+
+                cmd1.Parameters.Clear();
+                cmd1.Parameters.AddWithValue("@id", id);
+
+                cmd1.Connection = con.conectar();
+
+                int recordsAffected = cmd1.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "Construtora Excluída com sucesso!";
+                    con.desconectar();
+                }
+                else
+                {
+                    mensagem = "Erro ao Excluir a Construtora";
+                    con.desconectar();
+                }
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+                con.desconectar();
+            }
+            catch (Exception err)
+            {
+                mensagem = ("Erro ao Excluir a Construtora: " + err.Message);
+                con.desconectar();
+            }
+
+            return mensagem;
+        }
+        public List<Construtora> GetConstrutora(String var)
+
+        {
+            var list = new List<Construtora>();
+
+            cmd2.CommandText = "SELECT * FROM construtora WHERE (Descricao like @var or CNPJ like @var) ";
+            cmd2.Parameters.Clear();
+            cmd2.Parameters.AddWithValue("@var", "%" + var + "%");
+            try
+            {
+                cmd2.Connection = con.conectar();
+                drclients = cmd2.ExecuteReader();
+                while (drclients.Read())
+                {
+                    Construtora empre = new Construtora();
+                    empre.Id_construtora = drclients["id"].ToString();
+                    empre.Descri_construtora = drclients["Descricao"].ToString();
+                    
+                    empre.End_construtora = drclients["Endereco"].ToString();
+                    //if (string.IsNullOrEmpty(drvendedores["CNPJ"].ToString()) || drvendedores["CNPJ"].ToString() == "0" || drvendedores["CNPJ"].ToString() == "00000000000000")
+                    //{
+                        empre.CNPJ_construtora = FormatCnpjCpf.FormatCNPJ(drclients["CNPJ"].ToString());
+                    //}
+
+                    list.Add(empre);
+                }
+                drclients.Close();
+                con.desconectar();
+
+            }
+            catch (SqlException err)
+            {
+                throw new Exception("Erro ao obter Construtora: " + err.Message);
+            }
+
+            //return client;
+            return list;
+        }
+        public List<Construtora> GetConstrutoraM(String empre)
+
+        {
+            var list = new List<Construtora>();
+
+            cmd.CommandText = "SELECT * FROM construtora WHERE Descricao Like @empre  ";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@empre", "%" + empre + "%");
+            //Cliente clients = new Cliente();
+            try
+            {
+                cmd.Connection = con.conectar();
+                drclients = cmd.ExecuteReader();
+                while (drclients.Read())
+                {
+                    Construtora emprrendimento = new Construtora();
+                    emprrendimento.Id_construtora = drclients["id"].ToString();
+                    emprrendimento.Descri_construtora = drclients["Descricao"].ToString();
+                    emprrendimento.End_construtora = drclients["Endereco"].ToString();
+                    list.Add(emprrendimento);
+                }
+                drclients.Close();
+                con.desconectar();
+
+            }
+            catch (SqlException err)
+            {
+                throw new Exception("Erro ao obter Construtora: " + err.Message);
+            }
+            return list;
+        }
+        public List<Processo> GetValidadeAnalise()
+
+        {
+            var list = new List<Processo>();
+
+            cmd.CommandText = "SELECT * FROM processos WHERE CURDATE() > DATE_SUB(DataValidadeStatusAnalise,INTERVAL 11 DAY) " +
+                " AND (StatusAnalise = @Aprovado OR StatusAnalise = @Bloqueado ) " ; 
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@Aprovado", "Aprovado");
+            cmd.Parameters.AddWithValue("@Reprovado", "Reprovado");
+            cmd.Parameters.AddWithValue("@Desistiu", "Desistiu");
+            cmd.Parameters.AddWithValue("@nao", "Não Consultado");
+            cmd.Parameters.AddWithValue("@Bloqueado", "Bloqueado em ourto CCA");
+
+            //Cliente clients = new Cliente();
+            try
+            {
+                cmd.Connection = con.conectar();
+                drclients = cmd.ExecuteReader();
+                while (drclients.Read())
+                {
+                    Processo emprrendimento = new Processo();
+                    emprrendimento.Id_processo = drclients["id"].ToString();
+                    emprrendimento.H_DataStatusAnalise = drclients["DataStatusAnalise"].ToString();
+                    emprrendimento.H_DataValidadeStatusAnalise = drclients["DataValidadeStatusAnalise"].ToString();
+                    list.Add(emprrendimento);
+                }
+                drclients.Close();
+                con.desconectar();
+
+            }
+            catch (SqlException err)
+            {
+                throw new Exception("Erro ao obter Processos: " + err.Message);
+            }
+            return list;
+        }
+        public Construtora GetNumConstrutora(String empre)
+        {
+
+            cmd.CommandText = "SELECT * FROM construtora " +
+
+                "WHERE Descricao Like @empre  ";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@empre", "%" + empre + "%");
+            Construtora empreendimento = new Construtora();
+            try
+            {
+                cmd.Connection = con.conectar();
+                drclient = cmd.ExecuteReader();
+                while (drclient.Read())
+                {
+                    //Cliente client = new Cliente();
+                    empreendimento.Id_construtora = drclient["id"].ToString();
+                    empreendimento.Descri_construtora = drclient["Descricao"].ToString();
+                    //empreendimento.Num_Agencia = drclient["Agencia"].ToString();
+                    empreendimento.End_construtora = drclient["Endereco"].ToString();
+                }
+                drclient.Close();
+                con.desconectar();
+
+            }
+            catch (SqlException err)
+            {
+                throw new Exception("Erro ao obter Agência: " + err.Message);
+            }
+
+            return empreendimento;
+        }
+        /*
+        public Processo GetNumProcessoValidation(String empre)
+        {
+
+            cmd.CommandText = "SELECT * FROM processos " +
+
+                "WHERE Descricao Like @empre  ";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@empre", "%" + empre + "%");
+            Construtora empreendimento = new Construtora();
+            try
+            {
+                cmd.Connection = con.conectar();
+                drclient = cmd.ExecuteReader();
+                while (drclient.Read())
+                {
+                    //Cliente client = new Cliente();
+                    empreendimento.Id_construtora = drclient["id"].ToString();
+                    empreendimento.Descri_construtora = drclient["Descricao"].ToString();
+                    //empreendimento.Num_Agencia = drclient["Agencia"].ToString();
+                    empreendimento.End_construtora = drclient["Endereco"].ToString();
+                }
+                drclient.Close();
+                con.desconectar();
+
+            }
+            catch (SqlException err)
+            {
+                throw new Exception("Erro ao obter Agência: " + err.Message);
+            }
+
+            return empreendimento;
+        }*/
+        public Construtora GetConstrutoraC(String id)
+        {
+
+            cmd.CommandText = "SELECT * FROM construtora " +
+
+                "WHERE id = @id  ";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@id", id);
+            Construtora construtora = new Construtora();
+            try
+            {
+                cmd.Connection = con.conectar();
+                drclient = cmd.ExecuteReader();
+                while (drclient.Read())
+                {
+                    //Cliente client = new Cliente();
+                    construtora.Id_construtora = drclient["id"].ToString();
+                    construtora.Descri_construtora = drclient["Descricao"].ToString();
+                    construtora.CNPJ_construtora = drclient["CNPJ"].ToString();
+                    construtora.End_construtora = drclient["Endereco"].ToString();
+                }
+                drclient.Close();
+                con.desconectar();
+
+            }
+            catch (SqlException err)
+            {
+                throw new Exception("Erro ao obter Construtora: " + err.Message);
+            }
+
+            return construtora;
+        }
+        public int CadastrarConstrutora(String descricao, String cnpj, String end)
+        {
+
+
+            try
+            {
+                cmd.CommandText = "INSERT INTO construtora (Descricao, CNPJ,  Endereco) Values  (@descri, @cnpj, @endereco)";
+
+                cmd.Parameters.AddWithValue("@descri", descricao);
+                cmd.Parameters.AddWithValue("@cnpj", cnpj);
+                cmd.Parameters.AddWithValue("@endereco", end);
+
+
+                cmd.Connection = con.conectar();
+
+                cmd.ExecuteNonQuery();
+
+                if (cmd.LastInsertedId != 0)
+                    cmd.Parameters.Add(new MySqlParameter("ultimoId", cmd.LastInsertedId));
+
+                return Convert.ToInt32(cmd.Parameters["@ultimoId"].Value);
+
+            }
+
+            catch (Exception err)
+            {
+                throw err;
+            }
+            finally
+            {
+                con.desconectar();
+            }
+
+        }
+        public string UpdateConstrutora(String id, String descricao,String cnpj, String end)
+        {
+            try
+            {
+                cmd.CommandText = "UPDATE construtora SET Descricao=@descri, CNPJ=@cnpj, Endereco=@endereco WHERE id = @id ";
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@descri", descricao);
+                cmd.Parameters.AddWithValue("@cnpj", cnpj);
+                cmd.Parameters.AddWithValue("@endereco", end);
+
+
+                cmd.Connection = con.conectar();
+
+                int recordsAffected = cmd.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "Construtora Atualizada com Sucesso!";
+                }
+                else
+                {
+                    mensagem = "Erro";
+                }
+
+
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+            }
+            catch (Exception err)
+            {
+                mensagem = ("Erro ao Atualizar o Construtora: " + err.Message);
+            }
+
+            return mensagem;
+
+        }
+        #endregion
+        #region Corretor
+        public int CountCorretor()
+        {
+            try
+            {
+
+                //cmd.CommandText = "SELECT MAX(id)+1 AS id FROM corretores ";
+                cmd.CommandText = "SHOW TABLE STATUS LIKE '%corretor%' ";
+
+
+                cmd.Parameters.Clear();
+
+                cmd.Connection = con.conectar();
+
+                drcorretor = cmd.ExecuteReader();
+
+                if (drcorretor.HasRows)
+                {
+                    while (drcorretor.Read())
+                    {
+                        newempre = drcorretor["Auto_increment"].ToString();
+                    }
+                }
+
+                return Convert.ToInt32(newempre);
+
+            }
+
+            catch (Exception err)
+            {
+
+                throw err;
+            }
+            finally
+            {
+                con.desconectar();
+            }
+        }
+        public DataTable GetProcessoCorretor(string idcorretor)
+        {
+            cmd.CommandText = "SELECT id FROM processos Where idCorretor = @idCorretor ";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@idCorretor", idcorretor);
+
+            cmd.Connection = con.conectar();
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            con.desconectar();
+
+            return dt;
+        }
+
+        public String DeleteCorretorID(String id)
+        {
+            try
+            {
+                cmd1.CommandText = "DELETE FROM corretores " +
+                "WHERE id = @id ";
+
+                cmd1.Parameters.Clear();
+                cmd1.Parameters.AddWithValue("@id", id);
+
+                cmd1.Connection = con.conectar();
+
+                int recordsAffected = cmd1.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "Corretor Excluído com sucesso!";
+                    con.desconectar();
+                }
+                else
+                {
+                    mensagem = "Erro ao Excluir Corretor";
+                    con.desconectar();
+                }
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+                con.desconectar();
+            }
+            catch (Exception err)
+            {
+                mensagem = ("Erro ao Excluir Corretor: " + err.Message);
+                con.desconectar();
+            }
+
+            return mensagem;
+        }
+        public List<Corretor> GetCorretor(String var)
+
+        {
+            var list = new List<Corretor>();
+
+            cmd2.CommandText = "SELECT * FROM corretores WHERE (Nome like @var or CPF like @var) ";
+            cmd2.Parameters.Clear();
+            cmd2.Parameters.AddWithValue("@var", "%" + var + "%");
+            try
+            {
+                cmd2.Connection = con.conectar();
+                drclients = cmd2.ExecuteReader();
+                while (drclients.Read())
+                {
+                    Corretor empre = new Corretor();
+                    empre.Id_corretor = drclients["id"].ToString();
+                    empre.Nome_corretor = drclients["Nome"].ToString();
+                    empre.CPF_corretor = FormatCnpjCpf.FormatCPF(drclients["CPF"].ToString());
+                    //empre.CPF_corretor = drclients["CPF"].ToString();
+                    empre.RG_corretor = drclients["Identificacao"].ToString();
+                    empre.Nascimento_corretor = drclients["Nascimento"].ToString();
+                    empre.Email_corretor = drclients["Email"].ToString();
+                    empre.Telefone_corretor = drclients["Telefone"].ToString();
+                    empre.Celular_corretor = drclients["Celular"].ToString();
+                    empre.Endereco_corretor = drclients["Endereco"].ToString();
+                    empre.Sexo_corretor = drclients["Sexo"].ToString();
+                    empre.Status_corretor = drclients["Status"].ToString();
+
+                    list.Add(empre);
+                }
+                drclients.Close();
+                con.desconectar();
+
+            }
+            catch (SqlException err)
+            {
+                throw new Exception("Erro ao obter Corretor: " + err.Message);
+            }
+
+            //return client;
+            return list;
+        }
+        public List<Corretor> GetCorretorM(String empre)
+
+        {
+            var list = new List<Corretor>();
+
+            cmd.CommandText = "SELECT * FROM corretores WHERE Descricao Like @empre  ";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@empre", "%" + empre + "%");
+            //Cliente clients = new Cliente();
+            try
+            {
+                cmd.Connection = con.conectar();
+                drclients = cmd.ExecuteReader();
+                while (drclients.Read())
+                {
+                    Corretor emprrendimento = new Corretor();
+                    emprrendimento.Id_corretor = drclients["id"].ToString();
+                    emprrendimento.Nome_corretor = drclients["Descricao"].ToString();
+                    emprrendimento.Endereco_corretor = drclients["Endereco"].ToString();
+                    list.Add(emprrendimento);
+                }
+                drclients.Close();
+                con.desconectar();
+
+            }
+            catch (SqlException err)
+            {
+                throw new Exception("Erro ao obter Corretor: " + err.Message);
+            }
+            return list;
+        }
+        public Corretor GetNumCorretor(String empre)
+        {
+
+            cmd.CommandText = "SELECT * FROM corretores " +
+
+                "WHERE Descricao Like @empre  ";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@empre", "%" + empre + "%");
+            Corretor empreendimento = new Corretor();
+            try
+            {
+                cmd.Connection = con.conectar();
+                drclient = cmd.ExecuteReader();
+                while (drclient.Read())
+                {
+                    //Cliente client = new Cliente();
+                    empreendimento.Id_corretor = drclient["id"].ToString();
+                    empreendimento.Nome_corretor = drclient["Descricao"].ToString();
+                    //empreendimento.Num_Agencia = drclient["Agencia"].ToString();
+                    empreendimento.Endereco_corretor = drclient["Endereco"].ToString();
+                }
+                drclient.Close();
+                con.desconectar();
+
+            }
+            catch (SqlException err)
+            {
+                throw new Exception("Erro ao obter Agência: " + err.Message);
+            }
+
+            return empreendimento;
+        }
+        public Corretor GetCorretorC(String id)
+        {
+
+            cmd.CommandText = "SELECT * FROM corretores " +
+
+                "WHERE id = @id  ";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@id", id);
+            Corretor empreendimento = new Corretor();
+            try
+            {
+                cmd.Connection = con.conectar();
+                drclient = cmd.ExecuteReader();
+                while (drclient.Read())
+                {
+                    empreendimento.Id_corretor = drclient["id"].ToString();
+                    empreendimento.Nome_corretor = drclient["Nome"].ToString();
+                    empreendimento.CPF_corretor = drclient["CPF"].ToString();
+                    empreendimento.RG_corretor = drclient["Identificacao"].ToString();
+                    empreendimento.Nascimento_corretor = drclient["Nascimento"].ToString();
+                    empreendimento.Email_corretor = drclient["Email"].ToString();
+                    empreendimento.Telefone_corretor = drclient["Telefone"].ToString();
+                    empreendimento.Celular_corretor = drclient["Celular"].ToString();
+                    empreendimento.Endereco_corretor = drclient["Endereco"].ToString();
+                    empreendimento.Sexo_corretor = drclient["Sexo"].ToString();
+                    empreendimento.Status_corretor = drclient["Status"].ToString();
+                }
+                drclient.Close();
+                con.desconectar();
+
+            }
+            catch (SqlException err)
+            {
+                throw new Exception("Erro ao obter Corretor: " + err.Message);
+            }
+
+            return empreendimento;
+        }
+        public int CadastrarCorretor(String nome, String cpf, String email, DateTime nasc, String telefone, String celular, String end, String rg, String sexo, String status)
+        {
+
+
+            try
+            {
+                cmd.CommandText = "INSERT INTO corretores (Nome, CPF, Email, Nascimento, Telefone, Celular, Endereco, Identificacao, Sexo, Status) Values  (@nome, @cpf, @email, @nasc, @telefone, @celular, @end, @rg, @sexo, @status )";
+                
+                cmd.Parameters.AddWithValue("@nome", nome);
+                cmd.Parameters.AddWithValue("@cpf", cpf);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@nasc", nasc);
+                cmd.Parameters.AddWithValue("@telefone", telefone);
+                cmd.Parameters.AddWithValue("@celular", celular);
+                cmd.Parameters.AddWithValue("@end", end);
+                cmd.Parameters.AddWithValue("@rg", rg);
+                cmd.Parameters.AddWithValue("@sexo", sexo);
+                cmd.Parameters.AddWithValue("@status", status);
+
+
+                cmd.Connection = con.conectar();
+
+                cmd.ExecuteNonQuery();
+
+                if (cmd.LastInsertedId != 0)
+                    cmd.Parameters.Add(new MySqlParameter("ultimoId", cmd.LastInsertedId));
+
+                return Convert.ToInt32(cmd.Parameters["@ultimoId"].Value);
+
+            }
+
+            catch (Exception err)
+            {
+                throw err;
+            }
+            finally
+            {
+                con.desconectar();
+            }
+
+        }
+        public string UpdateCorretor(String id, String nome, String cpf, String email, DateTime nasc, String telefone, String celular, String end, String rg, String sexo, String status)
+        {
+
+
+            try
+            {
+                cmd.CommandText = "UPDATE corretores SET  Nome = @nome, Email = @email,  Telefone = @telefone, Celular = @celular, Endereco = @end, Nascimento = @nasc, Sexo = @sexo, CPF = @cpf, Identificacao = @rg, Status = @status WHERE id = @id ";
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@nome", nome);
+                cmd.Parameters.AddWithValue("@cpf", cpf);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@nasc", nasc);
+                cmd.Parameters.AddWithValue("@telefone", telefone);
+                cmd.Parameters.AddWithValue("@celular", celular);
+                cmd.Parameters.AddWithValue("@end", end);
+                cmd.Parameters.AddWithValue("@rg", rg);
+                cmd.Parameters.AddWithValue("@sexo", sexo);
+                cmd.Parameters.AddWithValue("@status", status);
+
+
+
+                cmd.Connection = con.conectar();
+
+                int recordsAffected = cmd.ExecuteNonQuery();
+
+                if (recordsAffected > 0)
+                {
+                    mensagem = "Corretor Atualizado com Sucesso!";
+                }
+                else
+                {
+                    mensagem = "Erro";
+                }
+
+
+            }
+            catch (MySqlException error)
+            {
+                mensagem = ("Erro ao conectar: " + error.Message);
+            }
+            catch (Exception err)
+            {
+                mensagem = ("Erro ao Atualizar o Corretor: " + err.Message);
+            }
+
+            return mensagem;
+
+        }
+        #endregion
     }
 }
