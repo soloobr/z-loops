@@ -168,7 +168,7 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.tabControl.Controls.Add(this.tabagencia);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tabControl.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl.Location = new System.Drawing.Point(0, 0);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -178,9 +178,9 @@ namespace LMFinanciamentos.Apresentacao
             // tabagencia
             // 
             this.tabagencia.Controls.Add(this.tableLayoutPanel1);
-            this.tabagencia.Location = new System.Drawing.Point(4, 32);
+            this.tabagencia.Location = new System.Drawing.Point(4, 30);
             this.tabagencia.Name = "tabagencia";
-            this.tabagencia.Size = new System.Drawing.Size(547, 177);
+            this.tabagencia.Size = new System.Drawing.Size(547, 179);
             this.tabagencia.TabIndex = 2;
             this.tabagencia.Text = "Cadastrar:";
             this.tabagencia.UseVisualStyleBackColor = true;
@@ -211,28 +211,28 @@ namespace LMFinanciamentos.Apresentacao
             // txtend
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.txtend, 2);
-            this.txtend.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtend.Location = new System.Drawing.Point(3, 82);
+            this.txtend.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtend.Location = new System.Drawing.Point(3, 73);
             this.txtend.Name = "txtend";
-            this.txtend.Size = new System.Drawing.Size(461, 27);
+            this.txtend.Size = new System.Drawing.Size(461, 22);
             this.txtend.TabIndex = 2;
             this.txtend.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtend_KeyDown);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 56);
+            this.label6.Location = new System.Drawing.Point(3, 49);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(77, 23);
+            this.label6.Size = new System.Drawing.Size(75, 21);
             this.label6.TabIndex = 67;
             this.label6.Text = "Endereço:";
             // 
             // txtagencia
             // 
-            this.txtagencia.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtagencia.Location = new System.Drawing.Point(3, 26);
+            this.txtagencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtagencia.Location = new System.Drawing.Point(3, 24);
             this.txtagencia.Name = "txtagencia";
-            this.txtagencia.Size = new System.Drawing.Size(166, 27);
+            this.txtagencia.Size = new System.Drawing.Size(166, 22);
             this.txtagencia.TabIndex = 0;
             this.txtagencia.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtagencia.WordWrap = false;
@@ -245,17 +245,17 @@ namespace LMFinanciamentos.Apresentacao
             this.lblcliente.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblcliente.Location = new System.Drawing.Point(175, 0);
             this.lblcliente.Name = "lblcliente";
-            this.lblcliente.Size = new System.Drawing.Size(369, 23);
+            this.lblcliente.Size = new System.Drawing.Size(369, 21);
             this.lblcliente.TabIndex = 51;
             this.lblcliente.Text = "Descrição:";
             // 
             // txtdescricaoag
             // 
-            this.txtdescricaoag.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtdescricaoag.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdescricaoag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.txtdescricaoag.Location = new System.Drawing.Point(175, 26);
+            this.txtdescricaoag.Location = new System.Drawing.Point(175, 24);
             this.txtdescricaoag.Name = "txtdescricaoag";
-            this.txtdescricaoag.Size = new System.Drawing.Size(196, 27);
+            this.txtdescricaoag.Size = new System.Drawing.Size(196, 22);
             this.txtdescricaoag.TabIndex = 1;
             this.txtdescricaoag.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtdescricaoag_KeyDown);
             // 
@@ -264,7 +264,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(3, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 23);
+            this.label2.Size = new System.Drawing.Size(87, 21);
             this.label2.TabIndex = 65;
             this.label2.Text = "Nº Agencia:";
             // 
@@ -284,12 +284,12 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.lbl_topo.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.lbl_topo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbl_topo.Font = new System.Drawing.Font("Poppins", 20.25F, System.Drawing.FontStyle.Bold);
+            this.lbl_topo.Font = new System.Drawing.Font("Poppins", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_topo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
             this.lbl_topo.Location = new System.Drawing.Point(46, 4);
             this.lbl_topo.Margin = new System.Windows.Forms.Padding(3);
             this.lbl_topo.Name = "lbl_topo";
-            this.lbl_topo.Size = new System.Drawing.Size(377, 42);
+            this.lbl_topo.Size = new System.Drawing.Size(337, 42);
             this.lbl_topo.TabIndex = 50;
             this.lbl_topo.Text = "Cadastro de Agências";
             this.lbl_topo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -324,11 +324,11 @@ namespace LMFinanciamentos.Apresentacao
             this.lbl_title.AutoSize = true;
             this.lbl_title.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbl_title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lbl_title.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lbl_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
             this.lbl_title.ForeColor = System.Drawing.SystemColors.MenuBar;
             this.lbl_title.Location = new System.Drawing.Point(2, 2);
             this.lbl_title.Name = "lbl_title";
-            this.lbl_title.Size = new System.Drawing.Size(206, 34);
+            this.lbl_title.Size = new System.Drawing.Size(192, 24);
             this.lbl_title.TabIndex = 0;
             this.lbl_title.Text = "LM Financiamentos";
             this.lbl_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

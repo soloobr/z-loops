@@ -408,6 +408,7 @@ namespace LMFinanciamentos.Apresentacao
                 dtpvalidadeanalise.Value = new DateTime(2001, 10, 20);
                 lblranalise.Visible = false;
                 lblaquem.Visible = false;
+                pnlresp.Visible = false;
             }
             else
             {
@@ -921,6 +922,7 @@ namespace LMFinanciamentos.Apresentacao
                     lblavalidadeanalise.Visible = false;
                     lblranalise.Visible = false;
                     lblaquem.Visible = false;
+                    pnlresp.Visible = false;
                     break;
                 case "Aprovado":
 
@@ -928,6 +930,7 @@ namespace LMFinanciamentos.Apresentacao
                     lblranalise.Text = respaprov;
                     lblranalise.Visible = true;
                     lblaquem.Visible = true;
+                    pnlresp.Visible = true;
                     if (string.IsNullOrEmpty(data))
                     {
                         dtpvalidadeanalise.Value = new DateTime(2001, 10, 20);
@@ -948,6 +951,7 @@ namespace LMFinanciamentos.Apresentacao
                     lblavalidadeanalise.Visible = false;
                     lblranalise.Visible = false;
                     lblaquem.Visible = false;
+                    pnlresp.Visible = false;
                     break;
                 case "Em analise":
 
@@ -956,6 +960,7 @@ namespace LMFinanciamentos.Apresentacao
                     lblavalidadeanalise.Visible = false;
                     lblranalise.Visible = false;
                     lblaquem.Visible = false;
+                    pnlresp.Visible = false;
                     break;
                 case "Reprovado":
 
@@ -964,6 +969,7 @@ namespace LMFinanciamentos.Apresentacao
                     lblavalidadeanalise.Visible = false;
                     lblranalise.Visible = false;
                     lblaquem.Visible = false;
+                    pnlresp.Visible = false;
                     break;
                 case "Comando":
 
@@ -972,6 +978,7 @@ namespace LMFinanciamentos.Apresentacao
                     lblavalidadeanalise.Visible = false;
                     lblranalise.Visible = false;
                     lblaquem.Visible = false;
+                    pnlresp.Visible = false;
                     break;
                 case "Desistiu":
 
@@ -980,13 +987,16 @@ namespace LMFinanciamentos.Apresentacao
                     lblavalidadeanalise.Visible = false;
                     lblranalise.Visible = false;
                     lblaquem.Visible = false;
+                    pnlresp.Visible = false;
                     break;
                 case "Bloqueado em ourto CCA":
 
-                    lblaanalise.Text = "Bloqueado em:";
+                    lblaanalise.Text = "Analisado em:";
+                    lblaquem.Text = "Responsável:";
                     lblranalise.Text = respaprov;
                     lblranalise.Visible = true;
                     lblaquem.Visible = true;
+                    pnlresp.Visible = true;
                     if (string.IsNullOrEmpty(data))
                     {
                         dtpvalidadeanalise.Value = new DateTime(2001, 10, 20);
@@ -998,6 +1008,7 @@ namespace LMFinanciamentos.Apresentacao
                         dtpvalidadeanalise.Value = DateTime.Parse(data);
                         dtpvalidadeanalise.Visible = true;
                         lblavalidadeanalise.Visible = true;
+                        
                     }
 
                     break;
@@ -1467,6 +1478,7 @@ namespace LMFinanciamentos.Apresentacao
                 lblaanalise.Visible = false;
                 lblranalise.Visible = false;
                 lblaquem.Visible = false;
+                pnlresp.Visible = false;
                 dtpanalise.Visible = false;
                 lblavalidadeanalise.Visible = false;
                 dtpvalidadeanalise.Visible = false;
@@ -1486,6 +1498,7 @@ namespace LMFinanciamentos.Apresentacao
                     dtpvalidadeanalise.Visible = false;
                     lblranalise.Visible = false;
                     lblaquem.Visible = false;
+                    pnlresp.Visible = false;
                 }
                 else
                 {
@@ -1691,6 +1704,7 @@ namespace LMFinanciamentos.Apresentacao
             switch (comboBox_analise.SelectedItem.ToString())
             {
                 case "Não Consultado":
+                    //pnlAnalise.Size = new Size(166, 125);
                     dtpanalise.Value = DateTime.Now;
                     dtpanalise.Visible = true;
                     lblaanalise.Visible = true;
@@ -1702,7 +1716,7 @@ namespace LMFinanciamentos.Apresentacao
                     pnlresp.Visible = false;
                     break;
                 case "Aprovado":
-                    //pnlAnalise.Size = new Size(166, 231);
+                    
                     dtpanalise.Value = DateTime.Now;
                     dtpanalise.Visible = true;
                     lblaanalise.Visible = true;
@@ -1712,11 +1726,13 @@ namespace LMFinanciamentos.Apresentacao
                     dtpvalidadeanalise.Visible = true;
                     lblavalidadeanalise.Visible = true;
                     string[] useraprove1 = nomeuserloged.Split(' ');
-                    respaprovsave = useraprove1[0] + " " + useraprove1[1];
+                    respaprovsave = nomeuserloged;// useraprove[0] + " " + useraprove[1];
                     lblranalise.Text = respaprovsave;
                     lblranalise.Visible = true;
                     lblaquem.Visible = true;
+                    lblaquem.Text = "Resp. Aprov. :";
                     pnlresp.Visible = true;
+                    
                     break;
                 case "Condicionado":
                     dtpanalise.Value = DateTime.Now;
@@ -1775,14 +1791,15 @@ namespace LMFinanciamentos.Apresentacao
                 case "Bloqueado em ourto CCA":
                     //pnlAnalise.Size = new Size(166, 231);
                     string[] useraprove = nomeuserloged.Split(' ');
-                    respaprovsave = useraprove[0] + " " + useraprove[1];
+                    respaprovsave = nomeuserloged;// useraprove[0] + " " + useraprove[1];
                     lblranalise.Text = respaprovsave;
                     lblaquem.Visible = true;
+                    lblaquem.Text = "Responsável:";
                     lblranalise.Visible = true;
                     dtpanalise.Value = DateTime.Now;
                     dtpanalise.Visible = true;
                     lblaanalise.Visible = true;
-                    lblaanalise.Text = "Bloqueado em:";
+                    lblaanalise.Text = "Analisado em:";
                     DateTime hojeB = DateTime.Now;
                     dtpvalidadeanalise.Value = hojeB.AddDays(180);
                     dtpvalidadeanalise.Visible = true;
@@ -1790,7 +1807,7 @@ namespace LMFinanciamentos.Apresentacao
                     pnlresp.Visible = true;
                     break;
             }
-
+            tabControl.Refresh();
         }
 
         private void comboBox_statuseng_SelectionChangeCommitted(object sender, EventArgs e)

@@ -224,10 +224,6 @@ namespace LMFinanciamentos
             }
         }
 
-        private void lbltop_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void Form_Login_KeyDown(object sender, KeyEventArgs e)
         {
@@ -236,7 +232,7 @@ namespace LMFinanciamentos
                 comboBox_server.Visible = true;
                 lblserver.Visible = true;
 
-                comboBox_server.SelectedIndex = 1;
+                comboBox_server.SelectedIndex = 2;
                 txtpassword.Text = "236985";
                 txt_login.Text = "lgomes";
 

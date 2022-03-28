@@ -180,9 +180,9 @@ namespace LMFinanciamentos.Apresentacao
             // tabconstrutora
             // 
             this.tabconstrutora.Controls.Add(this.tableLayoutPanel1);
-            this.tabconstrutora.Location = new System.Drawing.Point(4, 32);
+            this.tabconstrutora.Location = new System.Drawing.Point(4, 30);
             this.tabconstrutora.Name = "tabconstrutora";
-            this.tabconstrutora.Size = new System.Drawing.Size(547, 136);
+            this.tabconstrutora.Size = new System.Drawing.Size(547, 138);
             this.tabconstrutora.TabIndex = 2;
             this.tabconstrutora.Text = "Cadastrar:";
             this.tabconstrutora.UseVisualStyleBackColor = true;
@@ -218,7 +218,7 @@ namespace LMFinanciamentos.Apresentacao
             this.lblcnpj.AutoSize = true;
             this.lblcnpj.Location = new System.Drawing.Point(377, 0);
             this.lblcnpj.Name = "lblcnpj";
-            this.lblcnpj.Size = new System.Drawing.Size(50, 23);
+            this.lblcnpj.Size = new System.Drawing.Size(50, 21);
             this.lblcnpj.TabIndex = 69;
             this.lblcnpj.Text = "CNPJ:";
             // 
@@ -226,9 +226,9 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.txtcnpj.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtcnpj.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcnpj.Location = new System.Drawing.Point(377, 26);
+            this.txtcnpj.Location = new System.Drawing.Point(377, 24);
             this.txtcnpj.Name = "txtcnpj";
-            this.txtcnpj.Size = new System.Drawing.Size(167, 27);
+            this.txtcnpj.Size = new System.Drawing.Size(167, 29);
             this.txtcnpj.TabIndex = 2;
             this.txtcnpj.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtcpf_KeyDown);
             this.txtcnpj.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcpf_KeyPress);
@@ -238,9 +238,9 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.txtend, 2);
             this.txtend.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtend.Location = new System.Drawing.Point(3, 82);
+            this.txtend.Location = new System.Drawing.Point(3, 80);
             this.txtend.Name = "txtend";
-            this.txtend.Size = new System.Drawing.Size(368, 27);
+            this.txtend.Size = new System.Drawing.Size(368, 29);
             this.txtend.TabIndex = 3;
             this.txtend.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtend_KeyDown);
             // 
@@ -249,17 +249,17 @@ namespace LMFinanciamentos.Apresentacao
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(3, 56);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(77, 23);
+            this.label6.Size = new System.Drawing.Size(77, 21);
             this.label6.TabIndex = 67;
             this.label6.Text = "Endereço:";
             // 
             // txtconstrutora
             // 
             this.txtconstrutora.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtconstrutora.Location = new System.Drawing.Point(3, 26);
+            this.txtconstrutora.Location = new System.Drawing.Point(3, 24);
             this.txtconstrutora.Name = "txtconstrutora";
             this.txtconstrutora.ReadOnly = true;
-            this.txtconstrutora.Size = new System.Drawing.Size(166, 27);
+            this.txtconstrutora.Size = new System.Drawing.Size(166, 29);
             this.txtconstrutora.TabIndex = 0;
             this.txtconstrutora.Text = "---";
             this.txtconstrutora.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -270,7 +270,7 @@ namespace LMFinanciamentos.Apresentacao
             this.lblcliente.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblcliente.Location = new System.Drawing.Point(175, 0);
             this.lblcliente.Name = "lblcliente";
-            this.lblcliente.Size = new System.Drawing.Size(196, 23);
+            this.lblcliente.Size = new System.Drawing.Size(196, 21);
             this.lblcliente.TabIndex = 51;
             this.lblcliente.Text = "Descrição:";
             // 
@@ -278,9 +278,9 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.txtdescricaoconstrutora.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdescricaoconstrutora.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.txtdescricaoconstrutora.Location = new System.Drawing.Point(175, 26);
+            this.txtdescricaoconstrutora.Location = new System.Drawing.Point(175, 24);
             this.txtdescricaoconstrutora.Name = "txtdescricaoconstrutora";
-            this.txtdescricaoconstrutora.Size = new System.Drawing.Size(196, 27);
+            this.txtdescricaoconstrutora.Size = new System.Drawing.Size(196, 29);
             this.txtdescricaoconstrutora.TabIndex = 1;
             this.txtdescricaoconstrutora.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtdescricaoconstrutora_KeyDown);
             // 
@@ -289,7 +289,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(3, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 23);
+            this.label2.Size = new System.Drawing.Size(114, 21);
             this.label2.TabIndex = 65;
             this.label2.Text = "Nº construtora:";
             // 
@@ -353,7 +353,7 @@ namespace LMFinanciamentos.Apresentacao
             this.lbl_title.ForeColor = System.Drawing.SystemColors.MenuBar;
             this.lbl_title.Location = new System.Drawing.Point(2, 2);
             this.lbl_title.Name = "lbl_title";
-            this.lbl_title.Size = new System.Drawing.Size(206, 34);
+            this.lbl_title.Size = new System.Drawing.Size(210, 31);
             this.lbl_title.TabIndex = 0;
             this.lbl_title.Text = "LM Financiamentos";
             this.lbl_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
