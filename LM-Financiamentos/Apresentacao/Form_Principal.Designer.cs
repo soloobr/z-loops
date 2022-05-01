@@ -341,10 +341,10 @@ namespace LMFinanciamentos.Apresentacao
             this.panel4.AutoSize = true;
             this.panel4.Controls.Add(this.btnempreendimentos);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 64);
+            this.panel4.Location = new System.Drawing.Point(0, 58);
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
-            this.panel4.Size = new System.Drawing.Size(220, 32);
+            this.panel4.Size = new System.Drawing.Size(220, 29);
             this.panel4.TabIndex = 2;
             // 
             // btnempreendimentos
@@ -360,7 +360,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btnempreendimentos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnempreendimentos.Location = new System.Drawing.Point(38, 0);
             this.btnempreendimentos.Name = "btnempreendimentos";
-            this.btnempreendimentos.Size = new System.Drawing.Size(182, 32);
+            this.btnempreendimentos.Size = new System.Drawing.Size(182, 29);
             this.btnempreendimentos.TabIndex = 23;
             this.btnempreendimentos.Text = "Cad. de Empreend.";
             this.btnempreendimentos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -373,10 +373,10 @@ namespace LMFinanciamentos.Apresentacao
             this.panel5.AutoSize = true;
             this.panel5.Controls.Add(this.btncadastrocorretor);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 32);
+            this.panel5.Location = new System.Drawing.Point(0, 29);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
-            this.panel5.Size = new System.Drawing.Size(220, 32);
+            this.panel5.Size = new System.Drawing.Size(220, 29);
             this.panel5.TabIndex = 1;
             // 
             // btncadastrocorretor
@@ -392,7 +392,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btncadastrocorretor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btncadastrocorretor.Location = new System.Drawing.Point(38, 0);
             this.btncadastrocorretor.Name = "btncadastrocorretor";
-            this.btncadastrocorretor.Size = new System.Drawing.Size(182, 32);
+            this.btncadastrocorretor.Size = new System.Drawing.Size(182, 29);
             this.btncadastrocorretor.TabIndex = 23;
             this.btncadastrocorretor.Text = "Cadastro de Corretor";
             this.btncadastrocorretor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -408,7 +408,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
             this.panel6.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
-            this.panel6.Size = new System.Drawing.Size(220, 32);
+            this.panel6.Size = new System.Drawing.Size(220, 29);
             this.panel6.TabIndex = 0;
             // 
             // btncadastroconstrutora
@@ -424,7 +424,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btncadastroconstrutora.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btncadastroconstrutora.Location = new System.Drawing.Point(38, 0);
             this.btncadastroconstrutora.Name = "btncadastroconstrutora";
-            this.btncadastroconstrutora.Size = new System.Drawing.Size(182, 32);
+            this.btncadastroconstrutora.Size = new System.Drawing.Size(182, 29);
             this.btncadastroconstrutora.TabIndex = 23;
             this.btncadastroconstrutora.Text = "Cad. de Construtora";
             this.btncadastroconstrutora.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -485,10 +485,10 @@ namespace LMFinanciamentos.Apresentacao
             this.panel1.AutoSize = true;
             this.panel1.Controls.Add(this.btncadastrocfuncionarios);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 64);
+            this.panel1.Location = new System.Drawing.Point(0, 58);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
-            this.panel1.Size = new System.Drawing.Size(220, 32);
+            this.panel1.Size = new System.Drawing.Size(220, 29);
             this.panel1.TabIndex = 2;
             // 
             // btncadastrocfuncionarios
@@ -504,7 +504,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btncadastrocfuncionarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btncadastrocfuncionarios.Location = new System.Drawing.Point(38, 0);
             this.btncadastrocfuncionarios.Name = "btncadastrocfuncionarios";
-            this.btncadastrocfuncionarios.Size = new System.Drawing.Size(182, 32);
+            this.btncadastrocfuncionarios.Size = new System.Drawing.Size(182, 29);
             this.btncadastrocfuncionarios.TabIndex = 23;
             this.btncadastrocfuncionarios.Text = "Cadastro de Funcionarios";
             this.btncadastrocfuncionarios.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -517,10 +517,10 @@ namespace LMFinanciamentos.Apresentacao
             this.panelsubmenucadastrofunc.AutoSize = true;
             this.panelsubmenucadastrofunc.Controls.Add(this.btncadastrocvendedor);
             this.panelsubmenucadastrofunc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelsubmenucadastrofunc.Location = new System.Drawing.Point(0, 32);
+            this.panelsubmenucadastrofunc.Location = new System.Drawing.Point(0, 29);
             this.panelsubmenucadastrofunc.Name = "panelsubmenucadastrofunc";
             this.panelsubmenucadastrofunc.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
-            this.panelsubmenucadastrofunc.Size = new System.Drawing.Size(220, 32);
+            this.panelsubmenucadastrofunc.Size = new System.Drawing.Size(220, 29);
             this.panelsubmenucadastrofunc.TabIndex = 1;
             // 
             // btncadastrocvendedor
@@ -536,7 +536,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btncadastrocvendedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btncadastrocvendedor.Location = new System.Drawing.Point(38, 0);
             this.btncadastrocvendedor.Name = "btncadastrocvendedor";
-            this.btncadastrocvendedor.Size = new System.Drawing.Size(182, 32);
+            this.btncadastrocvendedor.Size = new System.Drawing.Size(182, 29);
             this.btncadastrocvendedor.TabIndex = 23;
             this.btncadastrocvendedor.Text = "Cadastro de Vendedor";
             this.btncadastrocvendedor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -552,7 +552,7 @@ namespace LMFinanciamentos.Apresentacao
             this.panelsubmenucadastrocliente.Location = new System.Drawing.Point(0, 0);
             this.panelsubmenucadastrocliente.Name = "panelsubmenucadastrocliente";
             this.panelsubmenucadastrocliente.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
-            this.panelsubmenucadastrocliente.Size = new System.Drawing.Size(220, 32);
+            this.panelsubmenucadastrocliente.Size = new System.Drawing.Size(220, 29);
             this.panelsubmenucadastrocliente.TabIndex = 0;
             // 
             // btncadastrocliente
@@ -568,7 +568,7 @@ namespace LMFinanciamentos.Apresentacao
             this.btncadastrocliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btncadastrocliente.Location = new System.Drawing.Point(38, 0);
             this.btncadastrocliente.Name = "btncadastrocliente";
-            this.btncadastrocliente.Size = new System.Drawing.Size(182, 32);
+            this.btncadastrocliente.Size = new System.Drawing.Size(182, 29);
             this.btncadastrocliente.TabIndex = 23;
             this.btncadastrocliente.Text = "Cad. de Compradores";
             this.btncadastrocliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -639,7 +639,7 @@ namespace LMFinanciamentos.Apresentacao
             this.lbl_title.ForeColor = System.Drawing.SystemColors.MenuBar;
             this.lbl_title.Location = new System.Drawing.Point(2, 2);
             this.lbl_title.Name = "lbl_title";
-            this.lbl_title.Size = new System.Drawing.Size(206, 34);
+            this.lbl_title.Size = new System.Drawing.Size(210, 31);
             this.lbl_title.TabIndex = 0;
             this.lbl_title.Text = "LM Financiamentos";
             this.lbl_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

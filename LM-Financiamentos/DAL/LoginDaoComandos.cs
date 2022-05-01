@@ -4153,7 +4153,7 @@ namespace LMFinanciamentos.DAL
             var list = new List<Processo>();
 
             cmd.CommandText = "SELECT * FROM processos WHERE CURDATE() > DATE_SUB(DataValidadeStatusAnalise,INTERVAL 11 DAY) " +
-                " AND (StatusAnalise = @Aprovado OR StatusAnalise = @Bloqueado ) " ; 
+                " AND (StatusAnalise = @Aprovado OR StatusAnalise = @Bloqueado ) AND Status not like '%Concluído%'  "; 
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@Aprovado", "Aprovado");
             cmd.Parameters.AddWithValue("@Reprovado", "Reprovado");

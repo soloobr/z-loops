@@ -43,8 +43,6 @@ namespace LMFinanciamentos.Apresentacao
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.processosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dSDocumentosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dS_Documentos = new LMFinanciamentos.DAL.DS_Documentos();
             this.lbl_topo = new System.Windows.Forms.Label();
             this.paneltop = new System.Windows.Forms.Panel();
             this.lblnumeroprocesso = new System.Windows.Forms.Label();
@@ -266,8 +264,6 @@ namespace LMFinanciamentos.Apresentacao
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
             this.clientesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.dSClientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dS_Clientes = new LMFinanciamentos.DAL.DS_Clientes();
             this.kryptonContextMenuItems1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.kryptonContextMenuItems2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
@@ -282,13 +278,15 @@ namespace LMFinanciamentos.Apresentacao
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.funcionariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolTip_btn = new System.Windows.Forms.ToolTip(this.components);
+            this.dSDocumentosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dS_Documentos = new LMFinanciamentos.DAL.DS_Documentos();
+            this.dSClientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dS_Clientes = new LMFinanciamentos.DAL.DS_Clientes();
             this.processosTableAdapter = new LMFinanciamentos.DAL.DS_DocumentosTableAdapters.ProcessosTableAdapter();
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientesTableAdapter = new LMFinanciamentos.DAL.DS_ClientesTableAdapters.ClientesTableAdapter();
             this.clientesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.processosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSDocumentosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS_Documentos)).BeginInit();
             this.paneltop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).BeginInit();
             this.panel1.SuspendLayout();
@@ -364,10 +362,12 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel10.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSClientesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS_Clientes)).BeginInit();
             this.panelfuncresp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSDocumentosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS_Documentos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSClientesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS_Clientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -376,16 +376,6 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.processosBindingSource.DataMember = "Processos";
             this.processosBindingSource.DataSource = this.dSDocumentosBindingSource;
-            // 
-            // dSDocumentosBindingSource
-            // 
-            this.dSDocumentosBindingSource.DataSource = this.dS_Documentos;
-            this.dSDocumentosBindingSource.Position = 0;
-            // 
-            // dS_Documentos
-            // 
-            this.dS_Documentos.DataSetName = "DS_Documentos";
-            this.dS_Documentos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // lbl_topo
             // 
@@ -3336,16 +3326,6 @@ namespace LMFinanciamentos.Apresentacao
             this.clientesBindingSource2.DataMember = "Clientes";
             this.clientesBindingSource2.DataSource = this.dSClientesBindingSource;
             // 
-            // dSClientesBindingSource
-            // 
-            this.dSClientesBindingSource.DataSource = this.dS_Clientes;
-            this.dSClientesBindingSource.Position = 0;
-            // 
-            // dS_Clientes
-            // 
-            this.dS_Clientes.DataSetName = "DS_Clientes";
-            this.dS_Clientes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // panelfuncresp
             // 
             this.panelfuncresp.Controls.Add(this.lblfunc);
@@ -3448,6 +3428,26 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.toolTip_btn.ToolTipTitle = "Alterar Responsável";
             // 
+            // dSDocumentosBindingSource
+            // 
+            this.dSDocumentosBindingSource.DataSource = this.dS_Documentos;
+            this.dSDocumentosBindingSource.Position = 0;
+            // 
+            // dS_Documentos
+            // 
+            this.dS_Documentos.DataSetName = "DS_Documentos";
+            this.dS_Documentos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dSClientesBindingSource
+            // 
+            this.dSClientesBindingSource.DataSource = this.dS_Clientes;
+            this.dSClientesBindingSource.Position = 0;
+            // 
+            // dS_Clientes
+            // 
+            this.dS_Clientes.DataSetName = "DS_Clientes";
+            this.dS_Clientes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // processosTableAdapter
             // 
             this.processosTableAdapter.ClearBeforeFill = true;
@@ -3485,8 +3485,6 @@ namespace LMFinanciamentos.Apresentacao
             this.Shown += new System.EventHandler(this.Form_Dados_Processos_Shown);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form_Dados_Documentos_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.processosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSDocumentosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS_Documentos)).EndInit();
             this.paneltop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -3600,11 +3598,13 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel10.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSClientesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS_Clientes)).EndInit();
             this.panelfuncresp.ResumeLayout(false);
             this.panelfuncresp.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSDocumentosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS_Documentos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSClientesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS_Clientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).EndInit();
             this.ResumeLayout(false);
