@@ -41,6 +41,30 @@ namespace LMFinanciamentos.Apresentacao
         
         string idresponsavel, nomeresponsavel, nomeuserloged, nomevendedor;
 
+        private void dataGridView_Arquivos_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+            foreach (DataGridViewRow row in dataGridView_Arquivos.Rows)
+            {
+                DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells[9];
+                if (chk.Value == chk.TrueValue)
+                {
+                    chk.Value = chk.FalseValue;
+                }
+                else
+                {
+                    chk.Value = chk.TrueValue;
+                }
+            }
+
+           
+        }
+
+        private void dataGridView_Arquivos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
         private void dtpanalise_CloseUp(object sender, EventArgs e)
         {
 
@@ -123,8 +147,24 @@ namespace LMFinanciamentos.Apresentacao
             tabControl.SelectedIndex = tab;
         }
         public event Action ClienteSalvo;
+
+        private void AddHeaderCheckbox()
+        {
+            CheckBox cb = new CheckBox();
+            // your checkbox size
+            cb.Size = new Size(15, 15);
+
+            // datagridview checkbox header column cell size
+            var cell = dataGridView_Arquivos.Columns[9].HeaderCell.Size;
+
+            // calculate location
+            cb.Location = new Point((cell.Width - cb.Size.Width) / 2, (cell.Height - cb.Size.Height) / 2);
+
+            dataGridView_Arquivos.Controls.Add(cb);
+        }
         private void Form_Dados_Documentos_Load(object sender, EventArgs e)
         {
+            AddHeaderCheckbox();
             Load_Dados_Process();
             #region Responsavel + Edição
             
@@ -2513,6 +2553,23 @@ namespace LMFinanciamentos.Apresentacao
                     MessageBox.Show("Arquivo não encontrado \n Contate o Suporte Técnico!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            if (e.ColumnIndex == dataGridView_Arquivos.Columns["Selecionar"].Index && e.RowIndex >= 0)
+            {
+                DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)dataGridView_Arquivos.Rows[e.RowIndex].Cells[9];
+
+                if (chk.Value == chk.TrueValue)
+                {
+                    dataGridView_Arquivos.Rows[e.RowIndex].Cells[9].Value = chk.FalseValue;
+                }
+                else 
+                {
+                    dataGridView_Arquivos.Rows[e.RowIndex].Cells[9].Value = chk.TrueValue;
+                }
+
+
+            }
+
+
         }
         private void comboBox_tipoProcesso_MouseClick(object sender, MouseEventArgs e)
         {
@@ -3881,7 +3938,36 @@ namespace LMFinanciamentos.Apresentacao
                         {
                             if (Directory.Exists(Local + @"\" + idProcess)) //Pasta
                             {
-                                 
+                                LoginDaoComandos getnewdoc = new LoginDaoComandos();
+                                int ultimoID = getnewdoc.GetIDNewDocumento();
+                                extension = Path.GetExtension(curFile);
+
+                                #region Salva arquivo no Caminho do servidor
+                                String counts = ultimoID.ToString().PadLeft(2, '0');
+                                NewFile = Local + @"\" + idProcess + @"\" + idProcess + counts + extension;
+
+                                try
+                                {
+                                    if (File.Exists(NewFile))
+                                    {
+                                        RenameFile(NewFile, NewFile + ".bkp");
+                                    }
+
+                                    RenameFile(curFile, NewFile);
+
+                                    if (!File.Exists(curFile))
+                                    {
+                                        Console.WriteLine("File successfully renamed.");
+                                        sucess = true;
+                                    }
+                                }
+                                catch (IOException f)
+                                {
+                                    Console.WriteLine("The renaming failed: {0}", e.ToString());
+                                }
+                                #endregion
+
+
                                 //Salvo referencia
                                 #region Salvar no Banco
 
@@ -3890,27 +3976,15 @@ namespace LMFinanciamentos.Apresentacao
                                 numArquivo = idProcess + count.ToString().PadLeft(2, '0');
                                 statusArquivo = "Local";
                                 ImageData = 0;
-                                extension = Path.GetExtension(curFile);
-                                int ultimoID = enviar.CriarDocumento(idProcess, tipoprocess, tipoarquivo + " Pg." + count, ImageData, extension, caminho, statusArquivo);
-                                if (ultimoID > 0)
+                                
+                                int ultimoIDs = enviar.CriarDocumento(idProcess, tipoprocess, tipoarquivo + " Pg." + count, ImageData, extension, caminho, statusArquivo);
+                                if (ultimoIDs > 0)
                                 {
                                     sucess = true;
                                 }
                                 #endregion
 
-                                #region Salva arquivo no Caminho do servidor
-                                String counts = ultimoID.ToString().PadLeft(2, '0');
-                                NewFile = Local + @"\" + idProcess + @"\" + idProcess + counts + extension;
-
-                                if (File.Exists(NewFile))
-                                {
-                                    RenameFile(NewFile, NewFile + ".bkp");
-                                }
-
-                                RenameFile(curFile, NewFile);
-
-
-                                #endregion
+                               
 
                                 #region  Load Grid
 
@@ -3932,7 +4006,7 @@ namespace LMFinanciamentos.Apresentacao
                                 comboBox_tipoProcesso.SelectedIndex = -1;
                                 Cursor = Cursors.Default;
                                 
-                                #endregion
+                                #endregion 
 
                                 count = count + 1;
 
@@ -3942,34 +4016,53 @@ namespace LMFinanciamentos.Apresentacao
                                 sucess = false;
                                 Directory.CreateDirectory(Local + @"\" + idProcess);
 
-                                //Salvo referencia
-                                #region Salvar no Banco
-
-                                LoginDaoComandos enviar = new LoginDaoComandos();
-
-                                caminho = Local + @"\" + idProcess + @"\";
-                                numArquivo = idProcess + count.ToString().PadLeft(2, '0');
-                                statusArquivo = "Local";
-                                ImageData = 0;
+                                LoginDaoComandos getnewdoc = new LoginDaoComandos();
+                                int ultimoID = getnewdoc.GetIDNewDocumento();
                                 extension = Path.GetExtension(curFile);
-                                int ultimoID = enviar.CriarDocumento(idProcess, tipoprocess, tipoarquivo, ImageData, extension, caminho, statusArquivo);
-                                if (ultimoID > 0)
-                                {
-                                    sucess = true;
-                                }
-                                #endregion
+
+                                //MessageBox.Show(" New Doc: " + ultimoID, "Alterar Responsável" , MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                                 #region Salva arquivo no Caminho do servidor
                                 String counts = ultimoID.ToString().PadLeft(2, '0');
                                 NewFile = Local + @"\" + idProcess + @"\" + idProcess + counts + extension;
 
-                                if (File.Exists(NewFile))
+                                try
                                 {
-                                    RenameFile(NewFile, NewFile + ".bkp");
+                                    if (File.Exists(NewFile))
+                                    {
+                                        RenameFile(NewFile, NewFile + ".bkp");
+                                    }
+
+                                    RenameFile(curFile, NewFile);
+
+                                    if (!File.Exists(curFile))
+                                    {
+                                        Console.WriteLine("File successfully renamed.");
+                                        sucess = true;
+                                    }
                                 }
+                                catch (IOException f)
+                                {
+                                    Console.WriteLine("The renaming failed: {0}", e.ToString());
+                                }
+                                #endregion
 
-                                RenameFile(curFile, NewFile);
+                                //Salvo referencia
+                                #region Salvar no Banco
 
+                                LoginDaoComandos enviar = new LoginDaoComandos();
+                                caminho = Local + @"\" + idProcess + @"\";
+
+                                numArquivo = idProcess + count.ToString().PadLeft(2, '0');
+                                statusArquivo = "Local";
+                                ImageData = 0;
+                                extension = Path.GetExtension(curFile);
+                   
+                                int ultimoIDs = enviar.CriarDocumento(idProcess, tipoprocess, tipoarquivo, ImageData, extension, caminho, statusArquivo);
+                                if (ultimoIDs > 0)
+                                {
+                                    sucess = true;
+                                }
 
                                 #endregion
 
@@ -3990,7 +4083,7 @@ namespace LMFinanciamentos.Apresentacao
                                 comboBox_tipoArquivo.Text = "";
                                 txtdescricao.Clear();
                                 comboBox_tipoArquivo.DataSource = null;
-                                comboBox_tipoArquivo.SelectedItem = -1;
+                                comboBox_tipoProcesso.SelectedIndex = -1;
                                 Cursor = Cursors.Default;
                                 //MessageBox.Show("Arquivo Anexado!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 #endregion
@@ -4022,36 +4115,53 @@ namespace LMFinanciamentos.Apresentacao
                         sucess = false;
                         if (Directory.Exists(Local + @"\" + idProcess)) //Pasta
                         {
-                        //Salvo referencia
-                        #region Salvar no Banco
+                            LoginDaoComandos getnewdoc = new LoginDaoComandos();
+                            int ultimoID = getnewdoc.GetIDNewDocumento();
+                            extension = Path.GetExtension(curFile);
 
-                        LoginDaoComandos enviar = new LoginDaoComandos();
-                        caminho = Local + @"\" + idProcess + @"\";
+                            //MessageBox.Show(" New Doc: " + ultimoID, "Alterar Responsável" , MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                        numArquivo = idProcess + count.ToString().PadLeft(2, '0');
-                        statusArquivo = "Local";
-                        ImageData = 0;
-                        extension = Path.GetExtension(curFile);
-                   
-                        int ultimoID = enviar.CriarDocumento(idProcess, tipoprocess, tipoarquivo, ImageData, extension, caminho, statusArquivo);
-                        if (ultimoID > 0)
-                        {
-                            sucess = true;
-                        }
-
-                        #endregion
-
-                        #region Salva arquivo no Caminho do servidor
-                        String counts = ultimoID.ToString().PadLeft(2, '0');
+                            #region Salva arquivo no Caminho do servidor
+                            String counts = ultimoID.ToString().PadLeft(2, '0');
                             NewFile = Local + @"\" + idProcess + @"\" + idProcess + counts + extension;
 
-                            if (File.Exists(NewFile))
+                            try
                             {
-                                RenameFile(NewFile, NewFile + ".bkp");
+                                if (File.Exists(NewFile))
+                                {
+                                    RenameFile(NewFile, NewFile + ".bkp");
+                                }
+
+                                RenameFile(curFile, NewFile);
+
+                                if (!File.Exists(curFile))
+                                {
+                                    Console.WriteLine("File successfully renamed.");
+                                    sucess = true;
+                                }
                             }
+                            catch (IOException f)
+                            {
+                                Console.WriteLine("The renaming failed: {0}", e.ToString());
+                            }
+                            #endregion
 
-                            RenameFile(curFile, NewFile);
+                            //Salvo referencia
+                            #region Salvar no Banco
 
+                            LoginDaoComandos enviar = new LoginDaoComandos();
+                            caminho = Local + @"\" + idProcess + @"\";
+
+                            numArquivo = idProcess + count.ToString().PadLeft(2, '0');
+                            statusArquivo = "Local";
+                            ImageData = 0;
+                            //extension = Path.GetExtension(curFile);
+                   
+                            int ultimoIDs = enviar.CriarDocumento(idProcess, tipoprocess, tipoarquivo, ImageData, extension, caminho, statusArquivo);
+                            if (ultimoIDs > 0)
+                            {
+                                sucess = true;
+                            }
 
                             #endregion
 
@@ -4083,41 +4193,57 @@ namespace LMFinanciamentos.Apresentacao
                         {
                             Directory.CreateDirectory(Local + @"\" + idProcess);
 
-                        //Salvo referencia
-                        #region Salvar no Banco
+                            LoginDaoComandos getnewdoc = new LoginDaoComandos();
+                            int ultimoID = getnewdoc.GetIDNewDocumento();
+                            extension = Path.GetExtension(curFile);
 
-                        LoginDaoComandos enviar = new LoginDaoComandos();
+                            //MessageBox.Show(" New Doc: " + ultimoID, "Alterar Responsável" , MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                        caminho = Local + @"\" + idProcess + @"\";
-
-                        // -- String stipo = comboBox_tipoProcesso.Text;
-                        numArquivo = idProcess + count.ToString().PadLeft(2, '0');
-                        statusArquivo = "Local";
-                        ImageData = 0;
-                        extension = Path.GetExtension(curFile);
-
-                        int ultimoID = enviar.CriarDocumento(idProcess, tipoprocess, tipoarquivo, ImageData, extension, caminho, statusArquivo);
-                        if (ultimoID > 0)
-                        {
-                            sucess = true;
-                        }
-                        #endregion
-
-                        #region Salva arquivo no Caminho do servidor
-                        String counts = ultimoID.ToString().PadLeft(2, '0');
+                            #region Salva arquivo no Caminho do servidor
+                            String counts = ultimoID.ToString().PadLeft(2, '0');
                             NewFile = Local + @"\" + idProcess + @"\" + idProcess + counts + extension;
 
-                            if (File.Exists(NewFile))
+                            try
                             {
-                                RenameFile(NewFile, NewFile + ".bkp");
+                                if (File.Exists(NewFile))
+                                {
+                                    RenameFile(NewFile, NewFile + ".bkp");
+                                }
+
+                                RenameFile(curFile, NewFile);
+
+                                if (!File.Exists(curFile))
+                                {
+                                    Console.WriteLine("File successfully renamed.");
+                                    sucess = true;
+                                }
                             }
+                            catch (IOException f)
+                            {
+                                Console.WriteLine("The renaming failed: {0}", e.ToString());
+                            }
+                            #endregion
 
-                            RenameFile(curFile, NewFile);
+                            //Salvo referencia
+                            #region Salvar no Banco
 
+                            LoginDaoComandos enviar = new LoginDaoComandos();
+                            caminho = Local + @"\" + idProcess + @"\";
+
+                            numArquivo = idProcess + count.ToString().PadLeft(2, '0');
+                            statusArquivo = "Local";
+                            ImageData = 0;
+                            //extension = Path.GetExtension(curFile);
+
+                            int ultimoIDs = enviar.CriarDocumento(idProcess, tipoprocess, tipoarquivo, ImageData, extension, caminho, statusArquivo);
+                            if (ultimoIDs > 0)
+                            {
+                                sucess = true;
+                            }
 
                             #endregion
 
-                        #region  Load Grid
+                            #region  Load Grid
 
                             LoginDaoComandos documento = new LoginDaoComandos();
 
@@ -4134,12 +4260,13 @@ namespace LMFinanciamentos.Apresentacao
                             comboBox_tipoArquivo.Text = "";
                             txtdescricao.Clear();
                             comboBox_tipoArquivo.DataSource = null;
-                            comboBox_tipoArquivo.SelectedItem = -1;
+                            comboBox_tipoProcesso.SelectedIndex = -1;
                             Cursor = Cursors.Default;
-                            // MessageBox.Show("Arquivo Anexado!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //MessageBox.Show("Arquivo Anexado!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             #endregion
 
                         }
+
                         if (sucess == true)
                         {
                             MessageBox.Show("Arquivo Anexado!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);

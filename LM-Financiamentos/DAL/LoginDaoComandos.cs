@@ -3523,6 +3523,45 @@ namespace LMFinanciamentos.DAL
             return dt;
         }
 
+        public int GetIDNewDocumento()
+        {
+            try
+            {
+
+                //cmd.CommandText = "SELECT MAX(id)+1 AS id FROM empreendimentos ";
+                cmd.CommandText = "SHOW TABLE STATUS LIKE '%documentos%' ";
+
+
+                cmd.Parameters.Clear();
+
+                cmd.Connection = con.conectar();
+
+                drempreendimentos = cmd.ExecuteReader();
+
+                if (drempreendimentos.HasRows)
+                {
+                    while (drempreendimentos.Read())
+                    {
+                        newempre = drempreendimentos["Auto_increment"].ToString();
+                    }
+                }
+
+                return Convert.ToInt32(newempre);
+
+            }
+
+            catch (Exception err)
+            {
+
+                throw err;
+            }
+            finally
+            {
+                con.desconectar();
+            }
+
+        }
+
         public int CriarDocumento(string idProcesso, string Tipo, string Descricao, byte Arquivo, String exxtension, string caminho, string Status)
         {
             //string idDoc, string idProcesso, string Tipo, string Descricao, byte Arquivo, string Status
@@ -3904,7 +3943,7 @@ namespace LMFinanciamentos.DAL
 
                 return Convert.ToInt32(newempre);
 
-        }
+            }
 
             catch (Exception err)
             {
