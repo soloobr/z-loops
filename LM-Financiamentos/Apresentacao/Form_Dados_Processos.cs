@@ -28,7 +28,7 @@ namespace LMFinanciamentos.Apresentacao
         string lastselectedprog, lastselectedag, lastselectedconstru, lastselectedcorretor, lastselectedempreendimentos;
         string lastselectedstatuscpf, lastselectedciweb, lastselectedcadmut, lastselectedir, lastselectedfgts;
         string descricao_carftorio, statuscartorio, h_datastatuscartorio;
-        string lastselectedcartorio;
+        string lastselectedcartorio, listmessage;
         string nomeclienteDB, cpfclienteDB, rgclienteDB, nascclienteDB, emailclienteDB, telefoneclienteDB, celularclienteDB, rendaclienteDB, agenciaclienteDB, contaclienteDB;
         string cpfsave, ciwebsave, cadmutsave, irsave, fgtssave, observacaosave, analisesave, respaprovsave, engsave, siopisave, sictdsave, saquefgtssave, pasave,agenciasave,programasave, vlsave, vlfsave, statuscartoriosave, construtorasave, corretorsave,empreendimentosave, nomecartoriosave, statusacartoriosave;
         DateTime? datecpf, dateciweb, datecadmut, dateir, datefgts, dateanalise, datevalidadeanalise, dateeng, datesiopi, datesictd, datesaquefgts, datepa, datecartorio;
@@ -38,24 +38,15 @@ namespace LMFinanciamentos.Apresentacao
         byte ImageData;
         ToFullText tft;
         int ultimoID;
-        
+        bool checkeds = false;
+        int countt = 0;
+
         string idresponsavel, nomeresponsavel, nomeuserloged, nomevendedor;
 
         private void dataGridView_Arquivos_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
 
-            foreach (DataGridViewRow row in dataGridView_Arquivos.Rows)
-            {
-                DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells[9];
-                if (chk.Value == chk.TrueValue)
-                {
-                    chk.Value = chk.FalseValue;
-                }
-                else
-                {
-                    chk.Value = chk.TrueValue;
-                }
-            }
+            
 
            
         }
@@ -150,21 +141,79 @@ namespace LMFinanciamentos.Apresentacao
 
         private void AddHeaderCheckbox()
         {
+
+            // customize dataviewgrid, add checkbox column
+            //DataGridViewCheckBoxColumn checkboxColumn = new DataGridViewCheckBoxColumn();
+            //checkboxColumn.Width = 30;
+            //checkboxColumn.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            //dataGridView_Arquivos.Columns.Insert(0, checkboxColumn);
+
+            // add checkbox header
+            Rectangle rect = dataGridView_Arquivos.GetCellDisplayRectangle(9, -1, true);
+
+            // set checkbox header to center of header cell. +1 pixel to position correctly.
+            rect.X = rect.Location.X + 8;
+            rect.Y = rect.Location.Y + 10;
+            rect.Width = rect.Size.Width;
+            rect.Height = rect.Size.Height;
+
+            CheckBox checkboxHeader = new CheckBox();
+            checkboxHeader.Name = "checkboxHeader";
+            checkboxHeader.Size = new Size(15, 15);
+            checkboxHeader.Location = rect.Location;
+            checkboxHeader.CheckedChanged += new EventHandler(checkboxHeader_CheckedChanged);
+
+            dataGridView_Arquivos.Controls.Add(checkboxHeader);
+            /*
             CheckBox cb = new CheckBox();
             // your checkbox size
             cb.Size = new Size(15, 15);
 
             // datagridview checkbox header column cell size
-            var cell = dataGridView_Arquivos.Columns[9].HeaderCell.Size;
+            var cell = dataGridView_Arquivos.Columns[4].HeaderCell.Size;
 
             // calculate location
             cb.Location = new Point((cell.Width - cb.Size.Width) / 2, (cell.Height - cb.Size.Height) / 2);
 
-            dataGridView_Arquivos.Controls.Add(cb);
+            dataGridView_Arquivos.Controls.Add(cb);*/
         }
+
+        private void checkboxHeader_CheckedChanged(object sender, EventArgs e)
+        {
+           
+
+            if (checkeds == true)
+            {
+    
+                foreach (DataGridViewRow row in dataGridView_Arquivos.Rows)
+                {
+                    DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells[9];
+                    chk.Value = chk.FalseValue;
+                    dataGridView_Arquivos.Columns[9].Frozen = false;
+
+                }
+                checkeds = false;
+                pnlbtnexclude.Visible = false;
+                countt = 0;
+            }else if (checkeds == false)
+            {
+                int totalrowns = 0;
+                foreach (DataGridViewRow row in dataGridView_Arquivos.Rows)
+                {
+                    DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells[9];
+                    chk.Value = chk.TrueValue;
+                    dataGridView_Arquivos.Columns[9].Frozen = true;
+                    totalrowns = totalrowns + 1;
+                }
+                checkeds = true;
+                pnlbtnexclude.Visible = true;
+                countt = totalrowns;
+            }
+        }
+
         private void Form_Dados_Documentos_Load(object sender, EventArgs e)
         {
-            AddHeaderCheckbox();
+            
             Load_Dados_Process();
             #region Responsavel + Edição
             
@@ -2160,6 +2209,8 @@ namespace LMFinanciamentos.Apresentacao
                 dataGridView_Arquivos.DataSource = documento.GetDataDocumentos(idProcess);
                 dataGridView_Arquivos.Refresh();
 
+                AddHeaderCheckbox();
+
                 Cursor = Cursors.Default;
                 #endregion
             }
@@ -2383,44 +2434,161 @@ namespace LMFinanciamentos.Apresentacao
         {
             if (e.ColumnIndex == dataGridView_Arquivos.Columns["apagar"].Index && e.RowIndex >= 0)
             {
-                DataGridViewRow row = dataGridView_Arquivos.Rows[e.RowIndex];
-
-                String iddoc = row.Cells[0].Value.ToString().PadLeft(2, '0');
-                String extension = row.Cells[8].Value.ToString();
-                String pasta = idProcess;
-
-                DialogResult dialogResult = MessageBox.Show("Confima a exclusão do arquivo " + idProcess + iddoc + extension, "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dialogResult == DialogResult.Yes)
+                int exclude = 0;
+                listmessage = "";
+                foreach (DataGridViewRow roww in dataGridView_Arquivos.Rows)
                 {
-                    LoginDaoComandos delete = new LoginDaoComandos();
-                    #region Deletar arquivo fisico
-
-                    String Excluir = delete.GetServer().ServerFilesPath_Server + @"\" + pasta + @"\" + idProcess + iddoc + extension;
-
-                    if (File.Exists(Excluir))
+                    DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)roww.Cells[9];
+                    if(chk.Value == chk.TrueValue)
                     {
-                        delete.DeleteDocumento(iddoc);
-                        File.Delete(Excluir);
-                        MessageBox.Show(delete.mensagem, "Excluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        String iddoc = roww.Cells[0].Value.ToString().PadLeft(2, '0');
+                        String extension = roww.Cells[8].Value.ToString();
+                        //String pasta = idProcess;
+
+                        listmessage = listmessage + "\n" + "Confima a exclusão do arquivo " + idProcess + iddoc + extension;
+                        exclude = exclude + 1;
+                    }
+                }
+
+                if (exclude < 2)
+                {
+                    DataGridViewRow row = dataGridView_Arquivos.Rows[e.RowIndex];
+
+                    String iddoc = row.Cells[0].Value.ToString().PadLeft(2, '0');
+                    String extension = row.Cells[8].Value.ToString();
+                    String pasta = idProcess;
+                    String reff = row.Cells[10].Value.ToString(); 
+
+                    if (reff.Equals("0"))
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Confima a exclusão do arquivo " + idProcess + iddoc + extension, "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            LoginDaoComandos delete = new LoginDaoComandos();
+                            #region Deletar arquivo fisico
+
+                            String Excluir = delete.GetServer().ServerFilesPath_Server + @"\" + pasta + @"\" + idProcess + iddoc + extension;
+
+                            if (File.Exists(Excluir))
+                            {
+                                delete.DeleteDocumento(iddoc);
+                                File.Delete(Excluir);
+                                MessageBox.Show(delete.mensagem, "Excluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("O arquivo " + Excluir + " não foi encontrado! \n Contate o Suporte Técnico!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            #endregion
+                        }
+                        else if (dialogResult == DialogResult.No)
+                        {
+                            return;
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("O arquivo " + Excluir + " não foi encontrado! \n Contate o Suporte Técnico!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        foreach (DataGridViewRow roww in dataGridView_Arquivos.Rows)
+                        {
+                            String sref = roww.Cells[10].Value.ToString();
+                            if (sref.Equals(reff))
+                            {
+                                 iddoc = roww.Cells[0].Value.ToString().PadLeft(2, '0');
+                                 extension = roww.Cells[8].Value.ToString();
+                                //String pasta = idProcess;
+
+                                listmessage = listmessage + "\n" + "Confima a exclusão do arquivo " + idProcess + iddoc + extension;
+                                //exclude = exclude + 1;
+                            }
+                        }
+                        DialogResult dialogResult = MessageBox.Show(listmessage, "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            foreach (DataGridViewRow roww in dataGridView_Arquivos.Rows)
+                            {
+                                String sref = roww.Cells[10].Value.ToString();
+                                if (sref.Equals(reff))
+                                {
+                                     iddoc = roww.Cells[0].Value.ToString().PadLeft(2, '0');
+                                     extension = roww.Cells[8].Value.ToString();
+                                     pasta = idProcess;
+
+                                    LoginDaoComandos delete = new LoginDaoComandos();
+                                    #region Deletar arquivo fisico
+
+                                    String Excluir = delete.GetServer().ServerFilesPath_Server + @"\" + pasta + @"\" + idProcess + iddoc + extension;
+
+                                    if (File.Exists(Excluir))
+                                    {
+                                        delete.DeleteDocumento(iddoc);
+                                        File.Delete(Excluir);
+                                        MessageBox.Show(delete.mensagem, "Excluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("O arquivo " + Excluir + " não foi encontrado! \n Contate o Suporte Técnico!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }
+                                    #endregion
+                                }
+                            }
+                            //MessageBox.Show("O arquivo  não foi encontrado! \n Contate o Suporte Técnico!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else if (dialogResult == DialogResult.No)
+                        {
+                            return;
+                        }
                     }
-                    #endregion
-                }
-                else if (dialogResult == DialogResult.No)
+
+                    
+                }else if (exclude > 1)
                 {
-                    return;
+                    DialogResult dialogResult = MessageBox.Show(listmessage, "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        foreach (DataGridViewRow roww in dataGridView_Arquivos.Rows)
+                        {
+                            DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)roww.Cells[9];
+                            if (chk.Value == chk.TrueValue)
+                            {
+                                String iddoc = roww.Cells[0].Value.ToString().PadLeft(2, '0');
+                                String extension = roww.Cells[8].Value.ToString();
+                                String pasta = idProcess;
+
+                                LoginDaoComandos delete = new LoginDaoComandos();
+                                #region Deletar arquivo fisico
+
+                                String Excluir = delete.GetServer().ServerFilesPath_Server + @"\" + pasta + @"\" + idProcess + iddoc + extension;
+
+                                if (File.Exists(Excluir))
+                                {
+                                    delete.DeleteDocumento(iddoc);
+                                    File.Delete(Excluir);
+                                    MessageBox.Show(delete.mensagem, "Excluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("O arquivo " + Excluir + " não foi encontrado! \n Contate o Suporte Técnico!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                                #endregion
+                            }
+                        }
+                        //MessageBox.Show("O arquivo  não foi encontrado! \n Contate o Suporte Técnico!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }else if (dialogResult == DialogResult.No)
+                    {
+                        return;
+                    }
+
+
                 }
                 #region Load Grid
-                LoginDaoComandos documento = new LoginDaoComandos();
+                    LoginDaoComandos documento = new LoginDaoComandos();
 
                 dataGridView_Arquivos.AutoGenerateColumns = false;
                 //dataGridView_Arquivos.Columns["Numero"].DefaultCellStyle.Format = "D6";
                 dataGridView_Arquivos.DataSource = documento.GetDataDocumentos(idProcess);
                 dataGridView_Arquivos.Refresh();
                 txtArquivo.Clear();
+                pnlbtnexclude.Visible = false;
                 #endregion
             }
 
@@ -2559,11 +2727,77 @@ namespace LMFinanciamentos.Apresentacao
 
                 if (chk.Value == chk.TrueValue)
                 {
-                    dataGridView_Arquivos.Rows[e.RowIndex].Cells[9].Value = chk.FalseValue;
+                    
+                    int A = Convert.ToInt32(dataGridView_Arquivos.Rows[e.RowIndex].Cells[10].Value.ToString());
+                    if (A > 0)
+                    {
+                        foreach (DataGridViewRow row in dataGridView_Arquivos.Rows)
+                        {
+                            DataGridViewCheckBoxCell chkk = (DataGridViewCheckBoxCell)row.Cells[9];
+
+                            if (Convert.ToInt32(row.Cells["Referencia"].Value.ToString()) == A)
+                            {
+                                chkk.Value = chk.FalseValue;
+                                dataGridView_Arquivos.Columns[9].Frozen = false;
+                                countt = countt - 1;
+                            }
+                        }
+                        //pnlbtnexclude.Visible = true;
+                        if (countt < 2)
+                        {
+                            pnlbtnexclude.Visible = false;
+                        }
+
+                    }
+                    else
+                    {
+                        //dataGridView_Arquivos.Rows[e.RowIndex].Cells[9].Value = chk.FalseValue;
+                        chk.Value = chk.FalseValue;
+                        dataGridView_Arquivos.Columns[9].Frozen = false;
+                        countt = countt - 1;
+                        if (countt < 2)
+                        {
+                            pnlbtnexclude.Visible = false;
+                        }
+
+                    }
+                    //dataGridView_Arquivos.Rows[e.RowIndex].Cells[9].Value = chk.FalseValue;
                 }
                 else 
                 {
-                    dataGridView_Arquivos.Rows[e.RowIndex].Cells[9].Value = chk.TrueValue;
+                    int A = Convert.ToInt32(dataGridView_Arquivos.Rows[e.RowIndex].Cells[10].Value.ToString());
+                    if (A > 0)
+                    {
+                        foreach (DataGridViewRow row in dataGridView_Arquivos.Rows)
+                        {
+                            DataGridViewCheckBoxCell chkk = (DataGridViewCheckBoxCell)row.Cells[9];
+
+                            if (Convert.ToInt32(row.Cells["Referencia"].Value.ToString()) == A)
+                            {
+                                chkk.Value = chk.TrueValue;
+                                dataGridView_Arquivos.Columns[9].Frozen = true;
+                                countt = countt + 1;
+                            }
+                        }
+                        if (countt > 1)
+                        {
+                            pnlbtnexclude.Visible = true;
+                        }
+                        
+                    }
+                    else
+                    {
+                        dataGridView_Arquivos.Rows[e.RowIndex].Cells[9].Value = chk.FalseValue;
+                        chk.Value = chk.TrueValue;
+                        dataGridView_Arquivos.Columns[9].Frozen = true;
+                        countt = countt + 1;
+                        if (countt > 1)
+                        {
+                            pnlbtnexclude.Visible = true;
+                        }
+                    }
+                    
+                    
                 }
 
 
@@ -3931,6 +4165,8 @@ namespace LMFinanciamentos.Apresentacao
                 {
                     int count = 1;
                     sucess = false;
+                    LoginDaoComandos getnewref = new LoginDaoComandos();
+                    int referencia = getnewref.GetIDNewDocumento();
                     foreach (string i in listarquivo)
                     {
                         curFile = i;
@@ -3977,7 +4213,7 @@ namespace LMFinanciamentos.Apresentacao
                                 statusArquivo = "Local";
                                 ImageData = 0;
                                 
-                                int ultimoIDs = enviar.CriarDocumento(idProcess, tipoprocess, tipoarquivo + " Pg." + count, ImageData, extension, caminho, statusArquivo);
+                                int ultimoIDs = enviar.CriarDocumento(idProcess, tipoprocess, tipoarquivo + " Pg." + count, ImageData, extension, caminho, referencia, statusArquivo);
                                 if (ultimoIDs > 0)
                                 {
                                     sucess = true;
@@ -4058,7 +4294,7 @@ namespace LMFinanciamentos.Apresentacao
                                 ImageData = 0;
                                 extension = Path.GetExtension(curFile);
                    
-                                int ultimoIDs = enviar.CriarDocumento(idProcess, tipoprocess, tipoarquivo, ImageData, extension, caminho, statusArquivo);
+                                int ultimoIDs = enviar.CriarDocumento(idProcess, tipoprocess, tipoarquivo, ImageData, extension, caminho, referencia, statusArquivo);
                                 if (ultimoIDs > 0)
                                 {
                                     sucess = true;
@@ -4113,6 +4349,9 @@ namespace LMFinanciamentos.Apresentacao
                     if (File.Exists(curFile))
                     {
                         sucess = false;
+                        LoginDaoComandos getnewref = new LoginDaoComandos();
+                        int referencia = getnewref.GetIDNewDocumento();
+
                         if (Directory.Exists(Local + @"\" + idProcess)) //Pasta
                         {
                             LoginDaoComandos getnewdoc = new LoginDaoComandos();
@@ -4157,7 +4396,7 @@ namespace LMFinanciamentos.Apresentacao
                             ImageData = 0;
                             //extension = Path.GetExtension(curFile);
                    
-                            int ultimoIDs = enviar.CriarDocumento(idProcess, tipoprocess, tipoarquivo, ImageData, extension, caminho, statusArquivo);
+                            int ultimoIDs = enviar.CriarDocumento(idProcess, tipoprocess, tipoarquivo, ImageData, extension, caminho, referencia, statusArquivo);
                             if (ultimoIDs > 0)
                             {
                                 sucess = true;
@@ -4235,7 +4474,7 @@ namespace LMFinanciamentos.Apresentacao
                             ImageData = 0;
                             //extension = Path.GetExtension(curFile);
 
-                            int ultimoIDs = enviar.CriarDocumento(idProcess, tipoprocess, tipoarquivo, ImageData, extension, caminho, statusArquivo);
+                            int ultimoIDs = enviar.CriarDocumento(idProcess, tipoprocess, tipoarquivo, ImageData, extension, caminho, referencia, statusArquivo);
                             if (ultimoIDs > 0)
                             {
                                 sucess = true;

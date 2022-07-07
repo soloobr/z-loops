@@ -254,7 +254,7 @@ namespace LMFinanciamentos.Apresentacao
             this.comboBoxFunc.FormattingEnabled = true;
             this.comboBoxFunc.Location = new System.Drawing.Point(870, 7);
             this.comboBoxFunc.Name = "comboBoxFunc";
-            this.comboBoxFunc.Size = new System.Drawing.Size(133, 26);
+            this.comboBoxFunc.Size = new System.Drawing.Size(133, 27);
             this.comboBoxFunc.TabIndex = 8;
             this.comboBoxFunc.SelectionChangeCommitted += new System.EventHandler(this.comboBoxFunc_SelectionChangeCommitted);
             this.comboBoxFunc.Click += new System.EventHandler(this.comboBoxFunc_Click);
@@ -283,7 +283,7 @@ namespace LMFinanciamentos.Apresentacao
             this.lblprocurar.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblprocurar.Location = new System.Drawing.Point(22, 20);
             this.lblprocurar.Name = "lblprocurar";
-            this.lblprocurar.Size = new System.Drawing.Size(87, 19);
+            this.lblprocurar.Size = new System.Drawing.Size(86, 21);
             this.lblprocurar.TabIndex = 2;
             this.lblprocurar.Text = "Procurar por:";
             // 
@@ -310,7 +310,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtprocurar.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtprocurar.Location = new System.Drawing.Point(26, 45);
             this.txtprocurar.Name = "txtprocurar";
-            this.txtprocurar.Size = new System.Drawing.Size(218, 29);
+            this.txtprocurar.Size = new System.Drawing.Size(218, 27);
             this.txtprocurar.TabIndex = 0;
             this.txtprocurar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtprocurar_KeyPress);
             // 
