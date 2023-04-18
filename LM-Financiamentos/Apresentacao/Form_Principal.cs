@@ -44,7 +44,10 @@ namespace LMFinanciamentos.Apresentacao
         }
         private void hideSubMenu()
         {
+            if (panelsubmenucadastro.Visible == true)
             panelsubmenucadastro.Visible = false;
+            if (panelsubmenuimovel.Visible == true)
+                panelsubmenuimovel.Visible = false;
 
         }
         private void showSubMenu(Panel subMenu)
@@ -219,32 +222,55 @@ namespace LMFinanciamentos.Apresentacao
             {
                 btncontroledoc.BackColor = Color.FromArgb(4, 41, 68);
             }
+            if (Application.OpenForms["Form_Controle_Cliente"] == null)
+            {
+                btncadastrocliente.BackColor = Color.FromArgb(4, 41, 68);
+            }
             if (Application.OpenForms["Form_Configuracao"] == null)
             {
                 btnconf.BackColor = Color.FromArgb(4, 41, 68);
             }
-            #region buttons
-            if (Application.OpenForms["Form_Controle_Cliente"] == null && Application.OpenForms["Form_Controle_Vendedor"] == null && Application.OpenForms["Form_Controle_Funcionarios"] == null)
+            if (Application.OpenForms["Form_Controle_Agencias"] == null)
+            {
+                btncaixa.BackColor = Color.FromArgb(4, 41, 68);
+            }
+            if (Application.OpenForms["Form_Controle_Empreendimentos"] == null)
+            {
+                btnempreendimentos.BackColor = Color.FromArgb(4, 41, 68);
+            }
+
+            if (Application.OpenForms["Form_Controle_Cliente"] == null && Application.OpenForms["Form_Controle_Vendedor"] == null && Application.OpenForms["Form_Controle_Funcionarios"] == null )
             {
                 btncadastro.BackColor = Color.FromArgb(4, 41, 68);
                 btncadastrocliente.BackColor = Color.FromArgb(4, 41, 68);
                 btncadastrocvendedor.BackColor = Color.FromArgb(4, 41, 68);
                 btncadastrocfuncionarios.BackColor = Color.FromArgb(4, 41, 68);
             }
-
+            if (Application.OpenForms["Form_Controle_Empreendimentos"] == null  && Application.OpenForms["Form_Controle_Corretor"] == null && Application.OpenForms["Form_Controle_Construtora"] == null)
+            {
+                btnimovel.BackColor = Color.FromArgb(4, 41, 68);
+                btncadastroconstrutora.BackColor = Color.FromArgb(4, 41, 68);
+                btncadastrocorretor.BackColor = Color.FromArgb(4, 41, 68);
+                btnempreendimentos.BackColor = Color.FromArgb(4, 41, 68);
+            }
             if (Application.OpenForms["Form_Controle_Cliente"] == null)
                 btncadastrocliente.BackColor = Color.FromArgb(4, 41, 68);
             if (Application.OpenForms["Form_Controle_Vendedor"] == null)
                 btncadastrocvendedor.BackColor = Color.FromArgb(4, 41, 68);
             if (Application.OpenForms["Form_Controle_Funcionarios"] == null)
                 btncadastrocfuncionarios.BackColor = Color.FromArgb(4, 41, 68);
-            #endregion
+            if (Application.OpenForms["Form_Controle_Construtora"] == null)
+                btncadastroconstrutora.BackColor = Color.FromArgb(4, 41, 68);
+            if (Application.OpenForms["Form_Controle_Corretor"] == null)
+                btncadastrocorretor.BackColor = Color.FromArgb(4, 41, 68);
+
+
         }
         private void btnmenuleft_Click(object sender, EventArgs e)
         {
             btnmenurigth.Visible = true;
             btnmenuleft.Visible = false;
-            panelMenu.Size = new Size(45, 583);
+            panelMenu.Size = new Size(48, 583);
             panelLogo.Visible = false;
             //img_foto.Visible = false;
             //lblsaudacao.Visible = false;
@@ -253,6 +279,8 @@ namespace LMFinanciamentos.Apresentacao
             btncontroledoc.Text = " ";
             btncadastro.Text = " ";
             btnconf.Text = " ";
+            btncaixa.Text = " ";
+            btnimovel.Text = " ";
 
         }
 
@@ -265,7 +293,9 @@ namespace LMFinanciamentos.Apresentacao
             lblfunc.Visible = true;
             btncontroledoc.Text = "Controle de Documentos";
             btncadastro.Text = "Cadastro";
-            btncadastro.Text = "Configurações";
+            btncaixa.Text = "Caixa";
+            btnimovel.Text = "Imovél";
+            btnconf.Text = "Configurações";
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -317,7 +347,14 @@ namespace LMFinanciamentos.Apresentacao
             //hideSubMenu();
             Cursor = Cursors.Default;
         }
-        private Form_Controle_Processo BuscarClientes = null;
+        private Form_Controle_Processo BuscarProcessos = null;
+        private Form_Controle_Cliente BuscarClientes = null;
+        private Form_Controle_Vendedor BuscarVendedor = null;
+        private Form_Controle_Agencias BuscarAgencias = null;
+        private Form_Controle_Empreendimentos BuscarEmpreendimentos = null;
+        private Form_Controle_Construtora BuscarConstrutora = null;
+        private Form_Controle_Corretor BuscarCorretor = null;
+
 
         private void Form_Principal_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -327,34 +364,186 @@ namespace LMFinanciamentos.Apresentacao
             MyIni.DeleteKey("StringConnection", usuario);
         }
 
-        private void btncontroledoc_Click(object sender, EventArgs e)
+        private void btncaixa_Click(object sender, EventArgs e)
         {
-            Cursor.Current = Cursors.WaitCursor;
-            if (Application.OpenForms.OfType<Form_Controle_Processo>().Count() > 0)
+
+            if (Application.OpenForms.OfType<Form_Controle_Agencias>().Count() > 0)
             {
-                this.BuscarClientes.WindowState = FormWindowState.Normal;
-                BuscarClientes.BringToFront();
+                this.BuscarAgencias.WindowState = FormWindowState.Normal;
+                BuscarAgencias.BringToFront();
             }
             else
             {
-                this.BuscarClientes = new Form_Controle_Processo();
-                this.BuscarClientes.setUserLoged(idresponsavel, nomeresponsavel);
-                this.BuscarClientes.Text = "Buscar Clientes";//titulo do formulario
-                this.BuscarClientes.TopLevel = false;
+                Cursor.Current = Cursors.WaitCursor;
+                this.BuscarAgencias = new Form_Controle_Agencias();
+                this.BuscarAgencias.setUserLoged(idresponsavel, nomeresponsavel);
 
-                this.BuscarClientes.TopLevel = false;
-                this.BuscarClientes.FormBorderStyle = FormBorderStyle.None;
-                this.BuscarClientes.Dock = DockStyle.Fill;
-                this.panelformularios.Controls.Add(BuscarClientes);
-                this.panelformularios.Tag = BuscarClientes;
-                this.BuscarClientes.Show();
-                this.BuscarClientes.BringToFront();
-                this.BuscarClientes.FormClosed += new FormClosedEventHandler(CloseForms);
+                this.BuscarAgencias.Text = "Buscar Agências";//titulo do formulario
+                this.BuscarAgencias.TopLevel = false;
+
+                this.BuscarAgencias.TopLevel = false;
+                this.BuscarAgencias.FormBorderStyle = FormBorderStyle.None;
+                this.BuscarAgencias.Dock = DockStyle.Fill;
+                this.panelformularios.Controls.Add(BuscarAgencias);
+                this.panelformularios.Tag = BuscarAgencias;
+                this.BuscarAgencias.Show();
+                this.BuscarAgencias.BringToFront();
+                this.BuscarAgencias.FormClosed += new FormClosedEventHandler(CloseForms);
+                //this.BuscarAgencias.DestacarLinhaDataGridView();
+                Cursor.Current = Cursors.Default;
+
+            }
+            btncaixa.BackColor = Color.FromArgb(12, 61, 92);
+            hideSubMenu();
+        }
+
+        private void btnimovel_Click(object sender, EventArgs e)
+        {
+            if (panelLogo.Visible == false)
+            {
+                btnmenurigth.Visible = false;
+                btnmenuleft.Visible = true;
+                panelMenu.Size = new Size(230, 583);
+                btncontroledoc.Text = "Controle de Documentos";
+                btncadastro.Text = "Cadastro";
+                btncaixa.Text = "Caixa";
+                btnimovel.Text = "Imovél";
+                btnconf.Text = "Configurações";
+                showSubMenu(panelsubmenuimovel);
+            }
+            else
+            {
+                showSubMenu(panelsubmenuimovel);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.OfType<Form_Controle_Empreendimentos>().Count() > 0)
+            {
+                this.BuscarEmpreendimentos.WindowState = FormWindowState.Normal;
+                BuscarEmpreendimentos.BringToFront();
+            }
+            else
+            {
+                Cursor = Cursors.WaitCursor;
+                this.BuscarEmpreendimentos = new Form_Controle_Empreendimentos();
+                this.BuscarEmpreendimentos.setUserLoged(idresponsavel, nomeresponsavel);
+
+                this.BuscarEmpreendimentos.Text = "Buscar Empreendimentos";//titulo do formulario
+                this.BuscarEmpreendimentos.TopLevel = false;
+
+                this.BuscarEmpreendimentos.TopLevel = false;
+                this.BuscarEmpreendimentos.FormBorderStyle = FormBorderStyle.None;
+                this.BuscarEmpreendimentos.Dock = DockStyle.Fill;
+                this.panelformularios.Controls.Add(BuscarEmpreendimentos);
+                this.panelformularios.Tag = BuscarEmpreendimentos;
+                this.BuscarEmpreendimentos.Show();
+                this.BuscarEmpreendimentos.BringToFront();
+                this.BuscarEmpreendimentos.FormClosed += new FormClosedEventHandler(CloseForms);
+                Cursor = Cursors.Default;
+
+            }
+            btnimovel.BackColor = Color.FromArgb(12, 61, 92);
+            btnempreendimentos.BackColor = Color.FromArgb(12, 61, 92);
+            hideSubMenu();
+        }
+
+        private void btncadastroconstrutora_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.OfType<Form_Controle_Construtora>().Count() > 0)
+            {
+                this.BuscarConstrutora.WindowState = FormWindowState.Normal;
+                BuscarConstrutora.BringToFront();
+            }
+            else
+            {
+                Cursor = Cursors.WaitCursor;
+                this.BuscarConstrutora = new Form_Controle_Construtora();
+                this.BuscarConstrutora.setUserLoged(idresponsavel, nomeresponsavel);
+
+                this.BuscarConstrutora.Text = "Buscar Construtora";//titulo do formulario
+                this.BuscarConstrutora.TopLevel = false;
+
+                this.BuscarConstrutora.TopLevel = false;
+                this.BuscarConstrutora.FormBorderStyle = FormBorderStyle.None;
+                this.BuscarConstrutora.Dock = DockStyle.Fill;
+                this.panelformularios.Controls.Add(BuscarConstrutora);
+                this.panelformularios.Tag = BuscarConstrutora;
+                this.BuscarConstrutora.Show();
+                this.BuscarConstrutora.BringToFront();
+                this.BuscarConstrutora.FormClosed += new FormClosedEventHandler(CloseForms);
+                Cursor = Cursors.Default;
+
+            }
+            btnimovel.BackColor = Color.FromArgb(12, 61, 92);
+            btncadastroconstrutora.BackColor = Color.FromArgb(12, 61, 92);
+            hideSubMenu();
+        }
+
+        private void btncadastrocorretor_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.OfType<Form_Controle_Corretor>().Count() > 0)
+            {
+                this.BuscarCorretor.WindowState = FormWindowState.Normal;
+                BuscarCorretor.BringToFront();
+            }
+            else
+            {
+                Cursor = Cursors.WaitCursor;
+                this.BuscarCorretor = new Form_Controle_Corretor();
+                this.BuscarCorretor.setUserLoged(idresponsavel, nomeresponsavel);
+
+                this.BuscarCorretor.Text = "Buscar Corretor";//titulo do formulario
+                this.BuscarCorretor.TopLevel = false;
+
+                this.BuscarCorretor.TopLevel = false;
+                this.BuscarCorretor.FormBorderStyle = FormBorderStyle.None;
+                this.BuscarCorretor.Dock = DockStyle.Fill;
+                this.panelformularios.Controls.Add(BuscarCorretor);
+                this.panelformularios.Tag = BuscarCorretor;
+                this.BuscarCorretor.Show();
+                this.BuscarCorretor.BringToFront();
+                this.BuscarCorretor.FormClosed += new FormClosedEventHandler(CloseForms);
+                Cursor = Cursors.Default;
+
+            }
+            btnimovel.BackColor = Color.FromArgb(12, 61, 92);
+            btncadastrocorretor.BackColor = Color.FromArgb(12, 61, 92);
+            hideSubMenu();
+        }
+
+        private void btncontroledoc_Click(object sender, EventArgs e)
+        {
+           
+            if (Application.OpenForms.OfType<Form_Controle_Processo>().Count() > 0)
+            {
+                this.BuscarProcessos.WindowState = FormWindowState.Normal;
+                BuscarProcessos.BringToFront();
+            }
+            else
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                this.BuscarProcessos = new Form_Controle_Processo();
+                this.BuscarProcessos.setUserLoged(idresponsavel, nomeresponsavel);
+                
+                this.BuscarProcessos.Text = "Buscar Processos";//titulo do formulario
+                this.BuscarProcessos.TopLevel = false;
+
+                this.BuscarProcessos.TopLevel = false;
+                this.BuscarProcessos.FormBorderStyle = FormBorderStyle.None;
+                this.BuscarProcessos.Dock = DockStyle.Fill;
+                this.panelformularios.Controls.Add(BuscarProcessos);
+                this.panelformularios.Tag = BuscarProcessos;
+                this.BuscarProcessos.Show();
+                this.BuscarProcessos.BringToFront();
+                this.BuscarProcessos.FormClosed += new FormClosedEventHandler(CloseForms);
+                this.BuscarProcessos.DestacarLinhaDataGridView();
+                Cursor.Current = Cursors.Default;
 
             }
             btncontroledoc.BackColor = Color.FromArgb(12, 61, 92);
             hideSubMenu();
-
         }
         private void btncadastro_Click_1(object sender, EventArgs e)
         {
@@ -365,6 +554,8 @@ namespace LMFinanciamentos.Apresentacao
                 panelMenu.Size = new Size(230, 583);
                 btncontroledoc.Text = "Controle de Documentos";
                 btncadastro.Text = "Cadastro";
+                btncaixa.Text = "Caixa";
+                btnimovel.Text = "Imovél";
                 btnconf.Text = "Configurações";
                 showSubMenu(panelsubmenucadastro);
             }
@@ -376,8 +567,31 @@ namespace LMFinanciamentos.Apresentacao
 
         private void btncadastrocliente_Click_1(object sender, EventArgs e)
         {
-            Cursor.Current = Cursors.WaitCursor;
-            AbrirFormulario<Form_Controle_Cliente>();
+            if (Application.OpenForms.OfType<Form_Controle_Cliente>().Count() > 0)
+            {
+                this.BuscarClientes.WindowState = FormWindowState.Normal;
+                BuscarClientes.BringToFront();
+            }
+            else
+            {
+                Cursor = Cursors.WaitCursor;
+                this.BuscarClientes = new Form_Controle_Cliente();
+                this.BuscarClientes.setUserLoged(idresponsavel, nomeresponsavel);
+
+                this.BuscarClientes.Text = "Buscar Clientes";//titulo do formulario
+                this.BuscarClientes.TopLevel = false;
+
+                this.BuscarClientes.TopLevel = false;
+                this.BuscarClientes.FormBorderStyle = FormBorderStyle.None;
+                this.BuscarClientes.Dock = DockStyle.Fill;
+                this.panelformularios.Controls.Add(BuscarClientes);
+                this.panelformularios.Tag = BuscarClientes;
+                this.BuscarClientes.Show();
+                this.BuscarClientes.BringToFront();
+                this.BuscarClientes.FormClosed += new FormClosedEventHandler(CloseForms);
+                Cursor = Cursors.Default;
+
+            }
             btncadastro.BackColor = Color.FromArgb(12, 61, 92);
             btncadastrocliente.BackColor = Color.FromArgb(12, 61, 92);
             hideSubMenu();
@@ -395,15 +609,33 @@ namespace LMFinanciamentos.Apresentacao
 
         private void btncadastrocvendedor_Click(object sender, EventArgs e)
         {
-            Cursor = Cursors.WaitCursor;
-            AbrirFormulario<Form_Controle_Vendedor>();
+            if (Application.OpenForms.OfType<Form_Controle_Vendedor>().Count() > 0)
+            {
+                this.BuscarVendedor.WindowState = FormWindowState.Normal;
+                BuscarVendedor.BringToFront();
+            }
+            else
+            {
+                Cursor = Cursors.WaitCursor;
+                this.BuscarVendedor = new Form_Controle_Vendedor();
+                this.BuscarVendedor.setUserLoged(idresponsavel, nomeresponsavel);
+
+                this.BuscarVendedor.Text = "Buscar Vendedores";//titulo do formulario
+                this.BuscarVendedor.TopLevel = false;
+
+                this.BuscarVendedor.TopLevel = false;
+                this.BuscarVendedor.FormBorderStyle = FormBorderStyle.None;
+                this.BuscarVendedor.Dock = DockStyle.Fill;
+                this.panelformularios.Controls.Add(BuscarVendedor);
+                this.panelformularios.Tag = BuscarVendedor;
+                this.BuscarVendedor.Show();
+                this.BuscarVendedor.BringToFront();
+                this.BuscarVendedor.FormClosed += new FormClosedEventHandler(CloseForms);
+                Cursor = Cursors.Default;
+            }
             btncadastro.BackColor = Color.FromArgb(12, 61, 92);
             btncadastrocvendedor.BackColor = Color.FromArgb(12, 61, 92);
             hideSubMenu();
-            Cursor = Cursors.Default;
         }
-
-        //private Form activeForm = null;
-
     }
 }

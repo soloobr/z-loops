@@ -139,6 +139,21 @@
         x3x2XwAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="id.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Origem_H.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Destino_H.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Data_H.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="User_H.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="Numero.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -164,6 +179,12 @@
     <value>True</value>
   </metadata>
   <metadata name="Extensao.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Selecionar.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Referencia.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="btnSelecionarArquivos.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -194,6 +215,19 @@
   </metadata>
   <metadata name="backgroundWorker.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>433, 36</value>
+  </metadata>
+  <data name="btnalterresp.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAQFJREFUOE9j
+        oC74/5/Rc8KjYq8Jj04A6ade/Y9Wekx4qg6VJQy8+h+nADX/R8M/ffoem0GV4AdeEx9vwWLAf6+Jj3qh
+        SvADrwmP91JkgPfER3OxGgD0mnf/QxfP/scz0TFUKwQAA20nNgM8Jz6qhSrBD3AE4g+g18y9JzwMxYah
+        WiHAoeE/C1DDIzQDVnhOus2OTTMIQ7UigFf/wwZkA7wnPHKHShEGDvPvc2CEw8RHbaAEhjcQ3fseC0Ft
+        foGiGY4fXwe6JCu04SobWAMy8Jn0RB+o6BWmJix44qNLgVOeCEO1QgAwzZ/Fqhg3ng7VCgFAA3YATd5N
+        Ap4C1UoNwMAAAHdSW1XOoqMBAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="toolTip_btn.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>332, 4</value>
   </metadata>
   <metadata name="ofd1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>851, 36</value>

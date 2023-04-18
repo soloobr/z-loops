@@ -140,6 +140,14 @@ namespace LMFinanciamentos.Apresentacao
             }
         }
 
+        private void txtnomecli_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
         private void txtcpf_KeyUp(object sender, KeyEventArgs e)
         {
             int cont = 0;

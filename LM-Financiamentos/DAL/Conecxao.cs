@@ -30,6 +30,9 @@ namespace LMFinanciamentos.DAL
                 case "ONLINE":
                     con.ConnectionString = @"server=sql452.main-hosting.eu;user id=u371409358_lm;Password=P@ssw0rd;database=u371409358_lm;persistsecurityinfo=True;convert zero datetime=True";
                     break;
+                case "HOMOLOGACAO":
+                    con.ConnectionString = @"server=localhost;user id = u371409358_lm;Password=P@ssw0rd; database=u371409358_lm;persistsecurityinfo=True;convert zero datetime=True";
+                    break;
                 default:
                     con.ConnectionString = @"server=SERVIDOR;user id = u371409358_lm;Password=P@ssw0rd; database=u371409358_lm;persistsecurityinfo=True;convert zero datetime=True";
                     break;

@@ -190,6 +190,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtsenhalogin.Name = "txtsenhalogin";
             this.txtsenhalogin.Size = new System.Drawing.Size(142, 27);
             this.txtsenhalogin.TabIndex = 15;
+            this.txtsenhalogin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomecli_KeyDown);
             // 
             // label8
             // 
@@ -226,6 +227,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcracha.Name = "txtcracha";
             this.txtcracha.Size = new System.Drawing.Size(170, 30);
             this.txtcracha.TabIndex = 9;
+            this.txtcracha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomecli_KeyDown);
             // 
             // label5
             // 
@@ -253,6 +255,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtendereco.Name = "txtendereco";
             this.txtendereco.Size = new System.Drawing.Size(355, 30);
             this.txtendereco.TabIndex = 8;
+            this.txtendereco.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomecli_KeyDown);
             // 
             // txtpermission
             // 
@@ -269,6 +272,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtpermission.Name = "txtpermission";
             this.txtpermission.Size = new System.Drawing.Size(157, 31);
             this.txtpermission.TabIndex = 10;
+            this.txtpermission.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomecli_KeyDown);
             // 
             // label4
             // 
@@ -288,6 +292,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtrendacli.Size = new System.Drawing.Size(216, 27);
             this.txtrendacli.TabIndex = 7;
             this.txtrendacli.Visible = false;
+            this.txtrendacli.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomecli_KeyDown);
             this.txtrendacli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtrendacli_KeyPress);
             this.txtrendacli.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrendacli_KeyUp);
             this.txtrendacli.Leave += new System.EventHandler(this.txtrendacli_Leave);
@@ -341,6 +346,7 @@ namespace LMFinanciamentos.Apresentacao
             this.checkBox_Masculino.TabStop = true;
             this.checkBox_Masculino.Text = "Masculino";
             this.checkBox_Masculino.UseVisualStyleBackColor = true;
+            this.checkBox_Masculino.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomecli_KeyDown);
             // 
             // txtcelular
             // 
@@ -351,6 +357,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcelular.Size = new System.Drawing.Size(157, 27);
             this.txtcelular.TabIndex = 6;
             this.txtcelular.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txtcelular.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomecli_KeyDown);
             // 
             // label20
             // 
@@ -370,6 +377,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txttelefone.Size = new System.Drawing.Size(157, 27);
             this.txttelefone.TabIndex = 5;
             this.txttelefone.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txttelefone.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomecli_KeyDown);
             // 
             // label19
             // 
@@ -398,6 +406,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtemail.Name = "txtemail";
             this.txtemail.Size = new System.Drawing.Size(364, 27);
             this.txtemail.TabIndex = 4;
+            this.txtemail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomecli_KeyDown);
             // 
             // lblcpf
             // 
@@ -416,6 +425,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcpf.Name = "txtcpf";
             this.txtcpf.Size = new System.Drawing.Size(170, 30);
             this.txtcpf.TabIndex = 1;
+            this.txtcpf.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomecli_KeyDown);
             this.txtcpf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcpf_KeyPress);
             this.txtcpf.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtcpf_KeyUp);
             this.txtcpf.Leave += new System.EventHandler(this.txtcpf_Leave);
@@ -447,6 +457,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtnomecli.Name = "txtnomecli";
             this.txtnomecli.Size = new System.Drawing.Size(364, 30);
             this.txtnomecli.TabIndex = 0;
+            this.txtnomecli.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomecli_KeyDown);
             // 
             // txtrg
             // 
@@ -456,6 +467,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtrg.Name = "txtrg";
             this.txtrg.Size = new System.Drawing.Size(157, 27);
             this.txtrg.TabIndex = 2;
+            this.txtrg.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomecli_KeyDown);
             this.txtrg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtrg_KeyPress);
             this.txtrg.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrg_KeyUp);
             // 
@@ -470,6 +482,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtnasc.TabIndex = 3;
             this.txtnasc.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
             this.txtnasc.ValidatingType = typeof(System.DateTime);
+            this.txtnasc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomecli_KeyDown);
             // 
             // txtuserlogin
             // 
@@ -477,6 +490,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtuserlogin.Name = "txtuserlogin";
             this.txtuserlogin.Size = new System.Drawing.Size(157, 27);
             this.txtuserlogin.TabIndex = 14;
+            this.txtuserlogin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomecli_KeyDown);
             // 
             // tabproduto
             // 

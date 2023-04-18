@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Globalization;
 using System.Reflection;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace LMFinanciamentos
@@ -12,6 +14,9 @@ namespace LMFinanciamentos
         [STAThread]
         static void Main()
         {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-BR");
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("pt-BR");
+
             //Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form_Login());
@@ -24,12 +29,16 @@ namespace LMFinanciamentos
             //Application.Run(new Form_Controle_Processo());
 
             //AutoUpdater.Initialize("https://lmfinanciamentos.com.br/Config.json", Application.ProductVersion);
-            
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form_Login());
             //AutoUpdater.Instance.Stop();
             //AutoUpdater.Instance.UpdateView();
+            
+            
+            //CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("pt-BR");
+
         }
     }
 }

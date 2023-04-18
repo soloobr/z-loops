@@ -133,11 +133,14 @@ namespace LMFinanciamentos
 
         private void btnlogar_Click(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
+
             if (txt_login.Text == "")
             {
                 lblverifica.Text = "*Preencher o campo Login";
                 lblverifica.Visible = true;
                 txt_login.Focus();
+                Cursor = Cursors.Default;
             }
             else if (txtpassword.Text == "")
             {
@@ -145,7 +148,7 @@ namespace LMFinanciamentos
                 lblverifica.Text = "*Preencher o campo Passwor";
                 lblverifica.Visible = true;
                 txtpassword.Focus();
-
+                Cursor = Cursors.Default;
             }
             else
             {
@@ -200,7 +203,7 @@ namespace LMFinanciamentos
 
             }
 
-
+            Cursor = Cursors.Default;
 
         }
 
@@ -221,10 +224,6 @@ namespace LMFinanciamentos
             }
         }
 
-        private void lbltop_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void Form_Login_KeyDown(object sender, KeyEventArgs e)
         {
@@ -233,7 +232,7 @@ namespace LMFinanciamentos
                 comboBox_server.Visible = true;
                 lblserver.Visible = true;
 
-                comboBox_server.SelectedIndex = 1;
+                comboBox_server.SelectedIndex = 2;
                 txtpassword.Text = "236985";
                 txt_login.Text = "lgomes";
 
@@ -263,6 +262,11 @@ namespace LMFinanciamentos
                 MyIni.Write("StringConnection", "LOCAL", usuario);
                 servidor = "LOCAL";
             }
+            if (comboBox_server.Text == "HOMOLOGACAO")
+            {
+                MyIni.Write("StringConnection", "HOMOLOGACAO", usuario);
+                servidor = "LOCAL";
+            }
         }
 
         private void comboBox_server_KeyPress(object sender, KeyPressEventArgs e)
@@ -271,6 +275,30 @@ namespace LMFinanciamentos
             {
                 btnlogar.Focus();
                 btnlogar.PerformClick();
+            }
+        }
+
+        private void txt_login_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void txtpassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void txt_login_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                //SendKeys.Send("{TAB}");
+                txtpassword.Select(txtpassword.Text.Length, 0);
+                this.ActiveControl = txtpassword;
+                txtpassword.Focus();
             }
         }
     }

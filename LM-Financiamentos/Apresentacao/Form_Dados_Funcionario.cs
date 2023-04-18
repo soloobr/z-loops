@@ -530,6 +530,14 @@ namespace LMFinanciamentos.Apresentacao
 
         }
 
+        private void txtnomefuncionario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
         private void splitter1_SplitterMoved(object sender, SplitterEventArgs e)
         {
 

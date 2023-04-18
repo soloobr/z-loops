@@ -1,10 +1,13 @@
 ﻿using LMFinanciamentos.DAL;
+using LMFinanciamentos.Entidades;
 using LMFinanciamentos.Modelo;
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
+using System.Globalization;
 using System.IO;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace LMFinanciamentos.Apresentacao
@@ -16,15 +19,16 @@ namespace LMFinanciamentos.Apresentacao
         String excluirimage;
         FileStream fsObj = null;
         BinaryReader binRdr = null;
-        bool arquivobase;
         bool cj, cj1, cj2, cj3;
         bool conjuge;
         int newidcli, newidcj;
 
-
+        public CultureInfo New { get; private set; }
 
         public Form_Cadastro_Cliente()
         {
+
+
             InitializeComponent();
 
         }
@@ -41,6 +45,9 @@ namespace LMFinanciamentos.Apresentacao
 
         private void Form_Cadastro_cliente_Load(object sender, EventArgs e)
         {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-BR");
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("pt-BR");
+
             tabControl.TabPages.Remove(tabconjuge);
             tabControl.TabPages.Remove(tabconjuge1);
             tabControl.TabPages.Remove(tabconjuge2);
@@ -51,6 +58,11 @@ namespace LMFinanciamentos.Apresentacao
             txtnomecli.Focus();
 
             Settxtrenda(txtrendacli);
+        }
+
+        private void CultureInfo(string v)
+        {
+            throw new NotImplementedException();
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -97,7 +109,7 @@ namespace LMFinanciamentos.Apresentacao
 
         private void txtrendacli_KeyUp(object sender, KeyEventArgs e)
         {
-            valor = txtrendacli.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+            valor = txtrendacli.Text.Replace("R$", "").Replace("€", "").Replace("$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
             if (valor.Length == 0)
             {
                 txtrendacli.Text = "0,00" + valor;
@@ -126,9 +138,19 @@ namespace LMFinanciamentos.Apresentacao
                 }
             }
             valor = txtrendacli.Text;
-            txtrendacli.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            //txtrendacli.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            //txtrendacli.Select(txtrendacli.Text.Length, 0);
+
+            double valor1 = Convert.ToDouble(valor);
+            CultureInfo cultura = new CultureInfo("pt-BR");
+            NumberFormatInfo formatoMoeda = cultura.NumberFormat;
+            formatoMoeda.CurrencySymbol = "R$";
+            formatoMoeda.CurrencyDecimalSeparator = ",";
+            formatoMoeda.CurrencyGroupSeparator = ".";
+            txtrendacli.Text = valor1.ToString("C", formatoMoeda);
             txtrendacli.Select(txtrendacli.Text.Length, 0);
         }
+
 
         private void txtcpf_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -602,7 +624,7 @@ namespace LMFinanciamentos.Apresentacao
 
         private void txtrendacj_KeyUp(object sender, KeyEventArgs e)
         {
-            valor = txtrendacj.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+            valor = txtrendacj.Text.Replace("R$", "").Replace("€", "").Replace("$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
             if (valor.Length == 0)
             {
                 txtrendacj.Text = "0,00" + valor;
@@ -631,13 +653,22 @@ namespace LMFinanciamentos.Apresentacao
                 }
             }
             valor = txtrendacj.Text;
-            txtrendacj.Text = string.Format("{0:C}", Convert.ToDouble(valor));
-            txtrendacj.Select(txtrendacj.Text.Length, 0);
+            //txtrendacj.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            //txtrendacj.Select(txtrendacj.Text.Length, 0);
+
+            double valor1 = Convert.ToDouble(valor);
+            CultureInfo cultura = new CultureInfo("pt-BR");
+            NumberFormatInfo formatoMoeda = cultura.NumberFormat;
+            formatoMoeda.CurrencySymbol = "R$";
+            formatoMoeda.CurrencyDecimalSeparator = ",";
+            formatoMoeda.CurrencyGroupSeparator = ".";
+            txtrendacj.Text = valor1.ToString("C", formatoMoeda);
+            txtrendacj.Select(txtrendacli.Text.Length, 0);
         }
 
         private void txtrendacj1_KeyUp(object sender, KeyEventArgs e)
         {
-            valor = txtrendacj1.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+            valor = txtrendacj1.Text.Replace("R$", "").Replace("€", "").Replace("$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
             if (valor.Length == 0)
             {
                 txtrendacj1.Text = "0,00" + valor;
@@ -666,13 +697,23 @@ namespace LMFinanciamentos.Apresentacao
                 }
             }
             valor = txtrendacj1.Text;
-            txtrendacj1.Text = string.Format("{0:C}", Convert.ToDouble(valor));
-            txtrendacj1.Select(txtrendacj1.Text.Length, 0);
+            //txtrendacj1.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            //txtrendacj1.Select(txtrendacj1.Text.Length, 0);
+
+
+            double valor1 = Convert.ToDouble(valor);
+            CultureInfo cultura = new CultureInfo("pt-BR");
+            NumberFormatInfo formatoMoeda = cultura.NumberFormat;
+            formatoMoeda.CurrencySymbol = "R$";
+            formatoMoeda.CurrencyDecimalSeparator = ",";
+            formatoMoeda.CurrencyGroupSeparator = ".";
+            txtrendacj1.Text = valor1.ToString("C", formatoMoeda);
+            txtrendacj1.Select(txtrendacli.Text.Length, 0);
         }
 
         private void txtrendacj2_KeyUp(object sender, KeyEventArgs e)
         {
-            valor = txtrendacj2.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+            valor = txtrendacj2.Text.Replace("R$", "").Replace("€", "").Replace("$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
             if (valor.Length == 0)
             {
                 txtrendacj2.Text = "0,00" + valor;
@@ -701,13 +742,22 @@ namespace LMFinanciamentos.Apresentacao
                 }
             }
             valor = txtrendacj2.Text;
-            txtrendacj2.Text = string.Format("{0:C}", Convert.ToDouble(valor));
-            txtrendacj2.Select(txtrendacj2.Text.Length, 0);
+            //txtrendacj2.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            //txtrendacj2.Select(txtrendacj2.Text.Length, 0);
+
+            double valor1 = Convert.ToDouble(valor);
+            CultureInfo cultura = new CultureInfo("pt-BR");
+            NumberFormatInfo formatoMoeda = cultura.NumberFormat;
+            formatoMoeda.CurrencySymbol = "R$";
+            formatoMoeda.CurrencyDecimalSeparator = ",";
+            formatoMoeda.CurrencyGroupSeparator = ".";
+            txtrendacj2.Text = valor1.ToString("C", formatoMoeda);
+            txtrendacj2.Select(txtrendacli.Text.Length, 0);
         }
 
         private void txtrendacj3_KeyUp(object sender, KeyEventArgs e)
         {
-            valor = txtrendacj3.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+            valor = txtrendacj3.Text.Replace("R$", "").Replace("€", "").Replace("$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
             if (valor.Length == 0)
             {
                 txtrendacj3.Text = "0,00" + valor;
@@ -736,8 +786,137 @@ namespace LMFinanciamentos.Apresentacao
                 }
             }
             valor = txtrendacj3.Text;
-            txtrendacj3.Text = string.Format("{0:C}", Convert.ToDouble(valor));
-            txtrendacj3.Select(txtrendacj3.Text.Length, 0);
+            //txtrendacj3.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            //txtrendacj3.Select(txtrendacj3.Text.Length, 0);
+
+            double valor1 = Convert.ToDouble(valor);
+            CultureInfo cultura = new CultureInfo("pt-BR");
+            NumberFormatInfo formatoMoeda = cultura.NumberFormat;
+            formatoMoeda.CurrencySymbol = "R$";
+            formatoMoeda.CurrencyDecimalSeparator = ",";
+            formatoMoeda.CurrencyGroupSeparator = ".";
+            txtrendacj3.Text = valor1.ToString("C", formatoMoeda);
+            txtrendacj3.Select(txtrendacli.Text.Length, 0);
+        }
+
+        private void txtnomecli_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void txtcpf_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void txtrg_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void txtnasc_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void txtemail_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void txttelefone_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void txtcelular_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void txtrendacli_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void txtagenciacliente_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void txtcontacliente_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void txtobservacoes_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void txtnomeconjuge_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void txtnomeconjuge1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void txtnomeconjuge2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void txtnomeconjuge3_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                SendKeys.Send("{TAB}");
+            }
         }
 
         private void btn_excluirconjuge1_Click(object sender, EventArgs e)
@@ -923,7 +1102,8 @@ namespace LMFinanciamentos.Apresentacao
 
         private void Settxtrenda(TextBox nametxt)
         {
-            valor = nametxt.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+
+            valor = nametxt.Text.Replace("R$", "").Replace("€", "").Replace("$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
             if (valor.Length == 0)
             {
                 nametxt.Text = "0,00" + valor;
@@ -952,8 +1132,19 @@ namespace LMFinanciamentos.Apresentacao
                 }
             }
             valor = nametxt.Text;
-            nametxt.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+
+            //nametxt.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            //nametxt.Select(nametxt.Text.Length, 0);
+
+            double valor1 = Convert.ToDouble(valor);
+            CultureInfo cultura = new CultureInfo("pt-BR");
+            NumberFormatInfo formatoMoeda = cultura.NumberFormat;
+            formatoMoeda.CurrencySymbol = "R$";
+            formatoMoeda.CurrencyDecimalSeparator = ",";
+            formatoMoeda.CurrencyGroupSeparator = ".";
+            nametxt.Text = valor1.ToString("C", formatoMoeda);
             nametxt.Select(nametxt.Text.Length, 0);
+
         }
         private void Settxtcpf()
         {
@@ -991,8 +1182,16 @@ namespace LMFinanciamentos.Apresentacao
         }
         private void txtrendacli_Leave(object sender, EventArgs e)
         {
-            valor = txtrendacli.Text.Replace("R$", "");
-            txtrendacli.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            valor = txtrendacli.Text.Replace("R$", "").Replace("€", "").Replace("$", "");
+            //txtrendacli.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+
+            double valor1 = Convert.ToDouble(valor);
+            CultureInfo cultura = new CultureInfo("pt-BR");
+            NumberFormatInfo formatoMoeda = cultura.NumberFormat;
+            formatoMoeda.CurrencySymbol = "R$";
+            formatoMoeda.CurrencyDecimalSeparator = ",";
+            formatoMoeda.CurrencyGroupSeparator = ".";
+            txtrendacli.Text = valor1.ToString("C", formatoMoeda);
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
@@ -1086,305 +1285,342 @@ namespace LMFinanciamentos.Apresentacao
             }
             CPF = FormatCnpjCpf.SemFormatacao(txtcpf.Text);
 
-            if (cj == true || cj1 == true || (cj2 == true) || cj3 == true)
+            #region Check CPF
+            LoginDaoComandos checkexistecpf = new LoginDaoComandos();
+
+            
+            Cliente cliente = null;
+
+            cliente = checkexistecpf.GetCPFCliente(CPF);
+
+            string idcli = cliente.Id_cliente;
+            string nomecli = cliente.Nome_cliente;
+            string cpf = cliente.CPF_cliente;
+
+            if (string.IsNullOrEmpty(cliente.CPF_cliente))
             {
 
-                if (cj == true)
+                //MessageBox.Show("Existe CPF" + cliente.CPF_cliente);
+                //return;
+
+
+
+
+
+                if (cj == true || cj1 == true || (cj2 == true) || cj3 == true)
                 {
-                    if (txtnomeconjuge.Text == "")
-                    {
-                        MessageBox.Show("Campo Nome do Cônjuge é necessário", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        tabControl.SelectedTab = tabconjuge;
-                        txtnomeconjuge.Select();
-                        Cursor = Cursors.Default;
-                        return;
-                    }
 
-                    if (txtcpfcj.Text == "")
+                    if (cj == true)
                     {
-                        MessageBox.Show("Campo CPF é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        tabControl.SelectedTab = tabconjuge;
-                        txtcpfcj.Select();
-                        Cursor = Cursors.Default;
-                        return;
-                    }
-                    #region Telefone
-
-                    if (string.IsNullOrEmpty(txttelefonecj.Text))
-                    {
-                        if (string.IsNullOrEmpty(txtcelularcj.Text))
+                        if (txtnomeconjuge.Text == "")
                         {
-                            MessageBox.Show("É necessário preencher o campo Celular!", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("Campo Nome do Cônjuge é necessário", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             tabControl.SelectedTab = tabconjuge;
-                            txtcelularcj.Select();
+                            txtnomeconjuge.Select();
                             Cursor = Cursors.Default;
                             return;
                         }
-                        else if (string.IsNullOrEmpty(txttelefonecj.Text) && txtcelularcj.Text != "")
+
+                        if (txtcpfcj.Text == "")
                         {
-                        }
-                        else
-                        {
-                            MessageBox.Show("É necessário preencher o campo Telefone!", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("Campo CPF é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             tabControl.SelectedTab = tabconjuge;
-                            txttelefonecj.Select();
+                            txtcpfcj.Select();
                             Cursor = Cursors.Default;
                             return;
                         }
+                        #region Telefone
 
-                    }
-
-                    #endregion
-
-                }
-                if (cj1 == true)
-                {
-                    if (txtnomeconjuge1.Text == "")
-                    {
-                        MessageBox.Show("Campo Nome do Cônjuge 1 é necessário", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        tabControl.SelectedTab = tabconjuge1;
-                        txtnomeconjuge1.Select();
-                        Cursor = Cursors.Default;
-                        return;
-                    }
-
-                    if (txtcpfcj1.Text == "")
-                    {
-                        MessageBox.Show("Campo CPF é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        tabControl.SelectedTab = tabconjuge1;
-                        txtcpfcj1.Select();
-                        Cursor = Cursors.Default;
-                        return;
-                    }
-                    #region Telefone
-                    if (string.IsNullOrEmpty(txttelefonecj1.Text))
-                    {
-                        if (string.IsNullOrEmpty(txtcelularcj1.Text))
+                        if (string.IsNullOrEmpty(txttelefonecj.Text))
                         {
-                            MessageBox.Show("É necessário preencher o campo Celular!", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            if (string.IsNullOrEmpty(txtcelularcj.Text))
+                            {
+                                MessageBox.Show("É necessário preencher o campo Celular!", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                tabControl.SelectedTab = tabconjuge;
+                                txtcelularcj.Select();
+                                Cursor = Cursors.Default;
+                                return;
+                            }
+                            else if (string.IsNullOrEmpty(txttelefonecj.Text) && txtcelularcj.Text != "")
+                            {
+                            }
+                            else
+                            {
+                                MessageBox.Show("É necessário preencher o campo Telefone!", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                tabControl.SelectedTab = tabconjuge;
+                                txttelefonecj.Select();
+                                Cursor = Cursors.Default;
+                                return;
+                            }
+
+                        }
+
+                        #endregion
+
+                    }
+                    if (cj1 == true)
+                    {
+                        if (txtnomeconjuge1.Text == "")
+                        {
+                            MessageBox.Show("Campo Nome do Cônjuge 1 é necessário", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             tabControl.SelectedTab = tabconjuge1;
-                            txtcelularcj1.Select();
+                            txtnomeconjuge1.Select();
                             Cursor = Cursors.Default;
                             return;
                         }
-                        else if (string.IsNullOrEmpty(txttelefonecj1.Text) && txtcelularcj1.Text != "")
+
+                        if (txtcpfcj1.Text == "")
                         {
-                        }
-                        else
-                        {
-                            MessageBox.Show("É necessário preencher o campo Telefone!", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("Campo CPF é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             tabControl.SelectedTab = tabconjuge1;
-                            txttelefonecj1.Select();
+                            txtcpfcj1.Select();
                             Cursor = Cursors.Default;
                             return;
                         }
-                    }
+                        #region Telefone
+                        if (string.IsNullOrEmpty(txttelefonecj1.Text))
+                        {
+                            if (string.IsNullOrEmpty(txtcelularcj1.Text))
+                            {
+                                MessageBox.Show("É necessário preencher o campo Celular!", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                tabControl.SelectedTab = tabconjuge1;
+                                txtcelularcj1.Select();
+                                Cursor = Cursors.Default;
+                                return;
+                            }
+                            else if (string.IsNullOrEmpty(txttelefonecj1.Text) && txtcelularcj1.Text != "")
+                            {
+                            }
+                            else
+                            {
+                                MessageBox.Show("É necessário preencher o campo Telefone!", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                tabControl.SelectedTab = tabconjuge1;
+                                txttelefonecj1.Select();
+                                Cursor = Cursors.Default;
+                                return;
+                            }
+                        }
 
-                    #endregion
+                        #endregion
+
+                    }
+                    if (cj2 == true)
+                    {
+                        if (txtnomeconjuge2.Text == "")
+                        {
+                            MessageBox.Show("Campo Nome do Cônjuge 2 é necessário", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            tabControl.SelectedTab = tabconjuge2;
+                            txtnomeconjuge2.Select();
+                            Cursor = Cursors.Default;
+                            return;
+                        }
+
+                        if (txtcpfcj2.Text == "")
+                        {
+                            MessageBox.Show("Campo CPF é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            tabControl.SelectedTab = tabconjuge2;
+                            txtcpfcj2.Select();
+                            Cursor = Cursors.Default;
+                            return;
+                        }
+                        #region Telefone
+                        if (string.IsNullOrEmpty(txttelefonecj2.Text))
+                        {
+                            if (string.IsNullOrEmpty(txtcelularcj2.Text))
+                            {
+                                MessageBox.Show("É necessário preencher o campo Celular!", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                tabControl.SelectedTab = tabconjuge2;
+                                txtcelularcj2.Select();
+                                Cursor = Cursors.Default;
+                                return;
+                            }
+                            else if (string.IsNullOrEmpty(txttelefonecj2.Text) && txtcelularcj2.Text != "")
+                            {
+                            }
+                            else
+                            {
+                                MessageBox.Show("É necessário preencher o campo Telefone!", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                tabControl.SelectedTab = tabconjuge2;
+                                txttelefonecj2.Select();
+                                Cursor = Cursors.Default;
+                                return;
+                            }
+                        }
+
+                        #endregion
+
+                    }
+                    if (cj3 == true)
+                    {
+                        if (txtnomeconjuge3.Text == "")
+                        {
+                            MessageBox.Show("Campo Nome do Cônjuge 3 é necessário", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            tabControl.SelectedTab = tabconjuge3;
+                            txtnomeconjuge3.Select();
+                            Cursor = Cursors.Default;
+                            return;
+                        }
+
+                        if (txtcpfcj3.Text == "")
+                        {
+                            MessageBox.Show("Campo CPF é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            tabControl.SelectedTab = tabconjuge3;
+                            txtcpfcj3.Select();
+                            Cursor = Cursors.Default;
+                            return;
+                        }
+                        #region Telefone
+                        if (string.IsNullOrEmpty(txttelefonecj3.Text))
+                        {
+                            if (string.IsNullOrEmpty(txtcelularcj3.Text))
+                            {
+                                MessageBox.Show("É necessário preencher o campo Celular!", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                tabControl.SelectedTab = tabconjuge3;
+                                txtcelularcj3.Select();
+                                Cursor = Cursors.Default;
+                                return;
+                            }
+                            else if (string.IsNullOrEmpty(txttelefonecj3.Text) && txtcelularcj3.Text != "")
+                            {
+                            }
+                            else
+                            {
+                                MessageBox.Show("É necessário preencher o campo Telefone!", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                tabControl.SelectedTab = tabconjuge3;
+                                txttelefonecj3.Select();
+                                Cursor = Cursors.Default;
+                                return;
+                            }
+                        }
+
+                        #endregion
+
+                    }
+                    conjuge = true;
 
                 }
-                if (cj2 == true)
+                else
                 {
-                    if (txtnomeconjuge2.Text == "")
+                    conjuge = false;
+                }
+
+
+
+                status = "Ativo";
+
+                if (checkBox_Masculino.Checked)
+                {
+                    sexo = "Masculino";
+                }
+                else if (checkBox_Feminino.Checked)
+                {
+                    sexo = "Feminino";
+                }
+                else
+                {
+                    sexo = "";
+                }
+
+                if (txtrg.Text == "")
+                {
+                    RG = "0";
+                }
+                else
+                {
+                    RG = FormatCnpjCpf.SemFormatacao(txtrg.Text);
+                }
+
+                DateTime dataa;
+                DateTime.TryParse(txtnasc.Text + " " + "00:00:00", out dataa);
+
+                DateTime datanasc = dataa;
+
+                String renda = txtrendacli.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
+                #region Telefone
+                if (string.IsNullOrEmpty(txttelefone.Text))
+                {
+                    if (string.IsNullOrEmpty(txtcelular.Text))
                     {
-                        MessageBox.Show("Campo Nome do Cônjuge 2 é necessário", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        tabControl.SelectedTab = tabconjuge2;
-                        txtnomeconjuge2.Select();
+
+
+                        MessageBox.Show("É necessário preencher o campo Telefone ou Celular", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        tabControl.SelectedTab = tabcliente;
+                        txttelefone.Select();
                         Cursor = Cursors.Default;
                         return;
                     }
 
-                    if (txtcpfcj2.Text == "")
+                }
+                txtcelular.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+                if (txtcelular.Text != "")
+                {
+                    celular = txtcelular.Text;
+
+                }
+                txttelefone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+                if (txttelefone.Text != "")
+                {
+                    telefone = txttelefone.Text;
+                }
+                #endregion
+
+                SomaRenda();
+                String rendabruta = txtrendatotal.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
+
+                LoginDaoComandos inserircliente = new LoginDaoComandos();
+
+                newidcli = inserircliente.CadastrarCliente(txtnomecli.Text, txtemail.Text, telefone, celular, CPF, RG, datanasc, sexo, status, renda, rendabruta, txtobservacoes.Text, conjuge);
+
+                if (newidcli >= 0)
+                {
+                    if (cj == true)
                     {
-                        MessageBox.Show("Campo CPF é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        tabControl.SelectedTab = tabconjuge2;
-                        txtcpfcj2.Select();
-                        Cursor = Cursors.Default;
-                        return;
+                        SaveConjuges();
                     }
-                    #region Telefone
-                    if (string.IsNullOrEmpty(txttelefonecj2.Text))
+                    if (txtcontacliente != null && txtagenciacliente != null)
                     {
-                        if (string.IsNullOrEmpty(txtcelularcj2.Text))
+                        idCliente = newidcli.ToString();
+
+                        Conta = txtcontacliente.Text;
+                        Agencia = txtagenciacliente.Text;
+
+                        LoginDaoComandos updateconta = new LoginDaoComandos();
+
+                        updateconta.InsertConta(idCliente, Agencia, Conta, "C", "0", "0");
+                        if (updateconta.mensagem != "OK")
                         {
-                            MessageBox.Show("É necessário preencher o campo Celular!", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            tabControl.SelectedTab = tabconjuge2;
-                            txtcelularcj2.Select();
-                            Cursor = Cursors.Default;
-                            return;
+                            MessageBox.Show("Cliente Cadastrado! \n Agência e Conta com erro! \n " + updateconta.mensagem, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            Close();
                         }
-                        else if (string.IsNullOrEmpty(txttelefonecj2.Text) && txtcelularcj2.Text != "")
+
+                    }
+                    if (excluirimage == "Update")
+                    {
+                        LoginDaoComandos insertfotocliente = new LoginDaoComandos();
+                        fsObj = File.OpenRead(arquivo);
+                        //MessageBox.Show(fsObj.ToString());
+                        byte[] imgContent = new byte[fsObj.Length];
+                        binRdr = new BinaryReader(fsObj);
+                        imgContent = binRdr.ReadBytes((int)fsObj.Length);
+
+                        insertfotocliente.InsertFotoCliente(newidcli.ToString(), imgContent, txtnomecli.Text);
+
+                        if (insertfotocliente.mensagem == "OK")
                         {
+                            MessageBox.Show("Cliente Cadastrado com Sucesso!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Cursor = Cursors.Default;
+                            Close();
+                            if (ClienteSalvo != null)
+                                ClienteSalvo.Invoke();
                         }
                         else
                         {
-                            MessageBox.Show("É necessário preencher o campo Telefone!", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            tabControl.SelectedTab = tabconjuge2;
-                            txttelefonecj2.Select();
                             Cursor = Cursors.Default;
-                            return;
+                            MessageBox.Show(insertfotocliente.mensagem, "Inserindo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
 
-                    #endregion
-
-                }
-                if (cj3 == true)
-                {
-                    if (txtnomeconjuge3.Text == "")
-                    {
-                        MessageBox.Show("Campo Nome do Cônjuge 3 é necessário", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        tabControl.SelectedTab = tabconjuge3;
-                        txtnomeconjuge3.Select();
-                        Cursor = Cursors.Default;
-                        return;
-                    }
-
-                    if (txtcpfcj3.Text == "")
-                    {
-                        MessageBox.Show("Campo CPF é necessario", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        tabControl.SelectedTab = tabconjuge3;
-                        txtcpfcj3.Select();
-                        Cursor = Cursors.Default;
-                        return;
-                    }
-                    #region Telefone
-                    if (string.IsNullOrEmpty(txttelefonecj3.Text))
-                    {
-                        if (string.IsNullOrEmpty(txtcelularcj3.Text))
-                        {
-                            MessageBox.Show("É necessário preencher o campo Celular!", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            tabControl.SelectedTab = tabconjuge3;
-                            txtcelularcj3.Select();
-                            Cursor = Cursors.Default;
-                            return;
-                        }
-                        else if (string.IsNullOrEmpty(txttelefonecj3.Text) && txtcelularcj3.Text != "")
-                        {
-                        }
-                        else
-                        {
-                            MessageBox.Show("É necessário preencher o campo Telefone!", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            tabControl.SelectedTab = tabconjuge3;
-                            txttelefonecj3.Select();
-                            Cursor = Cursors.Default;
-                            return;
-                        }
-                    }
-
-                    #endregion
-
-                }
-                conjuge = true;
-
-            }
-            else
-            {
-                conjuge = false;
-            }
-
-
-
-            status = "Ativo";
-
-            if (checkBox_Masculino.Checked)
-            {
-                sexo = "Masculino";
-            }
-            else if (checkBox_Feminino.Checked)
-            {
-                sexo = "Feminino";
-            }
-            else
-            {
-                sexo = "";
-            }
-
-            if (txtrg.Text == "")
-            {
-                RG = "0";
-            }
-            else
-            {
-                RG = FormatCnpjCpf.SemFormatacao(txtrg.Text);
-            }
-
-            DateTime dataa;
-            DateTime.TryParse(txtnasc.Text + " " + "00:00:00", out dataa);
-
-            DateTime datanasc = dataa;
-
-            String renda = txtrendacli.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
-            #region Telefone
-            if (string.IsNullOrEmpty(txttelefone.Text))
-            {
-                if (string.IsNullOrEmpty(txtcelular.Text))
-                {
-
-
-                    MessageBox.Show("É necessário preencher o campo Telefone ou Celular", "Necessário", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    tabControl.SelectedTab = tabcliente;
-                    txttelefone.Select();
-                    Cursor = Cursors.Default;
-                    return;
-                }
-
-            }
-            txtcelular.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-            if (txtcelular.Text != "")
-            {
-                celular = txtcelular.Text;
-
-            }
-            txttelefone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-            if (txttelefone.Text != "")
-            {
-                telefone = txttelefone.Text;
-            }
-            #endregion
-
-            SomaRenda();
-            String rendabruta = txtrendatotal.Text.Replace("R$", "").Replace(",", "").Replace(".", "").Replace(" ", "");
-
-            LoginDaoComandos inserircliente = new LoginDaoComandos();
-
-            newidcli = inserircliente.CadastrarCliente(txtnomecli.Text, txtemail.Text, telefone, celular, CPF, RG, datanasc, sexo, status, renda, rendabruta, txtobservacoes.Text, conjuge);
-
-            if (newidcli >= 0)
-            {
-                if (cj == true)
-                {
-                    SaveConjuges();
-                }
-                if (txtcontacliente != null && txtagenciacliente != null)
-                {
-                    idCliente = newidcli.ToString();
-
-                    Conta = txtcontacliente.Text;
-                    Agencia = txtagenciacliente.Text;
-
-                    LoginDaoComandos updateconta = new LoginDaoComandos();
-
-                    updateconta.InsertConta(idCliente, Agencia, Conta, "C", "0", "0");
-                    if (updateconta.mensagem != "OK")
-                    {
-                        MessageBox.Show("Cliente Cadastrado! \n Agência e Conta com erro! \n " + updateconta.mensagem, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        Close();
-                    }
-
-                }
-                if (excluirimage == "Update")
-                {
-                    LoginDaoComandos insertfotocliente = new LoginDaoComandos();
-                    fsObj = File.OpenRead(arquivo);
-                    //MessageBox.Show(fsObj.ToString());
-                    byte[] imgContent = new byte[fsObj.Length];
-                    binRdr = new BinaryReader(fsObj);
-                    imgContent = binRdr.ReadBytes((int)fsObj.Length);
-
-                    insertfotocliente.InsertFotoCliente(newidcli.ToString(), imgContent, txtnomecli.Text);
-
-                    if (insertfotocliente.mensagem == "OK")
+                    else
                     {
                         MessageBox.Show("Cliente Cadastrado com Sucesso!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Cursor = Cursors.Default;
@@ -1392,23 +1628,32 @@ namespace LMFinanciamentos.Apresentacao
                         if (ClienteSalvo != null)
                             ClienteSalvo.Invoke();
                     }
-                    else
-                    {
-                        Cursor = Cursors.Default;
-                        MessageBox.Show(insertfotocliente.mensagem, "Inserindo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                    Cursor = Cursors.Default;
                 }
 
+            }
+            else
+            {
+                var result = MessageBox.Show("Já Existe um Cadastro com este CPF \n CPF: "+ cpf  + " \n Cliente: " + nomecli + " \n Deseja Editalo ?", "Cadastro", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    Form_Dados_Cliente frm_dados_clientes = new Form_Dados_Cliente();
+                    frm_dados_clientes.setIdCliente(idcli);
+                    //clienteselecionado = dgv_clientes.CurrentCell.RowIndex;
+                    //frm_dados_clientes.ClienteSalvo += new Action(frm_dados_clientes_ClienteSalvo);
+                    frm_dados_clientes.Show();
+                    Cursor = Cursors.Default;
+                    //MessageBox.Show("Já Existe um Cadastro com este CPF \n Deseja Editalo ?", "Cadastro",);
+                    Close();
+                }
                 else
                 {
-                    MessageBox.Show("Cliente Cadastrado com Sucesso!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Cursor = Cursors.Default;
-                    Close();
-                    if (ClienteSalvo != null)
-                        ClienteSalvo.Invoke();
+                    return;
                 }
-                Cursor = Cursors.Default;
             }
+            #endregion
         }
 
         private void SaveConjuges()

@@ -13,7 +13,7 @@ namespace LMFinanciamentos.Apresentacao
 
         bool bPopCombo, cadastrar;
 
-        string idcli, idVendedor, idresponsavel, nomeresponsavel, idCorretora, idCorretor, idempreendimentos, idagenciaimovel, idprograma, Status, valor, svalorimovel, svalorfinanciado;
+        string idcli, idVendedor, idresponsavel, nomeresponsavel, idConstrutora, idCorretor, idempreendimentos, idagenciaimovel, idprograma, Status, valor, svalorimovel, svalorfinanciado;
         //private int cadastrar = 0;
         //private int newProgressValue;
 
@@ -80,7 +80,7 @@ namespace LMFinanciamentos.Apresentacao
             //var btn = new Button();
 
             //idresponsavel = "1";
-            //idCorretora = "1";
+            //idConstrutora = "1";
             //idCorretor = "1";
             Status = "Lançado";
 
@@ -223,7 +223,7 @@ namespace LMFinanciamentos.Apresentacao
                         svalorimovel = valorimovel.Text.Replace("R$", "").Replace(".", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
                         svalorfinanciado = valorfinanciado.Text.Replace("R$", "").Replace(".", "").Replace(",", "").Replace(" ", "").Replace("00,", ""); ;
                         LoginDaoComandos criarprocesso = new LoginDaoComandos();
-                        criarprocesso.CriarProcesso(idcli, idVendedor, idresponsavel, idCorretora, idCorretor, idempreendimentos, idagenciaimovel, idprograma, svalorimovel, svalorfinanciado, Status);
+                        criarprocesso.CriarProcesso(idcli, idVendedor, idresponsavel, idConstrutora, idCorretor, idempreendimentos, idagenciaimovel, idprograma, svalorimovel, svalorfinanciado, Status);
                         MessageBox.Show(criarprocesso.mensagem, "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         if (ProcessoSalvo != null)
                             ProcessoSalvo.Invoke();
@@ -836,7 +836,7 @@ namespace LMFinanciamentos.Apresentacao
                 txtcorretora.IntegralHeight = false;
                 LoginDaoComandos gettpross = new LoginDaoComandos();
                 #region Popular combobox
-                txtcorretora.DataSource = gettpross.GetDataCorretora();
+                txtcorretora.DataSource = gettpross.GetDataConstrutora();
                 txtcorretora.DisplayMember = "Descricao";
                 txtcorretora.ValueMember = "Id";
                 //txtcorretora.Text = "";
@@ -915,7 +915,7 @@ namespace LMFinanciamentos.Apresentacao
 
         private void txtcorretora_SelectedIndexChanged(object sender, EventArgs e)
         {
-            idCorretora = txtcorretora.SelectedValue.ToString();
+            idConstrutora = txtcorretora.SelectedValue.ToString();
         }
 
         private void comboBox_empreendimentos_SelectedIndexChanged(object sender, EventArgs e)

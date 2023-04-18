@@ -1,13 +1,14 @@
 ﻿using LMFinanciamentos.DAL;
 using LMFinanciamentos.Entidades;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace LMFinanciamentos.Apresentacao
 {
     public partial class Form_Controle_Vendedor : Form
     {
-        String sexo, status, idvendedor;
+        string sexo, status, idvendedor, idProcesso, idresponsavel, idresponsavelSelected, nomeresponsavel;
         public string consultar;
         int vendedorselecionado;
         int contgrid, contgridlast;
@@ -17,7 +18,18 @@ namespace LMFinanciamentos.Apresentacao
             //dgv_vendedores.Columns["Nascimento"].DefaultCellStyle.Format = "D";
         }
 
-
+        public void setUserLoged(string idresp, string nomefunc)
+        {
+            if (idresp != null)
+            {
+                idresponsavel = idresp;
+                idresponsavelSelected = idresp;
+            }
+            if (nomefunc != null)
+            {
+                nomeresponsavel = nomefunc;
+            }
+        }
         private void btnclosecli_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -80,6 +92,7 @@ namespace LMFinanciamentos.Apresentacao
             Cursor = Cursors.WaitCursor;
             Form_Dados_Vendedor frm_dados_vendedor = new Form_Dados_Vendedor();
             frm_dados_vendedor.setIdVendedor(dgv_vendedores.SelectedRows[0].Cells["id"].Value.ToString());
+            frm_dados_vendedor.setUserLoged(idresponsavel, nomeresponsavel);
             vendedorselecionado = dgv_vendedores.CurrentCell.RowIndex;
             frm_dados_vendedor.VendedorSalvo += new Action(frm_dados_vendedor_VendedorSalvo);
             contgrid = dgv_vendedores.Rows.Count;
@@ -166,6 +179,7 @@ namespace LMFinanciamentos.Apresentacao
             Cursor = Cursors.WaitCursor;
             Form_Dados_Vendedor frm_dados_vendedor = new Form_Dados_Vendedor();
             frm_dados_vendedor.setIdVendedor(dgv_vendedores.SelectedRows[0].Cells["id"].Value.ToString());
+            frm_dados_vendedor.setUserLoged(idresponsavel, nomeresponsavel);
             vendedorselecionado = dgv_vendedores.CurrentCell.RowIndex;
             frm_dados_vendedor.VendedorSalvo += new Action(frm_dados_vendedor_VendedorSalvo);
             contgrid = dgv_vendedores.Rows.Count;
@@ -175,39 +189,64 @@ namespace LMFinanciamentos.Apresentacao
 
         private void btn_excluir_Click(object sender, EventArgs e)
         {
-            Cursor = Cursors.WaitCursor;
-            String idvendedorexclude = dgv_vendedores.SelectedRows[0].Cells["id"].Value.ToString();
-            var result = MessageBox.Show("Deseja Excluir o Vendedor: \n " + dgv_vendedores.SelectedRows[0].Cells["Nome"].Value.ToString() + "  ?", "excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-            if (result == DialogResult.Yes)
+            if (dgv_vendedores.Columns[0].DataPropertyName == "Id_vendedor")
             {
+                String idvendedorexclude = dgv_vendedores.SelectedRows[0].Cells["id"].Value.ToString();
+                var result = MessageBox.Show("Deseja Excluir o Vendedor: \n \n " + dgv_vendedores.SelectedRows[0].Cells["Nome"].Value.ToString() + "  ?", "excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-
-                LoginDaoComandos deletevendedor = new LoginDaoComandos();
-
-                if (deletevendedor.GetFotoVendedor(idvendedorexclude).Foto_vendedor != null)
+                if (result == DialogResult.Yes)
                 {
-                    //MessageBox.Show("Tem foto");
-                    deletevendedor.DeleteFotoVendedor(idvendedorexclude);
-                    deletevendedor.DeleteVendedor(idvendedorexclude);
-                    MessageBox.Show(deletevendedor.mensagem, "Excluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (VendedorSalvo != null)
-                        VendedorSalvo.Invoke();
-                    AtualizaGrid();
-                    Cursor = Cursors.Default;
+
+                    Cursor = Cursors.WaitCursor;
+                    LoginDaoComandos deletevendedor = new LoginDaoComandos();
+
+                    DataTable dt = deletevendedor.GetProcessoVendedor(idvendedorexclude);
+
+                    if (dt.Rows.Count > 0)
+                    {
+                        DataRow[] rows = dt.Select();
+                        for (int i = 0; i < rows.Length; i++)
+                        {
+                            idProcesso = rows[i]["id"].ToString();
+                        }
+                        var result1 = MessageBox.Show("Não Foi possível Excluir o Vendedor: \n \n " + dgv_vendedores.SelectedRows[0].Cells["Nome"].Value.ToString() + " !  \n \n Existe Processo Ativo para esse Vendedor. \n \n Deseja Alterar o Vendedor do Processo: "+ idProcesso +" ?", "excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
+                        if (result1 == DialogResult.Yes)
+                        {
+                            Form_Dados_Processos frm_dados_documentos = new Form_Dados_Processos();
+                            frm_dados_documentos.setIdProcess(idProcesso);
+                            frm_dados_documentos.setUserLoged(idresponsavel, nomeresponsavel);
+                            frm_dados_documentos.setTABcontrol(1);
+                            frm_dados_documentos.Show();
+                            Cursor = Cursors.Default;
+                            return;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Vendedor não Excluído!");
+                            Cursor = Cursors.Default;
+                            return;
+                        }
+                    }
+
+                    
+                    if (deletevendedor.GetFotoVendedor(idvendedorexclude).Foto_vendedor != null)
+                    {
+                        deletevendedor.DeleteFotoVendedor(idvendedorexclude);
+                        deletevendedor.DeleteVendedor(idvendedorexclude);
+                        MessageBox.Show(deletevendedor.mensagem, "Excluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        AtualizaGrid();
+                        Cursor = Cursors.Default;
+                    }
+                    else
+                    {
+                        deletevendedor.DeleteVendedor(idvendedorexclude);
+                        MessageBox.Show(deletevendedor.mensagem, "Excluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        AtualizaGrid();
+                        Cursor = Cursors.Default;
+                    }
                 }
-                else
-                {
-                    deletevendedor.DeleteVendedor(idvendedorexclude);
-                    MessageBox.Show(deletevendedor.mensagem, "Excluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (VendedorSalvo != null)
-                        VendedorSalvo.Invoke();
-                    AtualizaGrid();
-                    Cursor = Cursors.Default;
-                }
-
-
-
             }
         }
 
