@@ -286,6 +286,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Apresentacao\Form_Alert_Processos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\Form_Alert_Processos.Designer.cs">
+      <DependentUpon>Form_Alert_Processos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apresentacao\Form_Cadastro_Construtora.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -512,6 +518,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Apresentacao\Form_Alert_Processos.resx">
+      <DependentUpon>Form_Alert_Processos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\Form_Cadastro_Construtora.resx">
       <DependentUpon>Form_Cadastro_Construtora.cs</DependentUpon>
     </EmbeddedResource>
@@ -659,6 +668,8 @@
     <None Include="Resources\icons8-delete-file-16.png" />
     <None Include="Resources\icons8-download-16.png" />
     <None Include="Resources\icons8-open-in-popup-16.png" />
+    <Content Include="Resources\alert48.png" />
+    <None Include="Resources\alert481.png" />
     <Content Include="Scripts\knockout-3.0.0.debug.js" />
     <Content Include="Scripts\knockout-3.0.0.js" />
     <Content Include="Scripts\knockout.combobox-1.0.80.0.js" />

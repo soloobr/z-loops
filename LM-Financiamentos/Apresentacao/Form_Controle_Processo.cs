@@ -107,7 +107,13 @@ namespace LMFinanciamentos.Apresentacao
             }
             else
             {
-                MessageBox.Show("ATENÇÃO Existe Processos com Analise proxima a sua Validade ou Vencida! \n \n Processos: \n" + listmessage + " \n \n Favor tomar devidas providências.", "ATENÇÃO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                using (Form form = new Form_Alert_Processos())
+                {
+                    //form.setUserLoged(idresponsavel, nomeresponsavel);
+                    form.ShowDialog(this);
+                    
+                } // Dispose form
+                //MessageBox.Show("ATENÇÃO Existe Processos com Analise proxima a sua Validade ou Vencida! \n \n Processos: \n" + listmessage + " \n \n Favor tomar devidas providências.", "ATENÇÃO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
             

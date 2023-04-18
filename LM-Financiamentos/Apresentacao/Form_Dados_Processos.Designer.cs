@@ -1824,7 +1824,7 @@ namespace LMFinanciamentos.Apresentacao
             this.valorimovel.Name = "valorimovel";
             this.valorimovel.Size = new System.Drawing.Size(249, 26);
             this.valorimovel.TabIndex = 20;
-            this.valorimovel.TextChanged += new System.EventHandler(this.valorimovel_TextChanged);
+            //this.valorimovel.TextChanged += new System.EventHandler(this.valorimovel_TextChanged);
             this.valorimovel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.valorimovel_KeyPress);
             this.valorimovel.KeyUp += new System.Windows.Forms.KeyEventHandler(this.valorimovel_KeyUp);
             this.valorimovel.Leave += new System.EventHandler(this.valorimovel_Leave);

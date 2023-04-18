@@ -39,6 +39,7 @@
         public string H_DataPA { get; set; }
         public string H_DataStatusCartorio { get; set; }
         public string H_DataStatus { get; set; }
+        public string H_DiferencaDayStatus { get; set; }
 
 
 

@@ -297,7 +297,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel6.Controls.Add(this.lbl0, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.txtrendatotal, 2, 5);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(10, 30);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(10, 32);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 7;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -307,7 +307,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(959, 147);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(959, 145);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
             // lblnomecj4
@@ -316,9 +316,9 @@ namespace LMFinanciamentos.Apresentacao
             this.lblnomecj4.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblnomecj4.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblnomecj4.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblnomecj4.Location = new System.Drawing.Point(55, 92);
+            this.lblnomecj4.Location = new System.Drawing.Point(56, 84);
             this.lblnomecj4.Name = "lblnomecj4";
-            this.lblnomecj4.Size = new System.Drawing.Size(75, 23);
+            this.lblnomecj4.Size = new System.Drawing.Size(76, 21);
             this.lblnomecj4.TabIndex = 71;
             this.lblnomecj4.Text = "Cônjuge 4";
             this.lblnomecj4.Visible = false;
@@ -329,9 +329,9 @@ namespace LMFinanciamentos.Apresentacao
             this.lbl04.Dock = System.Windows.Forms.DockStyle.Top;
             this.lbl04.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl04.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lbl04.Location = new System.Drawing.Point(3, 92);
+            this.lbl04.Location = new System.Drawing.Point(3, 84);
             this.lbl04.Name = "lbl04";
-            this.lbl04.Size = new System.Drawing.Size(46, 23);
+            this.lbl04.Size = new System.Drawing.Size(47, 21);
             this.lbl04.TabIndex = 70;
             this.lbl04.Text = "CJ 03";
             this.lbl04.Visible = false;
@@ -341,9 +341,9 @@ namespace LMFinanciamentos.Apresentacao
             this.lblrendacj4.AutoSize = true;
             this.lblrendacj4.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblrendacj4.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblrendacj4.Location = new System.Drawing.Point(193, 92);
+            this.lblrendacj4.Location = new System.Drawing.Point(197, 84);
             this.lblrendacj4.Name = "lblrendacj4";
-            this.lblrendacj4.Size = new System.Drawing.Size(44, 23);
+            this.lblrendacj4.Size = new System.Drawing.Size(44, 21);
             this.lblrendacj4.TabIndex = 69;
             this.lblrendacj4.Text = "Valor";
             this.lblrendacj4.Visible = false;
@@ -353,9 +353,9 @@ namespace LMFinanciamentos.Apresentacao
             this.lblrendacj3.AutoSize = true;
             this.lblrendacj3.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblrendacj3.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblrendacj3.Location = new System.Drawing.Point(193, 69);
+            this.lblrendacj3.Location = new System.Drawing.Point(197, 63);
             this.lblrendacj3.Name = "lblrendacj3";
-            this.lblrendacj3.Size = new System.Drawing.Size(44, 23);
+            this.lblrendacj3.Size = new System.Drawing.Size(44, 21);
             this.lblrendacj3.TabIndex = 68;
             this.lblrendacj3.Text = "Valor";
             this.lblrendacj3.Visible = false;
@@ -365,9 +365,9 @@ namespace LMFinanciamentos.Apresentacao
             this.lblrendacj2.AutoSize = true;
             this.lblrendacj2.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblrendacj2.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblrendacj2.Location = new System.Drawing.Point(193, 46);
+            this.lblrendacj2.Location = new System.Drawing.Point(197, 42);
             this.lblrendacj2.Name = "lblrendacj2";
-            this.lblrendacj2.Size = new System.Drawing.Size(44, 23);
+            this.lblrendacj2.Size = new System.Drawing.Size(44, 21);
             this.lblrendacj2.TabIndex = 67;
             this.lblrendacj2.Text = "Valor";
             this.lblrendacj2.Visible = false;
@@ -377,9 +377,9 @@ namespace LMFinanciamentos.Apresentacao
             this.lblrendacj1.AutoSize = true;
             this.lblrendacj1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblrendacj1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblrendacj1.Location = new System.Drawing.Point(193, 23);
+            this.lblrendacj1.Location = new System.Drawing.Point(197, 21);
             this.lblrendacj1.Name = "lblrendacj1";
-            this.lblrendacj1.Size = new System.Drawing.Size(44, 23);
+            this.lblrendacj1.Size = new System.Drawing.Size(44, 21);
             this.lblrendacj1.TabIndex = 66;
             this.lblrendacj1.Text = "Valor";
             this.lblrendacj1.Visible = false;
@@ -390,9 +390,9 @@ namespace LMFinanciamentos.Apresentacao
             this.lblrendacli.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblrendacli.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblrendacli.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblrendacli.Location = new System.Drawing.Point(193, 0);
+            this.lblrendacli.Location = new System.Drawing.Point(197, 0);
             this.lblrendacli.Name = "lblrendacli";
-            this.lblrendacli.Size = new System.Drawing.Size(763, 23);
+            this.lblrendacli.Size = new System.Drawing.Size(759, 21);
             this.lblrendacli.TabIndex = 65;
             this.lblrendacli.Text = "Valor";
             // 
@@ -402,9 +402,9 @@ namespace LMFinanciamentos.Apresentacao
             this.lblnomecj3.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblnomecj3.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblnomecj3.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblnomecj3.Location = new System.Drawing.Point(55, 69);
+            this.lblnomecj3.Location = new System.Drawing.Point(56, 63);
             this.lblnomecj3.Name = "lblnomecj3";
-            this.lblnomecj3.Size = new System.Drawing.Size(75, 23);
+            this.lblnomecj3.Size = new System.Drawing.Size(76, 21);
             this.lblnomecj3.TabIndex = 64;
             this.lblnomecj3.Text = "Cônjuge 3";
             this.lblnomecj3.Visible = false;
@@ -415,9 +415,9 @@ namespace LMFinanciamentos.Apresentacao
             this.lblnomecj2.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblnomecj2.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblnomecj2.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblnomecj2.Location = new System.Drawing.Point(55, 46);
+            this.lblnomecj2.Location = new System.Drawing.Point(56, 42);
             this.lblnomecj2.Name = "lblnomecj2";
-            this.lblnomecj2.Size = new System.Drawing.Size(74, 23);
+            this.lblnomecj2.Size = new System.Drawing.Size(76, 21);
             this.lblnomecj2.TabIndex = 63;
             this.lblnomecj2.Text = "Cônjuge 2";
             this.lblnomecj2.Visible = false;
@@ -428,9 +428,9 @@ namespace LMFinanciamentos.Apresentacao
             this.lblnomecj1.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblnomecj1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblnomecj1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblnomecj1.Location = new System.Drawing.Point(55, 23);
+            this.lblnomecj1.Location = new System.Drawing.Point(56, 21);
             this.lblnomecj1.Name = "lblnomecj1";
-            this.lblnomecj1.Size = new System.Drawing.Size(71, 23);
+            this.lblnomecj1.Size = new System.Drawing.Size(72, 21);
             this.lblnomecj1.TabIndex = 62;
             this.lblnomecj1.Text = "Cônjuge 1";
             this.lblnomecj1.Visible = false;
@@ -441,9 +441,9 @@ namespace LMFinanciamentos.Apresentacao
             this.lblnomeclirenda.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblnomeclirenda.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblnomeclirenda.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblnomeclirenda.Location = new System.Drawing.Point(55, 0);
+            this.lblnomeclirenda.Location = new System.Drawing.Point(56, 0);
             this.lblnomeclirenda.Name = "lblnomeclirenda";
-            this.lblnomeclirenda.Size = new System.Drawing.Size(55, 23);
+            this.lblnomeclirenda.Size = new System.Drawing.Size(55, 21);
             this.lblnomeclirenda.TabIndex = 61;
             this.lblnomeclirenda.Text = "Cliente";
             // 
@@ -451,9 +451,9 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.lblrendabruta.AutoSize = true;
             this.lblrendabruta.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblrendabruta.Location = new System.Drawing.Point(55, 115);
+            this.lblrendabruta.Location = new System.Drawing.Point(56, 105);
             this.lblrendabruta.Name = "lblrendabruta";
-            this.lblrendabruta.Size = new System.Drawing.Size(132, 20);
+            this.lblrendabruta.Size = new System.Drawing.Size(135, 20);
             this.lblrendabruta.TabIndex = 60;
             this.lblrendabruta.Text = "Renda Bruta Total:";
             // 
@@ -463,9 +463,9 @@ namespace LMFinanciamentos.Apresentacao
             this.lbl01.Dock = System.Windows.Forms.DockStyle.Top;
             this.lbl01.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl01.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lbl01.Location = new System.Drawing.Point(3, 23);
+            this.lbl01.Location = new System.Drawing.Point(3, 21);
             this.lbl01.Name = "lbl01";
-            this.lbl01.Size = new System.Drawing.Size(46, 23);
+            this.lbl01.Size = new System.Drawing.Size(47, 21);
             this.lbl01.TabIndex = 59;
             this.lbl01.Text = "CJ";
             this.lbl01.Visible = false;
@@ -476,9 +476,9 @@ namespace LMFinanciamentos.Apresentacao
             this.lbl02.Dock = System.Windows.Forms.DockStyle.Top;
             this.lbl02.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl02.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lbl02.Location = new System.Drawing.Point(3, 46);
+            this.lbl02.Location = new System.Drawing.Point(3, 42);
             this.lbl02.Name = "lbl02";
-            this.lbl02.Size = new System.Drawing.Size(46, 23);
+            this.lbl02.Size = new System.Drawing.Size(47, 21);
             this.lbl02.TabIndex = 58;
             this.lbl02.Text = "CJ 01";
             this.lbl02.Visible = false;
@@ -489,9 +489,9 @@ namespace LMFinanciamentos.Apresentacao
             this.lbl03.Dock = System.Windows.Forms.DockStyle.Top;
             this.lbl03.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl03.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lbl03.Location = new System.Drawing.Point(3, 69);
+            this.lbl03.Location = new System.Drawing.Point(3, 63);
             this.lbl03.Name = "lbl03";
-            this.lbl03.Size = new System.Drawing.Size(46, 23);
+            this.lbl03.Size = new System.Drawing.Size(47, 21);
             this.lbl03.TabIndex = 57;
             this.lbl03.Text = "CJ 02";
             this.lbl03.Visible = false;
@@ -504,16 +504,16 @@ namespace LMFinanciamentos.Apresentacao
             this.lbl0.ForeColor = System.Drawing.SystemColors.WindowText;
             this.lbl0.Location = new System.Drawing.Point(3, 0);
             this.lbl0.Name = "lbl0";
-            this.lbl0.Size = new System.Drawing.Size(46, 23);
+            this.lbl0.Size = new System.Drawing.Size(47, 21);
             this.lbl0.TabIndex = 56;
             this.lbl0.Text = "Cli.";
             // 
             // txtrendatotal
             // 
-            this.txtrendatotal.Location = new System.Drawing.Point(193, 118);
+            this.txtrendatotal.Location = new System.Drawing.Point(197, 108);
             this.txtrendatotal.Name = "txtrendatotal";
             this.txtrendatotal.ReadOnly = true;
-            this.txtrendatotal.Size = new System.Drawing.Size(147, 27);
+            this.txtrendatotal.Size = new System.Drawing.Size(147, 29);
             this.txtrendatotal.TabIndex = 72;
             this.txtrendatotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -536,10 +536,10 @@ namespace LMFinanciamentos.Apresentacao
             // tabcliente
             // 
             this.tabcliente.Controls.Add(this.tableLayoutPanel1);
-            this.tabcliente.Location = new System.Drawing.Point(4, 32);
+            this.tabcliente.Location = new System.Drawing.Point(4, 30);
             this.tabcliente.Name = "tabcliente";
             this.tabcliente.Padding = new System.Windows.Forms.Padding(20);
-            this.tabcliente.Size = new System.Drawing.Size(971, 342);
+            this.tabcliente.Size = new System.Drawing.Size(971, 344);
             this.tabcliente.TabIndex = 0;
             this.tabcliente.Text = "Cadastro do Cliente";
             this.tabcliente.UseVisualStyleBackColor = true;
@@ -619,7 +619,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel1.SetColumnSpan(this.txtobservacoes, 3);
             this.txtobservacoes.Location = new System.Drawing.Point(3, 222);
             this.txtobservacoes.Name = "txtobservacoes";
-            this.txtobservacoes.Size = new System.Drawing.Size(589, 27);
+            this.txtobservacoes.Size = new System.Drawing.Size(589, 29);
             this.txtobservacoes.TabIndex = 69;
             this.txtobservacoes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtobservacoes_KeyDown);
             // 
@@ -628,7 +628,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(3, 181);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(102, 23);
+            this.label6.Size = new System.Drawing.Size(102, 21);
             this.label6.TabIndex = 67;
             this.label6.Text = "Observações:";
             // 
@@ -637,7 +637,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcontacliente.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcontacliente.Location = new System.Drawing.Point(190, 141);
             this.txtcontacliente.Name = "txtcontacliente";
-            this.txtcontacliente.Size = new System.Drawing.Size(170, 27);
+            this.txtcontacliente.Size = new System.Drawing.Size(170, 29);
             this.txtcontacliente.TabIndex = 9;
             this.txtcontacliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtcontacliente_KeyDown);
             // 
@@ -646,7 +646,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtagenciacliente.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtagenciacliente.Location = new System.Drawing.Point(3, 141);
             this.txtagenciacliente.Name = "txtagenciacliente";
-            this.txtagenciacliente.Size = new System.Drawing.Size(166, 27);
+            this.txtagenciacliente.Size = new System.Drawing.Size(166, 29);
             this.txtagenciacliente.TabIndex = 8;
             this.txtagenciacliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtagenciacliente_KeyDown);
             // 
@@ -655,16 +655,16 @@ namespace LMFinanciamentos.Apresentacao
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(761, 59);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 23);
+            this.label4.Size = new System.Drawing.Size(100, 21);
             this.label4.TabIndex = 54;
             this.label4.Text = "Renda Bruta:";
             // 
             // txtrendacli
             // 
             this.txtrendacli.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtrendacli.Location = new System.Drawing.Point(761, 85);
+            this.txtrendacli.Location = new System.Drawing.Point(761, 83);
             this.txtrendacli.Name = "txtrendacli";
-            this.txtrendacli.Size = new System.Drawing.Size(167, 27);
+            this.txtrendacli.Size = new System.Drawing.Size(167, 29);
             this.txtrendacli.TabIndex = 7;
             this.txtrendacli.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtrendacli_KeyDown);
             this.txtrendacli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtrendacli_KeyPress);
@@ -676,7 +676,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(598, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 23);
+            this.label3.Size = new System.Drawing.Size(33, 21);
             this.label3.TabIndex = 52;
             this.label3.Text = "RG:";
             // 
@@ -698,10 +698,10 @@ namespace LMFinanciamentos.Apresentacao
             this.checkBox_Feminino.AutoSize = true;
             this.checkBox_Feminino.Dock = System.Windows.Forms.DockStyle.Left;
             this.checkBox_Feminino.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_Feminino.Location = new System.Drawing.Point(118, 25);
+            this.checkBox_Feminino.Location = new System.Drawing.Point(118, 27);
             this.checkBox_Feminino.Name = "checkBox_Feminino";
             this.checkBox_Feminino.Padding = new System.Windows.Forms.Padding(10);
-            this.checkBox_Feminino.Size = new System.Drawing.Size(106, 43);
+            this.checkBox_Feminino.Size = new System.Drawing.Size(105, 41);
             this.checkBox_Feminino.TabIndex = 12;
             this.checkBox_Feminino.TabStop = true;
             this.checkBox_Feminino.Text = "Feminino";
@@ -712,10 +712,10 @@ namespace LMFinanciamentos.Apresentacao
             this.checkBox_Masculino.AutoSize = true;
             this.checkBox_Masculino.Dock = System.Windows.Forms.DockStyle.Left;
             this.checkBox_Masculino.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_Masculino.Location = new System.Drawing.Point(5, 25);
+            this.checkBox_Masculino.Location = new System.Drawing.Point(5, 27);
             this.checkBox_Masculino.Name = "checkBox_Masculino";
             this.checkBox_Masculino.Padding = new System.Windows.Forms.Padding(10);
-            this.checkBox_Masculino.Size = new System.Drawing.Size(113, 43);
+            this.checkBox_Masculino.Size = new System.Drawing.Size(113, 41);
             this.checkBox_Masculino.TabIndex = 11;
             this.checkBox_Masculino.TabStop = true;
             this.checkBox_Masculino.Text = "Masculino";
@@ -724,10 +724,10 @@ namespace LMFinanciamentos.Apresentacao
             // txtcelular
             // 
             this.txtcelular.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcelular.Location = new System.Drawing.Point(598, 85);
+            this.txtcelular.Location = new System.Drawing.Point(598, 83);
             this.txtcelular.Mask = "(99) 00000-0000";
             this.txtcelular.Name = "txtcelular";
-            this.txtcelular.Size = new System.Drawing.Size(157, 27);
+            this.txtcelular.Size = new System.Drawing.Size(157, 29);
             this.txtcelular.TabIndex = 6;
             this.txtcelular.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.txtcelular.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtcelular_KeyDown);
@@ -737,17 +737,17 @@ namespace LMFinanciamentos.Apresentacao
             this.label20.AutoSize = true;
             this.label20.Location = new System.Drawing.Point(598, 59);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(64, 23);
+            this.label20.Size = new System.Drawing.Size(64, 21);
             this.label20.TabIndex = 51;
             this.label20.Text = "Celular:";
             // 
             // txttelefone
             // 
             this.txttelefone.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttelefone.Location = new System.Drawing.Point(373, 85);
+            this.txttelefone.Location = new System.Drawing.Point(373, 83);
             this.txttelefone.Mask = "(99) 0000-0000";
             this.txttelefone.Name = "txttelefone";
-            this.txttelefone.Size = new System.Drawing.Size(157, 27);
+            this.txttelefone.Size = new System.Drawing.Size(157, 29);
             this.txttelefone.TabIndex = 5;
             this.txttelefone.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.txttelefone.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txttelefone_KeyDown);
@@ -757,7 +757,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(373, 59);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(72, 23);
+            this.label19.Size = new System.Drawing.Size(71, 21);
             this.label19.TabIndex = 51;
             this.label19.Text = "Telefone:";
             // 
@@ -767,7 +767,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Location = new System.Drawing.Point(761, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(167, 23);
+            this.label1.Size = new System.Drawing.Size(167, 21);
             this.label1.TabIndex = 51;
             this.label1.Text = "Data Nasc.";
             // 
@@ -777,9 +777,9 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel1.SetColumnSpan(this.txtemail, 2);
             this.txtemail.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtemail.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtemail.Location = new System.Drawing.Point(3, 85);
+            this.txtemail.Location = new System.Drawing.Point(3, 83);
             this.txtemail.Name = "txtemail";
-            this.txtemail.Size = new System.Drawing.Size(364, 27);
+            this.txtemail.Size = new System.Drawing.Size(364, 29);
             this.txtemail.TabIndex = 4;
             this.txtemail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtemail_KeyDown);
             // 
@@ -788,7 +788,7 @@ namespace LMFinanciamentos.Apresentacao
             this.lblcpf.AutoSize = true;
             this.lblcpf.Location = new System.Drawing.Point(373, 0);
             this.lblcpf.Name = "lblcpf";
-            this.lblcpf.Size = new System.Drawing.Size(39, 23);
+            this.lblcpf.Size = new System.Drawing.Size(39, 21);
             this.lblcpf.TabIndex = 51;
             this.lblcpf.Text = "CPF:";
             // 
@@ -796,9 +796,9 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.txtcpf.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtcpf.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcpf.Location = new System.Drawing.Point(373, 26);
+            this.txtcpf.Location = new System.Drawing.Point(373, 24);
             this.txtcpf.Name = "txtcpf";
-            this.txtcpf.Size = new System.Drawing.Size(219, 30);
+            this.txtcpf.Size = new System.Drawing.Size(219, 32);
             this.txtcpf.TabIndex = 1;
             this.txtcpf.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtcpf_KeyDown);
             this.txtcpf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcpf_KeyPress);
@@ -812,7 +812,7 @@ namespace LMFinanciamentos.Apresentacao
             this.lblcliente.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblcliente.Location = new System.Drawing.Point(3, 0);
             this.lblcliente.Name = "lblcliente";
-            this.lblcliente.Size = new System.Drawing.Size(364, 23);
+            this.lblcliente.Size = new System.Drawing.Size(364, 21);
             this.lblcliente.TabIndex = 51;
             this.lblcliente.Text = "Nome do Cliente:";
             // 
@@ -822,7 +822,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel1.SetColumnSpan(this.lblemail, 2);
             this.lblemail.Location = new System.Drawing.Point(3, 59);
             this.lblemail.Name = "lblemail";
-            this.lblemail.Size = new System.Drawing.Size(52, 23);
+            this.lblemail.Size = new System.Drawing.Size(52, 21);
             this.lblemail.TabIndex = 51;
             this.lblemail.Text = "Email:";
             // 
@@ -832,9 +832,9 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel1.SetColumnSpan(this.txtnomecli, 2);
             this.txtnomecli.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtnomecli.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.txtnomecli.Location = new System.Drawing.Point(3, 26);
+            this.txtnomecli.Location = new System.Drawing.Point(3, 24);
             this.txtnomecli.Name = "txtnomecli";
-            this.txtnomecli.Size = new System.Drawing.Size(364, 30);
+            this.txtnomecli.Size = new System.Drawing.Size(364, 32);
             this.txtnomecli.TabIndex = 0;
             this.txtnomecli.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomecli_KeyDown);
             // 
@@ -842,9 +842,9 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.txtrg.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtrg.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtrg.Location = new System.Drawing.Point(598, 26);
+            this.txtrg.Location = new System.Drawing.Point(598, 24);
             this.txtrg.Name = "txtrg";
-            this.txtrg.Size = new System.Drawing.Size(157, 27);
+            this.txtrg.Size = new System.Drawing.Size(157, 29);
             this.txtrg.TabIndex = 2;
             this.txtrg.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtrg_KeyDown);
             this.txtrg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtrg_KeyPress);
@@ -854,10 +854,10 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.txtnasc.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtnasc.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnasc.Location = new System.Drawing.Point(761, 26);
+            this.txtnasc.Location = new System.Drawing.Point(761, 24);
             this.txtnasc.Mask = "00/00/0000";
             this.txtnasc.Name = "txtnasc";
-            this.txtnasc.Size = new System.Drawing.Size(114, 27);
+            this.txtnasc.Size = new System.Drawing.Size(114, 29);
             this.txtnasc.TabIndex = 3;
             this.txtnasc.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
             this.txtnasc.ValidatingType = typeof(System.DateTime);
@@ -868,7 +868,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(3, 115);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 23);
+            this.label2.Size = new System.Drawing.Size(70, 21);
             this.label2.TabIndex = 65;
             this.label2.Text = "Agencia:";
             // 
@@ -877,17 +877,17 @@ namespace LMFinanciamentos.Apresentacao
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(190, 115);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 23);
+            this.label5.Size = new System.Drawing.Size(55, 21);
             this.label5.TabIndex = 66;
             this.label5.Text = "Conta:";
             // 
             // tabconjuge
             // 
             this.tabconjuge.Controls.Add(this.tableLayoutPanel2);
-            this.tabconjuge.Location = new System.Drawing.Point(4, 32);
+            this.tabconjuge.Location = new System.Drawing.Point(4, 30);
             this.tabconjuge.Name = "tabconjuge";
             this.tabconjuge.Padding = new System.Windows.Forms.Padding(20);
-            this.tabconjuge.Size = new System.Drawing.Size(971, 342);
+            this.tabconjuge.Size = new System.Drawing.Size(971, 344);
             this.tabconjuge.TabIndex = 4;
             this.tabconjuge.Text = "Cad. Cônjuge";
             this.tabconjuge.UseVisualStyleBackColor = true;
@@ -986,7 +986,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel2.SetColumnSpan(this.txtobservacoescj, 3);
             this.txtobservacoescj.Location = new System.Drawing.Point(3, 222);
             this.txtobservacoescj.Name = "txtobservacoescj";
-            this.txtobservacoescj.Size = new System.Drawing.Size(589, 27);
+            this.txtobservacoescj.Size = new System.Drawing.Size(589, 29);
             this.txtobservacoescj.TabIndex = 69;
             this.txtobservacoescj.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge_KeyDown);
             // 
@@ -995,7 +995,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(3, 181);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(102, 23);
+            this.label7.Size = new System.Drawing.Size(102, 21);
             this.label7.TabIndex = 67;
             this.label7.Text = "Observações:";
             // 
@@ -1004,7 +1004,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcontacj.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcontacj.Location = new System.Drawing.Point(190, 141);
             this.txtcontacj.Name = "txtcontacj";
-            this.txtcontacj.Size = new System.Drawing.Size(170, 27);
+            this.txtcontacj.Size = new System.Drawing.Size(170, 29);
             this.txtcontacj.TabIndex = 9;
             this.txtcontacj.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge_KeyDown);
             // 
@@ -1013,7 +1013,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtagenciacj.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtagenciacj.Location = new System.Drawing.Point(3, 141);
             this.txtagenciacj.Name = "txtagenciacj";
-            this.txtagenciacj.Size = new System.Drawing.Size(166, 27);
+            this.txtagenciacj.Size = new System.Drawing.Size(166, 29);
             this.txtagenciacj.TabIndex = 8;
             this.txtagenciacj.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge_KeyDown);
             // 
@@ -1022,16 +1022,16 @@ namespace LMFinanciamentos.Apresentacao
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(761, 59);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(117, 23);
+            this.label8.Size = new System.Drawing.Size(119, 21);
             this.label8.TabIndex = 54;
             this.label8.Text = "Renda Cônjuge:";
             // 
             // txtrendacj
             // 
             this.txtrendacj.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtrendacj.Location = new System.Drawing.Point(761, 85);
+            this.txtrendacj.Location = new System.Drawing.Point(761, 83);
             this.txtrendacj.Name = "txtrendacj";
-            this.txtrendacj.Size = new System.Drawing.Size(167, 27);
+            this.txtrendacj.Size = new System.Drawing.Size(167, 29);
             this.txtrendacj.TabIndex = 7;
             this.txtrendacj.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge_KeyDown);
             this.txtrendacj.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrendacj_KeyUp);
@@ -1041,7 +1041,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(598, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(32, 23);
+            this.label9.Size = new System.Drawing.Size(33, 21);
             this.label9.TabIndex = 52;
             this.label9.Text = "RG:";
             // 
@@ -1063,10 +1063,10 @@ namespace LMFinanciamentos.Apresentacao
             this.checkBox_Femininocj.AutoSize = true;
             this.checkBox_Femininocj.Dock = System.Windows.Forms.DockStyle.Left;
             this.checkBox_Femininocj.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_Femininocj.Location = new System.Drawing.Point(118, 25);
+            this.checkBox_Femininocj.Location = new System.Drawing.Point(118, 27);
             this.checkBox_Femininocj.Name = "checkBox_Femininocj";
             this.checkBox_Femininocj.Padding = new System.Windows.Forms.Padding(10);
-            this.checkBox_Femininocj.Size = new System.Drawing.Size(106, 43);
+            this.checkBox_Femininocj.Size = new System.Drawing.Size(105, 41);
             this.checkBox_Femininocj.TabIndex = 12;
             this.checkBox_Femininocj.TabStop = true;
             this.checkBox_Femininocj.Text = "Feminino";
@@ -1077,10 +1077,10 @@ namespace LMFinanciamentos.Apresentacao
             this.checkBox_Masculinocj.AutoSize = true;
             this.checkBox_Masculinocj.Dock = System.Windows.Forms.DockStyle.Left;
             this.checkBox_Masculinocj.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_Masculinocj.Location = new System.Drawing.Point(5, 25);
+            this.checkBox_Masculinocj.Location = new System.Drawing.Point(5, 27);
             this.checkBox_Masculinocj.Name = "checkBox_Masculinocj";
             this.checkBox_Masculinocj.Padding = new System.Windows.Forms.Padding(10);
-            this.checkBox_Masculinocj.Size = new System.Drawing.Size(113, 43);
+            this.checkBox_Masculinocj.Size = new System.Drawing.Size(113, 41);
             this.checkBox_Masculinocj.TabIndex = 11;
             this.checkBox_Masculinocj.TabStop = true;
             this.checkBox_Masculinocj.Text = "Masculino";
@@ -1089,10 +1089,10 @@ namespace LMFinanciamentos.Apresentacao
             // txtcelularcj
             // 
             this.txtcelularcj.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcelularcj.Location = new System.Drawing.Point(598, 85);
+            this.txtcelularcj.Location = new System.Drawing.Point(598, 83);
             this.txtcelularcj.Mask = "(99) 00000-0000";
             this.txtcelularcj.Name = "txtcelularcj";
-            this.txtcelularcj.Size = new System.Drawing.Size(157, 27);
+            this.txtcelularcj.Size = new System.Drawing.Size(157, 29);
             this.txtcelularcj.TabIndex = 6;
             this.txtcelularcj.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.txtcelularcj.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge_KeyDown);
@@ -1102,17 +1102,17 @@ namespace LMFinanciamentos.Apresentacao
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(598, 59);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(64, 23);
+            this.label10.Size = new System.Drawing.Size(64, 21);
             this.label10.TabIndex = 51;
             this.label10.Text = "Celular:";
             // 
             // txttelefonecj
             // 
             this.txttelefonecj.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttelefonecj.Location = new System.Drawing.Point(373, 85);
+            this.txttelefonecj.Location = new System.Drawing.Point(373, 83);
             this.txttelefonecj.Mask = "(99) 0000-0000";
             this.txttelefonecj.Name = "txttelefonecj";
-            this.txttelefonecj.Size = new System.Drawing.Size(157, 27);
+            this.txttelefonecj.Size = new System.Drawing.Size(157, 29);
             this.txttelefonecj.TabIndex = 5;
             this.txttelefonecj.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.txttelefonecj.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge_KeyDown);
@@ -1122,7 +1122,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(373, 59);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(72, 23);
+            this.label11.Size = new System.Drawing.Size(71, 21);
             this.label11.TabIndex = 51;
             this.label11.Text = "Telefone:";
             // 
@@ -1132,7 +1132,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label12.Dock = System.Windows.Forms.DockStyle.Top;
             this.label12.Location = new System.Drawing.Point(761, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(167, 23);
+            this.label12.Size = new System.Drawing.Size(167, 21);
             this.label12.TabIndex = 51;
             this.label12.Text = "Data Nasc.";
             // 
@@ -1141,9 +1141,9 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel2.SetColumnSpan(this.txtemailcj, 2);
             this.txtemailcj.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtemailcj.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtemailcj.Location = new System.Drawing.Point(3, 85);
+            this.txtemailcj.Location = new System.Drawing.Point(3, 83);
             this.txtemailcj.Name = "txtemailcj";
-            this.txtemailcj.Size = new System.Drawing.Size(364, 27);
+            this.txtemailcj.Size = new System.Drawing.Size(364, 29);
             this.txtemailcj.TabIndex = 4;
             this.txtemailcj.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge_KeyDown);
             // 
@@ -1152,7 +1152,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(373, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(39, 23);
+            this.label13.Size = new System.Drawing.Size(39, 21);
             this.label13.TabIndex = 51;
             this.label13.Text = "CPF:";
             // 
@@ -1160,9 +1160,9 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.txtcpfcj.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtcpfcj.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcpfcj.Location = new System.Drawing.Point(373, 26);
+            this.txtcpfcj.Location = new System.Drawing.Point(373, 24);
             this.txtcpfcj.Name = "txtcpfcj";
-            this.txtcpfcj.Size = new System.Drawing.Size(219, 30);
+            this.txtcpfcj.Size = new System.Drawing.Size(219, 32);
             this.txtcpfcj.TabIndex = 1;
             this.txtcpfcj.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge_KeyDown);
             this.txtcpfcj.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtcpfcj_KeyUp);
@@ -1174,7 +1174,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label14.Dock = System.Windows.Forms.DockStyle.Top;
             this.label14.Location = new System.Drawing.Point(3, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(364, 23);
+            this.label14.Size = new System.Drawing.Size(364, 21);
             this.label14.TabIndex = 51;
             this.label14.Text = "Nome do Cônjuge:";
             // 
@@ -1184,7 +1184,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel2.SetColumnSpan(this.label15, 2);
             this.label15.Location = new System.Drawing.Point(3, 59);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(52, 23);
+            this.label15.Size = new System.Drawing.Size(52, 21);
             this.label15.TabIndex = 51;
             this.label15.Text = "Email:";
             // 
@@ -1193,9 +1193,9 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel2.SetColumnSpan(this.txtnomeconjuge, 2);
             this.txtnomeconjuge.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtnomeconjuge.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.txtnomeconjuge.Location = new System.Drawing.Point(3, 26);
+            this.txtnomeconjuge.Location = new System.Drawing.Point(3, 24);
             this.txtnomeconjuge.Name = "txtnomeconjuge";
-            this.txtnomeconjuge.Size = new System.Drawing.Size(364, 30);
+            this.txtnomeconjuge.Size = new System.Drawing.Size(364, 32);
             this.txtnomeconjuge.TabIndex = 0;
             this.txtnomeconjuge.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge_KeyDown);
             // 
@@ -1203,9 +1203,9 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.txtrgcj.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtrgcj.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtrgcj.Location = new System.Drawing.Point(598, 26);
+            this.txtrgcj.Location = new System.Drawing.Point(598, 24);
             this.txtrgcj.Name = "txtrgcj";
-            this.txtrgcj.Size = new System.Drawing.Size(157, 27);
+            this.txtrgcj.Size = new System.Drawing.Size(157, 29);
             this.txtrgcj.TabIndex = 2;
             this.txtrgcj.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge_KeyDown);
             this.txtrgcj.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrgcj_KeyUp);
@@ -1214,10 +1214,10 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.txtnasccj.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtnasccj.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnasccj.Location = new System.Drawing.Point(761, 26);
+            this.txtnasccj.Location = new System.Drawing.Point(761, 24);
             this.txtnasccj.Mask = "00/00/0000";
             this.txtnasccj.Name = "txtnasccj";
-            this.txtnasccj.Size = new System.Drawing.Size(114, 27);
+            this.txtnasccj.Size = new System.Drawing.Size(114, 29);
             this.txtnasccj.TabIndex = 3;
             this.txtnasccj.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
             this.txtnasccj.ValidatingType = typeof(System.DateTime);
@@ -1228,7 +1228,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(3, 115);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(71, 23);
+            this.label16.Size = new System.Drawing.Size(70, 21);
             this.label16.TabIndex = 65;
             this.label16.Text = "Agencia:";
             // 
@@ -1237,17 +1237,17 @@ namespace LMFinanciamentos.Apresentacao
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(190, 115);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(55, 23);
+            this.label17.Size = new System.Drawing.Size(55, 21);
             this.label17.TabIndex = 66;
             this.label17.Text = "Conta:";
             // 
             // tabconjuge1
             // 
             this.tabconjuge1.Controls.Add(this.tableLayoutPanel3);
-            this.tabconjuge1.Location = new System.Drawing.Point(4, 32);
+            this.tabconjuge1.Location = new System.Drawing.Point(4, 30);
             this.tabconjuge1.Name = "tabconjuge1";
             this.tabconjuge1.Padding = new System.Windows.Forms.Padding(20);
-            this.tabconjuge1.Size = new System.Drawing.Size(971, 342);
+            this.tabconjuge1.Size = new System.Drawing.Size(971, 344);
             this.tabconjuge1.TabIndex = 5;
             this.tabconjuge1.Text = "Cad. Cônjuge 1";
             this.tabconjuge1.UseVisualStyleBackColor = true;
@@ -1346,7 +1346,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel3.SetColumnSpan(this.txtobservacoescj1, 3);
             this.txtobservacoescj1.Location = new System.Drawing.Point(3, 222);
             this.txtobservacoescj1.Name = "txtobservacoescj1";
-            this.txtobservacoescj1.Size = new System.Drawing.Size(589, 27);
+            this.txtobservacoescj1.Size = new System.Drawing.Size(589, 29);
             this.txtobservacoescj1.TabIndex = 69;
             this.txtobservacoescj1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge1_KeyDown);
             // 
@@ -1355,7 +1355,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label18.AutoSize = true;
             this.label18.Location = new System.Drawing.Point(3, 181);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(102, 23);
+            this.label18.Size = new System.Drawing.Size(102, 21);
             this.label18.TabIndex = 67;
             this.label18.Text = "Observações:";
             // 
@@ -1364,7 +1364,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcontacj1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcontacj1.Location = new System.Drawing.Point(190, 141);
             this.txtcontacj1.Name = "txtcontacj1";
-            this.txtcontacj1.Size = new System.Drawing.Size(170, 27);
+            this.txtcontacj1.Size = new System.Drawing.Size(170, 29);
             this.txtcontacj1.TabIndex = 9;
             this.txtcontacj1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge1_KeyDown);
             // 
@@ -1373,7 +1373,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtagenciacj1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtagenciacj1.Location = new System.Drawing.Point(3, 141);
             this.txtagenciacj1.Name = "txtagenciacj1";
-            this.txtagenciacj1.Size = new System.Drawing.Size(166, 27);
+            this.txtagenciacj1.Size = new System.Drawing.Size(166, 29);
             this.txtagenciacj1.TabIndex = 8;
             this.txtagenciacj1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge1_KeyDown);
             // 
@@ -1382,16 +1382,16 @@ namespace LMFinanciamentos.Apresentacao
             this.label21.AutoSize = true;
             this.label21.Location = new System.Drawing.Point(761, 59);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(117, 23);
+            this.label21.Size = new System.Drawing.Size(119, 21);
             this.label21.TabIndex = 54;
             this.label21.Text = "Renda Cônjuge:";
             // 
             // txtrendacj1
             // 
             this.txtrendacj1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtrendacj1.Location = new System.Drawing.Point(761, 85);
+            this.txtrendacj1.Location = new System.Drawing.Point(761, 83);
             this.txtrendacj1.Name = "txtrendacj1";
-            this.txtrendacj1.Size = new System.Drawing.Size(167, 27);
+            this.txtrendacj1.Size = new System.Drawing.Size(167, 29);
             this.txtrendacj1.TabIndex = 7;
             this.txtrendacj1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge1_KeyDown);
             this.txtrendacj1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrendacj1_KeyUp);
@@ -1401,7 +1401,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label22.AutoSize = true;
             this.label22.Location = new System.Drawing.Point(598, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(32, 23);
+            this.label22.Size = new System.Drawing.Size(33, 21);
             this.label22.TabIndex = 52;
             this.label22.Text = "RG:";
             // 
@@ -1423,10 +1423,10 @@ namespace LMFinanciamentos.Apresentacao
             this.checkBox_Femininocj1.AutoSize = true;
             this.checkBox_Femininocj1.Dock = System.Windows.Forms.DockStyle.Left;
             this.checkBox_Femininocj1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_Femininocj1.Location = new System.Drawing.Point(118, 25);
+            this.checkBox_Femininocj1.Location = new System.Drawing.Point(118, 27);
             this.checkBox_Femininocj1.Name = "checkBox_Femininocj1";
             this.checkBox_Femininocj1.Padding = new System.Windows.Forms.Padding(10);
-            this.checkBox_Femininocj1.Size = new System.Drawing.Size(106, 43);
+            this.checkBox_Femininocj1.Size = new System.Drawing.Size(105, 41);
             this.checkBox_Femininocj1.TabIndex = 12;
             this.checkBox_Femininocj1.TabStop = true;
             this.checkBox_Femininocj1.Text = "Feminino";
@@ -1438,10 +1438,10 @@ namespace LMFinanciamentos.Apresentacao
             this.checkBox_Masculinocj1.AutoSize = true;
             this.checkBox_Masculinocj1.Dock = System.Windows.Forms.DockStyle.Left;
             this.checkBox_Masculinocj1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_Masculinocj1.Location = new System.Drawing.Point(5, 25);
+            this.checkBox_Masculinocj1.Location = new System.Drawing.Point(5, 27);
             this.checkBox_Masculinocj1.Name = "checkBox_Masculinocj1";
             this.checkBox_Masculinocj1.Padding = new System.Windows.Forms.Padding(10);
-            this.checkBox_Masculinocj1.Size = new System.Drawing.Size(113, 43);
+            this.checkBox_Masculinocj1.Size = new System.Drawing.Size(113, 41);
             this.checkBox_Masculinocj1.TabIndex = 11;
             this.checkBox_Masculinocj1.TabStop = true;
             this.checkBox_Masculinocj1.Text = "Masculino";
@@ -1451,10 +1451,10 @@ namespace LMFinanciamentos.Apresentacao
             // txtcelularcj1
             // 
             this.txtcelularcj1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcelularcj1.Location = new System.Drawing.Point(598, 85);
+            this.txtcelularcj1.Location = new System.Drawing.Point(598, 83);
             this.txtcelularcj1.Mask = "(99) 00000-0000";
             this.txtcelularcj1.Name = "txtcelularcj1";
-            this.txtcelularcj1.Size = new System.Drawing.Size(157, 27);
+            this.txtcelularcj1.Size = new System.Drawing.Size(157, 29);
             this.txtcelularcj1.TabIndex = 6;
             this.txtcelularcj1.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.txtcelularcj1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge1_KeyDown);
@@ -1464,17 +1464,17 @@ namespace LMFinanciamentos.Apresentacao
             this.label23.AutoSize = true;
             this.label23.Location = new System.Drawing.Point(598, 59);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(64, 23);
+            this.label23.Size = new System.Drawing.Size(64, 21);
             this.label23.TabIndex = 51;
             this.label23.Text = "Celular:";
             // 
             // txttelefonecj1
             // 
             this.txttelefonecj1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttelefonecj1.Location = new System.Drawing.Point(373, 85);
+            this.txttelefonecj1.Location = new System.Drawing.Point(373, 83);
             this.txttelefonecj1.Mask = "(99) 0000-0000";
             this.txttelefonecj1.Name = "txttelefonecj1";
-            this.txttelefonecj1.Size = new System.Drawing.Size(157, 27);
+            this.txttelefonecj1.Size = new System.Drawing.Size(157, 29);
             this.txttelefonecj1.TabIndex = 5;
             this.txttelefonecj1.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.txttelefonecj1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge1_KeyDown);
@@ -1484,7 +1484,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label24.AutoSize = true;
             this.label24.Location = new System.Drawing.Point(373, 59);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(72, 23);
+            this.label24.Size = new System.Drawing.Size(71, 21);
             this.label24.TabIndex = 51;
             this.label24.Text = "Telefone:";
             // 
@@ -1494,7 +1494,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label25.Dock = System.Windows.Forms.DockStyle.Top;
             this.label25.Location = new System.Drawing.Point(761, 0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(167, 23);
+            this.label25.Size = new System.Drawing.Size(167, 21);
             this.label25.TabIndex = 51;
             this.label25.Text = "Data Nasc.";
             // 
@@ -1503,9 +1503,9 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel3.SetColumnSpan(this.txtemailcj1, 2);
             this.txtemailcj1.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtemailcj1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtemailcj1.Location = new System.Drawing.Point(3, 85);
+            this.txtemailcj1.Location = new System.Drawing.Point(3, 83);
             this.txtemailcj1.Name = "txtemailcj1";
-            this.txtemailcj1.Size = new System.Drawing.Size(364, 27);
+            this.txtemailcj1.Size = new System.Drawing.Size(364, 29);
             this.txtemailcj1.TabIndex = 4;
             this.txtemailcj1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge1_KeyDown);
             // 
@@ -1514,7 +1514,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label26.AutoSize = true;
             this.label26.Location = new System.Drawing.Point(373, 0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(39, 23);
+            this.label26.Size = new System.Drawing.Size(39, 21);
             this.label26.TabIndex = 51;
             this.label26.Text = "CPF:";
             // 
@@ -1522,9 +1522,9 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.txtcpfcj1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtcpfcj1.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcpfcj1.Location = new System.Drawing.Point(373, 26);
+            this.txtcpfcj1.Location = new System.Drawing.Point(373, 24);
             this.txtcpfcj1.Name = "txtcpfcj1";
-            this.txtcpfcj1.Size = new System.Drawing.Size(219, 30);
+            this.txtcpfcj1.Size = new System.Drawing.Size(219, 32);
             this.txtcpfcj1.TabIndex = 1;
             this.txtcpfcj1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge1_KeyDown);
             this.txtcpfcj1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtcpfcj1_KeyUp);
@@ -1536,7 +1536,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label27.Dock = System.Windows.Forms.DockStyle.Top;
             this.label27.Location = new System.Drawing.Point(3, 0);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(364, 23);
+            this.label27.Size = new System.Drawing.Size(364, 21);
             this.label27.TabIndex = 51;
             this.label27.Text = "Nome do Cônjuge 1 :";
             // 
@@ -1546,7 +1546,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel3.SetColumnSpan(this.label28, 2);
             this.label28.Location = new System.Drawing.Point(3, 59);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(52, 23);
+            this.label28.Size = new System.Drawing.Size(52, 21);
             this.label28.TabIndex = 51;
             this.label28.Text = "Email:";
             // 
@@ -1555,9 +1555,9 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel3.SetColumnSpan(this.txtnomeconjuge1, 2);
             this.txtnomeconjuge1.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtnomeconjuge1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.txtnomeconjuge1.Location = new System.Drawing.Point(3, 26);
+            this.txtnomeconjuge1.Location = new System.Drawing.Point(3, 24);
             this.txtnomeconjuge1.Name = "txtnomeconjuge1";
-            this.txtnomeconjuge1.Size = new System.Drawing.Size(364, 30);
+            this.txtnomeconjuge1.Size = new System.Drawing.Size(364, 32);
             this.txtnomeconjuge1.TabIndex = 0;
             this.txtnomeconjuge1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge1_KeyDown);
             // 
@@ -1565,9 +1565,9 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.txtrgcj1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtrgcj1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtrgcj1.Location = new System.Drawing.Point(598, 26);
+            this.txtrgcj1.Location = new System.Drawing.Point(598, 24);
             this.txtrgcj1.Name = "txtrgcj1";
-            this.txtrgcj1.Size = new System.Drawing.Size(157, 27);
+            this.txtrgcj1.Size = new System.Drawing.Size(157, 29);
             this.txtrgcj1.TabIndex = 2;
             this.txtrgcj1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge1_KeyDown);
             this.txtrgcj1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrgcj1_KeyUp);
@@ -1576,10 +1576,10 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.txtnasccj1.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtnasccj1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnasccj1.Location = new System.Drawing.Point(761, 26);
+            this.txtnasccj1.Location = new System.Drawing.Point(761, 24);
             this.txtnasccj1.Mask = "00/00/0000";
             this.txtnasccj1.Name = "txtnasccj1";
-            this.txtnasccj1.Size = new System.Drawing.Size(114, 27);
+            this.txtnasccj1.Size = new System.Drawing.Size(114, 29);
             this.txtnasccj1.TabIndex = 3;
             this.txtnasccj1.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
             this.txtnasccj1.ValidatingType = typeof(System.DateTime);
@@ -1590,7 +1590,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label29.AutoSize = true;
             this.label29.Location = new System.Drawing.Point(3, 115);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(71, 23);
+            this.label29.Size = new System.Drawing.Size(70, 21);
             this.label29.TabIndex = 65;
             this.label29.Text = "Agencia:";
             // 
@@ -1599,17 +1599,17 @@ namespace LMFinanciamentos.Apresentacao
             this.label30.AutoSize = true;
             this.label30.Location = new System.Drawing.Point(190, 115);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(55, 23);
+            this.label30.Size = new System.Drawing.Size(55, 21);
             this.label30.TabIndex = 66;
             this.label30.Text = "Conta:";
             // 
             // tabconjuge2
             // 
             this.tabconjuge2.Controls.Add(this.tableLayoutPanel4);
-            this.tabconjuge2.Location = new System.Drawing.Point(4, 32);
+            this.tabconjuge2.Location = new System.Drawing.Point(4, 30);
             this.tabconjuge2.Name = "tabconjuge2";
             this.tabconjuge2.Padding = new System.Windows.Forms.Padding(20);
-            this.tabconjuge2.Size = new System.Drawing.Size(971, 342);
+            this.tabconjuge2.Size = new System.Drawing.Size(971, 344);
             this.tabconjuge2.TabIndex = 6;
             this.tabconjuge2.Text = "Cad. Cônjuge 2";
             this.tabconjuge2.UseVisualStyleBackColor = true;
@@ -1708,7 +1708,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel4.SetColumnSpan(this.txtobservacoescj2, 3);
             this.txtobservacoescj2.Location = new System.Drawing.Point(3, 222);
             this.txtobservacoescj2.Name = "txtobservacoescj2";
-            this.txtobservacoescj2.Size = new System.Drawing.Size(589, 27);
+            this.txtobservacoescj2.Size = new System.Drawing.Size(589, 29);
             this.txtobservacoescj2.TabIndex = 69;
             this.txtobservacoescj2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge2_KeyDown);
             // 
@@ -1717,7 +1717,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label31.AutoSize = true;
             this.label31.Location = new System.Drawing.Point(3, 181);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(102, 23);
+            this.label31.Size = new System.Drawing.Size(102, 21);
             this.label31.TabIndex = 67;
             this.label31.Text = "Observações:";
             // 
@@ -1726,7 +1726,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcontacj2.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcontacj2.Location = new System.Drawing.Point(190, 141);
             this.txtcontacj2.Name = "txtcontacj2";
-            this.txtcontacj2.Size = new System.Drawing.Size(170, 27);
+            this.txtcontacj2.Size = new System.Drawing.Size(170, 29);
             this.txtcontacj2.TabIndex = 9;
             this.txtcontacj2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge2_KeyDown);
             // 
@@ -1735,7 +1735,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtagenciacj2.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtagenciacj2.Location = new System.Drawing.Point(3, 141);
             this.txtagenciacj2.Name = "txtagenciacj2";
-            this.txtagenciacj2.Size = new System.Drawing.Size(166, 27);
+            this.txtagenciacj2.Size = new System.Drawing.Size(166, 29);
             this.txtagenciacj2.TabIndex = 8;
             this.txtagenciacj2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge2_KeyDown);
             // 
@@ -1744,16 +1744,16 @@ namespace LMFinanciamentos.Apresentacao
             this.label32.AutoSize = true;
             this.label32.Location = new System.Drawing.Point(761, 59);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(117, 23);
+            this.label32.Size = new System.Drawing.Size(119, 21);
             this.label32.TabIndex = 54;
             this.label32.Text = "Renda Cônjuge:";
             // 
             // txtrendacj2
             // 
             this.txtrendacj2.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtrendacj2.Location = new System.Drawing.Point(761, 85);
+            this.txtrendacj2.Location = new System.Drawing.Point(761, 83);
             this.txtrendacj2.Name = "txtrendacj2";
-            this.txtrendacj2.Size = new System.Drawing.Size(167, 27);
+            this.txtrendacj2.Size = new System.Drawing.Size(167, 29);
             this.txtrendacj2.TabIndex = 7;
             this.txtrendacj2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge2_KeyDown);
             this.txtrendacj2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrendacj2_KeyUp);
@@ -1763,7 +1763,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label33.AutoSize = true;
             this.label33.Location = new System.Drawing.Point(598, 0);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(32, 23);
+            this.label33.Size = new System.Drawing.Size(33, 21);
             this.label33.TabIndex = 52;
             this.label33.Text = "RG:";
             // 
@@ -1785,10 +1785,10 @@ namespace LMFinanciamentos.Apresentacao
             this.checkBox_Femininocj2.AutoSize = true;
             this.checkBox_Femininocj2.Dock = System.Windows.Forms.DockStyle.Left;
             this.checkBox_Femininocj2.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_Femininocj2.Location = new System.Drawing.Point(118, 25);
+            this.checkBox_Femininocj2.Location = new System.Drawing.Point(118, 27);
             this.checkBox_Femininocj2.Name = "checkBox_Femininocj2";
             this.checkBox_Femininocj2.Padding = new System.Windows.Forms.Padding(10);
-            this.checkBox_Femininocj2.Size = new System.Drawing.Size(106, 43);
+            this.checkBox_Femininocj2.Size = new System.Drawing.Size(105, 41);
             this.checkBox_Femininocj2.TabIndex = 12;
             this.checkBox_Femininocj2.TabStop = true;
             this.checkBox_Femininocj2.Text = "Feminino";
@@ -1800,10 +1800,10 @@ namespace LMFinanciamentos.Apresentacao
             this.checkBox_Masculinocj2.AutoSize = true;
             this.checkBox_Masculinocj2.Dock = System.Windows.Forms.DockStyle.Left;
             this.checkBox_Masculinocj2.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_Masculinocj2.Location = new System.Drawing.Point(5, 25);
+            this.checkBox_Masculinocj2.Location = new System.Drawing.Point(5, 27);
             this.checkBox_Masculinocj2.Name = "checkBox_Masculinocj2";
             this.checkBox_Masculinocj2.Padding = new System.Windows.Forms.Padding(10);
-            this.checkBox_Masculinocj2.Size = new System.Drawing.Size(113, 43);
+            this.checkBox_Masculinocj2.Size = new System.Drawing.Size(113, 41);
             this.checkBox_Masculinocj2.TabIndex = 11;
             this.checkBox_Masculinocj2.TabStop = true;
             this.checkBox_Masculinocj2.Text = "Masculino";
@@ -1813,10 +1813,10 @@ namespace LMFinanciamentos.Apresentacao
             // txtcelularcj2
             // 
             this.txtcelularcj2.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcelularcj2.Location = new System.Drawing.Point(598, 85);
+            this.txtcelularcj2.Location = new System.Drawing.Point(598, 83);
             this.txtcelularcj2.Mask = "(99) 00000-0000";
             this.txtcelularcj2.Name = "txtcelularcj2";
-            this.txtcelularcj2.Size = new System.Drawing.Size(157, 27);
+            this.txtcelularcj2.Size = new System.Drawing.Size(157, 29);
             this.txtcelularcj2.TabIndex = 6;
             this.txtcelularcj2.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.txtcelularcj2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge2_KeyDown);
@@ -1826,17 +1826,17 @@ namespace LMFinanciamentos.Apresentacao
             this.label34.AutoSize = true;
             this.label34.Location = new System.Drawing.Point(598, 59);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(64, 23);
+            this.label34.Size = new System.Drawing.Size(64, 21);
             this.label34.TabIndex = 51;
             this.label34.Text = "Celular:";
             // 
             // txttelefonecj2
             // 
             this.txttelefonecj2.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttelefonecj2.Location = new System.Drawing.Point(373, 85);
+            this.txttelefonecj2.Location = new System.Drawing.Point(373, 83);
             this.txttelefonecj2.Mask = "(99) 0000-0000";
             this.txttelefonecj2.Name = "txttelefonecj2";
-            this.txttelefonecj2.Size = new System.Drawing.Size(157, 27);
+            this.txttelefonecj2.Size = new System.Drawing.Size(157, 29);
             this.txttelefonecj2.TabIndex = 5;
             this.txttelefonecj2.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.txttelefonecj2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge2_KeyDown);
@@ -1846,7 +1846,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label35.AutoSize = true;
             this.label35.Location = new System.Drawing.Point(373, 59);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(72, 23);
+            this.label35.Size = new System.Drawing.Size(71, 21);
             this.label35.TabIndex = 51;
             this.label35.Text = "Telefone:";
             // 
@@ -1856,7 +1856,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label36.Dock = System.Windows.Forms.DockStyle.Top;
             this.label36.Location = new System.Drawing.Point(761, 0);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(167, 23);
+            this.label36.Size = new System.Drawing.Size(167, 21);
             this.label36.TabIndex = 51;
             this.label36.Text = "Data Nasc.";
             // 
@@ -1865,9 +1865,9 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel4.SetColumnSpan(this.txtemailcj2, 2);
             this.txtemailcj2.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtemailcj2.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtemailcj2.Location = new System.Drawing.Point(3, 85);
+            this.txtemailcj2.Location = new System.Drawing.Point(3, 83);
             this.txtemailcj2.Name = "txtemailcj2";
-            this.txtemailcj2.Size = new System.Drawing.Size(364, 27);
+            this.txtemailcj2.Size = new System.Drawing.Size(364, 29);
             this.txtemailcj2.TabIndex = 4;
             this.txtemailcj2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge2_KeyDown);
             // 
@@ -1876,7 +1876,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label37.AutoSize = true;
             this.label37.Location = new System.Drawing.Point(373, 0);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(39, 23);
+            this.label37.Size = new System.Drawing.Size(39, 21);
             this.label37.TabIndex = 51;
             this.label37.Text = "CPF:";
             // 
@@ -1884,9 +1884,9 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.txtcpfcj2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtcpfcj2.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcpfcj2.Location = new System.Drawing.Point(373, 26);
+            this.txtcpfcj2.Location = new System.Drawing.Point(373, 24);
             this.txtcpfcj2.Name = "txtcpfcj2";
-            this.txtcpfcj2.Size = new System.Drawing.Size(219, 30);
+            this.txtcpfcj2.Size = new System.Drawing.Size(219, 32);
             this.txtcpfcj2.TabIndex = 1;
             this.txtcpfcj2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge2_KeyDown);
             this.txtcpfcj2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtcpfcj2_KeyUp);
@@ -1898,7 +1898,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label38.Dock = System.Windows.Forms.DockStyle.Top;
             this.label38.Location = new System.Drawing.Point(3, 0);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(364, 23);
+            this.label38.Size = new System.Drawing.Size(364, 21);
             this.label38.TabIndex = 51;
             this.label38.Text = "Nome do Cônjuge 2 :";
             // 
@@ -1908,7 +1908,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel4.SetColumnSpan(this.label39, 2);
             this.label39.Location = new System.Drawing.Point(3, 59);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(52, 23);
+            this.label39.Size = new System.Drawing.Size(52, 21);
             this.label39.TabIndex = 51;
             this.label39.Text = "Email:";
             // 
@@ -1917,9 +1917,9 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel4.SetColumnSpan(this.txtnomeconjuge2, 2);
             this.txtnomeconjuge2.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtnomeconjuge2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.txtnomeconjuge2.Location = new System.Drawing.Point(3, 26);
+            this.txtnomeconjuge2.Location = new System.Drawing.Point(3, 24);
             this.txtnomeconjuge2.Name = "txtnomeconjuge2";
-            this.txtnomeconjuge2.Size = new System.Drawing.Size(364, 30);
+            this.txtnomeconjuge2.Size = new System.Drawing.Size(364, 32);
             this.txtnomeconjuge2.TabIndex = 0;
             this.txtnomeconjuge2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge2_KeyDown);
             // 
@@ -1927,9 +1927,9 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.txtrgcj2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtrgcj2.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtrgcj2.Location = new System.Drawing.Point(598, 26);
+            this.txtrgcj2.Location = new System.Drawing.Point(598, 24);
             this.txtrgcj2.Name = "txtrgcj2";
-            this.txtrgcj2.Size = new System.Drawing.Size(157, 27);
+            this.txtrgcj2.Size = new System.Drawing.Size(157, 29);
             this.txtrgcj2.TabIndex = 2;
             this.txtrgcj2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge2_KeyDown);
             this.txtrgcj2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrgcj2_KeyUp);
@@ -1938,10 +1938,10 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.txtnasccj2.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtnasccj2.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnasccj2.Location = new System.Drawing.Point(761, 26);
+            this.txtnasccj2.Location = new System.Drawing.Point(761, 24);
             this.txtnasccj2.Mask = "00/00/0000";
             this.txtnasccj2.Name = "txtnasccj2";
-            this.txtnasccj2.Size = new System.Drawing.Size(114, 27);
+            this.txtnasccj2.Size = new System.Drawing.Size(114, 29);
             this.txtnasccj2.TabIndex = 3;
             this.txtnasccj2.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
             this.txtnasccj2.ValidatingType = typeof(System.DateTime);
@@ -1952,7 +1952,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label40.AutoSize = true;
             this.label40.Location = new System.Drawing.Point(3, 115);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(71, 23);
+            this.label40.Size = new System.Drawing.Size(70, 21);
             this.label40.TabIndex = 65;
             this.label40.Text = "Agencia:";
             // 
@@ -1961,17 +1961,17 @@ namespace LMFinanciamentos.Apresentacao
             this.label41.AutoSize = true;
             this.label41.Location = new System.Drawing.Point(190, 115);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(55, 23);
+            this.label41.Size = new System.Drawing.Size(55, 21);
             this.label41.TabIndex = 66;
             this.label41.Text = "Conta:";
             // 
             // tabconjuge3
             // 
             this.tabconjuge3.Controls.Add(this.tableLayoutPanel5);
-            this.tabconjuge3.Location = new System.Drawing.Point(4, 32);
+            this.tabconjuge3.Location = new System.Drawing.Point(4, 30);
             this.tabconjuge3.Name = "tabconjuge3";
             this.tabconjuge3.Padding = new System.Windows.Forms.Padding(20);
-            this.tabconjuge3.Size = new System.Drawing.Size(971, 342);
+            this.tabconjuge3.Size = new System.Drawing.Size(971, 344);
             this.tabconjuge3.TabIndex = 7;
             this.tabconjuge3.Text = "Cad. Cônjuge 3";
             this.tabconjuge3.UseVisualStyleBackColor = true;
@@ -2051,7 +2051,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel5.SetColumnSpan(this.txtobservacoescj3, 3);
             this.txtobservacoescj3.Location = new System.Drawing.Point(3, 222);
             this.txtobservacoescj3.Name = "txtobservacoescj3";
-            this.txtobservacoescj3.Size = new System.Drawing.Size(589, 27);
+            this.txtobservacoescj3.Size = new System.Drawing.Size(589, 29);
             this.txtobservacoescj3.TabIndex = 69;
             this.txtobservacoescj3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge3_KeyDown);
             // 
@@ -2060,7 +2060,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label42.AutoSize = true;
             this.label42.Location = new System.Drawing.Point(3, 181);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(102, 23);
+            this.label42.Size = new System.Drawing.Size(102, 21);
             this.label42.TabIndex = 67;
             this.label42.Text = "Observações:";
             // 
@@ -2069,7 +2069,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtcontacj3.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcontacj3.Location = new System.Drawing.Point(186, 141);
             this.txtcontacj3.Name = "txtcontacj3";
-            this.txtcontacj3.Size = new System.Drawing.Size(170, 27);
+            this.txtcontacj3.Size = new System.Drawing.Size(170, 29);
             this.txtcontacj3.TabIndex = 9;
             this.txtcontacj3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge3_KeyDown);
             // 
@@ -2078,7 +2078,7 @@ namespace LMFinanciamentos.Apresentacao
             this.txtagenciacj3.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtagenciacj3.Location = new System.Drawing.Point(3, 141);
             this.txtagenciacj3.Name = "txtagenciacj3";
-            this.txtagenciacj3.Size = new System.Drawing.Size(166, 27);
+            this.txtagenciacj3.Size = new System.Drawing.Size(166, 29);
             this.txtagenciacj3.TabIndex = 8;
             this.txtagenciacj3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge3_KeyDown);
             // 
@@ -2087,16 +2087,16 @@ namespace LMFinanciamentos.Apresentacao
             this.label43.AutoSize = true;
             this.label43.Location = new System.Drawing.Point(761, 59);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(117, 23);
+            this.label43.Size = new System.Drawing.Size(119, 21);
             this.label43.TabIndex = 54;
             this.label43.Text = "Renda Cônjuge:";
             // 
             // txtrendacj3
             // 
             this.txtrendacj3.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtrendacj3.Location = new System.Drawing.Point(761, 85);
+            this.txtrendacj3.Location = new System.Drawing.Point(761, 83);
             this.txtrendacj3.Name = "txtrendacj3";
-            this.txtrendacj3.Size = new System.Drawing.Size(167, 27);
+            this.txtrendacj3.Size = new System.Drawing.Size(167, 29);
             this.txtrendacj3.TabIndex = 7;
             this.txtrendacj3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge3_KeyDown);
             this.txtrendacj3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrendacj3_KeyUp);
@@ -2106,7 +2106,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label44.AutoSize = true;
             this.label44.Location = new System.Drawing.Point(598, 0);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(32, 23);
+            this.label44.Size = new System.Drawing.Size(33, 21);
             this.label44.TabIndex = 52;
             this.label44.Text = "RG:";
             // 
@@ -2128,10 +2128,10 @@ namespace LMFinanciamentos.Apresentacao
             this.checkBox_Femininocj3.AutoSize = true;
             this.checkBox_Femininocj3.Dock = System.Windows.Forms.DockStyle.Left;
             this.checkBox_Femininocj3.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_Femininocj3.Location = new System.Drawing.Point(118, 25);
+            this.checkBox_Femininocj3.Location = new System.Drawing.Point(118, 27);
             this.checkBox_Femininocj3.Name = "checkBox_Femininocj3";
             this.checkBox_Femininocj3.Padding = new System.Windows.Forms.Padding(10);
-            this.checkBox_Femininocj3.Size = new System.Drawing.Size(106, 43);
+            this.checkBox_Femininocj3.Size = new System.Drawing.Size(105, 41);
             this.checkBox_Femininocj3.TabIndex = 12;
             this.checkBox_Femininocj3.TabStop = true;
             this.checkBox_Femininocj3.Text = "Feminino";
@@ -2143,10 +2143,10 @@ namespace LMFinanciamentos.Apresentacao
             this.checkBox_Masculinocj3.AutoSize = true;
             this.checkBox_Masculinocj3.Dock = System.Windows.Forms.DockStyle.Left;
             this.checkBox_Masculinocj3.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_Masculinocj3.Location = new System.Drawing.Point(5, 25);
+            this.checkBox_Masculinocj3.Location = new System.Drawing.Point(5, 27);
             this.checkBox_Masculinocj3.Name = "checkBox_Masculinocj3";
             this.checkBox_Masculinocj3.Padding = new System.Windows.Forms.Padding(10);
-            this.checkBox_Masculinocj3.Size = new System.Drawing.Size(113, 43);
+            this.checkBox_Masculinocj3.Size = new System.Drawing.Size(113, 41);
             this.checkBox_Masculinocj3.TabIndex = 11;
             this.checkBox_Masculinocj3.TabStop = true;
             this.checkBox_Masculinocj3.Text = "Masculino";
@@ -2156,10 +2156,10 @@ namespace LMFinanciamentos.Apresentacao
             // txtcelularcj3
             // 
             this.txtcelularcj3.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcelularcj3.Location = new System.Drawing.Point(598, 85);
+            this.txtcelularcj3.Location = new System.Drawing.Point(598, 83);
             this.txtcelularcj3.Mask = "(99) 00000-0000";
             this.txtcelularcj3.Name = "txtcelularcj3";
-            this.txtcelularcj3.Size = new System.Drawing.Size(157, 27);
+            this.txtcelularcj3.Size = new System.Drawing.Size(157, 29);
             this.txtcelularcj3.TabIndex = 6;
             this.txtcelularcj3.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.txtcelularcj3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge3_KeyDown);
@@ -2169,17 +2169,17 @@ namespace LMFinanciamentos.Apresentacao
             this.label45.AutoSize = true;
             this.label45.Location = new System.Drawing.Point(598, 59);
             this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(64, 23);
+            this.label45.Size = new System.Drawing.Size(64, 21);
             this.label45.TabIndex = 51;
             this.label45.Text = "Celular:";
             // 
             // txttelefonecj3
             // 
             this.txttelefonecj3.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttelefonecj3.Location = new System.Drawing.Point(373, 85);
+            this.txttelefonecj3.Location = new System.Drawing.Point(373, 83);
             this.txttelefonecj3.Mask = "(99) 0000-0000";
             this.txttelefonecj3.Name = "txttelefonecj3";
-            this.txttelefonecj3.Size = new System.Drawing.Size(157, 27);
+            this.txttelefonecj3.Size = new System.Drawing.Size(157, 29);
             this.txttelefonecj3.TabIndex = 5;
             this.txttelefonecj3.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.txttelefonecj3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge3_KeyDown);
@@ -2189,7 +2189,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label46.AutoSize = true;
             this.label46.Location = new System.Drawing.Point(373, 59);
             this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(72, 23);
+            this.label46.Size = new System.Drawing.Size(71, 21);
             this.label46.TabIndex = 51;
             this.label46.Text = "Telefone:";
             // 
@@ -2199,7 +2199,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label47.Dock = System.Windows.Forms.DockStyle.Top;
             this.label47.Location = new System.Drawing.Point(761, 0);
             this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(167, 23);
+            this.label47.Size = new System.Drawing.Size(167, 21);
             this.label47.TabIndex = 51;
             this.label47.Text = "Data Nasc.";
             // 
@@ -2208,9 +2208,9 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel5.SetColumnSpan(this.txtemailcj3, 2);
             this.txtemailcj3.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtemailcj3.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtemailcj3.Location = new System.Drawing.Point(3, 85);
+            this.txtemailcj3.Location = new System.Drawing.Point(3, 83);
             this.txtemailcj3.Name = "txtemailcj3";
-            this.txtemailcj3.Size = new System.Drawing.Size(364, 27);
+            this.txtemailcj3.Size = new System.Drawing.Size(364, 29);
             this.txtemailcj3.TabIndex = 4;
             this.txtemailcj3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge3_KeyDown);
             // 
@@ -2219,7 +2219,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label48.AutoSize = true;
             this.label48.Location = new System.Drawing.Point(373, 0);
             this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(39, 23);
+            this.label48.Size = new System.Drawing.Size(39, 21);
             this.label48.TabIndex = 51;
             this.label48.Text = "CPF:";
             // 
@@ -2227,9 +2227,9 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.txtcpfcj3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtcpfcj3.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcpfcj3.Location = new System.Drawing.Point(373, 26);
+            this.txtcpfcj3.Location = new System.Drawing.Point(373, 24);
             this.txtcpfcj3.Name = "txtcpfcj3";
-            this.txtcpfcj3.Size = new System.Drawing.Size(219, 30);
+            this.txtcpfcj3.Size = new System.Drawing.Size(219, 32);
             this.txtcpfcj3.TabIndex = 1;
             this.txtcpfcj3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge3_KeyDown);
             this.txtcpfcj3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtcpfcj3_KeyUp);
@@ -2241,7 +2241,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label49.Dock = System.Windows.Forms.DockStyle.Top;
             this.label49.Location = new System.Drawing.Point(3, 0);
             this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(364, 23);
+            this.label49.Size = new System.Drawing.Size(364, 21);
             this.label49.TabIndex = 51;
             this.label49.Text = "Nome do Cônjuge 3 :";
             // 
@@ -2251,7 +2251,7 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel5.SetColumnSpan(this.label50, 2);
             this.label50.Location = new System.Drawing.Point(3, 59);
             this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(52, 23);
+            this.label50.Size = new System.Drawing.Size(52, 21);
             this.label50.TabIndex = 51;
             this.label50.Text = "Email:";
             // 
@@ -2260,9 +2260,9 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel5.SetColumnSpan(this.txtnomeconjuge3, 2);
             this.txtnomeconjuge3.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtnomeconjuge3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
-            this.txtnomeconjuge3.Location = new System.Drawing.Point(3, 26);
+            this.txtnomeconjuge3.Location = new System.Drawing.Point(3, 24);
             this.txtnomeconjuge3.Name = "txtnomeconjuge3";
-            this.txtnomeconjuge3.Size = new System.Drawing.Size(364, 30);
+            this.txtnomeconjuge3.Size = new System.Drawing.Size(364, 32);
             this.txtnomeconjuge3.TabIndex = 0;
             this.txtnomeconjuge3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge3_KeyDown);
             // 
@@ -2270,9 +2270,9 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.txtrgcj3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtrgcj3.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtrgcj3.Location = new System.Drawing.Point(598, 26);
+            this.txtrgcj3.Location = new System.Drawing.Point(598, 24);
             this.txtrgcj3.Name = "txtrgcj3";
-            this.txtrgcj3.Size = new System.Drawing.Size(157, 27);
+            this.txtrgcj3.Size = new System.Drawing.Size(157, 29);
             this.txtrgcj3.TabIndex = 2;
             this.txtrgcj3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtnomeconjuge3_KeyDown);
             this.txtrgcj3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrgcj3_KeyUp);
@@ -2281,10 +2281,10 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.txtnasccj3.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtnasccj3.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnasccj3.Location = new System.Drawing.Point(761, 26);
+            this.txtnasccj3.Location = new System.Drawing.Point(761, 24);
             this.txtnasccj3.Mask = "00/00/0000";
             this.txtnasccj3.Name = "txtnasccj3";
-            this.txtnasccj3.Size = new System.Drawing.Size(114, 27);
+            this.txtnasccj3.Size = new System.Drawing.Size(114, 29);
             this.txtnasccj3.TabIndex = 3;
             this.txtnasccj3.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
             this.txtnasccj3.ValidatingType = typeof(System.DateTime);
@@ -2295,7 +2295,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label51.AutoSize = true;
             this.label51.Location = new System.Drawing.Point(3, 115);
             this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(71, 23);
+            this.label51.Size = new System.Drawing.Size(70, 21);
             this.label51.TabIndex = 65;
             this.label51.Text = "Agencia:";
             // 
@@ -2304,7 +2304,7 @@ namespace LMFinanciamentos.Apresentacao
             this.label52.AutoSize = true;
             this.label52.Location = new System.Drawing.Point(186, 115);
             this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(55, 23);
+            this.label52.Size = new System.Drawing.Size(55, 21);
             this.label52.TabIndex = 66;
             this.label52.Text = "Conta:";
             // 
@@ -2313,10 +2313,10 @@ namespace LMFinanciamentos.Apresentacao
             this.tabproduto.Controls.Add(this.btn_limpar_foto);
             this.tabproduto.Controls.Add(this.btn_add_foto);
             this.tabproduto.Controls.Add(this.img_foto);
-            this.tabproduto.Location = new System.Drawing.Point(4, 32);
+            this.tabproduto.Location = new System.Drawing.Point(4, 30);
             this.tabproduto.Name = "tabproduto";
             this.tabproduto.Padding = new System.Windows.Forms.Padding(20);
-            this.tabproduto.Size = new System.Drawing.Size(971, 342);
+            this.tabproduto.Size = new System.Drawing.Size(971, 344);
             this.tabproduto.TabIndex = 3;
             this.tabproduto.Text = "Foto do Cliente";
             this.tabproduto.UseVisualStyleBackColor = true;

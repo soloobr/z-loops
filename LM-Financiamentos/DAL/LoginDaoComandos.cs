@@ -4212,6 +4212,30 @@ namespace LMFinanciamentos.DAL
                     emprrendimento.Id_processo = drclients["id"].ToString();
                     emprrendimento.H_DataStatusAnalise = drclients["DataStatusAnalise"].ToString();
                     emprrendimento.H_DataValidadeStatusAnalise = drclients["DataValidadeStatusAnalise"].ToString();
+                    emprrendimento.Nome_responsavel = drclients["RespAprovacao"].ToString();
+                    string vencimento = Convert.ToDateTime($"{emprrendimento.H_DataValidadeStatusAnalise}").ToString("dd/MM/yyyy");
+                    TimeSpan date = Convert.ToDateTime($"{emprrendimento.H_DataValidadeStatusAnalise}") - DateTime.Now;
+
+                    int totalDias = date.Days;
+                    if (totalDias > 1)
+                    {
+                        emprrendimento.H_DiferencaDayStatus = "Faltam " + totalDias.ToString() + "  Dias";
+                    }
+                    else if (totalDias == 0)
+                    {
+                        emprrendimento.H_DiferencaDayStatus = "Vence Hoje";
+                    }
+                    else if (totalDias == 1)
+                    {
+                        emprrendimento.H_DiferencaDayStatus = "Falta " + totalDias.ToString() + " Dia";
+                    }
+                    else if (totalDias < 0)
+                    {
+                        emprrendimento.H_DiferencaDayStatus = "Analise Vencida";
+                    }
+                    //emprrendimento.H_DiferencaDayStatus = "10";
+
+
                     list.Add(emprrendimento);
                 }
                 drclients.Close();

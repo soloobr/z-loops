@@ -1159,72 +1159,72 @@ namespace LMFinanciamentos.Apresentacao
             if (txtrendacj.Text != "")
             {
                 vl1 = decimal.Parse(txtrendacj.Text.Replace("R$", "").Replace("€", "").Replace("$", "").Replace(" ", "").Replace("00,", ""));
-                //lblrendacj1.Text = txtrendacj.Text;
-                lblrendacj1.Text = FormatCurrency(Convert.ToDouble(vl1));
+                lblrendacj1.Text = txtrendacj.Text;
+                //lblrendacj1.Text = FormatCurrency(Convert.ToDouble(vl1));
                 lblnomecj1.Text = txtnomeconjuge.Text;
             }
             else
             {
                 vl1 = 0;
-                //lblrendacj1.Text = txtrendacj.Text;
-                lblrendacj1.Text = FormatCurrency(Convert.ToDouble(vl1));
+                lblrendacj1.Text = txtrendacj.Text;
+                //lblrendacj1.Text = FormatCurrency(Convert.ToDouble(vl1));
                 lblnomecj1.Text = txtnomeconjuge.Text;
                 
             }
             if (txtrendacli.Text != "")
             {
                 vl2 = decimal.Parse(txtrendacli.Text.Replace("R$", "").Replace("€", "").Replace("$", "").Replace(" ", "").Replace("00,", ""));
-                //lblrendacli.Text = txtrendacli.Text;
-                lblrendacli.Text = FormatCurrency(Convert.ToDouble(vl2)); 
+                lblrendacli.Text = txtrendacli.Text;
+                //lblrendacli.Text = FormatCurrency(Convert.ToDouble(vl2)); 
                 lblnomeclirenda.Text = txtnomecli.Text;
             }
             else
             {
                 vl2 = 0;
-                //lblrendacli.Text = txtrendacli.Text;
-                lblrendacli.Text = FormatCurrency(Convert.ToDouble(vl2));
+                lblrendacli.Text = txtrendacli.Text;
+                //lblrendacli.Text = FormatCurrency(Convert.ToDouble(vl2));
                 lblnomeclirenda.Text = txtnomecli.Text;
             }
             if (txtrendacj1.Text != "")
             {
                 vl3 = decimal.Parse(txtrendacj1.Text.Replace("R$", "").Replace("€", "").Replace("$", "").Replace(" ", "").Replace("00,", ""));
-                //lblrendacj2.Text = txtrendacj1.Text;
-                lblrendacj2.Text = FormatCurrency(Convert.ToDouble(vl3));
+                lblrendacj2.Text = txtrendacj1.Text;
+                //lblrendacj2.Text = FormatCurrency(Convert.ToDouble(vl3));
                 lblnomecj2.Text = txtnomecj1.Text;
             }
             else
             {
                 vl3 = 0;
-                //lblrendacj2.Text = txtrendacj1.Text;
-                lblrendacj2.Text = FormatCurrency(Convert.ToDouble(vl3));
+                lblrendacj2.Text = txtrendacj1.Text;
+                //lblrendacj2.Text = FormatCurrency(Convert.ToDouble(vl3));
                 lblnomecj2.Text = txtnomecj1.Text;
             }
             if (txtrendacj2.Text != "")
             {
                 vl4 = decimal.Parse(txtrendacj2.Text.Replace("R$", "").Replace("€", "").Replace("$", "").Replace(" ", "").Replace("00,", ""));
-                //lblrendacj3.Text = txtrendacj2.Text;
-                lblrendacj3.Text = FormatCurrency(Convert.ToDouble(vl4));
+                lblrendacj3.Text = txtrendacj2.Text;
+                //lblrendacj3.Text = FormatCurrency(Convert.ToDouble(vl4));
                 lblnomecj3.Text = txtnomecj2.Text;
             }
             else
             {
                 vl4 = 0;
-                //lblrendacj3.Text = txtrendacj2.Text;
-                lblrendacj3.Text = FormatCurrency(Convert.ToDouble(vl4));
+                lblrendacj3.Text = txtrendacj2.Text;
+                //lblrendacj3.Text = FormatCurrency(Convert.ToDouble(vl4));
                 lblnomecj3.Text = txtnomecj2.Text;
             }
             if (txtrendacj3.Text != "")
             {
                 vl5 = decimal.Parse(txtrendacj3.Text.Replace("R$", "").Replace("€", "").Replace("$", "").Replace(" ", "").Replace("00,", ""));
-                //lblrendacj4.Text = txtrendacj3.Text;
-                lblrendacj4.Text = FormatCurrency(Convert.ToDouble(vl5));
+                lblrendacj4.Text = txtrendacj3.Text;
+                //lblrendacj4.Text = FormatCurrency(Convert.ToDouble(vl5));
                 lblnomecj4.Text = txtnomecj3.Text;
             }
             else
             {
                 vl5 = 0;
-                //lblrendacj4.Text = txtrendacj3.Text;
-                lblrendacj4.Text = FormatCurrency(Convert.ToDouble(vl5));
+                lblrendacj4.Text = txtrendacj3.Text;
+                //lblrendacj4.Text = FormatCurrency(Convert.ToDouble(vl5));
                 lblnomecj4.Text = txtnomecj3.Text;
             }
 
@@ -1656,8 +1656,8 @@ namespace LMFinanciamentos.Apresentacao
                 }
             }
             valor = txtrendacj2.Text;
-            //txtrendacj2.Text = string.Format("{0:C}", Convert.ToDouble(valor));
-            txtrendacj2.Text = FormatCurrency(Convert.ToDouble(valor));
+            txtrendacj2.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            //txtrendacj2.Text = FormatCurrency(Convert.ToDouble(valor));
             txtrendacj2.Select(txtrendacj2.Text.Length, 0);
             #endregion
 
@@ -1744,8 +1744,8 @@ namespace LMFinanciamentos.Apresentacao
                 }
             }
             valor = txtrendacj3.Text;
-            //txtrendacj3.Text = string.Format("{0:C}", Convert.ToDouble(valor));
-            txtrendacj3.Text = FormatCurrency(Convert.ToDouble(valor));
+            txtrendacj3.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            //txtrendacj3.Text = FormatCurrency(Convert.ToDouble(valor));
             txtrendacj3.Select(txtrendacj3.Text.Length, 0);
             #endregion
 
