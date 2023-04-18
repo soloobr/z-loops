@@ -36,8 +36,8 @@ namespace LMFinanciamentos.Apresentacao
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Dados_Cliente));
             this.panelcentralcadcli = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -334,8 +334,8 @@ namespace LMFinanciamentos.Apresentacao
             this.dgproc.Name = "dgproc";
             this.dgproc.ReadOnly = true;
             this.dgproc.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dgproc.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dgproc.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgproc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgproc.Size = new System.Drawing.Size(412, 113);
             this.dgproc.TabIndex = 1;
@@ -347,9 +347,9 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.idProc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.idProc.DataPropertyName = "id";
-            dataGridViewCellStyle1.Format = "0000";
-            dataGridViewCellStyle1.NullValue = null;
-            this.idProc.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Format = "0000";
+            dataGridViewCellStyle7.NullValue = null;
+            this.idProc.DefaultCellStyle = dataGridViewCellStyle7;
             this.idProc.HeaderText = "Nº Processo";
             this.idProc.Name = "idProc";
             this.idProc.ReadOnly = true;
@@ -2944,6 +2944,7 @@ namespace LMFinanciamentos.Apresentacao
             this.paneltop.Padding = new System.Windows.Forms.Padding(4);
             this.paneltop.Size = new System.Drawing.Size(1022, 57);
             this.paneltop.TabIndex = 6;
+            this.paneltop.Paint += new System.Windows.Forms.PaintEventHandler(this.paneltop_Paint);
             // 
             // lbl_topo
             // 

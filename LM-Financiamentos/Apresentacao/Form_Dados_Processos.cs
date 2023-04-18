@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Net;
 using System.Windows.Forms;
@@ -296,11 +297,15 @@ namespace LMFinanciamentos.Apresentacao
             if (String.IsNullOrEmpty(process.RendaBruta_cliente) || process.RendaBruta_cliente == "0")
             {
                 txtrenda.Text = process.Renda_cliente;
+                valor = txtrenda.Text;
+                txtrenda.Text = FormatCurrency(Convert.ToDouble(valor));
 
             }
             else
             {
                 txtrenda.Text = process.RendaBruta_cliente;
+                valor = txtrenda.Text;
+                txtrenda.Text = FormatCurrency(Convert.ToDouble(valor));
                 lblrentabruta.Text = lblrentabruta.Text + " + renda Cônjuges";
             }
             SetValor(txtrenda);
@@ -999,6 +1004,13 @@ namespace LMFinanciamentos.Apresentacao
 
             #endregion
             Cursor = Cursors.Default;
+        }
+        public string FormatCurrency(double valor)
+        {
+            CultureInfo cultura = new CultureInfo("pt-BR");
+            NumberFormatInfo formatoMoeda = cultura.NumberFormat;
+            formatoMoeda.CurrencySymbol = "R$";
+            return valor.ToString("C", formatoMoeda);
         }
         private void SetComboValidadeAnalise(string valor, string data)
         {

@@ -1,12 +1,15 @@
 ﻿using LMFinanciamentos.DAL;
 using LMFinanciamentos.Entidades;
 using LMFinanciamentos.Modelo;
+using MySqlX.XDevAPI.Common;
 using System;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
+using System.Globalization;
 using System.IO;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace LMFinanciamentos.Apresentacao
@@ -35,6 +38,8 @@ namespace LMFinanciamentos.Apresentacao
 
         public Form_Dados_Cliente()
         {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-BR");
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("pt-BR");
             InitializeComponent();
         }
         public void setIdCliente(string idcliente)
@@ -78,7 +83,7 @@ namespace LMFinanciamentos.Apresentacao
 
         private void txtrendacli_KeyUp(object sender, KeyEventArgs e)
         {
-            valor = txtrendacli.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+            valor = txtrendacli.Text.Replace("R$", "").Replace("€", "").Replace("$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
             if (valor.Length == 0)
             {
                 txtrendacli.Text = "0,00" + valor;
@@ -107,14 +112,36 @@ namespace LMFinanciamentos.Apresentacao
                 }
             }
             valor = txtrendacli.Text;
-            txtrendacli.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            //trendacli.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+
+            double valor1 = Convert.ToDouble(valor);
+            CultureInfo cultura = new CultureInfo("pt-BR");
+            NumberFormatInfo formatoMoeda = cultura.NumberFormat;
+            formatoMoeda.CurrencySymbol = "R$";
+            formatoMoeda.CurrencyDecimalSeparator = ",";
+            formatoMoeda.CurrencyGroupSeparator = ".";
+            txtrendacli.Text = valor1.ToString("C", formatoMoeda);
+            
+            
             txtrendacli.Select(txtrendacli.Text.Length, 0);
         }
 
         private void txtrendacli_Leave(object sender, EventArgs e)
         {
-            valor = txtrendacli.Text.Replace("R$", "");
-            txtrendacli.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            valor = txtrendacli.Text.Replace("R$", "").Replace("€", "").Replace("$", "");
+            //txtrendacli.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+
+            double valor1 = Convert.ToDouble(valor);
+            CultureInfo cultura = new CultureInfo("pt-BR");
+            NumberFormatInfo formatoMoeda = cultura.NumberFormat;
+            formatoMoeda.CurrencySymbol = "R$";
+            formatoMoeda.CurrencyDecimalSeparator = ",";
+            formatoMoeda.CurrencyGroupSeparator = ".";
+            txtrendacli.Text = valor1.ToString("C", formatoMoeda);
+
+
+            txtrendacli.Select(txtrendacli.Text.Length, 0);
+
         }
         private void btn_salvar_Click(object sender, EventArgs e)
         {
@@ -1024,7 +1051,14 @@ namespace LMFinanciamentos.Apresentacao
                 lblrendabruta.Visible = true;
                 txtrendatotal.Visible = true;
 
-                txtrendatotal.Text = string.Format("{0:C}", Convert.ToDouble(SomaRenda().ToString()));
+                //txtrendatotal.Text = string.Format("{0:C}", Convert.ToDouble(SomaRenda().ToString()));
+                double valor1 = Convert.ToDouble(SomaRenda().ToString());
+                CultureInfo cultura = new CultureInfo("pt-BR");
+                NumberFormatInfo formatoMoeda = cultura.NumberFormat;
+                formatoMoeda.CurrencySymbol = "R$";
+                formatoMoeda.CurrencyDecimalSeparator = ",";
+                formatoMoeda.CurrencyGroupSeparator = ".";
+                txtrendatotal.Text = valor1.ToString("C", formatoMoeda);
 
                 btbsalvarcj.Visible = false;
                 btncancelcj.Visible = false;
@@ -1045,7 +1079,14 @@ namespace LMFinanciamentos.Apresentacao
                 lblrendabruta.Visible = true;
                 txtrendatotal.Visible = true;
 
-                txtrendatotal.Text = string.Format("{0:C}", Convert.ToDouble(SomaRenda().ToString()));
+                //txtrendatotal.Text = string.Format("{0:C}", Convert.ToDouble(SomaRenda().ToString()));
+                double valor1 = Convert.ToDouble(SomaRenda().ToString());
+                CultureInfo cultura = new CultureInfo("pt-BR");
+                NumberFormatInfo formatoMoeda = cultura.NumberFormat;
+                formatoMoeda.CurrencySymbol = "R$";
+                formatoMoeda.CurrencyDecimalSeparator = ",";
+                formatoMoeda.CurrencyGroupSeparator = ".";
+                txtrendatotal.Text = valor1.ToString("C", formatoMoeda);
 
                 btnsalvarcj1.Visible = false;
                 btncancelcj1.Visible = false;
@@ -1066,7 +1107,15 @@ namespace LMFinanciamentos.Apresentacao
                 lblrendabruta.Visible = true;
                 txtrendatotal.Visible = true;
 
-                txtrendatotal.Text = string.Format("{0:C}", Convert.ToDouble(SomaRenda().ToString()));
+                //txtrendatotal.Text = string.Format("{0:C}", Convert.ToDouble(SomaRenda().ToString()));
+
+                double valor1 = Convert.ToDouble(SomaRenda().ToString());
+                CultureInfo cultura = new CultureInfo("pt-BR");
+                NumberFormatInfo formatoMoeda = cultura.NumberFormat;
+                formatoMoeda.CurrencySymbol = "R$";
+                formatoMoeda.CurrencyDecimalSeparator = ",";
+                formatoMoeda.CurrencyGroupSeparator = ".";
+                txtrendatotal.Text = valor1.ToString("C", formatoMoeda);
 
                 btnsalvarcj2.Visible = false;
                 btncancelcj2.Visible = false;
@@ -1086,7 +1135,15 @@ namespace LMFinanciamentos.Apresentacao
 
                 lblrendabruta.Visible = true;
                 txtrendatotal.Visible = true;
-                txtrendatotal.Text = string.Format("{0:C}", Convert.ToDouble(SomaRenda().ToString()));
+                //txtrendatotal.Text = string.Format("{0:C}", Convert.ToDouble(SomaRenda().ToString()));
+
+                double valor1 = Convert.ToDouble(SomaRenda().ToString());
+                CultureInfo cultura = new CultureInfo("pt-BR");
+                NumberFormatInfo formatoMoeda = cultura.NumberFormat;
+                formatoMoeda.CurrencySymbol = "R$";
+                formatoMoeda.CurrencyDecimalSeparator = ",";
+                formatoMoeda.CurrencyGroupSeparator = ".";
+                txtrendatotal.Text = valor1.ToString("C", formatoMoeda);
 
                 btnsalvarcj3.Visible = false;
                 btncancelcj3.Visible = false;
@@ -1101,79 +1158,108 @@ namespace LMFinanciamentos.Apresentacao
             decimal vl1, vl2, vl3, vl4, vl5, result;
             if (txtrendacj.Text != "")
             {
-                vl1 = decimal.Parse(txtrendacj.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
-                lblrendacj1.Text = txtrendacj.Text;
+                vl1 = decimal.Parse(txtrendacj.Text.Replace("R$", "").Replace("€", "").Replace("$", "").Replace(" ", "").Replace("00,", ""));
+                //lblrendacj1.Text = txtrendacj.Text;
+                lblrendacj1.Text = FormatCurrency(Convert.ToDouble(vl1));
                 lblnomecj1.Text = txtnomeconjuge.Text;
             }
             else
             {
-                lblrendacj1.Text = txtrendacj.Text;
-                lblnomecj1.Text = txtnomeconjuge.Text;
                 vl1 = 0;
+                //lblrendacj1.Text = txtrendacj.Text;
+                lblrendacj1.Text = FormatCurrency(Convert.ToDouble(vl1));
+                lblnomecj1.Text = txtnomeconjuge.Text;
+                
             }
             if (txtrendacli.Text != "")
             {
-                vl2 = decimal.Parse(txtrendacli.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
-                lblrendacli.Text = txtrendacli.Text;
+                vl2 = decimal.Parse(txtrendacli.Text.Replace("R$", "").Replace("€", "").Replace("$", "").Replace(" ", "").Replace("00,", ""));
+                //lblrendacli.Text = txtrendacli.Text;
+                lblrendacli.Text = FormatCurrency(Convert.ToDouble(vl2)); 
                 lblnomeclirenda.Text = txtnomecli.Text;
             }
             else
             {
                 vl2 = 0;
-                lblrendacli.Text = txtrendacli.Text;
+                //lblrendacli.Text = txtrendacli.Text;
+                lblrendacli.Text = FormatCurrency(Convert.ToDouble(vl2));
                 lblnomeclirenda.Text = txtnomecli.Text;
             }
             if (txtrendacj1.Text != "")
             {
-                vl3 = decimal.Parse(txtrendacj1.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
-                lblrendacj2.Text = txtrendacj1.Text;
+                vl3 = decimal.Parse(txtrendacj1.Text.Replace("R$", "").Replace("€", "").Replace("$", "").Replace(" ", "").Replace("00,", ""));
+                //lblrendacj2.Text = txtrendacj1.Text;
+                lblrendacj2.Text = FormatCurrency(Convert.ToDouble(vl3));
                 lblnomecj2.Text = txtnomecj1.Text;
             }
             else
             {
                 vl3 = 0;
-                lblrendacj2.Text = txtrendacj1.Text;
+                //lblrendacj2.Text = txtrendacj1.Text;
+                lblrendacj2.Text = FormatCurrency(Convert.ToDouble(vl3));
                 lblnomecj2.Text = txtnomecj1.Text;
             }
             if (txtrendacj2.Text != "")
             {
-                vl4 = decimal.Parse(txtrendacj2.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
-                lblrendacj3.Text = txtrendacj2.Text;
+                vl4 = decimal.Parse(txtrendacj2.Text.Replace("R$", "").Replace("€", "").Replace("$", "").Replace(" ", "").Replace("00,", ""));
+                //lblrendacj3.Text = txtrendacj2.Text;
+                lblrendacj3.Text = FormatCurrency(Convert.ToDouble(vl4));
                 lblnomecj3.Text = txtnomecj2.Text;
             }
             else
             {
                 vl4 = 0;
-                lblrendacj3.Text = txtrendacj2.Text;
+                //lblrendacj3.Text = txtrendacj2.Text;
+                lblrendacj3.Text = FormatCurrency(Convert.ToDouble(vl4));
                 lblnomecj3.Text = txtnomecj2.Text;
             }
             if (txtrendacj3.Text != "")
             {
-                vl5 = decimal.Parse(txtrendacj3.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
-                lblrendacj4.Text = txtrendacj3.Text;
+                vl5 = decimal.Parse(txtrendacj3.Text.Replace("R$", "").Replace("€", "").Replace("$", "").Replace(" ", "").Replace("00,", ""));
+                //lblrendacj4.Text = txtrendacj3.Text;
+                lblrendacj4.Text = FormatCurrency(Convert.ToDouble(vl5));
                 lblnomecj4.Text = txtnomecj3.Text;
             }
             else
             {
                 vl5 = 0;
-                lblrendacj4.Text = txtrendacj3.Text;
+                //lblrendacj4.Text = txtrendacj3.Text;
+                lblrendacj4.Text = FormatCurrency(Convert.ToDouble(vl5));
                 lblnomecj4.Text = txtnomecj3.Text;
             }
 
             result = vl1 + vl2 + vl3 + vl4 + vl5;
 
 
-            txtrendatotal.Text = string.Format("{0:C}", Convert.ToDouble(result.ToString()));
+            //txtrendatotal.Text = string.Format("{0:C}", Convert.ToDouble(result.ToString()));
+
+            double valor1 = Convert.ToDouble(result.ToString());
+            CultureInfo cultura = new CultureInfo("pt-BR");
+            NumberFormatInfo formatoMoeda = cultura.NumberFormat;
+            formatoMoeda.CurrencySymbol = "R$";
+            formatoMoeda.CurrencyDecimalSeparator = ",";
+            formatoMoeda.CurrencyGroupSeparator = ".";
+            txtrendatotal.Text = valor1.ToString("C", formatoMoeda);
+            
+
+
             btn_salvar.Select();
 
             return result;
         }
+        public string FormatCurrency(double valor)
+        {
+            CultureInfo cultura = new CultureInfo("pt-BR");
+            NumberFormatInfo formatoMoeda = cultura.NumberFormat;
+            formatoMoeda.CurrencySymbol = "R$";
+            return valor.ToString("C", formatoMoeda);
+        }
         public decimal SomaRendaConjuges()
         {
-            decimal vl1, vl3, vl4, vl5, result;
+            decimal vl1, vl3, vl4, vl5, result,vlrenda;
             if (txtrendacj.Text != "")
             {
-                vl1 = decimal.Parse(txtrendacj.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
+                vl1 = decimal.Parse(txtrendacj.Text.Replace("R$", "").Replace("€", "").Replace("$", "").Replace(" ", "").Replace("00,", ""));
             }
             else
             {
@@ -1182,7 +1268,7 @@ namespace LMFinanciamentos.Apresentacao
 
             if (txtrendacj1.Text != "")
             {
-                vl3 = decimal.Parse(txtrendacj1.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
+                vl3 = decimal.Parse(txtrendacj1.Text.Replace("R$", "").Replace("€", "").Replace("$", "").Replace(" ", "").Replace("00,", ""));
 
             }
             else
@@ -1191,7 +1277,7 @@ namespace LMFinanciamentos.Apresentacao
             }
             if (txtrendacj2.Text != "")
             {
-                vl4 = decimal.Parse(txtrendacj2.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
+                vl4 = decimal.Parse(txtrendacj2.Text.Replace("R$", "").Replace("€", "").Replace("$", "").Replace(" ", "").Replace("00,", ""));
             }
             else
             {
@@ -1199,7 +1285,7 @@ namespace LMFinanciamentos.Apresentacao
             }
             if (txtrendacj3.Text != "")
             {
-                vl5 = decimal.Parse(txtrendacj3.Text.Replace("R$", "").Replace(" ", "").Replace("00,", ""));
+                vl5 = decimal.Parse(txtrendacj3.Text.Replace("R$", "").Replace("€", "").Replace("$", "").Replace(" ", "").Replace("00,", ""));
             }
             else
             {
@@ -1215,6 +1301,7 @@ namespace LMFinanciamentos.Apresentacao
         }
         public void LoadDadosCliente()
         {
+            decimal vlrenda;
             Cursor = Cursors.WaitCursor;
             Cliente cliente = null;
 
@@ -1229,6 +1316,23 @@ namespace LMFinanciamentos.Apresentacao
             txttelefone.Text = cliente.Telefone_cliente;
             txtcelular.Text = cliente.Celular_cliente;
             txtrendacli.Text = cliente.Renda_cliente;
+
+            //Double valor1 = Convert.ToDouble(cliente.Renda_cliente.Replace("R$", "").Replace("€", "").Replace("$", "").Replace(" ", "").Replace("00,", ""));
+            //txtrendacli.Text = cliente.Renda_cliente;
+            //var valor1 = Convert.ToDouble(valor);
+            txtrendacli.Text = (txtrendacli.Text.Replace("R$", "").Replace("€", "").Replace("$", "").Replace(" ", "").Replace("00,", ""));
+            //txtrendacli.Text = FormatCurrency(Convert.ToDouble(txtrendacli.Text));
+            txtrendacli.Select(txtrendacli.Text.Length, 0);
+
+
+            //double valor1 = Convert.ToDouble(cliente.Renda_cliente.Replace("R$",""));
+            //CultureInfo cultura = new CultureInfo("pt-BR");
+            //NumberFormatInfo formatoMoeda = cultura.NumberFormat;
+            //formatoMoeda.CurrencySymbol = "R$";
+            //formatoMoeda.CurrencyDecimalSeparator = ",";
+            //formatoMoeda.CurrencyGroupSeparator = ".";
+            //txtrendacli.Text = valor1.ToString("C", formatoMoeda);
+
             txtagenciacliente.Text = cliente.Agencia_cliente;
             txtcontacliente.Text = cliente.Conta_cliente;
             txtobservacoes.Text = cliente.OBS_cliente;
@@ -1258,7 +1362,7 @@ namespace LMFinanciamentos.Apresentacao
                 checkBox_status.Checked = false;
             }
             #region Valor Renda Cliente
-            valor = txtrendacli.Text.Replace("R$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
+            valor = txtrendacli.Text.Replace("R$", "").Replace("€", "").Replace("$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
             if (valor.Length == 0)
             {
                 txtrendacli.Text = "0,00" + valor;
@@ -1287,7 +1391,8 @@ namespace LMFinanciamentos.Apresentacao
                 }
             }
             valor = txtrendacli.Text;
-            txtrendacli.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            //txtrendacli.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            txtrendacli.Text = FormatCurrency(Convert.ToDouble(valor));
             txtrendacli.Select(txtrendacli.Text.Length, 0);
             #endregion
 
@@ -1375,7 +1480,8 @@ namespace LMFinanciamentos.Apresentacao
                 }
             }
             valor = txtrendacj.Text;
-            txtrendacj.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            //txtrendacj.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            txtrendacj.Text = FormatCurrency(Convert.ToDouble(valor));
             txtrendacj.Select(txtrendacj.Text.Length, 0);
             #endregion
 
@@ -1462,7 +1568,8 @@ namespace LMFinanciamentos.Apresentacao
                 }
             }
             valor = txtrendacj1.Text;
-            txtrendacj1.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            //txtrendacj1.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            txtrendacj1.Text = FormatCurrency(Convert.ToDouble(valor));
             txtrendacj1.Select(txtrendacj1.Text.Length, 0);
             #endregion
 
@@ -1549,7 +1656,8 @@ namespace LMFinanciamentos.Apresentacao
                 }
             }
             valor = txtrendacj2.Text;
-            txtrendacj2.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            //txtrendacj2.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            txtrendacj2.Text = FormatCurrency(Convert.ToDouble(valor));
             txtrendacj2.Select(txtrendacj2.Text.Length, 0);
             #endregion
 
@@ -1636,7 +1744,8 @@ namespace LMFinanciamentos.Apresentacao
                 }
             }
             valor = txtrendacj3.Text;
-            txtrendacj3.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            //txtrendacj3.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            txtrendacj3.Text = FormatCurrency(Convert.ToDouble(valor));
             txtrendacj3.Select(txtrendacj3.Text.Length, 0);
             #endregion
 
@@ -1902,7 +2011,8 @@ namespace LMFinanciamentos.Apresentacao
                 }
             }
             valor = txtrendacj.Text;
-            txtrendacj.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            //txtrendacj.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            txtrendacj.Text = FormatCurrency(Convert.ToDouble(valor));
             txtrendacj.Select(txtrendacj.Text.Length, 0);
         }
 
@@ -1937,7 +2047,8 @@ namespace LMFinanciamentos.Apresentacao
                 }
             }
             valor = txtrendacj1.Text;
-            txtrendacj1.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            //txtrendacj1.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            txtrendacj1.Text = FormatCurrency(Convert.ToDouble(valor));
             txtrendacj1.Select(txtrendacj1.Text.Length, 0);
         }
 
@@ -1972,7 +2083,8 @@ namespace LMFinanciamentos.Apresentacao
                 }
             }
             valor = txtrendacj2.Text;
-            txtrendacj2.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            //txtrendacj2.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            txtrendacj2.Text = FormatCurrency(Convert.ToDouble(valor));
             txtrendacj2.Select(txtrendacj2.Text.Length, 0);
         }
 
@@ -2007,32 +2119,37 @@ namespace LMFinanciamentos.Apresentacao
                 }
             }
             valor = txtrendacj3.Text;
-            txtrendacj3.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            //txtrendacj3.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            txtrendacj3.Text = FormatCurrency(Convert.ToDouble(valor));
             txtrendacj3.Select(txtrendacj3.Text.Length, 0);
         }
 
         private void txtrendacj_Leave(object sender, EventArgs e)
         {
             valor = txtrendacj.Text.Replace("R$", "");
-            txtrendacj.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            //txtrendacj.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            txtrendacj.Text = FormatCurrency(Convert.ToDouble(valor));
         }
 
         private void txtrendacj1_Leave(object sender, EventArgs e)
         {
             valor = txtrendacj1.Text.Replace("R$", "");
-            txtrendacj1.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            //txtrendacj1.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            txtrendacj1.Text = FormatCurrency(Convert.ToDouble(valor));
         }
 
         private void txtrendacj2_Leave(object sender, EventArgs e)
         {
             valor = txtrendacj2.Text.Replace("R$", "");
-            txtrendacj2.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            //txtrendacj2.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            txtrendacj2.Text = FormatCurrency(Convert.ToDouble(valor));
         }
 
         private void txtrendacj3_Leave(object sender, EventArgs e)
         {
             valor = txtrendacj3.Text.Replace("R$", "");
-            txtrendacj3.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            //txtrendacj3.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            txtrendacj3.Text = FormatCurrency(Convert.ToDouble(valor));
         }
 
         private void txtcpf_KeyUp_1(object sender, KeyEventArgs e)
@@ -2304,7 +2421,8 @@ namespace LMFinanciamentos.Apresentacao
                     }
                 }
                 valor = txtrendacj.Text;
-                txtrendacj.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+                //txtrendacj.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+                txtrendacj.Text = FormatCurrency(Convert.ToDouble(valor));
                 txtrendacj.Select(txtrendacj.Text.Length, 0);
                 #endregion
                 txtnomeconjuge.Select();
@@ -2350,7 +2468,8 @@ namespace LMFinanciamentos.Apresentacao
                     }
                 }
                 valor = txtrendacj1.Text;
-                txtrendacj1.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+                //txtrendacj1.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+                txtrendacj1.Text = FormatCurrency(Convert.ToDouble(valor));
                 txtrendacj1.Select(txtrendacj1.Text.Length, 0);
                 #endregion
                 txtnomecj1.Select();
@@ -2394,7 +2513,8 @@ namespace LMFinanciamentos.Apresentacao
                     }
                 }
                 valor = txtrendacj2.Text;
-                txtrendacj2.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+                //txtrendacj2.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+                txtrendacj2.Text = FormatCurrency(Convert.ToDouble(valor));
                 txtrendacj2.Select(txtrendacj2.Text.Length, 0);
                 #endregion
                 txtnomecj2.Select();
@@ -2439,7 +2559,8 @@ namespace LMFinanciamentos.Apresentacao
                     }
                 }
                 valor = txtrendacj3.Text;
-                txtrendacj3.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+                //txtrendacj3.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+                txtrendacj3.Text = FormatCurrency(Convert.ToDouble(valor));
                 txtrendacj3.Select(txtrendacj3.Text.Length, 0);
                 #endregion
                 txtnomecj3.Select();
@@ -3558,6 +3679,11 @@ namespace LMFinanciamentos.Apresentacao
             {
                 SendKeys.Send("{TAB}");
             }
+        }
+
+        private void paneltop_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         private void btncancelcj2_Click(object sender, EventArgs e)

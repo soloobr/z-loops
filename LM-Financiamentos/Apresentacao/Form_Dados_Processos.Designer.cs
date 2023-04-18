@@ -31,18 +31,20 @@ namespace LMFinanciamentos.Apresentacao
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Dados_Processos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.processosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dSDocumentosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dS_Documentos = new LMFinanciamentos.DAL.DS_Documentos();
             this.lbl_topo = new System.Windows.Forms.Label();
             this.paneltop = new System.Windows.Forms.Panel();
             this.lblnumeroprocesso = new System.Windows.Forms.Label();
@@ -268,6 +270,8 @@ namespace LMFinanciamentos.Apresentacao
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
             this.clientesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.dSClientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dS_Clientes = new LMFinanciamentos.DAL.DS_Clientes();
             this.kryptonContextMenuItems1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.kryptonContextMenuItems2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
@@ -282,15 +286,13 @@ namespace LMFinanciamentos.Apresentacao
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.funcionariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolTip_btn = new System.Windows.Forms.ToolTip(this.components);
-            this.dSDocumentosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dS_Documentos = new LMFinanciamentos.DAL.DS_Documentos();
-            this.dSClientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dS_Clientes = new LMFinanciamentos.DAL.DS_Clientes();
             this.processosTableAdapter = new LMFinanciamentos.DAL.DS_DocumentosTableAdapters.ProcessosTableAdapter();
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientesTableAdapter = new LMFinanciamentos.DAL.DS_ClientesTableAdapters.ClientesTableAdapter();
             this.clientesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.processosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSDocumentosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS_Documentos)).BeginInit();
             this.paneltop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).BeginInit();
             this.panel1.SuspendLayout();
@@ -367,12 +369,10 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel10.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource2)).BeginInit();
-            this.panelfuncresp.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSDocumentosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS_Documentos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSClientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS_Clientes)).BeginInit();
+            this.panelfuncresp.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -381,6 +381,16 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.processosBindingSource.DataMember = "Processos";
             this.processosBindingSource.DataSource = this.dSDocumentosBindingSource;
+            // 
+            // dSDocumentosBindingSource
+            // 
+            this.dSDocumentosBindingSource.DataSource = this.dS_Documentos;
+            this.dSDocumentosBindingSource.Position = 0;
+            // 
+            // dS_Documentos
+            // 
+            this.dS_Documentos.DataSetName = "DS_Documentos";
+            this.dS_Documentos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // lbl_topo
             // 
@@ -2643,14 +2653,14 @@ namespace LMFinanciamentos.Apresentacao
             this.dataGridViewHistoricoCartorio.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewHistoricoCartorio.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewHistoricoCartorio.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewHistoricoCartorio.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewHistoricoCartorio.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewHistoricoCartorio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewHistoricoCartorio.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -2666,14 +2676,14 @@ namespace LMFinanciamentos.Apresentacao
             this.dataGridViewHistoricoCartorio.Name = "dataGridViewHistoricoCartorio";
             this.dataGridViewHistoricoCartorio.ReadOnly = true;
             this.dataGridViewHistoricoCartorio.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewHistoricoCartorio.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewHistoricoCartorio.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewHistoricoCartorio.RowHeadersVisible = false;
             this.dataGridViewHistoricoCartorio.RowTemplate.ReadOnly = true;
             this.dataGridViewHistoricoCartorio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -2709,9 +2719,9 @@ namespace LMFinanciamentos.Apresentacao
             // Data_H
             // 
             this.Data_H.DataPropertyName = "data";
-            dataGridViewCellStyle13.Format = "G";
-            dataGridViewCellStyle13.NullValue = null;
-            this.Data_H.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle2.Format = "G";
+            dataGridViewCellStyle2.NullValue = null;
+            this.Data_H.DefaultCellStyle = dataGridViewCellStyle2;
             this.Data_H.HeaderText = "Data";
             this.Data_H.Name = "Data_H";
             this.Data_H.ReadOnly = true;
@@ -3010,14 +3020,14 @@ namespace LMFinanciamentos.Apresentacao
             this.Extensao,
             this.Selecionar,
             this.Referencia});
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_Arquivos.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_Arquivos.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView_Arquivos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_Arquivos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView_Arquivos.Enabled = false;
@@ -3039,9 +3049,9 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.Numero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Numero.DataPropertyName = "id";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.NullValue = "0";
-            this.Numero.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.NullValue = "0";
+            this.Numero.DefaultCellStyle = dataGridViewCellStyle4;
             this.Numero.Frozen = true;
             this.Numero.HeaderText = "Nº";
             this.Numero.Name = "Numero";
@@ -3052,8 +3062,8 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.Tipo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             this.Tipo.DataPropertyName = "Tipo";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Tipo.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Tipo.DefaultCellStyle = dataGridViewCellStyle5;
             this.Tipo.Frozen = true;
             this.Tipo.HeaderText = "Tipo";
             this.Tipo.MinimumWidth = 250;
@@ -3065,8 +3075,8 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.descricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.descricao.DataPropertyName = "Descricao";
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.descricao.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.descricao.DefaultCellStyle = dataGridViewCellStyle6;
             this.descricao.Frozen = true;
             this.descricao.HeaderText = "Descrição";
             this.descricao.Name = "descricao";
@@ -3076,8 +3086,8 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.data.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.data.DataPropertyName = "Data";
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.data.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.data.DefaultCellStyle = dataGridViewCellStyle7;
             this.data.Frozen = true;
             this.data.HeaderText = "Data";
             this.data.Name = "data";
@@ -3086,8 +3096,8 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.status.DataPropertyName = "Status";
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.status.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.status.DefaultCellStyle = dataGridViewCellStyle8;
             this.status.Frozen = true;
             this.status.HeaderText = "Status";
             this.status.Name = "status";
@@ -3096,9 +3106,9 @@ namespace LMFinanciamentos.Apresentacao
             // apagar
             // 
             this.apagar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.Padding = new System.Windows.Forms.Padding(1);
-            this.apagar.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(1);
+            this.apagar.DefaultCellStyle = dataGridViewCellStyle9;
             this.apagar.FillWeight = 30F;
             this.apagar.Frozen = true;
             this.apagar.HeaderText = "Excluir";
@@ -3111,9 +3121,9 @@ namespace LMFinanciamentos.Apresentacao
             // Baixar
             // 
             this.Baixar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle21.Padding = new System.Windows.Forms.Padding(1);
-            this.Baixar.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(1);
+            this.Baixar.DefaultCellStyle = dataGridViewCellStyle10;
             this.Baixar.FillWeight = 30F;
             this.Baixar.Frozen = true;
             this.Baixar.HeaderText = "Baixar";
@@ -3393,6 +3403,16 @@ namespace LMFinanciamentos.Apresentacao
             this.clientesBindingSource2.DataMember = "Clientes";
             this.clientesBindingSource2.DataSource = this.dSClientesBindingSource;
             // 
+            // dSClientesBindingSource
+            // 
+            this.dSClientesBindingSource.DataSource = this.dS_Clientes;
+            this.dSClientesBindingSource.Position = 0;
+            // 
+            // dS_Clientes
+            // 
+            this.dS_Clientes.DataSetName = "DS_Clientes";
+            this.dS_Clientes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // panelfuncresp
             // 
             this.panelfuncresp.Controls.Add(this.lblfunc);
@@ -3495,26 +3515,6 @@ namespace LMFinanciamentos.Apresentacao
             // 
             this.toolTip_btn.ToolTipTitle = "Alterar Responsável";
             // 
-            // dSDocumentosBindingSource
-            // 
-            this.dSDocumentosBindingSource.DataSource = this.dS_Documentos;
-            this.dSDocumentosBindingSource.Position = 0;
-            // 
-            // dS_Documentos
-            // 
-            this.dS_Documentos.DataSetName = "DS_Documentos";
-            this.dS_Documentos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dSClientesBindingSource
-            // 
-            this.dSClientesBindingSource.DataSource = this.dS_Clientes;
-            this.dSClientesBindingSource.Position = 0;
-            // 
-            // dS_Clientes
-            // 
-            this.dS_Clientes.DataSetName = "DS_Clientes";
-            this.dS_Clientes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // processosTableAdapter
             // 
             this.processosTableAdapter.ClearBeforeFill = true;
@@ -3552,6 +3552,8 @@ namespace LMFinanciamentos.Apresentacao
             this.Shown += new System.EventHandler(this.Form_Dados_Processos_Shown);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form_Dados_Documentos_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.processosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSDocumentosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS_Documentos)).EndInit();
             this.paneltop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.img_topo)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -3666,13 +3668,11 @@ namespace LMFinanciamentos.Apresentacao
             this.tableLayoutPanel10.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSClientesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS_Clientes)).EndInit();
             this.panelfuncresp.ResumeLayout(false);
             this.panelfuncresp.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSDocumentosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS_Documentos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSClientesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS_Clientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).EndInit();
             this.ResumeLayout(false);
