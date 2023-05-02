@@ -295,7 +295,7 @@ namespace LMFinanciamentos.Apresentacao
             {
                 //txtrenda.Text = process.Renda_cliente;
                 //txtrenda.Text = String.Format("{0:C2}",process.Renda_cliente);
-                valor = txtrenda.Text;
+                valor = process.RendaBruta_cliente;
                 txtrenda.Text = FormatCurrency(Convert.ToDouble(valor));
 
             }
