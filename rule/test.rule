@@ -1,0 +1,39 @@
+# ------------------------
+# Simple transforms
+# ------------------------
+l       # lowercase
+u       # uppercase
+c       # capitalize (First upper, rest lower)
+t       # toggle case (swap case)
+
+# ------------------------
+# Prepend / append
+# ------------------------
+^admin  # prepend "admin"
+$123    # append "123"
+
+# ------------------------
+# Rotate / duplicate / reverse
+# ------------------------
+o       # rotate left 1
+O       # rotate right 1
+r       # reverse
+d       # duplicate (xx)
+
+# ------------------------
+# Delete first / last
+# ------------------------
+D       # delete first char
+x       # delete last char
+
+# ------------------------
+# Substitutions
+# ------------------------
+sso:$           # single-char: s -> $
+S/ss/$/         # multi-char: "ss" -> "$"
+S|Adli|AdliXSec|# multi-char with delimiter |, Adli -> AdliXSec
+
+# ------------------------
+# Combined examples (multi-step in one line)
+# ------------------------
+^Adli$123l      # prepend Adli, append 123, then lowercase

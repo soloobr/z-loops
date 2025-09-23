@@ -1,0 +1,6 @@
+[!] Benchmark Report
+    Workers   : 12
+    Trials    : 180
+    Waktu     : 0.03 detik
+    Kecepatan : 6155.67 hash/sec
+[OK] Password 498a40d71b97901fa3831d531ff3d60f ditemukan: ad#4n (hash type: md5)
