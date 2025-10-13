@@ -70,7 +70,7 @@ namespace LMFinanciamentos.DAL
         {
             cmd.CommandText = "SELECT P.id as idpross, P.idresponsavel as idresponsavel, P.Data as Data, P.Observacao as Observacao , ValorImovel, ValorFinanciado, P.StatusCPF as StatusCPF, P.StatusCiweb as StatusCiweb, P.StatusCadmut as StatusCadmut, P.StatusIR as StatusIR, P.StatusFGTS as StatusFGTS,  " +
                 "P.StatusAnalise as	StatusAnalise, P.RespAprovacao as RespAprovacao, P.StatusEng as StatusEng, P.SaqueFGTS as SaqueFGTS, P.SIOPI as SIOPI, P.SICTD as SICTD, P.StatusPA as StatusPA, P.StatusCartorio as StatusCartorio, " +
-                "clientes.id as idCliente, clientes.Nome as clinome, clientes.Email as EmailCli,  clientes.Telefone as Telefonecli , clientes.Celular as celularcli, clientes.CPF as cpfcli, clientes.RG as rgcli, conta.Agencia as agenciacli, conta.Conta as contacli, clientes.Nascimento as Nascimento, clientes.Renda as rendacli, clientes.RendaBruta as rendabruta, " +
+                "clientes.id as idCliente, clientes.Nome as clinome, clientes.Email as EmailCli,  clientes.Telefone as Telefonecli , clientes.Celular as celularcli, clientes.CPF as cpfcli, clientes.RG as rgcli, conta.Agencia as agenciacli, conta.Conta as contacli, clientes.Nascimento as Nascimento, clientes.Renda as rendacli, clientes.RendaBruta as rendabruta, clientes.Conjuge, " +
                 "V.id as idVendedor, V.Nome as vendnome, V.Email as Emailvendedor, V.Telefone as Telefonevendedor, V.Celular as celularvendedor, V.CPF as cpfvendedor, V.CNPJ as cnpjvendedor, CV.Agencia as agenciavendedor, CV.Conta as contavendedor,   " +
                 "construtora.Descricao as Construtora, corretores.Nome as Corretor, P.idConstrutora, P.idCorretor, agencia.id as idAgenciaImovel, CONCAT(agencia.Agencia,' - ',agencia.Descricao) as AgenciaImovel, programa.id as idPrograma, programa.Descricao as DescriPrograma, agencia.Agencia as AgenciaImovel, programa.Descricao as Programa, empreendimentos.Descricao as EmpDescricao, empreendimentos.id as Empreid, P.idCartorio as idCartorio, cartorio.Descricao as sCartorio, cartorio.Endereco as endCartorio, P.StatusCartorio as StatusCartorio,  " +
                 "F.Nome as nomeresponsavel, F.Permission as permissionresponsavel,  " +
@@ -155,6 +155,7 @@ namespace LMFinanciamentos.DAL
                     process.RendaBruta_cliente = drprocess["rendabruta"].ToString();
                     process.Agencia_cliente = drprocess["agenciacli"].ToString();
                     process.Conta_cliente = drprocess["contacli"].ToString();
+                    process.Conjuge = (bool)drprocess["Conjuge"];
                     #endregion
 
 

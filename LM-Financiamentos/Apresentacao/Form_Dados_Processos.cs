@@ -291,27 +291,25 @@ namespace LMFinanciamentos.Apresentacao
             txtemail.Text = process.Email_cliente;
             txttelefone.Text = process.Telefone_cliente;
             txtcelular.Text = process.Celular_cliente;
+
             if (String.IsNullOrEmpty(process.RendaBruta_cliente) || process.RendaBruta_cliente == "0")
             {
-                //txtrenda.Text = process.Renda_cliente;
-                //txtrenda.Text = String.Format("{0:C2}",process.Renda_cliente);
                 valor = process.RendaBruta_cliente;
                 txtrenda.Text = FormatCurrency(Convert.ToDouble(valor));
 
             }
             else
             {
-                txtrenda.Text = process.RendaBruta_cliente;
-                //valor = txtrenda.Text.Replace("R$", "").Replace("€", "").Replace("$", "").Replace(",", "").Replace(" ", "").Replace("00,", "");
-                //valor = txtrenda.Text;
+                if (process.Conjuge == true)
+                {
+                    txtrenda.Text = process.RendaBruta_cliente;
+                    lblrentabruta.Text = lblrentabruta.Text + " + renda Cônjuges";
+                }
+                else
+                {
+                    txtrenda.Text = process.RendaBruta_cliente;
+                }
 
-                //var culture = CultureInfo.GetCultureInfo("pt-BR");
-
-                //txtrenda.Text = string.Format(culture, "{0:C}", valor);
-
-                //txtrenda.Text = FormatCurrency(Convert.ToDouble(valor));
-
-                lblrentabruta.Text = lblrentabruta.Text + " + renda Cônjuges";
             }
             SetValor(txtrenda);
             txtagenciacliente.Text = process.Agencia_cliente;
@@ -4078,12 +4076,6 @@ namespace LMFinanciamentos.Apresentacao
                     comboBox_nomecartorio.SelectedIndex = -1;
                 }
             }
-
-
-
-
-
-
 
         }
         private void btnSelecionarArquivos_Click(object sender, EventArgs e)

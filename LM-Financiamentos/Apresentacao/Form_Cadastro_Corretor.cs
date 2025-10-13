@@ -12,7 +12,7 @@ namespace LMFinanciamentos.Apresentacao
     public partial class Form_Cadastro_Corretor : Form
     {
 
-        String sexo, status,  valor, renda, nascimento, arquivo, CPF, RG, Loginuser, Senhahauser, newidlogin;
+        String sexo, status,  valor, CPF, RG;
         String excluirimage, permission;
         FileStream fsObj = null;
         BinaryReader binRdr = null;

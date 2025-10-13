@@ -59,6 +59,8 @@
         public string Nascimento_cliente { get; set; }
         public string Agencia_cliente { get; internal set; }
         public string Conta_cliente { get; internal set; }
+        public bool Conjuge { get; internal set; }
+        
         #endregion
 
         #region vendedor
